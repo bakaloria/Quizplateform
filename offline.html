@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0f172a" />
+<title>غير متصل — منصة الاختبارات</title>
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-app="student">
+<div id="app-shell">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html">
+        <span class="brand-logo">؟</span>
+        <span class="brand-text">
+          <strong>منصة الاختبارات</strong>
+          <small>غير متصل</small>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <main class="view">
+    <div class="container container-narrow">
+      <div class="card mt" style="text-align:center;padding:40px 24px">
+        <div style="font-size:72px;margin-bottom:12px">📡</div>
+        <h1 style="margin:0 0 12px;font-size:24px">لا يوجد اتصال بالإنترنت</h1>
+        <p class="muted" style="max-width:400px;margin:0 auto 24px;line-height:1.7">
+          يبدو أنك غير متصل حالياً. بعض الميزات تحتاج اتصالاً، لكن يمكنك:
+        </p>
+
+        <div style="text-align:start;max-width:400px;margin:0 auto 24px;background:var(--surface-2);border-radius:12px;padding:16px">
+          <div style="display:flex;gap:10px;align-items:center;padding:6px 0">
+            <span style="font-size:20px">✅</span>
+            <span>تصفح الصفحات المحفوظة مسبقاً</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center;padding:6px 0">
+            <span style="font-size:20px">✅</span>
+            <span>مراجعة إجاباتك المحفوظة</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center;padding:6px 0">
+            <span style="font-size:20px">⛔</span>
+            <span>تسليم اختبار جديد (يحتاج اتصال)</span>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-block" onclick="location.reload()">
+          🔄 إعادة المحاولة
+        </button>
+        <button class="btn btn-ghost btn-block mt-sm" onclick="location.href='./index.html'">
+          🏠 العودة للرئيسية
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>منصة الاختبارات التفاعلية</span>
+    <span class="dot">•</span>
+    <span>v4.0</span>
+  </footer>
+</div>
+
+<script>
+// إعادة التوجيه تلقائياً عند عودة الاتصال
+window.addEventListener("online", function () {
+  document.querySelector("h1").textContent = "عاد الاتصال ✅";
+  setTimeout(function () { location.href = "./index.html"; }, 800);
+});
+
+// مؤشر الاتصال
+function updateBar() {
+  var card = document.querySelector(".card h1");
+  if (!card) return;
+  if (navigator.onLine) {
+    card.textContent = "متصل الآن ✅";
+  }
+}
+window.addEventListener("online", updateBar);
+window.addEventListener("offline", updateBar);
+</script>
+</body>
+</html>
