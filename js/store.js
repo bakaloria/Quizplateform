@@ -90,6 +90,7 @@
         unitNumber: q.unitNumber !== undefined ? q.unitNumber : null,
         unitTitle: q.unitTitle || "",
         lessonTitle: q.lessonTitle || "",
+        passage: q.passage || null,
         createdAt: FV.serverTimestamp()
       });
       return ref.id;
@@ -113,6 +114,7 @@
           unitNumber: q.unitNumber !== undefined ? q.unitNumber : null,
           unitTitle: q.unitTitle || "",
           lessonTitle: q.lessonTitle || "",
+          passage: q.passage || null,
           createdAt: FV.serverTimestamp()
         });
         count++;
@@ -129,7 +131,8 @@
         explanation: q.explanation || "", points: q.points || 1,
         unitNumber: q.unitNumber !== undefined ? q.unitNumber : null,
         unitTitle: q.unitTitle || "",
-        lessonTitle: q.lessonTitle || ""
+        lessonTitle: q.lessonTitle || "",
+        passage: q.passage || null
       });
     },
     deleteQuestion: async function (id) {

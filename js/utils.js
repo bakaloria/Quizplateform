@@ -17,9 +17,23 @@
     graded: "تم التصحيح"
   };
 
+  /* أقسام النموذج الوزاري (تستنتج من الوسوم) */
+  const SECTION_ORDER = ["فهم وتحليل", "مستوى فني", "قواعد ولغة", "منهج ومطالعة", "إبداعي"];
+  const SECTION_TARGETS = {
+    "فهم وتحليل": 13,
+    "مستوى فني": 5,
+    "قواعد ولغة": 7,
+    "منهج ومطالعة": 2,
+    "إبداعي": 2
+  };
+
+  function _str(v) { return v === null || v === undefined ? "" : String(v).trim(); }
+
   const utils = {
     TYPE_LABELS: TYPE_LABELS,
     SUBMISSION_STATUS: SUBMISSION_STATUS,
+    SECTION_ORDER: SECTION_ORDER,
+    SECTION_TARGETS: SECTION_TARGETS,
 
     esc: function (s) {
       if (s === null || s === undefined) return "";
@@ -235,6 +249,61 @@
 
     badgeForType: function (type) {
       return '<span class="badge badge-muted">' + utils.esc(TYPE_LABELS[type] || type) + "</span>";
+    },
+
+    /* قسم السؤال: من حقل section أو من الوسوم */
+    sectionOf: function (q) {
+      if (!q) return "";
+      if (q.section && SECTION_ORDER.indexOf(_str(q.section)) >= 0) return _str(q.section);
+      const tags = Array.isArray(q.tags) ? q.tags : [];
+      for (let i = 0; i < SECTION_ORDER.length; i++) {
+        if (tags.indexOf(SECTION_ORDER[i]) >= 0) return SECTION_ORDER[i];
+      }
+      return "";
+    },
+
+    sectionBadge: function (q) {
+      const s = utils.sectionOf(q);
+      return s ? '<span class="badge badge-section">' + utils.esc(s) + "</span>" : "";
+    },
+
+    /* نص/مقطع: توحيد الشكل إلى {title, text, notes} */
+    normalizePassage: function (p) {
+      if (!p) return null;
+      if (typeof p === "string") {
+        const t = p.trim();
+        return t ? { title: "", text: t, notes: "" } : null;
+      }
+      if (typeof p !== "object" || Array.isArray(p)) return null;
+      let text = p.text !== undefined ? p.text : (p.body !== undefined ? p.body : p.verses);
+      let notes = p.notes !== undefined ? p.notes : p.vocab;
+      if (Array.isArray(text)) text = text.map(_str).filter(Boolean).join("\n");
+      if (Array.isArray(notes)) notes = notes.map(_str).filter(Boolean).join("، ");
+      const out = {
+        title: _str(p.title || p.name),
+        text: _str(text),
+        notes: _str(notes)
+      };
+      return (out.text || out.notes) ? out : null;
+    },
+
+    /* صندوق عرض النص (قصيدة/مقطع) */
+    passageHTML: function (p, opts) {
+      const pg = utils.normalizePassage(p);
+      if (!pg) return "";
+      opts = opts || {};
+      const open = opts.open !== undefined ? !!opts.open : (pg.text.length <= 600);
+      let body = pg.text
+        ? '<div class="passage-text">' + utils.esc(pg.text).replace(/\n/g, "<br>") + "</div>"
+        : "";
+      if (pg.notes) {
+        body += '<div class="passage-notes"><b>\uD83D\uDCD6 شرح المفردات:</b> ' +
+          utils.esc(pg.notes) + "</div>";
+      }
+      return '<details class="passage-box"' + (open ? " open" : "") + ">" +
+        '<summary><span class="passage-ico">\uD83D\uDCDC</span> ' +
+        (pg.title ? utils.esc(pg.title) : "\u0627\u0644\u0646\u0635") + "</summary>" +
+        body + "</details>";
     },
 
     submissionStatusBadge: function (status) {

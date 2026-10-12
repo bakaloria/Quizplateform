@@ -1446,3 +1446,97 @@ html[data-pwa="standalone"] .site-footer {
   .dist-row { grid-template-columns: 1fr 76px; }
   .dist-available { grid-column: 1 / -1; }
 }
+/* ============================================================
+   النصوص (قصيدة/مقطع) + أقسام النموذج — v8
+   ============================================================ */
+.badge-passage {
+  background: rgba(79, 124, 255, .18);
+  color: var(--primary-2);
+  border: 1px solid rgba(79, 124, 255, .32);
+}
+
+.badge-section {
+  background: rgba(246, 183, 60, .16);
+  color: var(--warning);
+  border: 1px solid rgba(246, 183, 60, .32);
+}
+
+.passage-box {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-right: 4px solid var(--primary);
+  border-radius: var(--radius-sm);
+  margin: 0 0 12px;
+  overflow: hidden;
+}
+
+.passage-box > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 10px 14px;
+  font-weight: 700;
+  color: var(--primary-2);
+  user-select: none;
+}
+
+.passage-box > summary::-webkit-details-marker { display: none; }
+.passage-box > summary::before { content: "▸ "; color: var(--text-3); }
+.passage-box[open] > summary::before { content: "▾ "; }
+
+.passage-text {
+  padding: 4px 16px 12px;
+  line-height: 2.1;
+  font-size: 1.05rem;
+  color: var(--text);
+  white-space: normal;
+}
+
+.passage-notes {
+  padding: 8px 16px 14px;
+  font-size: .85rem;
+  color: var(--text-2);
+  border-top: 1px dashed var(--border-soft);
+}
+
+.passage-edit {
+  background: var(--surface-2);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin-bottom: 12px;
+}
+
+.passage-edit > summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--primary-2);
+  list-style: none;
+}
+
+.passage-edit > summary::-webkit-details-marker { display: none; }
+.passage-edit[open] > summary { margin-bottom: 10px; }
+
+.section-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.section-strip-title { font-size: .78rem; color: var(--text-3); }
+
+.sec-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: .74rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--surface-3);
+  color: var(--text-2);
+  border: 1px solid var(--border-soft);
+}
+
+.sec-chip b { color: var(--text); }
+.sec-target { color: var(--text-3); }

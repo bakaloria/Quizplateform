@@ -1,4 +1,4 @@
-/* importer.js v5.1 - دعم كامل لـ unit/lesson مع إصلاحات */
+/* importer.js v5.2 - دعم كامل لـ unit/lesson + النصوص (قصائد/مقاطع) */
 (function () {
   const QP = window.QP;
   const utils = QP.utils;
@@ -188,6 +188,15 @@
     // المعرّف الأصلي
     const sourceId = str(raw.id || raw._id || raw.source_id || raw.question_id || "");
 
+    // النص/المقطع المرافق (قصيدة، مقطع قراءة ...)
+    const passage = utils.normalizePassage
+      ? utils.normalizePassage(
+        raw.passage || raw.lesson_passage || raw.unit_passage ||
+        raw["\u0646\u0635_\u0627\u0644\u062f\u0631\u0633"] ||
+        meta.passage || meta.unitPassage
+      )
+      : null;
+
     // إزالة undefined
     const result = {
       type: type,
@@ -202,6 +211,7 @@
       unitTitle: unitTitle,
       lessonNumber: lessonNumber,
       lessonTitle: lessonTitle,
+      passage: passage,
       sourceId: sourceId
     };
 
@@ -407,6 +417,9 @@
     if (obj.lesson_number !== undefined) currentMeta.lessonNumber = num(obj.lesson_number);
     if (obj.lessonNumber !== undefined) currentMeta.lessonNumber = num(obj.lessonNumber);
     if (obj.lesson_title || obj.lessonTitle) currentMeta.lessonTitle = str(obj.lesson_title || obj.lessonTitle);
+    if (obj.passage && utils.normalizePassage) {
+      currentMeta.passage = utils.normalizePassage(obj.passage) || currentMeta.passage;
+    }
 
     Object.keys(obj).forEach(function (key) {
       const val = obj[key];
@@ -437,7 +450,10 @@
           arr.forEach(function (u) {
             const uMeta = {
               unitNumber: num(u.unit_number || u.unitNumber) || null,
-              unitTitle: str(u.unit_title || u.unitTitle || u.title || "")
+              unitTitle: str(u.unit_title || u.unitTitle || u.title || ""),
+              unitPassage: utils.normalizePassage
+                ? utils.normalizePassage(u.passage || u.unit_passage || u["\u0646\u0635"])
+                : null
             };
             // أسئلة مباشرة
             const directQ = u.questions || u.items;
@@ -450,7 +466,10 @@
               lessons.forEach(function (l) {
                 const lMeta = Object.assign({}, uMeta, {
                   lessonNumber: num(l.lesson_number || l.lessonNumber) || null,
-                  lessonTitle: str(l.lesson_title || l.lessonTitle || l.title || "")
+                  lessonTitle: str(l.lesson_title || l.lessonTitle || l.title || ""),
+                  passage: (utils.normalizePassage
+                    ? utils.normalizePassage(l.passage || l.lesson_passage || l["\u0646\u0635"])
+                    : null) || uMeta.unitPassage
                 });
                 const lQ = l.questions || l.items;
                 if (Array.isArray(lQ)) {
@@ -550,5 +569,5 @@
   };
 
   QP.importer = importer;
-  console.log("[importer.js v5.1] loaded \u2705");
+  console.log("[importer.js v5.2] loaded \u2705");
 })();

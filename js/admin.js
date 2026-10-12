@@ -733,8 +733,11 @@ async function renderQuestions() {
         if (q.lessonTitle) loc.push(U.esc(q.lessonTitle));
 
         return "<tr>" +
-          '<td data-label="\u0627\u0644\u0646\u0648\u0639">' + U.badgeForType(q.type) + "</td>" +
-          '<td data-label="\u0627\u0644\u0633\u0624\u0627\u0644">' + U.esc(shortText) + "</td>" +
+          '<td data-label="\u0627\u0644\u0646\u0648\u0639">' + U.badgeForType(q.type) +
+          (U.sectionBadge(q) ? " " + U.sectionBadge(q) : "") + "</td>" +
+          '<td data-label="\u0627\u0644\u0633\u0624\u0627\u0644">' +
+          (q.passage ? '<span class="badge badge-passage" title="\u0645\u0631\u0641\u0642 \u0628\u0646\u0635">\uD83D\uDCDC \u0646\u0635</span> ' : "") +
+          U.esc(shortText) + "</td>" +
           '<td data-label="\u0627\u0644\u0645\u0648\u0642\u0639" class="tiny">' +
           (loc.length ? loc.join(" / ") : "-") + "</td>" +
           '<td data-label="\u0627\u0644\u0645\u0627\u062f\u0629" class="muted">' +
@@ -908,7 +911,11 @@ function viewQuestionModal(q) {
       U.esc(q.lessonTitle || "-") + "</div></div>" +
       '<div class="item"><div class="lbl">\u0627\u0644\u062f\u0631\u062c\u0629</div><div class="val">' +
       (q.points || 1) + "</div></div>" +
-      "</div>" +
+      (U.sectionOf(q) ? '<div class="item"><div class="lbl">\u0627\u0644\u0642\u0633\u0645</div><div class="val">' +
+        U.esc(U.sectionOf(q)) + "</div></div>" : "") +
+      '</div>' +
+
+      U.passageHTML(q.passage) +
 
       '<div class="field"><label>\u0627\u0644\u0633\u0624\u0627\u0644</label>' +
       '<div style="background:var(--surface-2);padding:12px;border-radius:10px;line-height:1.8">' +
@@ -969,6 +976,7 @@ function questionFormHTML(q) {
   const isMCQ = q.type === "mcq" || q.type === "multi";
   const isTF = q.type === "true_false";
   const isText = ["fill_blank", "short_answer", "essay"].indexOf(q.type) >= 0;
+  const passage = U.normalizePassage(q.passage) || { title: "", text: "", notes: "" };
 
   return (
     '<div class="field"><label>\u0646\u0648\u0639 \u0627\u0644\u0633\u0624\u0627\u0644</label><select id="qType">' +
@@ -1028,6 +1036,17 @@ function questionFormHTML(q) {
     '<div class="field"><label>\u0648\u0633\u0648\u0645</label>' +
     '<input id="qTags" value="' + U.esc((q.tags || []).join(", ")) + '"></div>' +
     "</div>" +
+
+    '<details class="passage-edit" id="qPassBox"' +
+    ((passage.text || passage.notes) ? " open" : "") + ">" +
+    '<summary>\uD83D\uDCDC \u0646\u0635 \u0627\u0644\u0642\u0635\u064a\u062f\u0629 / \u0627\u0644\u0645\u0642\u0637\u0639 (\u0627\u062e\u062a\u064a\u0627\u0631\u064a)</summary>' +
+    '<div class="field"><label>\u0639\u0646\u0648\u0627\u0646 \u0627\u0644\u0646\u0635</label>' +
+    '<input id="qPassTitle" value="' + U.esc(passage.title) + '"></div>' +
+    '<div class="field"><label>\u0646\u0635 \u0627\u0644\u0645\u0642\u0637\u0639</label>' +
+    '<textarea id="qPassText" style="min-height:110px">' + U.esc(passage.text) + "</textarea></div>" +
+    '<div class="field" style="margin-bottom:0"><label>\u0634\u0631\u062d \u0627\u0644\u0645\u0641\u0631\u062f\u0627\u062a (\u0627\u062e\u062a\u064a\u0627\u0631\u064a)</label>' +
+    '<textarea id="qPassNotes" style="min-height:60px">' + U.esc(passage.notes) + "</textarea></div>" +
+    "</details>" +
 
     '<div class="field"><label>\u0627\u0644\u0634\u0631\u062d (\u0627\u062e\u062a\u064a\u0627\u0631\u064a)</label>' +
     '<textarea id="qExp" style="min-height:60px">' + U.esc(q.explanation || "") + "</textarea></div>"
@@ -1131,6 +1150,15 @@ function collectQuestionForm(node) {
 
   if (!text) throw new Error("\u0623\u062f\u062e\u0644 \u0646\u0635 \u0627\u0644\u0633\u0624\u0627\u0644");
 
+  const passBox = node.querySelector("#qPassBox");
+  const passage = (passBox && (U.normalizePassage !== undefined))
+    ? U.normalizePassage({
+      title: node.querySelector("#qPassTitle").value,
+      text: node.querySelector("#qPassText").value,
+      notes: node.querySelector("#qPassNotes").value
+    })
+    : null;
+
   return {
     type: type,
     text: text,
@@ -1141,7 +1169,8 @@ function collectQuestionForm(node) {
     explanation: explanation,
     points: points,
     unitNumber: unitNumber,
-    lessonTitle: lessonTitle
+    lessonTitle: lessonTitle,
+    passage: passage
   };
 }
 
@@ -1917,7 +1946,10 @@ async function renderStudents() {
         '<div class="card" style="background:var(--surface-2);padding:14px;border-radius:12px;margin-bottom:14px">' +
         '<div class="flex" style="justify-content:space-between;align-items:center;margin-bottom:8px">' +
         '<h4 style="margin:0">\uD83C\uDFAF \u062a\u062d\u062f\u064a\u062f \u0639\u062f\u062f \u0627\u0644\u0623\u0633\u0626\u0644\u0629 \u062d\u0633\u0628 \u0627\u0644\u0646\u0648\u0639</h4>' +
+        '<div class="flex" style="gap:6px">' +
+        '<button type="button" class="btn-mini" id="typeModelPreset" title="8 \u0627\u062e\u062a\u064a\u0627\u0631 + 13 \u0642\u0635\u064a\u0631\u0629 + 6 \u0641\u0631\u0627\u063a\u0627\u062a + 2 \u0645\u0642\u0627\u0644\u064a">\uD83D\uDCCB \u062a\u0648\u0632\u064a\u0639 \u0627\u0644\u0646\u0645\u0648\u0630\u062c</button>' +
         '<button type="button" class="btn-mini" id="typeCountAuto">\u2696\uFE0F \u062a\u0648\u0632\u064a\u0639 \u0645\u062a\u0648\u0627\u0632\u0646</button>' +
+        "</div>" +
         "</div>" +
         '<div id="typeCountBox" class="mb"></div>' +
         '<button type="button" class="btn btn-primary" id="fetchByTypeBtn" style="width:100%">\u2795 \u062c\u0644\u0628 \u062d\u0633\u0628 \u0627\u0644\u0623\u0646\u0648\u0627\u0639</button>' +
@@ -1946,6 +1978,7 @@ async function renderStudents() {
         '<span class="tiny muted">\u2191\u2193 \u064a\u0638\u0647\u0631 \u0644\u0644\u0637\u0644\u0627\u0628 \u0628\u0647\u0630\u0627 \u0627\u0644\u062a\u0631\u062a\u064a\u0628 \u0625\u0646 \u0644\u0645 \u064a\u064f\u0641\u0639\u0651\u0644 \u0627\u0644\u062a\u0631\u062a\u064a\u0628 \u0627\u0644\u0639\u0634\u0648\u0627\u0626\u064a</span>' +
         "</div>" +
         '<div id="chosenListBox"></div>' +
+        '<div id="chosenSections" class="section-strip"></div>' +
         "</div>",
 
       footer:
@@ -1983,6 +2016,34 @@ async function renderStudents() {
           }, 0);
           node.querySelector("#chosenCount").textContent = chosen.length + " \u0633\u0624\u0627\u0644";
           node.querySelector("#chosenPoints").textContent = pts + " \u062f\u0631\u062c\u0629";
+          renderChosenSections();
+        };
+
+        /* ============================================================
+         * ملخص الأسئلة المختارة حسب القسم (أقسام النموذج)
+         * ============================================================ */
+        const renderChosenSections = function () {
+          const box = node.querySelector("#chosenSections");
+          if (!box) return;
+          const counts = {};
+          chosen.forEach(function (q) {
+            const s = U.sectionOf(q);
+            if (s) counts[s] = (counts[s] || 0) + 1;
+          });
+          const keys = Object.keys(counts);
+          if (!keys.length) { box.innerHTML = ""; return; }
+          keys.sort(function (a, b) {
+            return U.SECTION_ORDER.indexOf(a) - U.SECTION_ORDER.indexOf(b);
+          });
+          box.innerHTML = '<span class="section-strip-title">\u062d\u0633\u0628 \u0627\u0644\u0642\u0633\u0645:</span>' +
+            keys.map(function (s) {
+              const target = U.SECTION_TARGETS ? U.SECTION_TARGETS[s] : null;
+              return '<span class="sec-chip" title="' +
+                (target ? "\u0627\u0644\u0645\u0637\u0644\u0648\u0628 \u0641\u064a \u0627\u0644\u0646\u0645\u0648\u0630\u062c: " + target : U.esc(s)) +
+                '">' + U.esc(s) + " <b>" + counts[s] + "</b>" +
+                (target ? '<span class="sec-target">/' + target + "</span>" : "") +
+                "</span>";
+            }).join("");
         };
 
         /* ============================================================
@@ -2055,6 +2116,8 @@ async function renderStudents() {
             return '<div class="chosen-row" data-ri="' + i + '">' +
               '<span class="chosen-idx">' + (i + 1) + "</span>" +
               '<div class="chosen-body">' + U.badgeForType(q.type) +
+              (U.sectionBadge(q) ? " " + U.sectionBadge(q) : "") +
+              (q.passage ? ' <span class="badge badge-passage" title="\u0645\u0631\u0641\u0642 \u0628\u0646\u0635">\uD83D\uDCDC</span>' : "") +
               '<div class="chosen-text">' + U.esc(q.text) + "</div></div>" +
               '<div class="chosen-actions">' +
               '<button type="button" class="icon-btn sm" data-move="up" title="\u0623\u0639\u0644\u0649">\u2191</button>' +
@@ -2123,6 +2186,8 @@ async function renderStudents() {
                 difficulty: q.difficulty,
                 explanation: q.explanation || "",
                 points: q.points || 1,
+                passage: q.passage || null,
+                tags: q.tags || [],
                 _sourceId: q.id,
                 unitNumber: q.unitNumber,
                 unitTitle: q.unitTitle,
@@ -2653,6 +2718,8 @@ async function renderStudents() {
               '<div class="content">' +
               '<div class="flex flex-wrap" style="gap:6px;margin-bottom:4px">' +
               U.badgeForType(q.type) +
+              (U.sectionBadge(q) ? U.sectionBadge(q) : "") +
+              (q.passage ? '<span class="badge badge-passage" title="\u0645\u0631\u0641\u0642 \u0628\u0646\u0635">\uD83D\uDCDC \u0646\u0635</span>' : "") +
               '<span class="badge badge-muted">' + dLabel + '</span>' +
               (unitTxt ? '<span class="badge badge-muted">' + U.esc(unitTxt) + '</span>' : '') +
               (q.lessonTitle ? '<span class="badge badge-muted">' + U.esc(q.lessonTitle) + '</span>' : '') +
@@ -2678,6 +2745,8 @@ async function renderStudents() {
                   difficulty: q.difficulty,
                   explanation: q.explanation || "",
                   points: q.points || 1,
+                  passage: q.passage || null,
+                  tags: q.tags || [],
                   _sourceId: q.id,
                   unitNumber: q.unitNumber,
                   unitTitle: q.unitTitle,
@@ -2762,6 +2831,17 @@ async function renderStudents() {
 
         node.querySelector("#fetchByTypeBtn").addEventListener("click", fetchByType);
         node.querySelector("#typeCountAuto").addEventListener("click", typeAutoBalance);
+        node.querySelector("#typeModelPreset").addEventListener("click", function () {
+          const preset = { mcq: 8, short_answer: 13, fill_blank: 6, essay: 2 };
+          let applied = 0;
+          Object.keys(preset).forEach(function (t) {
+            const el = node.querySelector('[data-tcount="' + t + '"]');
+            if (el) { el.value = String(preset[t]); applied++; }
+          });
+          U.toast(applied
+            ? "توزيع النموذج: 8 اختيار + 13 قصيرة + 6 فراغات + 2 مقالي — اضغط «جلب حسب الأنواع»"
+            : "لا توجد صفوف أنواع مطابقة — اختر المادة أولاً", applied ? "success" : "warn", 4500);
+        });
 
         /* ============================================================
          * تحديد الكل / مسح التحديد

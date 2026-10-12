@@ -1,4 +1,4 @@
-/* student.js v4.0 - تسجيل + مجموعات + انتظار تصحيح + لوحة الطالب */
+/* student.js v4.1 - تسجيل + مجموعات + انتظار تصحيح + لوحة الطالب */
 (function () {
   const QP = window.QP;
   const U = QP.utils;
@@ -596,7 +596,10 @@
       '<div class="progress mt-sm"><span style="width:' + progress + '%"></span></div>' +
       '</div>' +
       '<div class="q-card">' +
-      '<div class="q-index">\u0627\u0644\u0633\u0624\u0627\u0644 ' + (st.current + 1) + " \u0645\u0646 " + total + " \u00B7 " + (U.TYPE_LABELS[q.type] || q.type) + " \u00B7 " + (q.points || 1) + ' \u062f\u0631\u062c\u0629</div>' +
+      '<div class="q-index">\u0627\u0644\u0633\u0624\u0627\u0644 ' + (st.current + 1) + " \u0645\u0646 " + total + " \u00B7 " + (U.TYPE_LABELS[q.type] || q.type) +
+      (U.sectionOf && U.sectionOf(q) ? ' \u00B7 <span class="badge badge-section">' + U.esc(U.sectionOf(q)) + '</span>' : "") +
+      " \u00B7 " + (q.points || 1) + ' \u062f\u0631\u062c\u0629</div>' +
+      (q.passage && U.passageHTML ? U.passageHTML(q.passage) : "") +
       '<div class="q-text">' + U.esc(q.text) + '</div>' +
       '<div id="qBody">' + renderQuestionBody(q, st.answers[st.current]) + '</div>' +
       '<div class="q-actions">' +
@@ -887,5 +890,5 @@
     }
   };
 
-  console.log("[student.js v4] QP.student loaded");
+  console.log("[student.js v4.1] QP.student loaded");
 })();
