@@ -1,4 +1,4 @@
-/* importer.js v3.0 - Multi-format JSON support */
+/* importer.js v5.1 - دعم كامل لـ unit/lesson مع إصلاحات */
 (function () {
   const QP = window.QP;
   const utils = QP.utils;
@@ -9,6 +9,7 @@
   };
 
   function str(v) { return v === null || v === undefined ? "" : String(v).trim(); }
+  function num(v) { const n = Number(v); return isNaN(n) ? null : n; }
 
   function normType(t, fallback) {
     t = str(t).toLowerCase();
@@ -36,67 +37,75 @@
     return [];
   }
 
-  function resolveMcqAnswer(answer, options) {
+  function resolveMcqAnswer(answer, options, answerIndex) {
+    // إذا كان هناك answer_index صريح
+    if (answerIndex !== undefined && answerIndex !== null) {
+      const idx = Number(answerIndex);
+      if (!isNaN(idx) && options[idx] !== undefined) return options[idx];
+    }
     if (answer === null || answer === undefined || answer === "") return "";
-    if (Array.isArray(answer)) return answer.map(function (a) { return resolveMcqAnswer(a, options); }).filter(Boolean);
+    if (Array.isArray(answer)) {
+      return answer.map(function (a) { return resolveMcqAnswer(a, options); }).filter(Boolean);
+    }
     const a = str(answer);
+    // رقم (1-based)
     if (/^\d+$/.test(a)) {
       let idx = parseInt(a, 10);
       if (idx >= 1 && idx <= options.length) idx -= 1;
       if (options[idx] !== undefined) return options[idx];
     }
+    // حرف عربي
     if (a.length === 1 && AR_OPT_LETTERS[a] !== undefined && options[AR_OPT_LETTERS[a]] !== undefined) {
       return options[AR_OPT_LETTERS[a]];
     }
+    // حرف إنجليزي
     if (/^[a-dA-D]$/.test(a)) {
       const idx = a.toLowerCase().charCodeAt(0) - 97;
       if (options[idx] !== undefined) return options[idx];
     }
+    // مطابقة نصية
     const match = options.find(function (o) { return utils.sameAnswer(o, a); });
     return match !== undefined ? match : a;
   }
 
   /* ============================================================
-   * normalizeQuestion - يحول أي كائن خام إلى سؤال موحّد
+   * normalizeQuestion - مع دعم كامل لـ unit/lesson
    * ============================================================ */
-  function normalizeQuestion(raw, opts) {
-    opts = opts || {};
+  function normalizeQuestion(raw, meta) {
+    meta = meta || {};
     if (!raw || typeof raw !== "object") return null;
 
-    // البحث عن النص في عدة احتمالات
+    // النص
     const text = str(
       raw.text || raw.question || raw.q || raw.title ||
       raw.question_text || raw.qtext || raw.content || raw.body ||
       raw["\u0633\u0624\u0627\u0644"] || raw["\u0627\u0644\u0633\u0624\u0627\u0644"] ||
-      raw["\u0646\u0635"] || raw["\u0627\u0644\u0646\u0635"] ||
-      raw["\u0646\u0635_\u0627\u0644\u0633\u0624\u0627\u0644"]
+      raw["\u0646\u0635"] || raw["\u0627\u0644\u0646\u0635"]
     );
     if (!text) return null;
 
-    const type = normType(raw.type || raw.question_type || raw.kind || raw["\u0646\u0648\u0639"], opts.defaultType);
+    const type = normType(raw.type || raw.question_type || raw.kind || raw["\u0646\u0648\u0639"], meta.defaultType);
 
-    // استخراج الخيارات من عدة احتمالات
+    // الخيارات
     let options = [];
     const optSources = [
       raw.options, raw.choices, raw.answers_list, raw.answer_options,
       raw["\u062e\u064a\u0627\u0631\u0627\u062a"], raw["\u0627\u0644\u062e\u064a\u0627\u0631\u0627\u062a"]
     ];
-    for (const src of optSources) {
+    for (let i = 0; i < optSources.length; i++) {
+      const src = optSources[i];
       if (Array.isArray(src) && src.length) { options = src.map(str).filter(Boolean); break; }
       if (typeof src === "string" && src.trim()) { options = src.split("|").map(str).filter(Boolean); break; }
     }
 
-    // البحث عن خيارات مرقمة أو حرفية
     if (!options.length) {
       const numbered = [];
       for (let i = 1; i <= 8; i++) {
-        const v = raw["option" + i] || raw["choice" + i] || raw["opt" + i] ||
-          raw["\u062e\u064a\u0627\u0631" + i];
+        const v = raw["option" + i] || raw["choice" + i] || raw["opt" + i] || raw["\u062e\u064a\u0627\u0631" + i];
         if (v) numbered.push(str(v));
       }
       options = numbered.filter(Boolean);
     }
-    // خيارات بصيغة a, b, c, d
     if (!options.length) {
       const letters = ["a", "b", "c", "d", "e", "f"];
       const lettered = [];
@@ -107,7 +116,7 @@
       if (lettered.length) options = lettered.filter(Boolean);
     }
 
-    // استخراج الإجابة
+    // الإجابة
     let answer = raw.answer;
     if (answer === undefined) answer = raw.correct;
     if (answer === undefined) answer = raw.correctAnswer;
@@ -117,12 +126,13 @@
     if (answer === undefined) answer = raw["\u0627\u0644\u0625\u062c\u0627\u0628\u0629"];
     if (answer === undefined) answer = raw["\u0627\u0644\u062c\u0648\u0627\u0628"];
 
-    // إذا كان كائن الإجابة {value, text, ...} نستخرج القيمة
     if (answer && typeof answer === "object" && !Array.isArray(answer)) {
       answer = answer.value !== undefined ? answer.value :
         answer.text !== undefined ? answer.text :
           answer.answer !== undefined ? answer.answer : "";
     }
+
+    const answerIndex = raw.answer_index !== undefined ? raw.answer_index : null;
 
     if (type === "true_false") {
       let a = str(answer);
@@ -136,18 +146,50 @@
           answer.map(function (x) { return resolveMcqAnswer(x, options); }) :
           toList(answer).map(function (x) { return resolveMcqAnswer(x, options); });
       } else {
-        answer = resolveMcqAnswer(answer, options);
+        answer = resolveMcqAnswer(answer, options, answerIndex);
       }
     } else {
       answer = Array.isArray(answer) ? answer.join(" | ") : str(answer);
     }
 
-    // نقاط
     let points = Number(raw.points) || Number(raw.score) || Number(raw.marks) ||
       Number(raw["\u062f\u0631\u062c\u0629"]) || 1;
     if (points <= 0) points = 1;
 
-    return {
+    // === بيانات الوحدة والدرس (نسخة شاملة) ===
+    let unitNumber = raw.unit_number !== undefined ? raw.unit_number :
+      raw.unitNumber !== undefined ? raw.unitNumber :
+        raw.unit_no !== undefined ? raw.unit_no :
+          raw.unit !== undefined ? raw.unit :
+            meta.unitNumber !== undefined ? meta.unitNumber : null;
+    unitNumber = num(unitNumber);
+
+    const unitTitle = str(
+      raw.unit_title || raw.unitTitle || raw.unit_name || raw.unitName ||
+      raw["\u0627\u0633\u0645_\u0627\u0644\u0648\u062d\u062f\u0629"] ||
+      raw["\u0639\u0646\u0648\u0627\u0646_\u0627\u0644\u0648\u062d\u062f\u0629"] ||
+      meta.unitTitle || ""
+    );
+
+    let lessonNumber = raw.lesson_number !== undefined ? raw.lesson_number :
+      raw.lessonNumber !== undefined ? raw.lessonNumber :
+        raw.lesson_no !== undefined ? raw.lesson_no :
+          raw.lesson !== undefined ? raw.lesson :
+            meta.lessonNumber !== undefined ? meta.lessonNumber : null;
+    lessonNumber = num(lessonNumber);
+
+    const lessonTitle = str(
+      raw.lesson_title || raw.lessonTitle || raw.lesson_name || raw.lessonName ||
+      raw["\u0627\u0633\u0645_\u0627\u0644\u062f\u0631\u0633"] ||
+      raw["\u0639\u0646\u0648\u0627\u0646_\u0627\u0644\u062f\u0631\u0633"] ||
+      meta.lessonTitle || ""
+    );
+
+    // المعرّف الأصلي
+    const sourceId = str(raw.id || raw._id || raw.source_id || raw.question_id || "");
+
+    // إزالة undefined
+    const result = {
       type: type,
       text: text,
       options: options,
@@ -155,8 +197,15 @@
       difficulty: normDifficulty(raw.difficulty || raw.level || raw["\u0627\u0644\u0645\u0633\u062a\u0648\u0649"]),
       tags: toList(raw.tags || raw["\u0648\u0633\u0648\u0645"]),
       explanation: str(raw.explanation || raw["\u0627\u0644\u0634\u0631\u062d"] || raw["\u062a\u0639\u0644\u064a\u0644"]),
-      points: points
+      points: points,
+      unitNumber: unitNumber,
+      unitTitle: unitTitle,
+      lessonNumber: lessonNumber,
+      lessonTitle: lessonTitle,
+      sourceId: sourceId
     };
+
+    return result;
   }
 
   function validate(q) {
@@ -181,9 +230,7 @@
     return errs;
   }
 
-  /* ============================================================
-   * من CSV
-   * ============================================================ */
+  /* ============ CSV ============ */
   function parseCSV(text) {
     const rows = [];
     let row = [], field = "", inQ = false;
@@ -222,6 +269,10 @@
     const iTags = idx(["tags", "\u0648\u0633\u0648\u0645"]);
     const iExp = idx(["explanation", "\u0634\u0631\u062d"]);
     const iPoints = idx(["points", "\u062f\u0631\u062c\u0629"]);
+    const iUnit = idx(["unit_number", "unit_no"]);
+    const iUnitTitle = idx(["unit_title", "unit_name"]);
+    const iLesson = idx(["lesson_title", "lesson_name"]);
+    const iLessonNum = idx(["lesson_number", "lesson_no"]);
     const optCols = header.map(function (h, i) { return (/option|\u062e\u064a\u0627\u0631/i.test(h) ? i : -1); })
       .filter(function (i) { return i >= 0; });
     const iOptions = idx(["options", "choices", "\u062e\u064a\u0627\u0631\u0627\u062a"]);
@@ -237,6 +288,10 @@
         tags: iTags >= 0 ? row[iTags] : "",
         explanation: iExp >= 0 ? row[iExp] : "",
         points: iPoints >= 0 ? row[iPoints] : 1,
+        unit_number: iUnit >= 0 ? row[iUnit] : null,
+        unit_title: iUnitTitle >= 0 ? row[iUnitTitle] : "",
+        lesson_number: iLessonNum >= 0 ? row[iLessonNum] : null,
+        lesson_title: iLesson >= 0 ? row[iLesson] : "",
         options: []
       };
       if (iOptions >= 0 && str(row[iOptions])) raw.options = String(row[iOptions]).split("|").map(str).filter(Boolean);
@@ -248,9 +303,7 @@
     return out;
   }
 
-  /* ============================================================
-   * من نص / قالب
-   * ============================================================ */
+  /* ============ TEXT ============ */
   function fromText(text) {
     const blocks = text.split(/\n\s*\n|(?=^#{2,}\s)/m).map(function (b) { return b.trim(); }).filter(Boolean);
     const out = [];
@@ -274,6 +327,8 @@
         if ((m = line.match(/^(?:\u0627\u0644\u0625\u062c\u0627\u0628\u0629|\u0627\u0644\u062c\u0648\u0627\u0628|answer|correct|\u062c)\s*[:\uFF1A]\s*(.+)$/i))) { answer = m[1].trim(); continue; }
         if ((m = line.match(/^(?:\u0627\u0644\u0634\u0631\u062d|\u062a\u0648\u0636\u064a\u062d|explanation)\s*[:\uFF1A]\s*(.+)$/i))) { raw.explanation = m[1].trim(); continue; }
         if ((m = line.match(/^(?:\u0627\u0644\u0645\u0633\u062a\u0648\u0649|\u0627\u0644\u0635\u0639\u0648\u0628\u0629|difficulty)\s*[:\uFF1A]\s*(.+)$/i))) { raw.difficulty = m[1].trim(); continue; }
+        if ((m = line.match(/^(?:\u0627\u0644\u0648\u062d\u062f\u0629|unit)\s*[:\uFF1A]\s*(.+)$/i))) { raw.unit_title = m[1].trim(); continue; }
+        if ((m = line.match(/^(?:\u0627\u0644\u062f\u0631\u0633|lesson)\s*[:\uFF1A]\s*(.+)$/i))) { raw.lesson_title = m[1].trim(); continue; }
         if (/^[*+\-\u2022]|^[\u0623\u0628\u062c\u062f\u0648\u0647\u0640][\)\].]|^\d+[\)\].]/.test(line)) {
           const correct = /^\*|^\+/.test(line) || /\((\u0635\u062d|\u0635\u062d\u064a\u062d|correct)\)/i.test(line);
           let val = line.replace(/^[*+\-\u2022]\s*/, "")
@@ -303,300 +358,140 @@
     return out;
   }
 
-  /* ============================================================
-   * محرك JSON متعدد الترتيبات
-   * ============================================================ */
-
-  // البحث العميق عن مصفوفات الأسئلة داخل أي كائن
-  function deepFindQuestions(obj, out, depth) {
-    if (!obj || depth > 10) return;
-    if (Array.isArray(obj)) {
-      // هل هذه مصفوفة أسئلة؟
-      const looksLikeQuestions = obj.length > 0 && obj.every(function (item) {
-        return item && typeof item === "object" && !Array.isArray(item) &&
-          (item.text || item.question || item.q || item.title ||
-            item.question_text || item.qtext ||
-            item["\u0633\u0624\u0627\u0644"] || item["\u0627\u0644\u0633\u0624\u0627\u0644"]);
-      });
-      if (looksLikeQuestions) {
-        obj.forEach(function (item) {
-          const q = normalizeQuestion(item);
-          if (q) out.push(q);
-        });
-        return;
-      }
-      // مصفوفة عامة - ابحث بداخلها
-      obj.forEach(function (item) { deepFindQuestions(item, out, depth + 1); });
-      return;
-    }
-    if (typeof obj === "object") {
-      // هل هذا سؤال مباشر؟
-      const isQuestion = obj.text || obj.question || obj.q || obj.title ||
-        obj.question_text || obj.qtext ||
-        obj["\u0633\u0624\u0627\u0644"] || obj["\u0627\u0644\u0633\u0624\u0627\u0644"];
-      if (isQuestion && !Array.isArray(obj)) {
-        // نتأكد أنه ليس كائناً يحتوي فقط بيانات وصفية
-        const hasContent = isQuestion && (
-          obj.answer !== undefined || obj.correct !== undefined ||
-          obj.options !== undefined || obj.choices !== undefined ||
-          obj.type !== undefined || obj.question_type !== undefined
-        );
-        if (hasContent) {
-          const q = normalizeQuestion(obj);
-          if (q) out.push(q);
-          return;
-        }
-      }
-      // ابحث في كل القيم
-      Object.keys(obj).forEach(function (key) {
-        const val = obj[key];
-        if (val && typeof val === "object") {
-          deepFindQuestions(val, out, depth + 1);
-        }
-      });
-    }
+  /* ============ JSON ============ */
+  function looksLikeQuestion(item) {
+    if (!item || typeof item !== "object" || Array.isArray(item)) return false;
+    const hasText = item.text || item.question || item.q || item.title ||
+      item.question_text || item.qtext ||
+      item["\u0633\u0624\u0627\u0644"] || item["\u0627\u0644\u0633\u0624\u0627\u0644"];
+    if (!hasText) return false;
+    const hasContent = item.answer !== undefined || item.correct !== undefined ||
+      item.options !== undefined || item.choices !== undefined ||
+      item.type !== undefined || item.question_type !== undefined ||
+      item.answer_index !== undefined;
+    return hasContent;
   }
 
-  // الشكل 1: مصفوفة أسئلة مباشرة
-  function parseArrayOfQuestions(arr) {
+  function extractQuestionsFromArray(arr, meta) {
     const out = [];
     arr.forEach(function (item) {
-      const q = normalizeQuestion(item);
-      if (q) out.push(q);
-    });
-    return out;
-  }
-
-  // الشكل 2: كائن يحتوي units
-  function parseUnitsFormat(obj) {
-    const out = [];
-    const units = obj.units || obj.Units || obj["\u0627\u0644\u0648\u062d\u062f\u0627\u062a"] || [];
-    if (!Array.isArray(units)) return out;
-
-    units.forEach(function (u) {
-      if (!u) return;
-      const unitTitle = str(u.unit_title || u.title || u.name || u["\u0639\u0646\u0648\u0627\u0646"]);
-      const unitNum = u.unit_number || u.number || u.unit_no;
-
-      // أسئلة مباشرة داخل الوحدة
-      const directQuestions = u.questions || u["\u0627\u0644\u0623\u0633\u0626\u0644\u0629"] || [];
-      if (Array.isArray(directQuestions)) {
-        directQuestions.forEach(function (q) {
-          const nq = normalizeQuestion(q);
-          if (nq) {
-            if (unitTitle && nq.tags.indexOf(unitTitle) < 0) nq.tags.push(unitTitle);
-            out.push(nq);
-          }
-        });
-      }
-
-      // دروس داخل الوحدة
-      const lessons = u.lessons || u["\u0627\u0644\u062f\u0631\u0648\u0633"] || [];
-      if (Array.isArray(lessons)) {
-        lessons.forEach(function (l) {
-          if (!l) return;
-          const lessonTitle = str(l.lesson_title || l.title || l.name || l["\u0639\u0646\u0648\u0627\u0646"]);
-          const lessonQ = l.questions || l["\u0627\u0644\u0623\u0633\u0626\u0644\u0629"] || [];
-          if (Array.isArray(lessonQ)) {
-            lessonQ.forEach(function (q) {
-              const nq = normalizeQuestion(q);
-              if (nq) {
-                if (unitTitle && nq.tags.indexOf(unitTitle) < 0) nq.tags.push(unitTitle);
-                if (lessonTitle && nq.tags.indexOf(lessonTitle) < 0) nq.tags.push(lessonTitle);
-                out.push(nq);
-              }
-            });
-          }
-        });
+      if (!item) return;
+      if (looksLikeQuestion(item)) {
+        const q = normalizeQuestion(item, meta);
+        if (q) out.push(q);
       }
     });
     return out;
   }
 
-  // الشكل 3: كائن يحتوي questions مباشرة
-  function parseQuestionsFormat(obj) {
-    const out = [];
-    const questions = obj.questions || obj.data || obj.items || obj["\u0627\u0644\u0623\u0633\u0626\u0644\u0629"];
-    if (Array.isArray(questions)) {
-      questions.forEach(function (q) {
-        const nq = normalizeQuestion(q);
-        if (nq) out.push(nq);
-      });
+  function deepFindQuestions(obj, out, meta, depth) {
+    if (!obj || depth > 15) return;
+    meta = meta || {};
+
+    if (Array.isArray(obj)) {
+      obj.forEach(function (item) { deepFindQuestions(item, out, meta, depth + 1); });
+      return;
     }
-    return out;
-  }
+    if (typeof obj !== "object") return;
 
-  // الشكل 4: كائن يحتوي subjects → units → lessons → questions
-  function parseSubjectsFormat(obj) {
-    const out = [];
-    const subjects = obj.subjects || obj.courses || obj["\u0627\u0644\u0645\u0648\u0627\u062f"];
-    if (!Array.isArray(subjects)) return out;
+    if (looksLikeQuestion(obj)) {
+      const q = normalizeQuestion(obj, meta);
+      if (q && q.text) out.push(q);
+      return;
+    }
 
-    subjects.forEach(function (s) {
-      if (!s) return;
-      const subjectTitle = str(s.title || s.name || s.subject || s["\u0627\u0644\u0645\u0627\u062f\u0629"]);
+    const currentMeta = Object.assign({}, meta);
+    if (obj.unit_number !== undefined) currentMeta.unitNumber = num(obj.unit_number);
+    if (obj.unitNumber !== undefined) currentMeta.unitNumber = num(obj.unitNumber);
+    if (obj.unit_title || obj.unitTitle) currentMeta.unitTitle = str(obj.unit_title || obj.unitTitle);
+    if (obj.lesson_number !== undefined) currentMeta.lessonNumber = num(obj.lesson_number);
+    if (obj.lessonNumber !== undefined) currentMeta.lessonNumber = num(obj.lessonNumber);
+    if (obj.lesson_title || obj.lessonTitle) currentMeta.lessonTitle = str(obj.lesson_title || obj.lessonTitle);
 
-      // أسئلة مباشرة
-      const directQ = s.questions || s["\u0627\u0644\u0623\u0633\u0626\u0644\u0629"] || [];
-      if (Array.isArray(directQ)) {
-        directQ.forEach(function (q) {
-          const nq = normalizeQuestion(q);
-          if (nq) {
-            if (subjectTitle) nq.tags.push(subjectTitle);
-            out.push(nq);
-          }
-        });
-      }
-
-      // وحدات
-      const units = s.units || s["\u0627\u0644\u0648\u062d\u062f\u0627\u062a"] || [];
-      if (Array.isArray(units)) {
-        units.forEach(function (u) {
-          if (!u) return;
-          const unitTitle = str(u.title || u.name || u["\u0639\u0646\u0648\u0627\u0646"]);
-          const uQ = u.questions || [];
-          if (Array.isArray(uQ)) {
-            uQ.forEach(function (q) {
-              const nq = normalizeQuestion(q);
-              if (nq) {
-                if (subjectTitle) nq.tags.push(subjectTitle);
-                if (unitTitle) nq.tags.push(unitTitle);
-                out.push(nq);
-              }
-            });
-          }
-          const lessons = u.lessons || [];
-          if (Array.isArray(lessons)) {
-            lessons.forEach(function (l) {
-              if (!l) return;
-              const lessonTitle = str(l.title || l.name || l["\u0639\u0646\u0648\u0627\u0646"]);
-              const lQ = l.questions || [];
-              if (Array.isArray(lQ)) {
-                lQ.forEach(function (q) {
-                  const nq = normalizeQuestion(q);
-                  if (nq) {
-                    if (subjectTitle) nq.tags.push(subjectTitle);
-                    if (unitTitle) nq.tags.push(unitTitle);
-                    if (lessonTitle) nq.tags.push(lessonTitle);
-                    out.push(nq);
-                  }
-                });
-              }
-            });
-          }
-        });
+    Object.keys(obj).forEach(function (key) {
+      const val = obj[key];
+      if (val && typeof val === "object") {
+        deepFindQuestions(val, out, currentMeta, depth + 1);
       }
     });
-    return out;
   }
 
-  // الشكل 5: كائن يحتوي grades → subjects
-  function parseGradesFormat(obj) {
-    const out = [];
-    const grades = obj.grades || obj.levels || obj["\u0627\u0644\u0635\u0641\u0648\u0641"];
-    if (!Array.isArray(grades)) return out;
-    grades.forEach(function (g) {
-      const res = parseSubjectsFormat(g);
-      res.forEach(function (q) { out.push(q); });
-    });
-    return out;
-  }
-
-  // الشكل 6: مصفوفة وحدات (بدون مفتاح units)
-  function parseArrayOfUnits(arr) {
-    const out = [];
-    arr.forEach(function (u) {
-      if (!u || typeof u !== "object") return;
-      const unitTitle = str(u.unit_title || u.title || u.name);
-      const questions = u.questions || [];
-      if (Array.isArray(questions)) {
-        questions.forEach(function (q) {
-          const nq = normalizeQuestion(q);
-          if (nq) {
-            if (unitTitle) nq.tags.push(unitTitle);
-            out.push(nq);
-          }
-        });
-      }
-      const lessons = u.lessons || [];
-      if (Array.isArray(lessons)) {
-        lessons.forEach(function (l) {
-          const lessonTitle = str(l.lesson_title || l.title || l.name);
-          const lQ = l.questions || [];
-          if (Array.isArray(lQ)) {
-            lQ.forEach(function (q) {
-              const nq = normalizeQuestion(q);
-              if (nq) {
-                if (unitTitle) nq.tags.push(unitTitle);
-                if (lessonTitle) nq.tags.push(lessonTitle);
-                out.push(nq);
-              }
-            });
-          }
-        });
-      }
-    });
-    return out;
-  }
-
-  /* ============================================================
-   * fromJSON - يجرّب كل الأشكال المعروفة
-   * ============================================================ */
   function fromJSON(obj) {
     if (!obj) return [];
 
-    let out = [];
-
-    // الشكل 1: مصفوفة
     if (Array.isArray(obj)) {
-      // 1a: مصفوفة أسئلة مباشرة
-      out = parseArrayOfQuestions(obj);
-      if (out.length) return out;
+      const direct = extractQuestionsFromArray(obj, {});
+      if (direct.length) return direct;
 
-      // 1b: مصفوفة وحدات
-      out = parseArrayOfUnits(obj);
-      if (out.length) return out;
-
-      // 1c: بحث عميق
       const deep = [];
-      deepFindQuestions(obj, deep, 0);
+      deepFindQuestions(obj, deep, {}, 0);
       return deep;
     }
 
-    // الشكل 2: كائن
     if (typeof obj === "object") {
-      // 2a: units
-      out = parseUnitsFormat(obj);
-      if (out.length) return out;
+      // {units: [...]}
+      if (obj.units || obj.chapters) {
+        const arr = obj.units || obj.chapters;
+        if (Array.isArray(arr)) {
+          const out = [];
+          arr.forEach(function (u) {
+            const uMeta = {
+              unitNumber: num(u.unit_number || u.unitNumber) || null,
+              unitTitle: str(u.unit_title || u.unitTitle || u.title || "")
+            };
+            // أسئلة مباشرة
+            const directQ = u.questions || u.items;
+            if (Array.isArray(directQ)) {
+              extractQuestionsFromArray(directQ, uMeta).forEach(function (q) { out.push(q); });
+            }
+            // دروس
+            const lessons = u.lessons || u.topics;
+            if (Array.isArray(lessons)) {
+              lessons.forEach(function (l) {
+                const lMeta = Object.assign({}, uMeta, {
+                  lessonNumber: num(l.lesson_number || l.lessonNumber) || null,
+                  lessonTitle: str(l.lesson_title || l.lessonTitle || l.title || "")
+                });
+                const lQ = l.questions || l.items;
+                if (Array.isArray(lQ)) {
+                  extractQuestionsFromArray(lQ, lMeta).forEach(function (q) { out.push(q); });
+                }
+              });
+            }
+          });
+          if (out.length) return out;
+        }
+      }
 
-      // 2b: questions
-      out = parseQuestionsFormat(obj);
-      if (out.length) return out;
+      if (obj.questions || obj.data || obj.items) {
+        const arr = obj.questions || obj.data || obj.items;
+        if (Array.isArray(arr)) {
+          const out = extractQuestionsFromArray(arr, {});
+          if (out.length) return out;
+        }
+      }
 
-      // 2c: subjects
-      out = parseSubjectsFormat(obj);
-      if (out.length) return out;
+      if (obj.book || obj.curriculum) {
+        // ابحث عن units داخل book
+        const book = obj.book || obj.curriculum;
+        if (book.units) return fromJSON(book);
+        if (book.questions) return fromJSON(book);
+      }
 
-      // 2d: grades
-      out = parseGradesFormat(obj);
-      if (out.length) return out;
+      if (looksLikeQuestion(obj)) {
+        const q = normalizeQuestion(obj, {});
+        if (q) return [q];
+      }
 
-      // 2e: كائن واحد يمثل سؤالاً
-      const single = normalizeQuestion(obj);
-      if (single) return [single];
-
-      // 2f: بحث عميق في كل الحقول
       const deep = [];
-      deepFindQuestions(obj, deep, 0);
+      deepFindQuestions(obj, deep, {}, 0);
       return deep;
     }
 
     return [];
   }
 
-  /* ============================================================
-   * الواجهة العامة
-   * ============================================================ */
+  /* ============ API ============ */
   const importer = {
     parse: function (text, format) {
       text = String(text || "").trim();
@@ -626,7 +521,7 @@
           const parsed = JSON.parse(text);
           questions = fromJSON(parsed);
           if (!questions.length) {
-            errors.push("\u062a\u0645 \u062a\u062d\u0644\u064a\u0644 JSON \u0628\u0646\u062c\u0627\u062d \u0644\u0643\u0646 \u0644\u0645 \u064a\u062a\u0645 \u0627\u0644\u0639\u062b\u0648\u0631 \u0639\u0644\u0649 \u0623\u0633\u0626\u0644\u0629. \u062a\u062d\u0642\u0642 \u0645\u0646 \u0627\u0644\u0628\u0646\u064a\u0629.");
+            errors.push("\u0644\u0645 \u064a\u062a\u0645 \u0627\u0644\u0639\u062b\u0648\u0631 \u0639\u0644\u0649 \u0623\u0633\u0626\u0644\u0629 \u0641\u064a \u0627\u0644\u0645\u0644\u0641.");
           }
         } else if (f === "csv") {
           questions = fromCSV(text);
@@ -637,16 +532,13 @@
         return { questions: [], errors: ["\u062e\u0637\u0623 \u0641\u064a \u0627\u0644\u062a\u062d\u0644\u064a\u0644: " + e.message], format: f };
       }
 
+      questions = questions.filter(function (q) { return q && q.text; });
       questions.forEach(function (q, i) {
-        if (!q) return;
         const errs = validate(q);
         q._row = i + 1;
         q._errors = errs;
         errs.forEach(function (e) { errors.push("\u0633\u0637\u0631 " + (i + 1) + ": " + e); });
       });
-
-      // فلترة أي null
-      questions = questions.filter(function (q) { return q && q.text; });
 
       return { questions: questions, errors: errors, format: f };
     },
@@ -658,4 +550,5 @@
   };
 
   QP.importer = importer;
+  console.log("[importer.js v5.1] loaded \u2705");
 })();
