@@ -556,9 +556,29 @@
         }).join("")
         : '<tr><td colspan="5" class="table-empty">-</td></tr>';
 
+      let seedCard = "";
+      try {
+        const seedSt = await QP.seed.status();
+        let total = null;
+        try { total = QP.seed.flatten(await QP.seed.loadBank()).length; } catch (e2) { total = null; }
+        const n = seedSt.installed ? seedSt.count : total;
+        const msg = seedSt.installed
+          ? "\u062a\u0645 \u0627\u0644\u062a\u062b\u0628\u064a\u062a \u0641\u064a \u0645\u0627\u062f\u0629 \u00ab\u0627\u0644\u0641\u0644\u0633\u0641\u0629\u00bb" + (n ? " (" + n + " \u0633\u0624\u0627\u0644)" : "")
+          : "\u0644\u0645 \u064a\u064f\u062b\u0628\u0651\u062a \u0628\u0639\u062f \u2014 \u0633\u064a\u0646\u0634\u0626 \u0645\u0627\u062f\u0629 \u00ab\u0627\u0644\u0641\u0644\u0633\u0641\u0629\u00bb \u0648\u064a\u0636\u064a\u0641" + (n ? " " + n + " \u0633\u0624\u0627\u0644\u0627\u064b" : " \u0627\u0644\u0623\u0633\u0626\u0644\u0629") + " \u0645\u0646 \u0627\u0644\u0648\u062d\u062f\u0627\u062a \u0627\u0644\u0633\u062a.";
+        seedCard =
+          '<div class="card mt mb">' +
+          '<div class="card-head"><h2>\ud83d\udcda \u0628\u0646\u0643 \u062c\u0627\u0647\u0632: \u0627\u0644\u0641\u0644\u0633\u0641\u0629</h2><div class="spacer"></div>' +
+          '<button class="btn btn-sm ' + (seedSt.installed ? "btn-ghost" : "btn-primary") + '" id="seedBtn">' +
+          (seedSt.installed ? "\u0625\u0639\u0627\u062f\u0629 \u0627\u0644\u062a\u062b\u0628\u064a\u062a" : "\u062a\u062b\u0628\u064a\u062a \u0628\u0646\u0643 \u0627\u0644\u0641\u0644\u0633\u0641\u0629") +
+          "</button></div>" +
+          '<p class="muted tiny">' + msg + "</p>" +
+          "</div>";
+      } catch (e) { seedCard = ""; }
+
       shell("subjects",
         '<div class="card-head"><h2>\u0627\u0644\u0645\u0648\u0627\u062f</h2><div class="spacer"></div>' +
         '<button class="btn btn-primary" id="addSub">+ \u0645\u0627\u062f\u0629</button></div>' +
+        seedCard +
         '<div class="table-wrap responsive"><table><thead><tr>' +
         '<th>\u0627\u0644\u0645\u0627\u062f\u0629</th><th>\u0627\u0644\u0648\u0635\u0641</th><th>\u0627\u0644\u0623\u0633\u0626\u0644\u0629</th><th>\u0623\u064f\u0646\u0634\u0626\u062a</th><th>\u0625\u062c\u0631\u0627\u0621\u0627\u062a</th>' +
         "</tr></thead><tbody>" + rows + "</tbody></table></div>"
@@ -566,6 +586,26 @@
 
       document.getElementById("addSub").addEventListener("click", function () {
         subjectModal();
+      });
+
+      const seedBtn = document.getElementById("seedBtn");
+      if (seedBtn) seedBtn.addEventListener("click", async function () {
+        const st = await QP.seed.status();
+        const question = st.installed
+          ? "\u0625\u0639\u0627\u062f\u0629 \u0627\u0644\u062a\u062b\u0628\u064a\u062a\u061f \u0633\u064a\u062a\u0645 \u062d\u0630\u0641 \u0645\u0627\u062f\u0629 \u00ab\u0627\u0644\u0641\u0644\u0633\u0641\u0629\u00bb \u0648\u0623\u0633\u0626\u0644\u062a\u0647\u0627 \u062b\u0645 \u0625\u0639\u0627\u062f\u0629 \u0627\u0644\u0625\u0636\u0627\u0641\u0629."
+          : "\u0633\u064a\u062a\u0645 \u0625\u0646\u0634\u0627\u0621 \u0645\u0627\u062f\u0629 \u00ab\u0627\u0644\u0641\u0644\u0633\u0641\u0629\u00bb \u0648\u0625\u0636\u0627\u0641\u0629 \u0627\u0644\u0623\u0633\u0626\u0644\u0629. \u0645\u062a\u0627\u0628\u0639\u0629\u061f";
+        if (!(await U.confirm(question))) return;
+        seedBtn.disabled = true;
+        seedBtn.textContent = "\u062c\u0627\u0631\u064d \u0627\u0644\u062a\u062b\u0628\u064a\u062a...";
+        try {
+          const r = await QP.seed.install({ force: true, reset: st.installed });
+          U.toast("\u062a\u0645 \u062a\u062b\u0628\u064a\u062a " + r.count + " \u0633\u0624\u0627\u0644\u0627\u064b", "success", 4000);
+          renderSubjects();
+        } catch (e) {
+          U.toast("\u0641\u0634\u0644 \u0627\u0644\u062a\u062b\u0628\u064a\u062a: " + e.message, "error", 6000);
+          seedBtn.disabled = false;
+          seedBtn.textContent = "\u062a\u062b\u0628\u064a\u062a \u0628\u0646\u0643 \u0627\u0644\u0641\u0644\u0633\u0641\u0629";
+        }
       });
 
       document.querySelectorAll("[data-edit]").forEach(function (b) {
@@ -3298,6 +3338,12 @@ async function renderStudents() {
       if (!isLogged()) {
         renderLogin();
         return;
+      }
+      if (QP.seed && !sessionStorage.getItem("qp_seed_checked")) {
+        sessionStorage.setItem("qp_seed_checked", "1");
+        QP.seed.install().then(function (r) {
+          if (r && !r.skipped) U.toast("\u062a\u0645\u062a \u0625\u0636\u0627\u0641\u0629 \u0628\u0646\u0643 \u0627\u0644\u0641\u0644\u0633\u0641\u0629 (" + r.count + " \u0633\u0624\u0627\u0644)", "success", 4000);
+        }).catch(function (e) { console.warn("[seed]", e); });
       }
       const fn = renders[sub] || renderDashboard;
       try {
