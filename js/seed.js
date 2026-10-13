@@ -37,7 +37,7 @@
 
   async function setFlag(flagKey, value) {
     const payload = {};
-    payload[flag] = value;
+    payload[flagKey] = value;
     await seedsRef().set(payload, { merge: true });
   }
 

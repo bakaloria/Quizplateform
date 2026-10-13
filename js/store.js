@@ -17,7 +17,49 @@
     enrollments: db.collection("enrollments")
   };
 
-  function snapDocs(snap) { return snap.docs.map(function (d) { return Object.assign({ id: d.id }, d.data()); }); }
+  /* ============================================================
+   * Firestore لا يدعم المصفوفات المتداخلة (array داخل array).
+   * نحوّل أي مصفوفة تحتوي عنصراً من نوع مصفوفة إلى كائن بمفاتيح
+   * رقمية عند الكتابة، ونعيد تحويلها إلى مصفوفة عند القراءة،
+   * للحفاظ على البنية الأصلية في الواجهة (مثل blanks و rows).
+   * ============================================================ */
+  function isPlainObject(o) {
+    if (o === null || typeof o !== "object" || Array.isArray(o)) return false;
+    const p = Object.getPrototypeOf(o);
+    return p === Object.prototype || p === null;
+  }
+  function sanitize(value) {
+    if (Array.isArray(value)) {
+      if (value.some(Array.isArray)) {
+        const obj = {};
+        value.forEach(function (v, i) { obj[String(i)] = sanitize(v); });
+        return obj;
+      }
+      return value.map(sanitize);
+    }
+    if (isPlainObject(value)) {
+      const obj = {};
+      Object.keys(value).forEach(function (k) { obj[k] = sanitize(value[k]); });
+      return obj;
+    }
+    return value; /* يحافظ على قيم FieldValue وTimestamp كما هي */
+  }
+  function restore(value) {
+    if (Array.isArray(value)) return value.map(restore);
+    if (isPlainObject(value)) {
+      const keys = Object.keys(value);
+      if (keys.length && keys.every(function (k, i) { return String(i) === k; })) {
+        return keys.map(function (k) { return restore(value[k]); });
+      }
+      const obj = {};
+      keys.forEach(function (k) { obj[k] = restore(value[k]); });
+      return obj;
+    }
+    return value;
+  }
+
+  function snapDocs(snap) { return snap.docs.map(function (d) { return Object.assign({ id: d.id }, restore(d.data())); }); }
+  function docData(d) { return Object.assign({ id: d.id }, restore(d.data())); }
   function tsOf(v) {
     if (!v) return 0;
     if (typeof v === "object" && v.toDate) return v.toDate().getTime();
@@ -36,7 +78,7 @@
     },
     getSubject: async function (id) {
       const d = await col.subjects.doc(id).get();
-      return d.exists ? Object.assign({ id: d.id }, d.data()) : null;
+      return d.exists ? docData(d) : null;
     },
     addSubject: async function (data) {
       const ref = await col.subjects.add({
@@ -76,7 +118,7 @@
       return snap.size;
     },
     addQuestion: async function (q, subjectId, subjectName) {
-      const ref = await col.questions.add({
+      const ref = await col.questions.add(sanitize({
         subjectId: subjectId || "",
         subjectName: subjectName || "",
         type: q.type,
@@ -101,7 +143,7 @@
         blanks: q.blanks || [],
         labels: q.labels || [],
         createdAt: FV.serverTimestamp()
-      });
+      }));
       return ref.id;
     },
     addQuestionsBulk: async function (list, subjectId, subjectName) {
@@ -109,7 +151,7 @@
       let count = 0, committed = 0;
       for (const q of list) {
         const ref = col.questions.doc();
-        batch.set(ref, {
+        batch.set(ref, sanitize({
           subjectId: subjectId || "",
           subjectName: subjectName || "",
           type: q.type,
@@ -134,7 +176,7 @@
           blanks: q.blanks || [],
           labels: q.labels || [],
           createdAt: FV.serverTimestamp()
-        });
+        }));
         count++;
         if (count % 400 === 0) { await batch.commit(); committed += 400; batch = db.batch(); }
       }
@@ -143,7 +185,7 @@
       return committed || count;
     },
     updateQuestion: async function (id, q) {
-      await col.questions.doc(id).update({
+      await col.questions.doc(id).update(sanitize({
         type: q.type, text: q.text, options: q.options || [], answer: q.answer,
         difficulty: q.difficulty || "medium", tags: q.tags || [],
         explanation: q.explanation || "", points: q.points || 1,
@@ -160,7 +202,7 @@
         rows: q.rows || [],
         blanks: q.blanks || [],
         labels: q.labels || []
-      });
+      }));
     },
     deleteQuestion: async function (id) {
       await col.questions.doc(id).delete();
@@ -207,7 +249,7 @@
     },
     getExam: async function (id) {
       const d = await col.exams.doc(id).get();
-      return d.exists ? Object.assign({ id: d.id }, d.data()) : null;
+      return d.exists ? docData(d) : null;
     },
     getExamByCode: async function (code) {
       code = String(code || "").trim().toUpperCase();
@@ -224,7 +266,7 @@
       let code = String(data.code || "").trim().toUpperCase();
       if (!code) { do { code = QP.utils.code(6); } while (await store.codeExists(code)); }
       const totalPoints = (data.questions || []).reduce(function (s, q) { return s + (Number(q.points) || 1); }, 0);
-      const ref = await col.exams.add({
+      const ref = await col.exams.add(sanitize({
         title: data.title || "",
         subjectId: data.subjectId || "",
         subjectName: data.subjectName || "",
@@ -246,13 +288,13 @@
         currency: data.currency || "ل.س",
         qrImage: data.qrImage || "",
         createdAt: FV.serverTimestamp()
-      });
+      }));
       await col.examCodes.doc(code).set({ examId: ref.id, code: code, createdAt: FV.serverTimestamp() });
       return { id: ref.id, code: code };
     },
     updateExam: async function (id, data) {
       const totalPoints = (data.questions || []).reduce(function (s, q) { return s + (Number(q.points) || 1); }, 0);
-      await col.exams.doc(id).update(Object.assign({}, data, { totalPoints: totalPoints }));
+      await col.exams.doc(id).update(sanitize(Object.assign({}, data, { totalPoints: totalPoints })));
     },
     /* تحديث جزئي لبيانات الاختبار دون المساس بالأسئلة/النقاط */
     updateExamMeta: async function (id, patch) {
@@ -284,7 +326,7 @@
     },
     getGroup: async function (id) {
       const d = await col.groups.doc(id).get();
-      return d.exists ? Object.assign({ id: d.id }, d.data()) : null;
+      return d.exists ? docData(d) : null;
     },
     addGroup: async function (data) {
       // data: { name, description, teacherAssignments: [{teacherId, subjectId}], active }
@@ -346,11 +388,11 @@
       if (!username) return null;
       const snap = await col.students.where("username", "==", username).limit(1).get();
       if (snap.empty) return null;
-      return Object.assign({ id: snap.docs[0].id }, snap.docs[0].data());
+      return docData(snap.docs[0]);
     },
     getStudent: async function (id) {
       const d = await col.students.doc(id).get();
-      return d.exists ? Object.assign({ id: d.id }, d.data()) : null;
+      return d.exists ? docData(d) : null;
     },
     addStudent: async function (data) {
       const salt = QP.crypto.genSalt(16);
@@ -428,7 +470,7 @@
     getEnrollment: async function (studentId) {
       const snap = await col.enrollments.where("studentId", "==", studentId).limit(1).get();
       if (snap.empty) return null;
-      return Object.assign({ id: snap.docs[0].id }, snap.docs[0].data());
+      return docData(snap.docs[0]);
     },
     listEnrollmentsByGroup: async function (groupId) {
       const snap = await col.enrollments.where("groupId", "==", groupId).get();
@@ -439,12 +481,12 @@
      * SUBMISSIONS
      * ============================================================ */
     addSubmission: async function (data) {
-      const ref = await col.submissions.add(Object.assign({ createdAt: FV.serverTimestamp() }, data));
+      const ref = await col.submissions.add(sanitize(Object.assign({ createdAt: FV.serverTimestamp() }, data)));
       return ref.id;
     },
     getSubmissionById: async function (id) {
       const d = await col.submissions.doc(id).get();
-      return d.exists ? Object.assign({ id: d.id }, d.data()) : null;
+      return d.exists ? docData(d) : null;
     },
     listSubmissionsByExam: async function (examId) {
       const snap = await col.submissions.where("examId", "==", examId).get();
@@ -478,7 +520,7 @@
       return snapDocs(snap).sort(function (a, b) { return tsOf(b.createdAt) - tsOf(a.createdAt); })[0];
     },
     gradeSubmission: async function (id, gradeData) {
-      await col.submissions.doc(id).update(Object.assign({ gradedAt: FV.serverTimestamp() }, gradeData));
+      await col.submissions.doc(id).update(sanitize(Object.assign({ gradedAt: FV.serverTimestamp() }, gradeData)));
     },
     deleteSubmission: async function (id) {
       await col.submissions.doc(id).delete();
@@ -505,14 +547,14 @@
     },
     getTeacher: async function (id) {
       const d = await col.teachers.doc(id).get();
-      return d.exists ? Object.assign({ id: d.id }, d.data()) : null;
+      return d.exists ? docData(d) : null;
     },
     getTeacherByUsername: async function (username) {
       const uname = String(username || "").trim().toLowerCase();
       if (!uname) return null;
       const snap = await col.teachers.where("username", "==", uname).limit(1).get();
       if (snap.empty) return null;
-      return Object.assign({ id: snap.docs[0].id }, snap.docs[0].data());
+      return docData(snap.docs[0]);
     },
     addTeacher: async function (data) {
       const salt = QP.crypto.genSalt(16);
