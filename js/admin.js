@@ -556,29 +556,33 @@
         }).join("")
         : '<tr><td colspan="5" class="table-empty">-</td></tr>';
 
-      let seedCard = "";
+      let seedCards = "";
+      let seedStatuses = [];
       try {
-        const seedSt = await QP.seed.status();
-        let total = null;
-        try { total = QP.seed.flatten(await QP.seed.loadBank()).length; } catch (e2) { total = null; }
-        const n = seedSt.installed ? seedSt.count : total;
-        const msg = seedSt.installed
-          ? "\u062a\u0645 \u0627\u0644\u062a\u062b\u0628\u064a\u062a \u0641\u064a \u0645\u0627\u062f\u0629 \u00ab\u0627\u0644\u0641\u0644\u0633\u0641\u0629\u00bb" + (n ? " (" + n + " \u0633\u0624\u0627\u0644)" : "")
-          : "\u0644\u0645 \u064a\u064f\u062b\u0628\u0651\u062a \u0628\u0639\u062f \u2014 \u0633\u064a\u0646\u0634\u0626 \u0645\u0627\u062f\u0629 \u00ab\u0627\u0644\u0641\u0644\u0633\u0641\u0629\u00bb \u0648\u064a\u0636\u064a\u0641" + (n ? " " + n + " \u0633\u0624\u0627\u0644\u0627\u064b" : " \u0627\u0644\u0623\u0633\u0626\u0644\u0629") + " \u0645\u0646 \u0627\u0644\u0648\u062d\u062f\u0627\u062a \u0627\u0644\u0633\u062a.";
-        seedCard =
-          '<div class="card mt mb">' +
-          '<div class="card-head"><h2>\ud83d\udcda \u0628\u0646\u0643 \u062c\u0627\u0647\u0632: \u0627\u0644\u0641\u0644\u0633\u0641\u0629</h2><div class="spacer"></div>' +
-          '<button class="btn btn-sm ' + (seedSt.installed ? "btn-ghost" : "btn-primary") + '" id="seedBtn">' +
-          (seedSt.installed ? "\u0625\u0639\u0627\u062f\u0629 \u0627\u0644\u062a\u062b\u0628\u064a\u062a" : "\u062a\u062b\u0628\u064a\u062a \u0628\u0646\u0643 \u0627\u0644\u0641\u0644\u0633\u0641\u0629") +
-          "</button></div>" +
-          '<p class="muted tiny">' + msg + "</p>" +
-          "</div>";
-      } catch (e) { seedCard = ""; }
+        seedStatuses = await QP.seed.statusAll();
+        const totals = await Promise.all(seedStatuses.map(async function (st) {
+          if (st.installed) return null;
+          try { return QP.seed.flatten(await QP.seed.loadBank(st.url)).length; } catch (e2) { return null; }
+        }));
+        seedCards = seedStatuses.map(function (st, i) {
+          const n = st.installed ? st.count : totals[i];
+          const msg = st.installed
+            ? "تم التثبيت في مادة «" + st.subject + "»" + (n ? " (" + n + " سؤال)" : "")
+            : "لم يُثبَّت بعد — سيُنشئ مادة «" + st.subject + "» ويضيف" + (n ? " " + n + " سؤالاً" : " الأسئلة") + " من الوحدات كلها.";
+          return '<div class="card mt mb">' +
+            '<div class="card-head"><h2>📚 بنك جاهز: ' + U.esc(st.subject) + '</h2><div class="spacer"></div>' +
+            '<button class="btn btn-sm ' + (st.installed ? "btn-ghost" : "btn-primary") + '" data-seed="' + U.esc(st.flag) + '">' +
+            (st.installed ? "إعادة التثبيت" : "تثبيت بنك " + U.esc(st.subject)) +
+            "</button></div>" +
+            '<p class="muted tiny">' + U.esc(msg) + "</p>" +
+            "</div>";
+        }).join("");
+      } catch (e) { seedCards = ""; }
 
       shell("subjects",
         '<div class="card-head"><h2>\u0627\u0644\u0645\u0648\u0627\u062f</h2><div class="spacer"></div>' +
         '<button class="btn btn-primary" id="addSub">+ \u0645\u0627\u062f\u0629</button></div>' +
-        seedCard +
+        seedCards +
         '<div class="table-wrap responsive"><table><thead><tr>' +
         '<th>\u0627\u0644\u0645\u0627\u062f\u0629</th><th>\u0627\u0644\u0648\u0635\u0641</th><th>\u0627\u0644\u0623\u0633\u0626\u0644\u0629</th><th>\u0623\u064f\u0646\u0634\u0626\u062a</th><th>\u0625\u062c\u0631\u0627\u0621\u0627\u062a</th>' +
         "</tr></thead><tbody>" + rows + "</tbody></table></div>"
@@ -588,24 +592,27 @@
         subjectModal();
       });
 
-      const seedBtn = document.getElementById("seedBtn");
-      if (seedBtn) seedBtn.addEventListener("click", async function () {
-        const st = await QP.seed.status();
-        const question = st.installed
-          ? "\u0625\u0639\u0627\u062f\u0629 \u0627\u0644\u062a\u062b\u0628\u064a\u062a\u061f \u0633\u064a\u062a\u0645 \u062d\u0630\u0641 \u0645\u0627\u062f\u0629 \u00ab\u0627\u0644\u0641\u0644\u0633\u0641\u0629\u00bb \u0648\u0623\u0633\u0626\u0644\u062a\u0647\u0627 \u062b\u0645 \u0625\u0639\u0627\u062f\u0629 \u0627\u0644\u0625\u0636\u0627\u0641\u0629."
-          : "\u0633\u064a\u062a\u0645 \u0625\u0646\u0634\u0627\u0621 \u0645\u0627\u062f\u0629 \u00ab\u0627\u0644\u0641\u0644\u0633\u0641\u0629\u00bb \u0648\u0625\u0636\u0627\u0641\u0629 \u0627\u0644\u0623\u0633\u0626\u0644\u0629. \u0645\u062a\u0627\u0628\u0639\u0629\u061f";
-        if (!(await U.confirm(question))) return;
-        seedBtn.disabled = true;
-        seedBtn.textContent = "\u062c\u0627\u0631\u064d \u0627\u0644\u062a\u062b\u0628\u064a\u062a...";
-        try {
-          const r = await QP.seed.install({ force: true, reset: st.installed });
-          U.toast("\u062a\u0645 \u062a\u062b\u0628\u064a\u062a " + r.count + " \u0633\u0624\u0627\u0644\u0627\u064b", "success", 4000);
-          renderSubjects();
-        } catch (e) {
-          U.toast("\u0641\u0634\u0644 \u0627\u0644\u062a\u062b\u0628\u064a\u062a: " + e.message, "error", 6000);
-          seedBtn.disabled = false;
-          seedBtn.textContent = "\u062a\u062b\u0628\u064a\u062a \u0628\u0646\u0643 \u0627\u0644\u0641\u0644\u0633\u0641\u0629";
-        }
+      document.querySelectorAll("[data-seed]").forEach(function (btn) {
+        btn.addEventListener("click", async function () {
+          const ds = QP.seed.DATASETS.find(function (d) { return d.flag === btn.dataset.seed; });
+          if (!ds) return;
+          const st = seedStatuses.find(function (s) { return s.flag === ds.flag; });
+          const question = st && st.installed
+            ? "إعادة التثبيت؟ سيتم حذف مادة «" + ds.subject + "» وأسئلتها ثم إعادة الإضافة."
+            : "سيتم إنشاء مادة «" + ds.subject + "» وإضافة الأسئلة. متابعة؟";
+          if (!(await U.confirm(question))) return;
+          btn.disabled = true;
+          btn.textContent = "جارٍ التثبيت...";
+          try {
+            const r = await QP.seed.installDataset(ds, { force: true, reset: st && st.installed });
+            U.toast("تم تثبيت " + r.count + " سؤالاً في «" + ds.subject + "»", "success", 4000);
+            renderSubjects();
+          } catch (e) {
+            U.toast("فشل التثبيت: " + e.message, "error", 6000);
+            btn.disabled = false;
+            btn.textContent = "تثبيت بنك " + ds.subject;
+          }
+        });
       });
 
       document.querySelectorAll("[data-edit]").forEach(function (b) {
@@ -930,8 +937,7 @@ async function renderQuestions() {
 }
 
 function viewQuestionModal(q) {
-  const ansTxt = Array.isArray(q.answer) ?
-    q.answer.join(" \u060C ") : (q.answer || "-");
+  const ansTxt = U.answerText ? U.answerText(q) : (Array.isArray(q.answer) ? q.answer.join(" \u060C ") : (q.answer || "-"));
 
   U.modal({
     title: "\u0639\u0631\u0636 \u0627\u0644\u0633\u0624\u0627\u0644",
@@ -957,6 +963,9 @@ function viewQuestionModal(q) {
 
       U.passageHTML(q.passage) +
 
+      (q.image ? '<div class="field"><label>\u0627\u0644\u0635\u0648\u0631\u0629</label>' +
+        '<div style="text-align:center"><img src="' + U.esc(q.image) + '" style="max-width:100%;border-radius:10px;border:1px solid #ddd"></div></div>' : "") +
+
       '<div class="field"><label>\u0627\u0644\u0633\u0624\u0627\u0644</label>' +
       '<div style="background:var(--surface-2);padding:12px;border-radius:10px;line-height:1.8">' +
       U.esc(q.text) + "</div></div>" +
@@ -972,6 +981,34 @@ function viewQuestionModal(q) {
               (i + 1) + "</span> " + U.esc(o) + "</div>";
           }).join("") + "</div>"
         : "") +
+
+      (q.type === "matching" && q.pairs && q.pairs.length
+        ? '<div class="field"><label>\u0623\u0632\u0648\u0627\u062c \u0627\u0644\u0645\u0637\u0627\u0628\u0642\u0629</label>' +
+          q.pairs.map(function (p) { return '<div style="padding:4px 0">' + U.esc(p.left) + ' \u2190 <b style="color:var(--success)">' + U.esc(p.right) + '</b></div>'; }).join("") + "</div>" : "") +
+
+      (q.type === "ordering" && q.items && q.items.length
+        ? '<div class="field"><label>\u0627\u0644\u062a\u0631\u062a\u064a\u0628 \u0627\u0644\u0635\u062d\u064a\u062d</label>' +
+          q.items.map(function (x, i) { return '<div style="padding:4px 0">' + (i + 1) + '. ' + U.esc((x && typeof x === "object") ? x.text : x) + '</div>'; }).join("") + '</div>' : "") +
+
+      (q.type === "classification" && q.items && q.items.length
+        ? '<div class="field"><label>\u0627\u0644\u062a\u0635\u0646\u064a\u0641</label>' +
+          q.items.map(function (x) { return '<div style="padding:4px 0">' + U.esc(x.text) + ' \u2190 <b style="color:var(--success)">' + U.esc(x.category) + '</b></div>'; }).join("") + '</div>' : "") +
+
+      (q.type === "comparison" && q.rows && q.rows.length
+        ? '<div class="field"><label>\u062c\u062f\u0648\u0644 \u0627\u0644\u0645\u0642\u0627\u0631\u0646\u0629</label><div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse">' +
+          '<tr><th style="border:1px solid #ccc;padding:6px">\u0648\u062c\u0647 \u0627\u0644\u0645\u0642\u0627\u0631\u0646\u0629</th>' +
+          (q.columns || []).map(function (c) { return '<th style="border:1px solid #ccc;padding:6px">' + U.esc(c) + '</th>'; }).join("") + '</tr>' +
+          q.rows.map(function (row, r) {
+            return '<tr><td style="border:1px solid #ccc;padding:6px">' + U.esc(row.criterion) + '</td>' +
+              (q.values || row.values || []).map(function (v, c) {
+                const isB = (q.blanks || []).some(function (b) { return Number(b[0]) === r && Number(b[1]) === c; });
+                return '<td style="border:1px solid #ccc;padding:6px' + (isB ? ';color:var(--success);font-weight:600' : "") + '">' + U.esc(v) + '</td>';
+              }).join("") + '</tr>';
+          }).join("") + '</table></div></div>' : "") +
+
+      (q.type === "diagram_label" && q.labels && q.labels.length
+        ? '<div class="field"><label>\u0627\u0644\u062a\u0633\u0645\u064a\u0627\u062a</label>' +
+          q.labels.map(function (l) { return '<div style="padding:4px 0">' + U.esc(l.number) + '. <b style="color:var(--success)">' + U.esc(l.answer) + '</b></div>'; }).join("") + '</div>' : "") +
 
       '<div class="field"><label>\u0627\u0644\u0625\u062c\u0627\u0628\u0629 \u0627\u0644\u0635\u062d\u064a\u062d\u0629</label>' +
       '<b style="color:var(--success)">' + U.esc(ansTxt) + "</b></div>" +
@@ -1015,6 +1052,26 @@ function questionFormHTML(q) {
 
   const isMCQ = q.type === "mcq" || q.type === "multi";
   const isTF = q.type === "true_false";
+  const isImage = q.type === "image_mcq" || q.type === "diagram_label";
+  const isMatching = q.type === "matching";
+  const isOrdering = q.type === "ordering";
+  const isClass = q.type === "classification";
+  const isCompare = q.type === "comparison";
+  const isDiagram = q.type === "diagram_label";
+
+  const qPairsText = (q.pairs || []).map(function (p) { return p.left + " = " + p.right; }).join("\n");
+  const qOrderText = (q.items || []).map(function (x) { return (x && typeof x === "object") ? x.text : x; }).join("\n");
+  const qCatsText = (q.categories || []).join(", ");
+  const qClsText = (q.items || []).map(function (x) { return x.text + " = " + (x.category || ""); }).join("\n");
+  const qColsText = (q.columns || []).join(", ");
+  const qRowsText = (q.rows || []).map(function (r, ri) {
+    const cells = [r.criterion].concat((r.values || []).map(function (v, c) {
+      const isB = (q.blanks || []).some(function (b) { return Number(b[0]) === ri && Number(b[1]) === c; });
+      return isB ? "[" + v + "]" : v;
+    }));
+    return cells.join(" | ");
+  }).join("\n");
+  const qLabelsText = (q.labels || []).map(function (l) { return l.number + " = " + l.answer; }).join("\n");
   const isText = ["fill_blank", "short_answer", "essay"].indexOf(q.type) >= 0;
   const passage = U.normalizePassage(q.passage) || { title: "", text: "", notes: "" };
 
@@ -1030,10 +1087,44 @@ function questionFormHTML(q) {
     '<div class="field"><label>\u0646\u0635 \u0627\u0644\u0633\u0624\u0627\u0644 *</label>' +
     '<textarea id="qText" style="min-height:80px">' + U.esc(q.text || "") + "</textarea></div>" +
 
-    '<div id="fieldsOptions" class="' + (isMCQ ? "" : "hidden") + '">' +
+    '<div id="fieldsOptions" class="' + (isMCQ || q.type === "image_mcq" ? "" : "hidden") + '">' +
     '<label class="tiny">\u0627\u0644\u062e\u064a\u0627\u0631\u0627\u062a</label>' +
     '<div id="optionsBox">' + optionsEditorHTML(q.options, q.answer, q.type) + "</div>" +
     '<button type="button" class="btn btn-sm mt-sm" id="addOpt">+ \u062e\u064a\u0627\u0631</button></div>' +
+
+    '<div id="fieldsImage" class="field ' + (isImage ? "" : "hidden") + '">' +
+    '<label>\u0627\u0644\u0635\u0648\u0631\u0629 (\u0631\u0627\u0628\u0637 \u0623\u0648 \u0631\u0641\u0639 \u0645\u0644\u0641)</label>' +
+    '<div class="flex" style="gap:8px;align-items:center">' +
+    '<input id="qImage" value="' + U.esc(q.image || "") + '" placeholder="https://... \u0623\u0648 data:image/...">' +
+    '<input type="file" id="qImageFile" accept="image/*" style="width:auto">' +
+    '</div>' +
+    '<div id="qImagePreview" style="margin-top:8px">' +
+    (q.image ? '<img src="' + U.esc(q.image) + '" style="max-width:220px;border-radius:8px;border:1px solid #ddd">' : "") +
+    '</div></div>' +
+
+    '<div id="fieldsMatching" class="field ' + (isMatching ? "" : "hidden") + '">' +
+    '<label>\u0623\u0632\u0648\u0627\u062c \u0627\u0644\u0645\u0637\u0627\u0628\u0642\u0629 (\u0643\u0644 \u0633\u0637\u0631: \u0627\u0644\u0639\u0646\u0635\u0631 = \u0627\u0644\u0645\u0642\u0627\u0628\u0644)</label>' +
+    '<textarea id="qPairs" style="min-height:90px" placeholder="\u0627\u0644\u062e\u0644\u064a\u0629 \u0627\u0644\u0639\u0635\u0628\u064a\u0629 = \u0627\u0644\u0648\u062d\u062f\u0629 \u0627\u0644\u0648\u0638\u064a\u0641\u064a\u0629 \u0644\u0644\u062c\u0647\u0627\u0632 \u0627\u0644\u0639\u0635\u0628\u064a">' + U.esc(qPairsText) + '</textarea></div>' +
+
+    '<div id="fieldsOrdering" class="field ' + (isOrdering ? "" : "hidden") + '">' +
+    '<label>\u0639\u0646\u0627\u0635\u0631 \u0627\u0644\u062a\u0631\u062a\u064a\u0628 (\u0643\u0644 \u0633\u0637\u0631 \u0639\u0646\u0635\u0631\u060c \u0628\u0627\u0644\u062a\u0631\u062a\u064a\u0628 \u0627\u0644\u0635\u062d\u064a\u062d)</label>' +
+    '<textarea id="qOrder" style="min-height:90px">' + U.esc(qOrderText) + '</textarea></div>' +
+
+    '<div id="fieldsClass" class="field ' + (isClass ? "" : "hidden") + '">' +
+    '<label>\u0627\u0644\u0641\u0626\u0627\u062a (\u0645\u0641\u0635\u0648\u0644\u0629 \u0628\u0641\u0648\u0627\u0635\u0644)</label>' +
+    '<input id="qCats" value="' + U.esc(qCatsText) + '" placeholder="\u062e\u0644\u0627\u064a\u0627 \u062f\u0628\u0642\u064a\u0629, \u062e\u0644\u0627\u064a\u0627 \u0639\u0635\u0628\u064a\u0629">' +
+    '<label class="tiny" style="display:block;margin-top:8px">\u0627\u0644\u0639\u0646\u0627\u0635\u0631 (\u0643\u0644 \u0633\u0637\u0631: \u0627\u0644\u0639\u0646\u0635\u0631 = \u0627\u0644\u0641\u0626\u0629)</label>' +
+    '<textarea id="qClsItems" style="min-height:90px" placeholder="\u0627\u0644\u062e\u0644\u0627\u064a\u0627 \u0642\u0644\u064a\u0644\u0629 \u0627\u0644\u062a\u063a\u0635\u0646\u0627\u062a = \u062e\u0644\u0627\u064a\u0627 \u062f\u0628\u0642\u064a\u0629">' + U.esc(qClsText) + '</textarea></div>' +
+
+    '<div id="fieldsCompare" class="field ' + (isCompare ? "" : "hidden") + '">' +
+    '<label>\u0623\u0639\u0645\u062f\u0629 \u0627\u0644\u0645\u0642\u0627\u0631\u0646\u0629 (\u0645\u0641\u0635\u0648\u0644\u0629 \u0628\u0641\u0648\u0627\u0635\u0644)</label>' +
+    '<input id="qCols" value="' + U.esc(qColsText) + '" placeholder="\u0627\u0644\u062c\u0647\u0627\u0632 \u0627\u0644\u0639\u0635\u0628\u064a \u0627\u0644\u0645\u0631\u0643\u0632\u064a, \u0627\u0644\u062c\u0647\u0627\u0632 \u0627\u0644\u0639\u0635\u0628\u064a \u0627\u0644\u0645\u062d\u064a\u0637\u064a">' +
+    '<label class="tiny" style="display:block;margin-top:8px">\u0627\u0644\u0635\u0641\u0648\u0641 (\u0643\u0644 \u0633\u0637\u0631: \u0648\u062c\u0647 \u0627\u0644\u0645\u0642\u0627\u0631\u0646\u0629 | \u0642\u064a\u0645\u0629 | \u0642\u064a\u0645\u0629). \u0636\u0639 \u0627\u0644\u062e\u0644\u064a\u0629 \u0627\u0644\u0645\u0637\u0644\u0648\u0628 \u062a\u0639\u0628\u0626\u062a\u0647\u0627 \u0628\u064a\u0646 [ ]</label>' +
+    '<textarea id="qRows" style="min-height:90px" placeholder="\u0627\u0644\u062a\u0631\u0643\u064a\u0628 | [\u0627\u0644\u062f\u0645\u0627\u063a \u0648\u0627\u0644\u0646\u062e\u0627\u0639 \u0627\u0644\u0634\u0648\u0643\u064a] | \u0627\u0644\u0623\u0639\u0635\u0627\u0628">' + U.esc(qRowsText) + '</textarea></div>' +
+
+    '<div id="fieldsDiagram" class="field ' + (isDiagram ? "" : "hidden") + '">' +
+    '<label>\u0627\u0644\u062a\u0633\u0645\u064a\u0627\u062a (\u0643\u0644 \u0633\u0637\u0631: \u0627\u0644\u0631\u0642\u0645 = \u0627\u0644\u0627\u0633\u0645)</label>' +
+    '<textarea id="qLabels" style="min-height:90px" placeholder="1 = \u062c\u0633\u0645 \u0627\u0644\u062e\u0644\u064a\u0629\n2 = \u0627\u0644\u0645\u062d\u0648\u0631">' + U.esc(qLabelsText) + '</textarea></div>' +
 
     '<div id="fieldsTF" class="field ' + (isTF ? "" : "hidden") + '"><label>\u0627\u0644\u0625\u062c\u0627\u0628\u0629</label>' +
     '<label class="check"><input type="radio" name="tf" value="\u0635\u062d"' +
@@ -1097,16 +1188,36 @@ function bindQuestionForm(node) {
   const typeSel = node.querySelector("#qType");
   const syncType = function () {
     const t = typeSel.value;
-    node.querySelector("#fieldsOptions").classList.toggle("hidden", !(t === "mcq" || t === "multi"));
-    node.querySelector("#fieldsTF").classList.toggle("hidden", t !== "true_false");
-    node.querySelector("#fieldsText").classList.toggle("hidden",
-      !(t === "fill_blank" || t === "short_answer" || t === "essay"));
+    const show = function (id, on) { const el = node.querySelector(id); if (el) el.classList.toggle("hidden", !on); };
+    show("#fieldsOptions", t === "mcq" || t === "multi" || t === "image_mcq");
+    show("#fieldsTF", t === "true_false");
+    show("#fieldsText", t === "fill_blank" || t === "short_answer" || t === "essay");
+    show("#fieldsImage", t === "image_mcq" || t === "diagram_label");
+    show("#fieldsMatching", t === "matching");
+    show("#fieldsOrdering", t === "ordering");
+    show("#fieldsClass", t === "classification");
+    show("#fieldsCompare", t === "comparison");
+    show("#fieldsDiagram", t === "diagram_label");
     node.querySelectorAll("input[data-correct]").forEach(function (r) {
       r.type = t === "multi" ? "checkbox" : "radio";
     });
   };
 
   typeSel.addEventListener("change", syncType);
+
+  const imgFile = node.querySelector("#qImageFile");
+  if (imgFile) imgFile.addEventListener("change", function () {
+    const f = imgFile.files && imgFile.files[0];
+    if (!f) return;
+    const reader = new FileReader();
+    reader.onload = function () {
+      const field = node.querySelector("#qImage");
+      if (field) field.value = reader.result;
+      const prev = node.querySelector("#qImagePreview");
+      if (prev) prev.innerHTML = '<img src="' + reader.result + '" style="max-width:220px;border-radius:8px;border:1px solid #ddd">';
+    };
+    reader.readAsDataURL(f);
+  });
 
   node.querySelector("#addOpt").addEventListener("click", function () {
     const box = node.querySelector("#optionsBox");
@@ -1156,8 +1267,16 @@ function collectQuestionForm(node) {
 
   let options = [];
   let answer = null;
+  let image = "";
+  let pairs = [];
+  let items = [];
+  let categories = [];
+  let columns = [];
+  let rows = [];
+  let blanks = [];
+  let labels = [];
 
-  if (type === "mcq" || type === "multi") {
+  if (type === "mcq" || type === "multi" || type === "image_mcq") {
     const rows = Array.from(node.querySelectorAll("[data-opt]"));
     options = rows.map(function (r) {
       return r.querySelector("[data-opttext]").value.trim();
@@ -1177,10 +1296,57 @@ function collectQuestionForm(node) {
     if (!answer || (Array.isArray(answer) && !answer.length)) {
       throw new Error("\u062d\u062f\u062f \u0627\u0644\u0625\u062c\u0627\u0628\u0629");
     }
+    if (type === "image_mcq") {
+      image = node.querySelector("#qImage").value.trim();
+      if (!image) throw new Error("\u0623\u0636\u0641 \u0627\u0644\u0635\u0648\u0631\u0629");
+    }
   } else if (type === "true_false") {
     const r = node.querySelector('input[name="tf"]:checked');
     answer = r ? r.value : "";
     if (!answer) throw new Error("\u062d\u062f\u062f \u0635\u062d \u0623\u0648 \u062e\u0637\u0623");
+  } else if (type === "matching") {
+    pairs = node.querySelector("#qPairs").value.split("\n").map(function (l) { return l.trim(); }).filter(Boolean)
+      .map(function (l) {
+        const i = l.indexOf("=");
+        return { left: i < 0 ? l : l.slice(0, i).trim(), right: i < 0 ? "" : l.slice(i + 1).trim() };
+      }).filter(function (p) { return p.left && p.right; });
+    answer = pairs.map(function (p) { return p.right; });
+    if (pairs.length < 2) throw new Error("\u0623\u062f\u062e\u0644 \u0632\u0648\u062c\u064a\u0646 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644");
+  } else if (type === "ordering") {
+    items = node.querySelector("#qOrder").value.split("\n").map(function (s) { return s.trim(); }).filter(Boolean);
+    answer = items.slice();
+    if (items.length < 2) throw new Error("\u0623\u062f\u062e\u0644 \u0639\u0646\u0635\u0631\u064a\u0646 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644");
+  } else if (type === "classification") {
+    categories = node.querySelector("#qCats").value.split(",").map(function (s) { return s.trim(); }).filter(Boolean);
+    items = node.querySelector("#qClsItems").value.split("\n").map(function (s) { return s.trim(); }).filter(Boolean).map(function (l) {
+      const i = l.indexOf("=");
+      return { text: (i >= 0 ? l.slice(0, i) : l).trim(), category: (i >= 0 ? l.slice(i + 1) : "").trim() };
+    }).filter(function (x) { return x.text; });
+    answer = {};
+    items.forEach(function (it) { if (it.category) answer[it.text] = it.category; });
+    if (categories.length < 2 || !items.length) throw new Error("\u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u062a\u0635\u0646\u064a\u0641 \u063a\u064a\u0631 \u0645\u0643\u062a\u0645\u0644\u0629");
+  } else if (type === "comparison") {
+    columns = node.querySelector("#qCols").value.split(",").map(function (s) { return s.trim(); }).filter(Boolean);
+    answer = {};
+    node.querySelector("#qRows").value.split("\n").map(function (s) { return s.trim(); }).filter(Boolean).forEach(function (line, r) {
+      const cells = line.split("|").map(function (s) { return s.trim(); });
+      const criterion = cells.shift() || "";
+      const values = cells.map(function (c) { return c.replace(/^\[|\]$/g, ""); });
+      cells.forEach(function (c, ci) {
+        if (/^\[.*\]$/.test(c)) { blanks.push([r, ci]); answer[r + "," + ci] = c.replace(/^\[|\]$/g, ""); }
+      });
+      if (criterion) rows.push({ criterion: criterion, values: values });
+    });
+    if (!rows.length) throw new Error("\u0623\u062f\u062e\u0644 \u0635\u0641\u0627\u064b \u0648\u0627\u062d\u062f\u0627\u064b \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644");
+  } else if (type === "diagram_label") {
+    image = node.querySelector("#qImage").value.trim();
+    labels = node.querySelector("#qLabels").value.split("\n").map(function (s) { return s.trim(); }).filter(Boolean).map(function (l) {
+      const i = l.indexOf("=");
+      return { number: (i >= 0 ? l.slice(0, i) : l).trim(), answer: (i >= 0 ? l.slice(i + 1) : "").trim() };
+    }).filter(function (x) { return x.answer; });
+    answer = {};
+    labels.forEach(function (l) { answer[l.number] = l.answer; });
+    if (!image || !labels.length) throw new Error("\u0628\u064a\u0627\u0646\u0627\u062a \u062a\u0633\u0645\u064a\u0629 \u0627\u0644\u0631\u0633\u0645 \u063a\u064a\u0631 \u0645\u0643\u062a\u0645\u0644\u0629");
   } else {
     answer = node.querySelector("#qAnswer").value.trim();
     if (type !== "essay" && !answer) {
@@ -1204,6 +1370,14 @@ function collectQuestionForm(node) {
     text: text,
     options: options,
     answer: answer,
+    image: image,
+    pairs: pairs,
+    items: items,
+    categories: categories,
+    columns: columns,
+    rows: rows,
+    blanks: blanks,
+    labels: labels,
     difficulty: difficulty,
     tags: tags,
     explanation: explanation,
@@ -1726,6 +1900,23 @@ async function renderStudents() {
 
             '<td data-label="\u0627\u0644\u062d\u0627\u0644\u0629">' + statusBadge(e.status) + "</td>" +
 
+            '<td data-label="الدفع">' +
+            '<label class="check tiny" style="display:block;margin-bottom:4px">' +
+            '<input type="checkbox" data-exam-paid="' + e.id + '"' + (e.isPaid ? " checked" : "") + '> مدفوع</label>' +
+            (e.isPaid
+              ? '<div class="flex" style="gap:6px;align-items:center;flex-wrap:wrap">' +
+              '<input type="number" min="0" step="any" data-exam-price="' + e.id + '" value="' + (e.price || "") + '" style="width:90px" placeholder="السعر">' +
+              '<span class="tiny muted">' + U.esc(e.currency || "ل.س") + '</span></div>' +
+              '<div class="flex" style="gap:6px;align-items:center;margin-top:6px">' +
+              '<label class="btn btn-sm btn-ghost" style="cursor:pointer;margin:0">📷 QR' +
+              '<input type="file" accept="image/*" data-exam-qr="' + e.id + '" style="display:none"></label>' +
+              (e.qrImage
+                ? '<img alt="QR" src="' + U.esc(e.qrImage) + '" style="height:40px;border-radius:6px;border:1px solid var(--border)">'
+                : '<span class="tiny muted">لا صورة</span>') +
+              "</div>"
+              : "") +
+            "</td>" +
+
             '<td data-label="\u0625\u062c\u0631\u0627\u0621\u0627\u062a">' +
             '<button class="btn btn-sm" data-copy="' + U.esc(e.code) + '">\uD83D\uDCCB</button> ' +
             '<button class="btn btn-sm" data-res="' + e.id + '">\uD83D\uDCCA</button> ' +
@@ -1733,7 +1924,7 @@ async function renderStudents() {
             '<button class="btn btn-sm btn-danger" data-del="' + e.id + '">\uD83D\uDDD1</button>' +
             "</td></tr>";
         }).join("")
-        : '<tr><td colspan="6" class="table-empty">\u0644\u0627 \u062a\u0648\u062c\u062f \u0627\u062e\u062a\u0628\u0627\u0631\u0627\u062a</td></tr>';
+        : '<tr><td colspan="7" class="table-empty">\u0644\u0627 \u062a\u0648\u062c\u062f \u0627\u062e\u062a\u0628\u0627\u0631\u0627\u062a</td></tr>';
 
       shell("exams",
         '<div class="card-head"><h2>\u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631\u0627\u062a</h2>' +
@@ -1741,7 +1932,7 @@ async function renderStudents() {
         '<button class="btn btn-primary" id="newExam">+ \u0627\u062e\u062a\u0628\u0627\u0631</button></div>' +
 
         '<div class="table-wrap responsive"><table><thead><tr>' +
-        '<th>\u0627\u0644\u0639\u0646\u0648\u0627\u0646</th><th>\u0627\u0644\u0643\u0648\u062f</th><th>\u0627\u0644\u0623\u0633\u0626\u0644\u0629</th><th>\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0627\u062a</th><th>\u0627\u0644\u062d\u0627\u0644\u0629</th><th></th>' +
+        '<th>\u0627\u0644\u0639\u0646\u0648\u0627\u0646</th><th>\u0627\u0644\u0643\u0648\u062f</th><th>\u0627\u0644\u0623\u0633\u0626\u0644\u0629</th><th>\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0627\u062a</th><th>\u0627\u0644\u062d\u0627\u0644\u0629</th><th>الدفع</th><th></th>' +
         "</tr></thead><tbody>" + rows + "</tbody></table></div>"
       );
 
@@ -1775,6 +1966,48 @@ async function renderStudents() {
           }
         });
       });
+
+      /* ===== التحكم بالدفع (مدفوع/مجاني + السعر + رمز QR) ===== */
+      document.querySelectorAll("[data-exam-paid]").forEach(function (cb) {
+        cb.addEventListener("change", async function () {
+          const id = cb.dataset.examPaid;
+          const paid = cb.checked;
+          try {
+            await S.updateExamMeta(id, { isPaid: paid });
+            if (paid) U.toast("تم تعيين الاختبار مدفوعاً — حدّد السعر وارفع رمز QR", "info", 4000);
+            renderExams();
+          } catch (e) {
+            U.toast("تعذّر الحفظ: " + (e && e.message || e), "error", 4000);
+            renderExams();
+          }
+        });
+      });
+
+      document.querySelectorAll("[data-exam-price]").forEach(function (inp) {
+        inp.addEventListener("change", async function () {
+          try {
+            await S.updateExamMeta(inp.dataset.examPrice, { price: Number(inp.value) || 0 });
+            U.toast("تم حفظ السعر", "success", 1500);
+          } catch (e) {
+            U.toast("تعذّر حفظ السعر: " + (e && e.message || e), "error", 3000);
+          }
+        });
+      });
+
+      document.querySelectorAll("[data-exam-qr]").forEach(function (f) {
+        f.addEventListener("change", async function () {
+          const file = f.files && f.files[0];
+          if (!file) return;
+          try {
+            const dataUrl = await U.fileToDataURL(file, 512);
+            await S.updateExamMeta(f.dataset.examQr, { qrImage: dataUrl });
+            U.toast("تم حفظ صورة رمز الدفع ✓", "success", 2000);
+            renderExams();
+          } catch (e) {
+            U.toast("تعذّر رفع الصورة: " + (e && e.message || e), "error", 4000);
+          }
+        });
+      });
     } catch (e) {
       shell("exams", errorCard(e));
     }
@@ -1787,6 +2020,7 @@ async function renderStudents() {
     const isEdit = !!exam;
     const chosen = [];
     const selectedIds = {};
+    let qrImage = (exam && exam.qrImage) || "";
 
     /* الفلاتر المتعددة */
     const selectedUnits = new Set();
@@ -1852,6 +2086,30 @@ async function renderStudents() {
         '<label class="check" style="align-self:end;padding-bottom:10px"><input type="checkbox" id="allowReview"' +
         (exam && exam.settings && exam.settings.allowReview !== false ? " checked" : "") +
         '> \uD83D\uDC41\uFE0F \u0627\u0644\u0633\u0645\u0627\u062d \u0628\u0627\u0644\u0645\u0631\u0627\u062c\u0639\u0629</label>' +
+        "</div>" +
+
+        '<div class="hr"></div>' +
+
+        /* ===== الإعداد المالي / الدفع ===== */
+        '<h3 style="margin:0 0 10px">💳 الدفع</h3>' +
+        '<div class="form-row-3">' +
+        '<label class="check" style="align-self:end;padding-bottom:10px"><input type="checkbox" id="exPaid"' +
+        (exam && exam.isPaid ? " checked" : "") + '> اختبار مدفوع</label>' +
+        '<div class="field"><label>سعر الاختبار</label>' +
+        '<input type="number" id="exPrice" min="0" step="any" value="' +
+        (exam && exam.price ? exam.price : "") + '" placeholder="0"></div>' +
+        '<div class="field"><label>العملة</label>' +
+        '<input id="exCurrency" value="' + U.esc(exam && exam.currency ? exam.currency : "ل.س") + '"></div>' +
+        "</div>" +
+        '<div class="field" id="exQrWrap"><label>📷 صورة رمز الدفع (QR)</label>' +
+        '<div class="flex" style="gap:10px;align-items:center;flex-wrap:wrap">' +
+        '<input type="file" id="exQrFile" accept="image/*" style="max-width:240px">' +
+        '<button type="button" class="btn btn-sm btn-ghost" id="exQrClear">🗑 مسح الصورة</button>' +
+        '<span id="exQrStatus" class="tiny muted"></span>' +
+        "</div>" +
+        '<div id="exQrPreview" class="mt" style="display:' + (qrImage ? "block" : "none") + '">' +
+        '<img alt="QR" style="max-width:160px;border-radius:10px;border:1px solid var(--border)" src="' +
+        U.esc(qrImage) + '"></div>' +
         "</div>" +
 
         '<div class="hr"></div>' +
@@ -2810,6 +3068,40 @@ async function renderStudents() {
          * ============================================================ */
         node.querySelector("#exSubj").addEventListener("change", loadFilters);
 
+        /* ===== الإعداد المالي / الدفع ===== */
+        const paidCb = node.querySelector("#exPaid");
+        const qrFile = node.querySelector("#exQrFile");
+        const qrPreview = node.querySelector("#exQrPreview");
+        const qrStatus = node.querySelector("#exQrStatus");
+        const qrWrap = node.querySelector("#exQrWrap");
+        function syncPaidUI() {
+          const on = !!(paidCb && paidCb.checked);
+          if (qrWrap) qrWrap.style.display = on ? "" : "none";
+        }
+        if (paidCb) paidCb.addEventListener("change", syncPaidUI);
+        syncPaidUI();
+
+        if (qrFile) qrFile.addEventListener("change", async function () {
+          const f = qrFile.files && qrFile.files[0];
+          if (!f) return;
+          try {
+            qrImage = await U.fileToDataURL(f, 512);
+            qrPreview.innerHTML = '<img alt="QR" style="max-width:160px;border-radius:10px;border:1px solid var(--border)" src="' + U.esc(qrImage) + '">';
+            qrPreview.style.display = "block";
+            qrStatus.textContent = "تم تحميل الصورة ✓";
+          } catch (e) {
+            qrStatus.textContent = "تعذّر التحميل: " + (e && e.message || e);
+          }
+        });
+        const qrClear = node.querySelector("#exQrClear");
+        if (qrClear) qrClear.addEventListener("click", function () {
+          qrImage = "";
+          if (qrFile) qrFile.value = "";
+          qrPreview.innerHTML = "";
+          qrPreview.style.display = "none";
+          qrStatus.textContent = "تم مسح الصورة";
+        });
+
         node.querySelector("#useDist").addEventListener("change", function (e) {
           node.querySelector("#distBox").style.display = e.target.checked ? "block" : "none";
           node.querySelector("#distOffMsg").classList.toggle("hidden", e.target.checked);
@@ -2966,6 +3258,10 @@ async function renderStudents() {
             },
             openAt: openAt ? new Date(openAt).toISOString() : null,
             closeAt: closeAt ? new Date(closeAt).toISOString() : null,
+            isPaid: !!(node.querySelector("#exPaid") && node.querySelector("#exPaid").checked),
+            price: Number((node.querySelector("#exPrice") || {}).value) || 0,
+            currency: ((node.querySelector("#exCurrency") || {}).value || "ل.س"),
+            qrImage: qrImage,
             status: "published"
           };
 
@@ -3339,11 +3635,14 @@ async function renderStudents() {
         renderLogin();
         return;
       }
-      if (QP.seed && !sessionStorage.getItem("qp_seed_checked")) {
+      if (QP.seed && QP.seed.statusAll && !sessionStorage.getItem("qp_seed_checked")) {
         sessionStorage.setItem("qp_seed_checked", "1");
-        QP.seed.install().then(function (r) {
-          if (r && !r.skipped) U.toast("\u062a\u0645\u062a \u0625\u0636\u0627\u0641\u0629 \u0628\u0646\u0643 \u0627\u0644\u0641\u0644\u0633\u0641\u0629 (" + r.count + " \u0633\u0624\u0627\u0644)", "success", 4000);
-        }).catch(function (e) { console.warn("[seed]", e); });
+        QP.seed.statusAll().then(function (list) {
+          const missing = list.filter(function (s) { return !s.installed; });
+          if (missing.length) {
+            U.toast("بنوك جاهزة للتثبيت: " + missing.map(function (s) { return s.subject; }).join("، ") + " (صفحة المواد)", "info", 5000);
+          }
+        }).catch(function () {});
       }
       const fn = renders[sub] || renderDashboard;
       try {

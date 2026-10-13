@@ -404,9 +404,20 @@
           (e.durationMin ? '<span class="badge badge-muted">\u23F1 ' + e.durationMin + ' \u062f</span>' : "") +
           statusBadge +
           closeHint +
+          (e.isPaid ? '<span class="badge badge-warning">💳 ' + U.esc(U.priceLabel(e)) + '</span>' : "") +
           '</div>' +
           (e.description ? '<p class="tiny muted">' + U.esc(e.description) + '</p>' : "") +
           '<div class="exam-actions">' + actions + '</div>' +
+          (e.isPaid
+            ? '<div class="paid-box mt" style="border-top:1px dashed var(--border);margin-top:10px;padding-top:10px">' +
+            '<div class="flex" style="justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">' +
+            '<div><div><b>💳 اختبار مدفوع:</b> ' + U.esc(U.priceLabel(e)) + '</div>' +
+            '<div class="tiny muted">ادفع عبر رمز الدفع ثم اضغط «ابدأ الاختبار».</div></div>' +
+            (e.qrImage
+              ? '<img alt="QR" data-qr-view="' + e.id + '" title="تكبير الرمز" src="' + U.esc(e.qrImage) + '" style="height:96px;width:96px;object-fit:contain;border-radius:10px;border:1px solid var(--border);background:#fff;padding:4px;cursor:zoom-in">'
+              : '<span class="tiny muted">لم يُرفَق رمز الدفع بعد</span>') +
+            '</div></div>'
+            : "") +
           '</div>';
       };
 
@@ -462,6 +473,18 @@
       });
       document.querySelectorAll("[data-view-result]").forEach(function (b) {
         b.addEventListener("click", function () { viewResult(b.dataset.viewResult); });
+      });
+      document.querySelectorAll("[data-qr-view]").forEach(function (img) {
+        img.addEventListener("click", function () {
+          const e = exams.find(function (x) { return x.id === img.dataset.qrView; }) || {};
+          U.modal({
+            title: "💳 الدفع — " + (e.title || ""),
+            body: '<div style="text-align:center">' +
+              '<div class="mb"><b>' + U.esc(U.priceLabel(e)) + '</b></div>' +
+              '<img alt="QR" src="' + U.esc(e.qrImage || "") + '" style="max-width:320px;width:100%;border-radius:12px;background:#fff;padding:8px">' +
+              '</div>'
+          });
+        });
       });
     } catch (e) {
       view('<div class="container container-narrow"><div class="card"><div class="empty-state">' +
@@ -616,40 +639,196 @@
     bindExam();
   }
 
+  function qImageBlock(q) {
+    if (!q || !q.image) return "";
+    return '<div class="q-image" style="text-align:center;margin:10px 0">' +
+      '<img src="' + U.esc(q.image) + '" alt="\u0635\u0648\u0631\u0629" style="max-width:100%;border-radius:10px;border:1px solid #ddd" /></div>';
+  }
+
+  function renderMatching(q, val) {
+    const pairs = q.pairs || [];
+    const rights = U.shuffleStable((q.id || q.text) + "-r", pairs.map(function (p) { return p.right; }));
+    const chosen = Array.isArray(val) ? val : [];
+    return '<div class="match-wrap">' + pairs.map(function (p, i) {
+      return '<div class="match-row" style="display:flex;gap:8px;align-items:center;margin:6px 0">' +
+        '<span style="flex:1">' + U.esc(p.left) + '</span>' +
+        '<select class="match-sel" data-match="' + i + '">' +
+        '<option value="">- \u0627\u062e\u062a\u0631 -</option>' +
+        rights.map(function (r) {
+          return '<option value="' + U.esc(r) + '"' + (chosen[i] === r ? " selected" : "") + '>' + U.esc(r) + '</option>';
+        }).join("") +
+        '</select></div>';
+    }).join("") + '</div>';
+  }
+
+  function renderOrderingList(order) {
+    return '<div class="order-wrap">' + order.map(function (it, i) {
+      return '<div class="order-row" style="display:flex;gap:8px;align-items:center;margin:6px 0">' +
+        '<span class="badge badge-section" style="min-width:2.5em;text-align:center">' + (i + 1) + '</span>' +
+        '<span style="flex:1">' + U.esc(it) + '</span>' +
+        '<button type="button" class="btn btn-ghost" data-ord-up="' + i + '"' + (i === 0 ? " disabled" : "") + '>\u25B2</button>' +
+        '<button type="button" class="btn btn-ghost" data-ord-down="' + i + '"' + (i === order.length - 1 ? " disabled" : "") + '>\u25BC</button>' +
+        '</div>';
+    }).join("") + '</div>';
+  }
+
+  function renderOrdering(q, val) {
+    let order;
+    if (Array.isArray(val) && val.length) order = val.slice();
+    else { order = U.shuffleStable((q.id || q.text) + "-o", q.items || []); st.answers[st.current] = order.slice(); }
+    return renderOrderingList(order);
+  }
+
+  function renderClassification(q, val) {
+    const cats = q.categories || [];
+    const obj = (val && typeof val === "object" && !Array.isArray(val)) ? val : {};
+    return '<div class="cls-wrap">' + (q.items || []).map(function (it) {
+      return '<div class="cls-row" style="display:flex;gap:8px;align-items:center;margin:6px 0">' +
+        '<span style="flex:1">' + U.esc(it.text) + '</span>' +
+        '<select class="cls-sel" data-cls="' + U.esc(it.text) + '">' +
+        '<option value="">- \u0627\u062e\u062a\u0631 -</option>' +
+        cats.map(function (c) {
+          return '<option value="' + U.esc(c) + '"' + (obj[it.text] === c ? " selected" : "") + '>' + U.esc(c) + '</option>';
+        }).join("") +
+        '</select></div>';
+    }).join("") + '</div>';
+  }
+
+  function renderComparison(q, val) {
+    const cols = q.columns || [];
+    const rows = q.rows || [];
+    const blanks = q.blanks || [];
+    const obj = (val && typeof val === "object" && !Array.isArray(val)) ? val : {};
+    function isBlank(r, c) {
+      return blanks.some(function (b) { return Number(b[0]) === r && Number(b[1]) === c; });
+    }
+    let html = '<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse">' +
+      '<thead><tr><th style="border:1px solid #ccc;padding:6px">\u0648\u062c\u0647 \u0627\u0644\u0645\u0642\u0627\u0631\u0646\u0629</th>';
+    cols.forEach(function (c) { html += '<th style="border:1px solid #ccc;padding:6px">' + U.esc(c) + '</th>'; });
+    html += '</tr></thead><tbody>';
+    (q.rows || []).forEach(function (row, r) {
+      html += '<tr><td style="border:1px solid #ccc;padding:6px;font-weight:600">' + U.esc(row.criterion) + '</td>';
+      (row.values || []).forEach(function (v, c) {
+        if (isBlank(r, c)) {
+          html += '<td style="border:1px solid #ccc;padding:4px"><input class="cmp-in" data-cmp="' + r + ',' + c + '" value="' + U.esc(obj[r + "," + c] || "") + '" style="width:100%" /></td>';
+        } else {
+          html += '<td style="border:1px solid #ccc;padding:6px">' + U.esc(v) + '</td>';
+        }
+      });
+      html += '</tr>';
+    });
+    return html + '</tbody></table></div>';
+  }
+
+  function renderDiagramLabel(q, val) {
+    const obj = (val && typeof val === "object" && !Array.isArray(val)) ? val : {};
+    return qImageBlock(q) + '<div class="dl-wrap">' + (q.labels || []).map(function (l) {
+      return '<div class="dl-row" style="display:flex;gap:8px;align-items:center;margin:6px 0">' +
+        '<span style="min-width:2.5em;font-weight:600">' + U.esc(l.number) + '</span>' +
+        '<input class="dl-in" data-lbl="' + U.esc(l.number) + '" value="' + U.esc(obj[l.number] || "") + '" placeholder="\u0627\u0644\u0627\u0633\u0645" /></div>';
+    }).join("") + '</div>';
+  }
+
   function renderQuestionBody(q, val) {
-    if (q.type === "mcq" || q.type === "true_false") {
-      const opts = q.type === "true_false" ? ["\u0635\u062d", "\u062e\u0637\u0623"] : q.options;
-      return opts.map(function (o) {
+    const t = q.type;
+    if (t === "mcq" || t === "true_false" || t === "image_mcq") {
+      const opts = t === "true_false" ? ["\u0635\u062d", "\u062e\u0637\u0623"] : (q.options || []);
+      return qImageBlock(q) + opts.map(function (o) {
         const sel = val === o ? " selected" : "";
         return '<div class="opt' + sel + '" data-opt="' + U.esc(o) + '">' +
           '<span class="mark">' + (val === o ? "\u2713" : "") + '</span>' +
           '<span>' + U.esc(o) + '</span></div>';
       }).join("");
     }
-    if (q.type === "multi") {
+    if (t === "multi") {
       const arr = Array.isArray(val) ? val : [];
-      return (q.options || []).map(function (o) {
+      return qImageBlock(q) + (q.options || []).map(function (o) {
         const sel = arr.indexOf(o) >= 0 ? " selected" : "";
         return '<div class="opt' + sel + '" data-multi="' + U.esc(o) + '">' +
           '<span class="mark">' + (arr.indexOf(o) >= 0 ? "\u2713" : "") + '</span>' +
           '<span>' + U.esc(o) + '</span></div>';
       }).join("");
     }
-    if (q.type === "fill_blank") {
-      return '<input id="textAnswer" placeholder="\u0627\u0643\u062a\u0628 \u0625\u062c\u0627\u0628\u062a\u0643" value="' + U.esc(val || "") + '">';
+    if (t === "matching") return qImageBlock(q) + renderMatching(q, val);
+    if (t === "ordering") return qImageBlock(q) + renderOrdering(q, val);
+    if (t === "classification") return qImageBlock(q) + renderClassification(q, val);
+    if (t === "comparison") return qImageBlock(q) + renderComparison(q, val);
+    if (t === "diagram_label") return renderDiagramLabel(q, val);
+    if (t === "fill_blank") {
+      return qImageBlock(q) + '<input id="textAnswer" placeholder="\u0627\u0643\u062a\u0628 \u0625\u062c\u0627\u0628\u062a\u0643" value="' + U.esc(val || "") + '">';
     }
-    return '<textarea id="textAnswer" style="min-height:120px" placeholder="\u0627\u0643\u062a\u0628 \u0625\u062c\u0627\u0628\u062a\u0643...">' + U.esc(val || "") + '</textarea>';
+    return qImageBlock(q) + '<textarea id="textAnswer" style="min-height:120px" placeholder="\u0627\u0643\u062a\u0628 \u0625\u062c\u0627\u0628\u062a\u0643...">' + U.esc(val || "") + '</textarea>';
+  }
+
+  function isAnswered(a) {
+    if (Array.isArray(a)) return a.length > 0;
+    if (a && typeof a === "object") {
+      return Object.keys(a).some(function (k) {
+        return String(a[k] === undefined || a[k] === null ? "" : a[k]) !== "";
+      });
+    }
+    return a !== "" && a !== null && a !== undefined;
   }
 
   function captureCurrent() {
     const q = st.questions[st.current];
-    if (q.type === "mcq" || q.type === "true_false") {
-      const sel = document.querySelector(".opt.selected");
-      if (sel) st.answers[st.current] = sel.dataset.opt;
-    } else if (q.type === "fill_blank" || q.type === "short_answer" || q.type === "essay") {
-      const ta = document.getElementById("textAnswer");
-      if (ta) st.answers[st.current] = ta.value.trim();
+    if (!q) return;
+    const t = q.type;
+    const body = document.getElementById("qBody") || document;
+    if (t === "mcq" || t === "true_false" || t === "image_mcq") {
+      const sel = body.querySelector(".opt.selected");
+      st.answers[st.current] = sel ? sel.getAttribute("data-opt") : "";
+    } else if (t === "multi") {
+      const sel = Array.prototype.slice.call(body.querySelectorAll(".opt.selected"));
+      st.answers[st.current] = sel.map(function (s) { return s.getAttribute("data-opt"); });
+    } else if (t === "matching") {
+      const out = [];
+      body.querySelectorAll(".match-sel").forEach(function (s) { out[Number(s.getAttribute("data-match"))] = s.value; });
+      st.answers[st.current] = out;
+    } else if (t === "classification") {
+      const obj = {};
+      body.querySelectorAll(".cls-sel").forEach(function (s) { obj[s.getAttribute("data-cls")] = s.value; });
+      st.answers[st.current] = obj;
+    } else if (t === "comparison") {
+      const obj = {};
+      body.querySelectorAll(".cmp-in").forEach(function (s) { obj[s.getAttribute("data-cmp")] = s.value.trim(); });
+      st.answers[st.current] = obj;
+    } else if (t === "diagram_label") {
+      const obj = {};
+      body.querySelectorAll(".dl-in").forEach(function (s) { obj[s.getAttribute("data-lbl")] = s.value.trim(); });
+      st.answers[st.current] = obj;
+    } else if (t === "ordering") {
+      if (!Array.isArray(st.answers[st.current])) st.answers[st.current] = [];
+    } else {
+      const box = document.getElementById("textAnswer");
+      if (box) st.answers[st.current] = box.value.trim();
     }
+  }
+
+  function bindOrderingButtons() {
+    const body = document.getElementById("qBody");
+    if (!body) return;
+    body.querySelectorAll("[data-ord-up]").forEach(function (b) {
+      b.addEventListener("click", function () { moveOrder(Number(b.getAttribute("data-ord-up")), -1); });
+    });
+    body.querySelectorAll("[data-ord-down]").forEach(function (b) {
+      b.addEventListener("click", function () { moveOrder(Number(b.getAttribute("data-ord-down")), 1); });
+    });
+  }
+
+  function moveOrder(i, dir) {
+    const q = st.questions[st.current];
+    const order = Array.isArray(st.answers[st.current]) ? st.answers[st.current].slice() : [];
+    const j = i + dir;
+    if (j < 0 || j >= order.length) return;
+    const tmp = order[i]; order[i] = order[j]; order[j] = tmp;
+    st.answers[st.current] = order;
+    const body = document.getElementById("qBody");
+    if (body) {
+      body.innerHTML = qImageBlock(q) + renderOrderingList(order);
+      bindOrderingButtons();
+    }
+    updateNavDots();
   }
 
   function bindExam() {
@@ -682,6 +861,19 @@
         updateNavDots();
       });
     });
+    const qBody = document.getElementById("qBody");
+    if (qBody) {
+      qBody.querySelectorAll(".match-sel").forEach(function (s) {
+        s.addEventListener("change", function () { captureCurrent(); updateNavDots(); });
+      });
+      qBody.querySelectorAll(".cls-sel").forEach(function (s) {
+        s.addEventListener("change", function () { captureCurrent(); updateNavDots(); });
+      });
+      qBody.querySelectorAll(".cmp-in, .dl-in").forEach(function (s) {
+        s.addEventListener("input", function () { captureCurrent(); updateNavDots(); });
+      });
+    }
+    bindOrderingButtons();
     const ta = document.getElementById("textAnswer");
     if (ta) ta.addEventListener("input", function () {
       st.answers[st.current] = ta.value.trim();
@@ -713,9 +905,7 @@
 
   function updateNavDots() {
     document.querySelectorAll(".q-dot").forEach(function (d, i) {
-      const ans = st.answers[i];
-      const answered = Array.isArray(ans) ? ans.length : (ans !== "" && ans !== null && ans !== undefined);
-      d.classList.toggle("answered", answered);
+      d.classList.toggle("answered", isAnswered(st.answers[i]));
     });
   }
 
@@ -724,9 +914,7 @@
    * ============================================================ */
   async function submitExam(auto) {
     if (st.submitted) return;
-    const unanswered = st.answers.filter(function (a) {
-      return Array.isArray(a) ? !a.length : (a === "" || a === null || a === undefined);
-    }).length;
+    const unanswered = st.answers.filter(function (a) { return !isAnswered(a); }).length;
     if (!auto && unanswered > 0) {
       if (!await U.confirm("\u0644\u062f\u064a\u0643 " + unanswered + " \u0633\u0624\u0627\u0644 \u0628\u062f\u0648\u0646 \u0625\u062c\u0627\u0628\u0629. \u0647\u0644 \u062a\u0631\u064a\u062f \u0627\u0644\u062a\u0633\u0644\u064a\u0645\u061f", { yes: "\u062a\u0633\u0644\u064a\u0645" })) return;
     }
@@ -737,21 +925,23 @@
       const pts = Number(q.points) || 1;
       const given = st.answers[i];
       let autoCorrect = null;
-      if (q.type === "mcq" || q.type === "true_false") {
+      if (U.autoGrade) {
+        autoCorrect = U.autoGrade(q, given);
+      } else if (q.type === "mcq" || q.type === "true_false") {
         autoCorrect = given !== "" && U.sameAnswer(given, q.answer);
-      } else if (q.type === "multi") {
-        const g = (given || []).map(U.normalizeArabic).sort().join("|");
-        const c = (Array.isArray(q.answer) ? q.answer : [q.answer]).map(U.normalizeArabic).sort().join("|");
-        autoCorrect = g !== "" && g === c;
-      } else if (q.type === "fill_blank" || q.type === "short_answer") {
-        autoCorrect = U.acceptedAnswers(q.answer).some(function (a) { return U.sameAnswer(a, given); });
-      } else {
-        autoCorrect = null; // essay
       }
       return {
         qIndex: i, type: q.type, text: q.text,
         options: q.options || [], given: given,
         correctAnswer: q.answer, explanation: q.explanation || "",
+        image: q.image || "",
+        pairs: q.pairs || [],
+        items: q.items || [],
+        categories: q.categories || [],
+        columns: q.columns || [],
+        rows: q.rows || [],
+        blanks: q.blanks || [],
+        labels: q.labels || [],
         autoCorrect: autoCorrect, finalCorrect: autoCorrect,
         earned: null, points: pts, teacherNote: ""
       };
@@ -832,8 +1022,8 @@
     const settings = (st.exam && st.exam.settings) || {};
     reviewHTML = '<div class="card"><div class="card-head"><h3>\u0645\u0631\u0627\u062c\u0639\u0629 \u0627\u0644\u0625\u062c\u0627\u0628\u0627\u062a</h3></div>' +
       (sub.answers || []).map(function (a, i) {
-        const givenTxt = Array.isArray(a.given) ? a.given.join(" \u060C ") : (a.given || "-");
-        const ansTxt = Array.isArray(a.correctAnswer) ? a.correctAnswer.join(" \u060C ") : (a.correctAnswer || "-");
+        const givenTxt = U.givenText ? U.givenText(a, a.given) : (Array.isArray(a.given) ? a.given.join(" \u060C ") : (a.given || "-"));
+        const ansTxt = U.answerText ? U.answerText(a) : (Array.isArray(a.correctAnswer) ? a.correctAnswer.join(" \u060C ") : (a.correctAnswer || "-"));
         const ok = a.finalCorrect === true;
         const earnedTxt = (a.earned !== null && a.earned !== undefined) ? a.earned : (ok ? a.points : 0);
         return '<div class="grade-answer ' + (ok ? "correct" : "wrong") + '">' +

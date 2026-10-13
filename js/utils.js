@@ -4,12 +4,23 @@
 
   const TYPE_LABELS = {
     mcq: "اختيار من متعدد",
-    multi: "متعدد الإجابات",
+    multi: "اختيار متعدد",
     true_false: "صح أو خطأ",
     fill_blank: "أكمل الفراغ",
     short_answer: "إجابة قصيرة",
-    essay: "مقالي"
+    essay: "مقالي",
+    matching: "مطابقة/توصيل",
+    ordering: "ترتيب",
+    classification: "تصنيف",
+    comparison: "جدول مقارنة",
+    diagram_label: "تسمية الرسم",
+    image_mcq: "سؤال على صورة"
   };
+
+  /* الأنماط التي تعتمد على الصور (تحتاج حقل image) */
+  const IMAGE_TYPES = ["diagram_label", "image_mcq"];
+  /* الأنماط التفاعلية الجديدة */
+  const NEW_TYPES = ["matching", "ordering", "classification", "comparison", "diagram_label", "image_mcq"];
 
   const SUBMISSION_STATUS = {
     pending: "قيد التصحيح",
@@ -31,6 +42,8 @@
 
   const utils = {
     TYPE_LABELS: TYPE_LABELS,
+    IMAGE_TYPES: IMAGE_TYPES,
+    NEW_TYPES: NEW_TYPES,
     SUBMISSION_STATUS: SUBMISSION_STATUS,
     SECTION_ORDER: SECTION_ORDER,
     SECTION_TARGETS: SECTION_TARGETS,
@@ -267,6 +280,143 @@
       return s ? '<span class="badge badge-section">' + utils.esc(s) + "</span>" : "";
     },
 
+    /* هل النمط يعتمد على صورة؟ */
+    isImageType: function (type) { return IMAGE_TYPES.indexOf(type) >= 0; },
+
+    /* توحيد قائمة عناصر (نصوص أو كائنات) */
+    normalizeItemList: function (v) {
+      if (Array.isArray(v)) return v.map(function (x) {
+        if (x && typeof x === "object") return _str(x.text || x.label || x.value || x.name);
+        return _str(x);
+      }).filter(Boolean);
+      if (typeof v === "string") return v.split(/[|\n]/).map(_str).filter(Boolean);
+      return [];
+    },
+
+    /* مقارنة متتابعتين نصيّتين (ترتيب حسّاس) */
+    sequenceEqual: function (a, b) {
+      a = Array.isArray(a) ? a : [];
+      b = Array.isArray(b) ? b : [];
+      if (a.length !== b.length) return false;
+      for (let i = 0; i < a.length; i++) {
+        if (!utils.sameAnswer(a[i], b[i])) return false;
+      }
+      return true;
+    },
+
+    /* تجزئة نصية بسيطة (لتوليد ترتيب ثابت) */
+    hashStr: function (s) {
+      s = String(s || "");
+      let h = 5381;
+      for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0;
+      return h;
+    },
+
+    /* خلط ثابت (نفس المدخل يعطي نفس الترتيب) */
+    shuffleStable: function (seed, arr) {
+      arr = (arr || []).slice();
+      const h = utils.hashStr(seed);
+      return arr.map(function (v, i) {
+        return { v: v, k: (utils.hashStr(h + "|" + i + "|" + v) + i) >>> 0 };
+      }).sort(function (a, b) { return a.k - b.k; }).map(function (x) { return x.v; });
+    },
+
+    /* النص القابل للقراءة للإجابة النموذجية حسب النوع */
+    answerText: function (q) {
+      if (!q) return "-";
+      const t = q.type;
+      if (t === "matching") {
+        return (q.pairs || []).map(function (p) { return _str(p.left) + " ← " + _str(p.right); }).join(" ، ");
+      }
+      if (t === "ordering") return utils.normalizeItemList(q.items).join(" ← ") || "-";
+      if (t === "classification") {
+        const items = Array.isArray(q.items) ? q.items : [];
+        return items.length ? items.map(function (x) { return _str(x.text) + " ← " + _str(x.category); }).join(" ، ") : "-";
+      }
+      if (t === "comparison") {
+        const obj = (q.answer && typeof q.answer === "object") ? q.answer : {};
+        const parts = [];
+        (q.rows || []).forEach(function (row, r) {
+          (q.blanks || []).forEach(function (c) {
+            if (Array.isArray(c) && Number(c[0]) === r) {
+              parts.push("ق" + (r + 1) + ": " + ((q.rows[r].values || [])[c[1]] || ""));
+            }
+          });
+        });
+        return parts.length ? parts.join(" ، ") : "-";
+      }
+      if (q.type === "diagram_label") {
+        return (q.labels || []).map(function (l) { return (l.number || "") + ": " + (l.answer || ""); }).join(" ، ");
+      }
+      if (Array.isArray(q.answer)) return q.answer.join(" ، ");
+      return _str(q.answer) || "-";
+    },
+
+    /* النص القابل للقراءة لإجابة الطالب حسب النوع */
+    givenText: function (q, given) {
+      if (given === null || given === undefined || given === "") return "-";
+      const t = q ? q.type : "";
+      if (t === "matching") {
+        const pairs = (q.pairs || []);
+        const arr = Array.isArray(given) ? given : [];
+        return pairs.map(function (p, i) { return p.left + " ← " + (arr[i] || "-"); }).join(" ، ") || "-";
+      }
+      if (t === "ordering") return (Array.isArray(given) ? given : []).join(" ← ") || "-";
+      if (t === "classification") {
+        const obj = given && typeof given === "object" ? given : {};
+        const keys = Object.keys(obj);
+        return keys.length ? keys.map(function (k) { return k + " ← " + obj[k]; }).join(" ، ") : "-";
+      }
+      if (t === "comparison") {
+        const obj = given && typeof given === "object" ? given : {};
+        const parts = [];
+        Object.keys(obj).forEach(function (r) {
+          const cells = obj[r] || {};
+          Object.keys(cells).forEach(function (c) { parts.push("ق" + (Number(r) + 1) + ": " + cells[c]); });
+        });
+        return parts.length ? parts.join(" ، ") : "-";
+      }
+      if (t === "diagram_label") {
+        const obj = given && typeof given === "object" ? given : {};
+        const keys = Object.keys(obj);
+        return keys.length ? keys.map(function (k) { return k + ": " + obj[k]; }).join(" ، ") : "-";
+      }
+      if (Array.isArray(given)) return given.join(" ، ");
+      return String(given);
+    },
+
+    /* التصحيح الآلي حسب النوع: true/false أو null (يدوي) */
+    autoGrade: function (q, given) {
+      if (!q) return null;
+      const t = q.type;
+      if (t === "mcq" || t === "true_false" || t === "image_mcq") {
+        return given !== "" && given !== undefined && given !== null && utils.sameAnswer(given, q.answer);
+      }
+      if (t === "multi") {
+        const g = (given || []).map(utils.normalizeArabic).sort().join("|");
+        const c = (Array.isArray(q.answer) ? q.answer : [q.answer]).map(utils.normalizeArabic).sort().join("|");
+        return g !== "" && g === c;
+      }
+      if (t === "fill_blank" || t === "short_answer") {
+        return utils.acceptedAnswers(q.answer).some(function (a) { return utils.sameAnswer(a, given); });
+      }
+      if (t === "matching") {
+        const correct = (q.pairs || []).map(function (p) { return p.right; });
+        return Array.isArray(given) && given.length > 0 && correct.length > 0 && utils.sequenceEqual(given, correct);
+      }
+      if (t === "ordering") {
+        const correct = utils.normalizeItemList(q.items);
+        return Array.isArray(given) && correct.length > 0 && utils.sequenceEqual(given, correct);
+      }
+      if (t === "classification" || t === "comparison" || t === "diagram_label") {
+        const ans = (q.answer && typeof q.answer === "object" && !Array.isArray(q.answer)) ? q.answer : {};
+        const keys = Object.keys(ans);
+        const g = (given && typeof given === "object") ? given : {};
+        return keys.length > 0 && keys.every(function (k) { return utils.sameAnswer(g[k], ans[k]); });
+      }
+      return null; // essay
+    },
+
     /* نص/مقطع: توحيد الشكل إلى {title, text, notes} */
     normalizePassage: function (p) {
       if (!p) return null;
@@ -356,6 +506,44 @@
           at: new Date().toISOString()
         });
       } catch (e) { }
+    },
+
+    /* قراءة صورة من ملف وتحويلها إلى DataURL مع تصغير الأبعاد (لرمز QR) */
+    fileToDataURL: function (file, maxSize) {
+      maxSize = maxSize || 512;
+      return new Promise(function (resolve, reject) {
+        if (!file) return reject(new Error("لا يوجد ملف"));
+        if (file.type && file.type.indexOf("image/") !== 0) return reject(new Error("الملف ليس صورة"));
+        const reader = new FileReader();
+        reader.onerror = function () { reject(new Error("تعذّر قراءة الملف")); };
+        reader.onload = function () {
+          const img = new Image();
+          img.onerror = function () { reject(new Error("تعذّر فتح الصورة")); };
+          img.onload = function () {
+            let w = img.width, h = img.height;
+            const scale = Math.min(1, maxSize / Math.max(w, h));
+            w = Math.round(w * scale); h = Math.round(h * scale);
+            try {
+              const canvas = document.createElement("canvas");
+              canvas.width = w; canvas.height = h;
+              canvas.getContext("2d").drawImage(img, 0, 0, w, h);
+              resolve(canvas.toDataURL("image/png"));
+            } catch (e) { resolve(reader.result); }
+          };
+          img.src = reader.result;
+        };
+        reader.readAsDataURL(file);
+      });
+    },
+
+    /* هل الاختبار مدفوعاً؟ */
+    isPaidExam: function (exam) { return !!(exam && exam.isPaid); },
+
+    /* مبلغ الاختبار منسّقاً */
+    priceLabel: function (exam) {
+      if (!exam || !exam.isPaid) return "مجاني";
+      const p = Number(exam.price) || 0;
+      return (p > 0 ? p + " " + (exam.currency || "ل.س") : "مدفوع");
     }
   };
 

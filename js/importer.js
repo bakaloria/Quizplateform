@@ -14,12 +14,20 @@
   function normType(t, fallback) {
     t = str(t).toLowerCase();
     if (!t) return fallback || "mcq";
+    if (t.indexOf("diagram") >= 0 || t.indexOf("\u062a\u0633\u0645\u064a\u0629") >= 0) return "diagram_label";
+    if (t.indexOf("image") >= 0 || t.indexOf("\u0635\u0648\u0631\u0629") >= 0) return "image_mcq";
     if (["mcq", "choice", "single", "\u0627\u062e\u062a\u064a\u0627\u0631"].some(function (x) { return t.indexOf(x) >= 0; })) return "mcq";
     if (["multi", "multiple", "\u0645\u062a\u0639\u062f\u062f"].some(function (x) { return t.indexOf(x) >= 0; })) return "multi";
     if (["true", "false", "tf", "\u0635\u062d", "\u062e\u0637\u0623", "\u0635\u0648\u0627\u0628"].some(function (x) { return t.indexOf(x) >= 0; })) return "true_false";
     if (["fill", "blank", "\u0641\u0631\u0627\u063a", "\u0623\u0643\u0645\u0644", "\u0627\u0643\u0645\u0644"].some(function (x) { return t.indexOf(x) >= 0; })) return "fill_blank";
     if (["short", "text", "\u0642\u0635\u064a\u0631"].some(function (x) { return t.indexOf(x) >= 0; })) return "short_answer";
     if (["essay", "\u0645\u0642\u0627\u0644\u064a", "\u0645\u0642\u0627\u0644\u0629"].some(function (x) { return t.indexOf(x) >= 0; })) return "essay";
+    if (t.indexOf("matching") >= 0 || t.indexOf("\u0645\u0637\u0627\u0628\u0642") >= 0 || t.indexOf("\u062a\u0648\u0635\u064a\u0644") >= 0 || t.indexOf("\u062a\u0637\u0627\u0628\u0642") >= 0) return "matching";
+    if (t.indexOf("ordering") >= 0 || t.indexOf("\u062a\u0631\u062a\u064a\u0628") >= 0 || t.indexOf("\u0631\u062a\u0651\u0628") >= 0) return "ordering";
+    if (t.indexOf("classification") >= 0 || t.indexOf("\u062a\u0635\u0646\u064a\u0641") >= 0 || t.indexOf("\u0635\u0646") >= 0) return "classification";
+    if (t.indexOf("comparison") >= 0 || t.indexOf("\u0645\u0642\u0627\u0631\u0646") >= 0) return "comparison";
+    if (t.indexOf("diagram") >= 0 || t.indexOf("\u062a\u0633\u0645\u064a\u0629") >= 0 || t.indexOf("\u0631\u0633\u0645") >= 0) return "diagram_label";
+    if (t.indexOf("image") >= 0 || t.indexOf("\u0635\u0648\u0631\u0629") >= 0) return "image_mcq";
     return fallback || "mcq";
   }
 
@@ -140,7 +148,7 @@
       else if (/^(false|\u062e\u0637\u0623|\u062e\u0637\u0627|\u062e\u0627\u0637\u0626|\u0644\u0627|0)$/i.test(a)) answer = "\u062e\u0637\u0623";
       else if (typeof answer === "boolean") answer = answer ? "\u0635\u062d" : "\u062e\u0637\u0623";
       else answer = "";
-    } else if (type === "mcq" || type === "multi") {
+    } else if (type === "mcq" || type === "multi" || type === "image_mcq") {
       if (type === "multi") {
         answer = Array.isArray(answer) ?
           answer.map(function (x) { return resolveMcqAnswer(x, options); }) :
@@ -197,12 +205,131 @@
       )
       : null;
 
+    // ===== الحقول البنيوية للأنماط الجديدة =====
+    const image = str(
+      raw.image || raw.img || raw.picture || raw.figure || raw.image_url ||
+      raw["\u0635\u0648\u0631\u0629"] || raw["\u0627\u0644\u0635\u0648\u0631\u0629"] ||
+      raw["\u0627\u0644\u0634\u0643\u0644"] || meta.image || ""
+    );
+
+    // مطابقة: pairs = [{left,right}]
+    let pairs = [];
+    const rawPairs = raw.pairs || raw.matching || raw.pairs_list || raw["\u0645\u0637\u0627\u0628\u0642\u0629"];
+    if (Array.isArray(rawPairs)) {
+      rawPairs.forEach(function (p) {
+        if (Array.isArray(p)) {
+          if (str(p[0]) && str(p[1])) pairs.push({ left: str(p[0]), right: str(p[1]) });
+        } else if (p && typeof p === "object") {
+          const l = str(p.left || p.a || p.key || p["\u0627\u0644\u0639\u0645\u0648\u062f_\u0627\u0644\u0623\u0648\u0644"]);
+          const r = str(p.right || p.b || p.value || p["\u0627\u0644\u0639\u0645\u0648\u062f_\u0627\u0644\u062b\u0627\u0646\u064a"]);
+          if (l && r) pairs.push({ left: l, right: r });
+        }
+      });
+    } else if (str(rawPairs)) {
+      str(rawPairs).split(/\n|;|\u060c/).map(str).filter(Boolean).forEach(function (line) {
+        const parts = line.split(/[=\u2192:]|<-|=>/);
+        if (parts.length >= 2 && str(parts[0]) && str(parts[1])) {
+          pairs.push({ left: str(parts[0]), right: str(parts[1]) });
+        }
+      });
+    }
+
+    // ترتيب: items = [النصوص بالترتيب الصحيح]
+    let items = [];
+    if (type === "ordering") {
+      items = Array.isArray(raw.items) ? raw.items.map(function (x) {
+        return (x && typeof x === "object") ? str(x.text || x.label || x.value) : str(x);
+      }).filter(Boolean) : toList(raw.items || raw["\u062a\u0631\u062a\u064a\u0628"]);
+    }
+
+    // تصنيف: categories + items = [{text,category}]
+    let categories = [];
+    if (type === "classification") {
+      const rc = raw.categories || raw["\u0627\u0644\u0641\u0626\u0627\u062a"] || raw["\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0627\u062a"];
+      categories = Array.isArray(rc) ? rc.map(str).filter(Boolean) : toList(rc);
+      const ri = raw.items || raw["\u0627\u0644\u0639\u0646\u0627\u0635\u0631"];
+      items = Array.isArray(ri) ? ri.map(function (x) {
+        if (x && typeof x === "object") {
+          return { text: str(x.text || x.item || x.label || x.value), category: str(x.category || x["\u0627\u0644\u0641\u0626\u0629"]) };
+        }
+        return { text: str(x), category: "" };
+      }).filter(function (x) { return x.text; }) : [];
+    }
+
+    // مقارنة: columns + rows=[{criterion,values:[]}] + blanks=[[row,col]]
+    let columns = [];
+    let rows = [];
+    let blanks = [];
+    if (type === "comparison") {
+      const rc = raw.columns || raw["\u0627\u0644\u0623\u0639\u0645\u062f\u0629"];
+      columns = Array.isArray(rc) ? rc.map(str).filter(Boolean) : toList(rc);
+      const rr = raw.rows || raw["\u0627\u0644\u0635\u0641\u0648\u0641"];
+      if (Array.isArray(rr)) {
+        rows = rr.map(function (row) {
+          if (Array.isArray(row)) return { criterion: str(row[0]), values: row.slice(1).map(str) };
+          if (row && typeof row === "object") {
+            return {
+              criterion: str(row.criterion || row.label || row.title || row["\u0627\u0644\u0648\u062c\u0647"]),
+              values: (row.values || row.cells || row["\u0627\u0644\u0642\u064a\u0645"] || []).map(str)
+            };
+          }
+          return null;
+        }).filter(function (x) { return x && x.criterion; });
+      }
+      const rb = raw.blanks || raw["\u0627\u0644\u0641\u0631\u0627\u063a\u0627\u062a"];
+      if (Array.isArray(rb)) {
+        blanks = rb.filter(function (b) { return Array.isArray(b) && b.length >= 2; })
+          .map(function (b) { return [Number(b[0]), Number(b[1])]; })
+          .filter(function (b) { return !isNaN(b[0]) && !isNaN(b[1]); });
+      }
+    }
+
+    // تسمية الرسم: labels=[{number,answer}]
+    let labels = [];
+    if (type === "diagram_label") {
+      const rl = raw.labels || raw["\u0627\u0644\u062a\u0633\u0645\u064a\u0627\u062a"] || raw["\u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a"];
+      if (Array.isArray(rl)) {
+        labels = rl.map(function (l) {
+          if (l && typeof l === "object") {
+            const n = (l.number !== undefined ? l.number : (l.n !== undefined ? l.n : (l.index !== undefined ? l.index : "")));
+            return { number: str(n), answer: str(l.answer || l.text || l.label || l.value) };
+          }
+          return null;
+        }).filter(function (l) { return l && l.answer; });
+      }
+    }
+
+    // إجابات موحّدة للأنماط الجديدة
+    if (type === "matching") answer = pairs.map(function (p) { return p.right; });
+    else if (type === "ordering") answer = items.slice();
+    else if (type === "classification") {
+      answer = {};
+      items.forEach(function (it) { answer[it.text] = it.category; });
+    } else if (type === "comparison") {
+      answer = {};
+      blanks.forEach(function (b) {
+        const row = rows[b[0]];
+        if (row && row.values && row.values[b[1]] !== undefined) answer[b[0] + "," + b[1]] = str(row.values[b[1]]);
+      });
+    } else if (type === "diagram_label") {
+      answer = {};
+      labels.forEach(function (l) { answer[l.number] = l.answer; });
+    }
+
     // إزالة undefined
     const result = {
       type: type,
       text: text,
       options: options,
       answer: answer,
+      image: image,
+      pairs: pairs,
+      items: items,
+      categories: categories,
+      columns: columns,
+      rows: rows,
+      blanks: blanks,
+      labels: labels,
       difficulty: normDifficulty(raw.difficulty || raw.level || raw["\u0627\u0644\u0645\u0633\u062a\u0648\u0649"]),
       tags: toList(raw.tags || raw["\u0648\u0633\u0648\u0645"]),
       explanation: str(raw.explanation || raw["\u0627\u0644\u0634\u0631\u062d"] || raw["\u062a\u0639\u0644\u064a\u0644"]),
@@ -221,7 +348,8 @@
   function validate(q) {
     const errs = [];
     if (!q.text) errs.push("\u0646\u0635 \u0627\u0644\u0633\u0624\u0627\u0644 \u0645\u0641\u0642\u0648\u062f");
-    if (q.type === "mcq" || q.type === "multi") {
+    if (q.type === "mcq" || q.type === "multi" || q.type === "image_mcq") {
+      if (q.type === "image_mcq" && !q.image) errs.push("\u0627\u0644\u0635\u0648\u0631\u0629 \u0645\u0641\u0642\u0648\u062f\u0629");
       if (!q.options || q.options.length < 2) errs.push("\u0639\u062f\u062f \u0627\u0644\u062e\u064a\u0627\u0631\u0627\u062a \u0623\u0642\u0644 \u0645\u0646 2");
       if (!q.answer || (Array.isArray(q.answer) && !q.answer.length)) errs.push("\u0627\u0644\u0625\u062c\u0627\u0628\u0629 \u0645\u0641\u0642\u0648\u062f\u0629");
       else if (q.options && q.options.length) {
@@ -231,6 +359,11 @@
         });
       }
     }
+    if (q.type === "matching" && (!q.pairs || q.pairs.length < 2)) errs.push("\u0623\u0632\u0648\u0627\u062c \u0627\u0644\u0645\u0637\u0627\u0628\u0642\u0629 \u063a\u064a\u0631 \u0643\u0627\u0641\u064a\u0629");
+    if (q.type === "ordering" && (!q.items || q.items.length < 2)) errs.push("\u0639\u0646\u0627\u0635\u0631 \u0627\u0644\u062a\u0631\u062a\u064a\u0628 \u063a\u064a\u0631 \u0643\u0627\u0641\u064a\u0629");
+    if (q.type === "classification" && (!q.categories || q.categories.length < 2 || !q.items || !q.items.length)) errs.push("\u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u062a\u0635\u0646\u064a\u0641 \u063a\u064a\u0631 \u0645\u0643\u062a\u0645\u0644\u0629");
+    if (q.type === "comparison" && (!q.rows || !q.rows.length)) errs.push("\u0635\u0641\u0648\u0641 \u0627\u0644\u0645\u0642\u0627\u0631\u0646\u0629 \u0645\u0641\u0642\u0648\u062f\u0629");
+    if (q.type === "diagram_label" && (!q.image || !q.labels || !q.labels.length)) errs.push("\u0628\u064a\u0627\u0646\u0627\u062a \u062a\u0633\u0645\u064a\u0629 \u0627\u0644\u0631\u0633\u0645 \u063a\u064a\u0631 \u0645\u0643\u062a\u0645\u0644\u0629");
     if ((q.type === "fill_blank" || q.type === "short_answer") && !str(q.answer)) {
       errs.push("\u0627\u0644\u0625\u062c\u0627\u0628\u0629 \u0645\u0641\u0642\u0648\u062f\u0629");
     }

@@ -347,8 +347,9 @@
       '</div>';
 
     const cards = (sub.answers || []).map(function (a, idx) {
-      const givenTxt = Array.isArray(a.given) ? a.given.join(" \u060c ") : (a.given || "-");
-      const ansTxt = Array.isArray(a.correctAnswer) ? a.correctAnswer.join(" \u060c ") : (a.correctAnswer || "-");
+      const givenTxt = U.givenText ? U.givenText(a, a.given) : (Array.isArray(a.given) ? a.given.join(" \u060c ") : (a.given || "-"));
+      const ansTxt = U.answerText ? U.answerText(a) : (Array.isArray(a.correctAnswer) ? a.correctAnswer.join(" \u060c ") : (a.correctAnswer || "-"));
+      const showModel = ["essay", "short_answer", "fill_blank", "matching", "ordering", "classification", "comparison", "diagram_label"].indexOf(a.type) >= 0;
       const hasSuggestion = a.autoCorrect !== null && a.autoCorrect !== undefined;
       const suggested = a.autoCorrect === true;
       const currentScore = (a.earned !== null && a.earned !== undefined) ? a.earned : null;
@@ -369,10 +370,12 @@
 
         '<div class="q-text">' + U.esc(a.text || "") + '</div>' +
 
+        (a.image ? '<div style="text-align:center;margin:8px 0"><img src="' + U.esc(a.image) + '" alt="" style="max-width:100%;border-radius:8px;border:1px solid #ddd" /></div>' : "") +
+
         '<div class="answer-block"><div class="label">\u0625\u062c\u0627\u0628\u0629 \u0627\u0644\u0637\u0627\u0644\u0628:</div>' +
         '<div class="value">' + U.esc(givenTxt) + '</div></div>' +
 
-        (a.type === "essay" || a.type === "short_answer" || a.type === "fill_blank" ?
+        (showModel ?
           '<div class="answer-block"><div class="label">\u0627\u0644\u0625\u062c\u0627\u0628\u0629 \u0627\u0644\u0646\u0645\u0648\u0630\u062c\u064a\u0629:</div>' +
           '<div class="value" style="color:var(--success)">' + U.esc(ansTxt) + '</div></div>' : "") +
 

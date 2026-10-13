@@ -91,6 +91,15 @@
         unitTitle: q.unitTitle || "",
         lessonTitle: q.lessonTitle || "",
         passage: q.passage || null,
+        lessonNumber: q.lessonNumber !== undefined ? q.lessonNumber : null,
+        image: q.image || "",
+        pairs: q.pairs || [],
+        items: q.items || [],
+        categories: q.categories || [],
+        columns: q.columns || [],
+        rows: q.rows || [],
+        blanks: q.blanks || [],
+        labels: q.labels || [],
         createdAt: FV.serverTimestamp()
       });
       return ref.id;
@@ -115,6 +124,15 @@
           unitTitle: q.unitTitle || "",
           lessonTitle: q.lessonTitle || "",
           passage: q.passage || null,
+          lessonNumber: q.lessonNumber !== undefined ? q.lessonNumber : null,
+          image: q.image || "",
+          pairs: q.pairs || [],
+          items: q.items || [],
+          categories: q.categories || [],
+          columns: q.columns || [],
+          rows: q.rows || [],
+          blanks: q.blanks || [],
+          labels: q.labels || [],
           createdAt: FV.serverTimestamp()
         });
         count++;
@@ -132,7 +150,16 @@
         unitNumber: q.unitNumber !== undefined ? q.unitNumber : null,
         unitTitle: q.unitTitle || "",
         lessonTitle: q.lessonTitle || "",
-        passage: q.passage || null
+        passage: q.passage || null,
+        lessonNumber: q.lessonNumber !== undefined ? q.lessonNumber : null,
+        image: q.image || "",
+        pairs: q.pairs || [],
+        items: q.items || [],
+        categories: q.categories || [],
+        columns: q.columns || [],
+        rows: q.rows || [],
+        blanks: q.blanks || [],
+        labels: q.labels || []
       });
     },
     deleteQuestion: async function (id) {
@@ -213,6 +240,11 @@
         filterCriteria: data.filterCriteria || null,
         openAt: data.openAt || null,
         closeAt: data.closeAt || null,
+        /* الإعداد المالي: اختبار مجاني أو مدفوع مع السعر وصورة رمز الدفع QR */
+        isPaid: !!data.isPaid,
+        price: Number(data.price) || 0,
+        currency: data.currency || "ل.س",
+        qrImage: data.qrImage || "",
         createdAt: FV.serverTimestamp()
       });
       await col.examCodes.doc(code).set({ examId: ref.id, code: code, createdAt: FV.serverTimestamp() });
@@ -221,6 +253,16 @@
     updateExam: async function (id, data) {
       const totalPoints = (data.questions || []).reduce(function (s, q) { return s + (Number(q.points) || 1); }, 0);
       await col.exams.doc(id).update(Object.assign({}, data, { totalPoints: totalPoints }));
+    },
+    /* تحديث جزئي لبيانات الاختبار دون المساس بالأسئلة/النقاط */
+    updateExamMeta: async function (id, patch) {
+      const allowed = ["isPaid", "price", "currency", "qrImage", "title", "description", "durationMin", "status", "targetGroups", "openAt", "closeAt"];
+      const clean = {};
+      Object.keys(patch || {}).forEach(function (k) {
+        if (allowed.indexOf(k) >= 0) clean[k] = patch[k];
+      });
+      if (!Object.keys(clean).length) return;
+      await col.exams.doc(id).update(clean);
     },
     setExamStatus: async function (id, status) {
       await col.exams.doc(id).update({ status: status });
