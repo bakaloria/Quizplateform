@@ -5,7 +5,7 @@
 
   const SUBJECT_NAME = "الفلسفة";
   const SEED_FLAG = "philosophy_v1";
-  const SEED_VERSION = "2";
+  const SEED_VERSION = "3";
   const DATA_URL = "data/philosophy.json";
   const DEFAULT_DESC = "بنك أسئلة الفلسفة — الصف الثالث الثانوي الأدبي (جميع الوحدات)";
 
