@@ -89,6 +89,10 @@
       return { skipped: true, reason: "up-to-date", version: currentVersion };
     }
 
+    const bank = await loadBank();
+    const list = flatten(bank);
+    if (!list.length) throw new Error("البنك فارغ");
+
     const subjects = await S.listSubjects();
     let subject = subjects.find(function (s) { return s.name === SUBJECT_NAME; }) || null;
 
@@ -96,10 +100,6 @@
       await S.deleteSubject(subject.id);
       subject = null;
     }
-
-    const bank = await loadBank();
-    const list = flatten(bank);
-    if (!list.length) throw new Error("البنك فارغ");
 
     if (!subject) {
       const id = await S.addSubject({ name: SUBJECT_NAME, description: bank.description || DEFAULT_DESC });
