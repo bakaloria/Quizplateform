@@ -5,6 +5,7 @@
 
   const SUBJECT_NAME = "الفلسفة";
   const SEED_FLAG = "philosophy_v1";
+  const SEED_VERSION = "2";
   const DATA_URL = "data/philosophy.json";
   const DEFAULT_DESC = "بنك أسئلة الفلسفة — الصف الثالث الثانوي الأدبي (جميع الوحدات)";
 
@@ -81,14 +82,17 @@
   async function install(opts) {
     opts = opts || {};
     const flags = await getFlags();
-    if (flags[SEED_FLAG] && !opts.force) {
-      return { skipped: true, reason: "already-installed" };
+    const current = flags[SEED_FLAG] || null;
+    const currentVersion = current ? String(current.version || "1") : null;
+    const upToDate = currentVersion !== null && currentVersion >= SEED_VERSION;
+    if (upToDate && !opts.force) {
+      return { skipped: true, reason: "up-to-date", version: currentVersion };
     }
 
     const subjects = await S.listSubjects();
     let subject = subjects.find(function (s) { return s.name === SUBJECT_NAME; }) || null;
 
-    if (subject && opts.reset) {
+    if (subject && (opts.reset || current)) {
       await S.deleteSubject(subject.id);
       subject = null;
     }
@@ -107,14 +111,15 @@
       installedAt: new Date().toISOString(),
       count: count,
       subjectId: subject.id,
-      version: "1"
+      version: SEED_VERSION
     });
-    return { skipped: false, count: count, subjectId: subject.id, subjectName: SUBJECT_NAME };
+    return { skipped: false, upgraded: currentVersion !== null, count: count, subjectId: subject.id, subjectName: SUBJECT_NAME };
   }
 
   QP.seed = {
     SUBJECT_NAME: SUBJECT_NAME,
     SEED_FLAG: SEED_FLAG,
+    SEED_VERSION: SEED_VERSION,
     DATA_URL: DATA_URL,
     loadBank: loadBank,
     flatten: flatten,
