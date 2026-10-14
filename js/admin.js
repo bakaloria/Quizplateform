@@ -2353,7 +2353,34 @@ async function renderStudents() {
         /* ============================================================
          * تحديد عدد الأسئلة حسب النوع
          * ============================================================ */
-        const TYPE_ORDER = ["mcq", "multi", "true_false", "fill_blank", "short_answer", "essay"];
+        const TYPE_ORDER = ["mcq", "multi", "true_false", "fill_blank", "short_answer", "essay"]
+          .concat((U.NEW_TYPES && U.NEW_TYPES.length ? U.NEW_TYPES : ["matching", "ordering", "classification", "comparison"]));
+
+        /* حقول الأنواع الجديدة التي يجب نقلها عند اختيار السؤال */
+        const EXTRA_Q_FIELDS = ["pairs", "items", "categories", "columns", "rows", "blanks", "labels", "image", "section"];
+
+        /* بناء كائن السؤال المختار مع كل الحقول (مصدر واحد للحقيقة) */
+        const toChosen = function (q) {
+          const o = {
+            type: q.type,
+            text: q.text,
+            options: q.options || [],
+            answer: q.answer,
+            difficulty: q.difficulty,
+            explanation: q.explanation || "",
+            points: q.points || 1,
+            passage: q.passage || null,
+            tags: q.tags || [],
+            _sourceId: q.id,
+            unitNumber: q.unitNumber,
+            unitTitle: q.unitTitle,
+            lessonTitle: q.lessonTitle
+          };
+          EXTRA_Q_FIELDS.forEach(function (k) {
+            if (q[k] !== undefined) o[k] = q[k];
+          });
+          return o;
+        };
 
         const typePoolForCounts = function () {
           return availableQuestions.filter(function (q) {
@@ -2482,21 +2509,7 @@ async function renderStudents() {
               if (got >= want) return;
               if (selectedIds[q.id]) return;
               selectedIds[q.id] = true;
-              chosen.push({
-                type: q.type,
-                text: q.text,
-                options: q.options || [],
-                answer: q.answer,
-                difficulty: q.difficulty,
-                explanation: q.explanation || "",
-                points: q.points || 1,
-                passage: q.passage || null,
-                tags: q.tags || [],
-                _sourceId: q.id,
-                unitNumber: q.unitNumber,
-                unitTitle: q.unitTitle,
-                lessonTitle: q.lessonTitle
-              });
+              chosen.push(toChosen(q));
               picked.push(q);
               got++;
             });
@@ -3041,21 +3054,7 @@ async function renderStudents() {
 
               if (cb.checked) {
                 selectedIds[q.id] = true;
-                chosen.push({
-                  type: q.type,
-                  text: q.text,
-                  options: q.options || [],
-                  answer: q.answer,
-                  difficulty: q.difficulty,
-                  explanation: q.explanation || "",
-                  points: q.points || 1,
-                  passage: q.passage || null,
-                  tags: q.tags || [],
-                  _sourceId: q.id,
-                  unitNumber: q.unitNumber,
-                  unitTitle: q.unitTitle,
-                  lessonTitle: q.lessonTitle
-                });
+                chosen.push(toChosen(q));
               } else {
                 delete selectedIds[q.id];
                 const idx = chosen.findIndex(function (c) {
