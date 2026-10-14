@@ -300,6 +300,14 @@
               "answer": "",
               "points": 1,
               "difficulty": "medium"
+            },
+            {
+              "type": "essay",
+              "text": "[Essay] Write about a topic related to Life Choices (80+ words).",
+              "options": [],
+              "answer": "",
+              "points": 10,
+              "difficulty": "hard"
             }
           ]
         }
@@ -603,6 +611,14 @@
               "answer": "",
               "points": 1,
               "difficulty": "medium"
+            },
+            {
+              "type": "essay",
+              "text": "[Essay] Write about a topic related to Success (80+ words).",
+              "options": [],
+              "answer": "",
+              "points": 10,
+              "difficulty": "hard"
             }
           ]
         }
@@ -906,6 +922,14 @@
               "answer": "",
               "points": 1,
               "difficulty": "medium"
+            },
+            {
+              "type": "essay",
+              "text": "[Essay] Write about a topic related to Medicine (80+ words).",
+              "options": [],
+              "answer": "",
+              "points": 10,
+              "difficulty": "hard"
             }
           ]
         }
@@ -1209,6 +1233,14 @@
               "answer": "",
               "points": 1,
               "difficulty": "medium"
+            },
+            {
+              "type": "essay",
+              "text": "[Essay] Write about a topic related to Engineering (80+ words).",
+              "options": [],
+              "answer": "",
+              "points": 10,
+              "difficulty": "hard"
             }
           ]
         }
@@ -1512,6 +1544,14 @@
               "answer": "",
               "points": 1,
               "difficulty": "medium"
+            },
+            {
+              "type": "essay",
+              "text": "[Essay] Write about a topic related to Civil Rights (80+ words).",
+              "options": [],
+              "answer": "",
+              "points": 10,
+              "difficulty": "hard"
             }
           ]
         }
@@ -1815,6 +1855,14 @@
               "answer": "",
               "points": 1,
               "difficulty": "medium"
+            },
+            {
+              "type": "essay",
+              "text": "[Essay] Write about a topic related to United Nations (80+ words).",
+              "options": [],
+              "answer": "",
+              "points": 10,
+              "difficulty": "hard"
             }
           ]
         }
@@ -2118,6 +2166,14 @@
               "answer": "",
               "points": 1,
               "difficulty": "medium"
+            },
+            {
+              "type": "essay",
+              "text": "[Essay] Write about a topic related to Microorganisms (80+ words).",
+              "options": [],
+              "answer": "",
+              "points": 10,
+              "difficulty": "hard"
             }
           ]
         }
@@ -2421,6 +2477,14 @@
               "answer": "",
               "points": 1,
               "difficulty": "medium"
+            },
+            {
+              "type": "essay",
+              "text": "[Essay] Write about a topic related to Facts about Human Body (80+ words).",
+              "options": [],
+              "answer": "",
+              "points": 10,
+              "difficulty": "hard"
             }
           ]
         }
@@ -2724,6 +2788,14 @@
               "answer": "",
               "points": 1,
               "difficulty": "medium"
+            },
+            {
+              "type": "essay",
+              "text": "[Essay] Write about a topic related to Citizenship (80+ words).",
+              "options": [],
+              "answer": "",
+              "points": 10,
+              "difficulty": "hard"
             }
           ]
         }
@@ -3027,6 +3099,14 @@
               "answer": "",
               "points": 1,
               "difficulty": "medium"
+            },
+            {
+              "type": "essay",
+              "text": "[Essay] Write about a topic related to Culture Shock (80+ words).",
+              "options": [],
+              "answer": "",
+              "points": 10,
+              "difficulty": "hard"
             }
           ]
         }
@@ -3330,6 +3410,14 @@
               "answer": "",
               "points": 1,
               "difficulty": "medium"
+            },
+            {
+              "type": "essay",
+              "text": "[Essay] Write about a topic related to Artificial Intelligence (80+ words).",
+              "options": [],
+              "answer": "",
+              "points": 10,
+              "difficulty": "hard"
             }
           ]
         }
@@ -3633,6 +3721,14 @@
               "answer": "",
               "points": 1,
               "difficulty": "medium"
+            },
+            {
+              "type": "essay",
+              "text": "[Essay] Write about a topic related to Digital Literacy (80+ words).",
+              "options": [],
+              "answer": "",
+              "points": 10,
+              "difficulty": "hard"
             }
           ]
         }
