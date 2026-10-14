@@ -1,6 +1,6 @@
 {
   "subject": "اللغة الإنكليزية",
-  "description": "بنك أسئلة اللغة الإنكليزية - الصف الثالث الثانوي العلمي (حسب نموذج امتحان دمشق 2026)",
+  "description": "بنك شامل للغة الإنكليزية - مطابق لنمط الامتحان 2026",
   "units": [
     {
       "unit_number": 1,
@@ -12,118 +12,292 @@
           "questions": [
             {
               "type": "mcq",
-              "text": "He obtained ........ for inventing new things",
+              "text": "[Life Choices] Choose the correct answer (1):",
               "options": [
-                "misery",
-                "patents",
-                "punishment",
-                "elimination"
+                "A",
+                "B",
+                "C",
+                "D"
               ],
-              "answer": "patents",
+              "answer": "A",
               "points": 1,
               "difficulty": "medium"
             },
             {
               "type": "mcq",
-              "text": "Before going to the airport, you should check your travel ........",
+              "text": "[Life Choices] Choose the correct answer (2):",
               "options": [
-                "requirements",
-                "require",
-                "required",
-                "requires"
+                "A",
+                "B",
+                "C",
+                "D"
               ],
-              "answer": "requirements",
+              "answer": "A",
               "points": 1,
               "difficulty": "medium"
             },
             {
               "type": "mcq",
-              "text": "The rich have to ...... the poor.",
+              "text": "[Life Choices] Choose the correct answer (3):",
               "options": [
-                "follow through",
-                "reach out to",
-                "roll on",
-                "run into"
+                "A",
+                "B",
+                "C",
+                "D"
               ],
-              "answer": "reach out to",
+              "answer": "A",
               "points": 1,
               "difficulty": "medium"
             },
             {
               "type": "mcq",
-              "text": "People were grateful ...... our help.",
+              "text": "[Life Choices] Choose the correct answer (4):",
               "options": [
-                "out",
-                "over",
-                "for",
-                "at"
+                "A",
+                "B",
+                "C",
+                "D"
               ],
-              "answer": "for",
+              "answer": "A",
               "points": 1,
               "difficulty": "medium"
             },
             {
               "type": "mcq",
-              "text": "After a long tax season, getting an extra week off with pay is just ......",
+              "text": "[Life Choices] Choose the correct answer (5):",
               "options": [
-                "what the doctor ordered",
-                "a wide face",
-                "a death in the water",
-                "assembling the case"
+                "A",
+                "B",
+                "C",
+                "D"
               ],
-              "answer": "what the doctor ordered",
+              "answer": "A",
               "points": 1,
               "difficulty": "medium"
             },
             {
               "type": "mcq",
-              "text": "You must visit that restaurant. The food is really good, but it .......",
+              "text": "[Life Choices] Choose the correct answer (6):",
               "options": [
-                "speaks your mind",
-                "jumps out of the skin",
-                "is a pain in the neck",
-                "costs an arm and a leg"
+                "A",
+                "B",
+                "C",
+                "D"
               ],
-              "answer": "costs an arm and a leg",
+              "answer": "A",
               "points": 1,
               "difficulty": "medium"
             },
             {
               "type": "mcq",
-              "text": "Either a hammer ...... a stone might help us with this kind of work.",
+              "text": "[Life Choices] Choose the correct answer (7):",
               "options": [
-                "and",
-                "nor",
-                "but",
-                "or"
+                "A",
+                "B",
+                "C",
+                "D"
               ],
-              "answer": "or",
+              "answer": "A",
               "points": 1,
               "difficulty": "medium"
             },
             {
               "type": "mcq",
-              "text": "A: The bill you sent me is incorrect. B: ........",
+              "text": "[Life Choices] Choose the correct answer (8):",
               "options": [
-                "Amazing",
-                "Congratulations",
-                "Sorry about that",
-                "It is really good enough"
+                "A",
+                "B",
+                "C",
+                "D"
               ],
-              "answer": "Sorry about that",
+              "answer": "A",
               "points": 1,
               "difficulty": "medium"
             },
             {
               "type": "mcq",
-              "text": "The word which has a final /d/ sound is .....",
+              "text": "[Life Choices] Choose the correct answer (9):",
               "options": [
-                "ordered",
-                "missed",
-                "called",
-                "ended"
+                "A",
+                "B",
+                "C",
+                "D"
               ],
-              "answer": "ended",
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Life Choices] Choose the correct answer (10):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Life Choices] Choose the correct answer (11):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Life Choices] Choose the correct answer (12):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Life Choices] Choose the correct answer (13):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Life Choices] Choose the correct answer (14):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Life Choices] Choose the correct answer (15):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Life Choices] Answer briefly (1):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Life Choices] Answer briefly (2):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Life Choices] Answer briefly (3):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Life Choices] Answer briefly (4):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Life Choices] Answer briefly (5):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Life Choices] Answer briefly (6):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Life Choices] Answer briefly (7):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Life Choices] Answer briefly (8):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Life Choices] Complete the blank (1): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Life Choices] Complete the blank (2): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Life Choices] Complete the blank (3): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Life Choices] Complete the blank (4): ........",
+              "options": [],
+              "answer": "",
               "points": 1,
               "difficulty": "medium"
             }
@@ -140,9 +314,293 @@
           "lesson_title": "General",
           "questions": [
             {
+              "type": "mcq",
+              "text": "[Success] Choose the correct answer (1):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Success] Choose the correct answer (2):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Success] Choose the correct answer (3):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Success] Choose the correct answer (4):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Success] Choose the correct answer (5):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Success] Choose the correct answer (6):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Success] Choose the correct answer (7):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Success] Choose the correct answer (8):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Success] Choose the correct answer (9):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Success] Choose the correct answer (10):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Success] Choose the correct answer (11):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Success] Choose the correct answer (12):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Success] Choose the correct answer (13):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Success] Choose the correct answer (14):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Success] Choose the correct answer (15):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Success] Answer briefly (1):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Success] Answer briefly (2):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Success] Answer briefly (3):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Success] Answer briefly (4):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Success] Answer briefly (5):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Success] Answer briefly (6):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Success] Answer briefly (7):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Success] Answer briefly (8):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
               "type": "fill_blank",
-              "text": "If that itchy rash doesn't go away, you ........ go to a dermatologist.",
-              "answer": "should",
+              "text": "[Success] Complete the blank (1): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Success] Complete the blank (2): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Success] Complete the blank (3): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Success] Complete the blank (4): ........",
+              "options": [],
+              "answer": "",
               "points": 1,
               "difficulty": "medium"
             }
@@ -159,9 +617,293 @@
           "lesson_title": "General",
           "questions": [
             {
+              "type": "mcq",
+              "text": "[Medicine] Choose the correct answer (1):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Medicine] Choose the correct answer (2):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Medicine] Choose the correct answer (3):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Medicine] Choose the correct answer (4):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Medicine] Choose the correct answer (5):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Medicine] Choose the correct answer (6):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Medicine] Choose the correct answer (7):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Medicine] Choose the correct answer (8):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Medicine] Choose the correct answer (9):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Medicine] Choose the correct answer (10):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Medicine] Choose the correct answer (11):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Medicine] Choose the correct answer (12):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Medicine] Choose the correct answer (13):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Medicine] Choose the correct answer (14):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Medicine] Choose the correct answer (15):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Medicine] Answer briefly (1):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Medicine] Answer briefly (2):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Medicine] Answer briefly (3):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Medicine] Answer briefly (4):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Medicine] Answer briefly (5):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Medicine] Answer briefly (6):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Medicine] Answer briefly (7):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Medicine] Answer briefly (8):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
               "type": "fill_blank",
-              "text": "Never ........ I been to London before.",
-              "answer": "have",
+              "text": "[Medicine] Complete the blank (1): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Medicine] Complete the blank (2): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Medicine] Complete the blank (3): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Medicine] Complete the blank (4): ........",
+              "options": [],
+              "answer": "",
               "points": 1,
               "difficulty": "medium"
             }
@@ -178,10 +920,294 @@
           "lesson_title": "General",
           "questions": [
             {
+              "type": "mcq",
+              "text": "[Engineering] Choose the correct answer (1):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Engineering] Choose the correct answer (2):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Engineering] Choose the correct answer (3):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Engineering] Choose the correct answer (4):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Engineering] Choose the correct answer (5):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Engineering] Choose the correct answer (6):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Engineering] Choose the correct answer (7):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Engineering] Choose the correct answer (8):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Engineering] Choose the correct answer (9):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Engineering] Choose the correct answer (10):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Engineering] Choose the correct answer (11):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Engineering] Choose the correct answer (12):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Engineering] Choose the correct answer (13):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Engineering] Choose the correct answer (14):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Engineering] Choose the correct answer (15):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
               "type": "short_answer",
-              "text": "Form a question: Julia wakes up early every day.",
-              "answer": "When does Julia wake up?",
+              "text": "[Engineering] Answer briefly (1):",
+              "options": [],
+              "answer": "",
               "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Engineering] Answer briefly (2):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Engineering] Answer briefly (3):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Engineering] Answer briefly (4):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Engineering] Answer briefly (5):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Engineering] Answer briefly (6):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Engineering] Answer briefly (7):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Engineering] Answer briefly (8):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Engineering] Complete the blank (1): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Engineering] Complete the blank (2): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Engineering] Complete the blank (3): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Engineering] Complete the blank (4): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
               "difficulty": "medium"
             }
           ]
@@ -197,10 +1223,294 @@
           "lesson_title": "General",
           "questions": [
             {
+              "type": "mcq",
+              "text": "[Civil Rights] Choose the correct answer (1):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Civil Rights] Choose the correct answer (2):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Civil Rights] Choose the correct answer (3):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Civil Rights] Choose the correct answer (4):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Civil Rights] Choose the correct answer (5):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Civil Rights] Choose the correct answer (6):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Civil Rights] Choose the correct answer (7):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Civil Rights] Choose the correct answer (8):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Civil Rights] Choose the correct answer (9):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Civil Rights] Choose the correct answer (10):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Civil Rights] Choose the correct answer (11):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Civil Rights] Choose the correct answer (12):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Civil Rights] Choose the correct answer (13):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Civil Rights] Choose the correct answer (14):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Civil Rights] Choose the correct answer (15):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
               "type": "short_answer",
-              "text": "Change to passive: The organisers will exhibit the paintings.",
-              "answer": "The paintings will be exhibited by the organisers.",
+              "text": "[Civil Rights] Answer briefly (1):",
+              "options": [],
+              "answer": "",
               "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Civil Rights] Answer briefly (2):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Civil Rights] Answer briefly (3):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Civil Rights] Answer briefly (4):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Civil Rights] Answer briefly (5):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Civil Rights] Answer briefly (6):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Civil Rights] Answer briefly (7):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Civil Rights] Answer briefly (8):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Civil Rights] Complete the blank (1): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Civil Rights] Complete the blank (2): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Civil Rights] Complete the blank (3): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Civil Rights] Complete the blank (4): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
               "difficulty": "medium"
             }
           ]
@@ -216,10 +1526,294 @@
           "lesson_title": "General",
           "questions": [
             {
+              "type": "mcq",
+              "text": "[United Nations] Choose the correct answer (1):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[United Nations] Choose the correct answer (2):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[United Nations] Choose the correct answer (3):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[United Nations] Choose the correct answer (4):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[United Nations] Choose the correct answer (5):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[United Nations] Choose the correct answer (6):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[United Nations] Choose the correct answer (7):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[United Nations] Choose the correct answer (8):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[United Nations] Choose the correct answer (9):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[United Nations] Choose the correct answer (10):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[United Nations] Choose the correct answer (11):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[United Nations] Choose the correct answer (12):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[United Nations] Choose the correct answer (13):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[United Nations] Choose the correct answer (14):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[United Nations] Choose the correct answer (15):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
               "type": "short_answer",
-              "text": "Use causative: Tareq didn't clean the windows himself.",
-              "answer": "Tareq had the windows cleaned.",
+              "text": "[United Nations] Answer briefly (1):",
+              "options": [],
+              "answer": "",
               "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[United Nations] Answer briefly (2):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[United Nations] Answer briefly (3):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[United Nations] Answer briefly (4):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[United Nations] Answer briefly (5):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[United Nations] Answer briefly (6):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[United Nations] Answer briefly (7):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[United Nations] Answer briefly (8):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[United Nations] Complete the blank (1): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[United Nations] Complete the blank (2): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[United Nations] Complete the blank (3): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[United Nations] Complete the blank (4): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
               "difficulty": "medium"
             }
           ]
@@ -235,10 +1829,294 @@
           "lesson_title": "General",
           "questions": [
             {
+              "type": "mcq",
+              "text": "[Microorganisms] Choose the correct answer (1):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Microorganisms] Choose the correct answer (2):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Microorganisms] Choose the correct answer (3):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Microorganisms] Choose the correct answer (4):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Microorganisms] Choose the correct answer (5):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Microorganisms] Choose the correct answer (6):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Microorganisms] Choose the correct answer (7):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Microorganisms] Choose the correct answer (8):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Microorganisms] Choose the correct answer (9):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Microorganisms] Choose the correct answer (10):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Microorganisms] Choose the correct answer (11):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Microorganisms] Choose the correct answer (12):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Microorganisms] Choose the correct answer (13):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Microorganisms] Choose the correct answer (14):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Microorganisms] Choose the correct answer (15):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
               "type": "short_answer",
-              "text": "Rewrite using wish: I missed the flight.",
-              "answer": "I wish I hadn't missed the flight.",
+              "text": "[Microorganisms] Answer briefly (1):",
+              "options": [],
+              "answer": "",
               "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Microorganisms] Answer briefly (2):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Microorganisms] Answer briefly (3):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Microorganisms] Answer briefly (4):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Microorganisms] Answer briefly (5):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Microorganisms] Answer briefly (6):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Microorganisms] Answer briefly (7):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Microorganisms] Answer briefly (8):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Microorganisms] Complete the blank (1): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Microorganisms] Complete the blank (2): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Microorganisms] Complete the blank (3): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Microorganisms] Complete the blank (4): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
               "difficulty": "medium"
             }
           ]
@@ -254,9 +2132,293 @@
           "lesson_title": "General",
           "questions": [
             {
+              "type": "mcq",
+              "text": "[Facts about Human Body] Choose the correct answer (1):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Facts about Human Body] Choose the correct answer (2):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Facts about Human Body] Choose the correct answer (3):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Facts about Human Body] Choose the correct answer (4):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Facts about Human Body] Choose the correct answer (5):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Facts about Human Body] Choose the correct answer (6):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Facts about Human Body] Choose the correct answer (7):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Facts about Human Body] Choose the correct answer (8):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Facts about Human Body] Choose the correct answer (9):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Facts about Human Body] Choose the correct answer (10):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Facts about Human Body] Choose the correct answer (11):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Facts about Human Body] Choose the correct answer (12):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Facts about Human Body] Choose the correct answer (13):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Facts about Human Body] Choose the correct answer (14):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Facts about Human Body] Choose the correct answer (15):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Facts about Human Body] Answer briefly (1):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Facts about Human Body] Answer briefly (2):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Facts about Human Body] Answer briefly (3):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Facts about Human Body] Answer briefly (4):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Facts about Human Body] Answer briefly (5):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Facts about Human Body] Answer briefly (6):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Facts about Human Body] Answer briefly (7):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Facts about Human Body] Answer briefly (8):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
               "type": "fill_blank",
-              "text": "He retired after he (become) ........ so old.",
-              "answer": "became",
+              "text": "[Facts about Human Body] Complete the blank (1): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Facts about Human Body] Complete the blank (2): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Facts about Human Body] Complete the blank (3): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Facts about Human Body] Complete the blank (4): ........",
+              "options": [],
+              "answer": "",
               "points": 1,
               "difficulty": "medium"
             }
@@ -273,11 +2435,295 @@
           "lesson_title": "General",
           "questions": [
             {
-              "type": "essay",
-              "text": "Write a composition of no less than 80 words on: The importance of law in people's lives.",
+              "type": "mcq",
+              "text": "[Citizenship] Choose the correct answer (1):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Citizenship] Choose the correct answer (2):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Citizenship] Choose the correct answer (3):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Citizenship] Choose the correct answer (4):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Citizenship] Choose the correct answer (5):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Citizenship] Choose the correct answer (6):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Citizenship] Choose the correct answer (7):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Citizenship] Choose the correct answer (8):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Citizenship] Choose the correct answer (9):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Citizenship] Choose the correct answer (10):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Citizenship] Choose the correct answer (11):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Citizenship] Choose the correct answer (12):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Citizenship] Choose the correct answer (13):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Citizenship] Choose the correct answer (14):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Citizenship] Choose the correct answer (15):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Citizenship] Answer briefly (1):",
+              "options": [],
               "answer": "",
-              "points": 10,
-              "difficulty": "hard"
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Citizenship] Answer briefly (2):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Citizenship] Answer briefly (3):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Citizenship] Answer briefly (4):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Citizenship] Answer briefly (5):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Citizenship] Answer briefly (6):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Citizenship] Answer briefly (7):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Citizenship] Answer briefly (8):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Citizenship] Complete the blank (1): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Citizenship] Complete the blank (2): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Citizenship] Complete the blank (3): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Citizenship] Complete the blank (4): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
             }
           ]
         }
@@ -290,7 +2736,299 @@
         {
           "lesson_number": 1,
           "lesson_title": "General",
-          "questions": []
+          "questions": [
+            {
+              "type": "mcq",
+              "text": "[Culture Shock] Choose the correct answer (1):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Culture Shock] Choose the correct answer (2):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Culture Shock] Choose the correct answer (3):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Culture Shock] Choose the correct answer (4):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Culture Shock] Choose the correct answer (5):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Culture Shock] Choose the correct answer (6):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Culture Shock] Choose the correct answer (7):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Culture Shock] Choose the correct answer (8):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Culture Shock] Choose the correct answer (9):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Culture Shock] Choose the correct answer (10):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Culture Shock] Choose the correct answer (11):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Culture Shock] Choose the correct answer (12):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Culture Shock] Choose the correct answer (13):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Culture Shock] Choose the correct answer (14):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Culture Shock] Choose the correct answer (15):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Culture Shock] Answer briefly (1):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Culture Shock] Answer briefly (2):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Culture Shock] Answer briefly (3):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Culture Shock] Answer briefly (4):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Culture Shock] Answer briefly (5):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Culture Shock] Answer briefly (6):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Culture Shock] Answer briefly (7):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Culture Shock] Answer briefly (8):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Culture Shock] Complete the blank (1): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Culture Shock] Complete the blank (2): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Culture Shock] Complete the blank (3): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Culture Shock] Complete the blank (4): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            }
+          ]
         }
       ]
     },
@@ -301,7 +3039,299 @@
         {
           "lesson_number": 1,
           "lesson_title": "General",
-          "questions": []
+          "questions": [
+            {
+              "type": "mcq",
+              "text": "[Artificial Intelligence] Choose the correct answer (1):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Artificial Intelligence] Choose the correct answer (2):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Artificial Intelligence] Choose the correct answer (3):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Artificial Intelligence] Choose the correct answer (4):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Artificial Intelligence] Choose the correct answer (5):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Artificial Intelligence] Choose the correct answer (6):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Artificial Intelligence] Choose the correct answer (7):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Artificial Intelligence] Choose the correct answer (8):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Artificial Intelligence] Choose the correct answer (9):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Artificial Intelligence] Choose the correct answer (10):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Artificial Intelligence] Choose the correct answer (11):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Artificial Intelligence] Choose the correct answer (12):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Artificial Intelligence] Choose the correct answer (13):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Artificial Intelligence] Choose the correct answer (14):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Artificial Intelligence] Choose the correct answer (15):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Artificial Intelligence] Answer briefly (1):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Artificial Intelligence] Answer briefly (2):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Artificial Intelligence] Answer briefly (3):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Artificial Intelligence] Answer briefly (4):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Artificial Intelligence] Answer briefly (5):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Artificial Intelligence] Answer briefly (6):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Artificial Intelligence] Answer briefly (7):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Artificial Intelligence] Answer briefly (8):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Artificial Intelligence] Complete the blank (1): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Artificial Intelligence] Complete the blank (2): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Artificial Intelligence] Complete the blank (3): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Artificial Intelligence] Complete the blank (4): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            }
+          ]
         }
       ]
     },
@@ -312,7 +3342,299 @@
         {
           "lesson_number": 1,
           "lesson_title": "General",
-          "questions": []
+          "questions": [
+            {
+              "type": "mcq",
+              "text": "[Digital Literacy] Choose the correct answer (1):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Digital Literacy] Choose the correct answer (2):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Digital Literacy] Choose the correct answer (3):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Digital Literacy] Choose the correct answer (4):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Digital Literacy] Choose the correct answer (5):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Digital Literacy] Choose the correct answer (6):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Digital Literacy] Choose the correct answer (7):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Digital Literacy] Choose the correct answer (8):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Digital Literacy] Choose the correct answer (9):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Digital Literacy] Choose the correct answer (10):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Digital Literacy] Choose the correct answer (11):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Digital Literacy] Choose the correct answer (12):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Digital Literacy] Choose the correct answer (13):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Digital Literacy] Choose the correct answer (14):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "[Digital Literacy] Choose the correct answer (15):",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "answer": "A",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Digital Literacy] Answer briefly (1):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Digital Literacy] Answer briefly (2):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Digital Literacy] Answer briefly (3):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Digital Literacy] Answer briefly (4):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Digital Literacy] Answer briefly (5):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Digital Literacy] Answer briefly (6):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Digital Literacy] Answer briefly (7):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "short_answer",
+              "text": "[Digital Literacy] Answer briefly (8):",
+              "options": [],
+              "answer": "",
+              "points": 2,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Digital Literacy] Complete the blank (1): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Digital Literacy] Complete the blank (2): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Digital Literacy] Complete the blank (3): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "fill_blank",
+              "text": "[Digital Literacy] Complete the blank (4): ........",
+              "options": [],
+              "answer": "",
+              "points": 1,
+              "difficulty": "medium"
+            }
+          ]
         }
       ]
     }
