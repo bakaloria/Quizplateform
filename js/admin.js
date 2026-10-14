@@ -3322,12 +3322,12 @@ async function renderStudents() {
       if (!payments.length) {
         body = '<div class="card"><div class="empty-state"><div class="emoji">💳</div>' +
           '<h3>لا توجد طلبات دفع</h3>' +
-          '<p>ستظهر هنا طلبات الطلاب لدفع الاختبارات المدفوعة عبر شام كاش.</p></div></div>';
+          '<p>ستظهر هنا إبلاغات الطلاب عن دفع الاختبارات المدفوعة عبر شام كاش (عبر واتساب).</p></div></div>';
       } else {
         const rows = payments.map(function (p) {
-          const receipt = p.receiptImage
-            ? '<img data-pay-receipt="' + p.id + '" src="' + U.esc(p.receiptImage) + '" title="عرض الوصل" style="height:52px;width:52px;object-fit:cover;border-radius:8px;border:1px solid var(--border);cursor:zoom-in">'
-            : '<span class="tiny muted">—</span>';
+          const proof = p.receiptImage
+            ? '<img data-pay-receipt="' + p.id + '" src="' + U.esc(p.receiptImage) + '" title="عرض الوصل" style="height:44px;width:44px;object-fit:cover;border-radius:8px;border:1px solid var(--border);cursor:zoom-in">'
+            : '<span class="badge badge-muted">📲 واتساب</span>';
           const actions = p.status === "pending"
             ? '<div class="flex" style="gap:6px"><button class="btn btn-primary btn-sm" data-pay-approve="' + p.id + '">✅ تأكيد</button>' +
               '<button class="btn btn-ghost btn-sm" data-pay-reject="' + p.id + '">✕ رفض</button></div>'
@@ -3336,7 +3336,7 @@ async function renderStudents() {
             '<td>' + U.esc(p.studentName || "-") + '</td>' +
             '<td>' + U.esc(p.examTitle || "-") + '<div class="tiny muted">' + U.esc(p.subjectName || "") + '</div></td>' +
             '<td style="white-space:nowrap">' + (Number(p.price) || 0) + " " + U.esc(p.currency || "") + '</td>' +
-            '<td>' + receipt + '</td>' +
+            '<td>' + proof + '</td>' +
             '<td class="tiny">' + whenStr(p.createdAt) + '</td>' +
             '<td style="white-space:nowrap">' + actions + '</td>' +
           '</tr>';
@@ -3345,7 +3345,7 @@ async function renderStudents() {
           '<div class="card-head"><h3>💳 طلبات الدفع</h3>' +
           '<span class="badge ' + (pendingCount ? "badge-warning" : "badge-muted") + '">' + pendingCount + ' معلّق</span></div>' +
           '<div class="table-wrap responsive"><table>' +
-          '<thead><tr><th>الطالب</th><th>الاختبار</th><th>المبلغ</th><th>الوصل</th><th>التاريخ</th><th>الإجراء</th></tr></thead>' +
+          '<thead><tr><th>الطالب</th><th>الاختبار</th><th>المبلغ</th><th>الإبلاغ</th><th>التاريخ</th><th>الإجراء</th></tr></thead>' +
           '<tbody>' + rows + '</tbody></table></div></div>';
       }
       shell("payments", body);

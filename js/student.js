@@ -420,11 +420,11 @@
                 const ok = ps === "approved";
                 const statusHtml = ps
                   ? U.paymentStatusBadge(ps)
-                  : '<span class="badge badge-muted">لم يُرسل الوصل بعد</span>';
+                  : '<span class="badge badge-muted">لم تُبلّغ عن الدفع بعد</span>';
                 return '<div class="paid-box mt" style="border-top:1px dashed var(--border);margin-top:10px;padding-top:10px">' +
                   '<div class="flex" style="justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">' +
                   '<div><div><b>💳 اختبار مدفوع:</b> ' + U.esc(U.priceLabel(e)) + '</div>' +
-                  '<div class="tiny muted">' + (ok ? 'تم تأكيد الدفع — يمكنك بدء الاختبار.' : 'ادفع عبر شام كاش، ثم ارفع صورة الوصل ليؤكده المدير.') + '</div></div>' +
+                  '<div class="tiny muted">' + (ok ? 'تم تأكيد الدفع — يمكنك بدء الاختبار.' : 'ادفع قيمة الاختبار عبر شام كاش، ثم أبلغ المدير عبر واتساب ليؤكّد الدفع.') + '</div></div>' +
                   (e.qrImage
                     ? '<img alt="QR" data-qr-view="' + e.id + '" title="تكبير الرمز" src="' + U.esc(e.qrImage) + '" style="height:96px;width:96px;object-fit:contain;border-radius:10px;border:1px solid var(--border);background:#fff;padding:4px;cursor:zoom-in">'
                     : '<span class="tiny muted">لم يُرفَق رمز الدفع بعد</span>') +
@@ -434,10 +434,10 @@
                     : '<div class="mt-sm" style="border-top:1px solid var(--border);padding-top:8px">' +
                         '<div style="margin-bottom:8px">' + statusHtml + '</div>' +
                         '<div class="flex flex-wrap" style="gap:8px">' +
-                          '<a class="btn btn-sm" target="_blank" rel="noopener" href="' + U.esc(U.paymentWhatsAppLink(e, st.student)) + '" style="background:#25D366;color:#fff;border:none">📲 إبلاغ المدير عبر واتساب</a>' +
-                          '<label class="btn btn-primary btn-sm" style="cursor:pointer;margin:0">📎 رفع وصل الدفع<input type="file" accept="image/*" data-pay-upload="' + e.id + '" style="display:none"></label>' +
+                          '<a class="btn btn-sm" data-pay-whatsapp="' + e.id + '" target="_blank" rel="noopener" href="' + U.esc(U.paymentWhatsAppLink(e, st.student)) + '" style="background:#25D366;color:#fff;border:none">📲 إبلاغ المدير أنني دفعت (واتساب)</a>' +
                         '</div>' +
-                        (ps === "pending" ? '<div class="tiny muted mt-sm">تم إرسال وصلك — بانتظار تأكيد المدير.</div>' : "") +
+                        (ps === "pending" ? '<div class="tiny muted mt-sm">تم إبلاغ المدير — بانتظار تأكيد الدفع.</div>' : "") +
+                        (ps === "rejected" ? '<div class="tiny muted mt-sm">تم رفض الطلب — تواصل مع المدير.</div>' : "") +
                       '</div>') +
                   '</div>';
               })()
@@ -510,12 +510,11 @@
           });
         });
       });
-      document.querySelectorAll("[data-pay-upload]").forEach(function (inp) {
-        inp.addEventListener("change", function () {
-          const examId = inp.dataset.payUpload;
+      document.querySelectorAll("[data-pay-whatsapp]").forEach(function (a) {
+        a.addEventListener("click", function () {
+          const examId = a.dataset.payWhatsapp;
           const exam = exams.find(function (x) { return x.id === examId; });
-          const f = inp.files && inp.files[0];
-          if (exam) submitPaymentReceipt(exam, f);
+          if (exam) sendPaymentNotice(exam);
         });
       });
     } catch (e) {
@@ -536,29 +535,34 @@
   /* ============================================================
    * EXAM FLOW
    * ============================================================ */
-  /* إرسال وصل الدفع (صورة) إلى طلبات المدير للاختبار المدفوع */
-  async function submitPaymentReceipt(exam, file) {
-    if (!file || !st.student) return;
+  /* إبلاغ المدير بالدفع عبر واتساب + تسجيل الطلب ليعتمده المدير داخل التطبيق */
+  async function sendPaymentNotice(exam) {
+    if (!exam || !st.student) return;
     try {
-      U.toast("جارٍ رفع الوصل...", "info", 2000);
-      const img = await U.fileToDataURL(file, 720);
-      await S.createPaymentRequest({
-        examId: exam.id,
-        examTitle: exam.title,
-        subjectId: exam.subjectId,
-        subjectName: exam.subjectName,
-        studentId: st.student.id,
-        studentName: st.student.name,
-        groupId: st.group ? st.group.id : "",
-        price: exam.price,
-        currency: exam.currency,
-        method: "sham_cash",
-        receiptImage: img
+      const list = S.listPaymentRequestsByStudent
+        ? await S.listPaymentRequestsByStudent(st.student.id)
+        : [];
+      const already = (list || []).some(function (p) {
+        return p.examId === exam.id && p.status !== "rejected";
       });
-      U.toast("تم إرسال وصل الدفع — بانتظار تأكيد المدير ✅", "success", 5000);
+      if (!already) {
+        await S.createPaymentRequest({
+          examId: exam.id,
+          examTitle: exam.title,
+          subjectId: exam.subjectId,
+          subjectName: exam.subjectName,
+          studentId: st.student.id,
+          studentName: st.student.name,
+          groupId: st.group ? st.group.id : "",
+          price: exam.price,
+          currency: exam.currency,
+          method: "whatsapp"
+        });
+      }
+      U.toast("تم إبلاغ المدير عبر واتساب ✅ — بانتظار تأكيد الدفع", "success", 5000);
       renderDashboard();
     } catch (e) {
-      U.toast("تعذّر إرسال الوصل: " + (e && e.message || e), "error", 5000);
+      U.toast("تعذّر إرسال الإبلاغ: " + (e && e.message || e), "error", 5000);
     }
   }
 
@@ -567,7 +571,7 @@
     if (exam && exam.isPaid) {
       const okPay = await S.isExamPaidForStudent(examId, st.student.id);
       if (!okPay) {
-        U.toast("🔒 هذا اختبار مدفوع — يجب تأكيد الدفع أولاً. ارفع وصل الدفع وأبلغ المدير عبر واتساب.", "warn", 6000);
+        U.toast("🔒 هذا اختبار مدفوع — يجب تأكيد الدفع أولاً. أبلغ المدير عبر واتساب أنك دفعت المبلغ.", "warn", 6000);
         return;
       }
     }

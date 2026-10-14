@@ -574,7 +574,7 @@
         "\nالاختبار: " + (exam.title || "") +
         "\nالمادة: " + (exam.subjectName || "") +
         "\nالمبلغ: " + (Number(exam.price) || 0) + " " + (exam.currency || "ل.س") +
-        "\nأرفقت صورة وصل الدفع داخل التطبيق.";
+        "\nأرجو تأكيد الدفع ليتم فتح الاختبار لي.";
       return "https://wa.me/" + utils.PAYMENT_WHATSAPP + "?text=" + encodeURIComponent(msg);
     }
   };
