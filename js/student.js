@@ -339,6 +339,8 @@
 
       // حالة طلبات الدفع (اختبار مدفوع): approved/pending/rejected
       const payByExam = await S.approvalMapForStudent(st.student.id);
+      const notifs = S.listNotifications ? await S.listNotifications(st.student.id, 30) : [];
+      const unread = S.countUnreadNotifications ? await S.countUnreadNotifications(st.student.id) : notifs.filter(function (n){return !n.read;}).length;
 
       const available = [];
       const upcoming = [];
@@ -459,7 +461,8 @@
         '<div class="subtitle">\u0645\u062c\u0645\u0648\u0639\u062a\u0643: <b>' + U.esc(group.name) + '</b></div>' +
         '<div class="tiny muted">\u0627\u0644\u0645\u0639\u0644\u0645\u0648\u0646: ' + teachersTxt + '</div>' +
         '</div>' +
-        '<div>' +
+        '<div class="flex" style="gap:8px;align-items:center">' +
+        '<button class="btn btn-sm" id="notifBtn">\uD83D\uDD14 ' + (unread ? '<span class="badge badge-danger">' + unread + '</span>' : '') + '</button>' +
         '<button class="btn btn-sm" id="logoutBtn">\uD83D\uDEAA \u062e\u0631\u0648\u062c</button>' +
         '</div>' +
         '</div>' +
@@ -492,6 +495,28 @@
       );
 
       document.getElementById("logoutBtn").addEventListener("click", doLogout);
+      var nb = document.getElementById("notifBtn");
+      if (nb) {
+        nb.addEventListener("click", function () {
+          var listHtml = (notifs.length ? notifs.map(function (n) {
+            return '<div style="padding:10px 12px;border:1px solid var(--border);border-radius:10px;margin-bottom:8px;' + (n.read ? '' : 'background:var(--primary-soft)') + '">' +
+              '<div style="font-weight:600">' + U.esc(n.title || '\u0625\u0634\u0639\u0627\u0631') + '</div>' +
+              '<div class="tiny muted">' + U.esc(n.body || '') + '</div>' +
+              '</div>';
+          }).join('') : '<div class="empty-state"><div class="emoji">\ud83d\udd14</div><h3>\u0644\u0627 \u062a\u0648\u062c\u062f \u0625\u0634\u0639\u0627\u0631\u0627\u062a</h3></div>');
+          U.modal({
+            title: '\ud83d\udd14 \u0627\u0644\u0625\u0634\u0639\u0627\u0631\u0627\u062a',
+            body: '<div style="max-height:60vh;overflow:auto">' + listHtml + '</div>',
+            footer: '<button class="btn btn-primary btn-sm" id="markAll">\ud83d\udcd6 \u062a\u0639\u0644\u064a\u0645 \u0627\u0644\u0643\u0644 \u0643\u0645\u0642\u0631\u0648\u0621</button>'
+          });
+          setTimeout(function () {
+            var ma = document.getElementById("markAll");
+            if (ma) ma.addEventListener("click", async function () {
+              try { if (S.markAllNotificationsRead) await S.markAllNotificationsRead(st.student.id); U.toast('\u062a\u0645 \u062a\u0639\u0644\u064a\u0645 \u0627\u0644\u0643\u0644 \u0643\u0645\u0642\u0631\u0648\u0621', 'success'); U.closeModal(); renderDashboard(); } catch (e) { U.toast('\u062e\u0637\u0623', 'error'); }
+            });
+          }, 50);
+        });
+      }
       document.querySelectorAll("[data-start]").forEach(function (b) {
         b.addEventListener("click", function () { startExam(b.dataset.start); });
       });

@@ -15,7 +15,8 @@
     groups: db.collection("groups"),
     students: db.collection("students"),
     enrollments: db.collection("enrollments"),
-    payments: db.collection("payments")
+    payments: db.collection("payments"),
+    notifications: db.collection("notifications")
   };
 
   /* ============================================================
@@ -630,8 +631,63 @@
       await col.payments.doc(id).delete();
     },
     countPendingPayments: async function () {
-      const snap = await col.payments.get();
+      const snap = await col.payments.where("status", "==", "pending").get();
       return snapDocs(snap).filter(function (p) { return p.status === "pending"; }).length;
+    },
+
+    /* ============================================================
+     * NOTIFICATIONS - إشعارات الطلاب
+     * ============================================================ */
+    addNotification: async function (data) {
+      const ref = await col.notifications.add(sanitize(Object.assign({
+        type: data.type || "general",
+        title: data.title || "",
+        body: data.body || "",
+        studentId: data.studentId || "",
+        groupId: data.groupId || "",
+        examId: data.examId || "",
+        read: false,
+        createdAt: FV.serverTimestamp()
+      }, data)));
+      return ref.id;
+    },
+    listNotifications: async function (studentId, limit) {
+      if (!studentId) return [];
+      let snap = await col.notifications.where("studentId", "==", studentId).get();
+      let list = snapDocs(snap);
+      list.sort(function (a, b) { return tsOf(b.createdAt) - tsOf(a.createdAt); });
+      if (limit) list = list.slice(0, limit);
+      return list;
+    },
+    listNotificationsByGroup: async function (groupId, limit) {
+      if (!groupId) return [];
+      let snap = await col.notifications.where("groupId", "==", groupId).get();
+      let list = snapDocs(snap);
+      list.sort(function (a, b) { return tsOf(b.createdAt) - tsOf(a.createdAt); });
+      if (limit) list = list.slice(0, limit);
+      return list;
+    },
+    countUnreadNotifications: async function (studentId) {
+      if (!studentId) return 0;
+      const snap = await col.notifications.where("studentId", "==", studentId).where("read", "==", false).get();
+      return snap.size;
+    },
+    markNotificationRead: async function (id) {
+      if (!id) return;
+      await col.notifications.doc(id).update({ read: true });
+    },
+    markAllNotificationsRead: async function (studentId) {
+      if (!studentId) return;
+      const snap = await col.notifications.where("studentId", "==", studentId).where("read", "==", false).get();
+      const batch = db.batch();
+      snap.docs.forEach(function (d) {
+        batch.update(col.notifications.doc(d.id), { read: true });
+      });
+      if (snap.size > 0) await batch.commit();
+    },
+    deleteNotification: async function (id) {
+      if (!id) return;
+      await col.notifications.doc(id).delete();
     },
 
     /* ============================================================

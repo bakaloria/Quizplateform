@@ -1859,9 +1859,20 @@ async function renderStudents() {
     });
   } catch (e) {
     shell("students", errorCard(e));
+    }
+    try {
+      var subBtns = document.querySelectorAll("#resBody [data-del-sub]");
+      for (var i=0;i<subBtns.length;i++) {
+        (function(b){ b.addEventListener("click", async function(){
+          if (!await U.confirm("\u0647\u0644 \u062a\u0631\u064a\u062f \u062d\u0630\u0641 \u0647\u0630\u0647 \u0627\u0644\u0645\u0634\u0627\u0631\u0643\u0629\u061f")) return;
+          b.disabled=true;
+          try{ if(S.deleteSubmission) await S.deleteSubmission(b.dataset.delSub); U.toast("\u062a\u0645 \u0627\u0644\u062d\u0630\u0641","success"); openExamResults(examId);}catch(e){ U.toast("خطأ: "+e.message,"error"); b.disabled=false;}
+        }); })(subBtns[i]);
+      }
+    } catch(e){}
   }
-}
-    /* ============================================================
+
+  /* ============================================================
    * EXAMS - عرض الاختبارات
    * ============================================================ */
   async function renderExams() {
@@ -3279,9 +3290,33 @@ async function renderStudents() {
               await S.updateExam(exam.id, data);
               U.toast("\u062a\u0645 \u0627\u0644\u062a\u062d\u062f\u064a\u062b", "success");
             } else {
-              const r = await S.createExam(data);
-              U.copy(r.code);
-              U.toast("\u062a\u0645 \u0627\u0644\u0625\u0646\u0634\u0627\u0621 \u2014 \u0627\u0644\u0643\u0648\u062f: " + r.code, "success", 6000);
+               const r = await S.createExam(data);
+               U.copy(r.code);
+               /* إرسال إشعارات للطلاب حسب المجموعات المستهدفة */
+               try {
+                 const groups = await S.listGroups();
+                 const target = data.targetGroups || [];
+                 for (var ti = 0; ti < groups.length; ti++) {
+                   var g = groups[ti];
+                   if (target.indexOf("ALL") >= 0 || target.indexOf(g.id) >= 0) {
+                     var sts = g.studentsList || [];
+                     for (var si = 0; si < sts.length; si++) {
+                       var sid = sts[si];
+                       if (sid && sid.id) sid = sid.id;
+                       if (!sid) continue;
+                       await S.addNotification({
+                         type: "exam",
+                         title: "اختبار جديد",
+                         body: "تم نشر اختبار جديد: " + data.title + " — مادة " + data.subjectName,
+                         studentId: sid,
+                         groupId: g.id,
+                         examId: r.id
+                       });
+                     }
+                   }
+                 }
+               } catch (e) { console.warn("[notify] failed", e); }
+               U.toast("\u062a\u0645 \u0627\u0644\u0625\u0646\u0634\u0627\u0621 \u2014 \u0627\u0644\u0643\u0648\u062f: " + r.code, "success", 6000);
             }
             close();
             renderExams();
@@ -3330,8 +3365,10 @@ async function renderStudents() {
             : '<span class="badge badge-muted">📲 واتساب</span>';
           const actions = p.status === "pending"
             ? '<div class="flex" style="gap:6px"><button class="btn btn-primary btn-sm" data-pay-approve="' + p.id + '">✅ تأكيد</button>' +
-              '<button class="btn btn-ghost btn-sm" data-pay-reject="' + p.id + '">✕ رفض</button></div>'
-            : U.paymentStatusBadge(p.status);
+              '<button class="btn btn-ghost btn-sm" data-pay-reject="' + p.id + '">✕ رفض</button>' +
+              '<button class="btn btn-danger btn-sm" data-pay-del="' + p.id + '">🗑️ حذف</button></div>'
+            : '<div class="flex" style="gap:6px">' + U.paymentStatusBadge(p.status) +
+              '<button class="btn btn-danger btn-sm" data-pay-del="' + p.id + '">🗑️ حذف</button></div>';
           return '<tr>' +
             '<td>' + U.esc(p.studentName || "-") + '</td>' +
             '<td>' + U.esc(p.examTitle || "-") + '<div class="tiny muted">' + U.esc(p.subjectName || "") + '</div></td>' +
@@ -3381,6 +3418,17 @@ async function renderStudents() {
               '<img alt="وصل" src="' + U.esc(p.receiptImage || "") + '" style="max-width:340px;width:100%;border-radius:12px;background:#fff;padding:6px">' +
               '</div>'
           });
+        });
+      });
+      document.querySelectorAll("[data-pay-del]").forEach(function (b) {
+        b.addEventListener("click", async function () {
+          if (!await U.confirm("هل تريد حذف طلب الدفع هذا؟")) return;
+          b.disabled = true;
+          try {
+            if (S.deletePaymentRequest) await S.deletePaymentRequest(b.dataset.payDel);
+            U.toast("تم الحذف", "success");
+          } catch (e) { U.toast("خطأ: " + e.message, "error"); b.disabled = false; }
+          renderPayments();
         });
       });
     } catch (e) {
@@ -3457,36 +3505,37 @@ async function renderStudents() {
         ? Math.round(scores.reduce(function (a, b) { return a + b; }, 0) / scores.length)
         : 0;
 
-      const rows = subs.map(function (s, i) {
-        const scoreTxt = (s.score !== null && s.score !== undefined)
-          ? s.score + " / " + s.total : "-";
-        const pctTxt = (s.percent !== null && s.percent !== undefined)
-          ? s.percent + "%" : "-";
-        const pctColor = (s.percent !== null && s.percent !== undefined)
-          ? U.pctColor(s.percent) : "var(--text-3)";
+       const rows = subs.map(function (s, i) {
+         const scoreTxt = (s.score !== null && s.score !== undefined)
+           ? s.score + " / " + s.total : "-";
+         const pctTxt = (s.percent !== null && s.percent !== undefined)
+           ? s.percent + "%" : "-";
+         const pctColor = (s.percent !== null && s.percent !== undefined)
+           ? U.pctColor(s.percent) : "var(--text-3)";
 
-        return "<tr>" +
-          '<td data-label="#">' + (i + 1) + "</td>" +
-          '<td data-label="\u0627\u0644\u0637\u0627\u0644\u0628"><b>' + U.esc(s.studentName || "-") + "</b></td>" +
-          '<td data-label="\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629" class="tiny">' + U.esc(s.groupName || "-") + "</td>" +
-          '<td data-label="\u0627\u0644\u062f\u0631\u062c\u0629">' + scoreTxt + "</td>" +
-          '<td data-label="\u0627\u0644\u0646\u0633\u0628\u0629" style="color:' + pctColor + '"><b>' + pctTxt + "</b></td>" +
-          '<td data-label="\u0627\u0644\u062d\u0627\u0644\u0629">' + U.submissionStatusBadge(s.status) + "</td>" +
-          '<td data-label="\u0627\u0644\u062a\u0627\u0631\u064a\u062e" class="tiny">' + U.formatDate(s.createdAt) + "</td>" +
-          "</tr>";
-      }).join("");
+         return "<tr>" +
+           '<td data-label="#">' + (i + 1) + "</td>" +
+           '<td data-label="\u0627\u0644\u0637\u0627\u0644\u0628"><b>' + U.esc(s.studentName || "-") + "</b></td>" +
+           '<td data-label="\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629" class="tiny">' + U.esc(s.groupName || "-") + "</td>" +
+           '<td data-label="\u0627\u0644\u062f\u0631\u062c\u0629">' + scoreTxt + "</td>" +
+           '<td data-label="\u0627\u0644\u0646\u0633\u0628\u0629" style="color:' + pctColor + '"><b>' + pctTxt + "</b></td>" +
+           '<td data-label="\u0627\u0644\u062d\u0627\u0644\u0629">' + U.submissionStatusBadge(s.status) + "</td>" +
+           '<td data-label="\u0627\u0644\u062a\u0627\u0631\u064a\u062e" class="tiny">' + U.formatDate(s.createdAt) + "</td>" +
+           '<td><button class="btn btn-danger btn-sm" data-del-sub="' + s.id + '">\uD83D\uDDD1\uFE0F حذف</button></td>' +
+           "</tr>";
+       }).join("");
 
-      body.innerHTML =
-        '<div class="stat-grid mb">' +
-        stat("\uD83D\uDC65", subs.length, "\u0627\u0644\u0645\u0634\u0627\u0631\u0643\u0648\u0646") +
-        stat("\u23F3", pending.length, "\u0642\u064a\u062f \u0627\u0644\u062a\u0635\u062d\u064a\u062d") +
-        stat("\u2705", graded.length, "\u0645\u064f\u0635\u062d\u0651\u062d") +
-        stat("\uD83D\uDCCA", avg + "%", "\u0627\u0644\u0645\u062a\u0648\u0633\u0637") +
-        "</div>" +
+       body.innerHTML =
+         '<div class="stat-grid mb">' +
+         stat("\uD83D\uDC65", subs.length, "\u0627\u0644\u0645\u0634\u0627\u0631\u0643\u0648\u0646") +
+         stat("\u23F3", pending.length, "\u0642\u064a\u062f \u0627\u0644\u062a\u0635\u062d\u064a\u062d") +
+         stat("\u2705", graded.length, "\u0645\u064f\u0635\u062d\u0651\u062d") +
+         stat("\uD83D\uDCCA", avg + "%", "\u0627\u0644\u0645\u062a\u0648\u0633\u0637") +
+         "</div>" +
 
-        '<div class="table-wrap responsive"><table><thead><tr>' +
-        '<th>#</th><th>\u0627\u0644\u0637\u0627\u0644\u0628</th><th>\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629</th><th>\u0627\u0644\u062f\u0631\u062c\u0629</th><th>\u0627\u0644\u0646\u0633\u0628\u0629</th><th>\u0627\u0644\u062d\u0627\u0644\u0629</th><th>\u0627\u0644\u062a\u0627\u0631\u064a\u062e</th>' +
-        "</tr></thead><tbody>" + rows + "</tbody></table></div>";
+         '<div class="table-wrap responsive"><table><thead><tr>' +
+         '<th>#</th><th>\u0627\u0644\u0637\u0627\u0644\u0628</th><th>\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629</th><th>\u0627\u0644\u062f\u0631\u062c\u0629</th><th>\u0627\u0644\u0646\u0633\u0628\u0629</th><th>\u0627\u0644\u062d\u0627\u0644\u0629</th><th>\u0627\u0644\u062a\u0627\u0631\u064a\u062e</th><th>\u0627\u0644\u0625\u062c\u0631\u0627\u0621</th>' +
+         "</tr></thead><tbody>" + rows + "</tbody></table></div>";
     } catch (e) {
       body.innerHTML = errorCard(e);
     }
