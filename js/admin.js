@@ -2265,9 +2265,10 @@ async function renderStudents() {
         '<div class="card" style="background:var(--surface-2);padding:14px;border-radius:12px;margin-bottom:14px">' +
         '<div class="flex" style="justify-content:space-between;align-items:center;margin-bottom:8px">' +
         '<h4 style="margin:0">\uD83C\uDFAF \u062a\u062d\u062f\u064a\u062f \u0639\u062f\u062f \u0627\u0644\u0623\u0633\u0626\u0644\u0629 \u062d\u0633\u0628 \u0627\u0644\u0646\u0648\u0639</h4>' +
-        '<div class="flex" style="gap:6px">' +
-        '<button type="button" class="btn-mini" id="typeModelPreset" title="8 \u0627\u062e\u062a\u064a\u0627\u0631 + 13 \u0642\u0635\u064a\u0631\u0629 + 6 \u0641\u0631\u0627\u063a\u0627\u062a + 2 \u0645\u0642\u0627\u0644\u064a">\uD83D\uDCCB \u062a\u0648\u0632\u064a\u0639 \u0627\u0644\u0646\u0645\u0648\u0630\u062c</button>' +
-        '<button type="button" class="btn-mini" id="typeCountAuto">\u2696\uFE0F \u062a\u0648\u0632\u064a\u0639 \u0645\u062a\u0648\u0627\u0632\u0646</button>' +
+        '<div class="flex" style="gap:6px;flex-wrap:wrap">' +
+        '<button type="button" class="btn-mini" id="typeModelPreset" title="8 اختيار + 13 قصيرة + 6 فراغات + 2 مقالي">📋 توزيع النموذج</button>' +
+        '<button type="button" class="btn-mini" id="officialEnSciPreset" title="نموذج اللغة الإنكليزية - الفرع العلمي - دمشق 2026">📑 نموذج إنجليزي علمي 2026</button>' +
+        '<button type="button" class="btn-mini" id="typeCountAuto">⚖️ توزيع متوازن</button>' +
         "</div>" +
         "</div>" +
         '<div id="typeCountBox" class="mb"></div>' +
@@ -3194,6 +3195,21 @@ async function renderStudents() {
             ? "توزيع النموذج: 8 اختيار + 13 قصيرة + 6 فراغات + 2 مقالي — اضغط «جلب حسب الأنواع»"
             : "لا توجد صفوف أنواع مطابقة — اختر المادة أولاً", applied ? "success" : "warn", 4500);
         });
+
+        const $enSci = node.querySelector("#officialEnSciPreset");
+        if ($enSci) {
+          $enSci.addEventListener("click", function () {
+            const preset = { mcq: 19, short_answer: 22, fill_blank: 9, true_false: 0, multi: 0, matching: 0, ordering: 0, classification: 0, comparison: 0, essay: 1 };
+            let applied = 0;
+            Object.keys(preset).forEach(function (t) {
+              const el = node.querySelector('[data-tcount="' + t + '"]');
+              if (el) { el.value = String(preset[t]); applied++; }
+            });
+            U.toast(applied
+              ? "نموذج إنجليزي - علمي - دمشق 2026: Mcq19 + Short22 + FillBlank9 + Essay1 — اضغط «جلب حسب الأنواع»"
+              : "لا توجد صفوف أنواع مطابقة — اختر المادة أولاً", applied ? "success" : "warn", 5000);
+          });
+        }
 
         /* ============================================================
          * تحديد الكل / مسح التحديد
