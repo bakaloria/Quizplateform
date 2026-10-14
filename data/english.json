@@ -1,0 +1,320 @@
+{
+  "subject": "اللغة الإنكليزية",
+  "description": "بنك أسئلة اللغة الإنكليزية - الصف الثالث الثانوي العلمي (حسب نموذج امتحان دمشق 2026)",
+  "units": [
+    {
+      "unit_number": 1,
+      "unit_title": "Life Choices",
+      "lessons": [
+        {
+          "lesson_number": 1,
+          "lesson_title": "General",
+          "questions": [
+            {
+              "type": "mcq",
+              "text": "He obtained ........ for inventing new things",
+              "options": [
+                "misery",
+                "patents",
+                "punishment",
+                "elimination"
+              ],
+              "answer": "patents",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "Before going to the airport, you should check your travel ........",
+              "options": [
+                "requirements",
+                "require",
+                "required",
+                "requires"
+              ],
+              "answer": "requirements",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "The rich have to ...... the poor.",
+              "options": [
+                "follow through",
+                "reach out to",
+                "roll on",
+                "run into"
+              ],
+              "answer": "reach out to",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "People were grateful ...... our help.",
+              "options": [
+                "out",
+                "over",
+                "for",
+                "at"
+              ],
+              "answer": "for",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "After a long tax season, getting an extra week off with pay is just ......",
+              "options": [
+                "what the doctor ordered",
+                "a wide face",
+                "a death in the water",
+                "assembling the case"
+              ],
+              "answer": "what the doctor ordered",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "You must visit that restaurant. The food is really good, but it .......",
+              "options": [
+                "speaks your mind",
+                "jumps out of the skin",
+                "is a pain in the neck",
+                "costs an arm and a leg"
+              ],
+              "answer": "costs an arm and a leg",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "Either a hammer ...... a stone might help us with this kind of work.",
+              "options": [
+                "and",
+                "nor",
+                "but",
+                "or"
+              ],
+              "answer": "or",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "A: The bill you sent me is incorrect. B: ........",
+              "options": [
+                "Amazing",
+                "Congratulations",
+                "Sorry about that",
+                "It is really good enough"
+              ],
+              "answer": "Sorry about that",
+              "points": 1,
+              "difficulty": "medium"
+            },
+            {
+              "type": "mcq",
+              "text": "The word which has a final /d/ sound is .....",
+              "options": [
+                "ordered",
+                "missed",
+                "called",
+                "ended"
+              ],
+              "answer": "ended",
+              "points": 1,
+              "difficulty": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number": 2,
+      "unit_title": "Success",
+      "lessons": [
+        {
+          "lesson_number": 1,
+          "lesson_title": "General",
+          "questions": [
+            {
+              "type": "fill_blank",
+              "text": "If that itchy rash doesn't go away, you ........ go to a dermatologist.",
+              "answer": "should",
+              "points": 1,
+              "difficulty": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number": 3,
+      "unit_title": "Medicine",
+      "lessons": [
+        {
+          "lesson_number": 1,
+          "lesson_title": "General",
+          "questions": [
+            {
+              "type": "fill_blank",
+              "text": "Never ........ I been to London before.",
+              "answer": "have",
+              "points": 1,
+              "difficulty": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number": 4,
+      "unit_title": "Engineering",
+      "lessons": [
+        {
+          "lesson_number": 1,
+          "lesson_title": "General",
+          "questions": [
+            {
+              "type": "short_answer",
+              "text": "Form a question: Julia wakes up early every day.",
+              "answer": "When does Julia wake up?",
+              "points": 2,
+              "difficulty": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number": 5,
+      "unit_title": "Civil Rights",
+      "lessons": [
+        {
+          "lesson_number": 1,
+          "lesson_title": "General",
+          "questions": [
+            {
+              "type": "short_answer",
+              "text": "Change to passive: The organisers will exhibit the paintings.",
+              "answer": "The paintings will be exhibited by the organisers.",
+              "points": 2,
+              "difficulty": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number": 6,
+      "unit_title": "United Nations",
+      "lessons": [
+        {
+          "lesson_number": 1,
+          "lesson_title": "General",
+          "questions": [
+            {
+              "type": "short_answer",
+              "text": "Use causative: Tareq didn't clean the windows himself.",
+              "answer": "Tareq had the windows cleaned.",
+              "points": 2,
+              "difficulty": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number": 7,
+      "unit_title": "Microorganisms",
+      "lessons": [
+        {
+          "lesson_number": 1,
+          "lesson_title": "General",
+          "questions": [
+            {
+              "type": "short_answer",
+              "text": "Rewrite using wish: I missed the flight.",
+              "answer": "I wish I hadn't missed the flight.",
+              "points": 2,
+              "difficulty": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number": 8,
+      "unit_title": "Facts about Human Body",
+      "lessons": [
+        {
+          "lesson_number": 1,
+          "lesson_title": "General",
+          "questions": [
+            {
+              "type": "fill_blank",
+              "text": "He retired after he (become) ........ so old.",
+              "answer": "became",
+              "points": 1,
+              "difficulty": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number": 9,
+      "unit_title": "Citizenship",
+      "lessons": [
+        {
+          "lesson_number": 1,
+          "lesson_title": "General",
+          "questions": [
+            {
+              "type": "essay",
+              "text": "Write a composition of no less than 80 words on: The importance of law in people's lives.",
+              "answer": "",
+              "points": 10,
+              "difficulty": "hard"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number": 10,
+      "unit_title": "Culture Shock",
+      "lessons": [
+        {
+          "lesson_number": 1,
+          "lesson_title": "General",
+          "questions": []
+        }
+      ]
+    },
+    {
+      "unit_number": 11,
+      "unit_title": "Artificial Intelligence",
+      "lessons": [
+        {
+          "lesson_number": 1,
+          "lesson_title": "General",
+          "questions": []
+        }
+      ]
+    },
+    {
+      "unit_number": 12,
+      "unit_title": "Digital Literacy",
+      "lessons": [
+        {
+          "lesson_number": 1,
+          "lesson_title": "General",
+          "questions": []
+        }
+      ]
+    }
+  ]
+}
