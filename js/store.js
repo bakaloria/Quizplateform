@@ -25,12 +25,27 @@
    * ============================================================ */
   function isPlainObject(o) {
     if (o === null || typeof o !== "object" || Array.isArray(o)) return false;
+    /* استثناء قيم Firestore الخاصة (Timestamp / FieldValue) */
+    if (typeof o.toDate === "function" || typeof o.toMillis === "function") return false;
     const p = Object.getPrototypeOf(o);
-    return p === Object.prototype || p === null;
+    if (p === Object.prototype || p === null) return true;
+    /* دعم الكائنات من نطاق (realm) آخر: تُطابق بـ constructor.name */
+    const ctor = o.constructor;
+    return !!ctor && ctor.name === "Object";
+  }
+  /* هل يحتوي هذا العنصر مصفوفةً في أي عمق (تبعاً لقواعد Firestore)? */
+  function containsArrayDeep(value) {
+    if (Array.isArray(value)) return true;
+    if (isPlainObject(value)) {
+      return Object.keys(value).some(function (k) { return containsArrayDeep(value[k]); });
+    }
+    return false;
   }
   function sanitize(value) {
     if (Array.isArray(value)) {
-      if (value.some(Array.isArray)) {
+      /* إذا احتوى أي عنصر مصفوفةً (مباشرةً أو داخل كائن) نحوّل المصفوفة
+         كلها إلى كائن بمفاتيح رقمية، لأن Firestore يرفض التعشيش. */
+      if (value.some(containsArrayDeep)) {
         const obj = {};
         value.forEach(function (v, i) { obj[String(i)] = sanitize(v); });
         return obj;

@@ -1863,11 +1863,13 @@ async function renderStudents() {
   async function renderExams() {
     shell("exams", U.loaderHTML());
     try {
-      const arr = await Promise.all([S.listExams(), S.listGroups()]);
+      const arr = await Promise.all([S.listExams(), S.listGroups(), S.listSubjects()]);
       const exams = arr[0];
       const groups = arr[1];
+      const subjects = arr[2];
       state.exams = exams;
       state.groups = groups;
+      state.subjects = subjects;
 
       const groupName = function (id) {
         if (id === "ALL") return "\u0627\u0644\u0643\u0644";
@@ -2016,8 +2018,12 @@ async function renderStudents() {
   /* ============================================================
    * EXAM WIZARD v6 - مع الفلاتر المنسدلة (Dropdowns + Chips)
    * ============================================================ */
-  function examWizard(exam) {
+  async function examWizard(exam) {
     const isEdit = !!exam;
+    if (!(state.subjects && state.subjects.length)) {
+      try { state.subjects = await S.listSubjects(); } catch (e) { state.subjects = state.subjects || []; }
+    }
+    state.subjects = state.subjects || [];
     const chosen = [];
     const selectedIds = {};
     let qrImage = (exam && exam.qrImage) || "";
