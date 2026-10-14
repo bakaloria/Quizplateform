@@ -14,7 +14,8 @@
     auditLog: db.collection("auditLog"),
     groups: db.collection("groups"),
     students: db.collection("students"),
-    enrollments: db.collection("enrollments")
+    enrollments: db.collection("enrollments"),
+    payments: db.collection("payments")
   };
 
   /* ============================================================
@@ -551,6 +552,86 @@
     countPendingSubmissions: async function () {
       const snap = await col.submissions.get();
       return snapDocs(snap).filter(function (s) { return s.status === "pending" || s.status === "in_review"; }).length;
+    },
+
+    /* ============================================================
+     * PAYMENTS - طلبات دفع الاختبارات المدفوعة
+     * ============================================================ */
+    createPaymentRequest: async function (data) {
+      const ref = await col.payments.add(sanitize({
+        examId: data.examId || "",
+        examTitle: data.examTitle || "",
+        subjectId: data.subjectId || "",
+        subjectName: data.subjectName || "",
+        studentId: data.studentId || "",
+        studentName: data.studentName || "",
+        groupId: data.groupId || "",
+        price: Number(data.price) || 0,
+        currency: data.currency || "ل.س",
+        method: data.method || "sham_cash",
+        txnRef: data.txnRef || "",
+        note: data.note || "",
+        receiptImage: data.receiptImage || "",
+        status: "pending",
+        decidedAt: null,
+        decidedBy: "",
+        createdAt: FV.serverTimestamp()
+      }));
+      return ref.id;
+    },
+    listPaymentRequests: async function () {
+      const snap = await col.payments.get();
+      return QP.utils.sortBy(snapDocs(snap), "createdAt", "desc");
+    },
+    /* طلبات الطالب (استعلام بحقل واحد لتجنّب الحاجة إلى فهرس مركّب) */
+    listPaymentRequestsByStudent: async function (studentId) {
+      const snap = await col.payments.where("studentId", "==", studentId).get();
+      return snapDocs(snap).sort(function (a, b) { return tsOf(b.createdAt) - tsOf(a.createdAt); });
+    },
+    getPaymentRequest: async function (id) {
+      const d = await col.payments.doc(id).get();
+      return d.exists ? docData(d) : null;
+    },
+    /* آخر طلب لطالب على اختبار معيّن (أو المعتمد إن وُجد) */
+    findPaymentRequest: async function (examId, studentId) {
+      const list = await store.listPaymentRequestsByStudent(studentId);
+      return (function () {
+        let latest = null;
+        list.forEach(function (p) {
+          if (p.examId !== examId) return;
+          if (!latest) latest = p;
+          if (p.status === "approved") latest = p;
+        });
+        return latest;
+      })();
+    },
+    /* خريطة examId -> lastStatus للطالب */
+    approvalMapForStudent: async function (studentId) {
+      const list = await store.listPaymentRequestsByStudent(studentId);
+      const map = {};
+      list.forEach(function (p) {
+        if (p.status === "approved") map[p.examId] = "approved";
+        else if (!map[p.examId]) map[p.examId] = p.status;
+      });
+      return map;
+    },
+    isExamPaidForStudent: async function (examId, studentId) {
+      const snap = await col.payments.where("studentId", "==", studentId).get();
+      return snapDocs(snap).some(function (p) { return p.examId === examId && p.status === "approved"; });
+    },
+    decidePaymentRequest: async function (id, status, decidedBy) {
+      await col.payments.doc(id).update({
+        status: status,
+        decidedAt: FV.serverTimestamp(),
+        decidedBy: decidedBy || ""
+      });
+    },
+    deletePaymentRequest: async function (id) {
+      await col.payments.doc(id).delete();
+    },
+    countPendingPayments: async function () {
+      const snap = await col.payments.get();
+      return snapDocs(snap).filter(function (p) { return p.status === "pending"; }).length;
     },
 
     /* ============================================================

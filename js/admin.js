@@ -126,6 +126,7 @@
       ["subjects", "\uD83D\uDCDA", "\u0627\u0644\u0645\u0648\u0627\u062f"],
       ["questions", "\u2753", "\u0628\u0646\u0643 \u0627\u0644\u0623\u0633\u0626\u0644\u0629"],
       ["exams", "\uD83D\uDCDD", "\u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631\u0627\u062a"],
+      ["payments", "\uD83D\uDCB3", "\u0637\u0644\u0628\u0627\u062a \u0627\u0644\u062f\u0641\u0639"],
       ["teachers", "\uD83D\uDC68\u200D\uD83C\uDFEB", "\u0627\u0644\u0645\u0639\u0644\u0645\u0648\u0646"],
       ["students", "\uD83D\uDC66", "\u0627\u0644\u0637\u0644\u0627\u0628"],
       ["results", "\uD83D\uDCC8", "\u0627\u0644\u0646\u062a\u0627\u0626\u062c"],
@@ -199,7 +200,8 @@
         S.countSubmissions(),
         S.countPendingSubmissions(),
         S.listRecentSubmissions(8),
-        S.listGroups()
+        S.listGroups(),
+        S.countPendingPayments ? S.countPendingPayments() : Promise.resolve(0)
       ]);
 
       const subjects = arr[0];
@@ -210,6 +212,7 @@
       const pending = arr[5];
       const recent = arr[6];
       const groups = arr[7];
+      const payPending = arr[8] || 0;
 
       state.subjects = subjects;
       state.questions = questions;
@@ -249,6 +252,7 @@
         '<div class="stat-grid mt">' +
         stat("\uD83D\uDCE5", subs, "\u0627\u0644\u0645\u0634\u0627\u0631\u0643\u0627\u062a") +
         stat("\u23F3", pending, "\u0642\u064a\u062f \u0627\u0644\u062a\u0635\u062d\u064a\u062d") +
+        stat("\uD83D\uDCB3", payPending, "\u0637\u0644\u0628\u0627\u062a \u062f\u0641\u0639") +
         "</div>" +
 
         '<div class="card mt"><div class="card-head"><h3>\u0623\u062d\u062f\u062b \u0627\u0644\u0646\u062a\u0627\u0626\u062c</h3>' +
@@ -3299,8 +3303,92 @@ async function renderStudents() {
   /* ============================================================
    * RESULTS
    * ============================================================ */
+  /* ============================================================
+   * PAYMENTS - طلبات الدفع (شام كاش)
+   * ============================================================ */
+  async function renderPayments() {
+    shell("payments", U.loaderHTML());
+    try {
+      const payments = (S.listPaymentRequests ? await S.listPaymentRequests() : []);
+      const pendingCount = payments.filter(function (p) { return p.status === "pending"; }).length;
+
+      const whenStr = function (v) {
+        if (!v) return "-";
+        const d = v.toDate ? v.toDate() : new Date(v);
+        return isNaN(d.getTime()) ? "-" : d.toLocaleString("ar");
+      };
+
+      let body;
+      if (!payments.length) {
+        body = '<div class="card"><div class="empty-state"><div class="emoji">💳</div>' +
+          '<h3>لا توجد طلبات دفع</h3>' +
+          '<p>ستظهر هنا طلبات الطلاب لدفع الاختبارات المدفوعة عبر شام كاش.</p></div></div>';
+      } else {
+        const rows = payments.map(function (p) {
+          const receipt = p.receiptImage
+            ? '<img data-pay-receipt="' + p.id + '" src="' + U.esc(p.receiptImage) + '" title="عرض الوصل" style="height:52px;width:52px;object-fit:cover;border-radius:8px;border:1px solid var(--border);cursor:zoom-in">'
+            : '<span class="tiny muted">—</span>';
+          const actions = p.status === "pending"
+            ? '<div class="flex" style="gap:6px"><button class="btn btn-primary btn-sm" data-pay-approve="' + p.id + '">✅ تأكيد</button>' +
+              '<button class="btn btn-ghost btn-sm" data-pay-reject="' + p.id + '">✕ رفض</button></div>'
+            : U.paymentStatusBadge(p.status);
+          return '<tr>' +
+            '<td>' + U.esc(p.studentName || "-") + '</td>' +
+            '<td>' + U.esc(p.examTitle || "-") + '<div class="tiny muted">' + U.esc(p.subjectName || "") + '</div></td>' +
+            '<td style="white-space:nowrap">' + (Number(p.price) || 0) + " " + U.esc(p.currency || "") + '</td>' +
+            '<td>' + receipt + '</td>' +
+            '<td class="tiny">' + whenStr(p.createdAt) + '</td>' +
+            '<td style="white-space:nowrap">' + actions + '</td>' +
+          '</tr>';
+        }).join("");
+        body = '<div class="card">' +
+          '<div class="card-head"><h3>💳 طلبات الدفع</h3>' +
+          '<span class="badge ' + (pendingCount ? "badge-warning" : "badge-muted") + '">' + pendingCount + ' معلّق</span></div>' +
+          '<div class="table-wrap responsive"><table>' +
+          '<thead><tr><th>الطالب</th><th>الاختبار</th><th>المبلغ</th><th>الوصل</th><th>التاريخ</th><th>الإجراء</th></tr></thead>' +
+          '<tbody>' + rows + '</tbody></table></div></div>';
+      }
+      shell("payments", body);
+
+      document.querySelectorAll("[data-pay-approve]").forEach(function (b) {
+        b.addEventListener("click", async function () {
+          b.disabled = true;
+          try {
+            await S.decidePaymentRequest(b.dataset.payApprove, "approved", "admin");
+            U.toast("تم تأكيد الدفع ✅", "success");
+          } catch (e) { U.toast("خطأ: " + e.message, "error"); b.disabled = false; }
+          renderPayments();
+        });
+      });
+      document.querySelectorAll("[data-pay-reject]").forEach(function (b) {
+        b.addEventListener("click", async function () {
+          if (!await U.confirm("رفض طلب الدفع؟")) return;
+          b.disabled = true;
+          try {
+            await S.decidePaymentRequest(b.dataset.payReject, "rejected", "admin");
+            U.toast("تم رفض الطلب", "warn");
+          } catch (e) { U.toast("خطأ: " + e.message, "error"); b.disabled = false; }
+          renderPayments();
+        });
+      });
+      document.querySelectorAll("[data-pay-receipt]").forEach(function (img) {
+        img.addEventListener("click", function () {
+          const p = payments.find(function (x) { return x.id === img.dataset.payReceipt; }) || {};
+          U.modal({
+            title: "💳 وصل الدفع — " + (p.studentName || ""),
+            body: '<div style="text-align:center">' +
+              '<div class="tiny muted mb">' + U.esc(p.examTitle || "") + " — " + (Number(p.price) || 0) + " " + U.esc(p.currency || "") + '</div>' +
+              '<img alt="وصل" src="' + U.esc(p.receiptImage || "") + '" style="max-width:340px;width:100%;border-radius:12px;background:#fff;padding:6px">' +
+              '</div>'
+          });
+        });
+      });
+    } catch (e) {
+      shell("payments", errorCard(e));
+    }
+  }
+
   async function renderResults() {
-    shell("results", U.loaderHTML());
     try {
       const exams = await S.listExams();
       state.exams = exams;
@@ -3626,6 +3714,7 @@ async function renderStudents() {
     subjects: renderSubjects,
     questions: renderQuestions,
     exams: renderExams,
+    payments: renderPayments,
     teachers: renderTeachers,
     students: renderStudents,
     results: renderResults,

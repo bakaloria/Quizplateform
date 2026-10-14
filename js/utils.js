@@ -544,6 +544,38 @@
       if (!exam || !exam.isPaid) return "مجاني";
       const p = Number(exam.price) || 0;
       return (p > 0 ? p + " " + (exam.currency || "ل.س") : "مدفوع");
+    },
+
+    /* ============================================================
+     * الدفع عبر شام كاش
+     * ============================================================ */
+    PAYMENT_WHATSAPP: "905375065536",
+    PAYMENT_STATUS: {
+      pending: "بانتظار تأكيد الدفع",
+      approved: "تم تأكيد الدفع",
+      rejected: "مرفوض"
+    },
+    paymentStatusLabel: function (s) {
+      return utils.PAYMENT_STATUS[s] || s || "";
+    },
+    paymentStatusBadge: function (s) {
+      const label = utils.paymentStatusLabel(s);
+      if (s === "approved") return '<span class="badge badge-success">\u2705 ' + label + '</span>';
+      if (s === "rejected") return '<span class="badge badge-danger">\u274C ' + label + '</span>';
+      return '<span class="badge badge-warning">\u23F3 ' + label + '</span>';
+    },
+    /* رابط واتساب لإبلاغ المدير بالدفع مع تفاصيل الطالب/الاختبار */
+    paymentWhatsAppLink: function (exam, student) {
+      exam = exam || {}; student = student || {};
+      const msg =
+        "مرحباً، أنا " + (student.name || "") +
+        (student.username ? " (" + student.username + ")" : "") +
+        " — أُبلغكم بأنني دفعت رسوم الاختبار عبر شام كاش." +
+        "\nالاختبار: " + (exam.title || "") +
+        "\nالمادة: " + (exam.subjectName || "") +
+        "\nالمبلغ: " + (Number(exam.price) || 0) + " " + (exam.currency || "ل.س") +
+        "\nأرفقت صورة وصل الدفع داخل التطبيق.";
+      return "https://wa.me/" + utils.PAYMENT_WHATSAPP + "?text=" + encodeURIComponent(msg);
     }
   };
 
