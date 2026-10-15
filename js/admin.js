@@ -141,6 +141,7 @@
         return '<a href="#/' + i[0] + '" class="' + (active === i[0] ? "active" : "") + '">' +
           "<span>" + i[1] + "</span><span>" + i[2] + "</span></a>";
       }).join("") +
+      '<a href="engbuilder.html"><span>\uD83C\uDDEC\uD83C\uDDE7</span><span>\u0628\u0627\u0646\u064a \u0627\u0644\u0625\u0646\u0643\u0644\u064a\u0632\u064a</span></a>' +
       '<div class="side-sep"></div>' +
       '<a id="logoutBtn"><span>\uD83D\uDEAA</span><span>\u062e\u0631\u0648\u062c</span></a>' +
       "</aside>"

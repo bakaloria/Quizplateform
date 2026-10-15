@@ -1543,3 +1543,26 @@ html[data-pwa="standalone"] .site-footer {
 
 .sec-chip b { color: var(--text); }
 .sec-target { color: var(--text-3); }
+
+/* ============================================================
+ * engbuilder — باني أسئلة اللغة الإنكليزية (صفحة مستقلة)
+ * ============================================================ */
+.eng-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 14px; border-bottom: 1px solid var(--border-soft); padding-bottom: 8px; }
+.eng-tab { border: 1px solid var(--border-soft); background: var(--surface-2); color: var(--text-2); padding: 8px 14px; border-radius: 999px; cursor: pointer; font-size: 13px; font-family: inherit; transition: .15s; }
+.eng-tab:hover { background: var(--surface-3); color: var(--text); }
+.eng-tab.active { background: var(--primary-soft); color: var(--primary-2); border-color: var(--primary); font-weight: 700; }
+.eng-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+@media (max-width: 860px) { .eng-grid { grid-template-columns: 1fr; } }
+.eng-panel { border: 1px solid var(--border-soft); border-radius: var(--radius-sm); padding: 14px; background: var(--surface-2); }
+.eng-panel h3, .eng-panel h4 { margin: 0 0 10px; }
+.eng-group { margin-bottom: 14px; }
+.eng-group-title { margin: 0 0 8px; color: var(--primary-2); font-size: 14px; }
+.eng-passage { border: 1px solid var(--border-soft); border-radius: var(--radius-sm); padding: 8px 10px; margin-bottom: 6px; background: var(--surface); }
+.eng-passage-preview { border-inline-start: 3px solid var(--primary); padding: 8px 12px; margin: 8px 0; background: var(--surface-3); border-radius: var(--radius-sm); }
+.eng-passage-preview p { margin: 6px 0 0; color: var(--text-2); font-size: 13px; line-height: 1.6; }
+.eng-format { padding: 10px 12px; border-radius: var(--radius-sm); background: var(--primary-soft); color: var(--primary-2); margin-bottom: 6px; font-size: 14px; }
+.eng-items { margin-bottom: 10px; }
+.eng-item { border: 1px solid var(--border-soft); border-radius: var(--radius-sm); padding: 8px 10px; margin-bottom: 6px; background: var(--surface); }
+.eng-addform { border-top: 1px dashed var(--border-soft); padding-top: 10px; margin-top: 6px; }
+.eng-addform textarea { width: 100%; }
+.eng-addform input, .eng-addform select { width: 100%; }

@@ -16,7 +16,10 @@
     students: db.collection("students"),
     enrollments: db.collection("enrollments"),
     payments: db.collection("payments"),
-    notifications: db.collection("notifications")
+    notifications: db.collection("notifications"),
+    engPassages: db.collection("engPassages"),
+    engItems: db.collection("engItems"),
+    engConfig: db.collection("engConfig")
   };
 
   /* ============================================================
@@ -688,6 +691,130 @@
     deleteNotification: async function (id) {
       if (!id) return;
       await col.notifications.doc(id).delete();
+    },
+
+    /* ============================================================
+     * ENGLISH EXAM BUILDER - مقاطع اللغة الإنكليزية وأسئلة النموذج
+     * ============================================================ */
+    listEngPassages: async function () {
+      const snap = await col.engPassages.get();
+      return QP.utils.sortBy(snapDocs(snap), "createdAt", "desc");
+    },
+    addEngPassage: async function (data) {
+      data = data || {};
+      const ref = await col.engPassages.add(sanitize({
+        title: data.title || "",
+        text: data.text || "",
+        notes: data.notes || "",
+        unitNumber: (data.unitNumber !== undefined && data.unitNumber !== null && data.unitNumber !== "") ? Number(data.unitNumber) : null,
+        unitTitle: data.unitTitle || "",
+        createdAt: FV.serverTimestamp()
+      }));
+      return ref.id;
+    },
+    updateEngPassage: async function (id, data) {
+      data = data || {};
+      await col.engPassages.doc(id).update(sanitize({
+        title: data.title || "",
+        text: data.text || "",
+        notes: data.notes || "",
+        unitNumber: (data.unitNumber !== undefined && data.unitNumber !== null && data.unitNumber !== "") ? Number(data.unitNumber) : null,
+        unitTitle: data.unitTitle || ""
+      }));
+    },
+    deleteEngPassage: async function (id) {
+      const qs = await col.engItems.where("passageId", "==", id).get();
+      const batch = db.batch();
+      qs.docs.forEach(function (d) { batch.delete(d.ref); });
+      if (qs.size) await batch.commit();
+      await col.engPassages.doc(id).delete();
+    },
+    listEngItems: async function (filter) {
+      filter = filter || {};
+      let snap;
+      if (filter.passageId) snap = await col.engItems.where("passageId", "==", filter.passageId).get();
+      else if (filter.typeKey) snap = await col.engItems.where("typeKey", "==", filter.typeKey).get();
+      else snap = await col.engItems.get();
+      let list = snapDocs(snap);
+      list = list.filter(function (it) {
+        if (filter.typeKey && it.typeKey !== filter.typeKey) return false;
+        if (filter.subtypeKey && it.subtypeKey !== filter.subtypeKey) return false;
+        if (filter.passageId && it.passageId !== filter.passageId) return false;
+        return true;
+      });
+      return QP.utils.sortBy(list, "createdAt", "asc");
+    },
+    addEngItem: async function (data) {
+      data = data || {};
+      const ref = await col.engItems.add(sanitize({
+        typeKey: data.typeKey || "",
+        subtypeKey: data.subtypeKey || "",
+        passageId: data.passageId || "",
+        unitNumber: (data.unitNumber !== undefined && data.unitNumber !== null && data.unitNumber !== "") ? Number(data.unitNumber) : null,
+        unitTitle: data.unitTitle || "",
+        title: data.title || "",
+        text: data.text || "",
+        options: data.options || [],
+        answer: data.answer || "",
+        format: data.format || "",
+        points: Number(data.points) || 1,
+        createdAt: FV.serverTimestamp()
+      }));
+      return ref.id;
+    },
+    addEngItemsBulk: async function (list) {
+      let batch = db.batch();
+      let count = 0;
+      for (const data of (list || [])) {
+        const ref = col.engItems.doc();
+        batch.set(ref, sanitize({
+          typeKey: data.typeKey || "",
+          subtypeKey: data.subtypeKey || "",
+          passageId: data.passageId || "",
+          unitNumber: (data.unitNumber !== undefined && data.unitNumber !== null && data.unitNumber !== "") ? Number(data.unitNumber) : null,
+          unitTitle: data.unitTitle || "",
+          title: data.title || "",
+          text: data.text || "",
+          options: data.options || [],
+          answer: data.answer || "",
+          format: data.format || "",
+          points: Number(data.points) || 1,
+          createdAt: FV.serverTimestamp()
+        }));
+        count++;
+        if (count % 400 === 0) { await batch.commit(); batch = db.batch(); }
+      }
+      if (count % 400 !== 0 || count === 0) await batch.commit();
+      return count;
+    },
+    updateEngItem: async function (id, data) {
+      data = data || {};
+      await col.engItems.doc(id).update(sanitize({
+        typeKey: data.typeKey || "",
+        subtypeKey: data.subtypeKey || "",
+        passageId: data.passageId || "",
+        unitNumber: (data.unitNumber !== undefined && data.unitNumber !== null && data.unitNumber !== "") ? Number(data.unitNumber) : null,
+        unitTitle: data.unitTitle || "",
+        title: data.title || "",
+        text: data.text || "",
+        options: data.options || [],
+        answer: data.answer || "",
+        format: data.format || "",
+        points: Number(data.points) || 1
+      }));
+    },
+    deleteEngItem: async function (id) {
+      await col.engItems.doc(id).delete();
+    },
+    getEngModel: async function () {
+      const d = await col.engConfig.doc("model").get();
+      return d.exists ? docData(d) : null;
+    },
+    saveEngModel: async function (model) {
+      await col.engConfig.doc("model").set(sanitize({
+        types: (model && model.types) || [],
+        updatedAt: FV.serverTimestamp()
+      }), { merge: true });
     },
 
     /* ============================================================
