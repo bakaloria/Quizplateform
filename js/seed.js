@@ -29,7 +29,7 @@
     {
       subject: "الكيمياء",
       flag: "chemistry_v1",
-      version: "1",
+      version: "2",
       url: "data/chemistry.json",
       desc: "بنك أسئلة الكيمياء — الصف الثالث الثانوي العلمي (جميع الوحدات)"
     },
