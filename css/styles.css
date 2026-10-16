@@ -212,6 +212,33 @@ tbody tr:hover { background: var(--surface-2); }
 tbody tr:last-child td { border-bottom: none; }
 .table-empty { padding: 40px; text-align: center; color: var(--text-3); }
 
+/* ============ قائمة السجلات (سطر لكل بيان + زر عرض) ============ */
+.rec-list { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+.rec-row {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--surface-2); border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm); padding: 12px 14px; transition: .15s;
+}
+.rec-row:hover { border-color: var(--primary); background: var(--surface-3); }
+.rec-main { display: flex; align-items: center; gap: 12px; min-width: 0; flex: 1; }
+.rec-ico {
+  flex: none; width: 40px; height: 40px; border-radius: 10px;
+  display: grid; place-items: center; font-size: 20px;
+  background: var(--primary-soft); color: var(--primary-2);
+}
+.rec-text { min-width: 0; flex: 1; }
+.rec-title { font-weight: 700; font-size: 15px; overflow-wrap: anywhere; }
+.rec-qtext { font-weight: 500; }
+.rec-meta { color: var(--text-3); font-size: 12.5px; margin-top: 3px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+.rec-actions { display: flex; align-items: center; gap: 6px; flex: none; }
+.pass-view { font-family: ui-monospace, "Courier New", monospace; font-weight: 700; letter-spacing: 1px; }
+
+@media (max-width: 640px) {
+  .rec-row { flex-wrap: wrap; }
+  .rec-actions { width: 100%; }
+  .rec-actions .btn { flex: 1; }
+}
+
 /* ============ Badges ============ */
 .badge { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; }
 .badge-primary { background: var(--primary-soft); color: var(--primary-2); }

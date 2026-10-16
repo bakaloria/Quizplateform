@@ -160,6 +160,107 @@
   }
 
   /* ============================================================
+   * عرض السجلات: سطر لكل بيان + زر «عرض» يفتح التفاصيل
+   * ============================================================ */
+
+  /* قائمة عمودية من السطور */
+  function recList(rows, emptyHTML) {
+    if (!rows) {
+      return emptyHTML ||
+        '<div class="empty-state"><div class="emoji">🗂️</div><h3>لا توجد بيانات</h3></div>';
+    }
+    return '<div class="rec-list">' + rows + '</div>';
+  }
+
+  /* سطر واحد: أيقونة + عنوان + وصف مصغّر + زر «عرض» (+ أزرار إضافية) */
+  function recRow(id, titleHTML, metaHTML, icon, extraBtns) {
+    return '<div class="rec-row">' +
+      '<div class="rec-main">' +
+      '<span class="rec-ico">' + (icon || "•") + '</span>' +
+      '<div class="rec-text">' +
+      '<div class="rec-title">' + titleHTML + '</div>' +
+      (metaHTML ? '<div class="rec-meta">' + metaHTML + '</div>' : "") +
+      '</div>' +
+      '</div>' +
+      '<div class="rec-actions">' + (extraBtns || "") +
+      '<button class="btn btn-sm btn-primary" data-view-rec="' + U.esc(String(id)) + '">👁 عرض</button>' +
+      '</div>' +
+      '</div>';
+  }
+
+  /* صفّ معلومة داخل نافذة التفاصيل */
+  function infoItem(label, valueHTML) {
+    const v = (valueHTML === null || valueHTML === undefined || valueHTML === "")
+      ? "—" : valueHTML;
+    return '<div class="item"><div class="lbl">' + label + '</div>' +
+      '<div class="val">' + v + '</div></div>';
+  }
+
+  /* نافذة تفاصيل عامة: حقول + أزرار تعديل/حذف اختيارية */
+  function recordModal(opts) {
+    opts = opts || {};
+    const fieldsHTML = (opts.fields || []).map(function (f) {
+      return infoItem(f.lbl, f.html !== undefined ? f.html : U.esc(f.val));
+    }).join("");
+    const footer =
+      (opts.onEdit ? '<button class="btn" data-rec-edit>✎ تعديل</button> ' : "") +
+      (opts.onDelete ? '<button class="btn btn-danger" data-rec-del>🗑 حذف</button> ' : "") +
+      '<button class="btn btn-ghost" data-close>إغلاق</button>';
+    return U.modal({
+      title: opts.title || "التفاصيل",
+      size: opts.size || "lg",
+      body: opts.bodyHTML !== undefined
+        ? opts.bodyHTML + (opts.extraHTML || "")
+        : '<div class="student-info-row">' + fieldsHTML + "</div>" + (opts.extraHTML || ""),
+      footer: footer,
+      onMount: function (node, close) {
+        const eb = node.querySelector("[data-rec-edit]");
+        if (eb && opts.onEdit) eb.addEventListener("click", function () { close(); opts.onEdit(); });
+        const db = node.querySelector("[data-rec-del]");
+        if (db && opts.onDelete) db.addEventListener("click", function () { close(); opts.onDelete(); });
+        if (opts.onMount) opts.onMount(node, close);
+      }
+    });
+  }
+
+  /* ربط كل أزرار «عرض» في الصفحة بمعالج واحد */
+  function bindViewButtons(map, handler) {
+    document.querySelectorAll("[data-view-rec]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        const rec = map(b.dataset.viewRec);
+        if (rec) handler(rec);
+      });
+    });
+  }
+
+  /* عرض كلمة المرور (بعد فكّ التشفير) أو تنبيه بعدم توفّرها */
+  async function passwordViewHTML(rec) {
+    if (!rec) return "—";
+    if (rec.passwordEnc && QP.crypto && QP.crypto.decryptPassword) {
+      const p = await QP.crypto.decryptPassword(rec.passwordEnc);
+      if (p) {
+        return '<span class="pass-view" data-pass="' + U.esc(p) + '">••••••••</span> ' +
+          '<button class="btn btn-sm btn-ghost" data-pass-toggle>👁 إظهار</button>';
+      }
+    }
+    return '<span class="muted tiny">غير متاحة (أُدخلت قبل التحديث) — عدّلها لحفظها</span>';
+  }
+
+  /* تشغيل أزرار إظهار/إخفاء كلمة المرور داخل نافذة */
+  function bindPassToggles(node) {
+    node.querySelectorAll("[data-pass-toggle]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        const span = b.parentNode.querySelector("[data-pass]");
+        if (!span) return;
+        const shown = span.dataset.shown === "1";
+        span.textContent = shown ? "••••••••" : span.dataset.pass;
+        span.dataset.shown = shown ? "0" : "1";
+        b.textContent = shown ? "👁 إظهار" : "🙈 إخفاء";
+      });
+    });
+  }
+
+  /* ============================================================
    * أدوات مساعدة
    * ============================================================ */
   function stat(ico, val, lbl) {
@@ -227,15 +328,17 @@
 
       const recentRows = recent.length
         ? recent.map(function (r) {
-          return "<tr>" +
-            '<td data-label="\u0627\u0644\u0637\u0627\u0644\u0628">' + U.esc(r.studentName || "-") + "</td>" +
-            '<td data-label="\u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631">' + U.esc(r.examTitle || "-") + "</td>" +
-            '<td data-label="\u0627\u0644\u062d\u0627\u0644\u0629">' + U.submissionStatusBadge(r.status) + "</td>" +
-            '<td data-label="\u0627\u0644\u0646\u0633\u0628\u0629">' + (r.percent != null ? r.percent + "%" : "-") + "</td>" +
-            '<td data-label="\u0627\u0644\u062a\u0627\u0631\u064a\u062e" class="tiny">' + U.formatDate(r.createdAt) + "</td>" +
-            "</tr>";
+          const pctTxt = (r.percent != null) ? r.percent + "%" : "-";
+          return recRow(
+            r.id,
+            "<b>" + U.esc(r.studentName || "-") + "</b> " + U.submissionStatusBadge(r.status),
+            '📘 ' + U.esc(r.examTitle || "-") +
+              ' · 🎯 ' + pctTxt +
+              ' · 🕒 ' + U.formatDate(r.createdAt),
+            "📄"
+          );
         }).join("")
-        : '<tr><td colspan="5" class="table-empty">-</td></tr>';
+        : null;
 
       shell("dashboard",
         '<div class="card-head"><h2>\u0644\u0648\u062d\u0629 \u0627\u0644\u062a\u062d\u0643\u0645</h2><div class="spacer"></div>' +
@@ -259,9 +362,26 @@
         '<div class="card mt"><div class="card-head"><h3>\u0623\u062d\u062f\u062b \u0627\u0644\u0646\u062a\u0627\u0626\u062c</h3>' +
         '<div class="spacer"></div>' +
         '<a class="btn btn-sm" href="#/results">\u0639\u0631\u0636 \u0627\u0644\u0643\u0644</a></div>' +
-        '<div class="table-wrap responsive"><table><thead><tr>' +
-        '<th>\u0627\u0644\u0637\u0627\u0644\u0628</th><th>\u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631</th><th>\u0627\u0644\u062d\u0627\u0644\u0629</th><th>\u0627\u0644\u0646\u0633\u0628\u0629</th><th>\u0627\u0644\u062a\u0627\u0631\u064a\u062e</th>' +
-        "</tr></thead><tbody>" + recentRows + "</tbody></table></div></div>"
+        recList(recentRows, '<div class="empty-state"><div class="emoji">\uD83D\uDCC4</div>' +
+          '<h3>\u0644\u0627 \u062a\u0648\u062c\u062f \u0645\u0634\u0627\u0631\u0643\u0627\u062a \u0628\u0639\u062f</h3></div>') +
+        "</div>"
+      );
+
+      bindViewButtons(
+        function (id) { return recent.find(function (r) { return r.id === id; }); },
+        function (r) {
+          recordModal({
+            title: "📄 " + (r.studentName || "طالب"),
+            fields: [
+              { lbl: "الطالب", val: r.studentName },
+              { lbl: "الاختبار", val: r.examTitle },
+              { lbl: "الحالة", html: U.submissionStatusBadge(r.status) },
+              { lbl: "الدرجة", val: (r.score != null ? r.score + " / " + r.total : null) },
+              { lbl: "النسبة", val: (r.percent != null ? r.percent + "%" : null) },
+              { lbl: "التاريخ", val: U.formatDate(r.createdAt) }
+            ]
+          });
+        }
       );
 
       const qe = document.getElementById("quickExam");
@@ -292,47 +412,22 @@
       state.teachers = teachers;
       state.subjects = subjects;
 
-      const cards = groups.length
-        ? '<div class="groups-grid">' + groups.map(function (g) {
+      const rows = groups.length
+        ? groups.map(function (g) {
           const assignments = g.teacherAssignments || [];
-          const chips = assignments.length
-            ? assignments.map(function (a) {
-              const subj = subjects.find(function (s) { return s.id === a.subjectId; });
-              return '<span class="assignment-chip">' +
-                '\uD83D\uDC68\u200D\uD83C\uDFEB ' +
-                U.esc(a.teacherName || "?") + ' - ' +
-                U.esc(subj ? subj.name : "?") +
-                '<button class="chip-close" data-remove-assign="' +
-                U.esc(g.id) + '|' + U.esc(a.teacherId) + '|' + U.esc(a.subjectId) +
-                '">\u2715</button></span>';
-            }).join("")
-            : '<span class="muted tiny">\u0644\u0645 \u064a\u064f\u0639\u064a\u0651\u064e\u0646 \u0645\u0639\u0644\u0645 \u0628\u0639\u062f</span>';
-
-          return '<div class="group-card">' +
-            '<div class="group-card-head">' +
-            '<div class="group-emoji">\uD83D\uDC65</div>' +
-            '<div class="group-info">' +
-            '<h3>' + U.esc(g.name) + '</h3>' +
-            (g.description ? '<p class="muted tiny">' + U.esc(g.description) + '</p>' : "") +
-            '</div>' +
-            '</div>' +
-            '<div class="group-meta mb">' +
-            '<span class="badge badge-primary">\uD83D\uDC66 ' + (g.studentCount || 0) + ' \u0637\u0627\u0644\u0628</span>' +
-            '<span class="badge ' + (g.active !== false ? "badge-success" : "badge-danger") + '">' +
-            (g.active !== false ? "\u0646\u0634\u0637\u0629" : "\u0645\u0639\u0637\u0651\u0644\u0629") +
-            '</span>' +
-            '</div>' +
-            '<div class="mb">' + chips + '</div>' +
-            '<div class="flex flex-wrap">' +
-            '<button class="btn btn-sm" data-manage="' + U.esc(g.id) + '">\u0627\u0644\u0645\u0639\u0644\u0645\u0648\u0646</button> ' +
-            '<button class="btn btn-sm" data-edit-group="' + U.esc(g.id) + '">\u062a\u0639\u062f\u064a\u0644</button> ' +
-            '<button class="btn btn-sm btn-danger" data-del-group="' + U.esc(g.id) + '">\u062d\u0630\u0641</button>' +
-            '</div>' +
-            '</div>';
-        }).join("") + '</div>'
-        : '<div class="empty-state"><div class="emoji">\uD83D\uDC65</div>' +
-        "<h3>\u0644\u0627 \u062a\u0648\u062c\u062f \u0645\u062c\u0645\u0648\u0639\u0627\u062a</h3>" +
-        '<p>\u0623\u0646\u0634\u0626 \u0623\u0648\u0644 \u0645\u062c\u0645\u0648\u0639\u0629</p></div>';
+          return recRow(
+            g.id,
+            "<b>" + U.esc(g.name) + "</b>",
+            '👥 ' + (g.studentCount || 0) + ' طالب · ' +
+              (g.active !== false
+                ? '<span class="badge badge-success">نشطة</span>'
+                : '<span class="badge badge-danger">معطّلة</span>') +
+              ' · 👨\u200D🏫 ' + assignments.length +
+              (g.description ? ' · ' + U.esc(g.description) : ""),
+            "👥"
+          );
+        }).join("")
+        : null;
 
       shell("groups",
         '<div class="card-head"><h2>\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0627\u062a</h2>' +
@@ -347,48 +442,66 @@
         '\u0627\u0644\u0645\u0639\u0644\u0645 \u064a\u0631\u0649 \u0641\u0642\u0637 \u0627\u062e\u062a\u0628\u0627\u0631\u0627\u062a \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629 \u0648\u064a\u0635\u062d\u0651\u062d \u0645\u0627\u062f\u062a\u0647.</div>' +
         '</div>' +
 
-        cards
+        recList(rows)
       );
 
       document.getElementById("addGroup").addEventListener("click", function () {
         groupModal(null);
       });
 
-      document.querySelectorAll("[data-edit-group]").forEach(function (b) {
-        b.addEventListener("click", function () {
-          groupModal(groups.find(function (g) { return g.id === b.dataset.editGroup; }));
-        });
-      });
-
-      document.querySelectorAll("[data-manage]").forEach(function (b) {
-        b.addEventListener("click", function () {
-          manageTeachersModal(b.dataset.manage);
-        });
-      });
-
-      document.querySelectorAll("[data-del-group]").forEach(function (b) {
-        b.addEventListener("click", async function () {
-          if (await U.confirm("\u062d\u0630\u0641 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629 \u0648\u062c\u0645\u064a\u0639 \u0627\u0646\u0636\u0645\u0627\u0645\u0627\u062a \u0627\u0644\u0637\u0644\u0627\u0628\u061f")) {
-            await S.deleteGroup(b.dataset.delGroup);
-            U.toast("\u062a\u0645 \u0627\u0644\u062d\u0630\u0641", "success");
-            renderGroups();
-          }
-        });
-      });
-
-      document.querySelectorAll("[data-remove-assign]").forEach(function (b) {
-        b.addEventListener("click", async function () {
-          const parts = b.dataset.removeAssign.split("|");
-          if (await U.confirm("\u0625\u0632\u0627\u0644\u0629 \u0647\u0630\u0627 \u0627\u0644\u0645\u0639\u0644\u0645 \u0645\u0646 \u0647\u0630\u0647 \u0627\u0644\u0645\u0627\u062f\u0629\u061f")) {
-            await G.removeTeacherFromGroup(parts[0], parts[1], parts[2]);
-            U.toast("\u062a\u0645\u062a \u0627\u0644\u0625\u0632\u0627\u0644\u0629", "success");
-            renderGroups();
-          }
-        });
-      });
+      bindViewButtons(
+        function (id) { return groups.find(function (g) { return g.id === id; }); },
+        function (g) { openGroupDetails(g); }
+      );
     } catch (e) {
       shell("groups", errorCard(e));
     }
+  }
+
+  /* تفاصيل المجموعة + تعديل/حذف + إدارة المعلمين */
+  function openGroupDetails(g) {
+    const subjects = state.subjects || [];
+    const assignments = g.teacherAssignments || [];
+    const chips = assignments.length
+      ? assignments.map(function (a) {
+        const subj = subjects.find(function (s) { return s.id === a.subjectId; });
+        return '<div class="assignment-chip" style="padding:8px 12px;font-size:13px;margin:4px 0">' +
+          '👨\u200D🏫 <b>' + U.esc(a.teacherName || "?") + '</b> — 📘 ' +
+          U.esc(subj ? subj.name : "?") + "</div>";
+      }).join("")
+      : '<p class="muted">لم يُعيَّن أي معلم</p>';
+
+    recordModal({
+      title: "👥 " + (g.name || "مجموعة"),
+      fields: [
+        { lbl: "الاسم", val: g.name },
+        { lbl: "الوصف", val: g.description },
+        {
+          lbl: "عدد الطلاب",
+          html: '<span class="badge badge-primary">' + (g.studentCount || 0) + "</span>"
+        },
+        {
+          lbl: "الحالة",
+          html: g.active !== false
+            ? '<span class="badge badge-success">نشطة</span>'
+            : '<span class="badge badge-danger">معطّلة</span>'
+        },
+        { lbl: "المعلمون", html: '<div>' + chips + "</div>" }
+      ],
+      extraHTML: '<div class="mt"><button class="btn btn-sm" id="gManageTeachers">👨\u200D🏫 إدارة المعلمين</button></div>',
+      onEdit: function () { groupModal(g); },
+      onDelete: async function () {
+        if (await U.confirm("حذف المجموعة وجميع انضمامات الطلاب؟")) {
+          await S.deleteGroup(g.id);
+          U.toast("تم الحذف", "success");
+          renderGroups();
+        }
+      },
+      onMount: function (node, close) {
+        const mb = node.querySelector("#gManageTeachers");
+        if (mb) mb.addEventListener("click", function () { close(); manageTeachersModal(g.id); });
+      }
+    });
   }
 
   function groupModal(g) {
@@ -550,16 +663,15 @@
 
       const rows = subjects.length
         ? subjects.map(function (s) {
-          return "<tr>" +
-            '<td data-label="\u0627\u0644\u0645\u0627\u062f\u0629"><b>' + U.esc(s.name) + "</b></td>" +
-            '<td data-label="\u0627\u0644\u0648\u0635\u0641" class="muted">' + U.esc(s.description || "-") + "</td>" +
-            '<td data-label="\u0627\u0644\u0623\u0633\u0626\u0644\u0629"><span class="badge badge-primary">' + (qCounts[s.id] || 0) + "</span></td>" +
-            '<td data-label="\u0623\u064f\u0646\u0634\u0626\u062a" class="tiny">' + U.formatDate(s.createdAt) + "</td>" +
-            '<td data-label="\u0625\u062c\u0631\u0627\u0621\u0627\u062a">' +
-            '<button class="btn btn-sm" data-edit="' + s.id + '">\u062a\u0639\u062f\u064a\u0644</button> ' +
-            '<button class="btn btn-sm btn-danger" data-del="' + s.id + '">\u062d\u0630\u0641</button></td></tr>';
+          return recRow(
+            s.id,
+            "<b>" + U.esc(s.name) + "</b>",
+            '📝 ' + (qCounts[s.id] || 0) + ' سؤال' +
+              (s.description ? ' · ' + U.esc(s.description) : ""),
+            "📚"
+          );
         }).join("")
-        : '<tr><td colspan="5" class="table-empty">-</td></tr>';
+        : null;
 
       let seedCards = "";
       let seedStatuses = [];
@@ -585,12 +697,10 @@
       } catch (e) { seedCards = ""; }
 
       shell("subjects",
-        '<div class="card-head"><h2>\u0627\u0644\u0645\u0648\u0627\u062f</h2><div class="spacer"></div>' +
-        '<button class="btn btn-primary" id="addSub">+ \u0645\u0627\u062f\u0629</button></div>' +
+        '<div class="card-head"><h2>المواد</h2><div class="spacer"></div>' +
+        '<button class="btn btn-primary" id="addSub">+ مادة</button></div>' +
         seedCards +
-        '<div class="table-wrap responsive"><table><thead><tr>' +
-        '<th>\u0627\u0644\u0645\u0627\u062f\u0629</th><th>\u0627\u0644\u0648\u0635\u0641</th><th>\u0627\u0644\u0623\u0633\u0626\u0644\u0629</th><th>\u0623\u064f\u0646\u0634\u0626\u062a</th><th>\u0625\u062c\u0631\u0627\u0621\u0627\u062a</th>' +
-        "</tr></thead><tbody>" + rows + "</tbody></table></div>"
+        recList(rows)
       );
 
       document.getElementById("addSub").addEventListener("click", function () {
@@ -620,21 +730,31 @@
         });
       });
 
-      document.querySelectorAll("[data-edit]").forEach(function (b) {
-        b.addEventListener("click", function () {
-          subjectModal(subjects.find(function (s) { return s.id === b.dataset.edit; }));
-        });
-      });
-
-      document.querySelectorAll("[data-del]").forEach(function (b) {
-        b.addEventListener("click", async function () {
-          if (await U.confirm("\u062d\u0630\u0641 \u0627\u0644\u0645\u0627\u062f\u0629 \u0648\u0643\u0644 \u0623\u0633\u0626\u0644\u062a\u0647\u0627\u061f")) {
-            await S.deleteSubject(b.dataset.del);
-            U.toast("\u062a\u0645 \u0627\u0644\u062d\u0630\u0641", "success");
-            renderSubjects();
-          }
-        });
-      });
+      bindViewButtons(
+        function (id) { return subjects.find(function (s) { return s.id === id; }); },
+        function (s) {
+          recordModal({
+            title: "📚 " + (s.name || "مادة"),
+            fields: [
+              { lbl: "المادة", val: s.name },
+              { lbl: "الوصف", val: s.description },
+              {
+                lbl: "عدد الأسئلة",
+                html: '<span class="badge badge-primary">' + (qCounts[s.id] || 0) + "</span>"
+              },
+              { lbl: "أُنشئت", val: U.formatDate(s.createdAt) }
+            ],
+            onEdit: function () { subjectModal(s); },
+            onDelete: async function () {
+              if (await U.confirm("حذف المادة وكل أسئلتها؟")) {
+                await S.deleteSubject(s.id);
+                U.toast("تم الحذف", "success");
+                renderSubjects();
+              }
+            }
+          });
+        }
+      );
     } catch (e) {
       shell("subjects", errorCard(e));
     }
@@ -774,36 +894,30 @@ async function renderQuestions() {
     /* الصفوف */
     const rows = list.length
       ? list.slice(0, 500).map(function (q) {
-        const shortText = (q.text || "").slice(0, 80) +
-          ((q.text && q.text.length > 80) ? "..." : "");
+        const shortText = (q.text || "").slice(0, 90) +
+          ((q.text && q.text.length > 90) ? "..." : "");
         const loc = [];
         if (q.unitNumber !== null && q.unitNumber !== undefined) {
-          loc.push("W" + q.unitNumber);
+          loc.push("الوحدة " + q.unitNumber);
         } else if (q.unitTitle) {
           loc.push(U.esc(q.unitTitle));
         }
         if (q.lessonTitle) loc.push(U.esc(q.lessonTitle));
 
-        return "<tr>" +
-          '<td data-label="\u0627\u0644\u0646\u0648\u0639">' + U.badgeForType(q.type) +
-          (U.sectionBadge(q) ? " " + U.sectionBadge(q) : "") + "</td>" +
-          '<td data-label="\u0627\u0644\u0633\u0624\u0627\u0644">' +
-          (q.passage ? '<span class="badge badge-passage" title="\u0645\u0631\u0641\u0642 \u0628\u0646\u0635">\uD83D\uDCDC \u0646\u0635</span> ' : "") +
-          U.esc(shortText) + "</td>" +
-          '<td data-label="\u0627\u0644\u0645\u0648\u0642\u0639" class="tiny">' +
-          (loc.length ? loc.join(" / ") : "-") + "</td>" +
-          '<td data-label="\u0627\u0644\u0645\u0627\u062f\u0629" class="muted">' +
-          U.esc(q.subjectName || "-") + "</td>" +
-          '<td data-label="\u0627\u0644\u0635\u0639\u0648\u0628\u0629"><span class="badge badge-muted">' +
-          diffLabel(q.difficulty) + "</span></td>" +
-          '<td data-label="\u0627\u0644\u062f\u0631\u062c\u0629">' + (q.points || 1) + "</td>" +
-          '<td data-label="\u0625\u062c\u0631\u0627\u0621\u0627\u062a">' +
-          '<button class="btn btn-sm" data-view="' + q.id + '">\uD83D\uDC41</button> ' +
-          '<button class="btn btn-sm" data-edit="' + q.id + '">\u270E</button> ' +
-          '<button class="btn btn-sm btn-danger" data-del="' + q.id + '">\uD83D\uDDD1</button>' +
-          '</td></tr>';
+        return recRow(
+          q.id,
+          (U.badgeForType(q.type) || "") +
+            (U.sectionBadge(q) ? " " + U.sectionBadge(q) : "") +
+            (q.passage ? ' <span class="badge badge-passage" title="مرفق بنص">📜 نص</span>' : "") +
+            ' <span class="rec-qtext">' + U.esc(shortText) + "</span>",
+          '📍 ' + (loc.length ? loc.join(" / ") : "-") +
+            ' · ' + U.esc(q.subjectName || "-") +
+            ' · <span class="badge badge-muted">' + diffLabel(q.difficulty) + "</span>" +
+            ' · ' + (q.points || 1) + ' درجة',
+          "❓"
+        );
       }).join("")
-      : '<tr><td colspan="7" class="table-empty">\u0644\u0627 \u062a\u0648\u062c\u062f \u0623\u0633\u0626\u0644\u0629 \u0645\u0637\u0627\u0628\u0642\u0629</td></tr>';
+      : null;
 
     /* قوائم الفلترة */
     const typeOpts = '<option value="">\u0643\u0644 \u0627\u0644\u0623\u0646\u0648\u0627\u0639</option>' +
@@ -854,9 +968,9 @@ async function renderQuestions() {
       '<div class="field" style="margin:0"><button class="btn btn-sm" id="resetFilters" style="width:100%">\u0625\u0644\u063a\u0627\u0621 \u0627\u0644\u0641\u0644\u0627\u062a\u0631</button></div>' +
       '</div></div>' +
 
-      '<div class="table-wrap responsive mt"><table><thead><tr>' +
-      '<th>\u0627\u0644\u0646\u0648\u0639</th><th>\u0627\u0644\u0633\u0624\u0627\u0644</th><th>\u0627\u0644\u0645\u0648\u0642\u0639</th><th>\u0627\u0644\u0645\u0627\u062f\u0629</th><th>\u0627\u0644\u0635\u0639\u0648\u0628\u0629</th><th>\u0627\u0644\u062f\u0631\u062c\u0629</th><th></th>' +
-      "</tr></thead><tbody>" + rows + "</tbody></table></div>" +
+      '<div class="mt">' +
+      recList(rows, '<div class="empty-state"><div class="emoji">❓</div><h3>لا توجد أسئلة مطابقة</h3></div>') +
+      "</div>" +
 
       (list.length > 500 ? '<p class="help mt-sm center">\u064a\u0639\u0631\u0636 \u0623\u0648\u0644 500 \u0633\u0624\u0627\u0644</p>' : "")
     );
@@ -911,37 +1025,16 @@ async function renderQuestions() {
       renderQuestions();
     });
 
-    document.querySelectorAll("[data-edit]").forEach(function (b) {
-      b.addEventListener("click", function () {
-        questionModal(
-          questions.find(function (x) { return x.id === b.dataset.edit; }),
-          function () { renderQuestions(); }
-        );
-      });
-    });
-
-    document.querySelectorAll("[data-view]").forEach(function (b) {
-      b.addEventListener("click", function () {
-        const q = questions.find(function (x) { return x.id === b.dataset.view; });
-        if (q) viewQuestionModal(q);
-      });
-    });
-
-    document.querySelectorAll("[data-del]").forEach(function (b) {
-      b.addEventListener("click", async function () {
-        if (await U.confirm("\u062d\u0630\u0641 \u0647\u0630\u0627 \u0627\u0644\u0633\u0624\u0627\u0644\u061f")) {
-          await S.deleteQuestion(b.dataset.del);
-          U.toast("\u062a\u0645 \u0627\u0644\u062d\u0630\u0641", "success");
-          renderQuestions();
-        }
-      });
-    });
+    bindViewButtons(
+      function (id) { return questions.find(function (x) { return x.id === id; }); },
+      function (q) { viewQuestionModal(q, function () { renderQuestions(); }); }
+    );
   } catch (e) {
     shell("questions", errorCard(e));
   }
 }
 
-function viewQuestionModal(q) {
+function viewQuestionModal(q, onChange) {
   const ansTxt = U.answerText ? U.answerText(q) : (Array.isArray(q.answer) ? q.answer.join(" \u060C ") : (q.answer || "-"));
 
   U.modal({
@@ -1023,7 +1116,23 @@ function viewQuestionModal(q) {
           '<div class="muted">' + U.esc(q.explanation) + "</div></div>"
         : ""),
 
-    footer: '<button class="btn btn-ghost" data-close>\u0625\u063a\u0644\u0627\u0642</button>'
+    footer:
+      '<button class="btn" data-q-edit>\u270E \u062a\u0639\u062f\u064a\u0644</button> ' +
+      '<button class="btn btn-danger" data-q-del>\uD83D\uDDD1 \u062d\u0630\u0641</button> ' +
+      '<button class="btn btn-ghost" data-close>\u0625\u063a\u0644\u0627\u0642</button>',
+    onMount: function (node, close) {
+      node.querySelector("[data-q-edit]").addEventListener("click", function () {
+        close();
+        questionModal(q, onChange);
+      });
+      node.querySelector("[data-q-del]").addEventListener("click", async function () {
+        if (!(await U.confirm("\u062d\u0630\u0641 \u0647\u0630\u0627 \u0627\u0644\u0633\u0624\u0627\u0644\u061f"))) return;
+        await S.deleteQuestion(q.id);
+        U.toast("\u062a\u0645 \u0627\u0644\u062d\u0630\u0641", "success");
+        close();
+        if (onChange) onChange();
+      });
+    }
   });
 }
 
@@ -1658,61 +1767,98 @@ async function renderTeachers() {
           ? grp.map(function (g) {
             return '<span class="badge badge-muted">' + U.esc(g.name) + "</span>";
           }).join(" ")
-          : '<span class="muted tiny">-</span>';
+          : "";
 
-        return "<tr>" +
-          '<td data-label="\u0627\u0644\u0627\u0633\u0645"><b>' + U.esc(t.name) + "</b></td>" +
-          '<td data-label="\u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645" class="muted">' + U.esc(t.username) + "</td>" +
-          '<td data-label="\u0627\u0644\u0645\u0648\u0627\u062f">' + subjectsBadges + "</td>" +
-          '<td data-label="\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0627\u062a">' + grpBadges + "</td>" +
-          '<td data-label="\u0627\u0644\u062d\u0627\u0644\u0629">' +
-          (t.active !== false
-            ? '<span class="badge badge-success">\u0646\u0634\u0637</span>'
-            : '<span class="badge badge-danger">\u0645\u0639\u0637\u0644</span>') + "</td>" +
-          '<td data-label="\u0625\u062c\u0631\u0627\u0621\u0627\u062a">' +
-          '<button class="btn btn-sm" data-edit="' + t.id + '">\u270E</button> ' +
-          '<button class="btn btn-sm btn-danger" data-del="' + t.id + '">\uD83D\uDDD1</button>' +
-          '</td></tr>';
+        const statusTxt = t.active !== false
+          ? '<span class="badge badge-success">نشط</span>'
+          : '<span class="badge badge-danger">معطل</span>';
+
+        return recRow(
+          t.id,
+          "<b>" + U.esc(t.name) + "</b>",
+          '👤 ' + U.esc(t.username || "-") +
+            ' · ' + subjectsBadges +
+            (grpBadges ? ' · 👥 ' + grpBadges : "") +
+            ' · ' + statusTxt,
+          "👨\u200D🏫"
+        );
       }).join("")
-      : '<tr><td colspan="6" class="table-empty">-</td></tr>';
+      : null;
 
     shell("teachers",
-      '<div class="card-head"><h2>\u0627\u0644\u0645\u0639\u0644\u0645\u0648\u0646</h2><div class="spacer"></div>' +
-      '<button class="btn btn-primary" id="addTeacher">+ \u0645\u0639\u0644\u0645</button></div>' +
+      '<div class="card-head"><h2>المعلمون</h2>' +
+      '<span class="badge badge-primary">' + teachers.length + '</span>' +
+      '<div class="spacer"></div>' +
+      '<button class="btn btn-primary" id="addTeacher">+ معلم</button></div>' +
 
       '<div class="info-banner info">' +
-      '<span class="emoji">\u2139\uFE0F</span>' +
-      '<div><b>\u0627\u0644\u0645\u0639\u0644\u0645 \u064a\u0631\u0649 \u0641\u0642\u0637:</b> ' +
-      '\u0627\u062e\u062a\u0628\u0627\u0631\u0627\u062a \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0627\u062a \u0627\u0644\u0645\u0639\u064a\u0651\u0646 \u0641\u064a\u0647\u0627 + \u0645\u0627\u062f\u062a\u0647 \u0641\u0642\u0637</div>' +
+      '<span class="emoji">ℹ️</span>' +
+      '<div><b>المعلم يرى فقط:</b> ' +
+      'اختبارات المجموعات المعيَّن فيها + مادته فقط</div>' +
       '</div>' +
 
-      '<div class="table-wrap responsive mt"><table><thead><tr>' +
-      '<th>\u0627\u0644\u0627\u0633\u0645</th><th>\u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645</th><th>\u0627\u0644\u0645\u0648\u0627\u062f</th><th>\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0627\u062a</th><th>\u0627\u0644\u062d\u0627\u0644\u0629</th><th></th>' +
-      "</tr></thead><tbody>" + rows + "</tbody></table></div>"
+      recList(rows) +
+      '<p class="help mt-sm center">اضغط «عرض» لرؤية التفاصيل (بما فيها كلمة المرور) وأزرار التعديل والحذف.</p>'
     );
 
     document.getElementById("addTeacher").addEventListener("click", function () {
       teacherModal(null);
     });
 
-    document.querySelectorAll("[data-edit]").forEach(function (b) {
-      b.addEventListener("click", function () {
-        teacherModal(teachers.find(function (t) { return t.id === b.dataset.edit; }));
-      });
-    });
-
-    document.querySelectorAll("[data-del]").forEach(function (b) {
-      b.addEventListener("click", async function () {
-        if (await U.confirm("\u062d\u0630\u0641 \u0627\u0644\u0645\u0639\u0644\u0645 \u0648\u0625\u0632\u0627\u0644\u062a\u0647 \u0645\u0646 \u0643\u0644 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0627\u062a\u061f")) {
-          await S.deleteTeacher(b.dataset.del);
-          U.toast("\u062a\u0645 \u0627\u0644\u062d\u0630\u0641", "success");
-          renderTeachers();
-        }
-      });
-    });
+    bindViewButtons(
+      function (id) { return teachers.find(function (t) { return t.id === id; }); },
+      function (t) { openTeacherDetails(t); }
+    );
   } catch (e) {
     shell("teachers", errorCard(e));
   }
+}
+
+/* تفاصيل المعلم + كلمة المرور + تعديل/حذف */
+async function openTeacherDetails(t) {
+  const subjects = state.subjects || [];
+  const groups = state.groups || [];
+
+  const subjectNames = (t.subjectIds || []).map(function (id) {
+    const s = subjects.find(function (x) { return x.id === id; });
+    return '<span class="badge badge-primary">' + U.esc(s ? s.name : "?") + "</span>";
+  }).join(" ") || "-";
+
+  const grp = groups.filter(function (g) {
+    return (g.teacherAssignments || []).some(function (a) { return a.teacherId === t.id; });
+  });
+  const grpNames = grp.map(function (g) {
+    return '<span class="badge badge-muted">' + U.esc(g.name) + "</span>";
+  }).join(" ") || "-";
+
+  const pass = await passwordViewHTML(t);
+
+  recordModal({
+    title: "👨\u200D🏫 " + (t.name || "معلم"),
+    fields: [
+      { lbl: "الاسم", val: t.name },
+      { lbl: "اسم المستخدم", val: t.username },
+      { lbl: "كلمة المرور", html: pass },
+      { lbl: "المواد", html: subjectNames },
+      { lbl: "المجموعات", html: grpNames },
+      {
+        lbl: "الحالة",
+        html: t.active !== false
+          ? '<span class="badge badge-success">نشط</span>'
+          : '<span class="badge badge-danger">معطل</span>'
+      },
+      { lbl: "آخر دخول", val: U.formatDate(t.lastLoginAt) }
+    ],
+    onEdit: function () { teacherModal(t); },
+    onDelete: async function () {
+      if (await U.confirm("حذف المعلم وإزالته من كل المجموعات؟")) {
+        await S.deleteTeacher(t.id);
+        U.toast("تم الحذف", "success");
+        renderTeachers();
+      }
+    },
+    onMount: function (node) { bindPassToggles(node); }
+  });
 }
 
 function teacherModal(t) {
@@ -1819,6 +1965,7 @@ async function renderStudents() {
     });
     const groups = arr[1];
     state.groups = groups;
+    state.students = students;
 
     const groupName = function (id) {
       const g = groups.find(function (x) { return x.id === id; });
@@ -1827,51 +1974,125 @@ async function renderStudents() {
 
     const rows = students.length
       ? students.map(function (s) {
-        return "<tr>" +
-          '<td data-label="\u0627\u0644\u0627\u0633\u0645"><b>' + U.esc(s.name) + "</b></td>" +
-          '<td data-label="\u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645" class="muted tiny">' + U.esc(s.username) + "</td>" +
-          '<td data-label="\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629">' + U.esc(groupName(s.groupId)) + "</td>" +
-          '<td data-label="\u0622\u062e\u0631 \u062f\u062e\u0648\u0644" class="tiny">' + U.formatDate(s.lastLoginAt) + "</td>" +
-          '<td data-label=""><button class="btn btn-sm btn-danger" data-del-student="' + s.id + '">\uD83D\uDDD1</button></td>' +
-          "</tr>";
+        return recRow(
+          s.id,
+          "<b>" + U.esc(s.name) + "</b>",
+          '👤 ' + U.esc(s.username || "-") +
+            ' · 🏷 ' + U.esc(groupName(s.groupId)) +
+            ' · 🕒 ' + U.formatDate(s.lastLoginAt),
+          "🎓"
+        );
       }).join("")
-      : '<tr><td colspan="5" class="table-empty">\u0644\u0627 \u064a\u0648\u062c\u062f \u0637\u0644\u0627\u0628 \u0645\u0633\u062c\u0644\u0648\u0646</td></tr>';
+      : null;
 
     shell("students",
-      '<div class="card-head"><h2>\u0627\u0644\u0637\u0644\u0627\u0628</h2>' +
+      '<div class="card-head"><h2>الطلاب</h2>' +
       '<span class="badge badge-primary">' + students.length + '</span></div>' +
 
-      '<div class="info-banner info"><span class="emoji">\u2139\uFE0F</span>' +
-      '<div>\u0627\u0644\u0637\u0644\u0627\u0628 \u064a\u064f\u0646\u0634\u0626\u0648\u0646 \u062d\u0633\u0627\u0628\u0627\u062a\u0647\u0645 \u0628\u0623\u0646\u0641\u0633\u0647\u0645 \u0645\u0646 \u0635\u0641\u062d\u0629 \u0627\u0644\u0637\u0627\u0644\u0628. \u0647\u0646\u0627 \u062a\u0631\u0627\u062c\u0639\u0647\u0645 \u0641\u0642\u0637.</div></div>' +
+      '<div class="info-banner info"><span class="emoji">ℹ️</span>' +
+      '<div>الطلاب يُنشئون حساباتهم بأنفسهم من صفحة الطالب. اضغط «عرض» لرؤية كلمة المرور وتعديل الاسم أو كلمة المرور أو المجموعة.</div></div>' +
 
-      '<div class="table-wrap responsive mt"><table><thead><tr>' +
-      '<th>\u0627\u0644\u0627\u0633\u0645</th><th>\u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645</th><th>\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629</th><th>\u0622\u062e\u0631 \u062f\u062e\u0648\u0644</th><th></th>' +
-      "</tr></thead><tbody>" + rows + "</tbody></table></div>"
+      recList(rows)
     );
 
-    document.querySelectorAll("[data-del-student]").forEach(function (b) {
-      b.addEventListener("click", async function () {
-        if (await U.confirm("\u062d\u0630\u0641 \u0627\u0644\u0637\u0627\u0644\u0628\u061f")) {
-          await S.deleteStudent(b.dataset.delStudent);
-          U.toast("\u062a\u0645 \u0627\u0644\u062d\u0630\u0641", "success");
-          renderStudents();
-        }
-      });
-    });
+    bindViewButtons(
+      function (id) { return students.find(function (s) { return s.id === id; }); },
+      function (s) { openStudentDetails(s); }
+    );
   } catch (e) {
     shell("students", errorCard(e));
-    }
-    try {
-      var subBtns = document.querySelectorAll("#resBody [data-del-sub]");
-      for (var i=0;i<subBtns.length;i++) {
-        (function(b){ b.addEventListener("click", async function(){
-          if (!await U.confirm("\u0647\u0644 \u062a\u0631\u064a\u062f \u062d\u0630\u0641 \u0647\u0630\u0647 \u0627\u0644\u0645\u0634\u0627\u0631\u0643\u0629\u061f")) return;
-          b.disabled=true;
-          try{ if(S.deleteSubmission) await S.deleteSubmission(b.dataset.delSub); U.toast("\u062a\u0645 \u0627\u0644\u062d\u0630\u0641","success"); openExamResults(examId);}catch(e){ U.toast("خطأ: "+e.message,"error"); b.disabled=false;}
-        }); })(subBtns[i]);
-      }
-    } catch(e){}
   }
+}
+
+/* تفاصيل الطالب + كلمة المرور + تعديل/حذف */
+async function openStudentDetails(s) {
+  const groups = state.groups || [];
+  const g = groups.find(function (x) { return x.id === s.groupId; });
+  const pass = await passwordViewHTML(s);
+
+  recordModal({
+    title: "🎓 " + (s.name || "طالب"),
+    fields: [
+      { lbl: "الاسم", val: s.name },
+      { lbl: "اسم المستخدم", val: s.username },
+      { lbl: "كلمة المرور", html: pass },
+      { lbl: "المجموعة", val: g ? g.name : "-" },
+      { lbl: "آخر دخول", val: U.formatDate(s.lastLoginAt) }
+    ],
+    onEdit: function () { studentModal(s); },
+    onDelete: async function () {
+      if (await U.confirm("حذف الطالب؟")) {
+        await S.deleteStudent(s.id);
+        U.toast("تم الحذف", "success");
+        renderStudents();
+      }
+    },
+    onMount: function (node) { bindPassToggles(node); }
+  });
+}
+
+/* نافذة تعديل الطالب: الاسم + المستخدم + كلمة المرور + المجموعة */
+function studentModal(s) {
+  const groups = state.groups || [];
+  const groupOpts = '<option value="">— بدون مجموعة —</option>' +
+    groups.map(function (g) {
+      return '<option value="' + g.id + '"' +
+        (s.groupId === g.id ? " selected" : "") + ">" + U.esc(g.name) + "</option>";
+    }).join("");
+
+  U.modal({
+    title: "تعديل طالب",
+    body:
+      '<div class="field"><label>الاسم *</label>' +
+      '<input id="stName" value="' + U.esc(s.name || "") + '"></div>' +
+      '<div class="form-row">' +
+      '<div class="field"><label>اسم المستخدم</label>' +
+      '<input id="stUser" value="' + U.esc(s.username || "") + '"></div>' +
+      '<div class="field"><label>كلمة مرور جديدة</label>' +
+      '<input type="text" id="stPass" placeholder="اتركها فارغة للإبقاء عليها"></div>' +
+      '</div>' +
+      '<div class="field"><label>المجموعة</label>' +
+      '<select id="stGroup">' + groupOpts + '</select></div>',
+    footer:
+      '<button class="btn btn-primary" data-save>حفظ</button>' +
+      '<button class="btn btn-ghost" data-close>إلغاء</button>',
+    onMount: function (node, close) {
+      node.querySelector("[data-save]").addEventListener("click", async function () {
+        const name = node.querySelector("#stName").value.trim();
+        const username = node.querySelector("#stUser").value.trim().toLowerCase();
+        const password = node.querySelector("#stPass").value.trim();
+        const groupId = node.querySelector("#stGroup").value || null;
+
+        if (!name) return U.toast("أدخل الاسم", "warn");
+        if (!username) return U.toast("أدخل اسم المستخدم", "warn");
+
+        try {
+          const ex = await S.getStudentByUsername(username);
+          if (ex && ex.id !== s.id) return U.toast("اسم المستخدم موجود مسبقاً", "error");
+
+          const patch = { name: name, username: username, groupId: groupId };
+          if (password) patch.password = password;
+          await S.updateStudent(s.id, patch);
+
+          // تحديث الانضمام للمجموعة عند تغييرها
+          if ((s.groupId || null) !== groupId) {
+            if (groupId && S.enrollStudent) {
+              await S.enrollStudent(s.id, groupId, name);
+            } else if (S.removeEnrollment) {
+              await S.removeEnrollment(s.id);
+            }
+          }
+
+          close();
+          U.toast("تم الحفظ", "success");
+          renderStudents();
+        } catch (e) {
+          U.toast("Error: " + e.message, "error");
+        }
+      });
+    }
+  });
+}
 
   /* ============================================================
    * EXAMS - عرض الاختبارات
@@ -1895,140 +2116,140 @@ async function renderStudents() {
 
       const rows = exams.length
         ? exams.map(function (e) {
-          const groupsTxt = (e.targetGroups || []).length
-            ? (e.targetGroups || []).map(function (id) {
-              return '<span class="badge badge-muted">' + U.esc(groupName(id)) + "</span>";
-            }).join(" ")
-            : '<span class="muted tiny">-</span>';
-
-          return "<tr>" +
-            '<td data-label="\u0627\u0644\u0639\u0646\u0648\u0627\u0646"><b>' + U.esc(e.title) + "</b>" +
-            (e.autoGenerated
-              ? ' <span class="badge badge-primary">\u062a\u0644\u0642\u0627\u0626\u064a</span>'
-              : "") +
-            "<div class='tiny'>" + U.esc(e.subjectName || "-") + "</div></td>" +
-
-            '<td data-label="\u0627\u0644\u0643\u0648\u062f">' +
-            '<span class="code-box" style="padding:4px 10px">' +
-            '<span class="code" style="font-size:16px">' + U.esc(e.code) + "</span></span></td>" +
-
-            '<td data-label="\u0627\u0644\u0623\u0633\u0626\u0644\u0629">' + (e.questions || []).length + "</td>" +
-
-            '<td data-label="\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0627\u062a">' + groupsTxt + "</td>" +
-
-            '<td data-label="\u0627\u0644\u062d\u0627\u0644\u0629">' + statusBadge(e.status) + "</td>" +
-
-            '<td data-label="الدفع">' +
-            '<label class="check tiny" style="display:block;margin-bottom:4px">' +
-            '<input type="checkbox" data-exam-paid="' + e.id + '"' + (e.isPaid ? " checked" : "") + '> مدفوع</label>' +
-            (e.isPaid
-              ? '<div class="flex" style="gap:6px;align-items:center;flex-wrap:wrap">' +
-              '<input type="number" min="0" step="any" data-exam-price="' + e.id + '" value="' + (e.price || "") + '" style="width:90px" placeholder="السعر">' +
-              '<span class="tiny muted">' + U.esc(e.currency || "ل.س") + '</span></div>' +
-              '<div class="flex" style="gap:6px;align-items:center;margin-top:6px">' +
-              '<label class="btn btn-sm btn-ghost" style="cursor:pointer;margin:0">📷 QR' +
-              '<input type="file" accept="image/*" data-exam-qr="' + e.id + '" style="display:none"></label>' +
-              (e.qrImage
-                ? '<img alt="QR" src="' + U.esc(e.qrImage) + '" style="height:40px;border-radius:6px;border:1px solid var(--border)">'
-                : '<span class="tiny muted">لا صورة</span>') +
-              "</div>"
-              : "") +
-            "</td>" +
-
-            '<td data-label="\u0625\u062c\u0631\u0627\u0621\u0627\u062a">' +
-            '<button class="btn btn-sm" data-copy="' + U.esc(e.code) + '">\uD83D\uDCCB</button> ' +
-            '<button class="btn btn-sm" data-res="' + e.id + '">\uD83D\uDCCA</button> ' +
-            '<button class="btn btn-sm" data-edit="' + e.id + '">\u270E</button> ' +
-            '<button class="btn btn-sm btn-danger" data-del="' + e.id + '">\uD83D\uDDD1</button>' +
-            "</td></tr>";
+          return recRow(
+            e.id,
+            "<b>" + U.esc(e.title) + "</b>" +
+              (e.autoGenerated ? ' <span class="badge badge-primary">تلقائي</span>' : "") +
+              (e.isPaid ? ' <span class="badge badge-warning">مدفوع</span>' : ""),
+            '🔑 ' + U.esc(e.code || "-") +
+              ' · 📝 ' + (e.questions || []).length + ' سؤال' +
+              ' · 📚 ' + U.esc(e.subjectName || "-") +
+              ' · ' + statusBadge(e.status),
+            "🗒️"
+          );
         }).join("")
-        : '<tr><td colspan="7" class="table-empty">\u0644\u0627 \u062a\u0648\u062c\u062f \u0627\u062e\u062a\u0628\u0627\u0631\u0627\u062a</td></tr>';
+        : null;
 
       shell("exams",
-        '<div class="card-head"><h2>\u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631\u0627\u062a</h2>' +
+        '<div class="card-head"><h2>الاختبارات</h2>' +
+        '<span class="badge badge-primary">' + exams.length + '</span>' +
         '<div class="spacer"></div>' +
-        '<button class="btn btn-primary" id="newExam">+ \u0627\u062e\u062a\u0628\u0627\u0631</button></div>' +
+        '<button class="btn btn-primary" id="newExam">+ اختبار</button></div>' +
 
-        '<div class="table-wrap responsive"><table><thead><tr>' +
-        '<th>\u0627\u0644\u0639\u0646\u0648\u0627\u0646</th><th>\u0627\u0644\u0643\u0648\u062f</th><th>\u0627\u0644\u0623\u0633\u0626\u0644\u0629</th><th>\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0627\u062a</th><th>\u0627\u0644\u062d\u0627\u0644\u0629</th><th>الدفع</th><th></th>' +
-        "</tr></thead><tbody>" + rows + "</tbody></table></div>"
+        recList(rows)
       );
 
       document.getElementById("newExam").addEventListener("click", function () {
         examWizard(null);
       });
 
-      document.querySelectorAll("[data-copy]").forEach(function (b) {
-        b.addEventListener("click", function () { U.copy(b.dataset.copy); });
-      });
-
-      document.querySelectorAll("[data-res]").forEach(function (b) {
-        b.addEventListener("click", function () {
-          state.pendingResultExam = b.dataset.res;
-          location.hash = "#/results";
-        });
-      });
-
-      document.querySelectorAll("[data-edit]").forEach(function (b) {
-        b.addEventListener("click", function () {
-          examWizard(exams.find(function (e) { return e.id === b.dataset.edit; }));
-        });
-      });
-
-      document.querySelectorAll("[data-del]").forEach(function (b) {
-        b.addEventListener("click", async function () {
-          if (await U.confirm("\u062d\u0630\u0641 \u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631\u061f")) {
-            await S.deleteExam(b.dataset.del);
-            U.toast("\u062a\u0645 \u0627\u0644\u062d\u0630\u0641", "success");
-            renderExams();
-          }
-        });
-      });
-
-      /* ===== التحكم بالدفع (مدفوع/مجاني + السعر + رمز QR) ===== */
-      document.querySelectorAll("[data-exam-paid]").forEach(function (cb) {
-        cb.addEventListener("change", async function () {
-          const id = cb.dataset.examPaid;
-          const paid = cb.checked;
-          try {
-            await S.updateExamMeta(id, { isPaid: paid });
-            if (paid) U.toast("تم تعيين الاختبار مدفوعاً — حدّد السعر وارفع رمز QR", "info", 4000);
-            renderExams();
-          } catch (e) {
-            U.toast("تعذّر الحفظ: " + (e && e.message || e), "error", 4000);
-            renderExams();
-          }
-        });
-      });
-
-      document.querySelectorAll("[data-exam-price]").forEach(function (inp) {
-        inp.addEventListener("change", async function () {
-          try {
-            await S.updateExamMeta(inp.dataset.examPrice, { price: Number(inp.value) || 0 });
-            U.toast("تم حفظ السعر", "success", 1500);
-          } catch (e) {
-            U.toast("تعذّر حفظ السعر: " + (e && e.message || e), "error", 3000);
-          }
-        });
-      });
-
-      document.querySelectorAll("[data-exam-qr]").forEach(function (f) {
-        f.addEventListener("change", async function () {
-          const file = f.files && f.files[0];
-          if (!file) return;
-          try {
-            const dataUrl = await U.fileToDataURL(file, 512);
-            await S.updateExamMeta(f.dataset.examQr, { qrImage: dataUrl });
-            U.toast("تم حفظ صورة رمز الدفع ✓", "success", 2000);
-            renderExams();
-          } catch (e) {
-            U.toast("تعذّر رفع الصورة: " + (e && e.message || e), "error", 4000);
-          }
-        });
-      });
+      bindViewButtons(
+        function (id) { return exams.find(function (e) { return e.id === id; }); },
+        function (e) { openExamDetails(e); }
+      );
     } catch (e) {
       shell("exams", errorCard(e));
     }
+  }
+
+  /* تفاصيل الاختبار: كل البيانات + الدفع + تعديل/حذف + نسخ الكود + النتائج */
+  function openExamDetails(e) {
+    const groups = state.groups || [];
+    const groupName = function (id) {
+      if (id === "ALL") return "الكل";
+      const g = groups.find(function (x) { return x.id === id; });
+      return g ? g.name : "?";
+    };
+    const targets = (e.targetGroups || []).map(function (id) {
+      return '<span class="badge badge-muted">' + U.esc(groupName(id)) + "</span>";
+    }).join(" ") || "-";
+
+    const payHTML =
+      '<div class="field mt"><label>الإعداد المالي</label>' +
+      '<label class="check"><input type="checkbox" id="exPaid"' + (e.isPaid ? " checked" : "") + '> اختبار مدفوع</label>' +
+      '<div class="form-row mt-sm">' +
+      '<div class="field"><label>السعر</label><input type="number" min="0" step="any" id="exPrice" value="' +
+      U.esc(e.price || "") + '" placeholder="0"></div>' +
+      '<div class="field"><label>العملة</label><input id="exCur" value="' +
+      U.esc(e.currency || "ل.س") + '"></div>' +
+      "</div>" +
+      '</div>' +
+      '<div class="mt-sm">' +
+      '<label class="btn btn-sm btn-ghost" style="cursor:pointer">📷 رفع صورة رمز الدفع (QR)' +
+      '<input type="file" accept="image/*" id="exQR" style="display:none"></label>' +
+      (e.qrImage
+        ? '<div class="mt-sm"><img alt="QR" src="' + U.esc(e.qrImage) + '" style="height:80px;border-radius:8px;border:1px solid var(--border)"></div>'
+        : '<div class="tiny muted mt-sm">لا توجد صورة</div>') +
+      "</div>" +
+      '<div class="mt-sm"><button class="btn btn-sm btn-primary" id="exSavePay">💾 حفظ إعدادات الدفع</button></div>';
+
+    recordModal({
+      title: "🗒️ " + (e.title || "اختبار"),
+      bodyHTML:
+        '<div class="student-info-row">' +
+        infoItem("العنوان", U.esc(e.title)) +
+        infoItem("المادة", U.esc(e.subjectName || "-")) +
+        infoItem("الكود", '<span class="code-box" style="padding:4px 10px"><span class="code" style="font-size:16px">' +
+          U.esc(e.code || "-") + "</span></span>") +
+        infoItem("عدد الأسئلة", (e.questions || []).length) +
+        infoItem("مجموع الدرجات", e.totalPoints || "-") +
+        infoItem("المدة (دقيقة)", e.durationMin || "-") +
+        infoItem("الحالة", statusBadge(e.status)) +
+        infoItem("المجموعات", targets) +
+        infoItem("ينفتح", U.formatDate(e.openAt)) +
+        infoItem("يُغلق", U.formatDate(e.closeAt)) +
+        "</div>" + payHTML,
+      extraHTML:
+        '<div class="mt">' +
+        '<button class="btn btn-sm" id="exCopy">📋 نسخ الكود</button> ' +
+        '<button class="btn btn-sm" id="exRes">📊 النتائج</button>' +
+        "</div>",
+      onEdit: function () { examWizard(e); },
+      onDelete: async function () {
+        if (await U.confirm("حذف الاختبار؟")) {
+          await S.deleteExam(e.id);
+          U.toast("تم الحذف", "success");
+          renderExams();
+        }
+      },
+      onMount: function (node, close) {
+        node.querySelector("#exCopy").addEventListener("click", function () { U.copy(e.code); });
+        node.querySelector("#exRes").addEventListener("click", function () {
+          close();
+          state.pendingResultExam = e.id;
+          location.hash = "#/results";
+        });
+
+        node.querySelector("#exSavePay").addEventListener("click", async function () {
+          try {
+            await S.updateExamMeta(e.id, {
+              isPaid: node.querySelector("#exPaid").checked,
+              price: Number(node.querySelector("#exPrice").value) || 0,
+              currency: node.querySelector("#exCur").value.trim() || "ل.س"
+            });
+            U.toast("تم حفظ إعدادات الدفع", "success");
+            renderExams();
+            close();
+          } catch (err) {
+            U.toast("تعذّر الحفظ: " + (err && err.message || err), "error");
+          }
+        });
+
+        node.querySelector("#exQR").addEventListener("change", async function (ev) {
+          const file = ev.target.files && ev.target.files[0];
+          if (!file) return;
+          try {
+            const dataUrl = await U.fileToDataURL(file, 512);
+            await S.updateExamMeta(e.id, { qrImage: dataUrl });
+            U.toast("تم حفظ صورة رمز الدفع ✓", "success");
+            renderExams();
+            close();
+          } catch (err) {
+            U.toast("تعذّر رفع الصورة: " + (err && err.message || err), "error");
+          }
+        });
+      }
+    });
   }
 
   /* ============================================================
@@ -3370,87 +3591,100 @@ async function renderStudents() {
         return isNaN(d.getTime()) ? "-" : d.toLocaleString("ar");
       };
 
-      let body;
-      if (!payments.length) {
-        body = '<div class="card"><div class="empty-state"><div class="emoji">💳</div>' +
-          '<h3>لا توجد طلبات دفع</h3>' +
-          '<p>ستظهر هنا إبلاغات الطلاب عن دفع الاختبارات المدفوعة عبر شام كاش (عبر واتساب).</p></div></div>';
-      } else {
-        const rows = payments.map(function (p) {
-          const proof = p.receiptImage
-            ? '<img data-pay-receipt="' + p.id + '" src="' + U.esc(p.receiptImage) + '" title="عرض الوصل" style="height:44px;width:44px;object-fit:cover;border-radius:8px;border:1px solid var(--border);cursor:zoom-in">'
-            : '<span class="badge badge-muted">📲 واتساب</span>';
-          const actions = p.status === "pending"
-            ? '<div class="flex" style="gap:6px"><button class="btn btn-primary btn-sm" data-pay-approve="' + p.id + '">✅ تأكيد</button>' +
-              '<button class="btn btn-ghost btn-sm" data-pay-reject="' + p.id + '">✕ رفض</button>' +
-              '<button class="btn btn-danger btn-sm" data-pay-del="' + p.id + '">🗑️ حذف</button></div>'
-            : '<div class="flex" style="gap:6px">' + U.paymentStatusBadge(p.status) +
-              '<button class="btn btn-danger btn-sm" data-pay-del="' + p.id + '">🗑️ حذف</button></div>';
-          return '<tr>' +
-            '<td>' + U.esc(p.studentName || "-") + '</td>' +
-            '<td>' + U.esc(p.examTitle || "-") + '<div class="tiny muted">' + U.esc(p.subjectName || "") + '</div></td>' +
-            '<td style="white-space:nowrap">' + (Number(p.price) || 0) + " " + U.esc(p.currency || "") + '</td>' +
-            '<td>' + proof + '</td>' +
-            '<td class="tiny">' + whenStr(p.createdAt) + '</td>' +
-            '<td style="white-space:nowrap">' + actions + '</td>' +
-          '</tr>';
-        }).join("");
-        body = '<div class="card">' +
-          '<div class="card-head"><h3>💳 طلبات الدفع</h3>' +
-          '<span class="badge ' + (pendingCount ? "badge-warning" : "badge-muted") + '">' + pendingCount + ' معلّق</span></div>' +
-          '<div class="table-wrap responsive"><table>' +
-          '<thead><tr><th>الطالب</th><th>الاختبار</th><th>المبلغ</th><th>الإبلاغ</th><th>التاريخ</th><th>الإجراء</th></tr></thead>' +
-          '<tbody>' + rows + '</tbody></table></div></div>';
-      }
-      shell("payments", body);
+      const rows = payments.length
+        ? payments.map(function (p) {
+          return recRow(
+            p.id,
+            "<b>" + U.esc(p.studentName || "-") + "</b> " + U.paymentStatusBadge(p.status),
+            '📘 ' + U.esc(p.examTitle || "-") +
+              ' · ' + (Number(p.price) || 0) + " " + U.esc(p.currency || "") +
+              ' · 🕒 ' + whenStr(p.createdAt),
+            "💳"
+          );
+        }).join("")
+        : null;
 
-      document.querySelectorAll("[data-pay-approve]").forEach(function (b) {
-        b.addEventListener("click", async function () {
-          b.disabled = true;
-          try {
-            await S.decidePaymentRequest(b.dataset.payApprove, "approved", "admin");
-            U.toast("تم تأكيد الدفع ✅", "success");
-          } catch (e) { U.toast("خطأ: " + e.message, "error"); b.disabled = false; }
-          renderPayments();
-        });
-      });
-      document.querySelectorAll("[data-pay-reject]").forEach(function (b) {
-        b.addEventListener("click", async function () {
-          if (!await U.confirm("رفض طلب الدفع؟")) return;
-          b.disabled = true;
-          try {
-            await S.decidePaymentRequest(b.dataset.payReject, "rejected", "admin");
-            U.toast("تم رفض الطلب", "warn");
-          } catch (e) { U.toast("خطأ: " + e.message, "error"); b.disabled = false; }
-          renderPayments();
-        });
-      });
-      document.querySelectorAll("[data-pay-receipt]").forEach(function (img) {
-        img.addEventListener("click", function () {
-          const p = payments.find(function (x) { return x.id === img.dataset.payReceipt; }) || {};
-          U.modal({
-            title: "💳 وصل الدفع — " + (p.studentName || ""),
-            body: '<div style="text-align:center">' +
-              '<div class="tiny muted mb">' + U.esc(p.examTitle || "") + " — " + (Number(p.price) || 0) + " " + U.esc(p.currency || "") + '</div>' +
-              '<img alt="وصل" src="' + U.esc(p.receiptImage || "") + '" style="max-width:340px;width:100%;border-radius:12px;background:#fff;padding:6px">' +
-              '</div>'
-          });
-        });
-      });
-      document.querySelectorAll("[data-pay-del]").forEach(function (b) {
-        b.addEventListener("click", async function () {
-          if (!await U.confirm("هل تريد حذف طلب الدفع هذا؟")) return;
-          b.disabled = true;
-          try {
-            if (S.deletePaymentRequest) await S.deletePaymentRequest(b.dataset.payDel);
-            U.toast("تم الحذف", "success");
-          } catch (e) { U.toast("خطأ: " + e.message, "error"); b.disabled = false; }
-          renderPayments();
-        });
-      });
+      const body =
+        '<div class="card-head"><h2>طلبات الدفع</h2>' +
+        '<span class="badge ' + (pendingCount ? "badge-warning" : "badge-muted") + '">' +
+        pendingCount + ' معلّق</span></div>' +
+        recList(rows,
+          '<div class="card"><div class="empty-state"><div class="emoji">💳</div>' +
+          '<h3>لا توجد طلبات دفع</h3>' +
+          '<p>ستظهر هنا إبلاغات الطلاب عن دفع الاختبارات المدفوعة عبر شام كاش (عبر واتساب).</p></div></div>');
+
+      shell("payments", body);
+      state.payments = payments;
+      bindViewButtons(
+        function (id) { return payments.find(function (p) { return p.id === id; }); },
+        function (p) { openPaymentDetails(p); }
+      );
+
     } catch (e) {
       shell("payments", errorCard(e));
     }
+  }
+
+  /* تفاصيل طلب الدفع + تأكيد/رفض/حذف */
+  function openPaymentDetails(p) {
+    const whenStr = function (v) {
+      if (!v) return "-";
+      const d = v.toDate ? v.toDate() : new Date(v);
+      return isNaN(d.getTime()) ? "-" : d.toLocaleString("ar");
+    };
+    const img = p.receiptImage
+      ? '<img alt="وصل" src="' + U.esc(p.receiptImage) +
+        '" style="max-width:280px;width:100%;border-radius:12px;background:#fff;padding:6px">'
+      : '<span class="badge badge-muted">📲 إبلاغ واتساب</span>';
+
+    recordModal({
+      title: "💳 طلب دفع — " + (p.studentName || ""),
+      fields: [
+        { lbl: "الطالب", val: p.studentName },
+        { lbl: "الاختبار", val: p.examTitle },
+        { lbl: "المادة", val: p.subjectName },
+        { lbl: "المبلغ", html: (Number(p.price) || 0) + " " + U.esc(p.currency || "") },
+        { lbl: "الحالة", html: U.paymentStatusBadge(p.status) },
+        { lbl: "التاريخ", val: whenStr(p.createdAt) },
+        { lbl: "ملاحظة", val: p.note },
+        { lbl: "الوصل", html: img }
+      ],
+      extraHTML:
+        '<div class="mt">' +
+        (p.status === "pending"
+          ? '<button class="btn btn-primary" id="payApprove">✅ تأكيد الدفع</button> ' +
+            '<button class="btn btn-ghost" id="payReject">✕ رفض</button> '
+          : "") +
+        '<button class="btn btn-danger" id="payDel">🗑️ حذف</button></div>',
+      onMount: function (node, close) {
+        const approve = node.querySelector("#payApprove");
+        if (approve) approve.addEventListener("click", async function () {
+          approve.disabled = true;
+          try {
+            await S.decidePaymentRequest(p.id, "approved", "admin");
+            U.toast("تم تأكيد الدفع ✅", "success");
+          } catch (e) { U.toast("خطأ: " + e.message, "error"); approve.disabled = false; return; }
+          close(); renderPayments();
+        });
+        const reject = node.querySelector("#payReject");
+        if (reject) reject.addEventListener("click", async function () {
+          if (!await U.confirm("رفض طلب الدفع؟")) return;
+          try {
+            await S.decidePaymentRequest(p.id, "rejected", "admin");
+            U.toast("تم رفض الطلب", "warn");
+          } catch (e) { U.toast("خطأ: " + e.message, "error"); return; }
+          close(); renderPayments();
+        });
+        node.querySelector("#payDel").addEventListener("click", async function () {
+          if (!await U.confirm("حذف طلب الدفع هذا؟")) return;
+          try {
+            if (S.deletePaymentRequest) await S.deletePaymentRequest(p.id);
+            U.toast("تم الحذف", "success");
+          } catch (e) { U.toast("خطأ: " + e.message, "error"); return; }
+          close(); renderPayments();
+        });
+      }
+    });
   }
 
   async function renderResults() {
@@ -3522,7 +3756,7 @@ async function renderStudents() {
         ? Math.round(scores.reduce(function (a, b) { return a + b; }, 0) / scores.length)
         : 0;
 
-       const rows = subs.map(function (s, i) {
+       const rows = subs.map(function (s) {
          const scoreTxt = (s.score !== null && s.score !== undefined)
            ? s.score + " / " + s.total : "-";
          const pctTxt = (s.percent !== null && s.percent !== undefined)
@@ -3530,16 +3764,15 @@ async function renderStudents() {
          const pctColor = (s.percent !== null && s.percent !== undefined)
            ? U.pctColor(s.percent) : "var(--text-3)";
 
-         return "<tr>" +
-           '<td data-label="#">' + (i + 1) + "</td>" +
-           '<td data-label="\u0627\u0644\u0637\u0627\u0644\u0628"><b>' + U.esc(s.studentName || "-") + "</b></td>" +
-           '<td data-label="\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629" class="tiny">' + U.esc(s.groupName || "-") + "</td>" +
-           '<td data-label="\u0627\u0644\u062f\u0631\u062c\u0629">' + scoreTxt + "</td>" +
-           '<td data-label="\u0627\u0644\u0646\u0633\u0628\u0629" style="color:' + pctColor + '"><b>' + pctTxt + "</b></td>" +
-           '<td data-label="\u0627\u0644\u062d\u0627\u0644\u0629">' + U.submissionStatusBadge(s.status) + "</td>" +
-           '<td data-label="\u0627\u0644\u062a\u0627\u0631\u064a\u062e" class="tiny">' + U.formatDate(s.createdAt) + "</td>" +
-           '<td><button class="btn btn-danger btn-sm" data-del-sub="' + s.id + '">\uD83D\uDDD1\uFE0F حذف</button></td>' +
-           "</tr>";
+         return recRow(
+           s.id,
+           "<b>" + U.esc(s.studentName || "-") + "</b> " + U.submissionStatusBadge(s.status),
+           '🏷 ' + U.esc(s.groupName || "-") +
+             ' · 🎯 <b style="color:' + pctColor + '">' + pctTxt + '</b>' +
+             ' (' + scoreTxt + ')' +
+             ' · 🕒 ' + U.formatDate(s.createdAt),
+           "📄"
+         );
        }).join("");
 
        body.innerHTML =
@@ -3549,13 +3782,62 @@ async function renderStudents() {
          stat("\u2705", graded.length, "\u0645\u064f\u0635\u062d\u0651\u062d") +
          stat("\uD83D\uDCCA", avg + "%", "\u0627\u0644\u0645\u062a\u0648\u0633\u0637") +
          "</div>" +
+         recList(rows);
 
-         '<div class="table-wrap responsive"><table><thead><tr>' +
-         '<th>#</th><th>\u0627\u0644\u0637\u0627\u0644\u0628</th><th>\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629</th><th>\u0627\u0644\u062f\u0631\u062c\u0629</th><th>\u0627\u0644\u0646\u0633\u0628\u0629</th><th>\u0627\u0644\u062d\u0627\u0644\u0629</th><th>\u0627\u0644\u062a\u0627\u0631\u064a\u062e</th><th>\u0627\u0644\u0625\u062c\u0631\u0627\u0621</th>' +
-         "</tr></thead><tbody>" + rows + "</tbody></table></div>";
+       bindViewButtons(
+         function (id) { return subs.find(function (s) { return s.id === id; }); },
+         function (s) { openSubmissionDetails(s, examId, exam); }
+       );
     } catch (e) {
       body.innerHTML = errorCard(e);
     }
+  }
+
+  /* تفاصيل مشاركة طالب + حذف */
+  function openSubmissionDetails(s, examId, exam) {
+    const scoreTxt = (s.score !== null && s.score !== undefined)
+      ? s.score + " / " + s.total : "—";
+    const pctTxt = (s.percent !== null && s.percent !== undefined)
+      ? s.percent + "%" : "—";
+
+    const answersTxt = (s.answers && s.answers.length)
+      ? s.answers.map(function (a, i) {
+        const ok = a.finalCorrect === true;
+        const mark = (a.finalCorrect === null || a.finalCorrect === undefined)
+          ? "⏳" : (ok ? "✅" : "❌");
+        let givenTxt;
+        if (Array.isArray(a.given)) givenTxt = a.given.join(" ، ");
+        else if (a.given && typeof a.given === "object") givenTxt = JSON.stringify(a.given);
+        else givenTxt = a.given;
+        return '<div class="audit-row">' +
+          (i + 1) + ". " + mark + " " +
+          '<span class="muted tiny">' + U.esc(String(a.text || "").slice(0, 80)) + "</span><br>" +
+          "إجابته: <b>" + U.esc(String(givenTxt == null ? "—" : givenTxt).slice(0, 140)) + "</b>" +
+          "</div>";
+      }).join("")
+      : '<span class="muted">—</span>';
+
+    recordModal({
+      title: "📄 " + (s.studentName || "طالب"),
+      fields: [
+        { lbl: "الطالب", val: s.studentName },
+        { lbl: "المجموعة", val: s.groupName },
+        { lbl: "الاختبار", val: exam ? exam.title : "" },
+        { lbl: "الدرجة", val: scoreTxt },
+        { lbl: "النسبة", html: "<b>" + pctTxt + "</b>" },
+        { lbl: "الحالة", html: U.submissionStatusBadge(s.status) },
+        { lbl: "التاريخ", val: U.formatDate(s.createdAt) }
+      ],
+      extraHTML: '<div class="mt"><div class="lbl muted tiny">الإجابات</div>' + answersTxt + "</div>",
+      onDelete: async function () {
+        if (!await U.confirm("حذف هذه المشاركة؟")) return;
+        try {
+          if (S.deleteSubmission) await S.deleteSubmission(s.id);
+          U.toast("تم الحذف", "success");
+        } catch (e) { U.toast("خطأ: " + e.message, "error"); return; }
+        openExamResults(examId);
+      }
+    });
   }
 
   /* ============================================================

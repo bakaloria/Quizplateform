@@ -417,12 +417,16 @@
     addStudent: async function (data) {
       const salt = QP.crypto.genSalt(16);
       const hash = await QP.crypto.hashPassword(data.password, salt);
+      const enc = QP.crypto.encryptPassword
+        ? await QP.crypto.encryptPassword(data.password)
+        : "";
       const username = data.username || store.makeUsername(data.name);
       const ref = await col.students.add({
         name: data.name || "",
         username: username,
         salt: salt,
         passwordHash: hash,
+        passwordEnc: enc,
         groupId: data.groupId || null,
         active: true,
         lastLoginAt: null,
@@ -440,6 +444,9 @@
         const salt = QP.crypto.genSalt(16);
         patch.salt = salt;
         patch.passwordHash = await QP.crypto.hashPassword(patch.password, salt);
+        if (QP.crypto.encryptPassword) {
+          patch.passwordEnc = await QP.crypto.encryptPassword(patch.password);
+        }
         delete patch.password;
       }
       if (patch.name && !patch.username) {
@@ -491,6 +498,21 @@
       const snap = await col.enrollments.where("studentId", "==", studentId).limit(1).get();
       if (snap.empty) return null;
       return docData(snap.docs[0]);
+    },
+    removeEnrollment: async function (studentId) {
+      const snap = await col.enrollments.where("studentId", "==", studentId).get();
+      const groupIds = {};
+      const batch = db.batch();
+      for (const doc of snap.docs) {
+        if (doc.data().groupId) groupIds[doc.data().groupId] = true;
+        batch.delete(doc.ref);
+      }
+      if (snap.size > 0) await batch.commit();
+      await col.students.doc(studentId).update({ groupId: null });
+      const ids = Object.keys(groupIds);
+      for (let i = 0; i < ids.length; i++) {
+        await store.updateGroupStudentCount(ids[i]);
+      }
     },
     listEnrollmentsByGroup: async function (groupId) {
       const snap = await col.enrollments.where("groupId", "==", groupId).get();
@@ -838,11 +860,15 @@
     addTeacher: async function (data) {
       const salt = QP.crypto.genSalt(16);
       const hash = await QP.crypto.hashPassword(data.password, salt);
+      const enc = QP.crypto.encryptPassword
+        ? await QP.crypto.encryptPassword(data.password)
+        : "";
       const ref = await col.teachers.add({
         name: data.name || "",
         username: String(data.username || "").trim().toLowerCase(),
         salt: salt,
         passwordHash: hash,
+        passwordEnc: enc,
         subjectIds: data.subjectIds || [],
         active: data.active !== false,
         failedAttempts: 0,
@@ -859,6 +885,9 @@
         const salt = QP.crypto.genSalt(16);
         patch.salt = salt;
         patch.passwordHash = await QP.crypto.hashPassword(patch.password, salt);
+        if (QP.crypto.encryptPassword) {
+          patch.passwordEnc = await QP.crypto.encryptPassword(patch.password);
+        }
         delete patch.password;
       }
       await col.teachers.doc(id).update(patch);
