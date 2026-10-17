@@ -125,6 +125,8 @@
      - وفي لوحة المعلم: بعد تسجيل دخول المعلم فقط */
   function canInstall() {
     if (!deferredPrompt) return false;
+    // لا حاجة لزر التثبيت إذا كان التطبيق مثبّتاً ويعمل في وضع standalone
+    if (isStandalone()) return false;
     if (IS_TEACHER) {
       return !!(QP.teacher && QP.teacher.isLogged && QP.teacher.isLogged());
     }
