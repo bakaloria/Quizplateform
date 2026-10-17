@@ -2,7 +2,7 @@
  * Service Worker v4.0 - PWA كامل مع offline + تحديث تلقائي
  * ============================================================ */
 
-  const CACHE_VERSION = "qp-v5.6.12";
+  const CACHE_VERSION = "qp-v5.6.13";
 const CACHE_STATIC = CACHE_VERSION + "-static";
 const CACHE_RUNTIME = CACHE_VERSION + "-runtime";
 
@@ -15,6 +15,12 @@ const STATIC_ASSETS = [
   "./engbuilder.html",
   "./offline.html",
   "./manifest.json",
+  "./manifest-teacher.json",
+  "./icons/icon-teacher-192.png",
+  "./icons/icon-teacher-512.png",
+  "./icons/icon-teacher-maskable-192.png",
+  "./icons/icon-teacher-maskable-512.png",
+  "./icons/apple-touch-icon-teacher.png",
   "./css/styles.css",
   "./js/firebase.js",
   "./js/utils.js",

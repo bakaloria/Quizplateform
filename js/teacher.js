@@ -77,6 +77,8 @@
         tstate.teacher = t;
         U.toast("\u0645\u0631\u062d\u0628\u0627 " + t.name, "success");
         QP.teacher.render("dashboard");
+        // إظهار زر تثبيت تطبيق المعلم بعد الدخول
+        if (QP.pwa && QP.pwa.refreshInstall) QP.pwa.refreshInstall();
       } catch (e) {
         U.toast("Error: " + e.message, "error");
         btn.disabled = false; btn.textContent = "\u062f\u062e\u0648\u0644";
@@ -90,6 +92,7 @@
 
   function logout() {
     sessionStorage.removeItem("qp_teacher");
+    if (QP.pwa && QP.pwa.hideInstall) QP.pwa.hideInstall();
     U.toast("\u062a\u0645 \u0627\u0644\u062e\u0631\u0648\u062c", "success");
     location.hash = "#/dashboard";
     setTimeout(function () { location.reload(); }, 300);

@@ -1168,6 +1168,60 @@ tbody tr:last-child td { border-bottom: none; }
   font-size: 18px;
 }
 
+/* ===== زر التثبيت في لوحة المعلم (أخضر) ===== */
+body[data-app="teacher"] .pwa-install-btn {
+  background: linear-gradient(135deg, #10b981, #059669);
+  box-shadow: 0 12px 28px -10px rgba(16, 185, 129, .6);
+}
+
+body[data-app="teacher"] .pwa-install-btn:hover {
+  box-shadow: 0 16px 32px -10px rgba(16, 185, 129, .75);
+}
+
+/* ===== تلميح التثبيت على iOS ===== */
+.pwa-ios-hint {
+  position: fixed;
+  bottom: 78px;
+  left: 16px;
+  right: 16px;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--success);
+  border-radius: 14px;
+  box-shadow: 0 20px 40px -16px rgba(0, 0, 0, .5);
+  max-width: 520px;
+  margin: 0 auto;
+  animation: pwa-slide-up .35s ease-out;
+}
+
+.pwa-ios-hint-text {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.pwa-ios-hint-text b {
+  color: var(--success);
+}
+
+.pwa-ios-hint-close {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
 /* ===== شريط الاتصال ===== */
 .pwa-connection-bar {
   position: fixed;

@@ -4,6 +4,10 @@
 (function () {
   const QP = window.QP;
 
+  // الصفحة الحالية: "teacher" في لوحة المعلم، وإلا تطبيق الطالب
+  const APP = (document.body && document.body.getAttribute("data-app")) || "student";
+  const IS_TEACHER = APP === "teacher";
+
   let deferredPrompt = null;
   let newWorker = null;
   let updateAvailable = false;
@@ -97,22 +101,49 @@
     window.addEventListener("beforeinstallprompt", function (e) {
       e.preventDefault();
       deferredPrompt = e;
-      showInstallButton();
+      refreshInstall();
     });
 
     window.addEventListener("appinstalled", function () {
       console.log("[PWA] تم تثبيت التطبيق ✅");
       deferredPrompt = null;
       hideInstallButton();
+      hideIosHint();
       if (QP.utils && QP.utils.toast) {
-        QP.utils.toast("تم تثبيت التطبيق على جهازك", "success", 4000);
+        QP.utils.toast(IS_TEACHER ? "تم تثبيت تطبيق المعلم على جهازك" : "تم تثبيت التطبيق على جهازك", "success", 4000);
       }
     });
 
     // إذا كان التطبيق مثبتاً بالفعل
-    if (window.matchMedia("(display-mode: standalone)").matches ||
-      window.navigator.standalone === true) {
+    if (isStandalone()) {
       console.log("[PWA] التطبيق مثبّت ويعمل في وضع standalone");
+    }
+  }
+
+  /* يُسمح بإظهار زر التثبيت عندما:
+     - يكون المتصفح قد أتاح التثبيت (deferredPrompt)
+     - وفي لوحة المعلم: بعد تسجيل دخول المعلم فقط */
+  function canInstall() {
+    if (!deferredPrompt) return false;
+    if (IS_TEACHER) {
+      return !!(QP.teacher && QP.teacher.isLogged && QP.teacher.isLogged());
+    }
+    return true;
+  }
+
+  function refreshInstall() {
+    if (canInstall()) {
+      showInstallButton();
+    } else {
+      hideInstallButton();
+    }
+
+    // تلميح التثبيت على iOS (لا يدعم beforeinstallprompt) للمعلم فقط
+    if (IS_TEACHER && isIos() && !isStandalone() &&
+      QP.teacher && QP.teacher.isLogged && QP.teacher.isLogged()) {
+      showIosHint();
+    } else {
+      hideIosHint();
     }
   }
 
@@ -122,8 +153,12 @@
     const btn = document.createElement("button");
     btn.id = "pwaInstallBtn";
     btn.className = "pwa-install-btn";
-    btn.innerHTML = '<span>📲</span> تثبيت التطبيق';
-    btn.title = "ثبّت المنصة على جهازك للوصول السريع";
+    btn.innerHTML = IS_TEACHER
+      ? '<span>📲</span> تثبيت تطبيق المعلم'
+      : '<span>📲</span> تثبيت التطبيق';
+    btn.title = IS_TEACHER
+      ? "ثبّت تطبيق المعلم على جهازك للوصول السريع"
+      : "ثبّت المنصة على جهازك للوصول السريع";
     document.body.appendChild(btn);
 
     btn.addEventListener("click", async function () {
@@ -145,6 +180,42 @@
   function hideInstallButton() {
     const btn = document.getElementById("pwaInstallBtn");
     if (btn) btn.remove();
+  }
+
+  /* ============================================================
+   * كشف النظام / وضع التطبيق
+   * ============================================================ */
+  function isStandalone() {
+    return window.matchMedia("(display-mode: standalone)").matches ||
+      window.navigator.standalone === true;
+  }
+
+  function isIos() {
+    return /iphone|ipad|ipod/i.test(navigator.userAgent) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  }
+
+  /* تلميح "إضافة إلى الشاشة الرئيسية" على iOS */
+  function showIosHint() {
+    if (document.getElementById("pwaIosHint")) return;
+    if (localStorage.getItem("qp_ios_hint_dismissed") === "1") return;
+
+    const el = document.createElement("div");
+    el.id = "pwaIosHint";
+    el.className = "pwa-ios-hint";
+    el.innerHTML =
+      '<div class="pwa-ios-hint-text">لتثبيت تطبيق المعلم: اضغط <b>مشاركة</b> ⬆️ ثم <b>إضافة إلى الشاشة الرئيسية</b></div>' +
+      '<button class="pwa-ios-hint-close" aria-label="إغلاق">✕</button>';
+    document.body.appendChild(el);
+    el.querySelector(".pwa-ios-hint-close").addEventListener("click", function () {
+      localStorage.setItem("qp_ios_hint_dismissed", "1");
+      hideIosHint();
+    });
+  }
+
+  function hideIosHint() {
+    const el = document.getElementById("pwaIosHint");
+    if (el) el.remove();
   }
 
   /* ============================================================
@@ -189,9 +260,7 @@
    * كشف وضع التطبيق
    * ============================================================ */
   function detectDisplayMode() {
-    const isStandalone = window.matchMedia("(display-mode: standalone)").matches ||
-      window.navigator.standalone === true;
-    if (isStandalone) {
+    if (isStandalone()) {
       document.documentElement.setAttribute("data-pwa", "standalone");
     }
     // مراقبة تغييرات الوضع
@@ -212,6 +281,7 @@
     setupInstallButton();
     setupConnectionIndicator();
     detectDisplayMode();
+    refreshInstall();
   }
 
   if (document.readyState === "loading") {
@@ -223,7 +293,10 @@
   // تصدير API
   QP.pwa = {
     canInstall: function () { return !!deferredPrompt; },
+    isTeacher: IS_TEACHER,
     showInstall: function () { if (deferredPrompt) showInstallButton(); },
+    hideInstall: hideInstallButton,
+    refreshInstall: refreshInstall,
     update: function () {
       if (newWorker) newWorker.postMessage({ type: "SKIP_WAITING" });
     },
