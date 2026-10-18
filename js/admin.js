@@ -2200,9 +2200,10 @@ function studentModal(s) {
         infoItem("يُغلق", U.formatDate(e.closeAt)) +
         "</div>" + payHTML,
       extraHTML:
-        '<div class="mt">' +
+        '<div class="mt" style="display:flex;gap:8px;flex-wrap:wrap">' +
         '<button class="btn btn-sm" id="exCopy">📋 نسخ الكود</button> ' +
-        '<button class="btn btn-sm" id="exRes">📊 النتائج</button>' +
+        '<button class="btn btn-sm" id="exRes">📊 النتائج</button> ' +
+        '<button class="btn btn-sm" id="exQList">📝 أسئلة الاختبار</button>' +
         "</div>",
       onEdit: function () { examWizard(e); },
       onDelete: async function () {
@@ -2218,6 +2219,10 @@ function studentModal(s) {
           close();
           state.pendingResultExam = e.id;
           location.hash = "#/results";
+        });
+        node.querySelector("#exQList").addEventListener("click", function () {
+          close();
+          openExamQuestions(e);
         });
 
         node.querySelector("#exSavePay").addEventListener("click", async function () {
