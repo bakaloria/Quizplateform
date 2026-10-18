@@ -53,6 +53,7 @@
       '<div class="auth-tabs">' +
       '<button data-tab="login">\u062f\u062e\u0648\u0644</button>' +
       '<button data-tab="register">\u062d\u0633\u0627\u0628 \u062c\u062f\u064a\u062f</button>' +
+      '<button data-tab="guest">\u062f\u062e\u0648\u0644 \u0628\u0643\u0648\u062f \u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631</button>' +
       '</div>' +
       '<div id="authForm"></div>' +
       '</div>' +
@@ -89,6 +90,23 @@
       document.getElementById("loginPass").addEventListener("keydown", function (e) {
         if (e.key === "Enter") doLogin();
       });
+    } else if (tab === "guest") {
+      form.innerHTML =
+        '<div class="field"><label>اسمك الكامل</label>' +
+        '<input id="guestName" placeholder="اكتب اسمك كما تريد أن يظهر في النتيجة"></div>' +
+        '<div class="field"><label>كود الاختبار</label>' +
+        '<input id="guestCode" placeholder="مثال: ABC123" style="text-transform:uppercase;letter-spacing:4px;text-align:center"></div>' +
+        '<button class="btn btn-primary btn-block" id="doGuest">دخول الاختبار</button>' +
+        '<p class="help center mt-sm">يُستخدم للدخول للاختبارات المجانية فقط (اسم + كود). الاختبارات المدفوعة تحتاج لحساب طالب.</p>';
+
+      U.focusFirstInput();
+      document.getElementById("guestName").addEventListener("keydown", function (e) {
+        if (e.key === "Enter") document.getElementById("guestCode").focus();
+      });
+      document.getElementById("guestCode").addEventListener("keydown", function (e) {
+        if (e.key === "Enter") guestEnter();
+      });
+      document.getElementById("doGuest").addEventListener("click", guestEnter);
     } else {
       form.innerHTML =
         '<div class="field"><label>\u0627\u0644\u0627\u0633\u0645 \u0627\u0644\u0643\u0627\u0645\u0644 *</label>' +
@@ -629,7 +647,7 @@
     );
 
     document.getElementById("beginBtn").addEventListener("click", beginExamFlow);
-    document.getElementById("cancelBtn").addEventListener("click", renderDashboard);
+    document.getElementById("cancelBtn").addEventListener("click", function () { if (st.guest) renderAuth(); else renderDashboard(); });
   }
 
   function shuffle(arr) {
@@ -1045,7 +1063,39 @@
     const total = graded.reduce(function (s, g) { return s + g.points; }, 0);
     const nowIso = new Date().toISOString();
 
-    const submission = {
+    if (st.exam.settings && st.exam.settings.autoResult) {
+      var pendingCount = 0;
+      var autoScore = 0;
+      graded.forEach(function (g) {
+        if (g.autoCorrect === null || g.autoCorrect === undefined) {
+          pendingCount++;
+          return;
+        }
+        if (g.autoCorrect) {
+          g.earned = g.points;
+          g.finalCorrect = true;
+          autoScore += g.points;
+        } else {
+          g.earned = 0;
+          g.finalCorrect = false;
+        }
+      });
+      if (pendingCount === 0) {
+        const passScore = st.exam.settings.passScore || 50;
+        submission.score = autoScore;
+        submission.percent = total > 0 ? Math.round((autoScore / total) * 100) : 0;
+        submission.passed = submission.percent >= passScore;
+        submission.status = "graded";
+        submission.needsManualReview = false;
+        submission.gradedBy = "تصحيح تلقائي";
+        submission.gradedAt = nowIso;
+      } else {
+        submission.autoScore = autoScore;
+        submission.autoPendingCount = pendingCount;
+      }
+    }
+
+    var submission = {
       examId: st.exam.id,
       examCode: st.exam.code,
       examTitle: st.exam.title,
@@ -1068,18 +1118,24 @@
       gradedByTeacherId: null,
       gradedAt: null,
       createdAt: nowIso,
-      autoSubmit: !!auto
+      autoSubmit: !!auto,
+      isGuest: st.guest
     };
 
     try {
-      await S.addSubmission(submission);
+      var subId = await S.addSubmission(submission);
+      submission.id = subId;
     } catch (e) {
       U.toast("\u062a\u0639\u0630\u0631 \u0627\u0644\u062d\u0641\u0638: " + e.message, "error", 5000);
     }
-    renderSubmitted();
+    renderSubmitted(submission);
   }
 
-  function renderSubmitted() {
+  function renderSubmitted(sub) {
+    if (sub && sub.status === "graded" && sub.id) {
+      return viewResult(sub.id, sub);
+    }
+    var partial = sub && sub.status === "pending" && sub.autoPendingCount && sub.autoPendingCount > 0;
     view(
       '<div class="container container-narrow">' +
       '<div class="card mt">' +
@@ -1087,23 +1143,30 @@
       '<div class="pulse-icon">\uD83D\uDCE8</div>' +
       '<h2>\u062a\u0645 \u0627\u0633\u062a\u0644\u0627\u0645 \u0625\u062c\u0627\u0628\u0627\u062a\u0643</h2>' +
       '<p class="hint">\u0634\u0643\u0631\u0627\u064b \u0644\u0643 \u064a\u0627 ' + U.esc(st.student.name) + '</p>' +
-      '<div class="info-banner warning" style="text-align:start">' +
-      '<span class="emoji">\u23F3</span>' +
-      '<div><b>\u0627\u0644\u0646\u062a\u064a\u062c\u0629 \u0644\u0645 \u062a\u0635\u062f\u0631 \u0628\u0639\u062f</b>' +
-      '\u0633\u064a\u0631\u0627\u062c\u0639 \u0627\u0644\u0645\u0639\u0644\u0645 \u0625\u062c\u0627\u0628\u0627\u062a\u0643 \u0648\u064a\u0639\u062a\u0645\u062f \u0627\u0644\u062f\u0631\u062c\u0629. ' +
-      '\u0639\u0646\u062f\u0645\u0627 \u064a\u062a\u0645 \u0627\u0644\u0627\u0639\u062a\u0645\u0627\u062f\u060c \u0633\u062a\u0631\u0649 \u0627\u0644\u0646\u062a\u064a\u062c\u0629 \u0641\u064a \u0644\u0648\u062d\u062a\u0643.</div>' +
-      '</div>' +
+      (partial ? (
+        '<div class="info-banner info" style="text-align:start">' +
+        '<span class="emoji">⚡</span>' +
+        '<div><b>تم التصحيح التلقائي لجزء من الأسئلة</b> • الدرجات الحالية: ' + (sub.autoScore||0) + '/' + (sub.total||0) + ' درجة (باقي ' + sub.autoPendingCount + ' سؤال يحتاج تصحيح المعلم).<br>ستظهر النتيجة النهائية في لوحة الطالب عند الاعتماد.</div>' +
+        '</div>'
+      ) : (
+        '<div class="info-banner warning" style="text-align:start">' +
+        '<span class="emoji">\u23F3</span>' +
+        '<div><b>\u0627\u0644\u0646\u062a\u064a\u062c\u0629 \u0644\u0645 \u062a\u0635\u062f\u0631 \u0628\u0639\u062f</b>' +
+        '\u0633\u064a\u0631\u0627\u062c\u0639 \u0627\u0644\u0645\u0639\u0644\u0645 \u0625\u062c\u0627\u0628\u0627\u062a\u0643 \u0648\u064a\u0639\u062a\u0645\u062f \u0627\u0644\u062f\u0631\u062c\u0629. ' +
+        '\u0639\u0646\u062f\u0645\u0627 \u064a\u062a\u0645 \u0627\u0644\u0627\u0639\u062a\u0645\u0627\u062f\u060c \u0633\u062a\u0631\u0649 \u0627\u0644\u0646\u062a\u064a\u062c\u0629 \u0641\u064a \u0644\u0648\u062d\u062a\u0643.</div>' +
+        '</div>'
+      )) +
       '<button class="btn btn-primary btn-block mt" id="backBtn">\u0631\u062c\u0648\u0639 \u0644\u0644\u0648\u062d\u0629</button>' +
       '</div></div></div>'
     );
-    document.getElementById("backBtn").addEventListener("click", renderDashboard);
+    document.getElementById("backBtn").addEventListener("click", function () { if (st.guest) renderAuth(); else renderDashboard(); });
   }
 
   /* ============================================================
    * VIEW RESULT (بعد الاعتماد)
    * ============================================================ */
-  async function viewResult(submissionId) {
-    const sub = await S.getSubmissionById(submissionId);
+  async function viewResult(submissionId, preloaded) {
+    const sub = preloaded || await S.getSubmissionById(submissionId);
     if (!sub) return U.toast("\u063a\u064a\u0631 \u0645\u0648\u062c\u0648\u062f", "error");
     if (sub.status !== "graded") return U.toast("\u0627\u0644\u0646\u062a\u064a\u062c\u0629 \u0644\u0645 \u062a\u0635\u062f\u0631 \u0628\u0639\u062f", "warn");
 
@@ -1158,8 +1221,32 @@
       '</div></div>'
     );
 
-    document.getElementById("backBtn").addEventListener("click", renderDashboard);
+    document.getElementById("backBtn").addEventListener("click", function () { if (st.guest) renderAuth(); else renderDashboard(); });
     document.getElementById("printBtn").addEventListener("click", function () { window.print(); });
+  }
+
+  async function guestEnter() {
+    const nameInput = document.getElementById("guestName");
+    const codeInput = document.getElementById("guestCode");
+    const name = nameInput && nameInput.value ? nameInput.value.trim() : "";
+    const code = codeInput && codeInput.value ? codeInput.value.trim().toUpperCase() : "";
+    if (!name) return U.toast("أدخل اسمك", "warn");
+    if (!code) return U.toast("أدخل كود الاختبار", "warn");
+    const exam = await S.getExamByCode(code);
+    if (!exam) return U.toast("كود الاختبار غير صحيح", "error");
+    if (exam.isPaid) return U.toast("هذا اختبار مدفوع — يجب تسجيل الدخول بحساب طالب وتأكيد الدفع أولاً", "warn", 6000);
+    const avail = U.examAvailability ? U.examAvailability(exam) : "available";
+    if (avail === "upcoming") return U.toast("لم يبدأ وقت الاختبار بعد", "warn");
+    if (avail === "expired") return U.toast("انتهى وقت الاختبار", "error");
+    st.student = {
+      id: "guest:" + (U.normalizeArabic ? U.normalizeArabic(name) : name).replace(/\s+/g, "") + ":" + (exam.id || code),
+      name: name,
+      username: "",
+      isGuest: true
+    };
+    st.group = { id: "ALL", name: "ضيوف" };
+    st.guest = true;
+    await startExam(exam.id);
   }
 
   /* ============================================================
@@ -1174,5 +1261,5 @@
     }
   };
 
-  console.log("[student.js v4.1] QP.student loaded");
+  console.log("[student.js v4.2] QP.student loaded");
 })();

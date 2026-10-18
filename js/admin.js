@@ -2337,6 +2337,12 @@ function studentModal(s) {
         '> \uD83D\uDC41\uFE0F \u0627\u0644\u0633\u0645\u0627\u062d \u0628\u0627\u0644\u0645\u0631\u0627\u062c\u0639\u0629</label>' +
         "</div>" +
 
+        '<div class="form-row-3">' +
+        '<label class="check" style="align-self:end;padding-bottom:10px"><input type="checkbox" id="autoResult"' +
+        (exam && exam.settings && exam.settings.autoResult ? " checked" : "") +
+        '> ⚡ النتيجة الفورية (تصحيح تلقائي فوري عند التسليم)</label>' +
+        "</div>" +
+
         '<div class="hr"></div>' +
 
         /* ===== الإعداد المالي / الدفع ===== */
@@ -3502,6 +3508,7 @@ function studentModal(s) {
               shuffleOptions: false,
               showResults: false,
               allowReview: node.querySelector("#allowReview").checked,
+              autoResult: (node.querySelector("#autoResult") && node.querySelector("#autoResult").checked) || false,
               negative: false,
               requireName: true,
               passScore: Number(node.querySelector("#exPass").value) || 50,
