@@ -2123,6 +2123,7 @@ function studentModal(s) {
               (e.isPaid ? ' <span class="badge badge-warning">مدفوع</span>' : ""),
             '🔑 ' + U.esc(e.code || "-") +
               ' · 📝 ' + (e.questions || []).length + ' سؤال' +
+              ' · 🎯 ' + (Number(e.totalPoints) || 0) + ' درجة' +
               ' · 📚 ' + U.esc(e.subjectName || "-") +
               ' · ' + statusBadge(e.status),
             "🗒️"
@@ -4100,6 +4101,221 @@ function studentModal(s) {
       }
     }
   };
+
+  
+  /* ============================================================
+   * إدارة أسئلة الاختبار (للمدير)
+   * - رؤية كل أسئلة الاختبار مع معلوماتها
+   * - إدخال درجة كل سؤال مباشرة أو الدرجة الكلية للاختبار وتوزيعها
+   * - تعديل أي سؤال داخل الاختبار (النص/الخيارات/الإجابة/الشرح...)
+   * - حذف أي سؤال من الاختبار → يُعاد احتساب الدرجة الكلية تلقائياً
+   * ============================================================ */
+  async function openExamQuestions(exam) {
+    const examId = exam.id;
+    let ex = null;
+    try { ex = await S.getExam(examId); } catch (e) { ex = null; }
+    if (!ex) ex = exam;
+    const questions = ex.questions || [];
+    const esc = U.esc;
+
+    const rowHTML = function (q, idx) {
+      const full = String(q.text || "");
+      const txt = full.replace(/\s+/g, " ").substring(0, 90);
+      return '<tr data-idx="' + idx + '" style="border-bottom:1px solid var(--border)">' +
+        '<td style="padding:8px 6px;vertical-align:top">' + (idx + 1) + "</td>" +
+        '<td style="padding:8px 6px;vertical-align:top" title="' + esc(full) + '">' +
+        esc(txt) + (full.length > 90 ? "\u2026" : "") +
+        '<div class="tiny muted">' + esc((U.TYPE_LABELS && U.TYPE_LABELS[q.type]) || q.type || "") +
+        (U.sectionOf(q) ? " \u00B7 " + esc(U.sectionOf(q)) : "") +
+        (q._sourceId ? " \u00B7 من بنك الأسئلة" : "") +
+        (q.lessonTitle ? " \u00B7 " + esc(q.lessonTitle) : "") + "</div></td>" +
+        '<td style="padding:8px 6px;vertical-align:top"><input type="number" class="exq-points" min="0" step="0.5" value="' +
+        (q.points === undefined || q.points === null || q.points === "" ? 1 : Number(q.points) || 0) +
+        '" style="width:74px"></td>' +
+        '<td style="padding:8px 6px;vertical-align:top;white-space:nowrap">' +
+        '<button class="btn btn-sm" data-act="edit">\u270F\uFE0F تعديل</button> ' +
+        '<button class="btn btn-sm btn-danger" data-act="del">\uD83D\uDDD1 حذف</button></td>' +
+        "</tr>";
+    };
+
+    U.modal({
+      title: "\uD83D\uDCDD أسئلة الاختبار: " + (ex.title || exam.title || ""),
+      size: "xl",
+      body:
+        '<div class="student-info-row mb">' +
+        '<div class="item"><div class="lbl">عدد الأسئلة</div><div class="val">' + questions.length + "</div></div>" +
+        '<div class="item"><div class="lbl">مجموع درجات الأسئلة</div><div class="val" id="exqSum">0</div></div>' +
+        '<div class="item"><div class="lbl">الدرجة الكلية المحفوظة للاختبار</div><div class="val" id="exqSaved">' +
+        (Number(ex.totalPoints) || 0) + "</div></div>" +
+        "</div>" +
+        '<div class="form-row mb" style="align-items:flex-end">' +
+        '<div class="field"><label>درجة الاختبار الكلية (تُوزَّع على الأسئلة)</label>' +
+        '<input type="number" id="exqGrand" min="0" step="0.5" value="' + (Number(ex.totalPoints) || 0) + '"></div>' +
+        '<div class="field"><label>&nbsp;</label>' +
+        '<button class="btn btn-sm btn-primary" id="exqDist">\u2696\uFE0F توزيع الدرجة الكلية على الأسئلة</button></div>' +
+        "</div>" +
+        '<div class="tiny muted mb">طريقتان لإدخال درجات الاختبار: (1) عدّل درجة كل سؤال في الجدول فيتحدّث المجموع تلقائياً، أو (2) أدخل الدرجة الكلية للاختبار ثم اضغط زر التوزيع لتقسيمها على الأسئلة نسبةً. اضغط «حفظ الدرجات» ليُحفظ المجموع مع معلومات الاختبار.</div>' +
+        '<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse">' +
+        "<thead><tr>" +
+        '<th style="text-align:right;padding:8px 6px;border-bottom:2px solid var(--border)">#</th>' +
+        '<th style="text-align:right;padding:8px 6px;border-bottom:2px solid var(--border)">السؤال</th>' +
+        '<th style="text-align:right;padding:8px 6px;border-bottom:2px solid var(--border)">الدرجة</th>' +
+        '<th style="text-align:right;padding:8px 6px;border-bottom:2px solid var(--border)">إجراءات</th>' +
+        "</tr></thead><tbody>" +
+        (questions.length
+          ? questions.map(rowHTML).join("")
+          : '<tr><td colspan="4" class="center muted" style="padding:16px">لا توجد أسئلة في هذا الاختبار</td></tr>') +
+        "</tbody></table></div>",
+      footer:
+        '<button class="btn btn-primary" data-save>\uD83D\uDCBE حفظ الدرجات</button>' +
+        '<button class="btn btn-ghost" data-close>\u2715 إغلاق</button>',
+      onMount: function (node, close) {
+        const sumEl = node.querySelector("#exqSum");
+        const grandEl = node.querySelector("#exqGrand");
+        const pointsInputs = function () {
+          return Array.prototype.slice.call(node.querySelectorAll(".exq-points"));
+        };
+        let syncing = false;
+
+        const calcSum = function () {
+          let t = 0;
+          pointsInputs().forEach(function (inp) { t += Number(inp.value) || 0; });
+          return Math.round(t * 100) / 100;
+        };
+        const refresh = function () {
+          const t = calcSum();
+          sumEl.textContent = String(t);
+          if (!syncing) grandEl.value = t;
+        };
+
+        /* توزيع الدرجة الكلية على الأسئلة نسبةً لدرجات الأسئلة الحالية */
+        const distribute = function () {
+          const rows = pointsInputs();
+          const grand = Number(grandEl.value);
+          if (!rows.length) return;
+          if (!(grand > 0)) { U.toast("أدخل درجة صحيحة للاختبار", "error"); return; }
+          const sum = calcSum();
+          syncing = true;
+          let acc = 0;
+          rows.forEach(function (inp, i) {
+            let v;
+            if (i === rows.length - 1) {
+              v = Math.round((grand - acc) * 10) / 10;
+            } else if (sum > 0) {
+              v = Math.round(((Number(inp.value) || 0) / sum) * grand * 2) / 2;
+            } else {
+              v = Math.round((grand / rows.length) * 2) / 2;
+            }
+            if (v < 0) v = 0;
+            acc = Math.round((acc + v) * 100) / 100;
+            inp.value = v;
+          });
+          syncing = false;
+          refresh();
+        };
+
+        pointsInputs().forEach(function (inp) {
+          inp.addEventListener("input", refresh);
+        });
+        grandEl.addEventListener("change", function () { if (!syncing) distribute(); });
+        node.querySelector("#exqDist").addEventListener("click", distribute);
+
+        /* تعديل سؤال داخل الاختبار */
+        node.querySelectorAll('button[data-act="edit"]').forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            const idx = Number(btn.closest("tr").getAttribute("data-idx"));
+            if (!questions[idx]) return;
+            close();
+            examQuestionEditor(ex, idx);
+          });
+        });
+
+        /* حذف سؤال من الاختبار */
+        node.querySelectorAll('button[data-act="del"]').forEach(function (btn) {
+          btn.addEventListener("click", async function () {
+            const idx = Number(btn.closest("tr").getAttribute("data-idx"));
+            const q = questions[idx];
+            if (!q) return;
+            const yes = await U.confirm("حذف هذا السؤال من الاختبار؟\n\u00AB" +
+              String(q.text || "").substring(0, 60) + "\u00BB");
+            if (!yes) return;
+            try {
+              const fresh = (await S.getExam(examId)) || ex;
+              const qlist = (fresh.questions || []).slice();
+              qlist.splice(idx, 1);
+              await S.updateExam(examId, { questions: qlist });
+              U.toast("تم حذف السؤال من الاختبار ✓", "success");
+              close();
+              renderExams();
+              openExamQuestions(exam);
+            } catch (err) {
+              U.toast("تعذّر الحذف: " + (err && err.message || err), "error");
+            }
+          });
+        });
+
+        /* حفظ الدرجات: كل سؤال + المجموع الكلي */
+        node.querySelector("[data-save]").addEventListener("click", async function () {
+          try {
+            const fresh = (await S.getExam(examId)) || ex;
+            const qlist = (fresh.questions || []).slice();
+            const inputs = pointsInputs();
+            for (let i = 0; i < inputs.length; i++) {
+              const tr = inputs[i].closest("tr");
+              const idx = Number(tr.getAttribute("data-idx"));
+              if (!qlist[idx]) continue;
+              const v = Number(inputs[i].value);
+              qlist[idx].points = (v >= 0 && !isNaN(v)) ? v : 1;
+            }
+            await S.updateExam(examId, { questions: qlist });
+            U.toast("تم حفظ درجات الاختبار ✓", "success");
+            close();
+            renderExams();
+          } catch (err) {
+            U.toast("تعذّر الحفظ: " + (err && err.message || err), "error");
+          }
+        });
+
+        refresh();
+      }
+    });
+  }
+
+  /* محرّر سؤال داخل الاختبار: يحفظ في نسخة السؤال الخاصة بالاختبار */
+  function examQuestionEditor(exam, idx) {
+    const examId = exam.id;
+    const q = (exam.questions || [])[idx];
+    if (!q) { U.toast("السؤال غير موجود", "error"); return; }
+
+    U.modal({
+      title: "\u270F\uFE0F تعديل سؤال الاختبار",
+      size: "lg",
+      body: questionFormHTML(q),
+      footer:
+        '<button class="btn btn-primary" data-save>\uD83D\uDCBE حفظ التعديل</button>' +
+        '<button class="btn btn-ghost" data-close>\u2715 إلغاء</button>',
+      onMount: function (node, close) {
+        bindQuestionForm(node);
+        node.querySelector("[data-save]").addEventListener("click", async function () {
+          try {
+            const data = collectQuestionForm(node);
+            const fresh = (await S.getExam(examId)) || exam;
+            const qlist = (fresh.questions || []).slice();
+            if (!qlist[idx]) throw new Error("تعذّر العثور على السؤال داخل الاختبار");
+            qlist[idx] = Object.assign({}, qlist[idx], data);
+            await S.updateExam(examId, { questions: qlist });
+            U.toast("تم تعديل السؤال داخل الاختبار ✓", "success");
+            close();
+            renderExams();
+            openExamQuestions(exam);
+          } catch (err) {
+            U.toast("تعذّر الحفظ: " + (err && err.message || err), "error");
+          }
+        });
+      }
+    });
+  }
+
 
   console.log("[admin.js v6] QP.admin loaded \u2705");
 })();

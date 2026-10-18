@@ -285,7 +285,7 @@
     createExam: async function (data) {
       let code = String(data.code || "").trim().toUpperCase();
       if (!code) { do { code = QP.utils.code(6); } while (await store.codeExists(code)); }
-      const totalPoints = (data.questions || []).reduce(function (s, q) { return s + (Number(q.points) || 1); }, 0);
+      const totalPoints = (data.questions || []).reduce(function (s, q) { return s + (q.points === undefined || q.points === null || q.points === "" ? 1 : Number(q.points) || 0); }, 0);
       const ref = await col.exams.add(sanitize({
         title: data.title || "",
         subjectId: data.subjectId || "",
@@ -313,7 +313,7 @@
       return { id: ref.id, code: code };
     },
     updateExam: async function (id, data) {
-      const totalPoints = (data.questions || []).reduce(function (s, q) { return s + (Number(q.points) || 1); }, 0);
+      const totalPoints = (data.questions || []).reduce(function (s, q) { return s + (q.points === undefined || q.points === null || q.points === "" ? 1 : Number(q.points) || 0); }, 0);
       await col.exams.doc(id).update(sanitize(Object.assign({}, data, { totalPoints: totalPoints })));
     },
     /* تحديث جزئي لبيانات الاختبار دون المساس بالأسئلة/النقاط */
