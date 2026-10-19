@@ -1702,3 +1702,122 @@ html[data-pwa="standalone"] .site-footer {
 .eng-addform { border-top: 1px dashed var(--border-soft); padding-top: 10px; margin-top: 6px; }
 .eng-addform textarea { width: 100%; }
 .eng-addform input, .eng-addform select { width: 100%; }
+
+/* ============================================================
+ * ADMIN PRO — تصميم احترافي لتبويبات المدير + استجابة كاملة
+ * ============================================================ */
+
+/* ---------- ترويسة الصفحة ---------- */
+.page-head {
+  position: relative; display: flex; align-items: center; gap: 16px;
+  background: linear-gradient(135deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 16px 18px; padding-inline-start: 24px; margin-bottom: 16px;
+  box-shadow: var(--shadow-sm); overflow: hidden;
+}
+.page-head::before {
+  content: ""; position: absolute; top: 0; bottom: 0; inset-inline-start: 0;
+  width: 5px; background: linear-gradient(180deg, var(--primary), var(--primary-2));
+}
+.page-head .ph-ico {
+  width: 52px; height: 52px; border-radius: 15px; flex: none;
+  display: grid; place-items: center; font-size: 25px;
+  background: var(--primary-soft); color: var(--primary-2);
+}
+.page-head .ph-meta { flex: 1; min-width: 0; }
+.page-head h1 { margin: 0; font-size: clamp(18px, 2.6vw, 23px); line-height: 1.25; }
+.page-head .ph-sub { color: var(--text-3); font-size: 13px; margin-top: 4px; }
+.page-head .ph-actions { display: flex; gap: 8px; flex-wrap: wrap; flex: none; }
+
+/* ---------- شبكات احترافية ---------- */
+.admin-cols { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+.admin-cols > * { min-width: 0; }
+.spacer-sm { height: 12px; }
+
+/* رأس قسم داخل بطاقة */
+.sec-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+.sec-head h2, .sec-head h3 { margin: 0; font-size: 16px; }
+.sec-head .sec-ico {
+  width: 34px; height: 34px; border-radius: 10px; flex: none;
+  display: grid; place-items: center; font-size: 17px;
+  background: var(--surface-2); color: var(--primary-2);
+}
+.sec-head .sec-sub { color: var(--text-3); font-size: 12px; }
+
+/* ---------- إجراءات سريعة ---------- */
+.quick-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.quick {
+  display: flex; align-items: center; gap: 10px; text-align: start; cursor: pointer;
+  background: var(--surface-2); border: 1px solid var(--border-soft); border-radius: 12px;
+  padding: 12px; transition: .15s; color: var(--text); font: inherit;
+}
+.quick:hover { border-color: var(--primary); background: var(--surface-3); transform: translateY(-2px); }
+.quick .q-ico {
+  width: 38px; height: 38px; border-radius: 11px; flex: none;
+  display: grid; place-items: center; font-size: 19px;
+  background: var(--primary-soft); color: var(--primary-2);
+}
+.quick .q-txt { min-width: 0; }
+.quick .q-txt b { display: block; font-size: 14px; }
+.quick .q-txt span { color: var(--text-3); font-size: 11.5px; }
+
+/* ---------- أشرطة التوزيع ---------- */
+.dist { display: flex; flex-direction: column; gap: 10px; }
+.dist-row { display: grid; grid-template-columns: 92px minmax(0, 1fr) 46px; align-items: center; gap: 10px; }
+.dist-row .dist-lbl { font-size: 12.5px; color: var(--text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dist-row .dist-track { height: 10px; border-radius: 999px; background: var(--surface-3); overflow: hidden; }
+.dist-row .dist-fill { height: 100%; border-radius: 999px; transition: width .4s; }
+.dist-row .dist-val { font-size: 12.5px; font-weight: 800; text-align: center; }
+
+/* ---------- إحصاءات مصغّرة داخل بطاقة ---------- */
+.mini-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+.mini-stat { background: var(--surface-2); border: 1px solid var(--border-soft); border-radius: 12px; padding: 10px 12px; }
+.mini-stat .ms-val { font-size: 20px; font-weight: 800; line-height: 1.1; }
+.mini-stat .ms-lbl { color: var(--text-3); font-size: 11.5px; margin-top: 3px; }
+
+/* ---------- قائمة السجلات: لمسة احترافية ---------- */
+.rec-list { gap: 9px; }
+.rec-row { padding: 12px 14px; padding-inline-start: 16px; border-inline-start: 3px solid transparent; }
+.rec-row:hover { border-inline-start-color: var(--primary); }
+.rec-ico { box-shadow: inset 0 0 0 1px var(--border-soft); }
+.rec-meta { line-height: 1.7; }
+
+/* ---------- التنقل الجانبي: ترويسة + أيقونات ---------- */
+.side { padding: 8px; }
+.side .side-title {
+  font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--text-3); padding: 6px 10px 8px;
+}
+.side a { border-radius: 10px; }
+.side a .side-ico {
+  width: 26px; height: 26px; border-radius: 8px; flex: none;
+  display: grid; place-items: center; font-size: 14px; background: var(--surface-2);
+}
+.side a.active .side-ico { background: var(--primary); color: #fff; }
+
+/* ---------- شريط أدوات الفلاتر ---------- */
+.filter-bar { background: var(--surface-2); border: 1px solid var(--border-soft); border-radius: 12px; padding: 12px; }
+.filter-bar .field { margin: 0; }
+
+/* ---------- شاشات صغيرة ---------- */
+@media (max-width: 980px) {
+  .admin-cols { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px) {
+  .side {
+    position: sticky; top: 66px; z-index: 30;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); margin-bottom: 4px;
+  }
+  .side .side-title { display: none; }
+  .side a { white-space: nowrap; flex: none; }
+}
+
+@media (max-width: 640px) {
+  .page-head { flex-wrap: wrap; align-items: flex-start; padding: 14px; padding-inline-start: 18px; gap: 12px; }
+  .page-head .ph-ico { width: 44px; height: 44px; font-size: 21px; border-radius: 13px; }
+  .page-head .ph-actions { width: 100%; }
+  .page-head .ph-actions .btn { flex: 1; justify-content: center; }
+  .dist-row { grid-template-columns: 76px minmax(0, 1fr) 40px; gap: 8px; }
+}

@@ -137,13 +137,14 @@
 
     return (
       '<aside class="side">' +
+      '<div class="side-title">\u0623\u0642\u0633\u0627\u0645 \u0627\u0644\u0644\u0648\u062d\u0629</div>' +
       items.map(function (i) {
         return '<a href="#/' + i[0] + '" class="' + (active === i[0] ? "active" : "") + '">' +
-          "<span>" + i[1] + "</span><span>" + i[2] + "</span></a>";
+          '<span class="side-ico">' + i[1] + "</span><span>" + i[2] + "</span></a>";
       }).join("") +
-      '<a href="engbuilder.html"><span>\uD83C\uDDEC\uD83C\uDDE7</span><span>\u0628\u0627\u0646\u064a \u0627\u0644\u0625\u0646\u0643\u0644\u064a\u0632\u064a</span></a>' +
+      '<a href="engbuilder.html"><span class="side-ico">\uD83C\uDDEC\uD83C\uDDE7</span><span>\u0628\u0627\u0646\u064a \u0627\u0644\u0625\u0646\u0643\u0644\u064a\u0632\u064a</span></a>' +
       '<div class="side-sep"></div>' +
-      '<a id="logoutBtn"><span>\uD83D\uDEAA</span><span>\u062e\u0631\u0648\u062c</span></a>' +
+      '<a id="logoutBtn"><span class="side-ico">\uD83D\uDEAA</span><span>\u062e\u0631\u0648\u062c</span></a>' +
       "</aside>"
     );
   }
@@ -269,6 +270,58 @@
       '</div><div class="lbl">' + lbl + "</div></div></div>";
   }
 
+  /* ============================================================
+   * مكوّنات واجهة احترافية (ترويسة الصفحة + مؤشرات KPI + أقسام)
+   * ============================================================ */
+  function pageHead(ico, title, sub, actions) {
+    return '<div class="page-head">' +
+      '<div class="ph-ico">' + ico + "</div>" +
+      '<div class="ph-meta"><h1>' + title + "</h1>" +
+      (sub ? '<div class="ph-sub">' + sub + "</div>" : "") + "</div>" +
+      (actions ? '<div class="ph-actions">' + actions + "</div>" : "") +
+      "</div>";
+  }
+
+  function kpi(color, ico, val, lbl) {
+    return '<div class="kpi ' + (color || "c-primary") + '">' +
+      '<span class="kpi-ico">' + ico + "</span>" +
+      '<div><div class="kpi-val">' + val + "</div>" +
+      '<div class="kpi-lbl">' + lbl + "</div></div></div>";
+  }
+
+  function kpiGrid(items) {
+    return '<div class="kpi-grid">' + items.join("") + "</div>";
+  }
+
+  function secHead(ico, title, sub, right) {
+    return '<div class="sec-head">' +
+      '<span class="sec-ico">' + ico + "</span>" +
+      '<div><h2>' + title + "</h2>" +
+      (sub ? '<div class="sec-sub">' + sub + "</div>" : "") + "</div>" +
+      (right ? '<div class="right" style="display:flex;gap:8px;flex-wrap:wrap">' + right + "</div>" : "") +
+      "</div>";
+  }
+
+  function quickAction(icon, title, hint, go) {
+    return '<button type="button" class="quick" data-go="' + U.esc(go) + '">' +
+      '<span class="q-ico">' + icon + "</span>" +
+      '<span class="q-txt"><b>' + title + "</b><span>" + hint + "</span></span></button>";
+  }
+
+  function miniStat(val, lbl) {
+    return '<div class="mini-stat"><div class="ms-val">' + val + "</div>" +
+      '<div class="ms-lbl">' + lbl + "</div></div>";
+  }
+
+  /* ربط أزرار الإجراءات السريعة (data-go → تغيير التبويب) */
+  function bindQuickActions() {
+    document.querySelectorAll("[data-go]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        location.hash = b.dataset.go;
+      });
+    });
+  }
+
   function errorCard(e) {
     return '<div class="card"><div class="empty-state">' +
       '<div class="emoji">\u26D4</div>' +
@@ -388,30 +441,60 @@
         }).join("")
         : null;
 
+      const activeGroups = groups.filter(function (g) { return g.active !== false; }).length;
+      const published = exams.filter(function (e) { return e.status === "published"; }).length;
+      const rotating = exams.filter(function (e) { return e.codeRotateEnabled; }).length;
+
       shell("dashboard",
-        '<div class="card-head"><h2>\u0644\u0648\u062d\u0629 \u0627\u0644\u062a\u062d\u0643\u0645</h2><div class="spacer"></div>' +
-        '<button class="btn btn-primary btn-sm" id="quickExam">+ \u0627\u062e\u062a\u0628\u0627\u0631</button></div>' +
+        pageHead("📊", "لوحة التحكم",
+          "نظرة شاملة على المنصة · " + new Date().toLocaleDateString("ar"),
+          '<button class="btn btn-primary" id="quickExam">＋ اختبار جديد</button>') +
 
-        '<div class="stat-grid">' +
-        stat("\uD83D\uDC65", groups.length, "\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0627\u062a") +
-        stat("\uD83D\uDC66", totalStudents, "\u0627\u0644\u0637\u0644\u0627\u0628") +
-        stat("\uD83D\uDCDA", subjects.length, "\u0627\u0644\u0645\u0648\u0627\u062f") +
-        stat("\u2753", questions.length, "\u0627\u0644\u0623\u0633\u0626\u0644\u0629") +
-        stat("\uD83D\uDCDD", exams.length, "\u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631\u0627\u062a") +
-        stat("\uD83D\uDC68\u200D\uD83C\uDFEB", teachers.length, "\u0627\u0644\u0645\u0639\u0644\u0645\u0648\u0646") +
+        kpiGrid([
+          kpi("c-primary", "👥", groups.length, "المجموعات"),
+          kpi("c-primary", "🎓", totalStudents, "الطلاب"),
+          kpi("c-primary", "📚", subjects.length, "المواد"),
+          kpi("c-primary", "❓", questions.length, "الأسئلة"),
+          kpi("c-primary", "🗒️", exams.length, "الاختبارات"),
+          kpi("c-primary", "👨\u200D🏫", teachers.length, "المعلمون")
+        ]) +
+
+        kpiGrid([
+          kpi("c-success", "📥", subs, "إجمالي المشاركات"),
+          kpi("c-warning", "⏳", pending, "قيد التصحيح"),
+          kpi("c-danger", "💳", payPending, "دفع معلّق"),
+          kpi("c-success", "✅", published, "اختبار منشور")
+        ]) +
+
+        '<div class="admin-cols mt">' +
+        '<div class="card">' +
+        secHead("📥", "أحدث المشاركات", "آخر التسليمات الواردة",
+          '<a class="btn btn-sm" href="#/results">عرض الكل</a>') +
+        recList(recentRows, '<div class="empty-state"><div class="emoji">📄</div>' +
+          "<h3>لا توجد مشاركات بعد</h3></div>") +
         "</div>" +
 
-        '<div class="stat-grid mt">' +
-        stat("\uD83D\uDCE5", subs, "\u0627\u0644\u0645\u0634\u0627\u0631\u0643\u0627\u062a") +
-        stat("\u23F3", pending, "\u0642\u064a\u062f \u0627\u0644\u062a\u0635\u062d\u064a\u062d") +
-        stat("\uD83D\uDCB3", payPending, "\u0637\u0644\u0628\u0627\u062a \u062f\u0641\u0639") +
-        "</div>" +
+        "<div>" +
+        '<div class="card">' +
+        secHead("⚡", "إجراءات سريعة") +
+        '<div class="quick-grid">' +
+        quickAction("👥", "مجموعة جديدة", "تجميع الطلاب والمعلمين", "#/groups") +
+        quickAction("📚", "المواد", "إدارة المواد الدراسية", "#/subjects") +
+        quickAction("❓", "بنك الأسئلة", "إضافة وتصنيف الأسئلة", "#/questions") +
+        quickAction("🗒️", "الاختبارات", "إنشاء اختبار وتوليد كوده", "#/exams") +
+        quickAction("👨\u200D🏫", "المعلمون", "إدارة حسابات المعلمين", "#/teachers") +
+        quickAction("⚙", "الإعدادات", "رمز الدخول والنسخ الاحتياطي", "#/settings") +
+        "</div></div>" +
 
-        '<div class="card mt"><div class="card-head"><h3>\u0623\u062d\u062f\u062b \u0627\u0644\u0646\u062a\u0627\u0626\u062c</h3>' +
-        '<div class="spacer"></div>' +
-        '<a class="btn btn-sm" href="#/results">\u0639\u0631\u0636 \u0627\u0644\u0643\u0644</a></div>' +
-        recList(recentRows, '<div class="empty-state"><div class="emoji">\uD83D\uDCC4</div>' +
-          '<h3>\u0644\u0627 \u062a\u0648\u062c\u062f \u0645\u0634\u0627\u0631\u0643\u0627\u062a \u0628\u0639\u062f</h3></div>') +
+        '<div class="card mt">' +
+        secHead("📌", "نظرة سريعة") +
+        '<div class="mini-stats">' +
+        miniStat(activeGroups + " / " + groups.length, "مجموعات نشطة") +
+        miniStat(published + " / " + exams.length, "اختبارات منشورة") +
+        miniStat(pending, "بانتظار التصحيح") +
+        miniStat(rotating, "كود بتجديد تلقائي") +
+        "</div></div>" +
+        "</div>" +
         "</div>"
       );
 
@@ -477,11 +560,21 @@
         }).join("")
         : null;
 
+      const gActive = groups.filter(function (g) { return g.active !== false; }).length;
+      const gStudents = groups.reduce(function (n, g) { return n + (g.studentCount || 0); }, 0);
+      const gAssign = groups.reduce(function (n, g) { return n + ((g.teacherAssignments || []).length); }, 0);
+
       shell("groups",
-        '<div class="card-head"><h2>\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0627\u062a</h2>' +
-        '<span class="badge badge-primary">' + groups.length + '</span>' +
-        '<div class="spacer"></div>' +
-        '<button class="btn btn-primary" id="addGroup">+ \u0645\u062c\u0645\u0648\u0639\u0629 \u062c\u062f\u064a\u062f\u0629</button></div>' +
+        pageHead("👥", "المجموعات",
+          groups.length + " مجموعة · " + gStudents + " طالب",
+          '<button class="btn btn-primary" id="addGroup">＋ مجموعة جديدة</button>') +
+
+        kpiGrid([
+          kpi("c-primary", "👥", groups.length, "إجمالي المجموعات"),
+          kpi("c-success", "✅", gActive, "مجموعات نشطة"),
+          kpi("c-primary", "🎓", gStudents, "الطلاب"),
+          kpi("c-primary", "👨\u200D🏫", gAssign, "تعيينات المعلمين")
+        ]) +
 
         '<div class="info-banner info">' +
         '<span class="emoji">\u2139\uFE0F</span>' +
@@ -744,9 +837,20 @@
         }).join("");
       } catch (e) { seedCards = ""; }
 
+      const totalQ = qs.length;
+      const withQ = subjects.filter(function (s) { return (qCounts[s.id] || 0) > 0; }).length;
+
       shell("subjects",
-        '<div class="card-head"><h2>المواد</h2><div class="spacer"></div>' +
-        '<button class="btn btn-primary" id="addSub">+ مادة</button></div>' +
+        pageHead("📚", "المواد",
+          subjects.length + " مادة · " + totalQ + " سؤال",
+          '<button class="btn btn-primary" id="addSub">＋ مادة جديدة</button>') +
+
+        kpiGrid([
+          kpi("c-primary", "📚", subjects.length, "المواد"),
+          kpi("c-primary", "❓", totalQ, "إجمالي الأسئلة"),
+          kpi("c-success", "✅", withQ, "مواد فيها أسئلة"),
+          kpi("c-primary", "📝", subjects.length ? Math.round(totalQ / subjects.length) : 0, "متوسط لكل مادة")
+        ]) +
         seedCards +
         recList(rows)
       );
@@ -998,23 +1102,31 @@ async function renderQuestions() {
       }).join("");
 
     shell("questions",
-      '<div class="card-head"><h2>\u0628\u0646\u0643 \u0627\u0644\u0623\u0633\u0626\u0644\u0629</h2>' +
-      '<span class="badge badge-primary">' + list.length + " / " + questions.length + "</span>" +
-      '<div class="spacer"></div>' +
-      '<button class="btn" id="importBtn">\u2b07 \u0627\u0633\u062a\u064a\u0631\u0627\u062f</button> ' +
-      '<button class="btn btn-primary" id="addQ">+ \u0633\u0624\u0627\u0644</button></div>' +
+      pageHead("❓", "بنك الأسئلة",
+        questions.length + " سؤال في " + subjects.length + " مادة",
+        '<button class="btn" id="importBtn">\u2b07 استيراد</button>' +
+        '<button class="btn btn-primary" id="addQ">＋ سؤال جديد</button>') +
 
-      '<div class="card">' +
+      kpiGrid([
+        kpi("c-primary", "❓", questions.length, "إجمالي الأسئلة"),
+        kpi("c-success", "🔎", list.length, "نتائج الفلترة"),
+        kpi("c-primary", "📚", subjects.length, "المواد"),
+        kpi("c-primary", "🧩", units.length, "الوحدات")
+      ]) +
+
+      '<div class="card mt">' +
+      secHead("🔎", "فلترة وبحث", "ابحث في نص السؤال أو رشّح حسب المادة والنوع والوحدة") +
+      '<div class="filter-bar">' +
       '<div class="form-row-3">' +
-      '<div class="field" style="margin:0"><input id="fSearch" placeholder="\uD83D\uDD0D \u0628\u062d\u062b..." value="' + U.esc(qFilter.search) + '"></div>' +
-      '<div class="field" style="margin:0"><select id="fSubj">' + subjOpts + "</select></div>" +
-      '<div class="field" style="margin:0"><select id="fType">' + typeOpts + "</select></div>" +
-      '</div>' +
+      '<div class="field"><input id="fSearch" placeholder="🔍 بحث..." value="' + U.esc(qFilter.search) + '"></div>' +
+      '<div class="field"><select id="fSubj">' + subjOpts + "</select></div>" +
+      '<div class="field"><select id="fType">' + typeOpts + "</select></div>" +
+      "</div>" +
       '<div class="form-row-3 mt-sm">' +
-      '<div class="field" style="margin:0"><select id="fUnit">' + unitOpts + "</select></div>" +
-      '<div class="field" style="margin:0"><select id="fLesson">' + lessonOpts + "</select></div>" +
-      '<div class="field" style="margin:0"><button class="btn btn-sm" id="resetFilters" style="width:100%">\u0625\u0644\u063a\u0627\u0621 \u0627\u0644\u0641\u0644\u0627\u062a\u0631</button></div>' +
-      '</div></div>' +
+      '<div class="field"><select id="fUnit">' + unitOpts + "</select></div>" +
+      '<div class="field"><select id="fLesson">' + lessonOpts + "</select></div>" +
+      '<div class="field"><button class="btn btn-sm" id="resetFilters" style="width:100%">إلغاء الفلاتر</button></div>' +
+      "</div></div></div>" +
 
       '<div class="mt">' +
       recList(rows, '<div class="empty-state"><div class="emoji">❓</div><h3>لا توجد أسئلة مطابقة</h3></div>') +
@@ -1833,11 +1945,25 @@ async function renderTeachers() {
       }).join("")
       : null;
 
+    const tActive = teachers.filter(function (t) { return t.active !== false; }).length;
+    const tSubjects = teachers.reduce(function (n, t) { return n + ((t.subjectIds || []).length); }, 0);
+    const tAssigned = teachers.filter(function (t) {
+      return groups.some(function (g) {
+        return (g.teacherAssignments || []).some(function (a) { return a.teacherId === t.id; });
+      });
+    }).length;
+
     shell("teachers",
-      '<div class="card-head"><h2>المعلمون</h2>' +
-      '<span class="badge badge-primary">' + teachers.length + '</span>' +
-      '<div class="spacer"></div>' +
-      '<button class="btn btn-primary" id="addTeacher">+ معلم</button></div>' +
+      pageHead("👨\u200D🏫", "المعلمون",
+        teachers.length + " معلم · " + tActive + " نشط",
+        '<button class="btn btn-primary" id="addTeacher">＋ معلم جديد</button>') +
+
+      kpiGrid([
+        kpi("c-primary", "👨\u200D🏫", teachers.length, "إجمالي المعلمين"),
+        kpi("c-success", "✅", tActive, "نشطون"),
+        kpi("c-primary", "📚", tSubjects, "تعيينات المواد"),
+        kpi("c-primary", "👥", tAssigned, "مُعيَّنون في مجموعات")
+      ]) +
 
       '<div class="info-banner info">' +
       '<span class="emoji">ℹ️</span>' +
@@ -2033,9 +2159,17 @@ async function renderStudents() {
       }).join("")
       : null;
 
+    const sWithGroup = students.filter(function (s) { return !!s.groupId; }).length;
+
     shell("students",
-      '<div class="card-head"><h2>الطلاب</h2>' +
-      '<span class="badge badge-primary">' + students.length + '</span></div>' +
+      pageHead("🎓", "الطلاب",
+        students.length + " طالب · " + sWithGroup + " في مجموعات") +
+
+      kpiGrid([
+        kpi("c-primary", "🎓", students.length, "إجمالي الطلاب"),
+        kpi("c-success", "👥", sWithGroup, "ضمن مجموعات"),
+        kpi("c-primary", "📚", groups.length, "المجموعات")
+      ]) +
 
       '<div class="info-banner info"><span class="emoji">ℹ️</span>' +
       '<div>الطلاب يُنشئون حساباتهم بأنفسهم من صفحة الطالب. اضغط «عرض» لرؤية كلمة المرور وتعديل الاسم أو كلمة المرور أو المجموعة.</div></div>' +
@@ -2181,11 +2315,23 @@ function studentModal(s) {
         }).join("")
         : null;
 
+      const ePublished = exams.filter(function (e) { return e.status === "published"; }).length;
+      const eAuto = exams.filter(function (e) { return e.autoGenerated; }).length;
+      const ePaid = exams.filter(function (e) { return e.isPaid; }).length;
+      const eRot = exams.filter(function (e) { return e.codeRotateEnabled; }).length;
+
       shell("exams",
-        '<div class="card-head"><h2>الاختبارات</h2>' +
-        '<span class="badge badge-primary">' + exams.length + '</span>' +
-        '<div class="spacer"></div>' +
-        '<button class="btn btn-primary" id="newExam">+ اختبار</button></div>' +
+        pageHead("🗒️", "الاختبارات",
+          exams.length + " اختبار · " + ePublished + " منشور",
+          '<button class="btn btn-primary" id="newExam">＋ اختبار جديد</button>') +
+
+        kpiGrid([
+          kpi("c-primary", "🗒️", exams.length, "إجمالي الاختبارات"),
+          kpi("c-success", "✅", ePublished, "منشورة"),
+          kpi("c-warning", "✨", eAuto, "تلقائية"),
+          kpi("c-danger", "💳", ePaid, "مدفوعة"),
+          kpi("c-primary", "🔄", eRot, "كود بتجديد تلقائي")
+        ]) +
 
         recList(rows)
       );
@@ -3752,10 +3898,21 @@ function studentModal(s) {
         }).join("")
         : null;
 
+      const approvedCount = payments.filter(function (p) { return p.status === "approved"; }).length;
+      const rejectedCount = payments.filter(function (p) { return p.status === "rejected"; }).length;
+      const totalAmount = payments
+        .filter(function (p) { return p.status === "approved"; })
+        .reduce(function (n, p) { return n + (Number(p.price) || 0); }, 0);
+
       const body =
-        '<div class="card-head"><h2>طلبات الدفع</h2>' +
-        '<span class="badge ' + (pendingCount ? "badge-warning" : "badge-muted") + '">' +
-        pendingCount + ' معلّق</span></div>' +
+        pageHead("💳", "طلبات الدفع",
+          payments.length + " طلب · " + pendingCount + " بانتظار المراجعة") +
+        kpiGrid([
+          kpi("c-warning", "⏳", pendingCount, "معلّقة"),
+          kpi("c-success", "✅", approvedCount, "مؤكَّدة"),
+          kpi("c-danger", "✕", rejectedCount, "مرفوضة"),
+          kpi("c-primary", "💰", totalAmount, "إجمالي المؤكَّد")
+        ]) +
         recList(rows,
           '<div class="card"><div class="empty-state"><div class="emoji">💳</div>' +
           '<h3>لا توجد طلبات دفع</h3>' +
@@ -3846,10 +4003,11 @@ function studentModal(s) {
       }).join("");
 
       shell("results",
-        '<div class="card-head"><h2>\u0627\u0644\u0646\u062a\u0627\u0626\u062c</h2><div class="spacer"></div>' +
-        '<select id="resExam" style="max-width:320px">' +
-        '<option value="">- \u0627\u062e\u062a\u0631 -</option>' + opts +
-        "</select></div>" +
+        pageHead("📈", "النتائج", "اختر اختباراً لعرض مشاركات الطلاب ودرجاتهم") +
+        '<div class="card mb"><div class="filter-bar">' +
+        '<div class="field"><label>الاختبار</label>' +
+        '<select id="resExam"><option value="">— اختر اختباراً —</option>' + opts + "</select></div>" +
+        "</div></div>" +
 
         '<div id="resBody"><div class="empty-state"><div class="emoji">\uD83D\uDCC8</div>' +
         "<h3>\u0627\u062e\u062a\u0631 \u0627\u062e\u062a\u0628\u0627\u0631\u0627\u064B</h3></div></div>"
@@ -3924,13 +4082,13 @@ function studentModal(s) {
        }).join("");
 
        body.innerHTML =
-         '<div class="stat-grid mb">' +
-         stat("\uD83D\uDC65", subs.length, "\u0627\u0644\u0645\u0634\u0627\u0631\u0643\u0648\u0646") +
-         stat("\u23F3", pending.length, "\u0642\u064a\u062f \u0627\u0644\u062a\u0635\u062d\u064a\u062d") +
-         stat("\u2705", graded.length, "\u0645\u064f\u0635\u062d\u0651\u062d") +
-         stat("\uD83D\uDCCA", avg + "%", "\u0627\u0644\u0645\u062a\u0648\u0633\u0637") +
-         "</div>" +
-         recList(rows);
+         kpiGrid([
+           kpi("c-primary", "👥", subs.length, "المشاركون"),
+           kpi("c-warning", "⏳", pending.length, "قيد التصحيح"),
+           kpi("c-success", "✅", graded.length, "مُصحَّح"),
+           kpi("c-primary", "📊", avg + "%", "متوسط الدرجات")
+         ]) +
+         '<div class="mt">' + recList(rows) + "</div>";
 
        bindViewButtons(
          function (id) { return subs.find(function (s) { return s.id === id; }); },
@@ -4002,9 +4160,11 @@ function studentModal(s) {
       }).join("");
 
       shell("analytics",
-        '<div class="card-head"><h2>\uD83E\uDDEE \u062a\u062d\u0644\u064a\u0644\u0627\u062a</h2><div class="spacer"></div>' +
-        '<select id="anExam" style="max-width:320px">' +
-        '<option value="">- \u0627\u062e\u062a\u0631 -</option>' + opts + "</select></div>" +
+        pageHead("🧮", "التحليلات", "تحليل أداء الأسئلة وتوزيع الدرجات لاختبار محدد") +
+        '<div class="card mb"><div class="filter-bar">' +
+        '<div class="field"><label>الاختبار</label>' +
+        '<select id="anExam"><option value="">— اختر اختباراً —</option>' + opts + "</select></div>" +
+        "</div></div>" +
 
         '<div id="anBody"><div class="empty-state"><div class="emoji">\uD83E\uDDEE</div>' +
         "<h3>\u0627\u062e\u062a\u0631 \u0627\u062e\u062a\u0628\u0627\u0631\u0627\u064B</h3></div></div>"
@@ -4058,19 +4218,23 @@ function studentModal(s) {
           "</td></tr>";
       }).join("");
 
-      body.innerHTML =
-        '<div class="stat-grid mb">' +
-        stat("\uD83D\uDC65", subs.length, "\u0639\u062f\u062f \u0627\u0644\u0645\u0635\u062d\u0651\u062d") +
-        stat("\uD83D\uDCCA", avg + "%", "\u0627\u0644\u0645\u062a\u0648\u0633\u0637") +
-        stat("\u26A0\uFE0F", problematic.length, "\u0623\u0633\u0626\u0644\u0629 \u062a\u062d\u062a\u0627\u062c \u0645\u0631\u0627\u062c\u0639\u0629") +
-        stat("\u2753", (exam.questions || []).length, "\u0639\u062f\u062f \u0627\u0644\u0623\u0633\u0626\u0644\u0629") +
-        "</div>" +
+      const distMax = Math.max(1, Math.max.apply(null, dist.map(function (x) { return x.count; })));
 
-        '<div class="card"><div class="card-head"><h3>\u062a\u0648\u0632\u064a\u0639 \u0627\u0644\u062f\u0631\u062c\u0627\u062a</h3></div>' +
-        '<div class="bars">' + dist.map(function (d) {
-          return '<div class="bar-wrap"><div class="bar" style="height:' +
-            Math.max(2, (d.count / Math.max(1, Math.max.apply(null, dist.map(function (x) { return x.count; })))) * 100) +
-            '%"></div><div class="bar-lbl">' + d.label + "<br><b>" + d.count + "</b></div></div>";
+      body.innerHTML =
+        kpiGrid([
+          kpi("c-primary", "🎓", subs.length, "عدد المُصحَّح"),
+          kpi("c-primary", "📊", avg + "%", "المتوسط"),
+          kpi("c-warning", "⚠️", problematic.length, "أسئلة تحتاج مراجعة"),
+          kpi("c-primary", "❓", (exam.questions || []).length, "عدد الأسئلة")
+        ]) +
+
+        '<div class="card mt">' + secHead("📊", "توزيع الدرجات") +
+        '<div class="dist">' + dist.map(function (d) {
+          const pct = Math.max(2, Math.round((d.count / distMax) * 100));
+          return '<div class="dist-row">' +
+            '<div class="dist-lbl">' + d.label + "</div>" +
+            '<div class="dist-track"><div class="dist-fill" style="width:' + pct + '%;background:linear-gradient(90deg,var(--primary),var(--primary-2))"></div></div>' +
+            '<div class="dist-val">' + d.count + "</div></div>";
         }).join("") + "</div></div>" +
 
         (problematic.length
@@ -4078,7 +4242,7 @@ function studentModal(s) {
             "<div><b>" + problematic.length + " \u0633\u0624\u0627\u0644 \u064a\u062d\u062a\u0627\u062c \u0645\u0631\u0627\u062c\u0639\u0629</b></div></div>"
           : "") +
 
-        '<div class="card mt"><div class="card-head"><h3>\u062a\u062d\u0644\u064a\u0644 \u0627\u0644\u0623\u0633\u0626\u0644\u0629</h3></div>' +
+        '<div class="card mt">' + secHead("🧮", "تحليل الأسئلة") +
         '<div class="table-wrap responsive"><table><thead><tr>' +
         '<th>#</th><th>\u0627\u0644\u0633\u0624\u0627\u0644</th><th>\u0627\u0644\u0646\u0648\u0639</th><th>\u0646\u0633\u0628\u0629 \u0627\u0644\u0635\u0648\u0627\u0628</th><th>\u0627\u0644\u062a\u0645\u064a\u064a\u0632</th><th>\u0627\u0644\u062d\u0627\u0644\u0629</th>' +
         "</tr></thead><tbody>" + rows + "</tbody></table></div></div>";
@@ -4096,9 +4260,10 @@ function studentModal(s) {
       const logs = await S.listAuditLog(200);
 
       shell("audit",
-        '<div class="card-head"><h2>\uD83D\uDCDC \u0627\u0644\u0633\u062c\u0644</h2><div class="spacer"></div>' +
-        '<span class="badge badge-muted">' + logs.length + " \u062d\u062f\u062b</span></div>" +
+        pageHead("📜", "سجل الأحداث", logs.length + " حدث مُسجَّل") +
 
+        '<div class="card">' +
+        secHead("📜", "آخر الأحداث", "أحدث 200 عملية على المنصة") +
         '<div class="audit-log">' +
         (logs.length
           ? logs.map(function (l) {
@@ -4108,7 +4273,7 @@ function studentModal(s) {
               '<span class="muted">' + U.esc(l.details || "") + "</span></div>";
           }).join("")
           : '<div class="muted center" style="padding:30px">\u0644\u0627 \u064a\u0648\u062c\u062f</div>') +
-        "</div>"
+        "</div></div>"
       );
     } catch (e) {
       shell("audit", errorCard(e));
@@ -4122,23 +4287,35 @@ function studentModal(s) {
     shell("settings", U.loaderHTML());
 
     shell("settings",
-      '<div class="card"><div class="card-head"><h3>\u0643\u0644\u0645\u0629 \u0645\u0631\u0648\u0631 \u0627\u0644\u0645\u062f\u064a\u0631</h3></div>' +
+      pageHead("⚙", "الإعدادات", "رمز دخول المدير والنسخ الاحتياطي ومعلومات النظام") +
+
+      '<div class="admin-cols">' +
+      "<div>" +
+      '<div class="card">' +
+      secHead("🔐", "كلمة مرور المدير", "غيّر رمز الدخول إلى لوحة الإدارة") +
       '<div class="form-row">' +
       '<div class="field"><label>\u0627\u0644\u062c\u062f\u064a\u062f</label><input type="password" id="newPass"></div>' +
       '<div class="field"><label>\u062a\u0623\u0643\u064a\u062f</label><input type="password" id="newPass2"></div></div>' +
       '<button class="btn btn-primary" id="savePass">\u062d\u0641\u0638</button></div>' +
 
-      '<div class="card"><div class="card-head"><h3>\u0627\u0644\u0646\u0633\u062e \u0627\u0644\u0627\u062d\u062a\u064a\u0627\u0637\u064a</h3></div>' +
+      '<div class="card">' +
+      secHead("🗄️", "النسخ الاحتياطي", "تصدير كل البيانات أو استيرادها") +
       '<div class="flex flex-wrap">' +
       '<button class="btn" id="exportAll">\u2B07 \u062a\u0635\u062f\u064a\u0631</button>' +
       '<label class="btn">\u2B06 \u0627\u0633\u062a\u064a\u0631\u0627\u062f' +
       '<input type="file" id="importBank" accept=".json" class="hidden"></label></div></div>' +
+      "</div>" +
 
-      '<div class="card"><div class="card-head"><h3>\u0645\u0639\u0644\u0648\u0645\u0627\u062a \u0627\u0644\u0646\u0638\u0627\u0645</h3></div>' +
+      "<div>" +
+      '<div class="card">' +
+      secHead("ℹ️", "معلومات النظام") +
       '<div class="student-info-row">' +
       '<div class="item"><div class="lbl">\u0627\u0644\u0625\u0635\u062f\u0627\u0631</div><div class="val">v6.0</div></div>' +
       '<div class="item"><div class="lbl">Firebase</div><div class="val">Firestore</div></div>' +
-      "</div></div>"
+      '<div class="item"><div class="lbl">الاستضافة</div><div class="val">GitHub Pages</div></div>' +
+      "</div></div>" +
+      "</div>" +
+      "</div>"
     );
 
     document.getElementById("savePass").addEventListener("click", async function () {
