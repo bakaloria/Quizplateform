@@ -1063,6 +1063,34 @@
     const total = graded.reduce(function (s, g) { return s + g.points; }, 0);
     const nowIso = new Date().toISOString();
 
+    var submission = {
+      examId: st.exam.id,
+      examCode: st.exam.code,
+      examTitle: st.exam.title,
+      subjectId: st.exam.subjectId || "",
+      subjectName: st.exam.subjectName || "",
+      groupId: st.group.id,
+      groupName: st.group.name,
+      studentId: st.student.id,
+      studentName: st.student.name,
+      studentNameNormalized: U.normalizeArabic(st.student.name),
+      answers: graded,
+      total: total,
+      score: null,
+      percent: null,
+      passed: null,
+      durationSec: durationSec,
+      status: "pending",
+      needsManualReview: true,
+      gradedBy: null,
+      gradedByTeacherId: null,
+      gradedAt: null,
+      createdAt: nowIso,
+      autoSubmit: !!auto,
+      isGuest: st.guest
+    };
+
+    /* ⚡ النتيجة الفورية: تصحيح تلقائي عند تفعيل المدير (الأسئلة التلقائية فقط) */
     if (st.exam.settings && st.exam.settings.autoResult) {
       var pendingCount = 0;
       var autoScore = 0;
@@ -1094,33 +1122,6 @@
         submission.autoPendingCount = pendingCount;
       }
     }
-
-    var submission = {
-      examId: st.exam.id,
-      examCode: st.exam.code,
-      examTitle: st.exam.title,
-      subjectId: st.exam.subjectId || "",
-      subjectName: st.exam.subjectName || "",
-      groupId: st.group.id,
-      groupName: st.group.name,
-      studentId: st.student.id,
-      studentName: st.student.name,
-      studentNameNormalized: U.normalizeArabic(st.student.name),
-      answers: graded,
-      total: total,
-      score: null,
-      percent: null,
-      passed: null,
-      durationSec: durationSec,
-      status: "pending",
-      needsManualReview: true,
-      gradedBy: null,
-      gradedByTeacherId: null,
-      gradedAt: null,
-      createdAt: nowIso,
-      autoSubmit: !!auto,
-      isGuest: st.guest
-    };
 
     try {
       var subId = await S.addSubmission(submission);
