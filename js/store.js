@@ -88,6 +88,18 @@
     return isNaN(d.getTime()) ? 0 : d.getTime();
   }
 
+  /* توليد كود اختبار فريد غير مستخدم مسبقاً */
+  async function uniqueExamCode() {
+    let code;
+    let tries = 0;
+    do {
+      code = QP.utils.code(6);
+      tries++;
+      if (tries > 25) throw new Error("تعذّر توليد كود فريد، حاول مرة أخرى");
+    } while (await store.codeExists(code));
+    return code;
+  }
+
   const store = {
     /* ============================================================
      * SUBJECTS
@@ -282,9 +294,54 @@
       const d = await col.examCodes.doc(code).get();
       return d.exists;
     },
+    /* تغيير كود الاختبار يدوياً مع نقل ربط الكود في سجل examCodes */
+    setExamCode: async function (examId, newCode) {
+      newCode = String(newCode || "").trim().toUpperCase();
+      if (!newCode) throw new Error("الكود مطلوب");
+      if (!/^[A-Z0-9]{4,12}$/.test(newCode)) throw new Error("الكود يجب أن يكون 4-12 حرفاً أو رقماً إنجليزياً");
+      const exam = await store.getExam(examId);
+      if (!exam) throw new Error("الاختبار غير موجود");
+      const oldCode = String(exam.code || "").trim().toUpperCase();
+      if (oldCode === newCode) return { code: newCode, changed: false };
+      const mapDoc = await col.examCodes.doc(newCode).get();
+      if (mapDoc.exists && mapDoc.data().examId !== examId) throw new Error("هذا الكود مستخدم بالفعل، اختر كوداً آخر");
+      if (oldCode) { try { await col.examCodes.doc(oldCode).delete(); } catch (e) {} }
+      await col.examCodes.doc(newCode).set({ examId: examId, code: newCode, createdAt: FV.serverTimestamp() });
+      await col.exams.doc(examId).update({ code: newCode });
+      return { code: newCode, changed: true };
+    },
+    /* تجديد (تدوير) كود الاختبار: يولّد كوداً جديداً ويحدّث وقت آخر تدوير */
+    rotateExamCode: async function (examId) {
+      const code = await uniqueExamCode();
+      await store.setExamCode(examId, code);
+      await col.exams.doc(examId).update({ codeRotatedAt: FV.serverTimestamp() });
+      return code;
+    },
+    /* إنشاء تجديد الأكواد المستحقة حسب الفترة التي حدّدها المدير (يُنفَّذ عند فتح لوحة المدير) */
+    runScheduledCodeRotation: async function () {
+      let rotated = 0;
+      const exams = await store.listExams();
+      const now = Date.now();
+      for (let i = 0; i < exams.length; i++) {
+        const e = exams[i];
+        if (!e.codeRotateEnabled) continue;
+        const mins = Number(e.codeRotateMinutes) || 0;
+        if (mins <= 0) continue;
+        const last = tsOf(e.codeRotatedAt) || tsOf(e.createdAt) || now;
+        if (now - last >= mins * 60000) {
+          try { await store.rotateExamCode(e.id); rotated++; }
+          catch (err) { console.warn("rotate exam code", e.id, err); }
+        }
+      }
+      return rotated;
+    },
     createExam: async function (data) {
       let code = String(data.code || "").trim().toUpperCase();
-      if (!code) { do { code = QP.utils.code(6); } while (await store.codeExists(code)); }
+      if (code) {
+        if (await store.codeExists(code)) throw new Error("هذا الكود مستخدم بالفعل، اختر كوداً آخر");
+      } else {
+        code = await uniqueExamCode();
+      }
       const totalPoints = (data.questions || []).reduce(function (s, q) { return s + (q.points === undefined || q.points === null || q.points === "" ? 1 : Number(q.points) || 0); }, 0);
       const ref = await col.exams.add(sanitize({
         title: data.title || "",
@@ -292,6 +349,9 @@
         subjectName: data.subjectName || "",
         description: data.description || "",
         code: code,
+        codeRotateEnabled: !!data.codeRotateEnabled,
+        codeRotateMinutes: Number(data.codeRotateMinutes) || 0,
+        codeRotatedAt: FV.serverTimestamp(),
         durationMin: Number(data.durationMin) || 0,
         settings: data.settings || {},
         questions: data.questions || [],

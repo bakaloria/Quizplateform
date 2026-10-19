@@ -148,6 +148,20 @@
     return '<div class="stat"><div class="ico">' + ico + '</div><div><div class="val">' + val + '</div><div class="lbl">' + lbl + "</div></div></div>";
   }
 
+  /* بطاقة مؤشر (KPI) للوحة التحكم */
+  function kpiCard(color, ico, val, lbl) {
+    return '<div class="kpi ' + color + '"><div class="kpi-ico">' + ico + '</div>' +
+      '<div><div class="kpi-val">' + val + '</div><div class="kpi-lbl">' + lbl + '</div></div></div>';
+  }
+
+  /* تحويل أي قيمة تاريخ إلى ملّي ثانية للترتيب */
+  function msOf(v) {
+    if (!v) return 0;
+    if (typeof v === "object" && v.toDate) return v.toDate().getTime();
+    const d = new Date(typeof v === "number" ? v : String(v));
+    return isNaN(d.getTime()) ? 0 : d.getTime();
+  }
+
   /* ============================================================
    * DASHBOARD
    * ============================================================ */
@@ -177,25 +191,138 @@
       } catch (eg) { console.warn("guest submissions", eg); }
       tstate.submissions = allSubs;
 
-      const pending = allSubs.filter(function (s) { return s.status === "pending" || s.status === "in_review"; });
+      const isPending = function (s) { return s.status === "pending" || s.status === "in_review"; };
+      const pending = allSubs.filter(isPending);
       const graded = allSubs.filter(function (s) { return s.status === "graded"; });
-      const scores = graded.map(function (s) { return s.percent || 0; }).filter(function (x) { return x !== null; });
+      const scores = graded.map(function (s) { return Number(s.percent) || 0; });
       const avg = scores.length ? Math.round(scores.reduce(function (a, b) { return a + b; }, 0) / scores.length) : 0;
+      const passCount = graded.filter(function (s) {
+        return s.passed === true || (Number(s.percent) || 0) >= ((s.settings && s.settings.passScore) || 50);
+      }).length;
+      const passRate = graded.length ? Math.round((passCount / graded.length) * 100) : 0;
+
+      /* توزيع النتائج إلى فئات */
+      const buckets = [
+        { lbl: "ممتاز (90%+)", min: 90, color: "var(--success)" },
+        { lbl: "جيد جداً (80-89%)", min: 80, color: "#38bdf8" },
+        { lbl: "جيد (70-79%)", min: 70, color: "var(--primary)" },
+        { lbl: "مقبول (50-69%)", min: 50, color: "var(--warning)" },
+        { lbl: "ضعيف (أقل من 50%)", min: -1, color: "var(--danger)" }
+      ];
+      const dist = buckets.map(function (b, i) {
+        const upper = i === 0 ? 101 : buckets[i - 1].min;
+        const n = graded.filter(function (s) {
+          const p = Number(s.percent) || 0;
+          return p >= b.min && p < upper;
+        }).length;
+        return { lbl: b.lbl, n: n, color: b.color };
+      });
+      const distMax = Math.max(1, Math.max.apply(null, dist.map(function (d) { return d.n; })));
+
+      /* توزيع التسليمات حسب المادة */
+      const bySubject = {};
+      allSubs.forEach(function (s) {
+        const k = s.subjectId || "—";
+        if (!bySubject[k]) bySubject[k] = { name: s.subjectName || "—", total: 0, pending: 0, graded: 0, sum: 0 };
+        const o = bySubject[k];
+        o.total++;
+        if (isPending(s)) o.pending++;
+        if (s.status === "graded") { o.graded++; o.sum += Number(s.percent) || 0; }
+      });
+      const subjRows = Object.keys(bySubject).map(function (k) {
+        const o = bySubject[k];
+        return {
+          name: o.name, total: o.total, pending: o.pending, graded: o.graded,
+          avg: o.graded ? Math.round(o.sum / o.graded) : 0
+        };
+      }).sort(function (a, b) { return b.pending - a.pending; });
+
+      /* أحدث التسليمات */
+      const recent = allSubs.slice().sort(function (a, b) { return msOf(b.createdAt) - msOf(a.createdAt); }).slice(0, 6);
+
+      const donePct = allSubs.length ? Math.round((graded.length / allSubs.length) * 100) : 0;
 
       shell("dashboard",
-        '<div class="card-head"><h2>\u0644\u0648\u062d\u0629 ' + U.esc(teacher.name) + '</h2></div>' +
-        '<div class="stat-grid">' +
-        stat("\uD83D\uDC65", groups.length, "\u0645\u062c\u0645\u0648\u0639\u0627\u062a\u064a") +
-        stat("\uD83D\uDCE5", allSubs.length, "\u062a\u0633\u0644\u064a\u0645\u0627\u062a") +
-        stat("\u23F3", pending.length, "\u0642\u064a\u062f \u0627\u0644\u062a\u0635\u062d\u064a\u062d") +
-        stat("\u2705", graded.length, "\u0645\u064f\u0635\u062d\u0651\u062d") +
-        stat("\uD83D\uDCCA", avg + "%", "\u0627\u0644\u0645\u062a\u0648\u0633\u0637") +
+        /* ترويسة اللوحة */
+        '<div class="dash-hero">' +
+        '<div class="who">' +
+        '<div class="dash-ava">👨‍🏫</div>' +
+        '<div><div class="tiny" style="opacity:.85">مرحباً بك</div>' +
+        '<div class="dash-name">' + U.esc(teacher.name) + '</div>' +
+        '<div class="tiny" style="opacity:.8;margin-top:2px">' + U.formatDateOnly(new Date()) +
+        ' · ' + groups.length + ' مجموعة · ' + subjRows.length + ' مادة</div></div>' +
+        '</div>' +
+        '<div class="flex" style="gap:8px;flex-wrap:wrap">' +
+        (pending.length
+          ? '<a class="btn btn-sm dash-cta" href="#/pending">⏳ لديك ' + pending.length + ' بانتظار التصحيح</a>'
+          : '<span class="badge dash-ok">✅ لا مهام عالقة</span>') +
+        '</div>' +
+        '</div>' +
+
+        /* مؤشرات */
+        '<div class="kpi-grid">' +
+        kpiCard("c-primary", "📥", allSubs.length, "إجمالي التسليمات") +
+        kpiCard("c-warning", "⏳", pending.length, "قيد التصحيح") +
+        kpiCard("c-success", "✅", graded.length, "مُصحّحة") +
+        kpiCard("c-primary", "📊", avg + "%", "متوسط الدرجات") +
+        kpiCard("c-success", "🎯", passRate + "%", "نسبة النجاح") +
         "</div>" +
-        '<div class="card mt"><div class="card-head"><h3>\u0645\u0647\u0627\u0645 \u0633\u0631\u064a\u0639\u0629</h3></div>' +
-        '<div class="flex flex-wrap">' +
-        '<a class="btn btn-primary" href="#/pending">\u23F3 \u062a\u0635\u062d\u064a\u062d (' + pending.length + ')</a>' +
-        '<a class="btn" href="#/groups">\uD83D\uDC65 \u0645\u062c\u0645\u0648\u0639\u0627\u062a\u064a (' + groups.length + ')</a>' +
-        "</div></div>"
+
+        /* توزيع النتائج + تقدّم التصحيح */
+        '<div class="dash-cols">' +
+        '<div class="card"><div class="card-head"><h3>📈 توزيع النتائج</h3>' +
+        '<span class="badge badge-muted">' + graded.length + ' مُصحّح</span></div>' +
+        (graded.length
+          ? '<div class="dist">' + dist.map(function (d) {
+            const w = Math.round((d.n / distMax) * 100);
+            return '<div class="dist-row">' +
+              '<span class="tiny muted">' + d.lbl + '</span>' +
+              '<div class="dist-bar"><span style="width:' + w + '%;background:' + d.color + '"></span></div>' +
+              '<span class="dist-val">' + d.n + '</span>' +
+              '</div>';
+          }).join("") + '</div>'
+          : '<p class="muted tiny">لا توجد نتائج مُصحّحة بعد.</p>') +
+        '</div>' +
+
+        '<div class="card"><div class="card-head"><h3>✅ تقدّم التصحيح</h3></div>' +
+        '<div class="done-pct"><div class="big">' + donePct + '%</div>' +
+        '<div class="tiny muted">' + graded.length + ' من ' + allSubs.length + ' تسليم</div></div>' +
+        '<div class="progress"><span style="width:' + donePct + '%"></span></div>' +
+        '<div class="flex" style="gap:8px;margin-top:14px">' +
+        '<a class="btn btn-sm btn-primary" href="#/pending" style="flex:1">⏳ تصحيح الآن</a>' +
+        '<a class="btn btn-sm" href="#/graded" style="flex:1">عرض المُصحّحة</a>' +
+        '</div></div>' +
+        '</div>' +
+
+        /* حسب المادة */
+        (subjRows.length
+          ? '<div class="card mt"><div class="card-head"><h3>📚 حسب المادة</h3></div>' +
+          '<div class="table-wrap"><table><thead><tr>' +
+          '<th>المادة</th><th>التسليمات</th><th>قيد التصحيح</th><th>مُصحّحة</th><th>المتوسط</th>' +
+          '</tr></thead><tbody>' +
+          subjRows.map(function (r) {
+            return '<tr><td><b>' + U.esc(r.name) + '</b></td>' +
+              '<td>' + r.total + '</td>' +
+              '<td>' + (r.pending ? '<span class="badge badge-warning">' + r.pending + '</span>' : "0") + '</td>' +
+              '<td>' + r.graded + '</td>' +
+              '<td>' + r.avg + '%</td></tr>';
+          }).join("") + '</tbody></table></div></div>' : "") +
+
+        /* أحدث التسليمات */
+        '<div class="card mt"><div class="card-head"><h3>🕒 أحدث التسليمات</h3>' +
+        '<a class="btn btn-sm" href="#/all">عرض الكل</a></div>' +
+        (recent.length
+          ? '<div class="recent-list">' + recent.map(function (s) {
+            return '<a class="recent-item" href="#/' + (isPending(s) ? "pending" : "graded") + '">' +
+              '<div class="who"><div class="nm">' + U.esc(s.studentName || "-") + '</div>' +
+              '<div class="sm">' + U.esc(s.examTitle || "-") + ' · ' + U.esc(s.subjectName || "-") +
+              ' · ' + U.formatDate(s.createdAt) + '</div></div>' +
+              U.submissionStatusBadge(s.status) +
+              (s.status === "graded" ? '<span class="badge badge-primary">' + (Number(s.percent) || 0) + '%</span>' : "") +
+              '</a>';
+          }).join("") + '</div>'
+          : '<p class="muted tiny">لا توجد تسليمات بعد.</p>') +
+        '</div>'
       );
     } catch (e) {
       shell("dashboard", '<div class="card"><div class="empty-state"><div class="emoji">\u26D4</div><h3>\u062e\u0637\u0623</h3><p>' + U.esc(e.message) + '</p></div></div>');
@@ -254,6 +381,8 @@
       if (tstate.filterGroup) list = list.filter(function (s) { return s.groupId === tstate.filterGroup; });
       if (tstate.filterSubject) list = list.filter(function (s) { return s.subjectId === tstate.filterSubject; });
 
+      const gradedInList = list.filter(function (s) { return s.status === "graded"; });
+
       const rows = list.length
         ? list.map(function (s) {
           const scoreTxt = (s.score !== null && s.score !== undefined) ? s.score + " / " + s.total : "-";
@@ -265,8 +394,11 @@
             '<td data-label="St">' + U.submissionStatusBadge(s.status) + "</td>" +
             '<td data-label="Sc">' + scoreTxt + "</td>" +
             '<td data-label="D" class="tiny">' + U.formatDate(s.createdAt) + "</td>" +
-            '<td data-label=""><button class="btn btn-sm ' + (s.status !== "graded" ? "btn-primary" : "") + '" data-open="' + s.id + '">' +
-            (s.status === "graded" ? "\u0639\u0631\u0636" : "\u062a\u0635\u062d\u064a\u062d") + "</button></td></tr>";
+            '<td data-label="" style="white-space:nowrap">' +
+            '<button class="btn btn-sm ' + (s.status !== "graded" ? "btn-primary" : "") + '" data-open="' + s.id + '">' +
+            (s.status === "graded" ? "\u0639\u0631\u0636" : "\u062a\u0635\u062d\u064a\u062d") + "</button> " +
+            '<button class="btn btn-sm btn-danger" data-del="' + s.id + '" title="حذف التسليم">🗑</button>' +
+            "</td></tr>";
         }).join("")
         : '<tr><td colspan="8" class="table-empty">\u0644\u0627 \u062a\u0648\u062c\u062f \u062a\u0633\u0644\u064a\u0645\u0627\u062a</td></tr>';
 
@@ -282,7 +414,11 @@
         }).join("") + "</div>";
 
       shell(active,
-        '<div class="card-head"><h2>\u0627\u0644\u062a\u0633\u0644\u064a\u0645\u0627\u062a</h2></div>' +
+        '<div class="card-head"><h2>\u0627\u0644\u062a\u0633\u0644\u064a\u0645\u0627\u062a</h2>' +
+        '<span class="badge badge-primary">' + list.length + '</span>' +
+        '<div class="spacer"></div>' +
+        (gradedInList.length ? '<button class="btn btn-sm btn-danger" id="tDelGraded">🗑 حذف المُصحّحة (' + gradedInList.length + ')</button>' : "") +
+        "</div>" +
         tabs +
         '<div class="card"><div class="form-row">' +
         '<div class="field" style="margin:0"><label>\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629</label><select id="tFilterGroup">' + groupOpts + "</select></div>" +
@@ -298,6 +434,43 @@
       });
       document.querySelectorAll("[data-open]").forEach(function (b) {
         b.addEventListener("click", function () { openGrading(b.dataset.open); });
+      });
+
+      /* حذف تسليم واحد */
+      document.querySelectorAll("[data-del]").forEach(function (btn) {
+        btn.addEventListener("click", async function () {
+          const id = btn.dataset.del;
+          const s = allSubs.find(function (x) { return x.id === id; });
+          const info = s ? ((s.studentName || "-") + " — " + (s.examTitle || "-")) : "";
+          if (!(await U.confirm("حذف هذا التسليم؟\n" + info + "\nلا يمكن التراجع عن الحذف."))) return;
+          btn.disabled = true;
+          try {
+            await S.deleteSubmission(id);
+            U.toast("تم حذف التسليم", "success");
+          } catch (e) {
+            btn.disabled = false;
+            U.toast("تعذّر الحذف: " + ((e && e.message) || e), "error");
+            return;
+          }
+          renderList(active);
+        });
+      });
+
+      /* حذف كل التسليمات المُصحّحة المعروضة */
+      const delGradedBtn = document.getElementById("tDelGraded");
+      if (delGradedBtn) delGradedBtn.addEventListener("click", async function () {
+        if (!gradedInList.length) return;
+        if (!(await U.confirm("حذف " + gradedInList.length + " تسليماً مُصحّحاً؟\nلا يمكن التراجع عن الحذف."))) return;
+        delGradedBtn.disabled = true;
+        delGradedBtn.textContent = "...";
+        let done = 0;
+        try {
+          for (const s of gradedInList) { await S.deleteSubmission(s.id); done++; }
+          U.toast("تم حذف " + done + " تسليم", "success");
+        } catch (e) {
+          U.toast("حُذف " + done + " ثم تعذّر الباقي: " + ((e && e.message) || e), "error");
+        }
+        renderList(active);
       });
     } catch (e) {
       shell(active, '<div class="card"><div class="empty-state"><div class="emoji">\u26D4</div><h3>\u062e\u0637\u0623</h3><p>' + U.esc(e.message) + '</p></div></div>');
