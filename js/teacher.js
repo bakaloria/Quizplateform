@@ -170,6 +170,11 @@
           allSubs.push(s);
         });
       }
+      // تسليمات الضيوف (دخول بالاسم + كود الاختبار)
+      try {
+        const guestSubs = await S.listGuestSubmissionsForTeacher(teacher.id);
+        guestSubs.forEach(function (s) { if (!s.groupName) s.groupName = "ضيوف"; allSubs.push(s); });
+      } catch (eg) { console.warn("guest submissions", eg); }
       tstate.submissions = allSubs;
 
       const pending = allSubs.filter(function (s) { return s.status === "pending" || s.status === "in_review"; });
@@ -230,6 +235,11 @@
           allSubs.push(s);
         });
       }
+      // تسليمات الضيوف (دخول بالاسم + كود الاختبار)
+      try {
+        const guestSubs = await S.listGuestSubmissionsForTeacher(teacher.id);
+        guestSubs.forEach(function (s) { if (!s.groupName) s.groupName = "ضيوف"; allSubs.push(s); });
+      } catch (eg) { console.warn("guest submissions", eg); }
       tstate.submissions = allSubs;
 
       let list = allSubs.slice();

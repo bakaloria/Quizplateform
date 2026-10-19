@@ -550,6 +550,23 @@
         .filter(function (s) { return subjectIds.indexOf(s.subjectId) >= 0; })
         .sort(function (a, b) { return tsOf(b.createdAt) - tsOf(a.createdAt); });
     },
+    /* تسليمات الضيوف (دخول بالاسم + كود الاختبار) — تظهر لكل معلم يصحّح مادة الاختبار */
+    listGuestSubmissionsForTeacher: async function (teacherId) {
+      const snap = await col.submissions.where("isGuest", "==", true).get();
+      const subs = snapDocs(snap);
+      if (!subs.length) return [];
+      const groups = await store.listGroupsByTeacher(teacherId);
+      const subjectIds = [];
+      groups.forEach(function (g) {
+        (g.teacherAssignments || []).forEach(function (a) {
+          if (a.teacherId === teacherId && subjectIds.indexOf(a.subjectId) < 0) subjectIds.push(a.subjectId);
+        });
+      });
+      if (!subjectIds.length) return [];
+      return subs
+        .filter(function (s) { return subjectIds.indexOf(s.subjectId) >= 0; })
+        .sort(function (a, b) { return tsOf(b.createdAt) - tsOf(a.createdAt); });
+    },
     listSubmissionsByStudent: async function (studentId) {
       const snap = await col.submissions.where("studentId", "==", studentId).get();
       return snapDocs(snap).sort(function (a, b) { return tsOf(b.createdAt) - tsOf(a.createdAt); });
