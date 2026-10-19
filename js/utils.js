@@ -324,6 +324,10 @@
     /* النص القابل للقراءة للإجابة النموذجية حسب النوع */
     answerText: function (q) {
       if (!q) return "-";
+      // كائن إجابة الطالب المحفوظ يخزّن الإجابة الصحيحة في correctAnswer، بينما السؤال الأصلي في answer
+      if ((q.answer === undefined || q.answer === null) && q.correctAnswer !== undefined) {
+        q = Object.assign({}, q, { answer: q.correctAnswer });
+      }
       const t = q.type;
       if (t === "matching") {
         return (q.pairs || []).map(function (p) { return _str(p.left) + " ← " + _str(p.right); }).join(" ، ");
