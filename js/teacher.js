@@ -373,7 +373,8 @@
     const cards = (sub.answers || []).map(function (a, idx) {
       const givenTxt = U.givenText ? U.givenText(a, a.given) : (Array.isArray(a.given) ? a.given.join(" \u060c ") : (a.given || "-"));
       const ansTxt = U.answerText ? U.answerText(a) : (Array.isArray(a.correctAnswer) ? a.correctAnswer.join(" \u060c ") : (a.correctAnswer || "-"));
-      const showModel = ["essay", "short_answer", "fill_blank", "matching", "ordering", "classification", "comparison", "diagram_label"].indexOf(a.type) >= 0;
+      // تُعرض الإجابة النموذجية لكل الأنواع (موضوعية ومقالية) لمساعدة المعلّم على التصحيح
+      const showModel = true;
       const hasSuggestion = a.autoCorrect !== null && a.autoCorrect !== undefined;
       const suggested = a.autoCorrect === true;
       const currentScore = (a.earned !== null && a.earned !== undefined) ? a.earned : null;
