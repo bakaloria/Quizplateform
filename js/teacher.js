@@ -312,12 +312,23 @@
     if (!sub) return U.toast("\u063a\u064a\u0631 \u0645\u0648\u062c\u0648\u062f", "error");
 
     // التحقق من الصلاحيات
-    const group = await S.getGroup(sub.groupId);
-    if (!group) return U.toast("\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629 \u063a\u064a\u0631 \u0645\u0648\u062c\u0648\u062f\u0629", "error");
-    const canSee = (group.teacherAssignments || []).some(function (a) {
-      return a.teacherId === tstate.teacher.id && a.subjectId === sub.subjectId;
-    });
-    if (!canSee) return U.toast("\u0644\u0627 \u062a\u0645\u0644\u0643 \u0635\u0644\u0627\u062d\u064a\u0629", "error");
+    if (sub.isGuest || sub.groupId === "ALL") {
+      // تسليم ضيف (لا توجد مجموعة فعلية) — نتحقق من مواد المعلّم مباشرة
+      const groups = await S.listGroupsByTeacher(tstate.teacher.id);
+      const canSeeGuest = groups.some(function (g) {
+        return (g.teacherAssignments || []).some(function (a) {
+          return a.teacherId === tstate.teacher.id && a.subjectId === sub.subjectId;
+        });
+      });
+      if (!canSeeGuest) return U.toast("\u0644\u0627 \u062a\u0645\u0644\u0643 \u0635\u0644\u0627\u062d\u064a\u0629", "error");
+    } else {
+      const group = await S.getGroup(sub.groupId);
+      if (!group) return U.toast("\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629 \u063a\u064a\u0631 \u0645\u0648\u062c\u0648\u062f\u0629", "error");
+      const canSee = (group.teacherAssignments || []).some(function (a) {
+        return a.teacherId === tstate.teacher.id && a.subjectId === sub.subjectId;
+      });
+      if (!canSee) return U.toast("\u0644\u0627 \u062a\u0645\u0644\u0643 \u0635\u0644\u0627\u062d\u064a\u0629", "error");
+    }
 
     tstate.currentSubmission = sub;
 
