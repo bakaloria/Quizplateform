@@ -621,7 +621,10 @@
     if (!exam) return U.toast("\u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631 \u063a\u064a\u0631 \u0645\u0648\u062c\u0648\u062f", "error");
 
     const existing = await S.findSubmission(examId, st.student.id);
+    if (existing) {
+      if (st.guest) { st.exam = exam; st.settings = exam.settings || {}; return renderSubmitted(existing); }
     if (existing) return U.toast("\u0644\u0642\u062f \u0633\u0644\u0651\u0645\u062a \u0647\u0630\u0627 \u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631 \u0645\u0633\u0628\u0642\u0627\u064b", "warn");
+    }
 
     st.exam = exam;
     st.settings = exam.settings || {};
@@ -1132,11 +1135,31 @@
     renderSubmitted(submission);
   }
 
+  function bindGuestRefresh(sub) {
+    var btn = document.getElementById("refreshStatusBtn");
+    if (!btn) return;
+    btn.addEventListener("click", async function () {
+      if (!sub || !sub.id) return U.toast("لا يمكن التحقق الآن — أعد الدخول بالاسم والكود", "warn");
+      btn.disabled = true;
+      try {
+        var fresh = await S.getSubmissionById(sub.id);
+        if (fresh && fresh.status === "graded") return viewResult(fresh.id, fresh);
+        U.toast("النتيجة لم تُعتمد بعد — حاول لاحقاً", "info");
+      } catch (e) {
+        U.toast("تعذّر التحقق: " + e.message, "error");
+      }
+      btn.disabled = false;
+    });
+  }
+
   function renderSubmitted(sub) {
     if (sub && sub.status === "graded" && sub.id) {
       return viewResult(sub.id, sub);
     }
     var partial = sub && sub.status === "pending" && sub.autoPendingCount && sub.autoPendingCount > 0;
+    var guestHint = st.guest
+      ? "للاطّلاع على نتيجتك لاحقاً: أعد إدخال نفس الاسم وكود الاختبار، أو اضغط زر التحديث."
+      : "عندما يتم الاعتماد، سترى النتيجة في لوحتك.";
     view(
       '<div class="container container-narrow">' +
       '<div class="card mt">' +
@@ -1146,20 +1169,20 @@
       '<p class="hint">\u0634\u0643\u0631\u0627\u064b \u0644\u0643 \u064a\u0627 ' + U.esc(st.student.name) + '</p>' +
       (partial ? (
         '<div class="info-banner info" style="text-align:start">' +
-        '<span class="emoji">⚡</span>' +
-        '<div><b>تم التصحيح التلقائي لجزء من الأسئلة</b> • الدرجات الحالية: ' + (sub.autoScore||0) + '/' + (sub.total||0) + ' درجة (باقي ' + sub.autoPendingCount + ' سؤال يحتاج تصحيح المعلم).<br>ستظهر النتيجة النهائية في لوحة الطالب عند الاعتماد.</div>' +
+        '<span class="emoji">\u26A1</span>' +
+        '<div><b>\u062a\u0645 \u0627\u0644\u062a\u0635\u062d\u064a\u062d \u0627\u0644\u062a\u0644\u0642\u0627\u0626\u064a \u0644\u062c\u0632\u0621 \u0645\u0646 \u0627\u0644\u0623\u0633\u0626\u0644\u0629</b> \u2022 \u0627\u0644\u062f\u0631\u062c\u0627\u062a \u0627\u0644\u062d\u0627\u0644\u064a\u0629: ' + (sub.autoScore || 0) + '/' + (sub.total || 0) + ' \u062f\u0631\u062c\u0629 (\u0628\u0627\u0642\u064a ' + sub.autoPendingCount + ' \u0633\u0624\u0627\u0644 \u064a\u062d\u062a\u0627\u062c \u062a\u0635\u062d\u064a\u062d \u0627\u0644\u0645\u0639\u0644\u0645).<br>' + guestHint + '</div>' +
         '</div>'
       ) : (
         '<div class="info-banner warning" style="text-align:start">' +
         '<span class="emoji">\u23F3</span>' +
-        '<div><b>\u0627\u0644\u0646\u062a\u064a\u062c\u0629 \u0644\u0645 \u062a\u0635\u062f\u0631 \u0628\u0639\u062f</b>' +
-        '\u0633\u064a\u0631\u0627\u062c\u0639 \u0627\u0644\u0645\u0639\u0644\u0645 \u0625\u062c\u0627\u0628\u0627\u062a\u0643 \u0648\u064a\u0639\u062a\u0645\u062f \u0627\u0644\u062f\u0631\u062c\u0629. ' +
-        '\u0639\u0646\u062f\u0645\u0627 \u064a\u062a\u0645 \u0627\u0644\u0627\u0639\u062a\u0645\u0627\u062f\u060c \u0633\u062a\u0631\u0649 \u0627\u0644\u0646\u062a\u064a\u062c\u0629 \u0641\u064a \u0644\u0648\u062d\u062a\u0643.</div>' +
+        '<div><b>\u0627\u0644\u0646\u062a\u064a\u062c\u0629 \u0644\u0645 \u062a\u0635\u062f\u0631 \u0628\u0639\u062f</b> \u0633\u064a\u0631\u0627\u062c\u0639 \u0627\u0644\u0645\u0639\u0644\u0645 \u0625\u062c\u0627\u0628\u0627\u062a\u0643 \u0648\u064a\u0639\u062a\u0645\u062f \u0627\u0644\u062f\u0631\u062c\u0629. ' + guestHint + '</div>' +
         '</div>'
       )) +
-      '<button class="btn btn-primary btn-block mt" id="backBtn">\u0631\u062c\u0648\u0639 \u0644\u0644\u0648\u062d\u0629</button>' +
+      (st.guest ? '<button class="btn btn-primary btn-block mt" id="refreshStatusBtn">\uD83D\uDD04 \u062a\u062d\u062f\u064a\u062b \u0627\u0644\u062d\u0627\u0644\u0629</button>' : '') +
+      '<button class="btn ' + (st.guest ? "btn-ghost" : "btn-primary") + ' btn-block mt" id="backBtn">' + (st.guest ? "\u0631\u062c\u0648\u0639" : "\u0631\u062c\u0648\u0639 \u0644\u0644\u0648\u062d\u0629") + '</button>' +
       '</div></div></div>'
     );
+    if (st.guest) bindGuestRefresh(sub);
     document.getElementById("backBtn").addEventListener("click", function () { if (st.guest) renderAuth(); else renderDashboard(); });
   }
 
@@ -1236,9 +1259,6 @@
     const exam = await S.getExamByCode(code);
     if (!exam) return U.toast("كود الاختبار غير صحيح", "error");
     if (exam.isPaid) return U.toast("هذا اختبار مدفوع — يجب تسجيل الدخول بحساب طالب وتأكيد الدفع أولاً", "warn", 6000);
-    const avail = U.examAvailability ? U.examAvailability(exam) : "available";
-    if (avail === "upcoming") return U.toast("لم يبدأ وقت الاختبار بعد", "warn");
-    if (avail === "expired") return U.toast("انتهى وقت الاختبار", "error");
     st.student = {
       id: "guest:" + (U.normalizeArabic ? U.normalizeArabic(name) : name).replace(/\s+/g, "") + ":" + (exam.id || code),
       name: name,
@@ -1247,6 +1267,16 @@
     };
     st.group = { id: "ALL", name: "ضيوف" };
     st.guest = true;
+    // إن سبق لهذا الضيف (نفس الاسم والكود) التسليم → اعرض نتيجته أو حالة انتظار التصحيح
+    const existingGuest = await S.findSubmission(exam.id || code, st.student.id);
+    if (existingGuest) {
+      st.exam = exam;
+      st.settings = exam.settings || {};
+      return renderSubmitted(existingGuest);
+    }
+    const avail = U.examAvailability ? U.examAvailability(exam) : "available";
+    if (avail === "upcoming") return U.toast("لم يبدأ وقت الاختبار بعد", "warn");
+    if (avail === "expired") return U.toast("انتهى وقت الاختبار", "error");
     await startExam(exam.id);
   }
 
