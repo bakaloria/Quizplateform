@@ -643,6 +643,201 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "يبيّن الشكل المجاور تغيّر المطال x مع الزمن لهرّازة توافقية بسيطة. أيّ العبارات صحيحة؟",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 180' width='280' height='180' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='280' height='180' fill='%23ffffff'/%3E%3Cline x1='45' y1='145' x2='270' y2='145' stroke='%23333' stroke-width='1.5'/%3E%3Cline x1='45' y1='145' x2='45' y2='10' stroke='%23333' stroke-width='1.5'/%3E%3Ctext x='268' y='163' font-size='13' fill='%23333' text-anchor='end'%3Et%3C/text%3E%3Ctext x='12' y='18' font-size='13' fill='%23333'%3Ex%3C/text%3E%3Cpolyline points='45.0,20.0 48.7,21.4 52.3,25.4 56.0,31.9 59.7,40.7 63.3,51.2 67.0,63.2 70.7,76.0 74.3,89.0 78.0,101.8 81.7,113.7 85.3,124.3 89.0,133.1 92.7,139.6 96.3,143.6 100.0,145.0 103.7,143.6 107.3,139.6 111.0,133.1 114.7,124.3 118.3,113.8 122.0,101.8 125.7,89.0 129.3,76.0 133.0,63.2 136.7,51.3 140.3,40.7 144.0,31.9 147.7,25.4 151.3,21.4 155.0,20.0 158.7,21.4 162.3,25.4 166.0,31.9 169.7,40.7 173.3,51.2 177.0,63.2 180.7,76.0 184.3,89.0 188.0,101.8 191.7,113.7 195.3,124.3 199.0,133.1 202.7,139.6 206.3,143.6 210.0,145.0 213.7,143.6 217.3,139.6 221.0,133.1 224.7,124.3 228.3,113.8 232.0,101.8 235.7,89.0 239.3,76.0 243.0,63.2 246.7,51.3 250.3,40.7 254.0,31.9 257.7,25.4 261.3,21.4 265.0,20.0' fill='none' stroke='%230b6' stroke-width='2.5'/%3E%3Cline x1='45' y1='82.5' x2='268' y2='82.5' stroke='%23c00' stroke-width='1' stroke-dasharray='4 3'/%3E%3C/svg%3E",
+       "options": [
+        "الهرّازة تنطلق من المطال الأعظمي (السعة)",
+        "الهرّازة تنطلق من مركز الاهتزاز",
+        "المطال يتناقص دائماً بشكل خطي",
+        "السرعة ثابتة طوال الحركة"
+       ],
+       "answer": "الهرّازة تنطلق من المطال الأعظمي (السعة)",
+       "answer_index": 0,
+       "explanation": "المنحني يبدأ من قيمة عظمى ثم يهبط، أي أنّ الانطلاق من موضع السعة (الطور الابتدائي = 0).",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "graph"
+       ]
+      },
+      {
+       "type": "image_mcq",
+       "text": "في الشكل المرفق (منحني المطال الجيبي)، إذا كانت السعة A=0.08 m والدور T=0.4 s، فما المطال عند اللحظة t=T/4؟",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 180' width='280' height='180' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='280' height='180' fill='%23ffffff'/%3E%3Cline x1='45' y1='145' x2='270' y2='145' stroke='%23333' stroke-width='1.5'/%3E%3Cline x1='45' y1='145' x2='45' y2='10' stroke='%23333' stroke-width='1.5'/%3E%3Ctext x='268' y='163' font-size='13' fill='%23333' text-anchor='end'%3Et%3C/text%3E%3Ctext x='12' y='18' font-size='13' fill='%23333'%3Ex%3C/text%3E%3Cpolyline points='45.0,20.0 48.7,21.4 52.3,25.4 56.0,31.9 59.7,40.7 63.3,51.2 67.0,63.2 70.7,76.0 74.3,89.0 78.0,101.8 81.7,113.7 85.3,124.3 89.0,133.1 92.7,139.6 96.3,143.6 100.0,145.0 103.7,143.6 107.3,139.6 111.0,133.1 114.7,124.3 118.3,113.8 122.0,101.8 125.7,89.0 129.3,76.0 133.0,63.2 136.7,51.3 140.3,40.7 144.0,31.9 147.7,25.4 151.3,21.4 155.0,20.0 158.7,21.4 162.3,25.4 166.0,31.9 169.7,40.7 173.3,51.2 177.0,63.2 180.7,76.0 184.3,89.0 188.0,101.8 191.7,113.7 195.3,124.3 199.0,133.1 202.7,139.6 206.3,143.6 210.0,145.0 213.7,143.6 217.3,139.6 221.0,133.1 224.7,124.3 228.3,113.8 232.0,101.8 235.7,89.0 239.3,76.0 243.0,63.2 246.7,51.3 250.3,40.7 254.0,31.9 257.7,25.4 261.3,21.4 265.0,20.0' fill='none' stroke='%230b6' stroke-width='2.5'/%3E%3Cline x1='45' y1='82.5' x2='268' y2='82.5' stroke='%23c00' stroke-width='1' stroke-dasharray='4 3'/%3E%3C/svg%3E",
+       "options": [
+        "0 m",
+        "A = 0.08 m",
+        "A/2 = 0.04 m",
+        "لا يمكن تحديده"
+       ],
+       "answer": "0 m",
+       "answer_index": 0,
+       "explanation": "عند t=T/4 يكون cos(π/2)=0 فينعدم المطال (الجسم يمرّ في مركز الاهتزاز).",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "جسم كتلته 0.2 kg مرتبط بنابض صلابته 80 N/m يهتزّ بحركة توافقية بسيطة. احسب الدور الخاص.",
+       "options": [],
+       "answer": "0.314 s",
+       "explanation": "المعطيات: m=0.2 kg، k=80 N/m، π²=10\nT = 2π√(m/k) = 2π√(0.2/80) = 2π√0.0025 = 2π×0.05 = 0.314 s.",
+       "model_answer": "المعطيات: m=0.2 kg، k=80 N/m، π²=10\nT = 2π√(m/k) = 2π√(0.2/80) = 2π√0.0025 = 2π×0.05 = 0.314 s.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "هرّازة توافقية بسعة 0.1 m ونبض 20 rad/s. احسب السرعة العظمى.",
+       "options": [],
+       "answer": "2 m/s",
+       "explanation": "المعطيات: A=0.1 m، ω=20 rad/s\nv_max = Aω = 0.1 × 20 = 2 m/s.",
+       "model_answer": "المعطيات: A=0.1 m، ω=20 rad/s\nv_max = Aω = 0.1 × 20 = 2 m/s.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "هرّازة (m=0.5 kg, k=200 N/m) بسعة 0.05 m. احسب الطاقة الميكانيكية الكليّة.",
+       "options": [],
+       "answer": "0.25 J",
+       "explanation": "المعطيات: m=0.5 kg، k=200 N/m، A=0.05 m\nE = ½ k A² = ½ × 200 × (0.05)² = 100 × 0.0025 = 0.25 J.",
+       "model_answer": "المعطيات: m=0.5 kg، k=200 N/m، A=0.05 m\nE = ½ k A² = ½ × 200 × (0.05)² = 100 × 0.0025 = 0.25 J.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين كل مقدار فيزيائي ووحدته في الجملة الدولية:",
+       "options": [],
+       "answer": [
+        "N/m",
+        "m",
+        "rad/s",
+        "J"
+       ],
+       "pairs": [
+        {
+         "left": "ثابت الصلابة k",
+         "right": "N/m"
+        },
+        {
+         "left": "السعة A",
+         "right": "m"
+        },
+        {
+         "left": "النبض ω",
+         "right": "rad/s"
+        },
+        {
+         "left": "الطاقة الميكانيكية",
+         "right": "J"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المقدار وعلاقته:",
+       "options": [],
+       "answer": [
+        "2π√(m/k)",
+        "1/T",
+        "½ k A²",
+        "A ω"
+       ],
+       "pairs": [
+        {
+         "left": "الدور T",
+         "right": "2π√(m/k)"
+        },
+        {
+         "left": "التواتر f",
+         "right": "1/T"
+        },
+        {
+         "left": "الطاقة الحركية العظمى",
+         "right": "½ k A²"
+        },
+        {
+         "left": "السرعة العظمى",
+         "right": "A ω"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: في الهرّازة النابضية ω = √(.......)",
+       "options": [],
+       "answer": "k/m",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: الطاقة الكامنة المرونية عند مطال x هي E_p = .......",
+       "options": [],
+       "answer": "½ k x²",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: التابع الزمني للمطال x(t) = A cos(.......)",
+       "options": [],
+       "answer": "ωt + φ",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "انطلاقاً من مبدأ حفظ الطاقة الميكانيكية لهرّازة نابضية، استنتج عبارة السرعة بدلالة المطال.",
+       "options": [],
+       "answer": "v = ±ω√(A² − x²)",
+       "explanation": "½mv² + ½kx² = ½kA² ⇒ mv² = k(A²−x²) ⇒ v = ±√(k/m)·√(A²−x²) = ±ω√(A²−x²).",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     },
@@ -1137,6 +1332,103 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "short_answer",
+       "text": "نوّاس فتل عزم عطالته I=0.02 kg·m² وثابت فتل سلكه C=0.08 N·m/rad. احسب دور اهتزازاته الصغيرة.",
+       "options": [],
+       "answer": "3.14 s",
+       "explanation": "المعطيات: I=0.02 kg·m²، C=0.08 N·m/rad، π²=10\nT = 2π√(I/C) = 2π√(0.02/0.08) = 2π√0.25 = 2π×0.5 ≈ 3.14 s.",
+       "model_answer": "المعطيات: I=0.02 kg·m²، C=0.08 N·m/rad، π²=10\nT = 2π√(I/C) = 2π√(0.02/0.08) = 2π√0.25 = 2π×0.5 ≈ 3.14 s.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "قرص متجانس كتلته 4 kg ونصف قطره 0.3 m معلّق بسلك فتل ثابت فتلته C=0.36 N·m/rad. احسب دور نوّاس الفتل.",
+       "options": [],
+       "answer": "4π/3 ≈ 4.19 s",
+       "explanation": "المعطيات: m=4 kg، R=0.3 m، C=0.36 N·m/rad\nI=½mR²=½×4×0.09=0.18 kg·m²؛ T=2π√(I/C)=2π√(0.18/0.36)=2π√0.5=2π×0.707≈4.19 s.",
+       "model_answer": "المعطيات: m=4 kg، R=0.3 m، C=0.36 N·m/rad\nI=½mR²=½×4×0.09=0.18 kg·m²؛ T=2π√(I/C)=2π√(0.18/0.36)=2π√0.5=2π×0.707≈4.19 s.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المقدار ووحدته:",
+       "options": [],
+       "answer": [
+        "kg·m²",
+        "N·m/rad",
+        "rad",
+        "rad/s"
+       ],
+       "pairs": [
+        {
+         "left": "عزم العطالة I",
+         "right": "kg·m²"
+        },
+        {
+         "left": "ثابت الفتل C",
+         "right": "N·m/rad"
+        },
+        {
+         "left": "المطال الزاوي θ",
+         "right": "rad"
+        },
+        {
+         "left": "النبض ω",
+         "right": "rad/s"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: النبض في نوّاس الفتل ω = .......",
+       "options": [],
+       "answer": "√(C/I)",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: الطاقة الكامنة في نوّاس الفتل عند مطال زاوي θ هي E_p = .......",
+       "options": [],
+       "answer": "½ C θ²",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "استنتج عبارة عزم العطالة لجسم صلب انطلاقاً من قياس دور نوّاس فتل ثابت فتلته C معلومة.",
+       "options": [],
+       "answer": "I = C T² / (4π²)",
+       "explanation": "من T=2π√(I/C) نربّع: T²=4π²(I/C) ⇒ I = C T²/(4π²).",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     },
@@ -1647,6 +1939,135 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "image_mcq",
+       "text": "يبيّن الشكل بندولاً بسيطاً منطلقاً من موضع الإبعاد الأقصى. عند مروره في الموضع الأدنى (وضع التوازن) تكون:",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 190' width='260' height='190' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='260' height='190' fill='%23ffffff'/%3E%3Cline x1='130' y1='20' x2='130' y2='170' stroke='%23bbb' stroke-width='1' stroke-dasharray='4 4'/%3E%3Cline x1='40' y1='20' x2='220' y2='20' stroke='%23333' stroke-width='2'/%3E%3Cline x1='130' y1='20' x2='195' y2='150' stroke='%23333' stroke-width='2'/%3E%3Ccircle cx='195' cy='150' r='12' fill='%2306c'/%3E%3Ctext x='210' y='155' font-size='12' fill='%23333'%3Em%3C/text%3E%3Cpath d='M130,70 A 50 50 0 0 1 158 62' fill='none' stroke='%23c60' stroke-width='1.5'/%3E%3Ctext x='150' y='80' font-size='12' fill='%23c60'%3E%CE%B8%3C/text%3E%3C/svg%3E",
+       "options": [
+        "السرعة أعظمية والطاقة الكامنة معدومة",
+        "السرعة معدومة",
+        "الطاقة الحركية معدومة",
+        "المطال أعظمي"
+       ],
+       "answer": "السرعة أعظمية والطاقة الكامنة معدومة",
+       "answer_index": 0,
+       "explanation": "في أدنى موضع تنعدم الطاقة الكامنة وتكون السرعة والطاقة الحركية أعظميتين.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "بندول بسيط طوله 0.9 m على سطح الأرض (g=10 m/s²). احسب دور اهتزازاته الصغيرة.",
+       "options": [],
+       "answer": "1.88 s",
+       "explanation": "المعطيات: l=0.9 m، g=10 m/s²، π²=10\nT = 2π√(l/g) = 2π√(0.9/10) = 2π√0.09 = 2π×0.3 = 0.6π ≈ 1.88 s.",
+       "model_answer": "المعطيات: l=0.9 m، g=10 m/s²، π²=10\nT = 2π√(l/g) = 2π√(0.9/10) = 2π√0.09 = 2π×0.3 = 0.6π ≈ 1.88 s.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "بندول بسيط دوره 2 s على سطح الأرض (g=10 m/s²). احسب طوله.",
+       "options": [],
+       "answer": "1 m",
+       "explanation": "المعطيات: T=2 s، g=10 m/s²، π²=10\nT=2π√(l/g) ⇒ l = g T²/(4π²) = 10×4/(4×10) = 1 m.",
+       "model_answer": "المعطيات: T=2 s، g=10 m/s²، π²=10\nT=2π√(l/g) ⇒ l = g T²/(4π²) = 10×4/(4×10) = 1 m.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "نوّاس ثقلي مركّب: I=0.24 kg·m²، m=3 kg، d=0.2 m، g=10 m/s². احسب دوره.",
+       "options": [],
+       "answer": "1.26 s",
+       "explanation": "المعطيات: I=0.24 kg·m²، m=3 kg، d=0.2 m\nT=2π√(I/(m g d))=2π√(0.24/(3×10×0.2))=2π√(0.24/6)=2π√0.04=2π×0.2≈1.26 s.",
+       "model_answer": "المعطيات: I=0.24 kg·m²، m=3 kg، d=0.2 m\nT=2π√(I/(m g d))=2π√(0.24/(3×10×0.2))=2π√(0.24/6)=2π√0.04=2π×0.2≈1.26 s.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المقدار ووحدته:",
+       "options": [],
+       "answer": [
+        "m",
+        "m/s²",
+        "s",
+        "kg·m²"
+       ],
+       "pairs": [
+        {
+         "left": "طول البندول l",
+         "right": "m"
+        },
+        {
+         "left": "تسارع الثقالة g",
+         "right": "m/s²"
+        },
+        {
+         "left": "الدور T",
+         "right": "s"
+        },
+        {
+         "left": "عزم العطالة I",
+         "right": "kg·m²"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: دور البندول البسيط T = 2π√(.......)",
+       "options": [],
+       "answer": "l/g",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: الطول المكافئ للنوّاس المركّب L = .......",
+       "options": [],
+       "answer": "I/(m d)",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "استنتج عبارة تسارع الثقالة g بدلالة طول البندول البسيط ودوره.",
+       "options": [],
+       "answer": "g = 4π² l / T²",
+       "explanation": "من T=2π√(l/g): T²=4π²(l/g) ⇒ g = 4π² l/T².",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     },
@@ -2225,6 +2646,135 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "image_mcq",
+       "text": "في الأنبوب المتغيّر المقطع الموضّح، إذا كان المقطع S¹>S²مع ثبات الصبيب، فإنّ سرعة السائل في المقطع الأصغر:",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 170' width='300' height='170' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='300' height='170' fill='%23ffffff'/%3E%3Cdefs%3E%3Cmarker id='va' markerWidth='8' markerHeight='8' refX='6' refY='4' orient='auto'%3E%3Cpath d='M0,0 L8,4 L0,8 z' fill='%23c60'/%3E%3C/marker%3E%3C/defs%3E%3Cpath d='M20,55 L180,55 L280,75 L280,95 L180,115 L20,115 z' fill='%23e8f4ff' stroke='%2306c' stroke-width='2'/%3E%3Ctext x='70' y='50' font-size='12' fill='%2306c'%3ES1 (%D9%88%D8%A7%D8%B3%D8%B9)%3C/text%3E%3Ctext x='215' y='68' font-size='12' fill='%2306c'%3ES2%3C/text%3E%3Cline x1='40' y1='85' x2='90' y2='85' stroke='%23c60' stroke-width='2.5' marker-end='url(%23va)'/%3E%3Cline x1='210' y1='85' x2='270' y2='85' stroke='%23c60' stroke-width='2.5' marker-end='url(%23va)'/%3E%3Ctext x='55' y='105' font-size='12' fill='%23c60'%3Ev1%3C/text%3E%3Ctext x='225' y='105' font-size='12' fill='%23c60'%3Ev2%3C/text%3E%3C/svg%3E",
+       "options": [
+        "أكبر منها في المقطع الأكبر",
+        "أصغر",
+        "مساوية لها",
+        "معدومة"
+       ],
+       "answer": "أكبر منها في المقطع الأكبر",
+       "answer_index": 0,
+       "explanation": "وفق معادلة الاستمرارية S v = ثابت، فالمقطع الأصغر يقابله سرعة أكبر.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "ماء يجري في أنبوب مقطعه 0.04 m² بسرعة 1.5 m/s، ثم يضيق الأنبوب إلى مقطع 0.01 m². احسب سرعة الجريان في المقطع الضيّق.",
+       "options": [],
+       "answer": "6 m/s",
+       "explanation": "المعطيات: S¹=0.04 m²، v¹=1.5 m/s، S²=0.01 m²\nمن الاستمرارية: S¹v¹=S²v² ⇒ v² = S¹v¹/S² = (0.04×1.5)/0.01 = 6 m/s.",
+       "model_answer": "المعطيات: S¹=0.04 m²، v¹=1.5 m/s، S²=0.01 m²\nمن الاستمرارية: S¹v¹=S²v² ⇒ v² = S¹v¹/S² = (0.04×1.5)/0.01 = 6 m/s.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "احسب الضغط المطلق عند عمق 5 m في ماء كثافته 1000 kg/m³ (P₀=1.01×10⁵ Pa, g=10 m/s²).",
+       "options": [],
+       "answer": "1.51×10⁵ Pa",
+       "explanation": "المعطيات: h=5 m، ρ=1000 kg/m³، P₀=1.01×10⁵ Pa\nP = P₀ + ρgh = 1.01×10⁵ + 1000×10×5 = 1.01×10⁵ + 0.5×10⁵ = 1.51×10⁵ Pa.",
+       "model_answer": "المعطيات: h=5 m، ρ=1000 kg/m³، P₀=1.01×10⁵ Pa\nP = P₀ + ρgh = 1.01×10⁵ + 1000×10×5 = 1.01×10⁵ + 0.5×10⁵ = 1.51×10⁵ Pa.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "سائل يخرج من ثقب على عمق 1.8 m في خزان (g=10 m/s²). احسب سرعة الخروج (توريشيللي).",
+       "options": [],
+       "answer": "6 m/s",
+       "explanation": "المعطيات: h=1.8 m، g=10 m/s²\nv = √(2gh) = √(2×10×1.8) = √36 = 6 m/s.",
+       "model_answer": "المعطيات: h=1.8 m، g=10 m/s²\nv = √(2gh) = √(2×10×1.8) = √36 = 6 m/s.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المقدار ووحدته:",
+       "options": [],
+       "answer": [
+        "Pa",
+        "m³/s",
+        "kg/m³",
+        "m/s"
+       ],
+       "pairs": [
+        {
+         "left": "الضغط P",
+         "right": "Pa"
+        },
+        {
+         "left": "الصبيب الحجمي Q",
+         "right": "m³/s"
+        },
+        {
+         "left": "الكثافة ρ",
+         "right": "kg/m³"
+        },
+        {
+         "left": "السرعة v",
+         "right": "m/s"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: معادلة الاستمرارية S¹v¹ = .......",
+       "options": [],
+       "answer": "S²v²",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: علاقة برنولي P + ½ρv² + ....... = ثابت",
+       "options": [],
+       "answer": "ρgh",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "استنتج قانون توريشيللي لسرعة خروج سائل من ثقب على العمق h انطلاقاً من علاقة برنولي.",
+       "options": [],
+       "answer": "v = √(2gh)",
+       "explanation": "بتطبيق برنولي بين سطح السائل (v≈0، P=P₀) والثقب (P=P₀، ارتفاع أقل بـ h) نحصل على ½ρv²=ρgh ومنه v=√(2gh).",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     },
@@ -2751,6 +3301,116 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "short_answer",
+       "text": "جسم يتحرّك بسرعة 0.6c. احسب عامل لورنتز γ.",
+       "options": [],
+       "answer": "1.25",
+       "explanation": "المعطيات: v=0.6c\nγ = 1/√(1−v²/c²) = 1/√(1−0.36) = 1/√0.64 = 1/0.8 = 1.25.",
+       "model_answer": "المعطيات: v=0.6c\nγ = 1/√(1−v²/c²) = 1/√(1−0.36) = 1/√0.64 = 1/0.8 = 1.25.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "إلكترون طاقة سكونه m₀c² = 8.19×10⁻¹⁴ J. احسب طاقة سكونه إذا اعتبرنا كتلته 9.1×10⁻³¹ kg (c=3×10⁸ m/s).",
+       "options": [],
+       "answer": "8.19×10⁻¹⁴ J",
+       "explanation": "المعطيات: m₀=9.1×10⁻³¹ kg، c=3×10⁸ m/s\nE₀ = m₀c² = 9.1×10⁻³¹ × (3×10⁸)² = 9.1×10⁻³¹ × 9×10¹⁶ = 8.19×10⁻¹⁴ J.",
+       "model_answer": "المعطيات: m₀=9.1×10⁻³¹ kg، c=3×10⁸ m/s\nE₀ = m₀c² = 9.1×10⁻³¹ × (3×10⁸)² = 9.1×10⁻³¹ × 9×10¹⁶ = 8.19×10⁻¹⁴ J.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "جسم كتلته السكونية 2 kg يتحرّك بسرعة 0.8c. احسب كتلته النسبية.",
+       "options": [],
+       "answer": "3.33 kg",
+       "explanation": "المعطيات: m₀=2 kg، v=0.8c\nγ = 1/√(1−0.64) = 1/√0.36 = 1/0.6 = 1.667؛ m = γ m₀ = 1.667×2 ≈ 3.33 kg.",
+       "model_answer": "المعطيات: m₀=2 kg، v=0.8c\nγ = 1/√(1−0.64) = 1/√0.36 = 1/0.6 = 1.667؛ m = γ m₀ = 1.667×2 ≈ 3.33 kg.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المقدار ووحدته:",
+       "options": [],
+       "answer": [
+        "kg",
+        "J",
+        "m/s",
+        "بلا واحدة"
+       ],
+       "pairs": [
+        {
+         "left": "الكتلة النسبية m",
+         "right": "kg"
+        },
+        {
+         "left": "الطاقة E",
+         "right": "J"
+        },
+        {
+         "left": "سرعة الضوء c",
+         "right": "m/s"
+        },
+        {
+         "left": "عامل لورنتز γ",
+         "right": "بلا واحدة"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: الكتلة النسبية m = .......",
+       "options": [],
+       "answer": "m₀/√(1−v²/c²)",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: الطاقة الحركية النسبية E_c = .......",
+       "options": [],
+       "answer": "(m − m₀)c²",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "بيّن كيف تعود علاقة الطاقة الحركية النسبية إلى الشكل الكلاسيكي عند السرعات الصغيرة.",
+       "options": [],
+       "answer": "عند v≪c: E_c ≈ ½ m₀ v²",
+       "explanation": "بفكّ γ بحدود الرتبة الأولى: γ≈1+½v²/c²، ومنه E_c=(γ−1)m₀c²≈½m₀v².",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     }
@@ -3285,6 +3945,123 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "يبيّن الشكل تغيّر شدة الحقل المغناطيسي B مع البعد r عن سلك مستقيم طويل. أيّ العبارات صحيحة؟",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 180' width='280' height='180' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='280' height='180' fill='%23ffffff'/%3E%3Cline x1='45' y1='145' x2='270' y2='145' stroke='%23333' stroke-width='1.5'/%3E%3Cline x1='45' y1='145' x2='45' y2='10' stroke='%23333' stroke-width='1.5'/%3E%3Ctext x='268' y='163' font-size='13' fill='%23333' text-anchor='end'%3Er%3C/text%3E%3Ctext x='12' y='18' font-size='13' fill='%23333'%3EB%3C/text%3E%3Cpolyline points='56.0,20.0 59.7,37.9 63.3,51.3 67.0,61.7 70.7,70.0 74.3,76.8 78.0,82.5 81.7,87.3 85.3,91.4 89.0,95.0 92.7,98.1 96.3,100.9 100.0,103.3 103.7,105.5 107.3,107.5 111.0,109.3 114.7,110.9 118.3,112.4 122.0,113.8 125.7,115.0 129.3,116.2 133.0,117.2 136.7,118.2 140.3,119.1 144.0,120.0 147.7,120.8 151.3,121.6 155.0,122.3 158.7,122.9 162.3,123.6 166.0,124.2 169.7,124.7 173.3,125.3 177.0,125.8 180.7,126.2 184.3,126.7 188.0,127.1 191.7,127.6 195.3,128.0 199.0,128.3 202.7,128.7 206.3,129.0 210.0,129.4 213.7,129.7 217.3,130.0 221.0,130.3 224.7,130.6 228.3,130.8 232.0,131.1 235.7,131.4 239.3,131.6 243.0,131.8 246.7,132.1 250.3,132.3 254.0,132.5 257.7,132.7 261.3,132.9 265.0,133.1' fill='none' stroke='%23c60' stroke-width='2.5'/%3E%3C/svg%3E",
+       "options": [
+        "B يتناسب عكساً مع البعد r",
+        "B يتناسب طرداً مع r",
+        "B ثابت مهما تغيّر r",
+        "B يتناسب مع r²"
+       ],
+       "answer": "B يتناسب عكساً مع البعد r",
+       "answer_index": 0,
+       "explanation": "B=μ₀I/(2πr) ⇒ B ∝ 1/r، وهذا ما يوضّحه المنحني الهابط.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "graph"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "احسب شدة الحقل المغناطيسي عند بعد 0.1 m عن سلك مستقيم طويل يمرّ فيه تيار 5 A (μ₀=4π×10⁻⁷).",
+       "options": [],
+       "answer": "10⁻⁵ T",
+       "explanation": "المعطيات: I=5 A، r=0.1 m\nB=μ₀I/(2πr)=(4π×10⁻⁷×5)/(2π×0.1). نحسب البسط: 4π×10⁻⁷×5=2π×10⁻⁶؛ إذن B=(2π×10⁻⁶)/(2π×0.1)=10⁻⁵ T.",
+       "model_answer": "المعطيات: I=5 A، r=0.1 m\nB=μ₀I/(2πr)=(4π×10⁻⁷×5)/(2π×0.1). نحسب البسط: 4π×10⁻⁷×5=2π×10⁻⁶؛ إذن B=(2π×10⁻⁶)/(2π×0.1)=10⁻⁵ T.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "وشيعة طويلة طولها 0.5 m وعدد لفّاتها 1000 لفة يمرّ فيها تيار 2 A. احسب شدة الحقل على محورها (μ₀=4π×10⁻⁷).",
+       "options": [],
+       "answer": "≈5×10⁻³ T",
+       "explanation": "المعطيات: N=1000، L=0.5 m، I=2 A\nB=μ₀NI/L=(4π×10⁻⁷×1000×2)/0.5=(4π×10⁻⁷×2000)/0.5=8π×10⁻⁴/0.5≈5.03×10⁻³ T.",
+       "model_answer": "المعطيات: N=1000، L=0.5 m، I=2 A\nB=μ₀NI/L=(4π×10⁻⁷×1000×2)/0.5=(4π×10⁻⁷×2000)/0.5=8π×10⁻⁴/0.5≈5.03×10⁻³ T.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "احسب التدفق المغناطيسي عبر سطح مساحته 0.02 m² عمودي على حقل شدّته 0.5 T.",
+       "options": [],
+       "answer": "0.01 Wb",
+       "explanation": "المعطيات: B=0.5 T، S=0.02 m²، θ=0\nΦ=B S cosθ=0.5×0.02×cos0=0.01 Wb.",
+       "model_answer": "المعطيات: B=0.5 T، S=0.02 m²، θ=0\nΦ=B S cosθ=0.5×0.02×cos0=0.01 Wb.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المقدار ووحدته:",
+       "options": [],
+       "answer": [
+        "T (تسلا)",
+        "Wb (ويبر)",
+        "A (أمبير)",
+        "T·m/A"
+       ],
+       "pairs": [
+        {
+         "left": "شدة الحقل المغناطيسي B",
+         "right": "T (تسلا)"
+        },
+        {
+         "left": "التدفق المغناطيسي Φ",
+         "right": "Wb (ويبر)"
+        },
+        {
+         "left": "شدة التيار I",
+         "right": "A (أمبير)"
+        },
+        {
+         "left": "النفاذية المغناطيسية μ₀",
+         "right": "T·m/A"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: شدة الحقل المغناطيسي لملف دائري B = .......",
+       "options": [],
+       "answer": "μ₀NI/(2R)",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "اكتب عبارة التدفق المغناطيسي عبر سطح مستو مائل بزاوية θ على الحقل، وفسّر حالتَي القيمة العظمى والانعدام.",
+       "options": [],
+       "answer": "Φ = B S cosθ ؛ عظمى عند θ=0 (الحقل عمودي على السطح)، ومعدومة عند θ=90° (الحقل موازٍ للسطح).",
+       "explanation": "Φ=B·S=BScosθ حيث θ الزاوية بين شعاع الحقل والناظم على السطح.",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     },
@@ -3811,6 +4588,116 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "short_answer",
+       "text": "ناقل طوله 0.2 m يمرّ فيه تيار 3 A في حقل مغناطيسي شدّته 0.4 T عمودي عليه. احسب القوّة الكهرطيسية.",
+       "options": [],
+       "answer": "0.24 N",
+       "explanation": "المعطيات: L=0.2 m، I=3 A، B=0.4 T، θ=90°\nF=BILsinθ=0.4×3×0.2×sin90°=0.24 N.",
+       "model_answer": "المعطيات: L=0.2 m، I=3 A، B=0.4 T، θ=90°\nF=BILsinθ=0.4×3×0.2×sin90°=0.24 N.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "إلكترون (q=1.6×10⁻¹⁹ C, m=9.1×10⁻³¹ kg) يدخل عمودياً على حقل B=0.01 T بسرعة 10⁶ m/s. احسب نصف قطر مساره.",
+       "options": [],
+       "answer": "≈5.7×10⁻⁴ m",
+       "explanation": "المعطيات: q=1.6×10⁻¹⁹ C، m=9.1×10⁻³¹ kg، v=10⁶ m/s، B=0.01 T\nR=mv/(qB)=(9.1×10⁻³¹×10⁶)/(1.6×10⁻¹⁹×0.01)=9.1×10⁻²⁵/1.6×10⁻²¹≈5.7×10⁻⁴ m.",
+       "model_answer": "المعطيات: q=1.6×10⁻¹⁹ C، m=9.1×10⁻³¹ kg، v=10⁶ m/s، B=0.01 T\nR=mv/(qB)=(9.1×10⁻³¹×10⁶)/(1.6×10⁻¹⁹×0.01)=9.1×10⁻²⁵/1.6×10⁻²¹≈5.7×10⁻⁴ m.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "شحنة 2×10⁻⁶ C تتحرّك بسرعة 500 m/s بزاوية 30° مع حقل 0.2 T. احسب القوّة المغناطيسية.",
+       "options": [],
+       "answer": "10⁻⁴ N",
+       "explanation": "المعطيات: q=2×10⁻⁶ C، v=500 m/s، B=0.2 T، θ=30°\nF=qvBsinθ=2×10⁻⁶×500×0.2×sin30°=2×10⁻⁴×0.5=10⁻⁴ N.",
+       "model_answer": "المعطيات: q=2×10⁻⁶ C، v=500 m/s، B=0.2 T، θ=30°\nF=qvBsinθ=2×10⁻⁶×500×0.2×sin30°=2×10⁻⁴×0.5=10⁻⁴ N.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المقدار ووحدته:",
+       "options": [],
+       "answer": [
+        "N (نيوتن)",
+        "C (كولون)",
+        "m/s",
+        "T (تسلا)"
+       ],
+       "pairs": [
+        {
+         "left": "القوّة المغناطيسية F",
+         "right": "N (نيوتن)"
+        },
+        {
+         "left": "الشحنة q",
+         "right": "C (كولون)"
+        },
+        {
+         "left": "السرعة v",
+         "right": "m/s"
+        },
+        {
+         "left": "شدة الحقل B",
+         "right": "T (تسلا)"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: القوّة على شحنة متحرّكة F = .......",
+       "options": [],
+       "answer": "q v B sinθ",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: عزم المزدوجة الكهرطيسية في ملف Γ = .......",
+       "options": [],
+       "answer": "N B I S sinθ",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "استنتج عبارة نصف قطر المسار الدائري لشحنة تدخل عمودياً على حقل مغناطيسي منتظم.",
+       "options": [],
+       "answer": "R = m v / (q B)",
+       "explanation": "القوّة المغناطيسية هي القوّة المركزية: qvB = mv²/R ⇒ R=mv/(qB).",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     },
@@ -4337,6 +5224,116 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "short_answer",
+       "text": "ساق طولها 0.5 m تتحرّك بسرعة 4 m/s عمودياً على حقل 0.2 T. احسب القوّة المحرّكة المتحرّضة.",
+       "options": [],
+       "answer": "0.4 V",
+       "explanation": "المعطيات: L=0.5 m، v=4 m/s، B=0.2 T\ne=B L v=0.2×0.5×4=0.4 V.",
+       "model_answer": "المعطيات: L=0.5 m، v=4 m/s، B=0.2 T\ne=B L v=0.2×0.5×4=0.4 V.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "دارة يتغيّر تدفقها من 0.2 Wb إلى 0.6 Wb خلال 0.2 s. احسب القوّة المحرّكة المتوسّطة المتحرّضة.",
+       "options": [],
+       "answer": "2 V",
+       "explanation": "المعطيات: ΔΦ=0.4 Wb، Δt=0.2 s\ne=ΔΦ/Δt=(0.6−0.2)/0.2=0.4/0.2=2 V.",
+       "model_answer": "المعطيات: ΔΦ=0.4 Wb، Δt=0.2 s\ne=ΔΦ/Δt=(0.6−0.2)/0.2=0.4/0.2=2 V.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "وشيعة ذاتيتها 0.5 H يمرّ فيها تيار 4 A. احسب الطاقة المخزّنة فيها.",
+       "options": [],
+       "answer": "4 J",
+       "explanation": "المعطيات: L=0.5 H، I=4 A\nE=½LI²=½×0.5×16=4 J.",
+       "model_answer": "المعطيات: L=0.5 H، I=4 A\nE=½LI²=½×0.5×16=4 J.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المقدار ووحدته:",
+       "options": [],
+       "answer": [
+        "H (هنري)",
+        "V (فولت)",
+        "Wb (ويبر)",
+        "Ω (أوم)"
+       ],
+       "pairs": [
+        {
+         "left": "الذاتية L",
+         "right": "H (هنري)"
+        },
+        {
+         "left": "القوّة المحرّكة e",
+         "right": "V (فولت)"
+        },
+        {
+         "left": "التدفق Φ",
+         "right": "Wb (ويبر)"
+        },
+        {
+         "left": "المقاومة R",
+         "right": "Ω (أوم)"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: قانون فاراداي e = .......",
+       "options": [],
+       "answer": "−dΦ/dt",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: القوّة المتحرّضة في ساق تتحرّك في حقل e = .......",
+       "options": [],
+       "answer": "B L v",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "استنتج عبارة القوّة المحرّكة المتحرّضة في ساق تنزلق في حقل منتظم انطلاقاً من قانون فاراداي.",
+       "options": [],
+       "answer": "e = B L v",
+       "explanation": "ΔΦ=BΔS=B L vΔt ⇒ e=ΔΦ/Δt=B L v.",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     },
@@ -4864,6 +5861,116 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "short_answer",
+       "text": "دارة LC ذاتيتها 0.2 H ومكثّفتها 5 µF. احسب دور الاهتزازات الحرة.",
+       "options": [],
+       "answer": "≈6.28×10⁻³ s",
+       "explanation": "المعطيات: L=0.2 H، C=5×10⁻⁶ F\nT=2π√(LC)=2π√(0.2×5×10⁻⁶)=2π√(10⁻⁶)=2π×10⁻³≈6.28×10⁻³ s.",
+       "model_answer": "المعطيات: L=0.2 H، C=5×10⁻⁶ F\nT=2π√(LC)=2π√(0.2×5×10⁻⁶)=2π√(10⁻⁶)=2π×10⁻³≈6.28×10⁻³ s.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "دارة LC نبضها 1000 rad/s ومكثّفتها 1 µF. احسب ذاتية الوشيعة.",
+       "options": [],
+       "answer": "1 H",
+       "explanation": "المعطيات: ω=1000 rad/s، C=10⁻⁶ F\nω=1/√(LC) ⇒ LC=1/ω²=10⁻⁶ ⇒ L=10⁻⁶/C=10⁻⁶/10⁻⁶=1 H.",
+       "model_answer": "المعطيات: ω=1000 rad/s، C=10⁻⁶ F\nω=1/√(LC) ⇒ LC=1/ω²=10⁻⁶ ⇒ L=10⁻⁶/C=10⁻⁶/10⁻⁶=1 H.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "دارة RL: R=30 Ω، L=0.1 H، ω=400 rad/s. احسب الممانعة الكليّة.",
+       "options": [],
+       "answer": "50 Ω",
+       "explanation": "المعطيات: R=30 Ω، L=0.1 H، ω=400 rad/s\nZ=√(R²+(Lω)²)=√(900+(40)²)=√(900+1600)=√2500=50 Ω.",
+       "model_answer": "المعطيات: R=30 Ω، L=0.1 H، ω=400 rad/s\nZ=√(R²+(Lω)²)=√(900+(40)²)=√(900+1600)=√2500=50 Ω.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المقدار ووحدته:",
+       "options": [],
+       "answer": [
+        "H",
+        "F (فاراد)",
+        "Ω",
+        "rad/s"
+       ],
+       "pairs": [
+        {
+         "left": "الذاتية L",
+         "right": "H"
+        },
+        {
+         "left": "السعة C",
+         "right": "F (فاراد)"
+        },
+        {
+         "left": "الممانعة Z",
+         "right": "Ω"
+        },
+        {
+         "left": "النبض ω",
+         "right": "rad/s"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: ردّ فعل المكثّفة X_C = .......",
+       "options": [],
+       "answer": "1/(Cω)",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: ممانعة دارة RLC تسلسلية Z = .......",
+       "options": [],
+       "answer": "√(R²+(Lω−1/(Cω))²)",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "استنتج شرط حدوث التوافق في دارة RLC على التسلسل ونتيجته على الممانعة.",
+       "options": [],
+       "answer": "Lω = 1/(Cω) ⇒ Z = R (أصغر ما يمكن)",
+       "explanation": "عند تساوي ردّ فعل الوشيعة وردّ فعل المكثّفة يتلاشى الحدّ المتغيّر في Z فيصبح Z=R.",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     },
@@ -5407,6 +6514,116 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "short_answer",
+       "text": "توتر متناوب جيبي قيمته العظمى 311 V. احسب قيمته المنتجة.",
+       "options": [],
+       "answer": "≈220 V",
+       "explanation": "المعطيات: U_max=311 V\nU_eff=U_max/√2=311/1.414≈220 V.",
+       "model_answer": "المعطيات: U_max=311 V\nU_eff=U_max/√2=311/1.414≈220 V.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "دارة مقاومة صرفة R=110 Ω موصولة بمصدر قيمته المنتجة 220 V. احسب الاستطاعة المتوسّطة.",
+       "options": [],
+       "answer": "440 W",
+       "explanation": "المعطيات: R=110 Ω، U_eff=220 V\nP=U_eff²/R=220²/110=48400/110=440 W.",
+       "model_answer": "المعطيات: R=110 Ω، U_eff=220 V\nP=U_eff²/R=220²/110=48400/110=440 W.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "دارة RLC: R=40 Ω، Lω=50 Ω، 1/(Cω)=20 Ω. احسب الممانعة الكليّة وعامل الاستطاعة.",
+       "options": [],
+       "answer": "Z=50 Ω ، cosφ=0.8",
+       "explanation": "المعطيات: R=40 Ω، Lω=50 Ω، X_C=20 Ω\nLω−1/(Cω)=30 Ω ⇒ Z=√(40²+30²)=50 Ω؛ cosφ=R/Z=40/50=0.8.",
+       "model_answer": "المعطيات: R=40 Ω، Lω=50 Ω، X_C=20 Ω\nLω−1/(Cω)=30 Ω ⇒ Z=√(40²+30²)=50 Ω؛ cosφ=R/Z=40/50=0.8.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المقدار ووحدته:",
+       "options": [],
+       "answer": [
+        "V",
+        "W",
+        "بلا واحدة",
+        "Hz"
+       ],
+       "pairs": [
+        {
+         "left": "التوتر المنتج U_eff",
+         "right": "V"
+        },
+        {
+         "left": "الاستطاعة المتوسّطة P",
+         "right": "W"
+        },
+        {
+         "left": "عامل الاستطاعة cosφ",
+         "right": "بلا واحدة"
+        },
+        {
+         "left": "التواتر f",
+         "right": "Hz"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: القيمة المنتجة I_eff = .......",
+       "options": [],
+       "answer": "I_max/√2",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: عامل الاستطاعة cosφ = .......",
+       "options": [],
+       "answer": "R/Z",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "بيّن لماذا تكون الاستطاعة المتوسّطة في دارة RLC تساوي U_eff·I_eff·cosφ.",
+       "options": [],
+       "answer": "لأنّ الاستطاعة اللحظية p=ui، وبأخذ متوسطها على دور كامل يظهر العامل cosφ الذي يعبّر عن التوافق بالطور بين u و i.",
+       "explanation": "p=U_max sin(ωt)·I_max sin(ωt−φ)؛ وبحساب متوسطها ينتج U_eff I_eff cosφ.",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     },
@@ -5901,6 +7118,122 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "short_answer",
+       "text": "محوّل مثالي عدد لفّات أوّليته 500 وثانويته 100، توتر الأوّلية 220 V. احسب توتر الثانوية.",
+       "options": [],
+       "answer": "44 V",
+       "explanation": "المعطيات: N¹=500، N²=100، U¹=220 V\nU²=U¹×N²/N¹=220×(100/500)=44 V.",
+       "model_answer": "المعطيات: N¹=500، N²=100، U¹=220 V\nU²=U¹×N²/N¹=220×(100/500)=44 V.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "محوّل مثالي: U¹=220 V، I¹=0.5 A، U²=1100 V. احسب شدّة التيار في الثانوية.",
+       "options": [],
+       "answer": "0.1 A",
+       "explanation": "المعطيات: U¹=220 V، I¹=0.5 A، U²=1100 V\nU¹I¹=U²I² ⇒ I²=U¹I¹/U²=(220×0.5)/1100=110/1100=0.1 A.",
+       "model_answer": "المعطيات: U¹=220 V، I¹=0.5 A، U²=1100 V\nU¹I¹=U²I² ⇒ I²=U¹I¹/U²=(220×0.5)/1100=110/1100=0.1 A.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "image_mcq",
+       "text": "في المحوّل الممثّل بشكل رمزي (وشيعتان على نواة مشتركة)، إذا كان N²>N¹ فإنّ المحوّل:",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 170' width='280' height='170' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='280' height='170' fill='%23ffffff'/%3E%3Crect x='40' y='30' width='200' height='100' fill='none' stroke='%23333' stroke-width='2'/%3E%3Cline x1='55' y1='60' x2='55' y2='75' stroke='%23333' stroke-width='3'/%3E%3Cline x1='65' y1='65' x2='65' y2='70' stroke='%23333' stroke-width='5'/%3E%3Cline x1='40' y1='67' x2='55' y2='67' stroke='%23333' stroke-width='2'/%3E%3Cline x1='65' y1='67' x2='40' y2='67' stroke='%23333' stroke-width='2'/%3E%3Ctext x='18' y='72' font-size='13' fill='%23333'%3EE%3C/text%3E%3Crect x='90' y='22' width='40' height='16' fill='%23fff' stroke='%23333' stroke-width='2'/%3E%3Ctext x='104' y='16' font-size='13' fill='%23333'%3ER1%3C/text%3E%3Crect x='150' y='122' width='40' height='16' fill='%23fff' stroke='%23333' stroke-width='2'/%3E%3Ctext x='164' y='154' font-size='13' fill='%23333'%3ER2%3C/text%3E%3C/svg%3E",
+       "options": [
+        "رافع للتوتر وخافض للشدّة",
+        "خافض للتوتر ورافع للشدّة",
+        "عازل (لا يغيّر التوتر)",
+        "لا يعمل على المتناوب"
+       ],
+       "answer": "رافع للتوتر وخافض للشدّة",
+       "answer_index": 0,
+       "explanation": "عند N²>N¹ يكون U²>U¹ (رافع)، ومن حفظ الاستطاعة تنقص الشدّة I²<I¹.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المقدار ووحدته:",
+       "options": [],
+       "answer": [
+        "V",
+        "A",
+        "W",
+        "بلا واحدة"
+       ],
+       "pairs": [
+        {
+         "left": "التوتر U",
+         "right": "V"
+        },
+        {
+         "left": "التيار I",
+         "right": "A"
+        },
+        {
+         "left": "الاستطاعة P",
+         "right": "W"
+        },
+        {
+         "left": "نسبة التحويل",
+         "right": "بلا واحدة"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: نسبة التحويل N²/N¹ = .......",
+       "options": [],
+       "answer": "U²/U¹",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: في المحوّل المثالي U¹I¹ = .......",
+       "options": [],
+       "answer": "U²I²",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "استنتج لماذا يعمل المحوّل على التيار المتناوب فقط.",
+       "options": [],
+       "answer": "لأنّ المحوّل يعتمد على تغيّر التدفق المغناطيسي (فاراداي)؛ والتيار المستمر يولّد تدفقاً ثابتاً فلا تتولّد قوّة محرّكة في الثانوية.",
+       "explanation": "e=−dΦ/dt؛ مع التيار المستمر dΦ/dt=0 ⇒ e=0.",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     }
@@ -6433,6 +7766,154 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "image_mcq",
+       "text": "في الشكل المجاور (وتر مثبّت من طرفيه وفيه ثلاثة بطون)، عدد العقد الكلي يساوي:",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 170' width='300' height='170' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='300' height='170' fill='%23ffffff'/%3E%3Cline x1='20' y1='85' x2='280' y2='85' stroke='%23bbb' stroke-width='1' stroke-dasharray='4 4'/%3E%3Cline x1='20' y1='25' x2='20' y2='145' stroke='%23333' stroke-width='2'/%3E%3Cline x1='280' y1='25' x2='280' y2='145' stroke='%23333' stroke-width='2'/%3E%3Cpolyline points='20.0,85.0 22.2,80.7 24.3,76.4 26.5,72.2 28.7,68.0 30.8,64.0 33.0,60.0 35.2,56.3 37.3,52.7 39.5,49.3 41.7,46.1 43.8,43.2 46.0,40.5 48.2,38.1 50.3,36.0 52.5,34.2 54.7,32.7 56.8,31.5 59.0,30.7 61.2,30.2 63.3,30.0 65.5,30.2 67.7,30.7 69.8,31.5 72.0,32.7 74.2,34.2 76.3,36.0 78.5,38.1 80.7,40.5 82.8,43.2 85.0,46.1 87.2,49.3 89.3,52.7 91.5,56.3 93.7,60.0 95.8,64.0 98.0,68.0 100.2,72.2 102.3,76.4 104.5,80.7 106.7,85.0 108.8,89.3 111.0,93.6 113.2,97.8 115.3,102.0 117.5,106.0 119.7,110.0 121.8,113.7 124.0,117.3 126.2,120.7 128.3,123.9 130.5,126.8 132.7,129.5 134.8,131.9 137.0,134.0 139.2,135.8 141.3,137.3 143.5,138.5 145.7,139.3 147.8,139.8 150.0,140.0 152.2,139.8 154.3,139.3 156.5,138.5 158.7,137.3 160.8,135.8 163.0,134.0 165.2,131.9 167.3,129.5 169.5,126.8 171.7,123.9 173.8,120.7 176.0,117.3 178.2,113.7 180.3,110.0 182.5,106.0 184.7,102.0 186.8,97.8 189.0,93.6 191.2,89.3 193.3,85.0 195.5,80.7 197.7,76.4 199.8,72.2 202.0,68.0 204.2,64.0 206.3,60.0 208.5,56.3 210.7,52.7 212.8,49.3 215.0,46.1 217.2,43.2 219.3,40.5 221.5,38.1 223.7,36.0 225.8,34.2 228.0,32.7 230.2,31.5 232.3,30.7 234.5,30.2 236.7,30.0 238.8,30.2 241.0,30.7 243.2,31.5 245.3,32.7 247.5,34.2 249.7,36.0 251.8,38.1 254.0,40.5 256.2,43.2 258.3,46.1 260.5,49.3 262.7,52.7 264.8,56.3 267.0,60.0 269.2,64.0 271.3,68.0 273.5,72.2 275.7,76.4 277.8,80.7 280.0,85.0' fill='none' stroke='%2306c' stroke-width='2.5'/%3E%3C/svg%3E",
+       "options": [
+        "4",
+        "3",
+        "2",
+        "5"
+       ],
+       "answer": "4",
+       "answer_index": 0,
+       "explanation": "عدد البطون n=3 ⇒ عدد العقد = n+1 = 4 عقد (بما فيها الطرفان).",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يبيّن الشكل نمطاً مستقراً في وتر مثبّت من طرفيه. إذا كان طول الوتر L=1.2 m وفيه 3 بطون، فما الطول الموجي؟",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 170' width='300' height='170' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='300' height='170' fill='%23ffffff'/%3E%3Cline x1='20' y1='85' x2='280' y2='85' stroke='%23bbb' stroke-width='1' stroke-dasharray='4 4'/%3E%3Cline x1='20' y1='25' x2='20' y2='145' stroke='%23333' stroke-width='2'/%3E%3Cline x1='280' y1='25' x2='280' y2='145' stroke='%23333' stroke-width='2'/%3E%3Cpolyline points='20.0,85.0 22.2,80.7 24.3,76.4 26.5,72.2 28.7,68.0 30.8,64.0 33.0,60.0 35.2,56.3 37.3,52.7 39.5,49.3 41.7,46.1 43.8,43.2 46.0,40.5 48.2,38.1 50.3,36.0 52.5,34.2 54.7,32.7 56.8,31.5 59.0,30.7 61.2,30.2 63.3,30.0 65.5,30.2 67.7,30.7 69.8,31.5 72.0,32.7 74.2,34.2 76.3,36.0 78.5,38.1 80.7,40.5 82.8,43.2 85.0,46.1 87.2,49.3 89.3,52.7 91.5,56.3 93.7,60.0 95.8,64.0 98.0,68.0 100.2,72.2 102.3,76.4 104.5,80.7 106.7,85.0 108.8,89.3 111.0,93.6 113.2,97.8 115.3,102.0 117.5,106.0 119.7,110.0 121.8,113.7 124.0,117.3 126.2,120.7 128.3,123.9 130.5,126.8 132.7,129.5 134.8,131.9 137.0,134.0 139.2,135.8 141.3,137.3 143.5,138.5 145.7,139.3 147.8,139.8 150.0,140.0 152.2,139.8 154.3,139.3 156.5,138.5 158.7,137.3 160.8,135.8 163.0,134.0 165.2,131.9 167.3,129.5 169.5,126.8 171.7,123.9 173.8,120.7 176.0,117.3 178.2,113.7 180.3,110.0 182.5,106.0 184.7,102.0 186.8,97.8 189.0,93.6 191.2,89.3 193.3,85.0 195.5,80.7 197.7,76.4 199.8,72.2 202.0,68.0 204.2,64.0 206.3,60.0 208.5,56.3 210.7,52.7 212.8,49.3 215.0,46.1 217.2,43.2 219.3,40.5 221.5,38.1 223.7,36.0 225.8,34.2 228.0,32.7 230.2,31.5 232.3,30.7 234.5,30.2 236.7,30.0 238.8,30.2 241.0,30.7 243.2,31.5 245.3,32.7 247.5,34.2 249.7,36.0 251.8,38.1 254.0,40.5 256.2,43.2 258.3,46.1 260.5,49.3 262.7,52.7 264.8,56.3 267.0,60.0 269.2,64.0 271.3,68.0 273.5,72.2 275.7,76.4 277.8,80.7 280.0,85.0' fill='none' stroke='%2306c' stroke-width='2.5'/%3E%3C/svg%3E",
+       "options": [
+        "0.8 m",
+        "0.4 m",
+        "1.2 m",
+        "2.4 m"
+       ],
+       "answer": "0.8 m",
+       "answer_index": 0,
+       "explanation": "L=n·λ/2 ⇒ λ=2L/n=2×1.2/3=0.8 m.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "graph"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "وتر طوله 2 m مثبّت من طرفيه، تواتر رنينه الأساسي 50 Hz. احسب سرعة انتشار الموجة فيه.",
+       "options": [],
+       "answer": "200 m/s",
+       "explanation": "المعطيات: L=2 m، f¹=50 Hz\nf¹=v/(2L) ⇒ v=2L f¹=2×2×50=200 m/s.",
+       "model_answer": "المعطيات: L=2 m، f¹=50 Hz\nf¹=v/(2L) ⇒ v=2L f¹=2×2×50=200 m/s.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "وتر قوّة شدّه 36 N وكتلته الخطية 0.01 kg/m. احسب سرعة الموجة فيه.",
+       "options": [],
+       "answer": "60 m/s",
+       "explanation": "المعطيات: T=36 N، μ=0.01 kg/m\nv=√(T/μ)=√(36/0.01)=√3600=60 m/s.",
+       "model_answer": "المعطيات: T=36 N، μ=0.01 kg/m\nv=√(T/μ)=√(36/0.01)=√3600=60 m/s.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "وتر مثبّت من طرفيه طوله 0.5 m وسرعة الموجة فيه 100 m/s. احسب تواتر الرنين الأساسي.",
+       "options": [],
+       "answer": "100 Hz",
+       "explanation": "المعطيات: L=0.5 m، v=100 m/s\nf¹=v/(2L)=100/(2×0.5)=100 Hz.",
+       "model_answer": "المعطيات: L=0.5 m، v=100 m/s\nf¹=v/(2L)=100/(2×0.5)=100 Hz.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المقدار ووحدته:",
+       "options": [],
+       "answer": [
+        "N",
+        "kg/m",
+        "Hz",
+        "m"
+       ],
+       "pairs": [
+        {
+         "left": "قوّة شدّ الوتر T",
+         "right": "N"
+        },
+        {
+         "left": "الكتلة الخطية μ",
+         "right": "kg/m"
+        },
+        {
+         "left": "التواتر f",
+         "right": "Hz"
+        },
+        {
+         "left": "الطول الموجي λ",
+         "right": "m"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: سرعة الموجة في وتر مشدود v = .......",
+       "options": [],
+       "answer": "√(T/μ)",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: شرط تشكّل موجة مستقرة في وتر مثبّت L = .......",
+       "options": [],
+       "answer": "n λ/2",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "استنتج عبارة تواتر الوتر المهتزّ في وضع يتكوّن فيه n بطن.",
+       "options": [],
+       "answer": "f = (n/2L)√(T/μ)",
+       "explanation": "L=nλ/2 ⇒ λ=2L/n؛ و v=fλ=√(T/μ) ⇒ f=v/λ=(n/2L)√(T/μ).",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     },
@@ -6959,6 +8440,129 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "short_answer",
+       "text": "أنبوب مغلق من طرف واحد طوله 0.85 m (v=340 m/s). احسب تواتر رنينه الأساسي.",
+       "options": [],
+       "answer": "100 Hz",
+       "explanation": "المعطيات: L=0.85 m، v=340 m/s\nf¹=v/(4L)=340/(4×0.85)=340/3.4=100 Hz.",
+       "model_answer": "المعطيات: L=0.85 m، v=340 m/s\nf¹=v/(4L)=340/(4×0.85)=340/3.4=100 Hz.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "أنبوب مفتوح من طرفين طوله 0.5 m (v=340 m/s). احسب تواتر رنينه الأساسي.",
+       "options": [],
+       "answer": "340 Hz",
+       "explanation": "المعطيات: L=0.5 m، v=340 m/s\nf¹=v/(2L)=340/(2×0.5)=340 Hz.",
+       "model_answer": "المعطيات: L=0.5 m، v=340 m/s\nf¹=v/(2L)=340/(2×0.5)=340 Hz.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "صوت تواتره 425 Hz ينتشر في الهواء بسرعة 340 m/s. احسب طوله الموجي.",
+       "options": [],
+       "answer": "0.8 m",
+       "explanation": "المعطيات: f=425 Hz، v=340 m/s\nλ=v/f=340/425=0.8 m.",
+       "model_answer": "المعطيات: f=425 Hz، v=340 m/s\nλ=v/f=340/425=0.8 m.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "في أنبوب مغلق من طرف، الرنين الأول عند طول عمود هوائي 0.2 m. احسب الطول الموجي للصوت.",
+       "options": [],
+       "answer": "0.8 m",
+       "explanation": "المعطيات: L=0.2 m\nفي الأنبوب المغلق: L=λ/4 ⇒ λ=4L=4×0.2=0.8 m.",
+       "model_answer": "المعطيات: L=0.2 m\nفي الأنبوب المغلق: L=λ/4 ⇒ λ=4L=4×0.2=0.8 m.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المقدار ووحدته:",
+       "options": [],
+       "answer": [
+        "m/s",
+        "Hz",
+        "m",
+        "m"
+       ],
+       "pairs": [
+        {
+         "left": "سرعة الصوت v",
+         "right": "m/s"
+        },
+        {
+         "left": "التواتر f",
+         "right": "Hz"
+        },
+        {
+         "left": "الطول الموجي λ",
+         "right": "m"
+        },
+        {
+         "left": "طول الأنبوب L",
+         "right": "m"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: تواتر رنين الأنبوب المغلق من طرف f = .......",
+       "options": [],
+       "answer": "v/(4L)",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: تواتر رنين الأنبوب المفتوح من طرفين f = .......",
+       "options": [],
+       "answer": "v/(2L)",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "بيّن لماذا تظهر التوافقيات الفردية فقط في الأنبوب المغلق من طرف واحد.",
+       "options": [],
+       "answer": "لأنّ الطول يجب أن يساوي أعداداً فردية من ربع الطول الموجي: L=(2k+1)λ/4 ⇒ f=(2k+1)v/(4L) (فردية فقط).",
+       "explanation": "عقدة عند الطرف المغلق وبطن عند المفتوح ⇒ L=(2k+1)λ/4.",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     }
@@ -7491,6 +9095,116 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "short_answer",
+       "text": "احسب طاقة فوتون تواتره 6×10¹⁴ Hz (h=6.6×10⁻³⁴ J·s).",
+       "options": [],
+       "answer": "3.96×10⁻¹⁹ J",
+       "explanation": "المعطيات: f=6×10¹⁴ Hz، h=6.6×10⁻³⁴ J·s\nE=hf=6.6×10⁻³⁴×6×10¹⁴=3.96×10⁻¹⁹ J.",
+       "model_answer": "المعطيات: f=6×10¹⁴ Hz، h=6.6×10⁻³⁴ J·s\nE=hf=6.6×10⁻³⁴×6×10¹⁴=3.96×10⁻¹⁹ J.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "احسب تواتر فوتون طاقته 3.3×10⁻¹⁹ J (h=6.6×10⁻³⁴ J·s).",
+       "options": [],
+       "answer": "5×10¹⁴ Hz",
+       "explanation": "المعطيات: E=3.3×10⁻¹⁹ J، h=6.6×10⁻³⁴ J·s\nf=E/h=3.3×10⁻¹⁹/6.6×10⁻³⁴=5×10¹⁴ Hz.",
+       "model_answer": "المعطيات: E=3.3×10⁻¹⁹ J، h=6.6×10⁻³⁴ J·s\nf=E/h=3.3×10⁻¹⁹/6.6×10⁻³⁴=5×10¹⁴ Hz.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "احسب طول موجة فوتون تواتره 5×10¹⁴ Hz (c=3×10⁸ m/s).",
+       "options": [],
+       "answer": "6×10⁻⁷ m",
+       "explanation": "المعطيات: f=5×10¹⁴ Hz، c=3×10⁸ m/s\nλ=c/f=3×10⁸/5×10¹⁴=6×10⁻⁷ m.",
+       "model_answer": "المعطيات: f=5×10¹⁴ Hz، c=3×10⁸ m/s\nλ=c/f=3×10⁸/5×10¹⁴=6×10⁻⁷ m.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المقدار ووحدته:",
+       "options": [],
+       "answer": [
+        "J",
+        "J·s",
+        "Hz",
+        "m"
+       ],
+       "pairs": [
+        {
+         "left": "طاقة الفوتون E",
+         "right": "J"
+        },
+        {
+         "left": "ثابت بلانك h",
+         "right": "J·s"
+        },
+        {
+         "left": "التواتر f",
+         "right": "Hz"
+        },
+        {
+         "left": "الطول الموجي λ",
+         "right": "m"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: طاقة الفوتون E = .......",
+       "options": [],
+       "answer": "h f",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: العلاقة بين السرعة والطول الموجي والتواتر .......",
+       "options": [],
+       "answer": "c = λ f",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "بيّن كيف يُفسّر الطيف الخطي بفرضيات بور.",
+       "options": [],
+       "answer": "E_photon = E_high − E_low = hf",
+       "explanation": "كل خط طيفي يوافق انتقالاً بين سويّتين؛ فطاقة الفوتون المصدَر (أو الممتَصّ) تساوي فرق الطاقة، وبما أنّ الفروق محدّدة يكون الطيف خطياً.",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     },
@@ -8017,6 +9731,116 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "short_answer",
+       "text": "إلكترون مسرّع بفرق كمون 100 V. احسب طاقته الحركية بالجول (e=1.6×10⁻¹⁹ C).",
+       "options": [],
+       "answer": "1.6×10⁻¹⁷ J",
+       "explanation": "المعطيات: U=100 V، e=1.6×10⁻¹⁹ C\nEc=eU=1.6×10⁻¹⁹×100=1.6×10⁻¹⁷ J (=100 eV).",
+       "model_answer": "المعطيات: U=100 V، e=1.6×10⁻¹⁹ C\nEc=eU=1.6×10⁻¹⁹×100=1.6×10⁻¹⁷ J (=100 eV).",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "احسب سرعة إلكترون مسرّع بفرق كمون 200 V (e=1.6×10⁻¹⁹ C، m=9.1×10⁻³¹ kg).",
+       "options": [],
+       "answer": "≈8.4×10⁶ m/s",
+       "explanation": "المعطيات: U=200 V\n½mv²=eU ⇒ v=√(2eU/m)=√(2×1.6×10⁻¹⁹×200/9.1×10⁻³¹)=√(6.4×10⁻¹⁷/9.1×10⁻³¹)≈√(7.03×10¹³)≈8.4×10⁶ m/s.",
+       "model_answer": "المعطيات: U=200 V\n½mv²=eU ⇒ v=√(2eU/m)=√(2×1.6×10⁻¹⁹×200/9.1×10⁻³¹)=√(6.4×10⁻¹⁷/9.1×10⁻³¹)≈√(7.03×10¹³)≈8.4×10⁶ m/s.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "إلكترون طاقته الحركية 3.2×10⁻¹⁷ J. احسب فرق الكمون اللازم لتسريعه (e=1.6×10⁻¹⁹ C).",
+       "options": [],
+       "answer": "200 V",
+       "explanation": "المعطيات: Ec=3.2×10⁻¹⁷ J\nU=Ec/e=3.2×10⁻¹⁷/1.6×10⁻¹⁹=200 V.",
+       "model_answer": "المعطيات: Ec=3.2×10⁻¹⁷ J\nU=Ec/e=3.2×10⁻¹⁷/1.6×10⁻¹⁹=200 V.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المقدار ووحدته:",
+       "options": [],
+       "answer": [
+        "V",
+        "eV أو J",
+        "C",
+        "m/s"
+       ],
+       "pairs": [
+        {
+         "left": "فرق الكمون U",
+         "right": "V"
+        },
+        {
+         "left": "طاقة الإلكترون",
+         "right": "eV أو J"
+        },
+        {
+         "left": "شحنة الإلكترون e",
+         "right": "C"
+        },
+        {
+         "left": "سرعة الإلكترون",
+         "right": "m/s"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: الطاقة الحركية للإلكترون المسرّع Ec = .......",
+       "options": [],
+       "answer": "e U",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: سرعة الإلكترون المسرّع v = .......",
+       "options": [],
+       "answer": "√(2eU/m)",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "استنتج عبارة السرعة النهائية لإلكترون بدأ من السكون وسُرّع بفرق كمون U.",
+       "options": [],
+       "answer": "v = √(2eU/m)",
+       "explanation": "من حفظ الطاقة: eU=½mv² ⇒ v²=2eU/m ⇒ v=√(2eU/m).",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     },
@@ -8512,6 +10336,110 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "short_answer",
+       "text": "إلكترون في أنبوب أشعة مهبطية مسرّع بفرق كمون 400 V. احسب طاقته الحركية بالإلكترون-فولت وبالجول.",
+       "options": [],
+       "answer": "400 eV = 6.4×10⁻¹⁷ J",
+       "explanation": "المعطيات: U=400 V\nEc=400 eV؛ وبالجول: 400×1.6×10⁻¹⁹=6.4×10⁻¹⁷ J.",
+       "model_answer": "المعطيات: U=400 V\nEc=400 eV؛ وبالجول: 400×1.6×10⁻¹⁹=6.4×10⁻¹⁷ J.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "إلكترون يتحرّك بسرعة 2×10⁷ m/s. احسب طاقته الحركية (m=9.1×10⁻³¹ kg).",
+       "options": [],
+       "answer": "1.82×10⁻¹⁶ J",
+       "explanation": "المعطيات: v=2×10⁷ m/s\nEc=½mv²=½×9.1×10⁻³¹×(2×10⁷)²=½×9.1×10⁻³¹×4×10¹⁴=1.82×10⁻¹⁶ J.",
+       "model_answer": "المعطيات: v=2×10⁷ m/s\nEc=½mv²=½×9.1×10⁻³¹×(2×10⁷)²=½×9.1×10⁻³¹×4×10¹⁴=1.82×10⁻¹⁶ J.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "image_mcq",
+       "text": "في أنبوب الأشعة المهبطية الموضّح (حزمة إلكترونية بين لوحين مشحونين)، تنحرف الحزمة نحو:",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 190' width='280' height='190' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='280' height='190' fill='%23ffffff'/%3E%3Crect x='40' y='30' width='200' height='120' fill='none' stroke='%23333' stroke-width='2'/%3E%3Cline x1='55' y1='78' x2='55' y2='93' stroke='%23333' stroke-width='3'/%3E%3Cline x1='65' y1='83' x2='65' y2='88' stroke='%23333' stroke-width='5'/%3E%3Cline x1='40' y1='85' x2='55' y2='85' stroke='%23333' stroke-width='2'/%3E%3Cline x1='65' y1='85' x2='40' y2='85' stroke='%23333' stroke-width='2'/%3E%3Ctext x='18' y='90' font-size='13' fill='%23333'%3EE%3C/text%3E%3Cline x1='120' y1='30' x2='120' y2='150' stroke='%23333' stroke-width='2'/%3E%3Cline x1='180' y1='30' x2='180' y2='150' stroke='%23333' stroke-width='2'/%3E%3Crect x='108' y='70' width='24' height='14' fill='%23fff' stroke='%23333' stroke-width='2'/%3E%3Ctext x='100' y='66' font-size='12' fill='%23333'%3ER1%3C/text%3E%3Crect x='168' y='70' width='24' height='14' fill='%23fff' stroke='%23333' stroke-width='2'/%3E%3Ctext x='200' y='66' font-size='12' fill='%23333'%3ER2%3C/text%3E%3C/svg%3E",
+       "options": [
+        "اللوح الموجب",
+        "اللوح السالب",
+        "لا تنحرف",
+        "تنحرف بشكل عمودي على اللوحين"
+       ],
+       "answer": "اللوح الموجب",
+       "answer_index": 0,
+       "explanation": "الإلكترون سالب الشحنة، فينجذب نحو اللوح الموجب.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المقدار ووحدته:",
+       "options": [],
+       "answer": [
+        "V",
+        "C",
+        "kg",
+        "J / eV"
+       ],
+       "pairs": [
+        {
+         "left": "فرق الكمون بين المهبط والمصعد",
+         "right": "V"
+        },
+        {
+         "left": "شحنة الإلكترون",
+         "right": "C"
+        },
+        {
+         "left": "الكتلة",
+         "right": "kg"
+        },
+        {
+         "left": "الطاقة",
+         "right": "J / eV"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: النسبة بين شحنة الإلكترون وكتلته e/m تساوي تقريباً .......",
+       "options": [],
+       "answer": "1.76×10¹¹ C/kg",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "اشرح كيف يدلّ انحراف الأشعة المهبطية نحو اللوح الموجب على أنّها جسيمات سالبة.",
+       "options": [],
+       "answer": "لأنّ الانحراف يتمّ باتجاه الصفيحة الموجبة، وهذا يوافق سلوك الشحنات السالبة في حقل كهربائي (F = qE بجهة معاكسة لـ E).",
+       "explanation": "قوّة الحقل على شحنة سالبة تكون بعكس جهة الحقل، فتنجذب نحو المصعد الموجب.",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     },
@@ -9042,6 +10970,78 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "short_answer",
+       "text": "مهبط راسم اهتزاز إلكتروني يحرّر إلكترونات طاقتها الحركية العظمى 1 eV. احسب أقصى سرعة لها (m=9.1×10⁻³¹ kg).",
+       "options": [],
+       "answer": "≈5.9×10⁵ m/s",
+       "explanation": "المعطيات: Ec=1.6×10⁻¹⁹ J\nEc=1.6×10⁻¹⁹ J ⇒ v=√(2Ec/m)=√(2×1.6×10⁻¹⁹/9.1×10⁻³¹)=√(3.5×10¹¹)≈5.9×10⁵ m/s.",
+       "model_answer": "المعطيات: Ec=1.6×10⁻¹⁹ J\nEc=1.6×10⁻¹⁹ J ⇒ v=√(2Ec/m)=√(2×1.6×10⁻¹⁹/9.1×10⁻³¹)=√(3.5×10¹¹)≈5.9×10⁵ m/s.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المكوّن ووظيفته:",
+       "options": [],
+       "answer": [
+        "إصدار الإلكترونات",
+        "تعديل شدّة الحزمة",
+        "تسريع الإلكترونات",
+        "إظهار أثر الحزمة"
+       ],
+       "pairs": [
+        {
+         "left": "المهبط المسخّن",
+         "right": "إصدار الإلكترونات"
+        },
+        {
+         "left": "شبكة وهلنت",
+         "right": "تعديل شدّة الحزمة"
+        },
+        {
+         "left": "المجمّعة الإلكترونية",
+         "right": "تسريع الإلكترونات"
+        },
+        {
+         "left": "الشاشة المفلورة",
+         "right": "إظهار أثر الحزمة"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: يزداد التيّار الحراري بزيادة ....... المهبط",
+       "options": [],
+       "answer": "درجة حرارة",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "اشرح لماذا يُفرَّغ أنبوب راسم الاهتزاز الإلكتروني من الهواء.",
+       "options": [],
+       "answer": "لتجنّب تصادم الإلكترونات بجزيئات الهواء فتفقد طاقتها وتتشوّش حزمتها؛ فالخلاء يسمح لها بالانتقال بحرية حتى الشاشة.",
+       "explanation": "التصادمات مع جزيئات الهواء تبدّد طاقة الحزمة وتشتّتها.",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     },
@@ -9568,6 +11568,135 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "short_answer",
+       "text": "ضوء على سطح معدن طاقة انتزاعه W₀=2 eV وتواتره يعطي طاقة فوتون 3 eV. احسب الطاقة الحركية العظمى للإلكترون المتحرّر.",
+       "options": [],
+       "answer": "1 eV = 1.6×10⁻¹⁹ J",
+       "explanation": "المعطيات: hf=3 eV، W₀=2 eV\nEc_max=hf−W₀=3−2=1 eV=1.6×10⁻¹⁹ J.",
+       "model_answer": "المعطيات: hf=3 eV، W₀=2 eV\nEc_max=hf−W₀=3−2=1 eV=1.6×10⁻¹⁹ J.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "معدن طاقة انتزاعه W₀=3.3×10⁻¹⁹ J. احسب التواتر العتبي (h=6.6×10⁻³⁴ J·s).",
+       "options": [],
+       "answer": "5×10¹⁴ Hz",
+       "explanation": "المعطيات: W₀=3.3×10⁻¹⁹ J، h=6.6×10⁻³⁴ J·s\nf₀=W₀/h=3.3×10⁻¹⁹/6.6×10⁻³⁴=5×10¹⁴ Hz.",
+       "model_answer": "المعطيات: W₀=3.3×10⁻¹⁹ J، h=6.6×10⁻³⁴ J·s\nf₀=W₀/h=3.3×10⁻¹⁹/6.6×10⁻³⁴=5×10¹⁴ Hz.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "احسب الطول الموجي العتبي لمعدن تواتره العتبي 5×10¹⁴ Hz (c=3×10⁸ m/s).",
+       "options": [],
+       "answer": "6×10⁻⁷ m",
+       "explanation": "المعطيات: f₀=5×10¹⁴ Hz، c=3×10⁸ m/s\nλ₀=c/f₀=3×10⁸/5×10¹⁴=6×10⁻⁷ m.",
+       "model_answer": "المعطيات: f₀=5×10¹⁴ Hz، c=3×10⁸ m/s\nλ₀=c/f₀=3×10⁸/5×10¹⁴=6×10⁻⁷ m.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يبيّن الشكل (منحني الطيف) العلاقة بين الطول الموجي وشدة الإشعاع المنبعث. في الظاهرة الكهرضوئية، زيادة شدّة الضوء الساقط (مع ثبات التواتر) تؤدّي إلى:",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 180' width='280' height='180' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='280' height='180' fill='%23ffffff'/%3E%3Cline x1='45' y1='145' x2='270' y2='145' stroke='%23333' stroke-width='1.5'/%3E%3Cline x1='45' y1='145' x2='45' y2='10' stroke='%23333' stroke-width='1.5'/%3E%3Ctext x='268' y='163' font-size='13' fill='%23333' text-anchor='end'%3Et%3C/text%3E%3Ctext x='12' y='18' font-size='13' fill='%23333'%3Ex%3C/text%3E%3Cpolyline points='45.0,20.0 48.7,21.4 52.3,25.4 56.0,31.9 59.7,40.7 63.3,51.2 67.0,63.2 70.7,76.0 74.3,89.0 78.0,101.8 81.7,113.7 85.3,124.3 89.0,133.1 92.7,139.6 96.3,143.6 100.0,145.0 103.7,143.6 107.3,139.6 111.0,133.1 114.7,124.3 118.3,113.8 122.0,101.8 125.7,89.0 129.3,76.0 133.0,63.2 136.7,51.3 140.3,40.7 144.0,31.9 147.7,25.4 151.3,21.4 155.0,20.0 158.7,21.4 162.3,25.4 166.0,31.9 169.7,40.7 173.3,51.2 177.0,63.2 180.7,76.0 184.3,89.0 188.0,101.8 191.7,113.7 195.3,124.3 199.0,133.1 202.7,139.6 206.3,143.6 210.0,145.0 213.7,143.6 217.3,139.6 221.0,133.1 224.7,124.3 228.3,113.8 232.0,101.8 235.7,89.0 239.3,76.0 243.0,63.2 246.7,51.3 250.3,40.7 254.0,31.9 257.7,25.4 261.3,21.4 265.0,20.0' fill='none' stroke='%230b6' stroke-width='2.5'/%3E%3Cline x1='45' y1='82.5' x2='268' y2='82.5' stroke='%23c00' stroke-width='1' stroke-dasharray='4 3'/%3E%3C/svg%3E",
+       "options": [
+        "زيادة عدد الإلكترونات المتحرّرة (شدّة التيّار)",
+        "زيادة الطاقة الحركية العظمى",
+        "انعدام الإصدار",
+        "تغيّر طاقة الانتزاع"
+       ],
+       "answer": "زيادة عدد الإلكترونات المتحرّرة (شدّة التيّار)",
+       "answer_index": 0,
+       "explanation": "شدّة التيّار الكهرضوئي تتناسب مع شدّة الضوء، بينما الطاقة الحركية العظمى تعتمد على التواتر.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "graph"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المقدار ووحدته:",
+       "options": [],
+       "answer": [
+        "eV أو J",
+        "Hz",
+        "J·s",
+        "m"
+       ],
+       "pairs": [
+        {
+         "left": "طاقة الانتزاع W₀",
+         "right": "eV أو J"
+        },
+        {
+         "left": "التواتر العتبي f₀",
+         "right": "Hz"
+        },
+        {
+         "left": "ثابت بلانك h",
+         "right": "J·s"
+        },
+        {
+         "left": "الطول الموجي العتبي λ₀",
+         "right": "m"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: معادلة أينشتاين hf = .......",
+       "options": [],
+       "answer": "W₀ + Ec_max",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: التواتر العتبي f₀ = .......",
+       "options": [],
+       "answer": "W₀/h",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "استنتج عبارة الطول الموجي العتبي λ₀ بدلالة طاقة الانتزاع W₀.",
+       "options": [],
+       "answer": "λ₀ = h c / W₀",
+       "explanation": "f₀=W₀/h و λ₀=c/f₀ ⇒ λ₀=hc/W₀.",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     },
@@ -10094,6 +12223,116 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "short_answer",
+       "text": "أنبوب أشعة سينية فرق كمونه 40 kV. احسب أقصى طاقة لفوتون الأشعة السينية بالكيلو-إلكترون-فولت.",
+       "options": [],
+       "answer": "40 keV",
+       "explanation": "المعطيات: U=40 kV\nE_max=eU=40 keV (وتساوي 40×10³×1.6×10⁻¹⁹=6.4×10⁻¹⁵ J).",
+       "model_answer": "المعطيات: U=40 kV\nE_max=eU=40 keV (وتساوي 40×10³×1.6×10⁻¹⁹=6.4×10⁻¹⁵ J).",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "احسب أقصر طول موجي للأشعة السينية في أنبوب فرق كمونه 50 kV (h=6.6×10⁻³⁴، c=3×10⁸، e=1.6×10⁻¹⁹).",
+       "options": [],
+       "answer": "≈2.5×10⁻¹¹ m",
+       "explanation": "المعطيات: U=50 kV\nλ_min=hc/(eU)=(6.6×10⁻³⁴×3×10⁸)/(1.6×10⁻¹⁹×50×10³)=1.98×10⁻²⁵/8×10⁻¹⁵≈2.48×10⁻¹¹ m.",
+       "model_answer": "المعطيات: U=50 kV\nλ_min=hc/(eU)=(6.6×10⁻³⁴×3×10⁸)/(1.6×10⁻¹⁹×50×10³)=1.98×10⁻²⁵/8×10⁻¹⁵≈2.48×10⁻¹¹ m.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "فوتون أشعة سينية طاقته 20 keV. احسب تواتره (h=6.6×10⁻³⁴، 1 eV=1.6×10⁻¹⁹ J).",
+       "options": [],
+       "answer": "≈4.85×10¹⁸ Hz",
+       "explanation": "المعطيات: E=20 keV\nE=20×10³×1.6×10⁻¹⁹=3.2×10⁻¹⁵ J؛ f=E/h=3.2×10⁻¹⁵/6.6×10⁻³⁴≈4.85×10¹⁸ Hz.",
+       "model_answer": "المعطيات: E=20 keV\nE=20×10³×1.6×10⁻¹⁹=3.2×10⁻¹⁵ J؛ f=E/h=3.2×10⁻¹⁵/6.6×10⁻³⁴≈4.85×10¹⁸ Hz.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المقدار ووحدته:",
+       "options": [],
+       "answer": [
+        "V أو kV",
+        "eV-keV أو J",
+        "m",
+        "Hz"
+       ],
+       "pairs": [
+        {
+         "left": "فرق كمون الأنبوب U",
+         "right": "V أو kV"
+        },
+        {
+         "left": "طاقة فوتون الأشعة E",
+         "right": "eV-keV أو J"
+        },
+        {
+         "left": "الطول الموجي λ",
+         "right": "m"
+        },
+        {
+         "left": "التواتر f",
+         "right": "Hz"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: أقصى طاقة لفوتون الأشعة السينية E_max = .......",
+       "options": [],
+       "answer": "e U",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: أقصر طول موجي λ_min = .......",
+       "options": [],
+       "answer": "h c / (e U)",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "استنتج عبارة أقصر طول موجي للأشعة السينية في أنبوب فرق كمونه U.",
+       "options": [],
+       "answer": "λ_min = h c / (e U)",
+       "explanation": "أقصى طاقة فوتون eU توافق أقصر طول موجي: eU=hc/λ_min ⇒ λ_min=hc/(eU).",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     },
@@ -10621,6 +12860,91 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "short_answer",
+       "text": "ليزر طوله الموجي 600 nm (c=3×10⁸ m/s). احسب تواتر إشعاعه.",
+       "options": [],
+       "answer": "5×10¹⁴ Hz",
+       "explanation": "المعطيات: λ=600 nm\nf=c/λ=3×10⁸/600×10⁻⁹=5×10¹⁴ Hz.",
+       "model_answer": "المعطيات: λ=600 nm\nf=c/λ=3×10⁸/600×10⁻⁹=5×10¹⁴ Hz.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "فوتون ليزر طاقته 3.3×10⁻¹⁹ J. احسب طوله الموجي (h=6.6×10⁻³⁴، c=3×10⁸).",
+       "options": [],
+       "answer": "6×10⁻⁷ m",
+       "explanation": "المعطيات: E=3.3×10⁻¹⁹ J\nλ=hc/E=(6.6×10⁻³⁴×3×10⁸)/3.3×10⁻¹⁹=1.98×10⁻²⁵/3.3×10⁻¹⁹=6×10⁻⁷ m.",
+       "model_answer": "المعطيات: E=3.3×10⁻¹⁹ J\nλ=hc/E=(6.6×10⁻³⁴×3×10⁸)/3.3×10⁻¹⁹=1.98×10⁻²⁵/3.3×10⁻¹⁹=6×10⁻⁷ m.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المقدار ووحدته:",
+       "options": [],
+       "answer": [
+        "m (nm)",
+        "Hz",
+        "J / eV",
+        "W/m²"
+       ],
+       "pairs": [
+        {
+         "left": "طول موجة الليزر λ",
+         "right": "m (nm)"
+        },
+        {
+         "left": "التواتر f",
+         "right": "Hz"
+        },
+        {
+         "left": "طاقة الفوتون E",
+         "right": "J / eV"
+        },
+        {
+         "left": "شدة الحزمة",
+         "right": "W/m²"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: طاقة فوتون الليزر بدلالة طوله الموجي E = .......",
+       "options": [],
+       "answer": "h c / λ",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "اشرح سبب كون إشعاع الليزر أحادي اللون ومترابطاً، بدلالة آلية الإصدار المحشوث.",
+       "options": [],
+       "answer": "لأنّ الفوتونات الناتجة عن الإصدار المحشوث لها التواتر نفسه والطور نفسه واتجاه الانتشار نفسه، فتتراكب وتكوّن حزمة واحدة مترابطة أحادية اللون.",
+       "explanation": "الإصدار المحشوث ينسخ الفوتون المحرّض في التواتر والطور والاتجاه.",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     }
@@ -11153,6 +13477,104 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "short_answer",
+       "text": "احسب كم متراً في سنة ضوئية واحدة (c=3×10⁸ m/s، سنة ≈3.15×10⁷ s).",
+       "options": [],
+       "answer": "≈9.46×10¹⁵ m",
+       "explanation": "المعطيات: c=3×10⁸ m/s، t=3.15×10⁷ s\nd=c·t=3×10⁸×3.15×10⁷=9.45×10¹⁵ m ≈ 9.46×10¹⁵ m.",
+       "model_answer": "المعطيات: c=3×10⁸ m/s، t=3.15×10⁷ s\nd=c·t=3×10⁸×3.15×10⁷=9.45×10¹⁵ m ≈ 9.46×10¹⁵ m.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "احسب الزمن الذي يستغرقه ضوء الشمس ليصل إلى الأرض (المسافة 1.5×10¹¹ m، c=3×10⁸ m/s).",
+       "options": [],
+       "answer": "500 s",
+       "explanation": "المعطيات: d=1.5×10¹¹ m\nt=d/c=1.5×10¹¹/3×10⁸=500 s ≈ 8.3 دقائق.",
+       "model_answer": "المعطيات: d=1.5×10¹¹ m\nt=d/c=1.5×10¹¹/3×10⁸=500 s ≈ 8.3 دقائق.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "احسب الطاقة الناتجة عن تحوّل 1 g من المادة كاملاً إلى طاقة (c=3×10⁸ m/s).",
+       "options": [],
+       "answer": "9×10¹³ J",
+       "explanation": "المعطيات: m=10⁻³ kg، c=3×10⁸ m/s\nE=mc²=10⁻³×(3×10⁸)²=10⁻³×9×10¹⁶=9×10¹³ J.",
+       "model_answer": "المعطيات: m=10⁻³ kg، c=3×10⁸ m/s\nE=mc²=10⁻³×(3×10⁸)²=10⁻³×9×10¹⁶=9×10¹³ J.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المقدار ووحدته:",
+       "options": [],
+       "answer": [
+        "m (مسافة)",
+        "m (مسافة)",
+        "kg",
+        "J أو W"
+       ],
+       "pairs": [
+        {
+         "left": "السنة الضوئية",
+         "right": "m (مسافة)"
+        },
+        {
+         "left": "الوحدة الفلكية AU",
+         "right": "m (مسافة)"
+        },
+        {
+         "left": "كتلة الشمس",
+         "right": "kg"
+        },
+        {
+         "left": "الطاقة الصادرة عن الشمس",
+         "right": "J أو W"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: تكافؤ الكتلة والطاقة E = .......",
+       "options": [],
+       "answer": "m c²",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "بيّن كيف يمكن تقدير الطاقة التي تصدرها الشمس عبر حساب الطاقة الواصلة إلى الأرض.",
+       "options": [],
+       "answer": "نحسب الطاقة الساقطة على وحدة المساحة (الثابت الشمسي)، ثم نضربها بمساحة كرة نصف قطرها المسافة أرض-شمس لنحصل على الاستطاعة الكليّة للشمس.",
+       "explanation": "الطاقة تُوزّع على سطح كرة مساحتها 4πd² حيث d=1.5×10¹¹ m.",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     },
@@ -11679,6 +14101,135 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "short_answer",
+       "text": "مجرّة تبعد 50 Mpc عنّا وثابت هابل H₀=70 km/s/Mpc. احسب سرعة تباعدها.",
+       "options": [],
+       "answer": "3500 km/s",
+       "explanation": "المعطيات: d=50 Mpc، H₀=70 km/s/Mpc\nv=H₀ d=70×50=3500 km/s.",
+       "model_answer": "المعطيات: d=50 Mpc، H₀=70 km/s/Mpc\nv=H₀ d=70×50=3500 km/s.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "مجرّة سرعة تباعدها 4200 km/s (H₀=70 km/s/Mpc). احسب بعدها بالميغا-فرسخ.",
+       "options": [],
+       "answer": "60 Mpc",
+       "explanation": "المعطيات: v=4200 km/s، H₀=70 km/s/Mpc\nd=v/H₀=4200/70=60 Mpc.",
+       "model_answer": "المعطيات: v=4200 km/s، H₀=70 km/s/Mpc\nd=v/H₀=4200/70=60 Mpc.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "احسب عمر الكون تقديراً إذا كان H₀=70 km/s/Mpc (1 Mpc=3.09×10¹⁹ km) بالسنوات.",
+       "options": [],
+       "answer": "≈1.4×10¹⁰ سنة",
+       "explanation": "المعطيات: H₀=70 km/s/Mpc\nt≈1/H₀=(3.09×10¹⁹ km/Mpc)/(70 km/s/Mpc)≈4.4×10¹⁷ s ≈ 1.4×10¹⁰ سنة.",
+       "model_answer": "المعطيات: H₀=70 km/s/Mpc\nt≈1/H₀=(3.09×10¹⁹ km/Mpc)/(70 km/s/Mpc)≈4.4×10¹⁷ s ≈ 1.4×10¹⁰ سنة.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يبيّن الشكل تغيّر المطال مع الزمن (منحني جيبي). أيّ هذه العلاقات الرياضية تُشبه في تمثيلها العلاقة الخطية بين سرعة تباعد المجرّة وبعدها (قانون هابل)؟",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 180' width='280' height='180' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='280' height='180' fill='%23ffffff'/%3E%3Cline x1='45' y1='145' x2='270' y2='145' stroke='%23333' stroke-width='1.5'/%3E%3Cline x1='45' y1='145' x2='45' y2='10' stroke='%23333' stroke-width='1.5'/%3E%3Ctext x='268' y='163' font-size='13' fill='%23333' text-anchor='end'%3Et%3C/text%3E%3Ctext x='12' y='18' font-size='13' fill='%23333'%3Ev%3C/text%3E%3Cpolyline points='45.0,82.5 48.7,95.5 52.3,107.9 56.0,119.2 59.7,128.9 63.3,136.6 67.0,141.9 70.7,144.7 74.3,144.7 78.0,141.9 81.7,136.6 85.3,128.9 89.0,119.2 92.7,107.9 96.3,95.5 100.0,82.5 103.7,69.5 107.3,57.1 111.0,45.8 114.7,36.1 118.3,28.4 122.0,23.1 125.7,20.3 129.3,20.3 133.0,23.1 136.7,28.4 140.3,36.1 144.0,45.8 147.7,57.1 151.3,69.5 155.0,82.5 158.7,95.5 162.3,107.9 166.0,119.2 169.7,128.9 173.3,136.6 177.0,141.9 180.7,144.7 184.3,144.7 188.0,141.9 191.7,136.6 195.3,128.9 199.0,119.2 202.7,107.9 206.3,95.5 210.0,82.5 213.7,69.5 217.3,57.1 221.0,45.8 224.7,36.1 228.3,28.4 232.0,23.1 235.7,20.3 239.3,20.3 243.0,23.1 246.7,28.4 250.3,36.1 254.0,45.8 257.7,57.1 261.3,69.5 265.0,82.5' fill='none' stroke='%2306c' stroke-width='2.5'/%3E%3C/svg%3E",
+       "options": [
+        "v تتناسب طرداً مع d (خط مستقيم يمرّ بالمبدأ)",
+        "v تتناسب عكساً مع d",
+        "v ثابتة",
+        "v تتناسب مع d²"
+       ],
+       "answer": "v تتناسب طرداً مع d (خط مستقيم يمرّ بالمبدأ)",
+       "answer_index": 0,
+       "explanation": "قانون هابل: v=H₀d، أي علاقة خطية طردية يمرّ تمثيلها بالمبدأ.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "graph"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المقدار ووحدته:",
+       "options": [],
+       "answer": [
+        "km/s/Mpc",
+        "km/s",
+        "Mpc أو سنة ضوئية",
+        "3.26 سنة ضوئية"
+       ],
+       "pairs": [
+        {
+         "left": "ثابت هابل H₀",
+         "right": "km/s/Mpc"
+        },
+        {
+         "left": "سرعة التباعد v",
+         "right": "km/s"
+        },
+        {
+         "left": "البعد d",
+         "right": "Mpc أو سنة ضوئية"
+        },
+        {
+         "left": "الفرسخ الفلكي",
+         "right": "3.26 سنة ضوئية"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: قانون هابل v = .......",
+       "options": [],
+       "answer": "H₀ d",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: عمر الكون يُقدَّر بـ .......",
+       "options": [],
+       "answer": "1/H₀",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "اشرح كيف يمكن حساب عمر الكون من ثابت هابل بافتراض سرعة تباعد ثابتة.",
+       "options": [],
+       "answer": "t = 1/H₀",
+       "explanation": "بافتراض انطلاق المجرّة من نقطة الصفر بسرعة ثابتة: d=v·t=v/H₀ ⇒ t=1/H₀.",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     },
@@ -12205,6 +14756,110 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "short_answer",
+       "text": "مجرّة تبعد 100 مليون سنة ضوئية، وسرعة تباعدها وفق هابل 2100 km/s. احسب ثابت هابل بوحدة km/s لكل مليون سنة ضوئية.",
+       "options": [],
+       "answer": "21 km/s/Mly",
+       "explanation": "المعطيات: d=100 Mly، v=2100 km/s\nH₀=v/d=2100/100=21 km/s لكل مليون سنة ضوئية.",
+       "model_answer": "المعطيات: d=100 Mly، v=2100 km/s\nH₀=v/d=2100/100=21 km/s لكل مليون سنة ضوئية.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "كم ثانية في 13.8 مليار سنة (سنة≈3.15×10⁷ s)؟",
+       "options": [],
+       "answer": "≈4.35×10¹⁷ s",
+       "explanation": "المعطيات: العمر=13.8×10⁹ سنة\nt=13.8×10⁹×3.15×10⁷=4.347×10¹⁷ s ≈ 4.35×10¹⁷ s.",
+       "model_answer": "المعطيات: العمر=13.8×10⁹ سنة\nt=13.8×10⁹×3.15×10⁷=4.347×10¹⁷ s ≈ 4.35×10¹⁷ s.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "image_mcq",
+       "text": "يبيّن الشكل نموذجاً لتمدد الكون (تباعد المجرّات). أيّ العبارات صحيحة؟",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 180' width='280' height='180' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='280' height='180' fill='%23ffffff'/%3E%3Cline x1='45' y1='145' x2='270' y2='145' stroke='%23333' stroke-width='1.5'/%3E%3Cline x1='45' y1='145' x2='45' y2='10' stroke='%23333' stroke-width='1.5'/%3E%3Ctext x='268' y='163' font-size='13' fill='%23333' text-anchor='end'%3Er%3C/text%3E%3Ctext x='12' y='18' font-size='13' fill='%23333'%3EB%3C/text%3E%3Cpolyline points='56.0,20.0 59.7,37.9 63.3,51.3 67.0,61.7 70.7,70.0 74.3,76.8 78.0,82.5 81.7,87.3 85.3,91.4 89.0,95.0 92.7,98.1 96.3,100.9 100.0,103.3 103.7,105.5 107.3,107.5 111.0,109.3 114.7,110.9 118.3,112.4 122.0,113.8 125.7,115.0 129.3,116.2 133.0,117.2 136.7,118.2 140.3,119.1 144.0,120.0 147.7,120.8 151.3,121.6 155.0,122.3 158.7,122.9 162.3,123.6 166.0,124.2 169.7,124.7 173.3,125.3 177.0,125.8 180.7,126.2 184.3,126.7 188.0,127.1 191.7,127.6 195.3,128.0 199.0,128.3 202.7,128.7 206.3,129.0 210.0,129.4 213.7,129.7 217.3,130.0 221.0,130.3 224.7,130.6 228.3,130.8 232.0,131.1 235.7,131.4 239.3,131.6 243.0,131.8 246.7,132.1 250.3,132.3 254.0,132.5 257.7,132.7 261.3,132.9 265.0,133.1' fill='none' stroke='%23c60' stroke-width='2.5'/%3E%3C/svg%3E",
+       "options": [
+        "كل نقطة تبتعد عن غيرها بنسبة تتناسب مع بعدها",
+        "المجرّات تقترب من نقطة مركزية واحدة",
+        "الكون ثابت الحجم",
+        "لا وجود لعلاقة بين البعد والسرعة"
+       ],
+       "answer": "كل نقطة تبتعد عن غيرها بنسبة تتناسب مع بعدها",
+       "answer_index": 0,
+       "explanation": "في تمدّد الفضاء يتناسب تباعد المجرّات مع أبعادها (قانون هابل)، وهذا ما يفسّر عدم وجود مركز مميّز.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المفهوم وتعريفه:",
+       "options": [],
+       "answer": [
+        "مجرّتنا",
+        "نظرية نشأة الكون",
+        "انفجار نهاية نجم ضخم",
+        "أول العناصر المتشكّلة"
+       ],
+       "pairs": [
+        {
+         "left": "درب التبّانة",
+         "right": "مجرّتنا"
+        },
+        {
+         "left": "الانفجار الأعظم",
+         "right": "نظرية نشأة الكون"
+        },
+        {
+         "left": "المستعر الأعظم",
+         "right": "انفجار نهاية نجم ضخم"
+        },
+        {
+         "left": "الهيدروجين والهيليوم",
+         "right": "أول العناصر المتشكّلة"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: عمر الكون ≈ ....... مليار سنة",
+       "options": [],
+       "answer": "13.8",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "اشرح كيف تدعم ملاحظات الانزياح نحو الأحمر فكرة أنّ الكون كان حاراً وكثيفاً في الماضي.",
+       "options": [],
+       "answer": "بتتبّع تمدّد الكون إلى الوراء في الزمن نصل إلى حالة تتقارب فيها كل المسافات نحو الصفر، أي كثافة وحرارة هائلتان، وهذا ما تصفه مرحلة الانفجار الأعظم.",
+       "explanation": "التمدّد الرجعي يقود إلى نقطة ابتدائية شديدة الكثافة.",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     },
@@ -12731,6 +15386,116 @@
        "points": 3,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "short_answer",
+       "text": "احسب سرعة الإفلات من سطح جسم كتلته M=6×10²⁴ kg ونصف قطره R=6.4×10⁶ m (G=6.67×10⁻¹¹).",
+       "options": [],
+       "answer": "≈1.12×10⁴ m/s",
+       "explanation": "المعطيات: M=6×10²⁴ kg، R=6.4×10⁶ m\nv=√(2GM/R)=√(2×6.67×10⁻¹¹×6×10²⁴/6.4×10⁶)=√(8×10¹⁴/6.4×10⁶)=√(1.25×10⁸)≈1.12×10⁴ m/s.",
+       "model_answer": "المعطيات: M=6×10²⁴ kg، R=6.4×10⁶ m\nv=√(2GM/R)=√(2×6.67×10⁻¹¹×6×10²⁴/6.4×10⁶)=√(8×10¹⁴/6.4×10⁶)=√(1.25×10⁸)≈1.12×10⁴ m/s.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "احسب نصف قطر شفارتزشيلد لجسم كتلته كتلة الشمس (M=2×10³⁰ kg، G=6.67×10⁻¹¹، c=3×10⁸).",
+       "options": [],
+       "answer": "≈2.96×10³ m",
+       "explanation": "المعطيات: M=2×10³⁰ kg\nR_s=2GM/c²=(2×6.67×10⁻¹¹×2×10³⁰)/(9×10¹⁶)=2.67×10²⁰/9×10¹⁶≈2.96×10³ m.",
+       "model_answer": "المعطيات: M=2×10³⁰ kg\nR_s=2GM/c²=(2×6.67×10⁻¹¹×2×10³⁰)/(9×10¹⁶)=2.67×10²⁰/9×10¹⁶≈2.96×10³ m.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "احسب طاقة سكون كتلة مقدارها 1 kg (c=3×10⁸ m/s).",
+       "options": [],
+       "answer": "9×10¹⁶ J",
+       "explanation": "المعطيات: m=1 kg\nE=mc²=1×(3×10⁸)²=9×10¹⁶ J.",
+       "model_answer": "المعطيات: m=1 kg\nE=mc²=1×(3×10⁸)²=9×10¹⁶ J.",
+       "points": 3,
+       "difficulty": "medium",
+       "tags": [
+        "numerical"
+       ]
+      },
+      {
+       "type": "matching",
+       "text": "طابق بين المقدار ووحدته أو قيمته:",
+       "options": [],
+       "answer": [
+        "√(2GM/R)",
+        "2GM/c²",
+        "6.67×10⁻¹¹ N·m²/kg²",
+        "3×10⁸ m/s"
+       ],
+       "pairs": [
+        {
+         "left": "سرعة الإفلات",
+         "right": "√(2GM/R)"
+        },
+        {
+         "left": "نصف قطر شفارتزشيلد",
+         "right": "2GM/c²"
+        },
+        {
+         "left": "ثابت الجذب العام G",
+         "right": "6.67×10⁻¹¹ N·m²/kg²"
+        },
+        {
+         "left": "سرعة الضوء c",
+         "right": "3×10⁸ m/s"
+        }
+       ],
+       "explanation": "",
+       "points": 2,
+       "difficulty": "easy",
+       "tags": [
+        "units"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: سرعة الإفلات v = .......",
+       "options": [],
+       "answer": "√(2GM/R)",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "fill_blank",
+       "text": "أكمل: تكافؤ الكتلة والطاقة E = .......",
+       "options": [],
+       "answer": "m c²",
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "formula"
+       ]
+      },
+      {
+       "type": "short_answer",
+       "text": "استنتج شرط تشكّل الثقب الأسود انطلاقاً من مساواة سرعة الإفلات بسرعة الضوء.",
+       "options": [],
+       "answer": "2GM/R = c² ⇒ R = 2GM/c² (نصف قطر شفارتزشيلد)",
+       "explanation": "بوضع √(2GM/R)=c نحصل على 2GM/R=c² ومنه R=2GM/c².",
+       "points": 3,
+       "difficulty": "hard",
+       "tags": [
+        "derive"
+       ]
       }
      ]
     }
