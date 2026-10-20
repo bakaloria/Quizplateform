@@ -204,6 +204,7 @@
       return infoItem(f.lbl, f.html !== undefined ? f.html : U.esc(f.val));
     }).join("");
     const footer =
+      (opts.onGrade ? '<button class="btn btn-primary" data-rec-grade>✍ تصحيح</button> ' : "") +
       (opts.onEdit ? '<button class="btn" data-rec-edit>✎ تعديل</button> ' : "") +
       (opts.onDelete ? '<button class="btn btn-danger" data-rec-del>🗑 حذف</button> ' : "") +
       '<button class="btn btn-ghost" data-close>إغلاق</button>';
@@ -215,6 +216,8 @@
         : '<div class="student-info-row">' + fieldsHTML + "</div>" + (opts.extraHTML || ""),
       footer: footer,
       onMount: function (node, close) {
+        const gb = node.querySelector("[data-rec-grade]");
+        if (gb && opts.onGrade) gb.addEventListener("click", function () { close(); opts.onGrade(); });
         const eb = node.querySelector("[data-rec-edit]");
         if (eb && opts.onEdit) eb.addEventListener("click", function () { close(); opts.onEdit(); });
         const db = node.querySelector("[data-rec-del]");
@@ -4003,10 +4006,11 @@ function studentModal(s) {
       }).join("");
 
       shell("results",
-        pageHead("📈", "النتائج", "اختر اختباراً لعرض مشاركات الطلاب ودرجاتهم") +
+        pageHead("📈", "النتائج", "اختر اختباراً — أو اعرض كل التسليمات وصحّح أيَّها") +
         '<div class="card mb"><div class="filter-bar">' +
         '<div class="field"><label>الاختبار</label>' +
-        '<select id="resExam"><option value="">— اختر اختباراً —</option>' + opts + "</select></div>" +
+        '<select id="resExam"><option value="">— اختر اختباراً —</option>' +
+        '<option value="__all__">📋 كل التسليمات (جميع المواد)</option>' + opts + "</select></div>" +
         "</div></div>" +
 
         '<div id="resBody"><div class="empty-state"><div class="emoji">\uD83D\uDCC8</div>' +
@@ -4014,6 +4018,7 @@ function studentModal(s) {
       );
 
       document.getElementById("resExam").addEventListener("change", function (e) {
+        if (e.target.value === "__all__") return openAllSubmissions();
         openExamResults(e.target.value);
       });
 
@@ -4070,13 +4075,20 @@ function studentModal(s) {
          const pctColor = (s.percent !== null && s.percent !== undefined)
            ? U.pctColor(s.percent) : "var(--text-3)";
 
+         let claimTxt = "";
+         if (s.status === "in_review" && s.claimedByName) {
+           claimTxt = ' · ✍ ' + U.esc(s.claimedByName);
+         } else if (s.status === "graded" && s.gradedBy) {
+           claimTxt = ' · ✅ ' + U.esc(s.gradedBy);
+         }
+
          return recRow(
            s.id,
            "<b>" + U.esc(s.studentName || "-") + "</b> " + U.submissionStatusBadge(s.status),
            '🏷 ' + U.esc(s.groupName || "-") +
              ' · 🎯 <b style="color:' + pctColor + '">' + pctTxt + '</b>' +
              ' (' + scoreTxt + ')' +
-             ' · 🕒 ' + U.formatDate(s.createdAt),
+             ' · 🕒 ' + U.formatDate(s.createdAt) + claimTxt,
            "📄"
          );
        }).join("");
@@ -4099,9 +4111,69 @@ function studentModal(s) {
     }
   }
 
+  /* كل التسليمات عبر جميع الاختبارات والمواد — للمدير: تصحيح أي تسليم */
+  async function openAllSubmissions() {
+    const body = document.getElementById("resBody");
+    if (!body) return;
+    body.innerHTML = U.loaderHTML();
+    try {
+      const subs = await S.listAllSubmissions();
+      if (!subs.length) {
+        body.innerHTML = '<div class="empty-state"><div class="emoji">\uD83D\uDDC2</div>' +
+          '<h3>لا توجد تسليمات</h3></div>';
+        return;
+      }
+      const graded = subs.filter(function (s) { return s.status === "graded" && s.percent !== null; });
+      const pending = subs.filter(function (s) { return s.status === "pending" || s.status === "in_review"; });
+      const scores = graded.map(function (s) { return s.percent || 0; });
+      const avg = scores.length
+        ? Math.round(scores.reduce(function (a, b) { return a + b; }, 0) / scores.length)
+        : 0;
+
+      const rows = subs.slice(0, 500).map(function (s) {
+        const scoreTxt = (s.score !== null && s.score !== undefined) ? s.score + " / " + s.total : "-";
+        const pctTxt = (s.percent !== null && s.percent !== undefined) ? s.percent + "%" : "-";
+        const pctColor = (s.percent !== null && s.percent !== undefined) ? U.pctColor(s.percent) : "var(--text-3)";
+        let claimTxt = "";
+        if (s.status === "in_review" && s.claimedByName) claimTxt = ' · ✍ ' + U.esc(s.claimedByName);
+        else if (s.status === "graded" && s.gradedBy) claimTxt = ' · ✅ ' + U.esc(s.gradedBy);
+
+        return recRow(
+          s.id,
+          "<b>" + U.esc(s.studentName || "-") + "</b> " + U.submissionStatusBadge(s.status),
+          '📚 ' + U.esc(s.subjectName || "-") +
+            ' · 📝 ' + U.esc(s.examTitle || "-") +
+            ' · 🏷 ' + U.esc(s.groupName || "-") +
+            ' · 🎯 <b style="color:' + pctColor + '">' + pctTxt + '</b>' +
+            ' (' + scoreTxt + ')' +
+            ' · 🕒 ' + U.formatDate(s.createdAt) + claimTxt,
+          "📄"
+        );
+      }).join("");
+
+      body.innerHTML =
+        kpiGrid([
+          kpi("c-primary", "👥", subs.length, "إجمالي التسليمات"),
+          kpi("c-warning", "⏳", pending.length, "قيد التصحيح"),
+          kpi("c-success", "✅", graded.length, "مُصحَّح"),
+          kpi("c-primary", "📊", avg + "%", "متوسط الدرجات")
+        ]) +
+        '<div class="mt">' + recList(rows) + "</div>";
+
+      bindViewButtons(
+        function (id) { return subs.find(function (s) { return s.id === id; }); },
+        function (s) {
+          const ex = state.exams.find(function (e) { return e.id === s.examId; });
+          openSubmissionDetails(s, "__all__", ex);
+        }
+      );
+    } catch (e) {
+      body.innerHTML = errorCard(e);
+    }
+  }
+
   /* تفاصيل مشاركة طالب + حذف */
-  function openSubmissionDetails(s, examId, exam) {
-    const scoreTxt = (s.score !== null && s.score !== undefined)
+  function openSubmissionDetails(s, examId, exam) {    const scoreTxt = (s.score !== null && s.score !== undefined)
       ? s.score + " / " + s.total : "—";
     const pctTxt = (s.percent !== null && s.percent !== undefined)
       ? s.percent + "%" : "—";
@@ -4141,9 +4213,21 @@ function studentModal(s) {
           if (S.deleteSubmission) await S.deleteSubmission(s.id);
           U.toast("تم الحذف", "success");
         } catch (e) { U.toast("خطأ: " + e.message, "error"); return; }
-        openExamResults(examId);
-      }
+        refreshResults(examId);
+      },
+      onGrade: QP.gradeSheet
+        ? async function () {
+          const fresh = await S.getSubmissionById(s.id);
+          QP.gradeSheet.open(fresh || s, function () { refreshResults(examId); });
+        }
+        : null
     });
+  }
+
+  /* إعادة رسم قائمة النتائج (اختبار واحد أو كل التسليمات) */
+  function refreshResults(examId) {
+    if (examId === "__all__") return openAllSubmissions();
+    return openExamResults(examId);
   }
 
   /* ============================================================

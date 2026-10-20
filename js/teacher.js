@@ -11,6 +11,8 @@
     submissions: [],
     filterGroup: "",
     filterSubject: "",
+    listTab: "",
+    guestError: "",
     currentTab: "pending",
     currentSubmission: null
   };
@@ -185,10 +187,14 @@
         });
       }
       // تسليمات الضيوف (دخول بالاسم + كود الاختبار)
+      tstate.guestError = "";
       try {
         const guestSubs = await S.listGuestSubmissionsForTeacher(teacher.id);
         guestSubs.forEach(function (s) { if (!s.groupName) s.groupName = "ضيوف"; allSubs.push(s); });
-      } catch (eg) { console.warn("guest submissions", eg); }
+      } catch (eg) {
+        console.warn("guest submissions", eg);
+        tstate.guestError = (eg && eg.message) || String(eg);
+      }
       tstate.submissions = allSubs;
 
       const isPending = function (s) { return s.status === "pending" || s.status === "in_review"; };
@@ -337,6 +343,13 @@
     try {
       const teacher = tstate.teacher;
 
+      /* إعادة ضبط فلتر المجموعة عند تغيير التبويب حتى لا تختفي التسليمات بلا سبب */
+      if (tstate.listTab !== active) {
+        tstate.filterGroup = "";
+        tstate.filterSubject = "";
+        tstate.listTab = active;
+      }
+
       const groups = (await S.listGroups()).filter(function (g) {
         return (g.teacherAssignments || []).some(function (a) { return a.teacherId === teacher.id; });
       });
@@ -363,10 +376,14 @@
         });
       }
       // تسليمات الضيوف (دخول بالاسم + كود الاختبار)
+      tstate.guestError = "";
       try {
         const guestSubs = await S.listGuestSubmissionsForTeacher(teacher.id);
         guestSubs.forEach(function (s) { if (!s.groupName) s.groupName = "ضيوف"; allSubs.push(s); });
-      } catch (eg) { console.warn("guest submissions", eg); }
+      } catch (eg) {
+        console.warn("guest submissions", eg);
+        tstate.guestError = (eg && eg.message) || String(eg);
+      }
       tstate.submissions = allSubs;
 
       let list = allSubs.slice();
@@ -386,17 +403,26 @@
       const rows = list.length
         ? list.map(function (s) {
           const scoreTxt = (s.score !== null && s.score !== undefined) ? s.score + " / " + s.total : "-";
+          const mine = s.claimedByTeacherId === (tstate.teacher && tstate.teacher.id);
+          let statusCell = U.submissionStatusBadge(s.status);
+          if (s.status === "in_review" && s.claimedByTeacherId) {
+            statusCell += '<div class="tiny muted mt-sm">' + (mine ? "✋ أنت تصحّحه الآن" : "👤 " + U.esc(s.claimedByName || "معلم آخر")) + "</div>";
+          } else if (s.status === "graded" && s.gradedBy) {
+            statusCell += '<div class="tiny muted mt-sm">👤 ' + U.esc(s.gradedBy) + "</div>";
+          }
           return '<tr>' +
             '<td data-label="N"><b>' + U.esc(s.studentName || "-") + "</b></td>" +
             '<td data-label="G" class="muted tiny">' + U.esc(s.groupName || "-") + "</td>" +
             '<td data-label="S" class="muted tiny">' + U.esc(s.subjectName || "-") + "</td>" +
             '<td data-label="E">' + U.esc(s.examTitle || "-") + "</td>" +
-            '<td data-label="St">' + U.submissionStatusBadge(s.status) + "</td>" +
+            '<td data-label="St">' + statusCell + "</td>" +
             '<td data-label="Sc">' + scoreTxt + "</td>" +
             '<td data-label="D" class="tiny">' + U.formatDate(s.createdAt) + "</td>" +
             '<td data-label="" style="white-space:nowrap">' +
             '<button class="btn btn-sm ' + (s.status !== "graded" ? "btn-primary" : "") + '" data-open="' + s.id + '">' +
-            (s.status === "graded" ? "\u0639\u0631\u0636" : "\u062a\u0635\u062d\u064a\u062d") + "</button> " +
+            (s.status === "graded" ? "\u0639\u0631\u0636"
+              : (s.status === "in_review" && s.claimedByTeacherId && !mine) ? "\u0645\u062a\u0627\u0628\u0639\u0629"
+                : "\u062a\u0635\u062d\u064a\u062d") + "</button> " +
             '<button class="btn btn-sm btn-danger" data-del="' + s.id + '" title="حذف التسليم">🗑</button>' +
             "</td></tr>";
         }).join("")
@@ -417,9 +443,15 @@
         '<div class="card-head"><h2>\u0627\u0644\u062a\u0633\u0644\u064a\u0645\u0627\u062a</h2>' +
         '<span class="badge badge-primary">' + list.length + '</span>' +
         '<div class="spacer"></div>' +
+        '<button class="btn btn-sm" id="tRefresh" title="تحديث">🔄 تحديث</button> ' +
         (gradedInList.length ? '<button class="btn btn-sm btn-danger" id="tDelGraded">🗑 حذف المُصحّحة (' + gradedInList.length + ')</button>' : "") +
         "</div>" +
         tabs +
+        (tstate.guestError
+          ? '<div class="card mb" style="border-inline-start:4px solid var(--danger)">' +
+            '<b>⚠ تعذّر جلب تسليمات الضيوف</b><div class="tiny muted mt-sm">' + U.esc(tstate.guestError) +
+            ' — قد تكون بعض التسليمات لا تظهر. تواصل مع المدير.</div></div>'
+          : "") +
         '<div class="card"><div class="form-row">' +
         '<div class="field" style="margin:0"><label>\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629</label><select id="tFilterGroup">' + groupOpts + "</select></div>" +
         "</div></div>" +
@@ -432,6 +464,8 @@
         tstate.filterGroup = e.target.value;
         renderList(active);
       });
+      const refreshBtn = document.getElementById("tRefresh");
+      if (refreshBtn) refreshBtn.addEventListener("click", function () { renderList(active); });
       document.querySelectorAll("[data-open]").forEach(function (b) {
         b.addEventListener("click", function () { openGrading(b.dataset.open); });
       });
@@ -505,10 +539,38 @@
 
     tstate.currentSubmission = sub;
 
-    // تحديث الحالة إلى "قيد المراجعة" إذا كانت "قيد التصحيح"
-    if (sub.status === "pending") {
-      await S.gradeSubmission(sub.id, { status: "in_review" });
-      sub.status = "in_review";
+    /* تسليم مُصحّح مسبقاً → عرض للقراءة فقط (مع إمكانية إعادة الفتح عند الحاجة) */
+    if (sub.status === "graded") {
+      const reopen = await U.confirm(
+        "هذا التسليم مُصحّح ومُعتمد" +
+        (sub.gradedBy ? " من قِبل: " + sub.gradedBy : "") + ".\n\nهل تريد إعادة فتحه وتعديل الدرجات؟",
+        { yes: "إعادة الفتح", no: "عرض فقط" });
+      if (!reopen) return showGradeSheetReadOnly(sub);
+    }
+
+    /* إذا كان التسليم قيد التصحيح من قِبل معلم آخر → تنبيه، وخيار الفتح للقراءة فقط */
+    if (sub.status === "in_review" && sub.claimedByTeacherId &&
+      sub.claimedByTeacherId !== tstate.teacher.id) {
+      const who = sub.claimedByName || "معلم آخر";
+      const owned = await U.confirm(
+        "هذا التسليم قيد التصحيح من قِبل: " + who + "\n\nهل تريد المتابعة والتصحيح بدلاً منه؟",
+        { yes: "نعم، صحّحه أنا", no: "فتح للقراءة فقط" });
+      if (!owned) return showGradeSheetReadOnly(sub);
+    }
+
+    /* تحديث الحالة مع تسجيل من يملك التصحيح (قفل) */
+    if (sub.status !== "in_review" || sub.claimedByTeacherId !== tstate.teacher.id) {
+      const claim = {
+        status: "in_review",
+        claimedBy: tstate.teacher.name,
+        claimedByName: tstate.teacher.name,
+        claimedByTeacherId: tstate.teacher.id,
+        claimedAt: new Date().toISOString()
+      };
+      try {
+        await S.gradeSubmission(sub.id, claim);
+        Object.assign(sub, claim);
+      } catch (e) { console.warn("claim failed", e); }
     }
 
     U.modal({
@@ -527,7 +589,29 @@
     });
   }
 
-  function renderGradeSheet(sub) {
+  /* عرض ورقة التصحيح في وضع القراءة فقط (تسليم مُصحّح أو محجوز لمعلم آخر) */
+  function showGradeSheetReadOnly(sub) {
+    const lockNote = (sub.status === "in_review" && sub.claimedByTeacherId)
+      ? '<div class="card mb" style="border-inline-start:4px solid var(--warning)">' +
+        '<b>📝 قيد التصحيح</b> — يقوم <b>' + U.esc(sub.claimedByName || "معلم آخر") +
+        '</b> بتصحيح هذا التسليم الآن. يمكنك التصحيح بدلاً منه من زر «تصحيح» في القائمة.</div>'
+      : "";
+    const gradedNote = (sub.status === "graded")
+      ? '<div class="card mb" style="border-inline-start:4px solid var(--success)">' +
+        '<b>✅ تم التصحيح</b> بواسطة <b>' + U.esc(sub.gradedBy || "—") + '</b>' +
+        (sub.gradedAt ? ' — ' + U.formatDate(sub.gradedAt) : "") +
+        ((sub.score !== null && sub.score !== undefined) ? ' · الدرجة: <b>' + sub.score + ' / ' + (sub.total || 0) + '</b>' : "") +
+        "</div>"
+      : "";
+    U.modal({
+      title: "عرض: " + sub.studentName,
+      size: "xl",
+      body: lockNote + gradedNote + renderGradeSheet(sub, true),
+      footer: '<button class="btn btn-ghost" data-close>إغلاق</button>'
+    });
+  }
+
+  function renderGradeSheet(sub, readOnly) {
     const header =
       '<div class="grade-sheet-header">' +
       '<div class="info-row">' +
@@ -577,6 +661,7 @@
           '<div class="answer-block"><div class="label">\u0627\u0644\u0625\u062c\u0627\u0628\u0629 \u0627\u0644\u0646\u0645\u0648\u0630\u062c\u064a\u0629:</div>' +
           '<div class="value" style="color:var(--success)">' + U.esc(ansTxt) + '</div></div>' : "") +
 
+        (readOnly ? "" :
         '<div class="grade-input-row">' +
         '<div class="score-box">' +
         '<label class="tiny">\u0627\u0644\u062f\u0631\u062c\u0629:</label>' +
@@ -589,12 +674,14 @@
         '<button type="button" data-preset="' + idx + '" data-value="' + (pts / 2) + '">\u0646\u0635\u0641</button>' +
         '<button type="button" data-preset="' + idx + '" data-value="0">\u062e\u0637\u0623</button>' +
         '</div>' +
-        '</div>' +
+        '</div>') +
 
-        '<div class="teacher-note-field">' +
-        '<label class="tiny">\u0645\u0644\u0627\u062d\u0638\u0629 \u0644\u0644\u0637\u0627\u0644\u0628 (\u0627\u062e\u062a\u064a\u0627\u0631\u064a)</label>' +
-        '<textarea data-note="' + idx + '" placeholder="\u0645\u0644\u0627\u062d\u0638\u0629...">' + U.esc(a.teacherNote || "") + '</textarea>' +
-        '</div>' +
+        (readOnly
+          ? '<div class="badge badge-muted">' + (currentScore !== null ? ('\u0627\u0644\u062f\u0631\u062c\u0629: ' + currentScore + ' / ' + pts) : '\u2014') + '</div>'
+          : '<div class="teacher-note-field">' +
+            '<label class="tiny">\u0645\u0644\u0627\u062d\u0638\u0629 \u0644\u0644\u0637\u0627\u0644\u0628 (\u0627\u062e\u062a\u064a\u0627\u0631\u064a)</label>' +
+            '<textarea data-note="' + idx + '" placeholder="\u0645\u0644\u0627\u062d\u0638\u0629...">' + U.esc(a.teacherNote || "") + '</textarea>' +
+            '</div>') +
 
         '</div>';
     }).join("");
@@ -602,7 +689,9 @@
     return header + '<div class="grade-sheet">' + cards + '</div>';
   }
 
-  function bindGradeSheet(node, sub, onFinalize) {
+  function bindGradeSheet(node, sub, onFinalize, grader) {
+    const graderName = (grader && grader.name) || tstate.teacher.name;
+    const graderId = (grader && grader.id) || tstate.teacher.id;
     const recalc = function () {
       let total = 0, max = 0;
       node.querySelectorAll("[data-answer]").forEach(function (box) {
@@ -676,12 +765,12 @@
             percent: percent,
             passed: percent >= pass,
             status: "graded",
-            gradedBy: tstate.teacher.name,
-            gradedByTeacherId: tstate.teacher.id,
+            gradedBy: graderName,
+            gradedByTeacherId: graderId,
             gradedAt: new Date().toISOString()
           });
 
-          U.logAction("grade_submission", sub.id + " by " + tstate.teacher.username);
+          U.logAction("grade_submission", sub.id + " by " + graderName);
           U.toast("\u062a\u0645 \u0627\u0639\u062a\u0645\u0627\u062f \u0627\u0644\u0646\u062a\u064a\u062c\u0629 \u2014 \u0633\u064a\u0631\u0627\u0647\u0627 \u0627\u0644\u0637\u0627\u0644\u0628", "success", 4000);
           if (onFinalize) onFinalize();
         } catch (e) {
@@ -774,17 +863,30 @@
   /* ============================================================
    * RENDER
    * ============================================================ */
+  let _pollTimer = null;
+  function stopPoll() { if (_pollTimer) { clearInterval(_pollTimer); _pollTimer = null; } }
+  function startPoll() {
+    stopPoll();
+    _pollTimer = setInterval(function () {
+      // لا تحدّث أثناء فتح نافذة التصحيح
+      if (document.querySelector(".modal, .modal-backdrop")) return;
+      const tab = tstate.currentTab;
+      if (tab === "pending" || tab === "graded" || tab === "all") renderList(tab);
+    }, 45000);
+  }
+
   async function render(tab) {
     tab = tab || "dashboard";
     tstate.currentTab = tab;
     const sess = isLogged();
-    if (!sess) { renderLogin(); return; }
+    if (!sess) { stopPoll(); renderLogin(); return; }
     const t = await loadTeacherData();
-    if (!t) { renderLogin(); return; }
+    if (!t) { stopPoll(); renderLogin(); return; }
 
-    if (tab === "dashboard") return renderDashboard();
-    if (tab === "groups") return renderGroups();
-    if (tab === "profile") return renderProfile();
+    if (tab === "dashboard") { startPoll(); return renderDashboard(); }
+    if (tab === "groups") { stopPoll(); return renderGroups(); }
+    if (tab === "profile") { stopPoll(); return renderProfile(); }
+    startPoll();
     return renderList(tab);
   }
 
@@ -792,6 +894,28 @@
     render: render,
     isLogged: function () { return !!isLogged(); },
     logout: logout
+  };
+
+  /* ورقة تصحيح قابلة لإعادة الاستخدام (لوحة المدير: تصحيح أي تسليم) */
+  QP.gradeSheet = {
+    open: async function (sub, onDone) {
+      if (!sub) return U.toast("التسليم غير موجود", "error");
+      U.modal({
+        title: "تصحيح: " + (sub.studentName || ""),
+        size: "xl",
+        body: renderGradeSheet(sub, false),
+        footer:
+          '<button class="btn btn-success" data-finalize>\u2705 \u0627\u0639\u062a\u0645\u0627\u062f \u0627\u0644\u0646\u062a\u064a\u062c\u0629</button>' +
+          '<button class="btn btn-ghost" data-close>\u0625\u063a\u0644\u0627\u0642</button>',
+        onMount: function (node, close) {
+          bindGradeSheet(node, sub, function () {
+            close();
+            if (onDone) onDone();
+          }, { name: "الإدارة", id: "admin" });
+        }
+      });
+    },
+    view: showGradeSheetReadOnly
   };
 
   console.log("[teacher.js v4] QP.teacher loaded");

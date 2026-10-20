@@ -248,7 +248,7 @@
           body: '<p class="muted">' + utils.esc(message) + "</p>",
           footer:
             '<button class="btn btn-danger" data-yes>' + utils.esc(opts.yes || "تأكيد") + "</button>" +
-            '<button class="btn btn-ghost" data-close>إلغاء</button>',
+            '<button class="btn btn-ghost" data-close>' + utils.esc(opts.no || "إلغاء") + "</button>",
           onMount: function (node, close) {
             node.querySelector("[data-yes]").addEventListener("click", function () { close(); done(true); });
             node.addEventListener("click", function (e) { if (e.target.closest("[data-close]")) done(false); });

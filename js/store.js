@@ -648,6 +648,11 @@
       const snap = await col.submissions.get();
       return QP.utils.sortBy(snapDocs(snap), "createdAt", "desc").slice(0, limit || 20);
     },
+    /* كل التسليمات (للمدير: تصحيح أي تسليم مهما كانت المادة/المجموعة) */
+    listAllSubmissions: async function () {
+      const snap = await col.submissions.get();
+      return snapDocs(snap).sort(function (a, b) { return tsOf(b.createdAt) - tsOf(a.createdAt); });
+    },
     countSubmissions: async function () {
       const snap = await col.submissions.get();
       return snap.size;
