@@ -838,6 +838,44 @@
        "tags": [
         "derive"
        ]
+      },
+      {
+       "type": "image_mcq",
+       "text": "يبيّن الشكل حركة قذيفة (مقذوف) في مجال الثقالة. أيّ العبارات صحيحة عن نقطة القمة؟",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 190' width='300' height='190' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='300' height='190' fill='%23ffffff'/%3E%3Cdefs%3E%3Cmarker id='ar' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%23c0392b'/%3E%3C/marker%3E%3Cmarker id='ar2' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%232c7fb8'/%3E%3C/marker%3E%3C/defs%3E%3Cline x1='40' y1='160' x2='285' y2='160' stroke='%23333' stroke-width='1.2'/%3E%3Cline x1='40' y1='160' x2='40' y2='10' stroke='%23333' stroke-width='1.2'/%3E%3Cpolyline points='40.0,160.0 45.9,147.3 51.8,135.3 57.6,123.9 63.5,113.2 69.4,103.1 75.2,93.7 81.1,84.9 87.0,76.8 92.9,69.3 98.8,62.5 104.6,56.3 110.5,50.8 116.4,45.9 122.2,41.7 128.1,38.1 134.0,35.2 139.9,32.9 145.8,31.3 151.6,30.3 157.5,30.0 163.4,30.3 169.2,31.3 175.1,32.9 181.0,35.2 186.9,38.1 192.8,41.7 198.6,45.9 204.5,50.8 210.4,56.3 216.2,62.5 222.1,69.3 228.0,76.8 233.9,84.9 239.8,93.7 245.6,103.1 251.5,113.2 257.4,123.9 263.2,135.3 269.1,147.3 275.0,160.0' fill='none' stroke='%232c7fb8' stroke-width='2.5'/%3E%3Cline x1='40' y1='30' x2='265' y2='30' stroke='%23c0392b' stroke-width='1' stroke-dasharray='4 3'/%3E%3Ctext x='120' y='22' font-size='12' fill='%23c0392b'%3EH (%D8%A7%D9%84%D9%82%D9%85%D8%A9)%3C/text%3E%3Ctext x='210' y='178' font-size='12' fill='%23333'%3Ex (%D8%A7%D9%84%D9%85%D8%AF%D9%89)%3C/text%3E%3C/svg%3E",
+       "options": [
+        "السرعة الأفقية أعظمية والسرعة الشاقولية معدومة",
+        "السرعة الشاقولية أعظمية",
+        "السرعة الكليّة معدومة",
+        "التسارع معدوم عند القمة"
+       ],
+       "answer": "السرعة الأفقية أعظمية والسرعة الشاقولية معدومة",
+       "answer_index": 0,
+       "explanation": "عند القمة تنعدم المركّبة الشاقولية للسرعة وتبقى المركّبة الأفقية ثابتة؛ والتسارع يبقى g نحو الأسفل.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يمثّل الشكل تغيّر الضغط مع العمق في سائل ساكن. العلاقة بين P و h هي:",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 290 190' width='290' height='190' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='290' height='190' fill='%23ffffff'/%3E%3Cdefs%3E%3Cmarker id='ar' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%23c0392b'/%3E%3C/marker%3E%3Cmarker id='ar2' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%232c7fb8'/%3E%3C/marker%3E%3C/defs%3E%3Cline x1='50' y1='155' x2='275' y2='155' stroke='%23333' stroke-width='1.5'/%3E%3Cline x1='50' y1='155' x2='50' y2='10' stroke='%23333' stroke-width='1.5'/%3E%3Ctext x='210' y='175' font-size='13' fill='%23333'%3Eh (%D8%A7%D9%84%D8%B9%D9%85%D9%82)%3C/text%3E%3Ctext x='10' y='20' font-size='13' fill='%23333'%3EP%3C/text%3E%3Cline x1='50' y1='155' x2='265' y2='25' stroke='%232c7fb8' stroke-width='2.5'/%3E%3Ccircle cx='50' cy='155' r='3' fill='%232c7fb8'/%3E%3Ctext x='54' y='147' font-size='12' fill='%232c7fb8'%3EP%E2%82%80 %D8%B9%D9%86%D8%AF %D8%A7%D9%84%D8%B3%D8%B7%D8%AD%3C/text%3E%3C/svg%3E",
+       "options": [
+        "علاقة خطية: P = P₀ + ρgh",
+        "علاقة تربيعية",
+        "علاقة عكسية",
+        "الضغط ثابت"
+       ],
+       "answer": "علاقة خطية: P = P₀ + ρgh",
+       "answer_index": 0,
+       "explanation": "يزداد الضغط خطياً مع العمق بمعدّل ρg، وهذا ما يوضّحه المستقيم الصاعد.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "graph"
+       ]
       }
      ]
     },
@@ -2775,6 +2813,44 @@
        "tags": [
         "derive"
        ]
+      },
+      {
+       "type": "image_mcq",
+       "text": "يبيّن الشكل العلاقة بين الضغط والعمق في سائل ساكن. إذا تضاعف العمق فإنّ الضغط:",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 290 190' width='290' height='190' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='290' height='190' fill='%23ffffff'/%3E%3Cdefs%3E%3Cmarker id='ar' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%23c0392b'/%3E%3C/marker%3E%3Cmarker id='ar2' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%232c7fb8'/%3E%3C/marker%3E%3C/defs%3E%3Cline x1='50' y1='155' x2='275' y2='155' stroke='%23333' stroke-width='1.5'/%3E%3Cline x1='50' y1='155' x2='50' y2='10' stroke='%23333' stroke-width='1.5'/%3E%3Ctext x='210' y='175' font-size='13' fill='%23333'%3Eh (%D8%A7%D9%84%D8%B9%D9%85%D9%82)%3C/text%3E%3Ctext x='10' y='20' font-size='13' fill='%23333'%3EP%3C/text%3E%3Cline x1='50' y1='155' x2='265' y2='25' stroke='%232c7fb8' stroke-width='2.5'/%3E%3Ccircle cx='50' cy='155' r='3' fill='%232c7fb8'/%3E%3Ctext x='54' y='147' font-size='12' fill='%232c7fb8'%3EP%E2%82%80 %D8%B9%D9%86%D8%AF %D8%A7%D9%84%D8%B3%D8%B7%D8%AD%3C/text%3E%3C/svg%3E",
+       "options": [
+        "يزداد بمقدار ρg لكل وحدة عمق",
+        "يبقى ثابتاً",
+        "ينقص",
+        "يتضاعف دائماً"
+       ],
+       "answer": "يزداد بمقدار ρg لكل وحدة عمق",
+       "answer_index": 0,
+       "explanation": "P = P₀ + ρgh؛ الزيادة خطية بمعدّل ρg لكل متر عمق.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
+       ]
+      },
+      {
+       "type": "image_mcq",
+       "text": "الشكل يمثّل مسار مقذوف. عند إهمال مقاومة الهواء، ما شكل المسار؟",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 190' width='300' height='190' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='300' height='190' fill='%23ffffff'/%3E%3Cdefs%3E%3Cmarker id='ar' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%23c0392b'/%3E%3C/marker%3E%3Cmarker id='ar2' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%232c7fb8'/%3E%3C/marker%3E%3C/defs%3E%3Cline x1='40' y1='160' x2='285' y2='160' stroke='%23333' stroke-width='1.2'/%3E%3Cline x1='40' y1='160' x2='40' y2='10' stroke='%23333' stroke-width='1.2'/%3E%3Cpolyline points='40.0,160.0 45.9,147.3 51.8,135.3 57.6,123.9 63.5,113.2 69.4,103.1 75.2,93.7 81.1,84.9 87.0,76.8 92.9,69.3 98.8,62.5 104.6,56.3 110.5,50.8 116.4,45.9 122.2,41.7 128.1,38.1 134.0,35.2 139.9,32.9 145.8,31.3 151.6,30.3 157.5,30.0 163.4,30.3 169.2,31.3 175.1,32.9 181.0,35.2 186.9,38.1 192.8,41.7 198.6,45.9 204.5,50.8 210.4,56.3 216.2,62.5 222.1,69.3 228.0,76.8 233.9,84.9 239.8,93.7 245.6,103.1 251.5,113.2 257.4,123.9 263.2,135.3 269.1,147.3 275.0,160.0' fill='none' stroke='%232c7fb8' stroke-width='2.5'/%3E%3Cline x1='40' y1='30' x2='265' y2='30' stroke='%23c0392b' stroke-width='1' stroke-dasharray='4 3'/%3E%3Ctext x='120' y='22' font-size='12' fill='%23c0392b'%3EH (%D8%A7%D9%84%D9%82%D9%85%D8%A9)%3C/text%3E%3Ctext x='210' y='178' font-size='12' fill='%23333'%3Ex (%D8%A7%D9%84%D9%85%D8%AF%D9%89)%3C/text%3E%3C/svg%3E",
+       "options": [
+        "قطع مكافئ",
+        "خط مستقيم",
+        "دائرة",
+        "منحني جيبي"
+       ],
+       "answer": "قطع مكافئ",
+       "answer_index": 0,
+       "explanation": "تحت تأثير الثقالة فقط يكون المسار قطعاً مكافئاً (حركة مركّبة).",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
+       ]
       }
      ]
     },
@@ -4061,6 +4137,44 @@
        "difficulty": "hard",
        "tags": [
         "derive"
+       ]
+      },
+      {
+       "type": "image_mcq",
+       "text": "يبيّن الشكل خطوط الحقل المغناطيسي حول سلك مستقيم يمرّ فيه تيار. أيّ العبارات صحيحة؟",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 190' width='280' height='190' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='280' height='190' fill='%23ffffff'/%3E%3Cdefs%3E%3Cmarker id='ar' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%23c0392b'/%3E%3C/marker%3E%3Cmarker id='ar2' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%232c7fb8'/%3E%3C/marker%3E%3C/defs%3E%3Cline x1='140' y1='12' x2='140' y2='178' stroke='%23333' stroke-width='4'/%3E%3Ctext x='148' y='20' font-size='12' fill='%23c0392b'%3EI%3C/text%3E%3Ccircle cx='140' cy='95' r='26' fill='none' stroke='%232c7fb8' stroke-width='1.6'/%3E%3Cline x1='144' y1='69' x2='152' y2='69' stroke='%232c7fb8' stroke-width='1.6' marker-end='url(%23ar2)'/%3E%3Ccircle cx='140' cy='95' r='48' fill='none' stroke='%232c7fb8' stroke-width='1.6'/%3E%3Cline x1='144' y1='47' x2='152' y2='47' stroke='%232c7fb8' stroke-width='1.6' marker-end='url(%23ar2)'/%3E%3Ccircle cx='140' cy='95' r='70' fill='none' stroke='%232c7fb8' stroke-width='1.6'/%3E%3Cline x1='144' y1='25' x2='152' y2='25' stroke='%232c7fb8' stroke-width='1.6' marker-end='url(%23ar2)'/%3E%3Ctext x='154' y='29' font-size='12' fill='%232c7fb8'%3EB%3C/text%3E%3C/svg%3E",
+       "options": [
+        "خطوط الحقل دوائر متمركزة حول السلك وتتناقص كثافتها بالبعد عنه",
+        "خطوط الحقل مستقيمة موازية للسلك",
+        "شدّة الحقل تزداد بالبعد عن السلك",
+        "لا يوجد حقل مغناطيسي حول السلك"
+       ],
+       "answer": "خطوط الحقل دوائر متمركزة حول السلك وتتناقص كثافتها بالبعد عنه",
+       "answer_index": 0,
+       "explanation": "B=μ₀I/(2πr)؛ خطوط الحقل دوائر متمركزة، وشدّتها تتناقص عكساً مع r.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
+       ]
+      },
+      {
+       "type": "image_mcq",
+       "text": "الشكل يمثّل وشيعة (ملفاً) يمرّ فيها تيار. القطب الشمالي N يقع عند:",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 170' width='320' height='170' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='320' height='170' fill='%23ffffff'/%3E%3Cdefs%3E%3Cmarker id='ar' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%23c0392b'/%3E%3C/marker%3E%3Cmarker id='ar2' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%232c7fb8'/%3E%3C/marker%3E%3C/defs%3E%3Cellipse cx='60' cy='85' rx='12' ry='45' fill='none' stroke='%238e44ad' stroke-width='2.5'/%3E%3Cellipse cx='96' cy='85' rx='12' ry='45' fill='none' stroke='%238e44ad' stroke-width='2.5'/%3E%3Cellipse cx='132' cy='85' rx='12' ry='45' fill='none' stroke='%238e44ad' stroke-width='2.5'/%3E%3Cellipse cx='168' cy='85' rx='12' ry='45' fill='none' stroke='%238e44ad' stroke-width='2.5'/%3E%3Cellipse cx='204' cy='85' rx='12' ry='45' fill='none' stroke='%238e44ad' stroke-width='2.5'/%3E%3Cellipse cx='240' cy='85' rx='12' ry='45' fill='none' stroke='%238e44ad' stroke-width='2.5'/%3E%3Cline x1='70' y1='30' x2='290' y2='30' stroke='%23c0392b' stroke-width='2' marker-end='url(%23ar)'/%3E%3Cline x1='70' y1='140' x2='290' y2='140' stroke='%23c0392b' stroke-width='2' marker-end='url(%23ar)'/%3E%3Ctext x='278' y='90' font-size='14' fill='%23c0392b'%3EN%3C/text%3E%3Ctext x='36' y='90' font-size='14' fill='%232c7fb8'%3ES%3C/text%3E%3C/svg%3E",
+       "options": [
+        "الطرف الذي تشير إليه خطوط الحقل خارجة منه",
+        "الطرف الأيسر دائماً",
+        "لا يوجد قطبان للوشيعة",
+        "المركز"
+       ],
+       "answer": "الطرف الذي تشير إليه خطوط الحقل خارجة منه",
+       "answer_index": 0,
+       "explanation": "تخرج خطوط الحقل من القطب الشمالي N وتدخل في القطب الجنوبي S، كما في إبرة مغناطيسية.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
        ]
       }
      ]
@@ -5971,6 +6085,25 @@
        "tags": [
         "derive"
        ]
+      },
+      {
+       "type": "image_mcq",
+       "text": "الشكل يمثّل دارة مهتزّة LC بمكثّفة ووشيعة. عند غلق القاطع تتحوّل الطاقة بين:",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 170' width='280' height='170' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='280' height='170' fill='%23ffffff'/%3E%3Cdefs%3E%3Cmarker id='ar' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%23c0392b'/%3E%3C/marker%3E%3Cmarker id='ar2' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%232c7fb8'/%3E%3C/marker%3E%3C/defs%3E%3Cline x1='70' y1='40' x2='70' y2='130' stroke='%23c0392b' stroke-width='4'/%3E%3Cline x1='210' y1='40' x2='210' y2='130' stroke='%232c7fb8' stroke-width='4'/%3E%3Ctext x='66' y='30' font-size='14' fill='%23c0392b'%3E+%3C/text%3E%3Ctext x='208' y='30' font-size='16' fill='%232c7fb8'%3E%E2%88%92%3C/text%3E%3Cline x1='100' y1='44' x2='100' y2='126' stroke='%23555' stroke-width='1.6' marker-end='url(%23ar)'/%3E%3Cline x1='140' y1='44' x2='140' y2='126' stroke='%23555' stroke-width='1.6' marker-end='url(%23ar)'/%3E%3Cline x1='180' y1='44' x2='180' y2='126' stroke='%23555' stroke-width='1.6' marker-end='url(%23ar)'/%3E%3Ctext x='190' y='85' font-size='12' fill='%23555'%3EE%3C/text%3E%3C/svg%3E",
+       "options": [
+        "المكثّفة (كامنة كهربائية) والوشيعة (مغناطيسية)",
+        "المقاومة فقط",
+        "لا تتحوّل الطاقة",
+        "الشحنة تختفي"
+       ],
+       "answer": "المكثّفة (كامنة كهربائية) والوشيعة (مغناطيسية)",
+       "answer_index": 0,
+       "explanation": "في دارة LC تتبادل الطاقة بين المجال الكهربائي للمكثّفة والمجال المغناطيسي للوشيعة بشكل دوري.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
+       ]
       }
      ]
     },
@@ -6623,6 +6756,44 @@
        "difficulty": "hard",
        "tags": [
         "derive"
+       ]
+      },
+      {
+       "type": "image_mcq",
+       "text": "الشكل يمثّل توتراً متناوباً جيبياً. القيمة المنتجة U_eff بدلالة القيمة العظمى U_max هي:",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 170' width='300' height='170' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='300' height='170' fill='%23ffffff'/%3E%3Cdefs%3E%3Cmarker id='ar' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%23c0392b'/%3E%3C/marker%3E%3Cmarker id='ar2' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%232c7fb8'/%3E%3C/marker%3E%3C/defs%3E%3Cline x1='15' y1='85' x2='288' y2='85' stroke='%23333' stroke-width='1.2'/%3E%3Cline x1='45' y1='20' x2='45' y2='155' stroke='%23333' stroke-width='1.2'/%3E%3Cpolyline points='45.0,85.0 47.9,78.0 50.9,71.1 53.8,64.6 56.8,58.5 59.7,53.2 62.6,48.6 65.6,44.9 68.5,42.2 71.4,40.6 74.4,40.0 77.3,40.6 80.2,42.2 83.2,44.9 86.1,48.6 89.1,53.2 92.0,58.5 94.9,64.6 97.9,71.1 100.8,78.0 103.8,85.0 106.7,92.0 109.6,98.9 112.6,105.4 115.5,111.5 118.4,116.8 121.4,121.4 124.3,125.1 127.2,127.8 130.2,129.4 133.1,130.0 136.1,129.4 139.0,127.8 141.9,125.1 144.9,121.4 147.8,116.8 150.8,111.5 153.7,105.4 156.6,98.9 159.6,92.0 162.5,85.0 165.4,78.0 168.4,71.1 171.3,64.6 174.2,58.5 177.2,53.2 180.1,48.6 183.1,44.9 186.0,42.2 188.9,40.6 191.9,40.0 194.8,40.6 197.8,42.2 200.7,44.9 203.6,48.6 206.6,53.2 209.5,58.5 212.4,64.6 215.4,71.1 218.3,78.0 221.2,85.0 224.2,92.0 227.1,98.9 230.1,105.4 233.0,111.5 235.9,116.8 238.9,121.4 241.8,125.1 244.8,127.8 247.7,129.4 250.6,130.0 253.6,129.4 256.5,127.8 259.4,125.1 262.4,121.4 265.3,116.8 268.2,111.5 271.2,105.4 274.1,98.9 277.1,92.0 280.0,85.0' fill='none' stroke='%232c7fb8' stroke-width='2.5'/%3E%3Cline x1='45' y1='40' x2='105' y2='40' stroke='%23c0392b' stroke-width='1' stroke-dasharray='4 3'/%3E%3Ctext x='107' y='44' font-size='12' fill='%23c0392b'%3EU_max%3C/text%3E%3Ctext x='18' y='25' font-size='13' fill='%23333'%3Eu(t)%3C/text%3E%3C/svg%3E",
+       "options": [
+        "U_max/√2",
+        "U_max",
+        "U_max·√2",
+        "U_max/2"
+       ],
+       "answer": "U_max/√2",
+       "answer_index": 0,
+       "explanation": "U_eff = U_max/√2 ≈ 0.707 U_max للتوتر الجيبي.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
+       ]
+      },
+      {
+       "type": "image_mcq",
+       "text": "في الشكل المجاور (توتر متناوب جيبي)، إذا كانت U_max = 220 V فما القيمة المنتجة؟",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 170' width='300' height='170' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='300' height='170' fill='%23ffffff'/%3E%3Cdefs%3E%3Cmarker id='ar' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%23c0392b'/%3E%3C/marker%3E%3Cmarker id='ar2' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%232c7fb8'/%3E%3C/marker%3E%3C/defs%3E%3Cline x1='15' y1='85' x2='288' y2='85' stroke='%23333' stroke-width='1.2'/%3E%3Cline x1='45' y1='20' x2='45' y2='155' stroke='%23333' stroke-width='1.2'/%3E%3Cpolyline points='45.0,85.0 47.9,78.0 50.9,71.1 53.8,64.6 56.8,58.5 59.7,53.2 62.6,48.6 65.6,44.9 68.5,42.2 71.4,40.6 74.4,40.0 77.3,40.6 80.2,42.2 83.2,44.9 86.1,48.6 89.1,53.2 92.0,58.5 94.9,64.6 97.9,71.1 100.8,78.0 103.8,85.0 106.7,92.0 109.6,98.9 112.6,105.4 115.5,111.5 118.4,116.8 121.4,121.4 124.3,125.1 127.2,127.8 130.2,129.4 133.1,130.0 136.1,129.4 139.0,127.8 141.9,125.1 144.9,121.4 147.8,116.8 150.8,111.5 153.7,105.4 156.6,98.9 159.6,92.0 162.5,85.0 165.4,78.0 168.4,71.1 171.3,64.6 174.2,58.5 177.2,53.2 180.1,48.6 183.1,44.9 186.0,42.2 188.9,40.6 191.9,40.0 194.8,40.6 197.8,42.2 200.7,44.9 203.6,48.6 206.6,53.2 209.5,58.5 212.4,64.6 215.4,71.1 218.3,78.0 221.2,85.0 224.2,92.0 227.1,98.9 230.1,105.4 233.0,111.5 235.9,116.8 238.9,121.4 241.8,125.1 244.8,127.8 247.7,129.4 250.6,130.0 253.6,129.4 256.5,127.8 259.4,125.1 262.4,121.4 265.3,116.8 268.2,111.5 271.2,105.4 274.1,98.9 277.1,92.0 280.0,85.0' fill='none' stroke='%232c7fb8' stroke-width='2.5'/%3E%3Cline x1='45' y1='40' x2='105' y2='40' stroke='%23c0392b' stroke-width='1' stroke-dasharray='4 3'/%3E%3Ctext x='107' y='44' font-size='12' fill='%23c0392b'%3EU_max%3C/text%3E%3Ctext x='18' y='25' font-size='13' fill='%23333'%3Eu(t)%3C/text%3E%3C/svg%3E",
+       "options": [
+        "≈155.6 V",
+        "220 V",
+        "≈311 V",
+        "110 V"
+       ],
+       "answer": "≈155.6 V",
+       "answer_index": 0,
+       "explanation": "U_eff = 220/√2 ≈ 155.6 V.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
        ]
       }
      ]
@@ -7914,6 +8085,25 @@
        "tags": [
         "derive"
        ]
+      },
+      {
+       "type": "image_mcq",
+       "text": "في الشكل المجاور (وتر مثبّت من طرفيه)، العُقد هي النقاط:",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 170' width='300' height='170' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='300' height='170' fill='%23ffffff'/%3E%3Cline x1='20' y1='85' x2='280' y2='85' stroke='%23bbb' stroke-width='1' stroke-dasharray='4 4'/%3E%3Cline x1='20' y1='25' x2='20' y2='145' stroke='%23333' stroke-width='2'/%3E%3Cline x1='280' y1='25' x2='280' y2='145' stroke='%23333' stroke-width='2'/%3E%3Cpolyline points='20.0,85.0 22.2,80.7 24.3,76.4 26.5,72.2 28.7,68.0 30.8,64.0 33.0,60.0 35.2,56.3 37.3,52.7 39.5,49.3 41.7,46.1 43.8,43.2 46.0,40.5 48.2,38.1 50.3,36.0 52.5,34.2 54.7,32.7 56.8,31.5 59.0,30.7 61.2,30.2 63.3,30.0 65.5,30.2 67.7,30.7 69.8,31.5 72.0,32.7 74.2,34.2 76.3,36.0 78.5,38.1 80.7,40.5 82.8,43.2 85.0,46.1 87.2,49.3 89.3,52.7 91.5,56.3 93.7,60.0 95.8,64.0 98.0,68.0 100.2,72.2 102.3,76.4 104.5,80.7 106.7,85.0 108.8,89.3 111.0,93.6 113.2,97.8 115.3,102.0 117.5,106.0 119.7,110.0 121.8,113.7 124.0,117.3 126.2,120.7 128.3,123.9 130.5,126.8 132.7,129.5 134.8,131.9 137.0,134.0 139.2,135.8 141.3,137.3 143.5,138.5 145.7,139.3 147.8,139.8 150.0,140.0 152.2,139.8 154.3,139.3 156.5,138.5 158.7,137.3 160.8,135.8 163.0,134.0 165.2,131.9 167.3,129.5 169.5,126.8 171.7,123.9 173.8,120.7 176.0,117.3 178.2,113.7 180.3,110.0 182.5,106.0 184.7,102.0 186.8,97.8 189.0,93.6 191.2,89.3 193.3,85.0 195.5,80.7 197.7,76.4 199.8,72.2 202.0,68.0 204.2,64.0 206.3,60.0 208.5,56.3 210.7,52.7 212.8,49.3 215.0,46.1 217.2,43.2 219.3,40.5 221.5,38.1 223.7,36.0 225.8,34.2 228.0,32.7 230.2,31.5 232.3,30.7 234.5,30.2 236.7,30.0 238.8,30.2 241.0,30.7 243.2,31.5 245.3,32.7 247.5,34.2 249.7,36.0 251.8,38.1 254.0,40.5 256.2,43.2 258.3,46.1 260.5,49.3 262.7,52.7 264.8,56.3 267.0,60.0 269.2,64.0 271.3,68.0 273.5,72.2 275.7,76.4 277.8,80.7 280.0,85.0' fill='none' stroke='%2306c' stroke-width='2.5'/%3E%3C/svg%3E",
+       "options": [
+        "التي لا تهتزّ (ثابتة)",
+        "الأكثر اهتزازاً",
+        "نقاط منتصف البطون",
+        "نقاط عشوائية"
+       ],
+       "answer": "التي لا تهتزّ (ثابتة)",
+       "answer_index": 0,
+       "explanation": "العُقد نقاط ثابتة لا تهتزّ، والبطن نقطة الاهتزاز الأعظمي.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
+       ]
       }
      ]
     },
@@ -8563,6 +8753,82 @@
        "tags": [
         "derive"
        ]
+      },
+      {
+       "type": "image_mcq",
+       "text": "يبيّن الشكل عدسة مجمّعة (محدّبة). الشعاع الموازي للمحور الرئيسي ينكسر ويمرّ بعد العدسة من:",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200' width='300' height='200' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='300' height='200' fill='%23ffffff'/%3E%3Cdefs%3E%3Cmarker id='ar' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%23c0392b'/%3E%3C/marker%3E%3Cmarker id='ar2' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%232c7fb8'/%3E%3C/marker%3E%3C/defs%3E%3Cline x1='15' y1='100' x2='285' y2='100' stroke='%23333' stroke-width='1.2'/%3E%3Cpath d='M150,30 Q176,100 150,170 Q124,100 150,30 z' fill='%23dff0ff' stroke='%232c7fb8' stroke-width='2'/%3E%3Cline x1='80' y1='94' x2='80' y2='106' stroke='%232c7fb8' stroke-width='3'/%3E%3Cline x1='220' y1='94' x2='220' y2='106' stroke='%232c7fb8' stroke-width='3'/%3E%3Ctext x='76' y='118' font-size='12' fill='%232c7fb8'%3EF%3C/text%3E%3Ctext x='214' y='118' font-size='12' fill='%232c7fb8'%3EF'%3C/text%3E%3Cline x1='20' y1='45' x2='150' y2='45' stroke='%23c0392b' stroke-width='2' marker-end='url(%23ar)'/%3E%3Cline x1='150' y1='45' x2='280' y2='-2' stroke='%23c0392b' stroke-width='2' marker-end='url(%23ar)'/%3E%3C/svg%3E",
+       "options": [
+        "البؤرة F'",
+        "مركز العدسة",
+        "رأس العدسة",
+        "لا ينكسر"
+       ],
+       "answer": "البؤرة F'",
+       "answer_index": 0,
+       "explanation": "العدسة المجمّعة تجمع الأشعة الموازية للمحور في البؤرة الصورة F'.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
+       ]
+      },
+      {
+       "type": "image_mcq",
+       "text": "الشكل يمثّل عدسة مفرّقة (مقعّرة). الأشعة الموازية للمحور بعد نفاذها:",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200' width='300' height='200' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='300' height='200' fill='%23ffffff'/%3E%3Cdefs%3E%3Cmarker id='ar' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%23c0392b'/%3E%3C/marker%3E%3Cmarker id='ar2' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%232c7fb8'/%3E%3C/marker%3E%3C/defs%3E%3Cline x1='15' y1='100' x2='285' y2='100' stroke='%23333' stroke-width='1.2'/%3E%3Cpath d='M150,30 Q136,100 150,170 Q164,100 150,30 z' fill='%23dff0ff' stroke='%232c7fb8' stroke-width='2'/%3E%3Cline x1='90' y1='94' x2='90' y2='106' stroke='%232c7fb8' stroke-width='3'/%3E%3Ctext x='86' y='118' font-size='12' fill='%232c7fb8'%3EF%3C/text%3E%3Cline x1='20' y1='55' x2='150' y2='55' stroke='%23c0392b' stroke-width='2' marker-end='url(%23ar)'/%3E%3Cline x1='150' y1='55' x2='282' y2='10' stroke='%23c0392b' stroke-width='2' marker-end='url(%23ar)'/%3E%3Cline x1='150' y1='55' x2='90' y2='100' stroke='%23c0392b' stroke-width='1' stroke-dasharray='4 3'/%3E%3Cline x1='20' y1='80' x2='150' y2='80' stroke='%23c0392b' stroke-width='2' marker-end='url(%23ar)'/%3E%3Cline x1='150' y1='80' x2='282' y2='60' stroke='%23c0392b' stroke-width='2' marker-end='url(%23ar)'/%3E%3Cline x1='150' y1='80' x2='90' y2='100' stroke='%23c0392b' stroke-width='1' stroke-dasharray='4 3'/%3E%3C/svg%3E",
+       "options": [
+        "تتباعد وكأنّها صادرة من البؤرة F",
+        "تتجمع في F'",
+        "تبقى موازية",
+        "ترتدّ للخلف"
+       ],
+       "answer": "تتباعد وكأنّها صادرة من البؤرة F",
+       "answer_index": 0,
+       "explanation": "العدسة المفرّقة تبدّد الأشعة، فتبدو صادرة من بؤرتها الافتراضية F.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
+       ]
+      },
+      {
+       "type": "image_mcq",
+       "text": "في الشكل المجاور (مرآة مقعّرة)، الشعاع الموازي للمحور بعد الانعكاس:",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 190' width='300' height='190' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='300' height='190' fill='%23ffffff'/%3E%3Cdefs%3E%3Cmarker id='ar' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%23c0392b'/%3E%3C/marker%3E%3Cmarker id='ar2' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%232c7fb8'/%3E%3C/marker%3E%3C/defs%3E%3Cline x1='10' y1='95' x2='290' y2='95' stroke='%23333' stroke-width='1.2'/%3E%3Cpath d='M210,25 A 95 95 0 0 0 210,165' fill='none' stroke='%232c7fb8' stroke-width='3'/%3E%3Ccircle cx='150' cy='95' r='3' fill='%232c7fb8'/%3E%3Ctext x='146' y='113' font-size='12' fill='%232c7fb8'%3EF%3C/text%3E%3Cline x1='15' y1='55' x2='206' y2='55' stroke='%23c0392b' stroke-width='2' marker-end='url(%23ar)'/%3E%3Cline x1='206' y1='55' x2='18' y2='165' stroke='%23c0392b' stroke-width='2' marker-end='url(%23ar)'/%3E%3C/svg%3E",
+       "options": [
+        "يمرّ من البؤرة F",
+        "يعود موازياً",
+        "ينعدم",
+        "يمرّ من القطب"
+       ],
+       "answer": "يمرّ من البؤرة F",
+       "answer_index": 0,
+       "explanation": "المرآة المقعرّة تجمع الأشعة الموازية في بؤرتها F (انعكاس).",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
+       ]
+      },
+      {
+       "type": "image_mcq",
+       "text": "الشكل يمثّل مرآة محدّبة. صورة الجسم المعطاة بواسطتها تكون:",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 190' width='300' height='190' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='300' height='190' fill='%23ffffff'/%3E%3Cdefs%3E%3Cmarker id='ar' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%23c0392b'/%3E%3C/marker%3E%3Cmarker id='ar2' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%232c7fb8'/%3E%3C/marker%3E%3C/defs%3E%3Cline x1='10' y1='95' x2='290' y2='95' stroke='%23333' stroke-width='1.2'/%3E%3Cpath d='M90,25 A 90 90 0 0 1 90,165' fill='none' stroke='%232c7fb8' stroke-width='3'/%3E%3Ccircle cx='150' cy='95' r='3' fill='%232c7fb8'/%3E%3Ctext x='146' y='113' font-size='12' fill='%232c7fb8'%3EF%3C/text%3E%3Cline x1='180' y1='55' x2='90' y2='55' stroke='%23c0392b' stroke-width='2' marker-end='url(%23ar)'/%3E%3Cline x1='90' y1='55' x2='180' y2='95' stroke='%23c0392b' stroke-width='2' marker-end='url(%23ar)'/%3E%3Cline x1='90' y1='55' x2='150' y2='95' stroke='%23c0392b' stroke-width='1' stroke-dasharray='4 3'/%3E%3Cline x1='180' y1='83' x2='90' y2='83' stroke='%23c0392b' stroke-width='2' marker-end='url(%23ar)'/%3E%3Cline x1='90' y1='83' x2='180' y2='95' stroke='%23c0392b' stroke-width='2' marker-end='url(%23ar)'/%3E%3Cline x1='90' y1='83' x2='150' y2='95' stroke='%23c0392b' stroke-width='1' stroke-dasharray='4 3'/%3E%3C/svg%3E",
+       "options": [
+        "وهمية مصغّرة معتدلة",
+        "حقيقية مكبّرة مقلوبة",
+        "حقيقية مساوية",
+        "لا تعطي صورة"
+       ],
+       "answer": "وهمية مصغّرة معتدلة",
+       "answer_index": 0,
+       "explanation": "المرآة المحدّبة تعطي دائماً صورة وهمية مصغّرة معتدلة، ولهذا تُستخدم في المرايا الجانبية.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
+       ]
       }
      ]
     }
@@ -9204,6 +9470,25 @@
        "difficulty": "hard",
        "tags": [
         "derive"
+       ]
+      },
+      {
+       "type": "image_mcq",
+       "text": "يبيّن الشكل مخطط مستويات الطاقة لذرة. عند انتقال الإلكترون من مستوٍ أعلى إلى أدنى فإنّه:",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200' width='300' height='200' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='300' height='200' fill='%23ffffff'/%3E%3Cdefs%3E%3Cmarker id='ar' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%23c0392b'/%3E%3C/marker%3E%3Cmarker id='ar2' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%232c7fb8'/%3E%3C/marker%3E%3C/defs%3E%3Cline x1='70' y1='40' x2='250' y2='40' stroke='%23333' stroke-width='2.5'/%3E%3Ctext x='30' y='44' font-size='12' fill='%23333'%3En=3%3C/text%3E%3Cline x1='70' y1='95' x2='250' y2='95' stroke='%23333' stroke-width='2.5'/%3E%3Ctext x='30' y='99' font-size='12' fill='%23333'%3En=2%3C/text%3E%3Cline x1='70' y1='155' x2='250' y2='155' stroke='%23333' stroke-width='2.5'/%3E%3Ctext x='30' y='159' font-size='12' fill='%23333'%3En=1%3C/text%3E%3Cline x1='120' y1='42' x2='120' y2='153' stroke='%23c0392b' stroke-width='2.5' marker-end='url(%23ar)'/%3E%3Ctext x='150' y='100' font-size='12' fill='%23c0392b'%3Ehf = E%E2%82%83 %E2%88%92 E%E2%82%81%3C/text%3E%3C/svg%3E",
+       "options": [
+        "يشعّ فوتوناً طاقته تساوي فرق الطاقة بين المستويين",
+        "يمتصّ فوتوناً",
+        "تبقى طاقته ثابتة",
+        "يفقد كتلته"
+       ],
+       "answer": "يشعّ فوتوناً طاقته تساوي فرق الطاقة بين المستويين",
+       "answer_index": 0,
+       "explanation": "الانتقال نحو مستوٍ أدنى يرافقه إصدار فوتون طاقته hf = E_high − E_low (خط طيفي إصدار).",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
        ]
       }
      ]
@@ -11697,6 +11982,25 @@
        "tags": [
         "derive"
        ]
+      },
+      {
+       "type": "image_mcq",
+       "text": "في مخطط مستويات الطاقة المرفق، الانتقال من المستوى n=3 إلى n=1 يعني:",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200' width='300' height='200' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='300' height='200' fill='%23ffffff'/%3E%3Cdefs%3E%3Cmarker id='ar' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%23c0392b'/%3E%3C/marker%3E%3Cmarker id='ar2' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%232c7fb8'/%3E%3C/marker%3E%3C/defs%3E%3Cline x1='70' y1='40' x2='250' y2='40' stroke='%23333' stroke-width='2.5'/%3E%3Ctext x='30' y='44' font-size='12' fill='%23333'%3En=3%3C/text%3E%3Cline x1='70' y1='95' x2='250' y2='95' stroke='%23333' stroke-width='2.5'/%3E%3Ctext x='30' y='99' font-size='12' fill='%23333'%3En=2%3C/text%3E%3Cline x1='70' y1='155' x2='250' y2='155' stroke='%23333' stroke-width='2.5'/%3E%3Ctext x='30' y='159' font-size='12' fill='%23333'%3En=1%3C/text%3E%3Cline x1='120' y1='42' x2='120' y2='153' stroke='%23c0392b' stroke-width='2.5' marker-end='url(%23ar)'/%3E%3Ctext x='150' y='100' font-size='12' fill='%23c0392b'%3Ehf = E%E2%82%83 %E2%88%92 E%E2%82%81%3C/text%3E%3C/svg%3E",
+       "options": [
+        "إصدار فوتون ذي طاقة كبيرة",
+        "امتصاص فوتون",
+        "لا إشعاع",
+        "تأيّن الذرة"
+       ],
+       "answer": "إصدار فوتون ذي طاقة كبيرة",
+       "answer_index": 0,
+       "explanation": "كلما زاد فرق الطاقة بين المستويين زاد تواتر (وطاقة) الفوتون المصدَر.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
+       ]
       }
      ]
     },
@@ -12944,6 +13248,25 @@
        "difficulty": "hard",
        "tags": [
         "derive"
+       ]
+      },
+      {
+       "type": "image_mcq",
+       "text": "الشكل يمثّل مخطط مستويات الطاقة. في الليزر يتحقّق الإصدار المحشوث عند:",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200' width='300' height='200' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='300' height='200' fill='%23ffffff'/%3E%3Cdefs%3E%3Cmarker id='ar' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%23c0392b'/%3E%3C/marker%3E%3Cmarker id='ar2' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%232c7fb8'/%3E%3C/marker%3E%3C/defs%3E%3Cline x1='70' y1='40' x2='250' y2='40' stroke='%23333' stroke-width='2.5'/%3E%3Ctext x='30' y='44' font-size='12' fill='%23333'%3En=3%3C/text%3E%3Cline x1='70' y1='95' x2='250' y2='95' stroke='%23333' stroke-width='2.5'/%3E%3Ctext x='30' y='99' font-size='12' fill='%23333'%3En=2%3C/text%3E%3Cline x1='70' y1='155' x2='250' y2='155' stroke='%23333' stroke-width='2.5'/%3E%3Ctext x='30' y='159' font-size='12' fill='%23333'%3En=1%3C/text%3E%3Cline x1='120' y1='42' x2='120' y2='153' stroke='%23c0392b' stroke-width='2.5' marker-end='url(%23ar)'/%3E%3Ctext x='150' y='100' font-size='12' fill='%23c0392b'%3Ehf = E%E2%82%83 %E2%88%92 E%E2%82%81%3C/text%3E%3C/svg%3E",
+       "options": [
+        "وجود إلكترونات في مستوٍ متهيّج (قلب التعبئة) ومرور فوتون محرّض",
+        "انعدام الإثارة",
+        "تبريد الوسط",
+        "استخدام ضوء أبيض"
+       ],
+       "answer": "وجود إلكترونات في مستوٍ متهيّج (قلب التعبئة) ومرور فوتون محرّض",
+       "answer_index": 0,
+       "explanation": "يحتاج الليزر إلى قلب التعبئة (عدد أكبر في المستوى المتهيّج) ليغلب الإصدار المحشوث الامتصاص.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
        ]
       }
      ]
@@ -15495,6 +15818,25 @@
        "difficulty": "hard",
        "tags": [
         "derive"
+       ]
+      },
+      {
+       "type": "image_mcq",
+       "text": "الشكل يمثّل مسار مقذوف في مجال الجاذبية. إذا زادت سرعة الإطلاق الابتدائية باستمرار:",
+       "image": "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 190' width='300' height='190' font-family=%22-apple-system,'Segoe UI',Tahoma,sans-serif%22%3E%3Crect width='300' height='190' fill='%23ffffff'/%3E%3Cdefs%3E%3Cmarker id='ar' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%23c0392b'/%3E%3C/marker%3E%3Cmarker id='ar2' markerWidth='9' markerHeight='9' refX='7' refY='4.5' orient='auto'%3E%3Cpath d='M0,0 L9,4.5 L0,9 z' fill='%232c7fb8'/%3E%3C/marker%3E%3C/defs%3E%3Cline x1='40' y1='160' x2='285' y2='160' stroke='%23333' stroke-width='1.2'/%3E%3Cline x1='40' y1='160' x2='40' y2='10' stroke='%23333' stroke-width='1.2'/%3E%3Cpolyline points='40.0,160.0 45.9,147.3 51.8,135.3 57.6,123.9 63.5,113.2 69.4,103.1 75.2,93.7 81.1,84.9 87.0,76.8 92.9,69.3 98.8,62.5 104.6,56.3 110.5,50.8 116.4,45.9 122.2,41.7 128.1,38.1 134.0,35.2 139.9,32.9 145.8,31.3 151.6,30.3 157.5,30.0 163.4,30.3 169.2,31.3 175.1,32.9 181.0,35.2 186.9,38.1 192.8,41.7 198.6,45.9 204.5,50.8 210.4,56.3 216.2,62.5 222.1,69.3 228.0,76.8 233.9,84.9 239.8,93.7 245.6,103.1 251.5,113.2 257.4,123.9 263.2,135.3 269.1,147.3 275.0,160.0' fill='none' stroke='%232c7fb8' stroke-width='2.5'/%3E%3Cline x1='40' y1='30' x2='265' y2='30' stroke='%23c0392b' stroke-width='1' stroke-dasharray='4 3'/%3E%3Ctext x='120' y='22' font-size='12' fill='%23c0392b'%3EH (%D8%A7%D9%84%D9%82%D9%85%D8%A9)%3C/text%3E%3Ctext x='210' y='178' font-size='12' fill='%23333'%3Ex (%D8%A7%D9%84%D9%85%D8%AF%D9%89)%3C/text%3E%3C/svg%3E",
+       "options": [
+        "يزداد المدى ويقترب المسار من الإفلات عند بلوغ سرعة الإفلات",
+        "ينقص المدى",
+        "يتحوّل المسار إلى خط أفقي",
+        "يتوقف المقذوف"
+       ],
+       "answer": "يزداد المدى ويقترب المسار من الإفلات عند بلوغ سرعة الإفلات",
+       "answer_index": 0,
+       "explanation": "مع زيادة السرعة الابتدائية يطول المدى، وعند بلوغ سرعة الإفلات لا يعود الجسم يسقط (يرتبط بمفهوم الثقب الأسود).",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "diagram"
        ]
       }
      ]
