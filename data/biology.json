@@ -1202,6 +1202,249 @@
        "points": 2,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "يُقسَم الجهاز العصبي عند الإنسان إلى:",
+       "options": [
+        "مركزي ومحيطي",
+        "حسّي وحركي فقط",
+        "طرفي وداخلي",
+        "ودّي وجسدي فقط"
+       ],
+       "answer": "مركزي ومحيطي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يتكوّن الجهاز العصبي المركزي من:",
+       "options": [
+        "الدماغ والنخاع الشوكي",
+        "الأعصاب والعقد",
+        "القلب والرئتين",
+        "الغدد الصم"
+       ],
+       "answer": "الدماغ والنخاع الشوكي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وحدة البناء الوظيفية للجهاز العصبي هي:",
+       "options": [
+        "الخلية العصبية (العصبون)",
+        "الخلية العضلية",
+        "الخلية الدبقية فقط",
+        "الليف العصبي"
+       ],
+       "answer": "الخلية العصبية (العصبون)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند هيدرية الماء العذب يتكوّن الجهاز العصبي من:",
+       "options": [
+        "شبكة عصبية",
+        "دماغ وحبل شوكي",
+        "حبل عصبي بطني فقط",
+        "عقد رأسية"
+       ],
+       "answer": "شبكة عصبية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الجهاز العصبي عند الحشرات يتكوّن من:",
+       "options": [
+        "حبل عصبي بطني وعقد وأعصاب",
+        "شبكة عصبية بسيطة",
+        "دماغ وحبل ظهري",
+        "عقد رأسية فقط"
+       ],
+       "answer": "حبل عصبي بطني وعقد وأعصاب",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الدماغ والحبل الشوكي محميان بواسطة:",
+       "options": [
+        "السحايا والعظم",
+        "الجلد فقط",
+        "العضلات فقط",
+        "الغضاريف"
+       ],
+       "answer": "السحايا والعظم",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الأعصاب القحفية تنشأ من:",
+       "options": [
+        "الدماغ",
+        "النخاع الشوكي",
+        "العقد العصبية",
+        "الجهاز الودّي"
+       ],
+       "answer": "الدماغ",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يتكوّن الجهاز العصبي المركزي من المادة:",
+       "options": [
+        "الرمادية والبيضاء",
+        "الرمادية فقط",
+        "البيضاء فقط",
+        "الشفافة"
+       ],
+       "answer": "الرمادية والبيضاء",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المادّة الرمادية في الدماغ تتكوّن أساساً من:",
+       "options": [
+        "أجسام الخلايا العصبية",
+        "المحاور الميالينية",
+        "الألياف العضلية",
+        "الدم"
+       ],
+       "answer": "أجسام الخلايا العصبية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المادّة البيضاء تتكوّن أساساً من:",
+       "options": [
+        "المحاور الميالينية",
+        "أجسام الخلايا",
+        "النوى",
+        "الغشاء"
+       ],
+       "answer": "المحاور الميالينية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الوظيفة الرئيسية للجهاز العصبي:",
+       "options": [
+        "استقبال المعلومات ومعالجتها وإصدار الاستجابات",
+        "نقل الدم",
+        "إفراز الهرمونات فقط",
+        "الهضم"
+       ],
+       "answer": "استقبال المعلومات ومعالجتها وإصدار الاستجابات",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "العصبون هو الوحدة البنائية والوظيفية للجهاز العصبي.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تُحمى الدماغ والسحايا بالعظام فقط.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "تُحمى بالعظم والسحايا معاً.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الجهاز العصبي عند الحشرات حبل عصبي بطني.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -2145,6 +2388,282 @@
        "points": 2,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "يتكوّن النسيج العصبي من نوعين من الخلايا:",
+       "options": [
+        "العصبونات والخلايا الدبقية",
+        "العضلية والغضروفية",
+        "الدم واللمف",
+        "الظهارية والضامة"
+       ],
+       "answer": "العصبونات والخلايا الدبقية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "أجزاء العصبون الرئيسية هي:",
+       "options": [
+        "الجسم الخلوي والتغصّنات والمحور",
+        "النواة والغشاء فقط",
+        "الزوائد والأهداب",
+        "الحبيبات فقط"
+       ],
+       "answer": "الجسم الخلوي والتغصّنات والمحور",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التغصّنات (الشجيرات) وظيفتها:",
+       "options": [
+        "استقبال السيالة العصبية",
+        "إيصال السيالة بعيداً",
+        "إفراز الهرمونات",
+        "الهضم"
+       ],
+       "answer": "استقبال السيالة العصبية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المحور وظيفته:",
+       "options": [
+        "نقل السيالة العصبية بعيداً عن الجسم الخلوي",
+        "استقبال السيالة",
+        "تغليف العصبون",
+        "إفراز النواقل"
+       ],
+       "answer": "نقل السيالة العصبية بعيداً عن الجسم الخلوي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الغمد المياليني وظيفته:",
+       "options": [
+        "تسريع نقل السيالة وحماية المحور",
+        "إبطاء النقل",
+        "استقبال السيالة",
+        "إفراز الهرمون"
+       ],
+       "answer": "تسريع نقل السيالة وحماية المحور",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الخلايا الدبقية وظيفتها:",
+       "options": [
+        "دعم وحماية وتغذية العصبونات",
+        "نقل السيالة العصبية نفسها",
+        "إفراز الهرمونات",
+        "تكوين الدم"
+       ],
+       "answer": "دعم وحماية وتغذية العصبونات",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عقد رانفييه هي:",
+       "options": [
+        "فواصل في الغمد المياليني",
+        "نقاط اتصال بين عصبونين",
+        "أجسام خلوية",
+        "نوى"
+       ],
+       "answer": "فواصل في الغمد المياليني",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يُصنّف العصبون حسب الوظيفة إلى:",
+       "options": [
+        "حسّي وحركي ومُوصِّل (بيني)",
+        "طويل وقصير",
+        "رمادي وأبيض",
+        "مركزي ومحيطي"
+       ],
+       "answer": "حسّي وحركي ومُوصِّل (بيني)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "العصبون الحسّي ينقل السيالة من:",
+       "options": [
+        "المستقبلات إلى الجهاز العصبي المركزي",
+        "المركز إلى العضلات",
+        "الغدة إلى الدم",
+        "القمر إلى الجسم"
+       ],
+       "answer": "المستقبلات إلى الجهاز العصبي المركزي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "العصبون الحركي ينقل السيالة من:",
+       "options": [
+        "الجهاز العصبي المركزي إلى الأعضاء المنفّذة",
+        "المستقبلات إلى المركز",
+        "المركز إلى المركز",
+        "الدم إلى الخلايا"
+       ],
+       "answer": "الجهاز العصبي المركزي إلى الأعضاء المنفّذة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "العصبونات البينية (المُوصِّلة) توجد أساساً في:",
+       "options": [
+        "الجهاز العصبي المركزي",
+        "الأعضاء الحسّية",
+        "العضلات",
+        "الدم"
+       ],
+       "answer": "الجهاز العصبي المركزي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "غياب الميالين يؤدّي إلى:",
+       "options": [
+        "بطء نقل السيالة العصبية",
+        "تسريعها",
+        "انعدامها",
+        "لا تأثير"
+       ],
+       "answer": "بطء نقل السيالة العصبية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يتكوّن النسيج العصبي من العصبونات والخلايا الدبقية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الغمد المياليني يسرّع نقل السيالة العصبية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "التغصّنات تنقل السيالة بعيداً عن الجسم الخلوي.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "تنقلها نحو الجسم الخلوي (استقبال).",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الخلايا الدبقية تدعم وتحمي العصبونات.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -3153,6 +3672,264 @@
        "points": 2,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "يتكوّن الجهاز العصبي المحيطي من:",
+       "options": [
+        "الأعصاب والعقد",
+        "الدماغ فقط",
+        "النخاع الشوكي فقط",
+        "الغدد"
+       ],
+       "answer": "الأعصاب والعقد",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يُقسَم الجهاز العصبي المحيطي وظيفياً إلى:",
+       "options": [
+        "جسدي (إرادي) وذاتي (لاإرادي)",
+        "مركزي وطرفي",
+        "حسّي وحركي فقط",
+        "ودّي فقط"
+       ],
+       "answer": "جسدي (إرادي) وذاتي (لاإرادي)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الجهاز العصبي الذاتي (اللاإرادي) يتحكّم في:",
+       "options": [
+        "الأعضاء الداخلية",
+        "العضلات الهيكلية الإرادية",
+        "الحواسّ فقط",
+        "التفكير"
+       ],
+       "answer": "الأعضاء الداخلية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "ينقسم الجهاز العصبي الذاتي إلى:",
+       "options": [
+        "سمبثاوي وباراسمبثاوي",
+        "حسّي وحركي",
+        "مركزي ومحيطي",
+        "جسدي وعضلي"
+       ],
+       "answer": "سمبثاوي وباراسمبثاوي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الجهاز السمبثاوي (الودّي) يعمل أساساً في حالات:",
+       "options": [
+        "الطوارئ والانفعال",
+        "الراحة والهدوء",
+        "النوم العميق",
+        "الهضم فقط"
+       ],
+       "answer": "الطوارئ والانفعال",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الجهاز الباراسمبثاوي يعمل أساساً في:",
+       "options": [
+        "الراحة والاسترخاء",
+        "الطوارئ",
+        "القتال",
+        "الخوف"
+       ],
+       "answer": "الراحة والاسترخاء",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند انفعال الشخص يزداد عمل:",
+       "options": [
+        "الجهاز السمبثاوي",
+        "الجهاز الباراسمبثاوي",
+        "الجهاز الجسدي",
+        "الحواسّ"
+       ],
+       "answer": "الجهاز السمبثاوي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تأثير الجهاز الباراسمبثاوي على القلب:",
+       "options": [
+        "إبطاء ضرباته",
+        "تسريعها",
+        "إيقافها",
+        "لا تأثير"
+       ],
+       "answer": "إبطاء ضرباته",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تأثير الجهاز السمبثاوي على القلب:",
+       "options": [
+        "تسريع ضرباته",
+        "إبطاؤها",
+        "إيقافها",
+        "لا تأثير"
+       ],
+       "answer": "تسريع ضرباته",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "خاصّية الاستثارة (التهيّج) في العصبون تعني:",
+       "options": [
+        "قدرته على الاستجابة للمنبّه",
+        "انعدام استجابته",
+        "تكوين الدم",
+        "إفراز الهرمون"
+       ],
+       "answer": "قدرته على الاستجابة للمنبّه",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المستقبلات الحسّية تقوم بـ:",
+       "options": [
+        "تحويل المنبّه إلى سيالة عصبية",
+        "نقل السيالة للمركز فقط",
+        "إفراز الهرمونات",
+        "تقوية العضلات"
+       ],
+       "answer": "تحويل المنبّه إلى سيالة عصبية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "ينقسم الجهاز العصبي الذاتي إلى سمبثاوي وباراسمبثاوي.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الجهاز السمبثاوي يبطّئ القلب.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "بل يسرّعه.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "المستقبلات الحسّية تحوّل المنبّه إلى سيالة عصبية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الجهاز المحيطي يتكوّن من الأعصاب والعقد.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -3866,7 +4643,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المصطلح وتعريفه:",
+       "text": "طابق بين مصطلح من درس (الظواهر الكهربائية في الخلايا الحيّة - النقل في الأعصاب) وتعريفه:",
        "options": [],
        "answer": [
         "فرق الكمون بين السطحين بنحو -70 mV",
@@ -4027,6 +4804,300 @@
        "points": 2,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "كمون الراحة في العصبون يساوي تقريباً:",
+       "options": [
+        "−70 mV",
+        "+40 mV",
+        "0 mV",
+        "−140 mV"
+       ],
+       "answer": "−70 mV",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "ينشأ كمون الراحة أساساً عن:",
+       "options": [
+        "توزّع غير متساوٍ للأيونات ونفاذية الغشاء",
+        "انعدام الأيونات",
+        "تحلّل البروتينات",
+        "حركة العضلات"
+       ],
+       "answer": "توزّع غير متساوٍ للأيونات ونفاذية الغشاء",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الأيون الأكثر تركيزاً خارج الخلية:",
+       "options": [
+        "الصوديوم Na⁺",
+        "البوتاسيوم K⁺",
+        "الكلور فقط",
+        "الكالسيوم"
+       ],
+       "answer": "الصوديوم Na⁺",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الأيون الأكثر تركيزاً داخل الخلية:",
+       "options": [
+        "البوتاسيوم K⁺",
+        "الصوديوم Na⁺",
+        "الكلور",
+        "الكالسيوم"
+       ],
+       "answer": "البوتاسيوم K⁺",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في كمون الراحة يكون سطح الغشاء من الداخل:",
+       "options": [
+        "سالياً بالنسبة للخارج",
+        "موجباً",
+        "متعادلاً",
+        "متغيّراً"
+       ],
+       "answer": "سالياً بالنسبة للخارج",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يكمن سبب خروج K⁺ من الخلية في كمون الراحة في:",
+       "options": [
+        "مضخّة الصوديوم-بوتاسيوم وحاجز التركيز",
+        "نقص ATP",
+        "حركة Na⁺",
+        "الحرارة"
+       ],
+       "answer": "مضخّة الصوديوم-بوتاسيوم وحاجز التركيز",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "مضخّة الصوديوم-بوتاسيوم تنقل في كل دورة:",
+       "options": [
+        "3 Na⁺ خارجاً و2 K⁺ داخلاً",
+        "3 Na⁺ داخلاً و2 K⁺ خارجاً",
+        "1 Na⁺ و1 K⁺",
+        "4 Na⁺ خارجاً"
+       ],
+       "answer": "3 Na⁺ خارجاً و2 K⁺ داخلاً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تستهلك مضخّة Na⁺-K⁺ طاقة على شكل:",
+       "options": [
+        "ATP",
+        "DNA",
+        "RNA",
+        "GDP"
+       ],
+       "answer": "ATP",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "كمون العمل ينتج عن:",
+       "options": [
+        "تغيّر مؤقّت في نفاذية الغشاء للأيونات",
+        "ثبات النفاذية",
+        "نقص الأكسجين",
+        "توقّف المضخّة"
+       ],
+       "answer": "تغيّر مؤقّت في نفاذية الغشاء للأيونات",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "أثناء زوال الاستقطاب (إزالة الاستقطاب) يدخل إلى الخلية:",
+       "options": [
+        "الصوديوم Na⁺",
+        "البوتاسيوم K⁺",
+        "الكلور Cl⁻",
+        "البروتينات"
+       ],
+       "answer": "الصوديوم Na⁺",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "قيمة كمون العمل (الذروة) تقارب:",
+       "options": [
+        "+40 mV",
+        "−70 mV",
+        "0 mV",
+        "−140 mV"
+       ],
+       "answer": "+40 mV",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "أثناء عودة الاستقطاب يخرج من الخلية:",
+       "options": [
+        "البوتاسيوم K⁺",
+        "الصوديوم Na⁺",
+        "الكلور",
+        "الكالسيوم"
+       ],
+       "answer": "البوتاسيوم K⁺",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "فترة الجُمود (العصيان) تمنع:",
+       "options": [
+        "رجوع السيالة للخلف",
+        "انتشار السيالة",
+        "انعدامها",
+        "الاستقرار"
+       ],
+       "answer": "رجوع السيالة للخلف",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "كمون الراحة يقارب −70 mV.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تركيز K⁺ أعلى داخل الخلية منه خارجها.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تدخل شوارد Na⁺ إلى الخلية أثناء زوال الاستقطاب.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "مضخّة Na⁺-K⁺ تنقل 2 Na⁺ خارجاً و3 K⁺ داخلاً.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "تنقل 3 Na⁺ خارجاً و2 K⁺ داخلاً.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -5315,6 +6386,264 @@
        "points": 2,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "تنتقل السيالة العصبية على المحور المياليني بـ:",
+       "options": [
+        "القفز من عقدة رانفييه إلى التالية",
+        "الانتشار المستمر",
+        "الحمل مع الدم",
+        "الحركة الميكانيكية"
+       ],
+       "answer": "القفز من عقدة رانفييه إلى التالية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "نوع الانتقال على المحور المياليني يسمّى:",
+       "options": [
+        "الانتقال القافز (المتقطّع)",
+        "الانتقال المستمر",
+        "الانتقال الكيميائي",
+        "الانتشار"
+       ],
+       "answer": "الانتقال القافز (المتقطّع)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "سرعة السيالة العصبية على محور مياليني:",
+       "options": [
+        "أكبر من غير المياليني",
+        "أصغر",
+        "مساوية",
+        "منعدمة"
+       ],
+       "answer": "أكبر من غير المياليني",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المشبك (السينابس) هو:",
+       "options": [
+        "نقطة اتصال بين عصبونين أو عصبون وعضلة",
+        "نواة العصبون",
+        "غمد المحور",
+        "نوع من الهرمونات"
+       ],
+       "answer": "نقطة اتصال بين عصبونين أو عصبون وعضلة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "ينتقل السيالة عبر المشبك بواسطة:",
+       "options": [
+        "النواقل الكيميائية (الوسائط)",
+        "التيار الكهربائي مباشرة",
+        "الدم",
+        "الهرمونات الدرقية"
+       ],
+       "answer": "النواقل الكيميائية (الوسائط)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "مثال على ناقل كيميائي عصبي:",
+       "options": [
+        "الأستيل كولين",
+        "الغلوكوز",
+        "الهيموغلوبين",
+        "الكولسترول"
+       ],
+       "answer": "الأستيل كولين",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يتحرّر الناقل الكيميائي من:",
+       "options": [
+        "الحويصلات المشبكية في النهاية قبل المشبكية",
+        "الميتوكوندريا",
+        "النواة",
+        "الشجرة"
+       ],
+       "answer": "الحويصلات المشبكية في النهاية قبل المشبكية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الفراغ المشبكي هو الفاصل بين:",
+       "options": [
+        "الغشاء قبل المشبكي وبعد المشبكي",
+        "عصبونين متباعدين تماماً",
+        "المحور والنواة",
+        "العضلة والدم"
+       ],
+       "answer": "الغشاء قبل المشبكي وبعد المشبكي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "انتقال السيالة عبر المشبك يجعل النقل:",
+       "options": [
+        "أحاديّ الاتجاه",
+        "ثنائي الاتجاه",
+        "عشوائياً",
+        "معدوماً"
+       ],
+       "answer": "أحاديّ الاتجاه",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الأستيل كولين بعد أداء وظيفته يتحلّل بواسطة:",
+       "options": [
+        "إنزيم الكولين إستراز",
+        "الأنسولين",
+        "البيبسين",
+        "الأميلاز"
+       ],
+       "answer": "إنزيم الكولين إستراز",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "السيالة العصبية تعني تغيّراً في:",
+       "options": [
+        "جهد الغشاء ينتقل على طول العصبون",
+        "درجة حرارة الجسم",
+        "تركيز الدم",
+        "الشكل الخارجي"
+       ],
+       "answer": "جهد الغشاء ينتقل على طول العصبون",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تنتقل السيالة على المحور المياليني بقفزات بين عقد رانفييه.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "ينتقل السيالة عبر المشبك بوساطة كيميائية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "النقل عبر المشبك ثنائي الاتجاه.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "أحاديّ الاتجاه.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الأستيل كولين ناقل عصبي.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -6379,6 +7708,246 @@
        "points": 2,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "الفعل المنعكس هو استجابة:",
+       "options": [
+        "سريعة لا إرادية لمنبّه",
+        "بطيئة إرادية",
+        "مكتسبة دائماً",
+        "معقّدة"
+       ],
+       "answer": "سريعة لا إرادية لمنبّه",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "القوس المنعكسة تتكوّن من:",
+       "options": [
+        "مستقبل وعصبون حسّي ومركز وعصبون حركي ومنفّذ",
+        "مستقبل ومنفّذ فقط",
+        "دماغ فقط",
+        "غدة وهرمون"
+       ],
+       "answer": "مستقبل وعصبون حسّي ومركز وعصبون حركي ومنفّذ",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الدور الرئيسي للفعل المنعكس:",
+       "options": [
+        "حماية الجسم بسرعة من الأذى",
+        "الإحساس باللمس فقط",
+        "الهضم",
+        "التنفّس"
+       ],
+       "answer": "حماية الجسم بسرعة من الأذى",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "مركز الفعل المنعكس البسيط يكون في:",
+       "options": [
+        "النخاع الشوكي",
+        "المخ",
+        "المخيخ",
+        "البصلة"
+       ],
+       "answer": "النخاع الشوكي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تسلسل الفعل المنعكس:",
+       "options": [
+        "منبّه ← مستقبل ← عصبون حسّي ← مركز ← عصبون حركي ← منفّذ",
+        "منبّه ← منفّذ ← مستقبل",
+        "مستقبل ← غدة ← دم",
+        "دماغ ← قلب"
+       ],
+       "answer": "منبّه ← مستقبل ← عصبون حسّي ← مركز ← عصبون حركي ← منفّذ",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند لمس جسم ساخن تُسحب اليد بفعل:",
+       "options": [
+        "فعل منعكس نخاعي",
+        "تفكير واعٍ بطيء",
+        "إرادة",
+        "هرمون"
+       ],
+       "answer": "فعل منعكس نخاعي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "العصبون الحسّي في القوس المنعكسة ينقل السيالة:",
+       "options": [
+        "من المستقبل إلى المركز",
+        "من المركز إلى المنفّذ",
+        "من العضلة إلى الدم",
+        "من الدم إلى القلب"
+       ],
+       "answer": "من المستقبل إلى المركز",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "العصبون الحركي في القوس المنعكسة ينقل السيالة:",
+       "options": [
+        "من المركز إلى العضو المنفّذ",
+        "من المستقبل إلى المركز",
+        "من الدماغ إلى القلب",
+        "من الغدة إلى الدم"
+       ],
+       "answer": "من المركز إلى العضو المنفّذ",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "من أمثلة الأفعال المنعكسة:",
+       "options": [
+        "انقباض البؤبؤ عند الإضاءة",
+        "التفكير في مسألة",
+        "تعلّم لغة",
+        "الكتابة"
+       ],
+       "answer": "انقباض البؤبؤ عند الإضاءة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الفعل المنعكس المكتسب ينتج عن:",
+       "options": [
+        "التعلّم والتدريب",
+        "الوراثة فقط",
+        "المنعكسات الفطرية",
+        "الحرارة"
+       ],
+       "answer": "التعلّم والتدريب",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الفعل المنعكس استجابة لا إرادية سريعة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تضمّ القوس المنعكسة عصبوناً حسّياً وعصبوناً حركياً.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "مركز الفعل المنعكس البسيط هو المخ.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "النخاع الشوكي.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "انقباض البؤبؤ عند الإضاءة فعل منعكس.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -7158,6 +8727,228 @@
        "points": 2,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "التصلّب اللويحي (MS) هو مرض يصيب:",
+       "options": [
+        "الغمد المياليني في الجهاز العصبي المركزي",
+        "العظام",
+        "القلب",
+        "الكبد"
+       ],
+       "answer": "الغمد المياليني في الجهاز العصبي المركزي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الباركنسون (الشلل الرعاش) ينتج عن نقص ناقل عصبي هو:",
+       "options": [
+        "الدوبامين",
+        "الأستيل كولين",
+        "الأدرينالين",
+        "السيروتونين"
+       ],
+       "answer": "الدوبامين",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "من أعراض الباركنسون:",
+       "options": [
+        "رجفان وتيبّس عضلي",
+        "شلل تام فوري",
+        "زرق",
+        "فقدان السمع فقط"
+       ],
+       "answer": "رجفان وتيبّس عضلي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الصرع هو:",
+       "options": [
+        "اختلال في النشاط الكهربائي للدماغ",
+        "مرض عضلي",
+        "نقص فيتامين",
+        "مرض جيني فقط"
+       ],
+       "answer": "اختلال في النشاط الكهربائي للدماغ",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "مهمّة المستقبلات الحسية:",
+       "options": [
+        "تحويل المنبّهات إلى إشارات عصبية",
+        "نقل الدم",
+        "إفراز الهرمونات",
+        "الهضم"
+       ],
+       "answer": "تحويل المنبّهات إلى إشارات عصبية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المستقبلات الجلدية تستقبل منبّهات:",
+       "options": [
+        "اللمس والضغط والحرارة والألم",
+        "الضوء",
+        "الصوت",
+        "الروائح"
+       ],
+       "answer": "اللمس والضغط والحرارة والألم",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يُسمّى تكيّف المستقبل الحسّي عند استمرار المنبّه:",
+       "options": [
+        "التلاؤم (التكيّف)",
+        "الاستثارة",
+        "الانقباض",
+        "التوصيل"
+       ],
+       "answer": "التلاؤم (التكيّف)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "من أنواع المستقبلات الحسية:",
+       "options": [
+        "المستقبلات الميكانيكية والحرارية والألمية",
+        "القلب والرئتان",
+        "الكبد والكلى",
+        "العضلات فقط"
+       ],
+       "answer": "المستقبلات الميكانيكية والحرارية والألمية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الجهاز العصبي المحيطي يتأثّر بالأمراض مثل:",
+       "options": [
+        "اعتلال الأعصاب المحيطية",
+        "التهاب المعدة",
+        "حصى الكلى",
+        "الربو"
+       ],
+       "answer": "اعتلال الأعصاب المحيطية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الباركنسون مرتبط بنقص الدوبامين.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "التصلّب اللويحي يصيب الغمد المياليني.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تحوّل المستقبلات الحسّية المنبّهات إلى إشارات عصبية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "المستقبلات الجلدية تستقبل الضوء.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "تستقبل اللمس والضغط والحرارة.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -8045,6 +9836,264 @@
        "points": 3,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "توجد المستقبلات الكيميائية للذوق والشم في:",
+       "options": [
+        "اللسان والأنف",
+        "العين",
+        "الأذن",
+        "الجلد"
+       ],
+       "answer": "اللسان والأنف",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "حاسّة الشم تعتمد على مستقبلات:",
+       "options": [
+        "كيميائية",
+        "ضوئية",
+        "ميكانيكية",
+        "حرارية"
+       ],
+       "answer": "كيميائية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "براعم الذوق توجد أساساً في:",
+       "options": [
+        "اللسان",
+        "الأذن الداخلية",
+        "القرنية",
+        "الشبكية"
+       ],
+       "answer": "اللسان",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "حاسّة الصوت تلتقط الموجات الصوتية عبر:",
+       "options": [
+        "الأذن",
+        "الأنف",
+        "اللسان",
+        "العين"
+       ],
+       "answer": "الأذن",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يتكوّن الجهاز السمعي من:",
+       "options": [
+        "الأذن الخارجية والوسطى والداخلية",
+        "العين والجفن",
+        "الأنف والبلعوم",
+        "الجلد"
+       ],
+       "answer": "الأذن الخارجية والوسطى والداخلية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وظيفة غشاء الطبلة في الأذن:",
+       "options": [
+        "تحويل الموجات الصوتية إلى اهتزازات ميكانيكية",
+        "استقبال الضوء",
+        "قياس الحرارة",
+        "إفراز الهرمون"
+       ],
+       "answer": "تحويل الموجات الصوتية إلى اهتزازات ميكانيكية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "توجد المستقبلات السمعية في:",
+       "options": [
+        "القوقعة (الأذن الداخلية)",
+        "الأذن الخارجية",
+        "الطبلة",
+        "العظم"
+       ],
+       "answer": "القوقعة (الأذن الداخلية)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "العُقَيدات (عظيمات الأذن الوسطى) تقوم بـ:",
+       "options": [
+        "تقوية الاهتزازات ونقلها للأذن الداخلية",
+        "استقبال الصوت",
+        "إفراز الهرمونات",
+        "حماية العين"
+       ],
+       "answer": "تقوية الاهتزازات ونقلها للأذن الداخلية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الخلايا الشعرية في القوقعة تحوّل الاهتزاز إلى:",
+       "options": [
+        "إشارة عصبية",
+        "ضوء",
+        "حرارة",
+        "هرمون"
+       ],
+       "answer": "إشارة عصبية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "اختلال التلاؤم في مستقبلات الشم يؤدي إلى:",
+       "options": [
+        "عدم الإحساس بالرائحة بعد فترة",
+        "زيادة الحساسية دائماً",
+        "العمى",
+        "الصمم"
+       ],
+       "answer": "عدم الإحساس بالرائحة بعد فترة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المستقبلات الكيميائية تنشط بفعل:",
+       "options": [
+        "جزيئات مواد كيميائية",
+        "الموجات الكهرطيسية",
+        "الضغط",
+        "الحرارة"
+       ],
+       "answer": "جزيئات مواد كيميائية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "توجد براعم الذوق في اللسان.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الخلايا الشعرية في القوقعة تحوّل الاهتزاز إلى إشارة عصبية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "حاسّة الشم تعتمد على مستقبلات ضوئية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "كيميائية.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "غشاء الطبلة يحوّل الموجات الصوتية إلى اهتزازات.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -9079,6 +11128,264 @@
        "points": 3,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "يتكوّن الجهاز الدهليزي من:",
+       "options": [
+        "القنوات الهلالية والكييس والقلنسوة",
+        "القوقعة فقط",
+        "الشبكية",
+        "الطبلة"
+       ],
+       "answer": "القنوات الهلالية والكييس والقلنسوة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "القنوات الهلالية الثلاث في الأذن الداخلية مسؤولة عن:",
+       "options": [
+        "إدراك الدوران والتوازن الدينامي",
+        "السمع فقط",
+        "الشم",
+        "الذوق"
+       ],
+       "answer": "إدراك الدوران والتوازن الدينامي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تتكوّن الشبكية في العين من نوعين من المستقبلات:",
+       "options": [
+        "العصيّات والمخاريط",
+        "الحليمات والحويصلات",
+        "الأهداب والزوائد",
+        "النوى والحبيبات"
+       ],
+       "answer": "العصيّات والمخاريط",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "العصيّات مسؤولة عن:",
+       "options": [
+        "الإبصار في الضوء الخافت (الرؤية الليلية)",
+        "رؤية الألوان",
+        "الشم",
+        "التوازن"
+       ],
+       "answer": "الإبصار في الضوء الخافت (الرؤية الليلية)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المخاريط مسؤولة عن:",
+       "options": [
+        "رؤية الألوان في الضوء الساطع",
+        "الرؤية الليلية فقط",
+        "الصوت",
+        "الذوق"
+       ],
+       "answer": "رؤية الألوان في الضوء الساطع",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "مخروط العين وظيفته:",
+       "options": [
+        "تجميع الضوء على الشبكية",
+        "استقبال الصوت",
+        "إفراز الدمع",
+        "تحويل الحركة إلى إشارة"
+       ],
+       "answer": "تجميع الضوء على الشبكية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "القزحية تتحكّم في:",
+       "options": [
+        "قطر البؤبؤ وكمّية الضوء الداخلة",
+        "تجميع الضوء",
+        "استقبال الألوان",
+        "الضغط"
+       ],
+       "answer": "قطر البؤبؤ وكمّية الضوء الداخلة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التلاؤم في العين يعني:",
+       "options": [
+        "تعديل قوّة العدسة لرؤية الأجسام القريبة والبعيدة",
+        "إغلاق العين",
+        "تحوّل الألوان",
+        "انعدام الرؤية"
+       ],
+       "answer": "تعديل قوّة العدسة لرؤية الأجسام القريبة والبعيدة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الرؤية المزدوجة (المزدوجة) تنشأ عن:",
+       "options": [
+        "عدم توافق عمل العينين",
+        "زيادة الضوء",
+        "قصر النظر",
+        "طول النظر"
+       ],
+       "answer": "عدم توافق عمل العينين",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "قصّر النظر يُصحّح بـ:",
+       "options": [
+        "عدسة مقعّرة (مفرّقة)",
+        "عدسة محدّبة",
+        "نظارة شمسية",
+        "لا شيء"
+       ],
+       "answer": "عدسة مقعّرة (مفرّقة)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المنطقة التي تُرى فيها الصورة داخل العين بوضوح:",
+       "options": [
+        "البقعة الصفراء (المركزية)",
+        "النقطة العمياء",
+        "القزحية",
+        "القرنية"
+       ],
+       "answer": "البقعة الصفراء (المركزية)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "توجد مستقبلات التوازن في الأذن الداخلية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "العصيّات مسؤولة عن رؤية الألوان.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "الرؤية في الضوء الخافت.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "المخاريط مسؤولة عن رؤية الألوان.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "القزحية تتحكّم في كمية الضوء الداخلة إلى العين.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -10386,6 +12693,300 @@
        "points": 3,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "الغدد الصم هي غدد:",
+       "options": [
+        "تُفرز هرمونات مباشرة في الدم",
+        "لها قنوات إفرازية",
+        "تُفرز الإنزيمات الهاضمة",
+        "لا تُفرز شيئاً"
+       ],
+       "answer": "تُفرز هرمونات مباشرة في الدم",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الهرمونات هي مواد:",
+       "options": [
+        "تنظّم وظائف الجسم وتُنقل بالدم",
+        "تُهضم في المعدة",
+        "تُفرَز في القنوات",
+        "تبني العظام مباشرة"
+       ],
+       "answer": "تنظّم وظائف الجسم وتُنقل بالدم",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الغدة النخامية تقع في:",
+       "options": [
+        "قاعدة الدماغ",
+        "الرقبة",
+        "البطن",
+        "الصدر"
+       ],
+       "answer": "قاعدة الدماغ",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الهرمون المسؤول عن تنظيم سكّر الدم (خفضه) هو:",
+       "options": [
+        "الأنسولين",
+        "الغلوكاغون",
+        "الأدرينالين",
+        "الثيروكسين"
+       ],
+       "answer": "الأنسولين",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يُفرَز الأنسولين من:",
+       "options": [
+        "جزر لانغرهانس في البنكرياس",
+        "الغدة الدرقية",
+        "الكظر",
+        "النخامية"
+       ],
+       "answer": "جزر لانغرهانس في البنكرياس",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الهرمون الذي يرفع سكّر الدم هو:",
+       "options": [
+        "الغلوكاغون",
+        "الأنسولين",
+        "الثيروكسين",
+        "الكورتيزول فقط"
+       ],
+       "answer": "الغلوكاغون",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الغدة الدرقية تُفرز:",
+       "options": [
+        "الثيروكسين",
+        "الأنسولين",
+        "الأدرينالين",
+        "الهرمون الجنسي"
+       ],
+       "answer": "الثيروكسين",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الهرمون المسؤول عن استجابة الطوارئ (القتال أو الهرب) هو:",
+       "options": [
+        "الأدرينالين",
+        "الأنسولين",
+        "الثيروكسين",
+        "الغلوكاغون"
+       ],
+       "answer": "الأدرينالين",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يُفرَز الأدرينالين من:",
+       "options": [
+        "الغدّة الكظرية",
+        "البنكرياس",
+        "الدرقية",
+        "النخامية"
+       ],
+       "answer": "الغدّة الكظرية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "نقص الأنسولين يؤدّي إلى:",
+       "options": [
+        "داء السكّري",
+        "العملقة",
+        "القزامة",
+        "الزُّغام (الجويتر)"
+       ],
+       "answer": "داء السكّري",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الغدة التي تُعرف بالغدّة الرئيسية (السيدة) هي:",
+       "options": [
+        "النخامية",
+        "الدرقية",
+        "الكظرية",
+        "الصنوبرية"
+       ],
+       "answer": "النخامية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "هرمون النمو يُفرَز من:",
+       "options": [
+        "الغدة النخامية",
+        "الدرقية",
+        "البنكرياس",
+        "الكظر"
+       ],
+       "answer": "الغدة النخامية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "نقص هرمون النمو في الطفولة يؤدّي إلى:",
+       "options": [
+        "القزامة",
+        "العملقة",
+        "السكّري",
+        "الجويتر"
+       ],
+       "answer": "القزامة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تُفرز الغدد الصم هرموناتها مباشرة في الدم.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الأنسولين يخفض سكّر الدم.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الأدرينالين يُفرَز من الغدة الدرقية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "من الغدة الكظرية.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الغدة النخامية تُعدّ الغدّة الرئيسية في الجسم.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -11016,6 +13617,264 @@
        "points": 3,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "يُسيطَر على إفراز معظم الغدد الصم بواسطة:",
+       "options": [
+        "الغدة النخامية بتأثير تحت المهاد",
+        "القلب",
+        "الرئتين",
+        "الكبد"
+       ],
+       "answer": "الغدة النخامية بتأثير تحت المهاد",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التلقيم الراجع (الارتجاعي) السلبي يعني:",
+       "options": [
+        "كبح الإفراز عند زيادة الهرمون",
+        "زيادة الإفراز دائماً",
+        "توقّف الغدة نهائياً",
+        "إفراز الهرمون في القنوات"
+       ],
+       "answer": "كبح الإفراز عند زيادة الهرمون",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند انخفاض سكّر الدم يُفرَز:",
+       "options": [
+        "الغلوكاغون",
+        "الأنسولين",
+        "الثيروكسين",
+        "الأستروجين"
+       ],
+       "answer": "الغلوكاغون",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الهرمونات النباتية تُسمّى:",
+       "options": [
+        "منظّمات النمو (الهرمونات النباتية)",
+        "الأنزيمات",
+        "الفيتامينات",
+        "الأصبغة"
+       ],
+       "answer": "منظّمات النمو (الهرمونات النباتية)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الأوكسين هو هرمون نباتي مسؤول عن:",
+       "options": [
+        "استطالة الخلايا والتوجّه نحو الضوء",
+        "الهضم",
+        "التنفّس",
+        "التمثيل الضوئي"
+       ],
+       "answer": "استطالة الخلايا والتوجّه نحو الضوء",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تأثير الأوكسين على انحناء الساق نحو الضوء يسمّى:",
+       "options": [
+        "الانتحاء الضوئي",
+        "الانتحاء الأرضي",
+        "الانتحاء المائي",
+        "الانتحاء الكيميائي"
+       ],
+       "answer": "الانتحاء الضوئي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الجبرلين هرمون نباتي يؤثّر في:",
+       "options": [
+        "استطالة الساق ونموّ البذور",
+        "الهضم",
+        "التبريد",
+        "الانتحاء الضوئي فقط"
+       ],
+       "answer": "استطالة الساق ونموّ البذور",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "السيتوكينين يؤثّر أساساً في:",
+       "options": [
+        "انقسام الخلايا ونموّ البراعم",
+        "سقوط الأوراق",
+        "الانتحاء",
+        "إفراز الرحيق"
+       ],
+       "answer": "انقسام الخلايا ونموّ البراعم",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "حمض الأبسيسيك (ABA) يؤثّر في:",
+       "options": [
+        "إغلاق الثغور وسكون البذور",
+        "النمو السريع",
+        "الانتحاء نحو الضوء",
+        "إفراز الأوكسين"
+       ],
+       "answer": "إغلاق الثغور وسكون البذور",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الإثيلين هرمون نباتي غازي مسؤول عن:",
+       "options": [
+        "نضج الثمار",
+        "استطالة الساق",
+        "الانتحاء",
+        "امتصاص الماء"
+       ],
+       "answer": "نضج الثمار",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التنسيق الكيميائي في النبات يعتمد على:",
+       "options": [
+        "هرمونات نباتية تنتقل في الأوعية",
+        "جهاز عصبي",
+        "دماغ نباتي",
+        "قلب نباتي"
+       ],
+       "answer": "هرمونات نباتية تنتقل في الأوعية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يُسيطَر على إفراز الغدد الصم بالتلقيم الراجع.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الأوكسين هرمون نباتي يتحكّم في الانتحاء الضوئي.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الإثيلين يتحكّم في نضج الثمار.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "للنبات جهاز عصبي مركزي.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "التنسيق كيميائي هرموني.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -15848,6 +18707,336 @@
        "points": 2,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "الفيروسات تتكاثر:",
+       "options": [
+        "داخل خلايا العائل فقط",
+        "بحرية في الوسط",
+        "بالانقسام الثنائي",
+        "بالجراثيم"
+       ],
+       "answer": "داخل خلايا العائل فقط",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التكاثر اللاجنسي يتميّز بأنّه:",
+       "options": [
+        "ينتج نسلاً مطابقاً للأصل",
+        "ينتج أفراداً متنوّعة",
+        "يحتاج لقاحاً دائماً",
+        "يختصّ بالثدييات"
+       ],
+       "answer": "ينتج نسلاً مطابقاً للأصل",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التكاثر الجنسي يتميّز بأنّه:",
+       "options": [
+        "ينتج تنوّعاً وراثياً",
+        "ينتج نسخاً مطابقة",
+        "لا يحتاج أمشاجاً",
+        "يختصّ بالفيروسات"
+       ],
+       "answer": "ينتج تنوّعاً وراثياً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الانقسام الثنائي البسيط يوجد عند:",
+       "options": [
+        "الجراثيم (البدائيات)",
+        "الإنسان",
+        "الفيروسات فقط",
+        "النباتات الزهرية"
+       ],
+       "answer": "الجراثيم (البدائيات)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التبرعم (الإ Budding) يوجد عند:",
+       "options": [
+        "الخميرة",
+        "الفيروسات",
+        "الطيور",
+        "الأسماك"
+       ],
+       "answer": "الخميرة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التكاثر بالجراثيم (الأبواغ) يوجد عند:",
+       "options": [
+        "بعض الفطريات والطحالب",
+        "الثدييات",
+        "الطيور",
+        "الأسماك"
+       ],
+       "answer": "بعض الفطريات والطحالب",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التكاثر العذري (التجزّؤ) يعني:",
+       "options": [
+        "انقسام الجسم إلى أجزاء يكوّن كل منها فرداً",
+        "انقسام الخلية لخليتين",
+        "تشكّل أبواغ",
+        "الإلقاح الخارجي"
+       ],
+       "answer": "انقسام الجسم إلى أجزاء يكوّن كل منها فرداً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "من أمثلة التكاثر بالتجزّؤ:",
+       "options": [
+        "البلاناريا ونجم البحر",
+        "الإنسان",
+        "الفيروسات",
+        "الصنوبر"
+       ],
+       "answer": "البلاناريا ونجم البحر",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التكاثر العذري عند النبات:",
+       "options": [
+        "إنتاج أفراد من أجزاء نباتية كالساق والجذر والبرعم",
+        "الإلقاح المزدوج",
+        "تشكّل البذور",
+        "التلقيح"
+       ],
+       "answer": "إنتاج أفراد من أجزاء نباتية كالساق والجذر والبرعم",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "من أمثلة التكاثر العذري عند النبات:",
+       "options": [
+        "التكاثر بالدرنات والرايزومات",
+        "الإلقاح الخارجي",
+        "تشكّل الفطريات",
+        "الانقسام الاختزالي"
+       ],
+       "answer": "التكاثر بالدرنات والرايزومات",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التكاثر الجنسي يتطلّب:",
+       "options": [
+        "أمشاجاً ذكرية وأنثوية وحدوث الإلقاح",
+        "فرداً واحداً فقط",
+        "جراثيم",
+        "تبرعماً"
+       ],
+       "answer": "أمشاجاً ذكرية وأنثوية وحدوث الإلقاح",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الإلقاح الخارجي يحدث عند:",
+       "options": [
+        "الأسماك والبرمائيات",
+        "الثدييات",
+        "الطيور",
+        "الزواحف"
+       ],
+       "answer": "الأسماك والبرمائيات",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الإلقاح الداخلي يحدث عند:",
+       "options": [
+        "الثدييات والطيور والزواحف",
+        "الأسماك فقط",
+        "الطحالب",
+        "الفطريات"
+       ],
+       "answer": "الثدييات والطيور والزواحف",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الفرد ثنائي الجنس (خنثى) هو:",
+       "options": [
+        "يحمل أعضاء ذكرية وأنثوية معاً",
+        "ذكر فقط",
+        "أنثى فقط",
+        "لا يتكاثر"
+       ],
+       "answer": "يحمل أعضاء ذكرية وأنثوية معاً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "من أمثلة الكائنات الخنثى:",
+       "options": [
+        "دودة الأرض والحلزون",
+        "الإنسان",
+        "الفيل",
+        "الصقر"
+       ],
+       "answer": "دودة الأرض والحلزون",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الفيروسات لا تتكاثر إلا داخل خلايا العائل.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "التكاثر اللاجنسي ينتج نسلاً مطابقاً وراثياً للأصل.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "التكاثر الجنسي يحقّق تنوّعاً وراثياً.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "دودة الأرض كائن منفصل الجنس.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "خنثى (ثنائي الجنس).",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -16422,6 +19611,264 @@
        "points": 3,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "الخلايا الجذعية هي خلايا:",
+       "options": [
+        "غير متخصّصة قادرة على الانقسام والتخصّص",
+        "متخصّصة نهائياً",
+        "لا تنقسم",
+        "تحمل الأمراض"
+       ],
+       "answer": "غير متخصّصة قادرة على الانقسام والتخصّص",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تكاثر الجراثيم (البكتيريا) يتمّ أساساً بـ:",
+       "options": [
+        "الانقسام الثنائي البسيط",
+        "الإلقاح",
+        "التبرعم الجنسي",
+        "الجراثيم فقط"
+       ],
+       "answer": "الانقسام الثنائي البسيط",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تكاثر الفطريات قد يتمّ:",
+       "options": [
+        "بالأبواغ جنسياً ولاجنسياً",
+        "بالإلقاح فقط",
+        "بالدرنات",
+        "بالبذور"
+       ],
+       "answer": "بالأبواغ جنسياً ولاجنسياً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الخميرة (فطر وحيد الخلية) تتكاثر أساساً بـ:",
+       "options": [
+        "التبرعم",
+        "الإلقاح",
+        "الأبواغ الجنسية فقط",
+        "الانقسام الاختزالي فقط"
+       ],
+       "answer": "التبرعم",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "من استخدامات التقانات الحيوية:",
+       "options": [
+        "إنتاج الأدوية والأنسولين",
+        "بناء الجسور",
+        "صناعة الحديد",
+        "تكرير البترول فقط"
+       ],
+       "answer": "إنتاج الأدوية والأنسولين",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الهندسة الوراثية تعني:",
+       "options": [
+        "تعديل مادّة الوراثة DNA لغرض معيّن",
+        "زراعة الأرض",
+        "تكثير الحيوانات",
+        "صناعة الحواسيب"
+       ],
+       "answer": "تعديل مادّة الوراثة DNA لغرض معيّن",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الأنسولين البشري المُنتَج بالتقانات الحيوية يُصنَع بـ:",
+       "options": [
+        "بكتيريا معدّلة وراثياً",
+        "الحديد",
+        "الأوكسين",
+        "البلاناريا"
+       ],
+       "answer": "بكتيريا معدّلة وراثياً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الاستنساخ (النسخ) يعني:",
+       "options": [
+        "إنتاج نسخة وراثية مطابقة",
+        "إنتاج هجين",
+        "الإلقاح المزدوج",
+        "زراعة الأعضاء"
+       ],
+       "answer": "إنتاج نسخة وراثية مطابقة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التخصّص الخلوي هو:",
+       "options": [
+        "تحوّل خلية جذعية إلى نوع متخصّص",
+        "انقسام الخلية",
+        "موت الخلية",
+        "التبرعم"
+       ],
+       "answer": "تحوّل خلية جذعية إلى نوع متخصّص",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الخلايا الجذعية عند البالغين توجد أساساً في:",
+       "options": [
+        "نخاع العظام",
+        "الدم الجاف",
+        "الحديد",
+        "الأوكسين"
+       ],
+       "answer": "نخاع العظام",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "من الأخلاقيات المهمّة في التقانات الحيوية:",
+       "options": [
+        "احترام الخصوصية والحدود الأخلاقية",
+        "إهمال الأمان",
+        "استخدام البشر بلا ضوابط",
+        "السرّية المطلقة"
+       ],
+       "answer": "احترام الخصوصية والحدود الأخلاقية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الخلايا الجذعية قادرة على التخصّص إلى أنواع خلوية مختلفة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "البكتيريا تتكاثر أساساً بالانقسام الثنائي البسيط.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الخميرة تتكاثر بالتبرعم.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الاستنساخ ينتج تنوّعاً وراثياً كبيراً.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "ينتج نسخة مطابقة.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -16956,6 +20403,210 @@
        "points": 3,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "عاريات البذور نباتات بذورها:",
+       "options": [
+        "مكشوفة غير محصورة في ثمرة",
+        "داخل ثمرة",
+        "بلا بذور",
+        "بلا أزهار"
+       ],
+       "answer": "مكشوفة غير محصورة في ثمرة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المخروط الذكري في الصنوبر يحمل:",
+       "options": [
+        "أكياس اللقاح (حبوب اللقاح)",
+        "البويضات",
+        "البذور",
+        "الثمار"
+       ],
+       "answer": "أكياس اللقاح (حبوب اللقاح)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "ينتقل حبّ اللقاح عند الصنوبر بوساطة:",
+       "options": [
+        "الرياح",
+        "الحشرات دائماً",
+        "الطيور",
+        "الماء"
+       ],
+       "answer": "الرياح",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التلقيح هو:",
+       "options": [
+        "انتقال حبّ اللقاح إلى البويضة",
+        "الإلقاح المزدوج",
+        "تشكّل الثمرة",
+        "نموّ الساق"
+       ],
+       "answer": "انتقال حبّ اللقاح إلى البويضة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الإلقاح عند عاريات البذور يتمّ:",
+       "options": [
+        "داخل البويضة على المخروط الأنثوي",
+        "في الثمرة",
+        "في الماء",
+        "في التراب"
+       ],
+       "answer": "داخل البويضة على المخروط الأنثوي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "البذرة عند الصنوبر تتكوّن من:",
+       "options": [
+        "اللاقحة (الزايغوت) بعد الإلقاح",
+        "اللقاح",
+        "البويضة قبل الإلقاح",
+        "الورقة"
+       ],
+       "answer": "اللاقحة (الزايغوت) بعد الإلقاح",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "حبوب اللقاح تُنتج في:",
+       "options": [
+        "المخروط الذكري",
+        "المخروط الأنثوي",
+        "الجذر",
+        "الثمرة"
+       ],
+       "answer": "المخروط الذكري",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تتميّز عاريات البذور بأنّ:",
+       "options": [
+        "البذرة عارية لا تحيط بها ثمرة",
+        "بذورها في ثمار",
+        "لا بذور لها",
+        "زهورها ملوّنة"
+       ],
+       "answer": "البذرة عارية لا تحيط بها ثمرة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "عاريات البذور بذورها مكشوفة غير محصورة في ثمرة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الصنوبر من عاريات البذور.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تلقيح الصنوبر يتمّ بوساطة الرياح.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "بذور الصنوبر تتكوّن داخل ثمرة لحمية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "بذور عارية.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -17761,6 +21412,282 @@
        "points": 3,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "مغلفات البذور (النباتات الزهرية) بذورها:",
+       "options": [
+        "محصورة داخل ثمرة",
+        "عارية",
+        "بلا بذور",
+        "بلا أزهار"
+       ],
+       "answer": "محصورة داخل ثمرة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "العضو الجنسي الأنثوي في الزهرة هو:",
+       "options": [
+        "المدقّة",
+        "السداة",
+        "السبلات",
+        "البتلات"
+       ],
+       "answer": "المدقّة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "العضو الجنسي الذكري في الزهرة هو:",
+       "options": [
+        "السداة",
+        "المدقّة",
+        "البتلات",
+        "الكأس"
+       ],
+       "answer": "السداة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المدقّة تتكوّن من:",
+       "options": [
+        "الميسم والقلم والمبيض",
+        "المتوك والمتك",
+        "السبلة والبتلة",
+        "الورقة والساق"
+       ],
+       "answer": "الميسم والقلم والمبيض",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "السداة تتكوّن من:",
+       "options": [
+        "المتك والخيط",
+        "الميسم والقلم",
+        "المبيض",
+        "الكأس"
+       ],
+       "answer": "المتك والخيط",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "البويضات توجد في:",
+       "options": [
+        "مبيض المدقّة",
+        "المتك",
+        "البتلة",
+        "السبلة"
+       ],
+       "answer": "مبيض المدقّة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التلقيح الذاتي يحدث عندما:",
+       "options": [
+        "ينتقل اللقاح من متك إلى ميسم الزهرة نفسها أو زهرة من النبات نفسه",
+        "بين نباتين مختلفين",
+        "بوساطة الرياح فقط",
+        "بدون أمشاج"
+       ],
+       "answer": "ينتقل اللقاح من متك إلى ميسم الزهرة نفسها أو زهرة من النبات نفسه",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التلقيح الخلطي (المتقاطع) يحدث:",
+       "options": [
+        "بين زهرتين من نباتين مختلفين",
+        "داخل الزهرة نفسها",
+        "بلا لقاح",
+        "بلا أمشاج"
+       ],
+       "answer": "بين زهرتين من نباتين مختلفين",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الإلقاح المزدوج عند مغلفات البذور يعني:",
+       "options": [
+        "اتّحاد نواة اللقاح بإحدى نواتَي الكيس الجنيني وتشكّل اللاقحة وبقية بالإندوسبيرم",
+        "إلقاحين في زهرتين",
+        "إلقاحاً خارجياً",
+        "بلا لقاح"
+       ],
+       "answer": "اتّحاد نواة اللقاح بإحدى نواتَي الكيس الجنيني وتشكّل اللاقحة وبقية بالإندوسبيرم",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "ينتج عن الإلقاح المزدوج:",
+       "options": [
+        "اللاقحة (البذرة) والإندوسبيرم (الغذاء المخزّن)",
+        "الثمرة فقط",
+        "اللقاح",
+        "البتلة"
+       ],
+       "answer": "اللاقحة (البذرة) والإندوسبيرم (الغذاء المخزّن)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الثمرة تتكوّن من:",
+       "options": [
+        "مبيض المدقّة بعد الإلقاح",
+        "المتك",
+        "البتلة",
+        "السبلة"
+       ],
+       "answer": "مبيض المدقّة بعد الإلقاح",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "من وسائل نقل حبوب اللقاح:",
+       "options": [
+        "الرياح والحشرات والطيور والماء",
+        "الأمشاج فقط",
+        "الجذور",
+        "الجاذبية فقط"
+       ],
+       "answer": "الرياح والحشرات والطيور والماء",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "مغلفات البذور بذورها داخل ثمرة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "المدقّة هي العضو الجنسي الأنثوي في الزهرة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "السداة تتكوّن من الميسم والقلم.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "من المتك والخيط.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الإلقاح المزدوج ينتج اللاقحة والإندوسبيرم.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -18408,6 +22335,264 @@
        "points": 3,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "تتكوّن الأعضاء التناسلية الذكرية الداخلية من:",
+       "options": [
+        "الخصيتين والبربخ والحويصلات المنوية والبروستات",
+        "الرحم والمبيضان",
+        "الكبد والكلى",
+        "المعدة والأمعاء"
+       ],
+       "answer": "الخصيتين والبربخ والحويصلات المنوية والبروستات",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تُنتَج النطاف (الحيوانات المنوية) في:",
+       "options": [
+        "الخصيتين",
+        "البربخ",
+        "البروستات",
+        "القضيب"
+       ],
+       "answer": "الخصيتين",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تقع الخصيتان داخل:",
+       "options": [
+        "كيس الصفن",
+        "البطن",
+        "الصدر",
+        "الحوض"
+       ],
+       "answer": "كيس الصفن",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تبرد الخصيتان داخل كيس الصفن لأنّ:",
+       "options": [
+        "إنتاج النطاف يحتاج حرارة أقل من الجسم",
+        "الحرارة تزيد النطاف",
+        "لا سبب",
+        "الحماية من الماء"
+       ],
+       "answer": "إنتاج النطاف يحتاج حرارة أقل من الجسم",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وظيفة البربخ:",
+       "options": [
+        "خزن النطاف وإنضاجها",
+        "إفراز التستوستيرون",
+        "نقل البول",
+        "إنتاج البويضات"
+       ],
+       "answer": "خزن النطاف وإنضاجها",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الغدة المسؤولة عن إفراز السائل المنوي القلوي هي:",
+       "options": [
+        "البروستات",
+        "الخصية",
+        "الكلى",
+        "الكبد"
+       ],
+       "answer": "البروستات",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تُفرَز الحويصلات المنوية:",
+       "options": [
+        "سائلاً غنياً بالفركتوز يغذّي النطاف",
+        "النطاف",
+        "التستوستيرون",
+        "البول"
+       ],
+       "answer": "سائلاً غنياً بالفركتوز يغذّي النطاف",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الهرمون الجنسي الذكري الرئيسي هو:",
+       "options": [
+        "التستوستيرون",
+        "الأستروجين",
+        "البروجسترون",
+        "الأنسولين"
+       ],
+       "answer": "التستوستيرون",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تُفرَز هرمونات جنسية ذكرية من:",
+       "options": [
+        "خلايا بينية في الخصية",
+        "الرحم",
+        "المبيض",
+        "الغدة الدرقية"
+       ],
+       "answer": "خلايا بينية في الخصية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "القناة المنوية (الأسهر) تنقل النطاف من:",
+       "options": [
+        "البربخ إلى الإحليل",
+        "الخصية إلى الرحم",
+        "البروستات إلى الكلى",
+        "المبيض إلى الرحم"
+       ],
+       "answer": "البربخ إلى الإحليل",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يؤدّي التستوستيرون إلى:",
+       "options": [
+        "ظهور الصفات الجنسية الثانوية الذكرية",
+        "الحمل",
+        "الإرضاع",
+        "الدورة الشهرية"
+       ],
+       "answer": "ظهور الصفات الجنسية الثانوية الذكرية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تُنتَج النطاف في الخصيتين.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تبرد الخصيتان داخل كيس الصفن لتحسين إنتاج النطاف.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "التستوستيرون هو الهرمون الجنسي الذكري الرئيسي.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الحويصلات المنوية تنتج النطاف.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "تفرز سائلاً مغذّياً، والنطاف من الخصية.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -19049,6 +23234,264 @@
        "points": 3,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "تتكوّن النطفة (الحيوان المنوي) من:",
+       "options": [
+        "رأس وقطعة وسطى وذيل",
+        "نواة فقط",
+        "غشاء فقط",
+        "سوطين"
+       ],
+       "answer": "رأس وقطعة وسطى وذيل",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تحمل رأس النطفة:",
+       "options": [
+        "النواة والأكروسوم (الإنزيمات)",
+        "الميتوكوندريا فقط",
+        "السوط",
+        "السيتوبلازم الكامل"
+       ],
+       "answer": "النواة والأكروسوم (الإنزيمات)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تزوّد الميتوكوندريا في القطعة الوسطى النطفة بـ:",
+       "options": [
+        "الطاقة اللازمة للحركة",
+        "الإنزيمات المنحلّة",
+        "الحمض النووي",
+        "الهرمونات"
+       ],
+       "answer": "الطاقة اللازمة للحركة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "ذيل النطفة وظيفته:",
+       "options": [
+        "الحركة (السباحة)",
+        "الهضم",
+        "إفراز الهرمون",
+        "حمل الإنزيمات"
+       ],
+       "answer": "الحركة (السباحة)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الإنزيمات في الأكروسوم تساعد النطفة على:",
+       "options": [
+        "اختراق غلاف البويضة",
+        "السباحة فقط",
+        "التنفّس",
+        "إفراز التستوستيرون"
+       ],
+       "answer": "اختراق غلاف البويضة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يُسيطَر على إفراز التستوستيرون بـ:",
+       "options": [
+        "التلقيم الراجع عبر الهرمونات النخامية والمنبّهة للخصية (FSH/LH)",
+        "القلب",
+        "الكبد",
+        "الغدة الدرقية"
+       ],
+       "answer": "التلقيم الراجع عبر الهرمونات النخامية والمنبّهة للخصية (FSH/LH)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الهرمون المنبّه للخلايا البينية (LH) يحفّز:",
+       "options": [
+        "إفراز التستوستيرون",
+        "إنتاج البويضات",
+        "الحمل",
+        "الإرضاع"
+       ],
+       "answer": "إفراز التستوستيرون",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الهرمون المنبّه للحويصلات (FSH) عند الذكر يحفّز:",
+       "options": [
+        "إنتاج النطاف",
+        "الحمل",
+        "الإباضة",
+        "الإرضاع"
+       ],
+       "answer": "إنتاج النطاف",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يبدأ إنتاج النطاف عند الذكر في:",
+       "options": [
+        "سنّ البلوغ",
+        "الطفولة",
+        "الشيخوخة",
+        "قبل الولادة"
+       ],
+       "answer": "سنّ البلوغ",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تستمر قدرة الذكر على إنتاج النطاف:",
+       "options": [
+        "مدى الحياة عموماً",
+        "حتى البلوغ فقط",
+        "حتى سنّ 20",
+        "حتى الإرضاع"
+       ],
+       "answer": "مدى الحياة عموماً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يؤدّي نقص التستوستيرون إلى:",
+       "options": [
+        "قلّة الصفات الذكرية وضعف إنتاج النطاف",
+        "زيادة الإباضة",
+        "الحمل",
+        "الإرضاع"
+       ],
+       "answer": "قلّة الصفات الذكرية وضعف إنتاج النطاف",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "رأس النطفة يحمل النواة وإنزيمات الأكروسوم.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الميتوكوندريا في النطفة تزوّدها بالطاقة للحركة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "LH يحفّز إفراز التستوستيرون عند الذكر.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يتوقّف إنتاج النطاف عند الذكر عند سنّ البلوغ.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "يستمر مدى الحياة عموماً.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -19643,6 +24086,264 @@
        "points": 3,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "تتكوّن الأعضاء التناسلية الأنثوية الداخلية من:",
+       "options": [
+        "المبيضين والرحم وقناتَي فالوب والمهبل",
+        "الخصية والبربخ",
+        "الكبد والكلى",
+        "المعدة"
+       ],
+       "answer": "المبيضين والرحم وقناتَي فالوب والمهبل",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تُنتَج البويضات في:",
+       "options": [
+        "المبيضين",
+        "الرحم",
+        "قناة فالوب",
+        "المهبل"
+       ],
+       "answer": "المبيضين",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تحدث الإباضة عندما:",
+       "options": [
+        "يتحرّر بويضة ناضجة من المبيض",
+        "يحدث الإلقاح",
+        "يحدث الحمل",
+        "يبدأ الإرضاع"
+       ],
+       "answer": "يتحرّر بويضة ناضجة من المبيض",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يحدث الإلقاح عادة في:",
+       "options": [
+        "قناة فالوب (البوق)",
+        "الرحم",
+        "المبيض",
+        "المهبل"
+       ],
+       "answer": "قناة فالوب (البوق)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تعشّش اللاقحة (الزايغوت) في:",
+       "options": [
+        "بطانة الرحم",
+        "المبيض",
+        "قناة فالوب",
+        "المهبل"
+       ],
+       "answer": "بطانة الرحم",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الرحم عضو عضلي مبطّن بـ:",
+       "options": [
+        "بطانة (الإندومتريوم) تتجدّد دورياً",
+        "غشاء ثابت",
+        "عظم",
+        "غضروف"
+       ],
+       "answer": "بطانة (الإندومتريوم) تتجدّد دورياً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الهرمون الجنسي الأنثوي الرئيسي هو:",
+       "options": [
+        "الأستروجين",
+        "التستوستيرون",
+        "الأدرينالين",
+        "الأنسولين"
+       ],
+       "answer": "الأستروجين",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الهرمون المسؤول عن تحضير الرحم للحمل هو:",
+       "options": [
+        "البروجسترون",
+        "الأدرينالين",
+        "التستوستيرون",
+        "الثيروكسين"
+       ],
+       "answer": "البروجسترون",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "العضو الذي يربط الجنين بالأم لنقل الغذاء والأكسجين هو:",
+       "options": [
+        "المشيمة (الخلاص)",
+        "المبيض",
+        "قناة فالوب",
+        "المهبل"
+       ],
+       "answer": "المشيمة (الخلاص)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تختصّ الأنثى بعدد محدود من البويضات:",
+       "options": [
+        "تُنتج منذ الولادة وتتحرّر دورياً",
+        "تُنتَج مدى الحياة",
+        "لا تُنتَج",
+        "تُنتَج في الرحم"
+       ],
+       "answer": "تُنتج منذ الولادة وتتحرّر دورياً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يفرز الأستروجين و البروجسترون أساساً من:",
+       "options": [
+        "المبيض (الجسم الأصفر والحويصلة)",
+        "الرحم",
+        "المهبل",
+        "قناة فالوب"
+       ],
+       "answer": "المبيض (الجسم الأصفر والحويصلة)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تُنتَج البويضات في المبيضين.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يحدث الإلقاح عادة في قناة فالوب.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "البروجسترون يحضّر بطانة الرحم للحمل.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تُنتج الأنثى بويضات جديدة مدى الحياة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "عددها محدود منذ الولادة.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -20325,6 +25026,282 @@
        "points": 3,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "الدورة الجنسية عند الأنثى مدّتها تقارب:",
+       "options": [
+        "28 يوماً",
+        "7 أيام",
+        "365 يوماً",
+        "40 يوماً"
+       ],
+       "answer": "28 يوماً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تبدأ الدورة الجنسية (الحيض) عند:",
+       "options": [
+        "سنّ البلوغ",
+        "الطفولة",
+        "الشيخوخة",
+        "الإرضاع"
+       ],
+       "answer": "سنّ البلوغ",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الطور الأول في الدورة الجنسية هو الطور:",
+       "options": [
+        "الحويصلي (الجريبي)",
+        "الأصفر (اللوتئيني)",
+        "الإباضي",
+        "الإرضاعي"
+       ],
+       "answer": "الحويصلي (الجريبي)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تحدث الإباضة تقريباً في:",
+       "options": [
+        "منتصف الدورة (~اليوم 14)",
+        "أول يوم",
+        "آخر يوم",
+        "اليوم 21"
+       ],
+       "answer": "منتصف الدورة (~اليوم 14)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "بعد الإباضة يتكوّن من بقايا الحويصلة:",
+       "options": [
+        "الجسم الأصفر",
+        "البويضة",
+        "اللاقحة",
+        "المشيمة"
+       ],
+       "answer": "الجسم الأصفر",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يفرز الجسم الأصفر هرمون:",
+       "options": [
+        "البروجسترون",
+        "الأدرينالين",
+        "التستوستيرون",
+        "الأنسولين"
+       ],
+       "answer": "البروجسترون",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يسبب انخفاض البروجسترون في نهاية الدورة:",
+       "options": [
+        "انسلاخ بطانة الرحم (الحيض)",
+        "الحمل",
+        "الإباضة",
+        "الإرضاع"
+       ],
+       "answer": "انسلاخ بطانة الرحم (الحيض)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الإلقاح هو:",
+       "options": [
+        "اتّحاد نواة النطفة بنواة البويضة",
+        "تعشيش اللاقحة",
+        "الإباضة",
+        "الولادة"
+       ],
+       "answer": "اتّحاد نواة النطفة بنواة البويضة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "بعد الإلقاح تبدأ اللاقحة بـ:",
+       "options": [
+        "الانقسام المتكرّر (التشكّل الجنيني)",
+        "السكون",
+        "الإباضة",
+        "الحيض"
+       ],
+       "answer": "الانقسام المتكرّر (التشكّل الجنيني)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يتكوّن الجنين من:",
+       "options": [
+        "انقسام اللاقحة وتمايز الخلايا",
+        "البويضة وحدها",
+        "النطفة وحدها",
+        "المشيمة فقط"
+       ],
+       "answer": "انقسام اللاقحة وتمايز الخلايا",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الهرمون الذي يُكتشَف في البول للكشف عن الحمل هو:",
+       "options": [
+        "HCG (الغدد التناسلية المشيمائية البشرية)",
+        "الأنسولين",
+        "التستوستيرون",
+        "الأدرينالين"
+       ],
+       "answer": "HCG (الغدد التناسلية المشيمائية البشرية)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "طور الافراز الثاني في الدورة الجنسية هو الطور:",
+       "options": [
+        "الأصفر (اللوتئيني)",
+        "الحويصلي",
+        "الإباضي",
+        "الحيضي فقط"
+       ],
+       "answer": "الأصفر (اللوتئيني)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "مدّة الدورة الجنسية عند الأنثى تقارب 28 يوماً.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تحدث الإباضة في منتصف الدورة تقريباً.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الجسم الأصفر يفرز البروجسترون.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الإلقاح هو اتحاد نواتَي النطفة والبويضة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -21071,6 +26048,264 @@
        "points": 3,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "الحمل عند الإنسان يستمر تقريباً:",
+       "options": [
+        "9 أشهر (40 أسبوعاً)",
+        "3 أشهر",
+        "12 شهراً",
+        "6 أشهر"
+       ],
+       "answer": "9 أشهر (40 أسبوعاً)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تبدأ الولادة بانقباضات:",
+       "options": [
+        "عضلات الرحم",
+        "القلب",
+        "المعدة",
+        "الرئتين"
+       ],
+       "answer": "عضلات الرحم",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الهرمون الذي يحفّز انقباضات الولادة هو:",
+       "options": [
+        "الأوكسيتوسين",
+        "الأنسولين",
+        "الأدرينالين",
+        "التستوستيرون"
+       ],
+       "answer": "الأوكسيتوسين",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الهرمون المسؤول عن إدرار الحليب هو:",
+       "options": [
+        "البرولاكتين",
+        "الأنسولين",
+        "التستوستيرون",
+        "الثيروكسين"
+       ],
+       "answer": "البرولاكتين",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يُفرَز الأوكسيتوسين من:",
+       "options": [
+        "الغدة النخامية الخلفية",
+        "الرحم",
+        "المبيض",
+        "الدرقية"
+       ],
+       "answer": "الغدة النخامية الخلفية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الهرمون الذي يُفرَز عند الرضاعة ويساعد على تقلّص الرحم هو:",
+       "options": [
+        "الأوكسيتوسين",
+        "الأنسولين",
+        "الغلوكاغون",
+        "التستوستيرون"
+       ],
+       "answer": "الأوكسيتوسين",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "اللبأ (الحليب الأول) غنيّ بـ:",
+       "options": [
+        "الأجسام المضادّة",
+        "الدهون فقط",
+        "الحديد فقط",
+        "السكر"
+       ],
+       "answer": "الأجسام المضادّة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تغذية المولود خلال الأشهر الأولى تعتمد على:",
+       "options": [
+        "حليب الأم أو البديل",
+        "الطعام الصلب",
+        "الفيتامينات فقط",
+        "الماء فقط"
+       ],
+       "answer": "حليب الأم أو البديل",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المشيمة تنقل للأم من الجنين:",
+       "options": [
+        "فضلات الأيض وثاني أكسيد الكربون",
+        "الغذاء فقط",
+        "الأكسجين",
+        "الهرمونات فقط"
+       ],
+       "answer": "فضلات الأيض وثاني أكسيد الكربون",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "بعد الولادة تنفصل المشيمة وتُطرح كـ:",
+       "options": [
+        "الخلاص (المشيمة)",
+        "الجسم الأصفر",
+        "البويضة",
+        "اللاقحة"
+       ],
+       "answer": "الخلاص (المشيمة)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الإرضاع يحمي المولود من الأمراض لأنّه يزوّده بـ:",
+       "options": [
+        "أجسام مضادّة",
+        "سموم",
+        "ملح",
+        "سكّر"
+       ],
+       "answer": "أجسام مضادّة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الأوكسيتوسين يحفّز انقباضات الرحم عند الولادة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "البرولاكتين مسؤول عن إدرار الحليب.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "اللبأ غنيّ بالأجسام المضادّة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تنقل المشيمة الأكسجين والغذاء من الأم إلى الجنين.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -21650,6 +26885,228 @@
        "points": 3,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "الصحة الإنجابية تعني:",
+       "options": [
+        "سلامة الجهاز التناسلي والقدرة على الإنجاب بصحّة",
+        "الإنجاب فقط",
+        "تفادي الحمل فقط",
+        "الولادة فقط"
+       ],
+       "answer": "سلامة الجهاز التناسلي والقدرة على الإنجاب بصحّة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "من وسائل تنظيم الأسرة:",
+       "options": [
+        "الحبوب والحواجز والوسائل الهرمونية",
+        "الفيتامينات",
+        "المضادات الحيوية",
+        "اللقاحات"
+       ],
+       "answer": "الحبوب والحواجز والوسائل الهرمونية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يُسبّب الإيدز فيروس:",
+       "options": [
+        "HIV",
+        "الأنفلونزا",
+        "الحماق",
+        "الكورونا فقط"
+       ],
+       "answer": "HIV",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "من طرق الوقاية من الأمراض المنقولة جنسياً:",
+       "options": [
+        "السلوك السليم والفحص المبكر",
+        "إهمال النظافة فقط",
+        "التدخين",
+        "الأدوية العشوائية"
+       ],
+       "answer": "السلوك السليم والفحص المبكر",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الفحص المبكر للكشف عن الأمراض الإنجابية يفيد في:",
+       "options": [
+        "العلاج المبكر والوقاية من المضاعفات",
+        "إهمال المرض",
+        "تأخير العلاج",
+        "نشر العدوى"
+       ],
+       "answer": "العلاج المبكر والوقاية من المضاعفات",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "من عوامل الخطر على صحّة الجنين:",
+       "options": [
+        "التدخين والكحول أثناء الحمل",
+        "الراحة",
+        "التغذية السليمة",
+        "الماء"
+       ],
+       "answer": "التدخين والكحول أثناء الحمل",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تنظيم الأسرة يهدف إلى:",
+       "options": [
+        "تباعد الولادات وتوفير صحّة الأم والطفل",
+        "منع الزواج",
+        "تقليل الذكور",
+        "زيادة الأمراض"
+       ],
+       "answer": "تباعد الولادات وتوفير صحّة الأم والطفل",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تغذية الحامل يجب أن تكون:",
+       "options": [
+        "متوازنة غنية بالفيتامينات والحديد والكالسيوم",
+        "ناقصة",
+        "عالية السكّر فقط",
+        "بلا حديد"
+       ],
+       "answer": "متوازنة غنية بالفيتامينات والحديد والكالسيوم",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "من مضاعفات الحمل الخطيرة التي تستدعي الرعاية الطبية:",
+       "options": [
+        "تسمّم الحمل والنزف",
+        "الراحة",
+        "الماء",
+        "النوم"
+       ],
+       "answer": "تسمّم الحمل والنزف",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الصحة الإنجابية تشمل سلامة الجهاز التناسلي والقدرة على الإنجاب بصحّة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الإيدز يسبّبه فيروس HIV.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "التدخين أثناء الحمل آمن على الجنين.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "ضارّ ويسبب مضاعفات.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تغذية الحامل المتوازنة ضرورية لصحّة الأم والجنين.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -25031,6 +30488,282 @@
        "points": 3,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "اختار مندل نبات البازلاء لأنّه:",
+       "options": [
+        "سريع النموّ وسهل التلقيح ويحمل صفات متضادّة واضحة",
+        "بطيء النموّ",
+        "لا يزهر",
+        "لا يتكاثر"
+       ],
+       "answer": "سريع النموّ وسهل التلقيح ويحمل صفات متضادّة واضحة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الصفة السائدة هي التي:",
+       "options": [
+        "تظهر في وجود موريثر واحد",
+        "تختفي دائماً",
+        "تحتاج موريثرين",
+        "لا تورّث"
+       ],
+       "answer": "تظهر في وجود موريثر واحد",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الصفة المتنحّية تظهر عندما:",
+       "options": [
+        "يجتمع موريثران متنحّيان",
+        "يوجد موريثر سائد واحد",
+        "لا توجد مورثات",
+        "توجد هيمنة"
+       ],
+       "answer": "يجتمع موريثران متنحّيان",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يُسمّى الفرد الذي يحمل موريثرين متماثلين:",
+       "options": [
+        "متماثل الزيجوت (نقي)",
+        "متخالف الزيجوت",
+        "هجين",
+        "طفرة"
+       ],
+       "answer": "متماثل الزيجوت (نقي)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يُسمّى الفرد الذي يحمل موريثرين مختلفين:",
+       "options": [
+        "متخالف الزيجوت (هجين)",
+        "متماثل",
+        "نقي",
+        "طفرة"
+       ],
+       "answer": "متخالف الزيجوت (هجين)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في الهجونة الأحادية أعطى مندل في الجيل الأول نسبة:",
+       "options": [
+        "ظهور الصفة السائدة جميعاً",
+        "3:1",
+        "1:2:1",
+        "تساوي الصفات"
+       ],
+       "answer": "ظهور الصفة السائدة جميعاً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في الجيل الثاني للهجونة الأحادية ظهرت النسبة:",
+       "options": [
+        "3 سائدة : 1 متنحّية",
+        "1:1",
+        "2:1",
+        "9:3:3:1"
+       ],
+       "answer": "3 سائدة : 1 متنحّية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "النمط الجيني يمثّل:",
+       "options": [
+        "التركيب الوراثي (المورثات)",
+        "الشكل الخارجي",
+        "البيئة",
+        "العمر"
+       ],
+       "answer": "التركيب الوراثي (المورثات)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "النمط الظاهري يمثّل:",
+       "options": [
+        "الصفة الظاهرة الناتجة عن النمط الجيني والبيئة",
+        "المورثات فقط",
+        "الطفرات",
+        "البيئة فقط"
+       ],
+       "answer": "الصفة الظاهرة الناتجة عن النمط الجيني والبيئة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "صيغة التربيع (مربّع بانيت) تُستخدم لـ:",
+       "options": [
+        "توقّع نتائج التلقيح",
+        "قياس الصفات",
+        "عدّ الأفراد",
+        "زراعة النبات"
+       ],
+       "answer": "توقّع نتائج التلقيح",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في الهجونة الثنائية أعطى مندل في الجيل الثاني نسبة:",
+       "options": [
+        "9:3:3:1",
+        "3:1",
+        "1:1",
+        "1:2:1"
+       ],
+       "answer": "9:3:3:1",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "استنتج مندل أنّ كل صفة تُحدَّد بـ:",
+       "options": [
+        "زوج من العوامل (المورثات) ينفصلان عند تكوين الأمشاج",
+        "عامل واحد لا ينفصل",
+        "البيئة فقط",
+        "الطعام"
+       ],
+       "answer": "زوج من العوامل (المورثات) ينفصلان عند تكوين الأمشاج",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الصفة السائدة تظهر في وجود موريثر واحد.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الصفة المتنحّية تحتاج موريثرين متنحّيين لتظهر.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "في الجيل الثاني للهجونة الأحادية النسبة 3:1.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الهجونة الثنائية في الجيل الثاني تعطي نسبة 9:3:3:1.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -25818,6 +31551,246 @@
        "points": 3,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "الوراثة اللامندلية هي:",
+       "options": [
+        "حالات تخالف قوانين مندل البسيطة",
+        "نفس قوانين مندل تماماً",
+        "طفرات فقط",
+        "البيئة فقط"
+       ],
+       "answer": "حالات تخالف قوانين مندل البسيطة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "السيادة التامّة تعني:",
+       "options": [
+        "يظهر النمط الظاهري للسائد تماماً في الهجين",
+        "يظهر وسط بين السائد والمتنحّي",
+        "يظهر كلاهما معاً",
+        "لا يظهر شيء"
+       ],
+       "answer": "يظهر النمط الظاهري للسائد تماماً في الهجين",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "السيادة الجزئية (غير التامّة) تعني:",
+       "options": [
+        "يظهر هجين بنمط ظاهري وسط بين الأبوين",
+        "يظهر السائد تماماً",
+        "يختفي الجميع",
+        "يظهر المتنحّي فقط"
+       ],
+       "answer": "يظهر هجين بنمط ظاهري وسط بين الأبوين",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في السيادة الجزئية تكون نسبة الجيل الثاني:",
+       "options": [
+        "1:2:1 (نمط ظاهري)",
+        "3:1",
+        "1:1",
+        "9:3:3:1"
+       ],
+       "answer": "1:2:1 (نمط ظاهري)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "السيادة المشتركة (التشارك) مثالها:",
+       "options": [
+        "فصائل دم AB",
+        "الطول فقط",
+        "لون العين",
+        "شكل البذرة"
+       ],
+       "answer": "فصائل دم AB",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في السيادة المشتركة يظهر في الهجين:",
+       "options": [
+        "كلا الصفتين معاً",
+        "وسط فقط",
+        "السائد فقط",
+        "المتنحّي فقط"
+       ],
+       "answer": "كلا الصفتين معاً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المورثات المتعدّدة التأثير هي:",
+       "options": [
+        "مورثة تؤثّر في عدّة صفات",
+        "صفة تتحكّم بها مورثات عدة",
+        "طفرة",
+        "بيئة"
+       ],
+       "answer": "مورثة تؤثّر في عدّة صفات",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الصفات المتعدّدة المورثات هي:",
+       "options": [
+        "صفة تتحكّم بها عدّة مورثات (كطول الإنسان)",
+        "صفة بمورثة واحدة",
+        "طفرة",
+        "بيئة"
+       ],
+       "answer": "صفة تتحكّم بها عدّة مورثات (كطول الإنسان)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "السيادة المشتركة تختلف عن الجزئية بأنّ:",
+       "options": [
+        "يظهر النمط الظاهري للأبوين معاً",
+        "يظهر وسط دائماً",
+        "لا يظهر شيء",
+        "يختفي السائد"
+       ],
+       "answer": "يظهر النمط الظاهري للأبوين معاً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الوراثة المرتبطة بالجنس تنتج عن:",
+       "options": [
+        "مورثات على الكروموسومات الجنسية",
+        "مورثات سيتوبلازمية",
+        "البيئة",
+        "الطعام"
+       ],
+       "answer": "مورثات على الكروموسومات الجنسية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "السيادة الجزئية تعطي نمطاً ظاهرياً وسطاً في الهجين.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "السيادة المشتركة يظهر فيها النمطان معاً.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "نمط فصائل الدم AB مثال على السيادة المشتركة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الصفات اللامندلية لا تختلف أبداً عن قوانين مندل.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "تختلف في حالات عديدة.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -26356,6 +32329,282 @@
        "points": 3,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "يتحدّد جنس الإنسان بـ:",
+       "options": [
+        "الكروموسومات الجنسية X و Y",
+        "الكروموسومات الجسمية فقط",
+        "البيئة",
+        "الطعام"
+       ],
+       "answer": "الكروموسومات الجنسية X و Y",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تركيب الكروموسومات الجنسية عند الأنثى:",
+       "options": [
+        "XX",
+        "XY",
+        "XO",
+        "YY"
+       ],
+       "answer": "XX",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تركيب الكروموسومات الجنسية عند الذكر:",
+       "options": [
+        "XY",
+        "XX",
+        "YY",
+        "XO"
+       ],
+       "answer": "XY",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الكروموسوم الجنسي الذي يحدّد الذكورة عند الإنسان هو:",
+       "options": [
+        "Y",
+        "X",
+        "أيّ منهما",
+        "لا شيء"
+       ],
+       "answer": "Y",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يحدّد جنس المولود:",
+       "options": [
+        "النطفة الذكرية (X أو Y)",
+        "البويضة",
+        "الأم دائماً",
+        "البيئة"
+       ],
+       "answer": "النطفة الذكرية (X أو Y)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الكروموسومات الجسمية عند الإنسان عددها:",
+       "options": [
+        "44 (22 زوجاً)",
+        "2",
+        "23",
+        "46"
+       ],
+       "answer": "44 (22 زوجاً)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "العدد الكلّي للكروموسومات عند الإنسان:",
+       "options": [
+        "46",
+        "23",
+        "44",
+        "48"
+       ],
+       "answer": "46",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الأمشاج تحتوي على:",
+       "options": [
+        "نصف عدد الكروموسومات (23)",
+        "46",
+        "44",
+        "92"
+       ],
+       "answer": "نصف عدد الكروموسومات (23)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الوراثة المرتبطة بالجنس تنتقل عبر:",
+       "options": [
+        "الكروموسوم X غالباً",
+        "الكروموسوم Y فقط",
+        "الجسمية",
+        "البيئة"
+       ],
+       "answer": "الكروموسوم X غالباً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عمى الألوان الأحمر-الأخضر عند الإنسان مرض:",
+       "options": [
+        "مرتبط بالجنس (X)",
+        "جسمي فقط",
+        "بيئي",
+        "معدٍ"
+       ],
+       "answer": "مرتبط بالجنس (X)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "نزف الدم الوراثي (الهيموفيليا) مرض:",
+       "options": [
+        "مرتبط بالجنس متنحٍّ على X",
+        "جسمي سائد",
+        "بيئي",
+        "معدٍ"
+       ],
+       "answer": "مرتبط بالجنس متنحٍّ على X",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يظهر عمى الألوان أكثر عند:",
+       "options": [
+        "الذكور",
+        "الإناث",
+        "الجنسين بالتساوي",
+        "الأطفال فقط"
+       ],
+       "answer": "الذكور",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تركيب الكروموسومات الجنسية عند الأنثى XX وعند الذكر XY.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يحدّد جنس المولود نوع النطفة الذكرية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الهيموفيليا مرض مرتبط بالكروموسوم X.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يظهر عمى الألوان أكثر عند الإناث.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "عند الذكور.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -27108,6 +33357,282 @@
        "points": 3,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "شجرة النسب (النسب الوراثي) تُستخدم لـ:",
+       "options": [
+        "تتبّع انتقال صفة في عائلة",
+        "قياس الطول",
+        "زراعة النبات",
+        "صناعة الدواء"
+       ],
+       "answer": "تتبّع انتقال صفة في عائلة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "فصائل الدم عند الإنسان تحدّدها:",
+       "options": [
+        "مورثات متعدّدة الأليلات (A و B و O)",
+        "مورثة واحدة بأليلين",
+        "البيئة",
+        "الطعام"
+       ],
+       "answer": "مورثات متعدّدة الأليلات (A و B و O)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الأليلان A و B بالنسبة لفصيلة الدم هما:",
+       "options": [
+        "سائدان مشتركان",
+        "متنحّيان",
+        "أحدهما سائد",
+        "لا علاقة"
+       ],
+       "answer": "سائدان مشتركان",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الفصيلة O تنتج عن:",
+       "options": [
+        "أليلين متنحّيين (OO)",
+        "أليل سائد",
+        "أليل مشترك",
+        "لا مورثات"
+       ],
+       "answer": "أليلين متنحّيين (OO)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "فصيلة الدم AB تنتج عن:",
+       "options": [
+        "أليل A وأليل B معاً",
+        "أليل O",
+        "أليلين متنحّيين",
+        "لا شيء"
+       ],
+       "answer": "أليل A وأليل B معاً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الصفات عند الإنسان قد تكون:",
+       "options": [
+        "سائدة أو متنحّية أو مرتبطة بالجنس",
+        "سائدة فقط",
+        "بيئية فقط",
+        "ثابتة"
+       ],
+       "answer": "سائدة أو متنحّية أو مرتبطة بالجنس",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "من الأمراض الوراثية عند الإنسان:",
+       "options": [
+        "التلاسيميا والمنغولية (تثلّث 21)",
+        "الزكام",
+        "الإنفلونزا",
+        "السكّري البيئي"
+       ],
+       "answer": "التلاسيميا والمنغولية (تثلّث 21)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "متلازمة داون (المنغولية) تنتج عن:",
+       "options": [
+        "نسخة إضافية من الكروموسوم 21",
+        "نقص الكروموسوم 21",
+        "طفرة على X",
+        "البيئة"
+       ],
+       "answer": "نسخة إضافية من الكروموسوم 21",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التلاسيميا مرض وراثي يصيب:",
+       "options": [
+        "الهيموغلوبين في الدم",
+        "العظام",
+        "الجلد",
+        "العين"
+       ],
+       "answer": "الهيموغلوبين في الدم",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند كتابة النسب الوراثي يُرمز للذكر بـ:",
+       "options": [
+        "مربّع",
+        "دائرة",
+        "مثلّث",
+        "خط"
+       ],
+       "answer": "مربّع",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند كتابة النسب الوراثي يُرمز للأنثى بـ:",
+       "options": [
+        "دائرة",
+        "مربّع",
+        "مثلّث",
+        "خط"
+       ],
+       "answer": "دائرة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الاستشارة الوراثية تفيد في:",
+       "options": [
+        "تقدير خطر الأمراض الوراثية في الأسرة",
+        "علاج كل الأمراض",
+        "منع الزواج",
+        "تحديد الجنس"
+       ],
+       "answer": "تقدير خطر الأمراض الوراثية في الأسرة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "فصيلة الدم AB تنتج عن أليلَي A و B معاً.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "فصيلة الدم O تنتج عن أليلين متنحّيين.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "متلازمة داون تنتج عن نسخة إضافية من الكروموسوم 21.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الاستشارة الوراثية تساعد في تقدير خطر الأمراض الوراثية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -27808,6 +34333,264 @@
        "points": 3,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "الطفرة هي:",
+       "options": [
+        "تغيّر مفاجئ في المادّة الوراثية",
+        "صفة عادية",
+        "بيئة",
+        "مرض معدٍ"
+       ],
+       "answer": "تغيّر مفاجئ في المادّة الوراثية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "من أنواع الطفرات حسب الحجم:",
+       "options": [
+        "طفرات جينية وكروموسومية",
+        "طفرات عضلية",
+        "طفرات عصبية",
+        "طفرات هضمية"
+       ],
+       "answer": "طفرات جينية وكروموسومية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الطفرة الجينية تؤثّر في:",
+       "options": [
+        "تسلسل القواعد في مورثة",
+        "عدد الكروموسومات فقط",
+        "البيئة",
+        "الشكل الخارجي مباشرة"
+       ],
+       "answer": "تسلسل القواعد في مورثة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الطفرة الكروموسومية تغيّر:",
+       "options": [
+        "عدد أو بنية الكروموسومات",
+        "قاعدة واحدة فقط",
+        "البيئة",
+        "الغذاء"
+       ],
+       "answer": "عدد أو بنية الكروموسومات",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "من العوامل المسبّبة للطفرات (المطفّرات):",
+       "options": [
+        "الإشعاع والمواد الكيميائية",
+        "الماء",
+        "الراحة",
+        "النوم"
+       ],
+       "answer": "الإشعاع والمواد الكيميائية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الطفرات التلقائية تحدث:",
+       "options": [
+        "دون عامل خارجي واضح",
+        "بالأشعّة فقط",
+        "بالكيماويات فقط",
+        "لا تحدث"
+       ],
+       "answer": "دون عامل خارجي واضح",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "معظم الطفرات:",
+       "options": [
+        "ضارّة أو محايدة، وقليل منها نافع",
+        "نافعة دائماً",
+        "محايدة دائماً",
+        "ضارّة دائماً"
+       ],
+       "answer": "ضارّة أو محايدة، وقليل منها نافع",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "أهمية الطفرات في التطوّر أنّها:",
+       "options": [
+        "توفّر تنوّعاً وراثياً للانتخاب الطبيعي",
+        "تمنع التطوّر",
+        "تلغي التنوّع",
+        "لا أهمية"
+       ],
+       "answer": "توفّر تنوّعاً وراثياً للانتخاب الطبيعي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "من الأمراض الناتجة عن طفرات:",
+       "options": [
+        "السرطان وبعض الأمراض الوراثية",
+        "الزكام",
+        "الربو",
+        "الإنفلونزا"
+       ],
+       "answer": "السرطان وبعض الأمراض الوراثية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "قد تُورَّث الطفرة إذا حدثت في:",
+       "options": [
+        "الخلايا التناسلية (الأمشاج)",
+        "الخلايا الجسمية فقط",
+        "الجلد",
+        "الدم"
+       ],
+       "answer": "الخلايا التناسلية (الأمشاج)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الطفرة التي تحدث في الخلايا الجسمية:",
+       "options": [
+        "تؤثّر في الفرد نفسه وقد لا تورَّث",
+        "تورَّث دائماً",
+        "لا تأثير",
+        "توقف النموّ"
+       ],
+       "answer": "تؤثّر في الفرد نفسه وقد لا تورَّث",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الطفرة تغيّر مفاجئ في المادّة الوراثية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الإشعاع والمواد الكيميائية من المطفّرات.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "معظم الطفرات نافعة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "معظمها ضارّ أو محايد.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الطفرات في الخلايا التناسلية يمكن أن تورَّث.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -28456,6 +35239,246 @@
        "points": 3,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "من أدوات الهندسة الوراثية:",
+       "options": [
+        "إنزيمات القطع والربط وناقلات (بلازميدات)",
+        "المطارق",
+        "القلويات",
+        "المرايا"
+       ],
+       "answer": "إنزيمات القطع والربط وناقلات (بلازميدات)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "إنزيمات القطع (الريستريكتاز) تقوم بـ:",
+       "options": [
+        "قطع الـ DNA في مواقع محدّدة",
+        "ربط القطع",
+        "نسخ الـ RNA",
+        "تكسير البروتين"
+       ],
+       "answer": "قطع الـ DNA في مواقع محدّدة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "ناقل (Vector) شائع في الهندسة الوراثية هو:",
+       "options": [
+        "البلازميد البكتيري",
+        "الكروموسوم البشري",
+        "الريبوزوم",
+        "النواة"
+       ],
+       "answer": "البلازميد البكتيري",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الـ DNA المُعاد تركيبه يُدخَل إلى:",
+       "options": [
+        "خلية عائل (كالبكتيريا)",
+        "التراب",
+        "الماء",
+        "الهواء"
+       ],
+       "answer": "خلية عائل (كالبكتيريا)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "من تطبيقات الهندسة الوراثية:",
+       "options": [
+        "إنتاج الأنسولين واللقاحات ومقاومة الأمراض",
+        "بناء الجسور",
+        "صناعة السيارات",
+        "تكرير البترول"
+       ],
+       "answer": "إنتاج الأنسولين واللقاحات ومقاومة الأمراض",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "إنتاج الأنسولين البشري بالهندسة الوراثية يعتمد على:",
+       "options": [
+        "إدخال مورثة الأنسولين البشري إلى بكتيريا",
+        "استخراجه من التراب",
+        "صنعه كيميائياً فقط",
+        "استخراجه من الحديد"
+       ],
+       "answer": "إدخال مورثة الأنسولين البشري إلى بكتيريا",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "النباتات المعدّلة وراثياً قد تتميّز بـ:",
+       "options": [
+        "مقاومة الآفات والأمراض",
+        "قصر العمر",
+        "فقدان البذور",
+        "عدم النموّ"
+       ],
+       "answer": "مقاومة الآفات والأمراض",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "من المخاوف الأخلاقية حول الهندسة الوراثية:",
+       "options": [
+        "احتمال إساءة الاستخدام وتأثيرها في الطبيعة",
+        "لا مخاوف",
+        "كلفتها الرخيصة فقط",
+        "سهولتها"
+       ],
+       "answer": "احتمال إساءة الاستخدام وتأثيرها في الطبيعة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "العلاج الجيني يهدف إلى:",
+       "options": [
+        "تصحيح مورثة معطوبة في المريض",
+        "تغيير البيئة",
+        "زراعة الأعضاء فقط",
+        "إعطاء مسكّنات"
+       ],
+       "answer": "تصحيح مورثة معطوبة في المريض",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يُنتَج هرمون النموّ البشري بالهندسة الوراثية بـ:",
+       "options": [
+        "بكتيريا معدّلة وراثياً",
+        "التراب",
+        "الماء",
+        "الشمس"
+       ],
+       "answer": "بكتيريا معدّلة وراثياً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الهندسة الوراثية تعدّل الـ DNA لغرض معيّن.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "البلازميد البكتيري ناقل شائع في الهندسة الوراثية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "إنزيمات القطع تقطع الـ DNA في مواقع محدّدة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "لا توجد أي مخاوف أخلاقية حول الهندسة الوراثية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "توجد مخاوف مهمّة.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },

@@ -1340,6 +1340,474 @@
        "points": 1,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "النشاط الإشعاعي هو انبعاث جسيمات أو إشعاع من:",
+       "options": [
+        "نوى ذرّات غير مستقرة",
+        "إلكترونات المدار الخارجي",
+        "الروابط الكيميائية",
+        "المحاليل"
+       ],
+       "answer": "نوى ذرّات غير مستقرة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "جسيم ألفا يتكوّن من:",
+       "options": [
+        "نواتَي بروتون ونواتَي نيوترون (نواة الهيليوم)",
+        "إلكترون",
+        "فوتون",
+        "بروتون واحد"
+       ],
+       "answer": "نواتَي بروتون ونواتَي نيوترون (نواة الهيليوم)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "شحنة جسيم ألفا تساوي:",
+       "options": [
+        "+2e",
+        "−e",
+        "0",
+        "+e"
+       ],
+       "answer": "+2e",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "جسيم بيتا السالب هو:",
+       "options": [
+        "إلكترون",
+        "بروتون",
+        "نيوترون",
+        "نواة هيليوم"
+       ],
+       "answer": "إلكترون",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "إشعاع غاما هو:",
+       "options": [
+        "موجة كهرطيسية عالية الطاقة",
+        "جسيم موجب",
+        "إلكترون",
+        "نيوترون"
+       ],
+       "answer": "موجة كهرطيسية عالية الطاقة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند إصدار جسيم ألفا ينقص العدد الذرّي بمقدار:",
+       "options": [
+        "2",
+        "1",
+        "4",
+        "0"
+       ],
+       "answer": "2",
+       "answer_index": 0,
+       "explanation": "يفقد النواة 2 بروتون.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند إصدار جسيم ألفا ينقص العدد الكتلي بمقدار:",
+       "options": [
+        "4",
+        "2",
+        "1",
+        "0"
+       ],
+       "answer": "4",
+       "answer_index": 0,
+       "explanation": "يفقد النواة 2 بروتون و2 نيوترون.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند إصدار جسيم بيتا السالب يزداد العدد الذرّي بمقدار:",
+       "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+       ],
+       "answer": "1",
+       "answer_index": 0,
+       "explanation": "يتحوّل نيوترون إلى بروتون.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند إصدار جسيم بيتا السالب يبقى العدد الكتلي:",
+       "options": [
+        "ثابتاً",
+        "ينقص 1",
+        "ينقص 4",
+        "يزداد 2"
+       ],
+       "answer": "ثابتاً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عمر النصف هو الزمن اللازم لـ:",
+       "options": [
+        "تفكّك نصف عدد النوى",
+        "تفكّك كل النوى",
+        "تفكّك ربع النوى",
+        "تضاعف النوى"
+       ],
+       "answer": "تفكّك نصف عدد النوى",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "بعد مرور عمرَي نصف، تبقّى من العيّنة:",
+       "options": [
+        "الربع",
+        "النصف",
+        "الثلث",
+        "الثمن"
+       ],
+       "answer": "الربع",
+       "answer_index": 0,
+       "explanation": "(1/2)² = 1/4.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "بعد ثلاثة أعمار نصف، تبقّى من العيّنة:",
+       "options": [
+        "الثمن",
+        "الربع",
+        "النصف",
+        "السدس"
+       ],
+       "answer": "الثمن",
+       "answer_index": 0,
+       "explanation": "(1/2)³ = 1/8.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وحدة قياس النشاط الإشعاعي في الجملة الدولية:",
+       "options": [
+        "البيكريل (Bq)",
+        "الأمبير (A)",
+        "الجول (J)",
+        "التسلا (T)"
+       ],
+       "answer": "البيكريل (Bq)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "البيكريل يساوي:",
+       "options": [
+        "تفكّكاً واحداً في الثانية",
+        "تفكّكاً في الدقيقة",
+        "جولاً في الثانية",
+        "كولوناً في الثانية"
+       ],
+       "answer": "تفكّكاً واحداً في الثانية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "أيّ الإشعاعات التالية لها أعلى قدرة نفاذية؟",
+       "options": [
+        "غاما",
+        "ألفا",
+        "بيتا",
+        "كلها متساوية"
+       ],
+       "answer": "غاما",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "أيّ الإشعاعات التالية لها أعلى قدرة تأيّنية؟",
+       "options": [
+        "ألفا",
+        "غاما",
+        "بيتا",
+        "كلها متساوية"
+       ],
+       "answer": "ألفا",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التفاعل النووي الذي يتحوّل فيه نيوترون إلى بروتون يُصدر جسيم:",
+       "options": [
+        "بيتا",
+        "ألفا",
+        "غاما فقط",
+        "نيوترون"
+       ],
+       "answer": "بيتا",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الطاقة المنطلقة في التفاعل النووي تُحسب بعلاقة:",
+       "options": [
+        "أينشتاين E = Δm c²",
+        "نيوتن F = ma",
+        "أوم U = RI",
+        "بويل P V = cte"
+       ],
+       "answer": "أينشتاين E = Δm c²",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في التفاعلات النووية يُحفظ:",
+       "options": [
+        "العدد الكتلي والشحنة",
+        "الكتلة فقط",
+        "عدد الجسيمات فقط",
+        "الحرارة"
+       ],
+       "answer": "العدد الكتلي والشحنة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عمر النصف للكربون-14 يقارب:",
+       "options": [
+        "5730 سنة",
+        "57 سنة",
+        "57300 سنة",
+        "1000 سنة"
+       ],
+       "answer": "5730 سنة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التأريخ بالكربون-14 يعتمد على:",
+       "options": [
+        "عمر النصف الثابت للكربون-14",
+        "لون العيّنة",
+        "كتلتها",
+        "حجمها"
+       ],
+       "answer": "عمر النصف الثابت للكربون-14",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "جسيم ألفا نواة هيليوم لها شحنة موجبة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "جسيم بيتا السالب إلكترون ينتج عن تحوّل نيوترون إلى بروتون.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "ينقص العدد الكتلي بمقدار 4 عند إصدار جسيم ألفا.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يزداد العدد الذرّي بمقدار 2 عند إصدار جسيم بيتا.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "يزداد بمقدار 1.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "لا يتغيّر العدد الذرّي ولا الكتلي عند إصدار إشعاع غاما.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "بعد مرور عمري نصف من العيّنة يبقى نصفها.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "يبقى الربع.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -3645,6 +4113,333 @@
        "points": 2,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "قانون بويل-ماريوت يربط بين الضغط والحجم عند:",
+       "options": [
+        "ثبات درجة الحرارة",
+        "ثبات الضغط",
+        "ثبات الحجم",
+        "ثبات الكتلة"
+       ],
+       "answer": "ثبات درجة الحرارة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "قانون بويل-ماريوت يُكتب:",
+       "options": [
+        "P₁V₁ = P₂V₂",
+        "P₁/V₁ = P₂/V₂",
+        "V₁/T₁ = V₂/T₂",
+        "P₁T₁ = P₂T₂"
+       ],
+       "answer": "P₁V₁ = P₂V₂",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "قانون شارل يربط بين الحجم ودرجة الحرارة عند ثبات:",
+       "options": [
+        "الضغط",
+        "الحجم",
+        "الكتلة",
+        "عدد المولات فقط"
+       ],
+       "answer": "الضغط",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "قانون شارل يُكتب (بدرجة الحرارة المطلقة):",
+       "options": [
+        "V₁/T₁ = V₂/T₂",
+        "V₁T₁ = V₂T₂",
+        "V₁/T₂ = V₂/T₁",
+        "V₁+V₂ = T"
+       ],
+       "answer": "V₁/T₁ = V₂/T₂",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "قانون غاي-لوساك يربط بين الضغط ودرجة الحرارة عند ثبات:",
+       "options": [
+        "الحجم",
+        "الضغط",
+        "الكتلة",
+        "عدد الجسيمات"
+       ],
+       "answer": "الحجم",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "معادلة الغاز المثالي تُكتب:",
+       "options": [
+        "P V = n R T",
+        "P V = n T / R",
+        "P / V = nRT",
+        "P V T = nR"
+       ],
+       "answer": "P V = n R T",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "ثابت الغازات العام R يساوي تقريباً:",
+       "options": [
+        "8.31 J/(mol·K)",
+        "0.082 J/(mol·K)",
+        "1.6×10⁻¹⁹ J",
+        "6.02×10²³"
+       ],
+       "answer": "8.31 J/(mol·K)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "حجم مول واحد من الغاز في الشروط النظامية يقارب:",
+       "options": [
+        "22.4 L",
+        "11.2 L",
+        "1 L",
+        "44.8 L"
+       ],
+       "answer": "22.4 L",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "درجة الحرارة المطلقة تُقاس بوحدة:",
+       "options": [
+        "الكلفن (K)",
+        "الدرجة المئوية",
+        "الفهرنهايت",
+        "الجول"
+       ],
+       "answer": "الكلفن (K)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "العلاقة بين الكلفن والمئوية:",
+       "options": [
+        "T(K) = t(°C) + 273",
+        "T(K) = 273 − t(°C)",
+        "T(K) = t(°C) × 100",
+        "T(K) = 100 − t(°C)"
+       ],
+       "answer": "T(K) = t(°C) + 273",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "قانون دالتون للضغوط الجزئية ينصّ على أنّ ضغط مزيج غازات يساوي:",
+       "options": [
+        "مجموع الضغوط الجزئية",
+        "جداء الضغوط الجزئية",
+        "معدّل الضغوط",
+        "أعلى ضغط جزئي"
+       ],
+       "answer": "مجموع الضغوط الجزئية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الضغط الجزئي لغاز في مزيج يُعطى بالعلاقة:",
+       "options": [
+        "P_i = x_i · P_total",
+        "P_i = P_total / x_i",
+        "P_i = x_i × 100",
+        "P_i = P_total − x_i"
+       ],
+       "answer": "P_i = x_i · P_total",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند مضاعفة الضغط على غاز بدرجة حرارة ثابتة، فإنّ الحجم:",
+       "options": [
+        "ينصف",
+        "يتضاعف",
+        "يبقى ثابتاً",
+        "ينعدم"
+       ],
+       "answer": "ينصف",
+       "answer_index": 0,
+       "explanation": "بويل: P V ثابت.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند رفع درجة الحرارة المطلقة لغاز بضغط ثابت من 300 K إلى 600 K، يتضاعف الحجم:",
+       "options": [
+        "مرّتين",
+        "أربع مرّات",
+        "نصف مرّة",
+        "لا يتغيّر"
+       ],
+       "answer": "مرّتين",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "ينصّ قانون بويل على أنّ الضغط والحجم يتناسبان عكساً عند ثبات الحرارة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "معادلة الغاز المثالي هي PV = nRT.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "P V = n R T صحيحة للغازات المثالية فقط.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "حجم مول من أي غاز مثالي في الشروط النظامية 22.4 L.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تتناسب درجة الحرارة المطلقة طرداً مع الطاقة الحركية المتوسّطة للجزيئات.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -5892,6 +6687,282 @@
        "points": 1,
        "difficulty": "hard",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "سرعة التفاعل الكيميائي تُعرّف بأنّها تغيّر:",
+       "options": [
+        "تركيز أحد المتفاعلات أو النواتج في وحدة الزمن",
+        "كتلة المزيج",
+        "حجم الوعاء",
+        "درجة الحرارة"
+       ],
+       "answer": "تركيز أحد المتفاعلات أو النواتج في وحدة الزمن",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وحدة سرعة التفاعل في الجملة الدولية:",
+       "options": [
+        "mol/(L·s)",
+        "mol/L",
+        "L/s",
+        "J/s"
+       ],
+       "answer": "mol/(L·s)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تزداد سرعة التفاعل بزيادة:",
+       "options": [
+        "درجة الحرارة",
+        "زمن التفاعل",
+        "حجم الإناء فقط",
+        "كتلة الراسب"
+       ],
+       "answer": "درجة الحرارة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تزداد سرعة التفاعل بزيادة التركيز لأنّ:",
+       "options": [
+        "يزداد عدد التصادمات الفعّالة",
+        "تنقص الطاقة",
+        "تقلّ الجزيئات",
+        "تنعدم الحرارة"
+       ],
+       "answer": "يزداد عدد التصادمات الفعّالة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "زيادة مساحة سطح التماس (سحق المادّة الصلبة) تؤدّي إلى:",
+       "options": [
+        "زيادة سرعة التفاعل",
+        "إنقاصها",
+        "عدم تغيّرها",
+        "إيقافها"
+       ],
+       "answer": "زيادة سرعة التفاعل",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الوسيط (الكاتاليزور) هو مادّة:",
+       "options": [
+        "تسرّع التفاعل دون أن تُستهلك",
+        "تُستهلك في التفاعل",
+        "تبطّئ التفاعل دائماً",
+        "تغيّر نواتج التفاعل"
+       ],
+       "answer": "تسرّع التفاعل دون أن تُستهلك",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يعمل الوسيط على:",
+       "options": [
+        "خفض طاقة التنشيط",
+        "رفع طاقة التنشيط",
+        "تغيير ΔH",
+        "تغيير النواتج"
+       ],
+       "answer": "خفض طاقة التنشيط",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "طاقة التنشيط هي:",
+       "options": [
+        "أدنى طاقة لازمة لبدء التفاعل",
+        "طاقة النواتج",
+        "حرارة التفاعل",
+        "طاقة الرابطة"
+       ],
+       "answer": "أدنى طاقة لازمة لبدء التفاعل",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تتناسب سرعة التفاعل عموماً مع درجة الحرارة تناسباً:",
+       "options": [
+        "طردياً (ويزداد أسرع من خطّي)",
+        "عكسياً",
+        "لا علاقة",
+        "مع مربّع الزمن"
+       ],
+       "answer": "طردياً (ويزداد أسرع من خطّي)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "قاعدة فانت هوف التقريبية: رفع الحرارة 10 °C يضاعف السرعة بـ:",
+       "options": [
+        "2 إلى 3 مرّات",
+        "نصف مرّة",
+        "10 مرّات دائماً",
+        "لا تغيير"
+       ],
+       "answer": "2 إلى 3 مرّات",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التفاعل الكيميائي يحدث عندما تتصادم الجزيئات تصادماً:",
+       "options": [
+        "فعّالاً (بطاقة كافية واتجاه مناسب)",
+        "أيّ تصادم يكفي",
+        "بطاقة منخفضة",
+        "بلا اتجاه"
+       ],
+       "answer": "فعّالاً (بطاقة كافية واتجاه مناسب)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الحفّاز الحيوي (الإنزيم) يعمل بـ:",
+       "options": [
+        "خفض طاقة التنشيط",
+        "رفع درجة الحرارة",
+        "زيادة التركيز",
+        "تغيير النواتج"
+       ],
+       "answer": "خفض طاقة التنشيط",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تزداد سرعة التفاعل بارتفاع درجة الحرارة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الوسيط يُستهلك تماماً في التفاعل.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "يبقى دون تغيير.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "زيادة تركيز المتفاعلات تزيد سرعة التفاعل.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "خفض طاقة التنشيط يزيد سرعة التفاعل.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -6846,6 +7917,264 @@
        "points": 1,
        "difficulty": "easy",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "التوازن الكيميائي هو حالة:",
+       "options": [
+        "تتساوى فيها سرعتا التفاعل الأمامي والعكسي",
+        "يتوقّف فيها التفاعل",
+        "تنعدم فيها النواتج",
+        "يُستهلك فيها الوسيط"
+       ],
+       "answer": "تتساوى فيها سرعتا التفاعل الأمامي والعكسي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التوازن الكيميائي توازن:",
+       "options": [
+        "ديناميكي (متحرّك)",
+        "ساكن تماماً",
+        "غير قابل للتغيير",
+        "انعدامي"
+       ],
+       "answer": "ديناميكي (متحرّك)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "ثابت التوازن K للتفاعل aA + bB ⇌ cC + dD يُكتب:",
+       "options": [
+        "[C]^c[D]^d / ([A]^a[B]^b)",
+        "[A]^a[B]^b / ([C]^c[D]^d)",
+        "[C][D]/([A][B])",
+        "[A]+[B]"
+       ],
+       "answer": "[C]^c[D]^d / ([A]^a[B]^b)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند إضافة مادّة متفاعلة إلى جملة في حالة توازن، فإنّ التوازن:",
+       "options": [
+        "ينزاح نحو النواتج",
+        "ينزاح نحو المتفاعلات",
+        "لا يتغيّر",
+        "ينعدم"
+       ],
+       "answer": "ينزاح نحو النواتج",
+       "answer_index": 0,
+       "explanation": "مبدأ لوشاتلييه.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "مبدأ لوشاتلييه ينصّ على أنّ الجملة في توازن تقاوم:",
+       "options": [
+        "التغيير المفروض عليها",
+        "الحرارة فقط",
+        "الضغط فقط",
+        "التركيز"
+       ],
+       "answer": "التغيير المفروض عليها",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "زيادة الضغط على تفاعل غازي يزحزح التوازن نحو:",
+       "options": [
+        "الجهة ذات عدد المولات الغازية الأقل",
+        "الجهة ذات المولات الأكثر",
+        "لا تأثير للضغط",
+        "النواتج دائماً"
+       ],
+       "answer": "الجهة ذات عدد المولات الغازية الأقل",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "رفع درجة الحرارة في تفاعل ناشر للحرارة (طارد) يزحزح التوازن نحو:",
+       "options": [
+        "المتفاعلات",
+        "النواتج",
+        "لا تأثير",
+        "الانعدام"
+       ],
+       "answer": "المتفاعلات",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "إذا كان K ≫ 1 فإنّ التوازن:",
+       "options": [
+        "يحمّل على النواتج",
+        "يحمّل على المتفاعلات",
+        "لا نواتج",
+        "K=1"
+       ],
+       "answer": "يحمّل على النواتج",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "ثابت التوازن K يتغيّر بتغيّر:",
+       "options": [
+        "درجة الحرارة",
+        "الضغط فقط",
+        "التركيز",
+        "الوسيط"
+       ],
+       "answer": "درجة الحرارة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "إضافة وسيط إلى جملة متوازنة:",
+       "options": [
+        "لا تغيّر موضع التوازن",
+        "تنقل التوازن للنواتج",
+        "تنقله للمتفاعلات",
+        "تنعدم K"
+       ],
+       "answer": "لا تغيّر موضع التوازن",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "العلاقة بين K وحرارة التفاعل ΔH لتفاعل ماصّ للحرارة عند رفع T:",
+       "options": [
+        "يزداد K",
+        "ينقص K",
+        "لا يتغيّر",
+        "ينعدم"
+       ],
+       "answer": "يزداد K",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "التوازن الكيميائي توازن ديناميكي.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "مبدأ لوشاتلييه يفسّر إزاحة التوازن.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "لا تتغيّر قيمة K بتغيّر الضغط.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "إضافة وسيط تغيّر موضع التوازن.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "لا تغيّره، تصل فقط أسرع للحالة.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -9001,6 +10330,336 @@
        "points": 1,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "حسب برونشتد-لوري، الحمض هو جسم:",
+       "options": [
+        "مانح للبروتون (H⁺)",
+        "قابل للبروتون",
+        "مانح للإلكترون",
+        "مستقبل للإلكترون"
+       ],
+       "answer": "مانح للبروتون (H⁺)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "حسب برونشتد-لوري، الأسّ هو جسم:",
+       "options": [
+        "قابل للبروتون",
+        "مانح للبروتون",
+        "متعادل",
+        "مؤكسد"
+       ],
+       "answer": "قابل للبروتون",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الرقم الهيدروجيني pH يُعطى بالعلاقة:",
+       "options": [
+        "pH = −log[H₃O⁺]",
+        "pH = log[H₃O⁺] + 1",
+        "pH = [H₃O⁺] / 7",
+        "pH = 14 + log[H₃O⁺]"
+       ],
+       "answer": "pH = −log[H₃O⁺]",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الماء النقي عند 25 °C له pH يساوي:",
+       "options": [
+        "7",
+        "0",
+        "14",
+        "1"
+       ],
+       "answer": "7",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المحلول الحمضي له pH:",
+       "options": [
+        "أقل من 7",
+        "أكبر من 7",
+        "يساوي 7",
+        "يساوي 14"
+       ],
+       "answer": "أقل من 7",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المحلول الأسّي له pH:",
+       "options": [
+        "أكبر من 7",
+        "أقل من 7",
+        "يساوي 7",
+        "يساوي 0"
+       ],
+       "answer": "أكبر من 7",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الجداء الأيوني للماء Kw عند 25 °C يساوي:",
+       "options": [
+        "10⁻¹⁴",
+        "10¹⁴",
+        "10⁻⁷",
+        "10⁷"
+       ],
+       "answer": "10⁻¹⁴",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "محلول فيه [H₃O⁺] = 10⁻³ mol/L، قيمة pH:",
+       "options": [
+        "3",
+        "11",
+        "7",
+        "1"
+       ],
+       "answer": "3",
+       "answer_index": 0,
+       "explanation": "pH = −log10⁻³ = 3.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "محلول pH له يساوي 11، فـ [H₃O⁺] تساوي:",
+       "options": [
+        "10⁻¹¹ mol/L",
+        "10¹¹ mol/L",
+        "10⁻³ mol/L",
+        "10³ mol/L"
+       ],
+       "answer": "10⁻¹¹ mol/L",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يزداد تركيز [OH⁻] في المحلول بزيادة:",
+       "options": [
+        "قاعديته",
+        "حمضيته",
+        "حرارته فقط",
+        "ضغطه"
+       ],
+       "answer": "قاعديته",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "العلاقة بين pH و pOH عند 25 °C:",
+       "options": [
+        "pH + pOH = 14",
+        "pH = pOH + 7",
+        "pH − pOH = 7",
+        "pH = pOH × 2"
+       ],
+       "answer": "pH + pOH = 14",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "معايرة حمض قوي بأسّ قوي تعطي نقطة تكافؤ عند pH:",
+       "options": [
+        "7",
+        "3",
+        "11",
+        "1"
+       ],
+       "answer": "7",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الكاشف (الفينول فثالين) في الوسط الأسّي يعطي لوناً:",
+       "options": [
+        "وردياً",
+        "عديم اللون",
+        "أزرق",
+        "أصفر"
+       ],
+       "answer": "وردياً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الحمض القوي في الماء يتأيّن:",
+       "options": [
+        "تأيّناً تاماً",
+        "جزئياً",
+        "لا يتأيّن",
+        "تأيّناً ضعيفاً"
+       ],
+       "answer": "تأيّناً تاماً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الأسّ القوي في الماء يتأيّن:",
+       "options": [
+        "تأيّناً تاماً",
+        "جزئياً",
+        "لا يتأيّن",
+        "تأيّناً ضعيفاً"
+       ],
+       "answer": "تأيّناً تاماً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الماء النقي متعادل وله pH = 7 عند 25 °C.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الحمض حسب برونشتد هو مانح للبروتون.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يزداد pH بزيادة تركيز أيونات الهيدرونيوم.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "ينقص.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الجداء الأيوني للماء Kw ثابت عند درجة حرارة معيّنة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -9773,6 +11432,246 @@
        "points": 1,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "الملح الناتج عن حمض قوي وأسّ قوي يعطي محلولاً:",
+       "options": [
+        "متعادلاً",
+        "حمضياً",
+        "أسّياً",
+        "لا يتأيّن"
+       ],
+       "answer": "متعادلاً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الملح الناتج عن حمض قوي وأسّ ضعيف يعطي محلولاً:",
+       "options": [
+        "حمضياً",
+        "أسّياً",
+        "متعادلاً",
+        "قاعدياً فقط"
+       ],
+       "answer": "حمضياً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الملح الناتج عن حمض ضعيف وأسّ قوي يعطي محلولاً:",
+       "options": [
+        "أسّياً (قاعدياً)",
+        "حمضياً",
+        "متعادلاً",
+        "لا يتأيّن"
+       ],
+       "answer": "أسّياً (قاعدياً)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التميؤ (الحلمهة) هو تفاعل الأيون مع:",
+       "options": [
+        "الماء",
+        "الحمض",
+        "الأسّ",
+        "المذيب العضوي"
+       ],
+       "answer": "الماء",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "محلول كلوريد الأمونيوم NH₄Cl يكون:",
+       "options": [
+        "حمضياً",
+        "أسّياً",
+        "متعادلاً",
+        "لا يتأيّن"
+       ],
+       "answer": "حمضياً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "محلول خلات الصوديوم CH₃COONa يكون:",
+       "options": [
+        "أسّياً",
+        "حمضياً",
+        "متعادلاً",
+        "لا يتأيّن"
+       ],
+       "answer": "أسّياً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "محلول كلوريد الصوديوم NaCl يكون:",
+       "options": [
+        "متعادلاً",
+        "حمضياً",
+        "أسّياً",
+        "لا يتأيّن"
+       ],
+       "answer": "متعادلاً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الأيون المتأيّن (المتحلّل مائياً) الذي يعطي وسطاً حمضياً هو:",
+       "options": [
+        "الكاتيون من أسّ ضعيف",
+        "الأنيون من حمض قوي",
+        "كاتيون أسّ قوي",
+        "أنيون حمض قوي"
+       ],
+       "answer": "الكاتيون من أسّ ضعيف",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الأيون المتأيّن الذي يعطي وسطاً أسّياً هو:",
+       "options": [
+        "الأنيون من حمض ضعيف",
+        "الكاتيون من أسّ قوي",
+        "أنيون حمض قوي",
+        "كاتيون حمض قوي"
+       ],
+       "answer": "الأنيون من حمض ضعيف",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "ثابت التميؤ يرتبط بـ:",
+       "options": [
+        "ثابت تفكّك الحمض/الأسّ الضعيف",
+        "ثابت الغازات",
+        "الكثافة",
+        "الكتلة المولية"
+       ],
+       "answer": "ثابت تفكّك الحمض/الأسّ الضعيف",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "محلول كلوريد الصوديوم متعادل.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "محلول خلات الصوديوم أسّي.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "محلول كلوريد الأمونيوم حمضي.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "كل الأملاح تعطي محاليل متعادلة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "بل يعتمد على قوّة الحمض والأسّ.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -10517,6 +12416,228 @@
        "points": 1,
        "difficulty": "easy",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "المحلول المنظّم (المصدّ) للحموضة هو محلول:",
+       "options": [
+        "يقاوم تغيّر pH عند إضافة حمض أو أسّ بكمّيات صغيرة",
+        "لا يتأثّر بأي كمية حمض",
+        "حمضي دائماً",
+        "أسّي دائماً"
+       ],
+       "answer": "يقاوم تغيّر pH عند إضافة حمض أو أسّ بكمّيات صغيرة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المحلول المنظّم يتكوّن عادة من:",
+       "options": [
+        "حمض ضعيف وملحه",
+        "حمض قوي وملحه",
+        "أسّ قوي فقط",
+        "ماء نقي"
+       ],
+       "answer": "حمض ضعيف وملحه",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "معادلة هندرسون-هاسيلبالك لحساب pH المنظّم:",
+       "options": [
+        "pH = pKa + log([A⁻]/[HA])",
+        "pH = pKa × [A⁻] + [HA]",
+        "pH = pKa + [HA] − [A⁻]",
+        "pH = −log Ka + log[HA]"
+       ],
+       "answer": "pH = pKa + log([A⁻]/[HA])",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "أعظم قدرة تنظيم لمحلول منظّم عندما:",
+       "options": [
+        "pH ≈ pKa",
+        "pH = 7 دائماً",
+        "pH = 1",
+        "pH = 14"
+       ],
+       "answer": "pH ≈ pKa",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الدم البشري محلول منظّم pH قريب من:",
+       "options": [
+        "7.4",
+        "5",
+        "9",
+        "12"
+       ],
+       "answer": "7.4",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المنظّم الفوسفاتي في الخلية يحافظ على:",
+       "options": [
+        "pH الداخلي",
+        "درجة الحرارة",
+        "الضغط الأسموزي فقط",
+        "اللون"
+       ],
+       "answer": "pH الداخلي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "مثال على محلول منظّم طبيعي في الجسم:",
+       "options": [
+        "الدم",
+        "البول فقط",
+        "العرق",
+        "الدموع فقط"
+       ],
+       "answer": "الدم",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "قدرة التنظيم تكون أعظمية عندما تكون نسب [A⁻]/[HA]:",
+       "options": [
+        "قريبة من 1",
+        "صفر",
+        "كبيرة جداً",
+        "سالبة"
+       ],
+       "answer": "قريبة من 1",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند إضافة حمض قوي إلى محلول منظّم، يتفاعل الحمض مع:",
+       "options": [
+        "الأنيون A⁻",
+        "الكاتيون H⁺",
+        "الماء",
+        "الملح"
+       ],
+       "answer": "الأنيون A⁻",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يقاوم المحلول المنظّم تغيّر pH عند إضافة كمّيات صغيرة من حمض أو أسّ.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "أعظم قدرة تنظيم عندما pH = pKa.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الدم البشري محلول منظّم pH ≈ 7.4.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "المحلول المنظّم يحافظ على pH ثابتاً مهما أُضيف من حمض.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "فقط لكمّيات محدودة.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -12758,6 +14879,282 @@
        "points": 1,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "الكيمياء العضوية هي كيمياء مركّبات:",
+       "options": [
+        "الكربون",
+        "السيليكون",
+        "الحديد",
+        "النيتروجين"
+       ],
+       "answer": "الكربون",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الكربون رباعي التكافؤ، أي أنّه يكوّن:",
+       "options": [
+        "4 روابط تساهمية",
+        "2 روابط",
+        "3 روابط",
+        "6 روابط"
+       ],
+       "answer": "4 روابط تساهمية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "السلاسل الكربونية قد تكون:",
+       "options": [
+        "مستقيمة أو متفرّعة أو حلقية",
+        "مستقيمة فقط",
+        "حلقية فقط",
+        "متفرّعة فقط"
+       ],
+       "answer": "مستقيمة أو متفرّعة أو حلقية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المركّبات العضوية المشبعة تحتوي على روابط:",
+       "options": [
+        "بسيطة (أحادية) فقط",
+        "ثنائية",
+        "ثلاثية",
+        "أروماتية"
+       ],
+       "answer": "بسيطة (أحادية) فقط",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "مركّبات عضوية غير مشبعة تحتوي على:",
+       "options": [
+        "رابطة ثنائية أو ثلاثية",
+        "روابط بسيطة فقط",
+        "معادن",
+        "أملاح"
+       ],
+       "answer": "رابطة ثنائية أو ثلاثية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المجموعة الوظيفية الكحولية هي:",
+       "options": [
+        "—OH",
+        "—COOH",
+        "—CHO",
+        "—NH₂"
+       ],
+       "answer": "—OH",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المجموعة الوظيفية للحمض الكربوكسيلي هي:",
+       "options": [
+        "—COOH",
+        "—OH",
+        "—CHO",
+        "—O—"
+       ],
+       "answer": "—COOH",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المجموعة الوظيفية للألدهيد هي:",
+       "options": [
+        "—CHO",
+        "—COOH",
+        "—OH",
+        "—CO—"
+       ],
+       "answer": "—CHO",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المجموعة الوظيفية للكيتون هي:",
+       "options": [
+        "—CO— (كربونيل بين كربونين)",
+        "—COOH",
+        "—OH",
+        "—NH₂"
+       ],
+       "answer": "—CO— (كربونيل بين كربونين)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الصيغة الجزيئية للميثان:",
+       "options": [
+        "CH₄",
+        "C₂H₆",
+        "C₂H₄",
+        "C₂H₂"
+       ],
+       "answer": "CH₄",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الهيدروكربون هو مركّب من:",
+       "options": [
+        "كربون وهيدروجين فقط",
+        "كربون وأكسجين",
+        "كربون ونيتروجين",
+        "كربون وكبريت"
+       ],
+       "answer": "كربون وهيدروجين فقط",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الأيزوميرات هي مركّبات لها:",
+       "options": [
+        "نفس الصيغة الجزيئية وصيغ بنيوية مختلفة",
+        "صيغ جزيئية مختلفة",
+        "نفس البنية وكتل مختلفة",
+        "لا علاقة"
+       ],
+       "answer": "نفس الصيغة الجزيئية وصيغ بنيوية مختلفة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الكربون رباعي التكافؤ ويشكّل روابط تساهمية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الهيدروكربونات تحتوي على الكربون والهيدروجين فقط.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "المجموعة —COOH هي مجموعة كحولية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "هي مجموعة حمض كربوكسيلي.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الأيزوميرات لها نفس الصيغة الجزيئية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -13548,6 +15945,264 @@
        "points": 1,
        "difficulty": "easy",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "الصيغة العامة للألكانات:",
+       "options": [
+        "CₙH₂ₙ₊₂",
+        "CₙH₂ₙ",
+        "CₙHₙ",
+        "CₙH₂ₙ₊₄"
+       ],
+       "answer": "CₙH₂ₙ₊₂",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الألكانات هيدروكربونات:",
+       "options": [
+        "مشبعة بروابط بسيطة",
+        "غير مشبعة",
+        "أروماتية",
+        "حلقية دائماً"
+       ],
+       "answer": "مشبعة بروابط بسيطة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الصيغة الجزيئية للإيثان:",
+       "options": [
+        "C₂H₆",
+        "CH₄",
+        "C₂H₄",
+        "C₃H₈"
+       ],
+       "answer": "C₂H₆",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الصيغة الجزيئية للبروبان:",
+       "options": [
+        "C₃H₈",
+        "C₂H₆",
+        "C₄H₁₀",
+        "C₃H₆"
+       ],
+       "answer": "C₃H₈",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "نوع التهجين في الألكانات حول ذرّة الكربون:",
+       "options": [
+        "sp³",
+        "sp²",
+        "sp",
+        "sp³d"
+       ],
+       "answer": "sp³",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الزاوية بين الروابط في الألكانات تقارب:",
+       "options": [
+        "109.5°",
+        "120°",
+        "180°",
+        "90°"
+       ],
+       "answer": "109.5°",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الألكانات عموماً:",
+       "options": [
+        "قليلة النشاط الكيميائي",
+        "عالية النشاط",
+        "حمضية",
+        "قاعدية"
+       ],
+       "answer": "قليلة النشاط الكيميائي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التفاعل المميّز للألكانات هو:",
+       "options": [
+        "الاستبدال (الكلورة)",
+        "الإضافة",
+        "البلمرة",
+        "التعادل"
+       ],
+       "answer": "الاستبدال (الكلورة)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الاسم الشائع لأوّل الألكانات CH₄:",
+       "options": [
+        "الميثان",
+        "الإيثان",
+        "البروبان",
+        "البيوتان"
+       ],
+       "answer": "الميثان",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الألكانات المشبّعة تتفاعل مع الهالوجينات بـ:",
+       "options": [
+        "الاستبدال الضوئي",
+        "الإضافة",
+        "الأكسدة التلقائية",
+        "التميؤ"
+       ],
+       "answer": "الاستبدال الضوئي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الصيغة البنائية للألكان المتفرّع الأيزوبيوتان (C₄H₁₀):",
+       "options": [
+        "CH(CH₃)₃",
+        "CH₃CH₂CH₂CH₃ فقط",
+        "C₄H₈",
+        "C₄H₆"
+       ],
+       "answer": "CH(CH₃)₃",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الصيغة العامة للألكانات هي CₙH₂ₙ₊₂.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الألكانات مشبعة وتتفاعل بالإضافة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "تتفاعل بالاستبدال.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تهجين كربون الألكانات هو sp³ والزاوية ≈109.5°.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الإيثان صيغته C₂H₆.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -14454,6 +17109,264 @@
        "points": 2,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "الصيغة العامة للألكينات:",
+       "options": [
+        "CₙH₂ₙ",
+        "CₙH₂ₙ₊₂",
+        "CₙH₂ₙ₋₂",
+        "CₙHₙ"
+       ],
+       "answer": "CₙH₂ₙ",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الألكينات تحتوي على رابطة:",
+       "options": [
+        "ثنائية C=C",
+        "ثلاثية",
+        "أحادية فقط",
+        "أروماتية"
+       ],
+       "answer": "ثنائية C=C",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الصيغة الجزيئية للإيثيلين (الإيثين):",
+       "options": [
+        "C₂H₄",
+        "C₂H₆",
+        "C₂H₂",
+        "CH₄"
+       ],
+       "answer": "C₂H₄",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "نوع التهجين حول كربون الرابطة المزدوجة:",
+       "options": [
+        "sp²",
+        "sp³",
+        "sp",
+        "sp³d"
+       ],
+       "answer": "sp²",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "زاوية الروابط في الألكينات تقارب:",
+       "options": [
+        "120°",
+        "109.5°",
+        "180°",
+        "90°"
+       ],
+       "answer": "120°",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التفاعل المميّز للألكينات:",
+       "options": [
+        "الإضافة",
+        "الاستبدال فقط",
+        "التعادل",
+        "التميؤ"
+       ],
+       "answer": "الإضافة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "اختبار تمييز الألكينات عن الألكانات:",
+       "options": [
+        "إزالة لون ماء البروم",
+        "عدم التفاعل",
+        "تشكّل راسب",
+        "انبعاث غاز"
+       ],
+       "answer": "إزالة لون ماء البروم",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند إضافة HBr إلى الإيثيلين ينتج:",
+       "options": [
+        "برومو الإيثان",
+        "الإيثان",
+        "البروبان",
+        "ميثان"
+       ],
+       "answer": "برومو الإيثان",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "بلمرة الإيثيلين تعطي:",
+       "options": [
+        "البولي إيثيلين",
+        "البوليسترين",
+        "النايلون",
+        "المطّاط"
+       ],
+       "answer": "البولي إيثيلين",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "أوّل مركّب في سلسلة الألكينات:",
+       "options": [
+        "الإيثين C₂H₄",
+        "الميثين",
+        "البروبين",
+        "البيوتين"
+       ],
+       "answer": "الإيثين C₂H₄",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الألكينات أكثر نشاطاً من الألكانات بسبب:",
+       "options": [
+        "الرابطة المزدوجة الغنية بالإلكترونات",
+        "كتلتها الأكبر",
+        "قطبيتها",
+        "حلقاتها"
+       ],
+       "answer": "الرابطة المزدوجة الغنية بالإلكترونات",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الصيغة العامة للألكينات هي CₙH₂ₙ.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تهجين كربون الرابطة المزدوجة sp² والزاوية ≈120°.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تتفاعل الألكينات بالإضافة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يزيل الإيثيلين لون ماء البروم.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -15408,6 +18321,210 @@
        "points": 1,
        "difficulty": "easy",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "الألكاينات تحتوي على رابطة:",
+       "options": [
+        "ثلاثية C≡C",
+        "ثنائية",
+        "أحادية فقط",
+        "أروماتية"
+       ],
+       "answer": "ثلاثية C≡C",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الصيغة الجزيئية للأسيتيلين (الإيثاين):",
+       "options": [
+        "C₂H₂",
+        "C₂H₄",
+        "C₂H₆",
+        "CH₄"
+       ],
+       "answer": "C₂H₂",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "نوع التهجين حول كربون الرابطة الثلاثية:",
+       "options": [
+        "sp",
+        "sp²",
+        "sp³",
+        "sp³d"
+       ],
+       "answer": "sp",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "زاوية الروابط في الألكاينات:",
+       "options": [
+        "180° (خطية)",
+        "120°",
+        "109.5°",
+        "90°"
+       ],
+       "answer": "180° (خطية)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التفاعل المميّز للألكاينات:",
+       "options": [
+        "الإضافة",
+        "الاستبدال فقط",
+        "التعادل",
+        "التميؤ"
+       ],
+       "answer": "الإضافة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "أوّل مركّب في سلسلة الألكاينات:",
+       "options": [
+        "الإيثاين C₂H₂",
+        "الميثاين",
+        "البروباين",
+        "البيوتاين"
+       ],
+       "answer": "الإيثاين C₂H₂",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الألكاينات أكثر نشاطاً من الألكينات بسبب:",
+       "options": [
+        "الرابطة الثلاثية الغنية بالإلكترونات",
+        "كتلتها",
+        "قطبيتها",
+        "حلقاتها"
+       ],
+       "answer": "الرابطة الثلاثية الغنية بالإلكترونات",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "إضافة الهيدروجين الكامل إلى الإيثاين تعطي:",
+       "options": [
+        "الإيثان",
+        "الإيثين",
+        "الميثان",
+        "البروبان"
+       ],
+       "answer": "الإيثان",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الصيغة العامة للألكاينات هي CₙH₂ₙ₋₂.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تهجين كربون الرابطة الثلاثية sp والجزيء خطّي.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الألكاينات تتفاعل بالإضافة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الإيثاين (الأسيتيلين) صيغته C₂H₂.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -16568,6 +19685,246 @@
        "points": 2,
        "difficulty": "medium",
        "tags": []
+      },
+      {
+       "type": "mcq",
+       "text": "المركّب الأروماتي الأبسط هو:",
+       "options": [
+        "البنزين C₆H₆",
+        "ال cyclooctane",
+        "البروبان",
+        "الأسيتيلين"
+       ],
+       "answer": "البنزين C₆H₆",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الصيغة الجزيئية للبنزين:",
+       "options": [
+        "C₆H₆",
+        "C₆H₁₂",
+        "C₆H₁₄",
+        "C₅H₅"
+       ],
+       "answer": "C₆H₆",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "حلقة البنزين تتكوّن من:",
+       "options": [
+        "6 ذرّات كربون في حلقة مستوية",
+        "5 ذرّات",
+        "7 ذرّات",
+        "4 ذرّات"
+       ],
+       "answer": "6 ذرّات كربون في حلقة مستوية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الرابطة في البنزين موصوفة بأنّها:",
+       "options": [
+        "مقرّنة (بين الأحادية والمزدوجة)",
+        "ثلاثية",
+        "أحادية صرفة",
+        "أيونية"
+       ],
+       "answer": "مقرّنة (بين الأحادية والمزدوجة)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التفاعل المميّز للمركّبات الأروماتية:",
+       "options": [
+        "الاستبدال الأروماتي (الإلكتروفيلي)",
+        "الإضافة",
+        "التعادل",
+        "التميؤ"
+       ],
+       "answer": "الاستبدال الأروماتي (الإلكتروفيلي)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عدد إلكترونات π في البنزين:",
+       "options": [
+        "6",
+        "3",
+        "12",
+        "4"
+       ],
+       "answer": "6",
+       "answer_index": 0,
+       "explanation": "تتبع قاعدة هوكل 4n+2 مع n=1.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "قاعدة هوكل للعطرية تتطلّب:",
+       "options": [
+        "4n+2 إلكترون π",
+        "4n إلكترون π",
+        "n إلكترون",
+        "لا شرط"
+       ],
+       "answer": "4n+2 إلكترون π",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "نوع التهجين لكل كربون في البنزين:",
+       "options": [
+        "sp²",
+        "sp³",
+        "sp",
+        "sp³d"
+       ],
+       "answer": "sp²",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "من مشتقّات البنزين:",
+       "options": [
+        "الطولين C₆H₅CH₃",
+        "الميثان",
+        "البروبان",
+        "الأسيتيلين"
+       ],
+       "answer": "الطولين C₆H₅CH₃",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "البنزين مركّب:",
+       "options": [
+        "أروماتي مستقرّ",
+        "أليفاتي غير مشبع",
+        "مشبع",
+        "غير مستقرّ بشدّة"
+       ],
+       "answer": "أروماتي مستقرّ",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "البنزين هو المركّب الأروماتي الأبسط وصيغته C₆H₆.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تتبع العطرية قاعدة هوكل (4n+2 إلكترون π).",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تفاعل البنزين المميّز هو الاستبدال لا الإضافة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تهجين كربون البنزين sp³.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "بل sp².",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
