@@ -758,7 +758,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المقدار وعلاقته:",
+       "text": "طابق بين كل مقدار وعلاقته الرياضية في درس «الحركة التوافقية البسيطة»:",
        "options": [],
        "answer": [
         "2π√(m/k)",
@@ -875,6 +875,492 @@
        "difficulty": "medium",
        "tags": [
         "graph"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الحركة التوافقية البسيطة هي حركة اهتزازية تكون فيها قوّة الإرجاع:",
+       "options": [
+        "متناسبة طرداً مع الإبعاد ومعاكسة له بالجهة",
+        "ثابتة المقدار والجهة",
+        "متناسبة عكساً مع الإبعاد",
+        "متناسبة مع مربّع الإبعاد"
+       ],
+       "answer": "متناسبة طرداً مع الإبعاد ومعاكسة له بالجهة",
+       "answer_index": 0,
+       "explanation": "F = −k x؛ التناسب طردي مع الإبعاد والجهة معاكسة للإبعاد.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في الحركة التوافقية البسيطة، جهة التسارع تكون دائماً:",
+       "options": [
+        "باتجاه مركز الاهتزاز",
+        "بعيدة عن مركز الاهتزاز",
+        "باتجاه الحركة نفسها",
+        "معدومة"
+       ],
+       "answer": "باتجاه مركز الاهتزاز",
+       "answer_index": 0,
+       "explanation": "التسارع a = −ω²x، أي دائماً نحو مركز الاهتزاز.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "أي الكمّيات التالية تبقى ثابتة أثناء الحركة التوافقية البسيطة؟",
+       "options": [
+        "السعة والدور",
+        "السرعة والمطال",
+        "الطاقة الحركية",
+        "التسارع"
+       ],
+       "answer": "السعة والدور",
+       "answer_index": 0,
+       "explanation": "السعة A والدور T ثابتان، بينما المطال والسرعة والتسارع تتغيّر دورياً.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "النبض ω لجسم يهتزّ بحركة توافقية بسيطة يساوي:",
+       "options": [
+        "2π/T",
+        "T/2π",
+        "2πT",
+        "1/T"
+       ],
+       "answer": "2π/T",
+       "answer_index": 0,
+       "explanation": "ω = 2π/T = 2πf.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وحدة النبض ω في الجملة الدولية هي:",
+       "options": [
+        "rad/s",
+        "Hz",
+        "m/s",
+        "s"
+       ],
+       "answer": "rad/s",
+       "answer_index": 0,
+       "explanation": "النبض الزاوي واحدة راديان على الثانية.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "العلاقة بين التواتر f والدور T هي:",
+       "options": [
+        "f = 1/T",
+        "f = T",
+        "f = 2πT",
+        "f = T/2π"
+       ],
+       "answer": "f = 1/T",
+       "answer_index": 0,
+       "explanation": "التواتر مقلوب الدور.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند مرور الجسم المهتزّ في مركز الاهتزاز (وضع التوازن) تكون:",
+       "options": [
+        "السرعة أعظمية والتسارع معدوم",
+        "السرعة معدومة والتسارع أعظمي",
+        "السرعة والتسارع أعظميين",
+        "السرعة والتسارع معدومين"
+       ],
+       "answer": "السرعة أعظمية والتسارع معدوم",
+       "answer_index": 0,
+       "explanation": "عند x=0: v=v_max، وa=0.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند بلوغ الجسم أقصى مطال (موضع السعة) تكون:",
+       "options": [
+        "السرعة معدومة والتسارع أعظمي",
+        "السرعة أعظمية والتسارع معدوم",
+        "السرعة والتسارع معدومين",
+        "السرعة والتسارع أعظميين"
+       ],
+       "answer": "السرعة معدومة والتسارع أعظمي",
+       "answer_index": 0,
+       "explanation": "عند x=A: v=0، وa=a_max.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الطاقة الكامنة المرونية لهرّازة توافقية تكون أعظمية عند:",
+       "options": [
+        "أقصى مطال",
+        "مركز الاهتزاز",
+        "نصف السعة",
+        "لا تتغيّر"
+       ],
+       "answer": "أقصى مطال",
+       "answer_index": 0,
+       "explanation": "E_p = ½kx² عظمى عند x=A.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الطاقة الحركية لهرّازة توافقية تكون أعظمية عند:",
+       "options": [
+        "مركز الاهتزاز",
+        "أقصى مطال",
+        "نصف السعة",
+        "لا تتغيّر"
+       ],
+       "answer": "مركز الاهتزاز",
+       "answer_index": 0,
+       "explanation": "E_c = ½mv² عظمى عند x=0 حيث v أعظمية.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الطاقة الميكانيكية الكليّة لهرّازة توافقية غير متخامدة:",
+       "options": [
+        "تبقى ثابتة",
+        "تتناقص",
+        "تتزايد",
+        "تنعدم عند الأطراف"
+       ],
+       "answer": "تبقى ثابتة",
+       "answer_index": 0,
+       "explanation": "حفظ الطاقة: E = ½kA² ثابتة.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الطاقة الميكانيكية الكليّة لهرّازة نابضية تُعطى بالعلاقة:",
+       "options": [
+        "½ k A²",
+        "k A",
+        "½ m A²",
+        "m g A"
+       ],
+       "answer": "½ k A²",
+       "answer_index": 0,
+       "explanation": "E = ½kA².",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "السرعة العظمى لهرّازة توافقية تساوي:",
+       "options": [
+        "A ω",
+        "A/ω",
+        "A ω²",
+        "ω/A"
+       ],
+       "answer": "A ω",
+       "answer_index": 0,
+       "explanation": "v_max = Aω.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التسارع الأعظمي لهرّازة توافقية يساوي:",
+       "options": [
+        "A ω²",
+        "A ω",
+        "A/ω²",
+        "ω/A"
+       ],
+       "answer": "A ω²",
+       "answer_index": 0,
+       "explanation": "a_max = Aω².",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "السرعة اللحظية لهرّازة توافقية تُعطى بالعلاقة:",
+       "options": [
+        "v = ±ω√(A² − x²)",
+        "v = ωx",
+        "v = ωA²/x",
+        "v = A − x"
+       ],
+       "answer": "v = ±ω√(A² − x²)",
+       "answer_index": 0,
+       "explanation": "من حفظ الطاقة: v = ±ω√(A²−x²).",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في التابع x(t) = A cos(ωt + φ)، الرمز φ يمثّل:",
+       "options": [
+        "الطور الابتدائي",
+        "السعة",
+        "النبض",
+        "الدور"
+       ],
+       "answer": "الطور الابتدائي",
+       "answer_index": 0,
+       "explanation": "φ هو الطور الابتدائي الذي يحدّد الوضع الابتدائي.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "إذا انطلقت الهرّازة من موضع السعة (x=A عند t=0) فإنّ الطور الابتدائي φ:",
+       "options": [
+        "يساوي 0",
+        "يساوي π/2",
+        "يساوي π",
+        "غير معرّف"
+       ],
+       "answer": "يساوي 0",
+       "answer_index": 0,
+       "explanation": "A cos(0)=A، فالطور الابتدائي صفر.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "إذا انطلقت الهرّازة من مركز الاهتزاز فإنّ الطور الابتدائي φ يساوي:",
+       "options": [
+        "π/2 (أو −π/2)",
+        "0",
+        "π",
+        "2π"
+       ],
+       "answer": "π/2 (أو −π/2)",
+       "answer_index": 0,
+       "explanation": "A cos(π/2)=0، فيكون الانطلاق من المركز.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "دور هرّازة نابضية يتعلّق بـ:",
+       "options": [
+        "الكتلة والصلابة",
+        "السعة فقط",
+        "التسارع فقط",
+        "الطول"
+       ],
+       "answer": "الكتلة والصلابة",
+       "answer_index": 0,
+       "explanation": "T = 2π√(m/k) لا تتعلّق بالسعة.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند مضاعفة الكتلة المعلّقة بنابض، يصبح الدور الجديد (T'):",
+       "options": [
+        "T√2",
+        "2T",
+        "T/2",
+        "4T"
+       ],
+       "answer": "T√2",
+       "answer_index": 0,
+       "explanation": "T ∝ √m، فمضاعفة m تضاعف T بـ √2.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند مضاعفة صلابة النابض أربع مرات، يتغيّر الدور إلى:",
+       "options": [
+        "النصف",
+        "الضعف",
+        "الربع",
+        "لا يتغيّر"
+       ],
+       "answer": "النصف",
+       "answer_index": 0,
+       "explanation": "T ∝ 1/√k، فمضاعفة k أربع مرات تُنصف T.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في هرّازة نابضية، هل يعتمد الدور على السعة؟",
+       "options": [
+        "لا، ما دامت الاهتزازات صغيرة ومرنة",
+        "نعم، يتناسب طرداً مع السعة",
+        "نعم، يتناسب عكساً مع السعة",
+        "نعم، مع مربّع السعة"
+       ],
+       "answer": "لا، ما دامت الاهتزازات صغيرة ومرنة",
+       "answer_index": 0,
+       "explanation": "في المجال المرن لا تتعلّق T بالسعة (خاصية التوافقية).",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "العجلة (التسارع) في الحركة التوافقية البسيطة منعدمة عند مركز الاهتزاز.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تتناسب قوّة الإرجاع في الحركة التوافقية طرداً مع الإبعاد عن مركز الاهتزاز.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الطاقة الميكانيكية لهرّازة توافقية غير متخامدة تتناقص مع الزمن.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "تبقى ثابتة في حال عدم وجود تخامد.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يتناسب دور الهرّازة النابضية طرداً مع جذر الكتلة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "T = 2π√(m/k)، أي T ∝ √m.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "السرعة في الحركة التوافقية البسيطة أعظمية عند مركز الاهتزاز.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يعتمد دور الهرّازة النابضية على سعة الاهتزاز في المجال المرن.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "لا يعتمد على السعة في الاهتزازات الصغيرة.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]
@@ -1399,7 +1885,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المقدار ووحدته:",
+       "text": "طابق بين كل مقدار ووحدته في درس «الاهتزازات الجيبية الدورانية»:",
        "options": [],
        "answer": [
         "kg·m²",
@@ -1466,6 +1952,246 @@
        "difficulty": "hard",
        "tags": [
         "derive"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "ثابت الفتل C لسلك في نوّاس الفتل يُقاس بوحدة:",
+       "options": [
+        "N·m/rad",
+        "N/m",
+        "kg·m²",
+        "m/rad"
+       ],
+       "answer": "N·m/rad",
+       "answer_index": 0,
+       "explanation": "عزم الفتل لكل وحدة زاوية.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في نوّاس الفتل، عزم الإرجاع يتناسب مع:",
+       "options": [
+        "المطال الزاوي θ",
+        "مربّع المطال الزاوي",
+        "السرعة الزاوية",
+        "الزمن"
+       ],
+       "answer": "المطال الزاوي θ",
+       "answer_index": 0,
+       "explanation": "Γ = −C·θ.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في نوّاس الفتل، تكون الطاقة الكامنة أعظمية عند:",
+       "options": [
+        "أقصى مطال زاوي",
+        "الوضع الشاقولي للتوازن",
+        "نصف المطال",
+        "لا تتغيّر"
+       ],
+       "answer": "أقصى مطال زاوي",
+       "answer_index": 0,
+       "explanation": "E_p = ½Cθ² عظمى عند θ_max.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عزم العطالة في نوّاس الفتل يُقاس بوحدة:",
+       "options": [
+        "kg·m²",
+        "kg/m",
+        "N·m",
+        "rad/s²"
+       ],
+       "answer": "kg·m²",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تتعلّق الاهتزازات الجيبية الدورانية عموماً بـ:",
+       "options": [
+        "جسم صلب يدور حول محور فيكتسبه عزم إرجاع",
+        "جسم ينزلق على مستوٍ أفقي",
+        "سائل في أنبوب",
+        "شحنة في حقل كهربائي"
+       ],
+       "answer": "جسم صلب يدور حول محور فيكتسبه عزم إرجاع",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الدور في نوّاس الفتل يُعطى بالعلاقة:",
+       "options": [
+        "2π√(I/C)",
+        "2π√(C/I)",
+        "2π I C",
+        "2π√(I·C)"
+       ],
+       "answer": "2π√(I/C)",
+       "answer_index": 0,
+       "explanation": "T = 2π√(I/C).",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند مضاعفة عزم العطالة I مع ثبات C في نوّاس الفتل، يصبح الدور:",
+       "options": [
+        "T√2",
+        "2T",
+        "T/2",
+        "لا يتغيّر"
+       ],
+       "answer": "T√2",
+       "answer_index": 0,
+       "explanation": "T ∝ √I.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "ثابت الفتل C لسلك:",
+       "options": [
+        "يزداد بطول السلك",
+        "ينقص بطول السلك",
+        "لا يتعلّق بطول السلك",
+        "يساوي صفراً دائماً"
+       ],
+       "answer": "ينقص بطول السلك",
+       "answer_index": 1,
+       "explanation": "C ∝ 1/L، فينقص بازدياد الطول.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الطاقة الميكانيكية لنوّاس فتل غير متخامد:",
+       "options": [
+        "ثابتة",
+        "متناقصة",
+        "متزايدة",
+        "منعدمة"
+       ],
+       "answer": "ثابتة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المطال الزاوي في نوّاس الفتل يُقاس بوحدة:",
+       "options": [
+        "rad",
+        "N·m",
+        "kg·m²",
+        "s"
+       ],
+       "answer": "rad",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يتناسب دور نوّاس الفتل طرداً مع الجذر التربيعي لعزم العطالة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "ثابت الفتل C يعتمد على نوع مادّة السلك وأبعاده.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الطاقة الكامنة في نوّاس الفتل منعدمة عند الوضع الشاقولي للتوازن.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "المطال الزاوي في نوّاس الفتل يتناسب عكساً مع عزم الإرجاع.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "بل طرداً.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]
@@ -2038,7 +2764,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المقدار ووحدته:",
+       "text": "طابق بين كل مقدار ووحدته في درس «الاهتزازات غير التوافقية»:",
        "options": [],
        "answer": [
         "m",
@@ -2105,6 +2831,246 @@
        "difficulty": "hard",
        "tags": [
         "derive"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "النوّاس الثقلي البسيط يتألّف من:",
+       "options": [
+        "نقطة ماديّة معلّقة بخيط مهمل غير قابل للتمدّد",
+        "كتلة معلّقة بنابض",
+        "قرص معلّق بسلك فتل",
+        "جسم يطفو على سائل"
+       ],
+       "answer": "نقطة ماديّة معلّقة بخيط مهمل غير قابل للتمدّد",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "دور النوّاس الثقلي البسيط (للسعات الصغيرة) يتعلّق بـ:",
+       "options": [
+        "الطول l وتسارع الثقالة g",
+        "الكتلة والسعة",
+        "الطول والكتلة",
+        "السعة فقط"
+       ],
+       "answer": "الطول l وتسارع الثقالة g",
+       "answer_index": 0,
+       "explanation": "T = 2π√(l/g).",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "دور النوّاس الثقلي البسيط لا يتعلّق بـ:",
+       "options": [
+        "كتلة الكرة والسعة",
+        "طول الخيط",
+        "تسارع الثقالة",
+        "π"
+       ],
+       "answer": "كتلة الكرة والسعة",
+       "answer_index": 0,
+       "explanation": "T لا يتعلّق بالكتلة ولا بالسعة الصغيرة.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند مضاعفة طول بندول بسيط أربع مرات، يصبح دوره:",
+       "options": [
+        "الضعف",
+        "النصف",
+        "الربع",
+        "لا يتغيّر"
+       ],
+       "answer": "الضعف",
+       "answer_index": 0,
+       "explanation": "T ∝ √l، فمضاعفة l أربع مرات تضاعف T مرتين.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "إذا نُقل بندول بسيط إلى سطح القمر (حيث g أصغر)، فإنّ دوره:",
+       "options": [
+        "يزداد",
+        "ينقص",
+        "لا يتغيّر",
+        "ينعدم"
+       ],
+       "answer": "يزداد",
+       "answer_index": 0,
+       "explanation": "T ∝ 1/√g، ونقصان g يزيد T.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الطول المكافئ للنوّاس الثقلي المركّب يُعرّف بالعلاقة:",
+       "options": [
+        "I/(m d)",
+        "m d / I",
+        "I m d",
+        "I + m d"
+       ],
+       "answer": "I/(m d)",
+       "answer_index": 0,
+       "explanation": "L_eq = I/(md).",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في النوّاس الثقلي المركّب، d تمثّل:",
+       "options": [
+        "المسافة بين محور الدوران ومركز العطالة",
+        "الكتلة الكليّة",
+        "عزم العطالة",
+        "السعة الزاويّة"
+       ],
+       "answer": "المسافة بين محور الدوران ومركز العطالة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تسارع الثقالة g في الجملة الدولية يُقاس بوحدة:",
+       "options": [
+        "m/s²",
+        "m/s",
+        "N/kg·s",
+        "J/kg"
+       ],
+       "answer": "m/s²",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الدور في النوّاس الثقلي المركّب يُعطى بالعلاقة:",
+       "options": [
+        "2π√(I/(m g d))",
+        "2π√(m g d / I)",
+        "2π I/(m g d)",
+        "2π m g d"
+       ],
+       "answer": "2π√(I/(m g d))",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند إزاحة بندول بسيط عن وضعه الشاقولي ثم تركه، فإنّه يهتزّ بسبب:",
+       "options": [
+        "قوّة الإرجاع الناتجة عن مركّبة الوزن",
+        "قوّة نابضية",
+        "قوّة مغناطيسية",
+        "قوّة كهربائية"
+       ],
+       "answer": "قوّة الإرجاع الناتجة عن مركّبة الوزن",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "دور البندول البسيط يعتمد على كتلة الكرة المعلّقة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "لا يعتمد على الكتلة للاهتزازات الصغيرة.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يزداد دور البندول البسيط بزيادة طول الخيط.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الطول المكافئ للنوّاس المركّب يساوي I/(m d).",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "عند السعات الكبيرة يصبح دور البندول البسيط مستقلاً عن السعة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "تظهر التابعية بالسعة عند السعات الكبيرة (الاهتزازات غير التوافقية).",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]
@@ -2745,7 +3711,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المقدار ووحدته:",
+       "text": "طابق بين كل مقدار ووحدته في درس «ميكانيك الموائع»:",
        "options": [],
        "answer": [
         "Pa",
@@ -2850,6 +3816,354 @@
        "difficulty": "medium",
        "tags": [
         "diagram"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "السائل المثالي هو سائل:",
+       "options": [
+        "غير قابل للانضغاط وعديم اللزوجة",
+        "قابل للانضغاط ولزوجته كبيرة",
+        "غير قابل للانضغاط ولزوجته كبيرة",
+        "قابل للانضغاط وعديم اللزوجة"
+       ],
+       "answer": "غير قابل للانضغاط وعديم اللزوجة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الصبيب الحجمي Q في أنبوب يُعطى بالعلاقة:",
+       "options": [
+        "Q = S v",
+        "Q = S/v",
+        "Q = v/S",
+        "Q = S v²"
+       ],
+       "answer": "Q = S v",
+       "answer_index": 0,
+       "explanation": "Q = مساحة المقطع × السرعة.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وحدة الصبيب الحجمي في الجملة الدولية هي:",
+       "options": [
+        "m³/s",
+        "m²/s",
+        "kg/s",
+        "m/s"
+       ],
+       "answer": "m³/s",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "معادلة الاستمرارية تعبّر عن:",
+       "options": [
+        "حفظ المادة (كتلة/حجم) في الجريان",
+        "حفظ الطاقة الحرارية",
+        "قانون نيوتن الثاني",
+        "مبدأ أرخميدس"
+       ],
+       "answer": "حفظ المادة (كتلة/حجم) في الجريان",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند تضييق مقطع الأنبوب، فإنّ سرعة السائل:",
+       "options": [
+        "تزداد",
+        "تنقص",
+        "تبقى ثابتة",
+        "تنعدم"
+       ],
+       "answer": "تزداد",
+       "answer_index": 0,
+       "explanation": "من S₁v₁=S₂v₂، صغر S يزيد v.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "قوّة أرخميدس المؤثّرة في جسم مغمور تساوي:",
+       "options": [
+        "وزن السائل المُزاح",
+        "وزن الجسم",
+        "كتلة السائل",
+        "كثافة الجسم"
+       ],
+       "answer": "وزن السائل المُزاح",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "علاقة برنولي تعبّر عن انحفاظ:",
+       "options": [
+        "الطاقة الميكانيكية لوحدة الحجم في جريان مثالي",
+        "الكتلة",
+        "درجة الحرارة",
+        "الشحنة"
+       ],
+       "answer": "الطاقة الميكانيكية لوحدة الحجم في جريان مثالي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في علاقة برنولي، الحدود هي:",
+       "options": [
+        "P + ½ρv² + ρgh = ثابت",
+        "P + ρv + gh = ثابت",
+        "P v + ρg h = ثابت",
+        "P/ρ + v + h = ثابت"
+       ],
+       "answer": "P + ½ρv² + ρgh = ثابت",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "قانون توريشيللي لسرعة خروج سائل من ثقب يُعطى بالعلاقة:",
+       "options": [
+        "v = √(2 g h)",
+        "v = 2 g h",
+        "v = √(g h)",
+        "v = g h"
+       ],
+       "answer": "v = √(2 g h)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الضغط المطلق عند عمق h في سائل ساكن يساوي:",
+       "options": [
+        "P₀ + ρ g h",
+        "ρ g h",
+        "P₀ − ρ g h",
+        "ρ h / g"
+       ],
+       "answer": "P₀ + ρ g h",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الضغط الجوي عند سطح البحر يقارب:",
+       "options": [
+        "1.01×10⁵ Pa",
+        "1.01×10³ Pa",
+        "10⁵ bar",
+        "1 Pa"
+       ],
+       "answer": "1.01×10⁵ Pa",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وحدة اللزوجة (اللزوجة الديناميكية) هي:",
+       "options": [
+        "Pa·s",
+        "Pa/s",
+        "N/m",
+        "kg/m³"
+       ],
+       "answer": "Pa·s",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الضغط داخل سائل ساكن عند نفس المستوى الأفقي:",
+       "options": [
+        "متساوٍ في جميع النقاط",
+        "يتغيّر بتغيّر الشكل",
+        "أعظم عند الجدران",
+        "منعدم"
+       ],
+       "answer": "متساوٍ في جميع النقاط",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "مبدأ باسكال ينصّ على أنّ الضغط المطبّق على سائل محصور:",
+       "options": [
+        "ينتقل بتمامه إلى كل نقاط السائل",
+        "يبقى في نقطة التطبيق",
+        "يتناقص بالعمق",
+        "ينعدم"
+       ],
+       "answer": "ينتقل بتمامه إلى كل نقاط السائل",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الصبيب الحجمي عبر أنبوب مقطعه 0.02 m² وسرعة الجريان فيه 3 m/s يساوي:",
+       "options": [
+        "0.06 m³/s",
+        "0.6 m³/s",
+        "1.5 m³/s",
+        "0.006 m³/s"
+       ],
+       "answer": "0.06 m³/s",
+       "answer_index": 0,
+       "explanation": "Q = S v = 0.02×3 = 0.06 m³/s.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في الأنبوب الأفقي المتغيّر المقطع، أين يكون الضغط أصغر؟",
+       "options": [
+        "في المقطع الأضيق حيث السرعة أكبر",
+        "في المقطع الأوسع",
+        "الضغط متساوٍ",
+        "عند المخرج"
+       ],
+       "answer": "في المقطع الأضيق حيث السرعة أكبر",
+       "answer_index": 0,
+       "explanation": "بحسب برنولي، حيث تزيد السرعة ينقص الضغط.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يزداد الصبيب الحجمي بزيادة سرعة الجريان عند ثبات المقطع.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "قوّة أرخميدس تعتمد على كثافة الجسم المغمور لا على كثافة السائل.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "تعتمد على كثافة السائل وحجم الجسم المغمور.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "ينقص ضغط السائل الساكن بزيادة العمق.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "بل يزداد بالعمق.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "قانون توريشيللي يعطي سرعة خروج السائل من ثقب بدلالة عمقه.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]
@@ -3419,7 +4733,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المقدار ووحدته:",
+       "text": "طابق بين كل مقدار ووحدته في درس «النسبية الخاصة»:",
        "options": [],
        "answer": [
         "kg",
@@ -3486,6 +4800,336 @@
        "difficulty": "hard",
        "tags": [
         "derive"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "أي العبارات التالية صحيحة في النسبية الخاصة؟",
+       "options": [
+        "سرعة الضوء في الخلاء ثابتة في جميع جمل المقارنة",
+        "سرعة الضوء تتعلّق بحركة المراقب",
+        "الزمن مطلق",
+        "الأطوال ثابتة"
+       ],
+       "answer": "سرعة الضوء في الخلاء ثابتة في جميع جمل المقارنة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "ظاهرة تمدّد الزمن تعني أنّ الزمن المقيس يبدو:",
+       "options": [
+        "أطول في الجملة المتحرّكة بالنسبة للمراقب",
+        "أقصر دائماً",
+        "ثابتاً",
+        "منعدماً"
+       ],
+       "answer": "أطول في الجملة المتحرّكة بالنسبة للمراقب",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تقاصر الأطوال يعني أنّ طول جسم متحرّك بالنسبة للمراقب:",
+       "options": [
+        "يقصر في جهة الحركة",
+        "يطول في جهة الحركة",
+        "لا يتغيّر",
+        "ينعدم"
+       ],
+       "answer": "يقصر في جهة الحركة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الكتلة النسبية لجسم متحرّك تساوي:",
+       "options": [
+        "m₀/√(1 − v²/c²)",
+        "m₀√(1 − v²/c²)",
+        "m₀(1 − v/c)",
+        "m₀"
+       ],
+       "answer": "m₀/√(1 − v²/c²)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند اقتراب سرعة الجسم من سرعة الضوء، فإنّ كتلته النسبية:",
+       "options": [
+        "تزداد",
+        "تنقص",
+        "تبقى ثابتة",
+        "تنعدم"
+       ],
+       "answer": "تزداد",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الطاقة الكليّة لجسم في النسبية تُعطى بالعلاقة:",
+       "options": [
+        "E = m c²",
+        "E = ½ m v²",
+        "E = m c",
+        "E = m g h"
+       ],
+       "answer": "E = m c²",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الطاقة الحركية النسبية لجسم تُعطى بالعلاقة:",
+       "options": [
+        "(m − m₀) c²",
+        "½ m v²",
+        "m c²",
+        "m₀ c²"
+       ],
+       "answer": "(m − m₀) c²",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "طاقة السكون لجسم كتلته السكونية m₀ تساوي:",
+       "options": [
+        "m₀ c²",
+        "½ m₀ c²",
+        "m₀ c",
+        "m₀ v²"
+       ],
+       "answer": "m₀ c²",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند السرعات الصغيرة (v≪c) تعود الطاقة الحركية النسبية إلى:",
+       "options": [
+        "½ m₀ v² (الشكل الكلاسيكي)",
+        "m₀ c²",
+        "صفر",
+        "m₀ v"
+       ],
+       "answer": "½ m₀ v² (الشكل الكلاسيكي)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عامل لورنتز γ يساوي 1 عندما:",
+       "options": [
+        "v = 0",
+        "v = c",
+        "v = c/2",
+        "v > c"
+       ],
+       "answer": "v = 0",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند v = 0.6c يكون عامل لورنتز:",
+       "options": [
+        "1.25",
+        "0.8",
+        "1.5",
+        "1"
+       ],
+       "answer": "1.25",
+       "answer_index": 0,
+       "explanation": "γ = 1/√(1−0.36)=1/0.8=1.25.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "أيّ العبارات صحيحة عن جسم يتحرّك بسرعة قريبة من c؟",
+       "options": [
+        "يزداد تفاعله وتصعب تسريعه أكثر",
+        "يسهل تسريعه أكثر",
+        "تنعدم كتلته",
+        "لا يتأثّر"
+       ],
+       "answer": "يزداد تفاعله وتصعب تسريعه أكثر",
+       "answer_index": 0,
+       "explanation": "بزيادة الكتلة النسبية يصعب التسريع أكثر (الحدّ c ممتنع).",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "النسبية الخاصة صالحة في جمل المقارنة:",
+       "options": [
+        "الغاليلية (العطالية)",
+        "المتسارعة فقط",
+        "الدوّارة",
+        "جميع الجمل بدون استثناء"
+       ],
+       "answer": "الغاليلية (العطالية)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "لا يمكن لأي جسم مادّي أن يبلغ سرعة الضوء لأنّ:",
+       "options": [
+        "كتلته النسبية تؤول إلى ما لا نهاية",
+        "الزمن يتوقف",
+        "الأطوال تنعدم",
+        "الطاقة تنعدم"
+       ],
+       "answer": "كتلته النسبية تؤول إلى ما لا نهاية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "مكتشف النسبية الخاصة هو:",
+       "options": [
+        "أينشتاين",
+        "نيوتن",
+        "غاليلي",
+        "ماكسويل"
+       ],
+       "answer": "أينشتاين",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "سرعة الضوء في الخلاء هي حدّ أعلى للسرعات في النسبية الخاصة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تتحوّل الكتلة إلى طاقة وفق E = m c².",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تصبح طاقة سكون الجسم منعدمة عند سكونه الكامل.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "طاقة السكون m₀c² موجودة حتى عند السكون.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "عند v=0.8c يكون γ أكبر من 1.5.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "γ=1/0.6≈1.67.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]
@@ -4082,7 +5726,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المقدار ووحدته:",
+       "text": "طابق بين كل مقدار ووحدته في درس «المغناطيسية»:",
        "options": [],
        "answer": [
         "T (تسلا)",
@@ -4175,6 +5819,336 @@
        "difficulty": "medium",
        "tags": [
         "diagram"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وحدة شدة الحقل المغناطيسي في الجملة الدولية:",
+       "options": [
+        "التسلا (T)",
+        "الويبر (Wb)",
+        "الأمبير (A)",
+        "الفولت (V)"
+       ],
+       "answer": "التسلا (T)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وحدة التدفق المغناطيسي في الجملة الدولية:",
+       "options": [
+        "الويبر (Wb)",
+        "التسلا (T)",
+        "النفاذية",
+        "الأمبير"
+       ],
+       "answer": "الويبر (Wb)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التدفق المغناطيسي عبر سطح عمودي على الحقل يُعطى بالعلاقة:",
+       "options": [
+        "Φ = B S",
+        "Φ = B/S",
+        "Φ = B S²",
+        "Φ = S/B"
+       ],
+       "answer": "Φ = B S",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عندما يكون السطح موازياً لخطوط الحقل، يكون التدفق المغناطيسي:",
+       "options": [
+        "معدوماً",
+        "أعظمياً",
+        "متوسطاً",
+        "سالباً دائماً"
+       ],
+       "answer": "معدوماً",
+       "answer_index": 0,
+       "explanation": "Φ=BScos90°=0.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التدفق المغناطيسي يكون أعظمياً عندما يكون السطح:",
+       "options": [
+        "عمودياً على خطوط الحقل",
+        "موازياً لخطوط الحقل",
+        "بزاوية 45° مع الحقل",
+        "منحرفاً 30°"
+       ],
+       "answer": "عمودياً على خطوط الحقل",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "النفاذية المغناطيسية للفراغ μ₀ تساوي تقريباً:",
+       "options": [
+        "4π×10⁻⁷ T·m/A",
+        "4π×10⁻⁷ T/A",
+        "8.85×10⁻¹² C²/N·m²",
+        "9×10⁹ N·m²/C²"
+       ],
+       "answer": "4π×10⁻⁷ T·m/A",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "شدة الحقل المغناطيسي داخل وشيعة طويلة (solenoid) تُعطى بالعلاقة:",
+       "options": [
+        "B = μ₀ N I / L",
+        "B = μ₀ I / (2πr)",
+        "B = μ₀ I R",
+        "B = μ₀ N I L"
+       ],
+       "answer": "B = μ₀ N I / L",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "شدة الحقل المغناطيسي في مركز ملف دائري ذي N لفة ونصف قطر R:",
+       "options": [
+        "B = μ₀ N I / (2R)",
+        "B = μ₀ N I / R",
+        "B = μ₀ I / (2πR)",
+        "B = μ₀ N I R"
+       ],
+       "answer": "B = μ₀ N I / (2R)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تتناسب شدة الحقل المغناطيسي حول سلك مستقيم مع بعد r بـ:",
+       "options": [
+        "عكساً (1/r)",
+        "طرداً (r)",
+        "مع r²",
+        "لا تتعلّق بـ r"
+       ],
+       "answer": "عكساً (1/r)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "القطب المغناطيسي الأرضي (الشمالي المغناطيسي) يقع:",
+       "options": [
+        "قريباً من القطب الشمالي الجغرافي",
+        "قريباً من خط الاستواء",
+        "في مركز الأرض",
+        "عند القطب الجنوبي الجغرافي تماماً"
+       ],
+       "answer": "قريباً من القطب الشمالي الجغرافي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المجال المغناطيسي الأرضي ينشأ أساساً نتيجة:",
+       "options": [
+        "تيارات في النواة الخارجية للأرض",
+        "الدوران حول الشمس",
+        "الجاذبية",
+        "الشحنات في الغلاف الجوي"
+       ],
+       "answer": "تيارات في النواة الخارجية للأرض",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الأقطاب المغناطيسية المتشابهة:",
+       "options": [
+        "تتنافر",
+        "تتجاذب",
+        "لا تتفاعل",
+        "تتعادل"
+       ],
+       "answer": "تتنافر",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "خطوط الحقل المغناطيسي خارج المغناطيس تتجه:",
+       "options": [
+        "من القطب الشمالي إلى الجنوبي",
+        "من الجنوبي إلى الشمالي",
+        "عشوائياً",
+        "من المركز إلى الخارج"
+       ],
+       "answer": "من القطب الشمالي إلى الجنوبي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المواد المغناطيسية اللينة (المطاوعة) تستعمل في:",
+       "options": [
+        "نواة المحوّلات والكهرمغنطيسات",
+        "العوازل الكهربائية",
+        "المقاومات",
+        "الشاشات"
+       ],
+       "answer": "نواة المحوّلات والكهرمغنطيسات",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تدفق مغناطيسي شدّته B=0.4 T عبر سطح 0.05 m² عمودي على الحقل يساوي:",
+       "options": [
+        "0.02 Wb",
+        "0.2 Wb",
+        "8 Wb",
+        "0.008 Wb"
+       ],
+       "answer": "0.02 Wb",
+       "answer_index": 0,
+       "explanation": "Φ = 0.4×0.05 = 0.02 Wb.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "خطوط الحقل المغناطيسي خطوط مغلقة (لا بداية ولا نهاية لها).",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تتناسب شدة الحقل المغناطيسي حول سلك مستقيم عكساً مع بعده عن السلك.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "التدفق المغناطيسي يكون أعظمياً عندما يوازي السطح خطوط الحقل.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "يكون أعظمياً عند التعامد.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "وحدة التدفق المغناطيسي هي الويبر.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]
@@ -4744,7 +6718,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المقدار ووحدته:",
+       "text": "طابق بين كل مقدار ووحدته في درس «فعل الحقل المغناطيسي في التيار الكهربائي»:",
        "options": [],
        "answer": [
         "N (نيوتن)",
@@ -4811,6 +6785,264 @@
        "difficulty": "hard",
        "tags": [
         "derive"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "القوّة المغناطيسية المؤثّرة في ناقل مستقيم طوله L يمرّ فيه تيار I في حقل B:",
+       "options": [
+        "F = B I L sinθ",
+        "F = B I L cosθ",
+        "F = B I / L",
+        "F = B L / I"
+       ],
+       "answer": "F = B I L sinθ",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تكون القوّة المغناطيسية على ناقل أعظمية عندما يكون الناقل:",
+       "options": [
+        "عمودياً على خطوط الحقل",
+        "موازياً لخطوط الحقل",
+        "بزاوية 45°",
+        "في اتجاه التيار نفسه"
+       ],
+       "answer": "عمودياً على خطوط الحقل",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عندما يكون الناقل موازياً لخطوط الحقل، تكون القوّة المغناطيسية:",
+       "options": [
+        "معدومة",
+        "عظمى",
+        "تساوي BIL",
+        "تنعدم فقط إذا I=0"
+       ],
+       "answer": "معدومة",
+       "answer_index": 0,
+       "explanation": "F=BILsin0=0.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "شحنة ساكنة داخل حقل مغناطيسي تتعرّض لقوّة مغناطيسية:",
+       "options": [
+        "معدومة",
+        "عظمى",
+        "تساوي qB",
+        "تساوي qE"
+       ],
+       "answer": "معدومة",
+       "answer_index": 0,
+       "explanation": "القوّة المغناطيسية تحتاج سرعة.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "اتجاه القوّة المغناطيسية على شحنة متحرّكة يُحدّد بواسطة:",
+       "options": [
+        "قاعدة اليد اليمنى (أو اليسرى للشحنة السالبة)",
+        "قاعدة أرخميدس",
+        "قانون بقاء الطاقة",
+        "مبدأ باسكال"
+       ],
+       "answer": "قاعدة اليد اليمنى (أو اليسرى للشحنة السالبة)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عندما يتحرّك إلكترون عمودياً على حقل مغناطيسي منتظم، يكون مساره:",
+       "options": [
+        "دائرياً",
+        "مستقيماً",
+        "مكافئاً",
+        "حلزونياً في مستوٍ"
+       ],
+       "answer": "دائرياً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "القوّة المغناطيسية المبذولة من حقل مغناطيسي على شحنة متحرّكة:",
+       "options": [
+        "لا تقوم بعمل (عمودية على السرعة)",
+        "تقوم بعمل موجب",
+        "تقوم بعمل سالب",
+        "تغيّر طاقة الشحنة الحركية"
+       ],
+       "answer": "لا تقوم بعمل (عمودية على السرعة)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عزم المزدوجة الكهرطيسية المؤثّر في ملف يمرّ فيه تيار في حقل مغناطيسي:",
+       "options": [
+        "Γ = N B I S sinθ",
+        "Γ = N B I S cosθ",
+        "Γ = B I / S",
+        "Γ = N B S / I"
+       ],
+       "answer": "Γ = N B I S sinθ",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يُستفاد من عزم المزدوجة الكهرطيسية في:",
+       "options": [
+        "مبدأ عمل المحرّك الكهربائي",
+        "مبدأ عمل المحوّل",
+        "عمل المكثّفة",
+        "توليد الأشعة السينية"
+       ],
+       "answer": "مبدأ عمل المحرّك الكهربائي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "قوّة على ناقل طوله 0.5 m يمرّ فيه تيار 4 A عمودي على حقل 0.2 T تساوي:",
+       "options": [
+        "0.4 N",
+        "0.04 N",
+        "4 N",
+        "0.2 N"
+       ],
+       "answer": "0.4 N",
+       "answer_index": 0,
+       "explanation": "F = 0.2×4×0.5 = 0.4 N.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وحدة ثابت التناسب في قوّة الناقل المستقيم F = BIL هي:",
+       "options": [
+        "التسلا",
+        "النيوتن",
+        "الأمبير",
+        "المتر"
+       ],
+       "answer": "التسلا",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "القوّة المغناطيسية على شحنة متحرّكة تكون عمودية على كلٍّ من السرعة والحقل.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تؤثّر القوّة المغناطيسية على شحنة ساكنة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "تحتاج الشحنة إلى سرعة.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "عندما يتحرّك جسيم مشحون موازياً لخطوط الحقل، ينعدم تأثّر القوّة المغناطيسية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "نصف قطر المسار الدائري لشحنة في حقل مغناطيسي يتناسب عكساً مع شدة الحقل.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "R = mv/(qB).",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]
@@ -5380,7 +7612,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المقدار ووحدته:",
+       "text": "طابق بين كل مقدار ووحدته في درس «التحريض الكهرطيسي»:",
        "options": [],
        "answer": [
         "H (هنري)",
@@ -5447,6 +7679,246 @@
        "difficulty": "hard",
        "tags": [
         "derive"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "قانون فاراداي للتحريض ينصّ على أنّ القوّة المحرّكة المتحرّضة:",
+       "options": [
+        "تتناسب مع معدّل تغيّر التدفق المغناطيسي",
+        "تتناسب مع التدفق نفسه",
+        "ثابتة",
+        "تتناسب مع المقاومة"
+       ],
+       "answer": "تتناسب مع معدّل تغيّر التدفق المغناطيسي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "القوّة المحرّكة المتحرّضة في دارة تُعطى بالعلاقة:",
+       "options": [
+        "e = −dΦ/dt",
+        "e = Φ t",
+        "e = B S",
+        "e = I R"
+       ],
+       "answer": "e = −dΦ/dt",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "قانون لنز ينصّ على أنّ التيار المتحرّض:",
+       "options": [
+        "يعارض السبب الذي أنشأه",
+        "يعزّز السبب الذي أنشأه",
+        "لا يتأثّر بالحقل",
+        "يختفي فوراً"
+       ],
+       "answer": "يعارض السبب الذي أنشأه",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وحدة الذاتية (معامل التحريض) L هي:",
+       "options": [
+        "الهنري (H)",
+        "التسلا (T)",
+        "الويبر (Wb)",
+        "الفاراد (F)"
+       ],
+       "answer": "الهنري (H)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "القوّة المحرّكة المتحرّضة في ساق طولها L تتحرّك بسرعة v عمودية على حقل B:",
+       "options": [
+        "e = B L v",
+        "e = B L / v",
+        "e = B v / L",
+        "e = B L v²"
+       ],
+       "answer": "e = B L v",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "ذاتية الوشيعة تقاس بوحدة:",
+       "options": [
+        "هنري",
+        "ويبر",
+        "أمبير",
+        "فولت"
+       ],
+       "answer": "هنري",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الطاقة المخزّنة في وشيعة يمرّ فيها تيار I:",
+       "options": [
+        "½ L I²",
+        "½ L I",
+        "L I²",
+        "½ C I²"
+       ],
+       "answer": "½ L I²",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الظاهرة التي تظهر فيها قوّة محرّكة عند تغيّر التدفق تُسمّى:",
+       "options": [
+        "التحريض الكهرطيسي",
+        "الفعل الكهرحراري",
+        "الفعل الكهرضوئي",
+        "الاهتزاز الميكانيكي"
+       ],
+       "answer": "التحريض الكهرطيسي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "اسم الوحدة (هنري) مستمدّ من العالم:",
+       "options": [
+        "جوزيف هنري",
+        "فاراداي",
+        "لنز",
+        "أوم"
+       ],
+       "answer": "جوزيف هنري",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "إذا تغيّر التدفق من 0.1 Wb إلى 0.3 Wb في 0.1 s، فمتوسط القوّة المتحرّضة:",
+       "options": [
+        "2 V",
+        "0.2 V",
+        "20 V",
+        "0.02 V"
+       ],
+       "answer": "2 V",
+       "answer_index": 0,
+       "explanation": "e=ΔΦ/Δt=0.2/0.1=2 V.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "قانون لنز هو نتيجة مباشرة لمبدأ انحفاظ الطاقة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تتولّد قوّة محرّكة متحرّضة عند تغيّر التدفق المغناطيسي عبر الدارة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تعتمد القوّة المتحرّضة في الساق المتحرّكة على السرعة والطول والحقل.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "ذاتية الوشيعة تعتمد على تيّارها فقط.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "تعتمد على أبعاد الوشيعة وعدد لفّاتها والنواة.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]
@@ -6017,7 +8489,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المقدار ووحدته:",
+       "text": "طابق بين كل مقدار ووحدته في درس «الدارات المهتزّة والتيارات عالية التواتر»:",
        "options": [],
        "answer": [
         "H",
@@ -6103,6 +8575,264 @@
        "difficulty": "medium",
        "tags": [
         "diagram"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الدارة المهتزّة (دارة LC) تتألّف من:",
+       "options": [
+        "مكثّفة ووشيعة",
+        "مقاومة ومولّد",
+        "مكثّفة ومقاومة",
+        "نابض وكتلة"
+       ],
+       "answer": "مكثّفة ووشيعة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "دور الاهتزازات الحرة في دارة LC يُعطى بالعلاقة:",
+       "options": [
+        "T = 2π√(L C)",
+        "T = 2π√(C/L)",
+        "T = 2π L C",
+        "T = 2π√(L/C)"
+       ],
+       "answer": "T = 2π√(L C)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "ردّ فعل المكثّفة X_C يُعطى بالعلاقة:",
+       "options": [
+        "X_C = 1/(Cω)",
+        "X_C = C ω",
+        "X_C = ω/C",
+        "X_C = C/ω"
+       ],
+       "answer": "X_C = 1/(Cω)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "ردّ فعل الوشيعة X_L يُعطى بالعلاقة:",
+       "options": [
+        "X_L = L ω",
+        "X_L = 1/(Lω)",
+        "X_L = ω/L",
+        "X_L = L/ω"
+       ],
+       "answer": "X_L = L ω",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يحدث التوافق (الرنين) في دارة RLC على التسلسل عندما:",
+       "options": [
+        "X_L = X_C",
+        "X_L = 0",
+        "X_C = 0",
+        "R = 0"
+       ],
+       "answer": "X_L = X_C",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند التوافق في دارة RLC على التسلسل، تكون الممانعة Z:",
+       "options": [
+        "أصغر ما يمكن وتساوي R",
+        "أعظم ما يمكن",
+        "منعدمة",
+        "تساوي Lω"
+       ],
+       "answer": "أصغر ما يمكن وتساوي R",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الممانعة الكليّة لدارة RLC على التسلسل تُعطى بالعلاقة:",
+       "options": [
+        "Z = √(R² + (X_L − X_C)²)",
+        "Z = R + X_L + X_C",
+        "Z = √(R² + X_L² + X_C²)",
+        "Z = R − X_L"
+       ],
+       "answer": "Z = √(R² + (X_L − X_C)²)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في دارة LC مثالية (بدون مقاومة)، الطاقة:",
+       "options": [
+        "تتذبذب بين المكثّفة والوشيعة",
+        "تُبدَّد كحرارة",
+        "تبقى في المكثّفة",
+        "تنعدم فوراً"
+       ],
+       "answer": "تتذبذب بين المكثّفة والوشيعة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وحدة الممانعة Z هي:",
+       "options": [
+        "الأوم (Ω)",
+        "الهندري (H)",
+        "الفاراد (F)",
+        "الفولت (V)"
+       ],
+       "answer": "الأوم (Ω)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "النبض الزاوي للاهتزازات الحرة في دارة LC يُعطى بالعلاقة:",
+       "options": [
+        "ω = 1/√(L C)",
+        "ω = √(L C)",
+        "ω = L/C",
+        "ω = 1/(L C)"
+       ],
+       "answer": "ω = 1/√(L C)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الممانعة في دارة RLC على التسلسل تساوي R فقط عندما:",
+       "options": [
+        "يحدث التوافق (X_L=X_C)",
+        "تنعدم R",
+        "ينعدم L",
+        "تنعدم C"
+       ],
+       "answer": "يحدث التوافق (X_L=X_C)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "في دارة LC تتبادل الطاقة بين المجال الكهربائي للمكثّفة والمجال المغناطيسي للوشيعة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "ردّ فعل المكثّفة يزداد بزيادة التواتر.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "X_C=1/(Cω) ينقص بزيادة ω.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يحدث التوافق في دارة RLC عندما يتساوى ردّا الفعل.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الممانعة في دارة RLC تكون أعظمية عند التوافق.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "تكون أصغرية وتساوي R.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]
@@ -6689,7 +9419,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المقدار ووحدته:",
+       "text": "طابق بين كل مقدار ووحدته في درس «التيار المتناوب الجيبي»:",
        "options": [],
        "answer": [
         "V",
@@ -6794,6 +9524,246 @@
        "difficulty": "medium",
        "tags": [
         "diagram"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "القيمة المنتجة (الفعالة) للتوتر المتناوب الجيبي تساوي:",
+       "options": [
+        "U_max/√2",
+        "U_max √2",
+        "U_max",
+        "U_max/2"
+       ],
+       "answer": "U_max/√2",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تواتر التيّار المنزلي في سوريا هو:",
+       "options": [
+        "50 Hz",
+        "60 Hz",
+        "100 Hz",
+        "25 Hz"
+       ],
+       "answer": "50 Hz",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الاستطاعة المتوسّطة في دارة مقاومة صرفة تُعطى بالعلاقة:",
+       "options": [
+        "P = U_eff I_eff = U_eff²/R",
+        "P = U_max I_max",
+        "P = U_eff I_eff cosφ فقط",
+        "P = ½ U_max I_max cosφ دائماً"
+       ],
+       "answer": "P = U_eff I_eff = U_eff²/R",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عامل الاستطاعة cosφ في دارة RLC يُعطى بالعلاقة:",
+       "options": [
+        "R/Z",
+        "Z/R",
+        "X_L/Z",
+        "X_C/Z"
+       ],
+       "answer": "R/Z",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند التوافق في دارة RLC، يكون عامل الاستطاعة:",
+       "options": [
+        "1",
+        "0",
+        "0.5",
+        "∞"
+       ],
+       "answer": "1",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "توتر منزلي قيمته المنتجة 220 V، فقيمته العظمى تقارب:",
+       "options": [
+        "311 V",
+        "220 V",
+        "155 V",
+        "440 V"
+       ],
+       "answer": "311 V",
+       "answer_index": 0,
+       "explanation": "U_max = 220√2 ≈ 311 V.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في المقاومة الصرفة في دارة AC:",
+       "options": [
+        "التوتر والتيار في نفس الطور",
+        "التوتر يسبق التيار بـ 90°",
+        "التيار يسبق التوتر بـ 90°",
+        "فرق الطور 180°"
+       ],
+       "answer": "التوتر والتيار في نفس الطور",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في الوشيعة الصرفة في دارة AC:",
+       "options": [
+        "التوتر يسبق التيار بـ 90°",
+        "في نفس الطور",
+        "التيار يسبق التوتر بـ 90°",
+        "فرق الطور 45°"
+       ],
+       "answer": "التوتر يسبق التيار بـ 90°",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في المكثّفة الصرفة في دارة AC:",
+       "options": [
+        "التيار يسبق التوتر بـ 90°",
+        "في نفس الطور",
+        "التوتر يسبق التيار بـ 90°",
+        "فرق الطور 180°"
+       ],
+       "answer": "التيار يسبق التوتر بـ 90°",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "ذي دارة RLC ممانعتها Z=50 Ω ومقاومتها R=40 Ω، فـ cosφ يساوي:",
+       "options": [
+        "0.8",
+        "0.6",
+        "1.25",
+        "0.4"
+       ],
+       "answer": "0.8",
+       "answer_index": 0,
+       "explanation": "cosφ = R/Z = 40/50 = 0.8.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "القيمة المنتجة للتوتر الجيبي تساوي U_max/√2.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "في المقاومة الصرفة يكون التوتر والتيار في نفس الطور.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "عامل الاستطاعة في الدارة المقاومة الصرفة يساوي 1.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الاستطاعة المتوسّطة في دارة RLC تساوي دائماً U_eff·I_eff.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "تساوي U_eff·I_eff·cosφ.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]
@@ -7337,7 +10307,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المقدار ووحدته:",
+       "text": "طابق بين كل مقدار ووحدته في درس «المحوّلات الكهربائية»:",
        "options": [],
        "answer": [
         "V",
@@ -7404,6 +10374,246 @@
        "difficulty": "hard",
        "tags": [
         "derive"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المحوّل الكهربائي يعمل على:",
+       "options": [
+        "التيار المتناوب فقط",
+        "التيار المستمر فقط",
+        "التيارين معاً",
+        "لا يعمل أبداً"
+       ],
+       "answer": "التيار المتناوب فقط",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "نسبة التحويل في المحوّل تُعطى بالعلاقة:",
+       "options": [
+        "N₂/N₁ = U₂/U₁",
+        "N₁/N₂ = U₂/U₁",
+        "N₂/N₁ = U₁/U₂",
+        "N₂/N₁ = I₂/I₁"
+       ],
+       "answer": "N₂/N₁ = U₂/U₁",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في المحوّل المثالي، الاستطاعة في الأوّلية:",
+       "options": [
+        "تساوي الاستطاعة في الثانوية",
+        "أكبر منها",
+        "أصغر منها",
+        "منعدمة"
+       ],
+       "answer": "تساوي الاستطاعة في الثانوية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المحوّل الرافع للتوتر هو الذي:",
+       "options": [
+        "عدد لفّات ثانويته أكبر من أوّليته",
+        "عدد لفّات ثانويته أصغر",
+        "الملفّان متساويان",
+        "لا يحتوي نواة"
+       ],
+       "answer": "عدد لفّات ثانويته أكبر من أوّليته",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المحوّل الخافض للتوتر يرفع:",
+       "options": [
+        "شدّة التيار في الثانوية",
+        "شدّة التيار في الأوّلية",
+        "التواتر",
+        "لا شيء"
+       ],
+       "answer": "شدّة التيار في الثانوية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "نواة المحوّل مصنوعة من مادّة:",
+       "options": [
+        "مغناطيسية مطاوعة (حديدية لينة)",
+        "عازلة",
+        "نحاسية صرفة",
+        "بلاستيكية"
+       ],
+       "answer": "مغناطيسية مطاوعة (حديدية لينة)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وظيفة النواة الحديدية في المحوّل:",
+       "options": [
+        "تقوية التدفق المغناطيسي وربط الملفّين",
+        "عزل الملفّين كهربائياً فقط",
+        "تبريد الملفّين",
+        "رفع التواتر"
+       ],
+       "answer": "تقوية التدفق المغناطيسي وربط الملفّين",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "محوّل أوّليته 1000 لفة وثانويته 200 لفة، نسبة التحويل:",
+       "options": [
+        "0.2",
+        "5",
+        "200",
+        "0.5"
+       ],
+       "answer": "0.2",
+       "answer_index": 0,
+       "explanation": "N₂/N₁ = 200/1000 = 0.2 (خافض).",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "محوّل مثالي: U₁=220 V، I₁=1 A، U₂=440 V، فشدّة التيار I₂:",
+       "options": [
+        "0.5 A",
+        "2 A",
+        "1 A",
+        "4 A"
+       ],
+       "answer": "0.5 A",
+       "answer_index": 0,
+       "explanation": "U₁I₁=U₂I₂ ⇒ I₂=220/440=0.5 A.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تواتر التيّار في ثانوية المحوّل مقارنة بالأوّلية:",
+       "options": [
+        "يساويها",
+        "أكبر",
+        "أصغر",
+        "معدوم"
+       ],
+       "answer": "يساويها",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "المحوّل يعمل على التيار المتناوب فقط.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "في المحوّل المثالي تبقى الاستطاعة محفوظة (U₁I₁=U₂I₂).",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "إذا كان N₂ > N₁ فإنّ المحوّل خافض للتوتر.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "بل رافع للتوتر.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يحافظ المحوّل على تواتر التيّار نفسه في الملفّين.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]
@@ -8017,7 +11227,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المقدار ووحدته:",
+       "text": "طابق بين كل مقدار ووحدته في درس «الأمواج المستقرة العرضية»:",
        "options": [],
        "answer": [
         "N",
@@ -8103,6 +11313,300 @@
        "difficulty": "medium",
        "tags": [
         "diagram"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الموجة المستقرة تنشأ عن:",
+       "options": [
+        "تراكب موجة صادرة وموجة منعكسة",
+        "موجة واحدة فقط",
+        "تقاطع موجتين متعامدتين",
+        "انعدام الانعكاس"
+       ],
+       "answer": "تراكب موجة صادرة وموجة منعكسة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في وتر مثبّت من طرفيه، تكون الأطراف:",
+       "options": [
+        "عُقداً (نقاط ثابتة)",
+        "بطوناً (نقاط اهتزاز)",
+        "حرّة",
+        "معدومة الطول"
+       ],
+       "answer": "عُقداً (نقاط ثابتة)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "شرط تشكّل موجة مستقرة في وتر مثبّت من طرفيه:",
+       "options": [
+        "L = n λ/2",
+        "L = n λ",
+        "L = (2n+1) λ/4",
+        "L = λ/4"
+       ],
+       "answer": "L = n λ/2",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "العلاقة بين طول الوتر L وعدد البطون n والطول الموجي λ:",
+       "options": [
+        "λ = 2L/n",
+        "λ = L/n",
+        "λ = nL",
+        "λ = 4L/n"
+       ],
+       "answer": "λ = 2L/n",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وحدة الكتلة الخطية μ للوتر هي:",
+       "options": [
+        "kg/m",
+        "kg·m",
+        "kg/m²",
+        "N/m"
+       ],
+       "answer": "kg/m",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تواتر الرنين الأساسي في وتر مثبّت من طرفيه:",
+       "options": [
+        "f₁ = v/(2L)",
+        "f₁ = v/L",
+        "f₁ = v/(4L)",
+        "f₁ = 2v/L"
+       ],
+       "answer": "f₁ = v/(2L)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التوافقيات في وتر مثبّت من طرفيه تكون:",
+       "options": [
+        "جميع الأعداد الصحيحة (f₁, 2f₁, 3f₁…)",
+        "الفردية فقط",
+        "الزوجية فقط",
+        "غير منتظمة"
+       ],
+       "answer": "جميع الأعداد الصحيحة (f₁, 2f₁, 3f₁…)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عدد العُقد في موجة مستقرة بعدد بطون n يساوي:",
+       "options": [
+        "n+1",
+        "n",
+        "n−1",
+        "2n"
+       ],
+       "answer": "n+1",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المسافة بين عقدتين متتاليتين تساوي:",
+       "options": [
+        "λ/2",
+        "λ",
+        "λ/4",
+        "2λ"
+       ],
+       "answer": "λ/2",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المسافة بين بطن وعقدة متجاورين تساوي:",
+       "options": [
+        "λ/4",
+        "λ/2",
+        "λ",
+        "2λ"
+       ],
+       "answer": "λ/4",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وتر طوله 1.5 m وفيه 3 بطون، الطول الموجي:",
+       "options": [
+        "1 m",
+        "0.5 m",
+        "1.5 m",
+        "3 m"
+       ],
+       "answer": "1 m",
+       "answer_index": 0,
+       "explanation": "λ=2L/n=3/3=1 m.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند مضاعفة قوّة شدّ الوتر أربع مرات، تتضاعف سرعة الموجة:",
+       "options": [
+        "بمقدار الضعف",
+        "بمقدار 4",
+        "تنصف",
+        "لا تتغيّر"
+       ],
+       "answer": "بمقدار الضعف",
+       "answer_index": 0,
+       "explanation": "v ∝ √T.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في موجة مستقرة، النقاط التي لا تهتزّ إطلاقاً تُسمّى:",
+       "options": [
+        "العُقد",
+        "البطون",
+        "القمم",
+        "الأطوال"
+       ],
+       "answer": "العُقد",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "المسافة بين عقدتين متتاليتين تساوي نصف الطول الموجي.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "في وتر مثبّت من طرفيه تظهر جميع التوافقيات (الفردية والزوجية).",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "عدد البطون يساوي عدد العُقد ناقص واحد.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "سرعة الموجة في وتر مشدود تتناسب طرداً مع جذر قوّة الشدّ.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]
@@ -8685,7 +12189,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المقدار ووحدته:",
+       "text": "طابق بين كل مقدار ووحدته في درس «الأمواج المستقرة الطولية»:",
        "options": [],
        "answer": [
         "m/s",
@@ -8828,6 +12332,282 @@
        "difficulty": "medium",
        "tags": [
         "diagram"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الصوت موجة:",
+       "options": [
+        "طولية ميكانيكية",
+        "عرضية كهرطيسية",
+        "عرضية ميكانيكية",
+        "طولية كهرطيسية"
+       ],
+       "answer": "طولية ميكانيكية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "سرعة الصوت في الهواء عند الدرجة العادية تقارب:",
+       "options": [
+        "340 m/s",
+        "3×10⁸ m/s",
+        "1500 m/s",
+        "34 m/s"
+       ],
+       "answer": "340 m/s",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في أنبوب مفتوح من طرفين، شرط الرنين:",
+       "options": [
+        "L = n λ/2",
+        "L = (2n+1) λ/4",
+        "L = λ/4",
+        "L = n λ"
+       ],
+       "answer": "L = n λ/2",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في أنبوب مغلق من طرف واحد، شرط الرنين:",
+       "options": [
+        "L = (2n+1) λ/4",
+        "L = n λ/2",
+        "L = n λ",
+        "L = λ/2"
+       ],
+       "answer": "L = (2n+1) λ/4",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تواتر الرنين الأساسي في أنبوب مغلق من طرف واحد:",
+       "options": [
+        "f₁ = v/(4L)",
+        "f₁ = v/(2L)",
+        "f₁ = v/L",
+        "f₁ = 2v/L"
+       ],
+       "answer": "f₁ = v/(4L)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في الأنبوب المغلق من طرف واحد تظهر:",
+       "options": [
+        "التوافقيات الفردية فقط",
+        "جميع التوافقيات",
+        "التوافقيات الزوجية فقط",
+        "لا توافقيات"
+       ],
+       "answer": "التوافقيات الفردية فقط",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في الأنبوب المفتوح من طرفين تكون الأطراف:",
+       "options": [
+        "بطوناً",
+        "عُقداً",
+        "عقدةً وبطناً",
+        "ثابتة"
+       ],
+       "answer": "بطوناً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في الأنبوب المغلق من طرف، يكون الطرف المغلق:",
+       "options": [
+        "عقدةً",
+        "بطنأ",
+        "حرّاً",
+        "معدوم"
+       ],
+       "answer": "عقدةً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "العلاقة بين سرعة الصوت والطول الموجي والتواتر:",
+       "options": [
+        "v = λ f",
+        "v = λ/f",
+        "v = f/λ",
+        "v = λ f²"
+       ],
+       "answer": "v = λ f",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "صوت تواتره 170 Hz في الهواء (v=340 m/s)، طوله الموجي:",
+       "options": [
+        "2 m",
+        "0.5 m",
+        "1 m",
+        "4 m"
+       ],
+       "answer": "2 m",
+       "answer_index": 0,
+       "explanation": "λ=v/f=340/170=2 m.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "أنبوب مغلق طوله 0.25 m (v=340 m/s)، تواتر رنينه الأساسي:",
+       "options": [
+        "340 Hz",
+        "170 Hz",
+        "680 Hz",
+        "85 Hz"
+       ],
+       "answer": "340 Hz",
+       "answer_index": 0,
+       "explanation": "f=v/(4L)=340/1=340 Hz.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وحدة التواتر هي:",
+       "options": [
+        "الهرتز (Hz)",
+        "المتر (m)",
+        "الأوم (Ω)",
+        "النيوتن (N)"
+       ],
+       "answer": "الهرتز (Hz)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الصوت موجة طولية تحتاج وسطاً مادّياً للانتشار.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "في الأنبوب المفتوح من طرفين تظهر التوافقيات الفردية فقط.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "تظهر جميع التوافقيات.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تسرع الصوت في الهواء 340 m/s تقريباً.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "في الأنبوب المغلق من طرف واحد، رنينه الأساسي عند L=λ/4.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]
@@ -9364,7 +13144,7 @@
       },
       {
        "type": "short_answer",
-       "text": "احسب طاقة فوتون تواتره 6×10¹⁴ Hz (h=6.6×10⁻³⁴ J·s).",
+       "text": "احسب طاقة فوتون تواتره 6×10¹⁴ Hz (h=6.6×10⁻³⁴ J·s) (صيغة إضافية).",
        "options": [],
        "answer": "3.96×10⁻¹⁹ J",
        "explanation": "المعطيات: f=6×10¹⁴ Hz، h=6.6×10⁻³⁴ J·s\nE=hf=6.6×10⁻³⁴×6×10¹⁴=3.96×10⁻¹⁹ J.",
@@ -9403,7 +13183,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المقدار ووحدته:",
+       "text": "طابق بين كل مقدار ووحدته في درس «النماذج الذرّية والطيف»:",
        "options": [],
        "answer": [
         "J",
@@ -9489,6 +13269,246 @@
        "difficulty": "medium",
        "tags": [
         "diagram"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "طاقة الفوتون تُعطى بالعلاقة:",
+       "options": [
+        "E = h f",
+        "E = h/f",
+        "E = f/h",
+        "E = h f²"
+       ],
+       "answer": "E = h f",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "ثابت بلانك h يساوي تقريباً:",
+       "options": [
+        "6.6×10⁻³⁴ J·s",
+        "6.6×10⁻³⁴ J/s",
+        "1.6×10⁻¹⁹ J",
+        "3×10⁸ m/s"
+       ],
+       "answer": "6.6×10⁻³⁴ J·s",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "العلاقة بين سرعة الضوء والطول الموجي والتواتر:",
+       "options": [
+        "c = λ f",
+        "c = λ/f",
+        "c = f/λ",
+        "c = λ f²"
+       ],
+       "answer": "c = λ f",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الطيف الخطي للذرة يفسّره:",
+       "options": [
+        "نموذج بور بمستويات الطاقة المكمّمة",
+        "نموذج رذرفورد فقط",
+        "النموذج الكلاسيكي",
+        "قوانين نيوتن"
+       ],
+       "answer": "نموذج بور بمستويات الطاقة المكمّمة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "كل خط طيفي في الطيف الخطي يوافق:",
+       "options": [
+        "انتقال الإلكترون بين سويّتي طاقة",
+        "حركة النواة",
+        "دوران الذرة",
+        "تأرجح الإلكترون بحرية"
+       ],
+       "answer": "انتقال الإلكترون بين سويّتي طاقة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "طاقة الفوتون تتناسب مع تواتره:",
+       "options": [
+        "طرداً",
+        "عكساً",
+        "مع مربّعه",
+        "لا تتعلّق به"
+       ],
+       "answer": "طرداً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "فوتون تواتره 5×10¹⁴ Hz، طاقته (h=6.6×10⁻³⁴):",
+       "options": [
+        "3.3×10⁻¹⁹ J",
+        "1.32×10⁻¹⁹ J",
+        "3.3×10⁻²⁰ J",
+        "6.6×10⁻¹⁹ J"
+       ],
+       "answer": "3.3×10⁻¹⁹ J",
+       "answer_index": 0,
+       "explanation": "E=hf=6.6×10⁻³⁴×5×10¹⁴=3.3×10⁻¹⁹ J.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "طيف الانبعاث الخطي ينتج عن:",
+       "options": [
+        "انتقالات من مستويات أعلى إلى أدنى",
+        "انتقالات من أدنى إلى أعلى",
+        "إشعاع الجسم الأسود",
+        "تأيّن الكتلة"
+       ],
+       "answer": "انتقالات من مستويات أعلى إلى أدنى",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "طيف الامتصاص الخطي ينتج عن:",
+       "options": [
+        "انتقالات من مستويات أدنى إلى أعلى",
+        "انتقالات من أعلى إلى أدنى",
+        "انعدام الإشعاع",
+        "الانصهار"
+       ],
+       "answer": "انتقالات من مستويات أدنى إلى أعلى",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "حسب بور، يبقى الإلكترون في مدار مستقر دون إشعاع لأنه:",
+       "options": [
+        "في حالة طاقة ثابتة (مستوى مسموح)",
+        "يتحرّك بسرعة الضوء",
+        "لا يتحرّك",
+        "يفقد طاقة"
+       ],
+       "answer": "في حالة طاقة ثابتة (مستوى مسموح)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "طاقة الفوتون تتناسب طرداً مع تواتره وفق E=hf.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الطيف الخطي دليل على تكميم مستويات الطاقة في الذرة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يمكن للإلكترون أن يشغل أي طاقة بين المستويات المسموحة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "يقفز بين المستويات المسموحة فقط.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "طول موجة الفوتون يساوي c/f.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]
@@ -9881,7 +13901,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المقدار وعلاقته:",
+       "text": "طابق بين كل مقدار وعلاقته الرياضية في درس «انتزاع الإلكترونات وتسريعها»:",
        "options": [],
        "answer": [
         "e U",
@@ -10058,7 +14078,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المقدار ووحدته:",
+       "text": "طابق بين كل مقدار ووحدته في درس «انتزاع الإلكترونات وتسريعها»:",
        "options": [],
        "answer": [
         "V",
@@ -10125,6 +14145,246 @@
        "difficulty": "hard",
        "tags": [
         "derive"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الطاقة الحركية لإلكترون مسرّع بفرق كمون U تُعطى بالعلاقة:",
+       "options": [
+        "E_c = e U",
+        "E_c = e / U",
+        "E_c = U / e",
+        "E_c = e U²"
+       ],
+       "answer": "E_c = e U",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الإلكترون-فولت (eV) يُعبّر عن:",
+       "options": [
+        "الطاقة",
+        "الكمون",
+        "التيار",
+        "الشحنة"
+       ],
+       "answer": "الطاقة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "1 eV يساوي:",
+       "options": [
+        "1.6×10⁻¹⁹ J",
+        "1.6×10⁻¹⁹ C",
+        "9.1×10⁻³¹ J",
+        "6.6×10⁻³⁴ J"
+       ],
+       "answer": "1.6×10⁻¹⁹ J",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "سرعة إلكترون مسرّع بفرق كمون U تُعطى بالعلاقة:",
+       "options": [
+        "v = √(2eU/m)",
+        "v = √(eU/m)",
+        "v = eU/m",
+        "v = m/(eU)"
+       ],
+       "answer": "v = √(2eU/m)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند مضاعفة فرق الكمون المسرّع، تتضاعف سرعة الإلكترون:",
+       "options": [
+        "بمقدار √2",
+        "بمقدار 2",
+        "بمقدار 4",
+        "لا تتغيّر"
+       ],
+       "answer": "بمقدار √2",
+       "answer_index": 0,
+       "explanation": "v ∝ √U.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "شحنة الإلكترون e تساوي:",
+       "options": [
+        "1.6×10⁻¹⁹ C",
+        "9.1×10⁻³¹ C",
+        "1.6×10⁻¹⁹ J",
+        "6.6×10⁻³⁴ C"
+       ],
+       "answer": "1.6×10⁻¹⁹ C",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "كتلة الإلكترون تساوي تقريباً:",
+       "options": [
+        "9.1×10⁻³¹ kg",
+        "1.6×10⁻¹⁹ kg",
+        "6.6×10⁻³⁴ kg",
+        "1.67×10⁻²⁷ kg"
+       ],
+       "answer": "9.1×10⁻³¹ kg",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "إلكترون مسرّع بفرق كمون 100 V، طاقته الحركية:",
+       "options": [
+        "100 eV",
+        "100 J",
+        "160 eV",
+        "1 eV"
+       ],
+       "answer": "100 eV",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وحدة فرق الكمون هي:",
+       "options": [
+        "الفولت (V)",
+        "الجول (J)",
+        "الكولون (C)",
+        "الأمبير (A)"
+       ],
+       "answer": "الفولت (V)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند تسريع الإلكترون بفرق كمون 200 V، طاقته الحركية بالجول:",
+       "options": [
+        "3.2×10⁻¹⁷ J",
+        "1.6×10⁻¹⁹ J",
+        "2×10² J",
+        "3.2×10⁻¹⁹ J"
+       ],
+       "answer": "3.2×10⁻¹⁷ J",
+       "answer_index": 0,
+       "explanation": "Ec=eU=1.6×10⁻¹⁹×200=3.2×10⁻¹⁷ J.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الطاقة الحركية لإلكترون مسرّع بفرق كمون تتعلّق بحاصل ضرب الشحنة في الكمون.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الإلكترون-فولت وحدة قياس للطاقة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تتناسب سرعة الإلكترون المسرّع طرداً مع فرق الكمون مباشرة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "v ∝ √U.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الطاقة الحركية للإلكترون المسرّع مستقلة عن كتلته.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]
@@ -10669,7 +14929,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المقدار ووحدته:",
+       "text": "طابق بين كل مقدار ووحدته في درس «الأشعة المهبطية»:",
        "options": [],
        "answer": [
         "V",
@@ -10724,6 +14984,228 @@
        "difficulty": "hard",
        "tags": [
         "derive"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تنحرف الأشعة المهبطية في الحقل الكهربائي نحو:",
+       "options": [
+        "الصفيحة الموجبة",
+        "الصفيحة السالبة",
+        "لا تنحرف",
+        "الجانبين معاً"
+       ],
+       "answer": "الصفيحة الموجبة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "النسبة e/m للإلكترون (شحنة/كتلة) تساوي تقريباً:",
+       "options": [
+        "1.76×10¹¹ C/kg",
+        "1.76×10⁻¹¹ C/kg",
+        "9.1×10⁻³¹ C/kg",
+        "1.6×10⁻¹⁹ C/kg"
+       ],
+       "answer": "1.76×10¹¹ C/kg",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "اكتشاف الإلكترون يعود إلى:",
+       "options": [
+        "طومسون",
+        "أينشتاين",
+        "بور",
+        "نيوتن"
+       ],
+       "answer": "طومسون",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تُنتَج الأشعة المهبطية في أنبوب مفرّغ عند:",
+       "options": [
+        "تسخين المهبط (الفتيل)",
+        "تبريد المصعد",
+        "إضاءة الأنبوب",
+        "زيادة الضغط"
+       ],
+       "answer": "تسخين المهبط (الفتيل)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تنتشر الأشعة المهبطية في أنبوب الأشعة المهبطية:",
+       "options": [
+        "في خطوط مستقيمة",
+        "في دوائر",
+        "بشكل عشوائي",
+        "لا تنتشر"
+       ],
+       "answer": "في خطوط مستقيمة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "أنبوب راسم الاهتزاز الإلكتروني يستفيد من:",
+       "options": [
+        "انحراف حزمة الإلكترونات بحقول كهربائية ومغناطيسية",
+        "التحليل الكيميائي",
+        "الاندماج النووي",
+        "التحليل الطيفي للضوء فقط"
+       ],
+       "answer": "انحراف حزمة الإلكترونات بحقول كهربائية ومغناطيسية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تسريع الإلكترونات في الأنبوب يحدث بفضل:",
+       "options": [
+        "فرق كمون بين المهبط والمصعد",
+        "مجال مغناطيسي فقط",
+        "التسخين فقط",
+        "الضغط المنخفض"
+       ],
+       "answer": "فرق كمون بين المهبط والمصعد",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في أنبوب الأشعة المهبطية، صفيحتان مشحونتان تُستخدمان في:",
+       "options": [
+        "تحريف (انحراف) الحزمة",
+        "تسخين المهبط",
+        "التبريد",
+        "التحرير الحراري"
+       ],
+       "answer": "تحريف (انحراف) الحزمة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تُفرَّغ أنابيب الأشعة المهبطية من الهواء لكي:",
+       "options": [
+        "تنتقل الإلكترونات بحرية دون تصادم",
+        "ترتفع درجة الحرارة",
+        "يختفي الضوء",
+        "يزداد الضغط"
+       ],
+       "answer": "تنتقل الإلكترونات بحرية دون تصادم",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الأشعة المهبطية جسيمات سالبة الشحنة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تنحرف الأشعة المهبطية نحو الصفيحة الموجبة في الحقل الكهربائي.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الأشعة المهبطية موجات كهرطيسية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "بل حزمة إلكترونات.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تجربة طومسون استُخدمت لتقدير النسبة e/m للإلكترون.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]
@@ -11327,6 +15809,246 @@
        "tags": [
         "derive"
        ]
+      },
+      {
+       "type": "mcq",
+       "text": "الفعل الكهرحراري هو انبعاث الإلكترونات من سطح معدن بفعل:",
+       "options": [
+        "التسخين",
+        "الضغط",
+        "الإضاءة",
+        "التبريد"
+       ],
+       "answer": "التسخين",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يزداد الإصدار الحراري للإلكترونات بزيادة:",
+       "options": [
+        "درجة حرارة المهبط",
+        "الضغط",
+        "طول المعدن",
+        "لون المعدن"
+       ],
+       "answer": "درجة حرارة المهبط",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "مكوّن راسم الاهتزاز الإلكتروني الذي يُصدر الإلكترونات:",
+       "options": [
+        "المهبط المسخّن",
+        "المصعد",
+        "الشاشة",
+        "الوشيعة"
+       ],
+       "answer": "المهبط المسخّن",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وظيفة الشاشة المفلورة في الأنبوب:",
+       "options": [
+        "إظهار أثر الحزمة الإلكترونية",
+        "تسريع الإلكترونات",
+        "تسخين المهبط",
+        "تعديل الشدّة"
+       ],
+       "answer": "إظهار أثر الحزمة الإلكترونية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وظيفة الشبكة (وهلنت) في الأنبوب:",
+       "options": [
+        "تعديل شدّة الحزمة الإلكترونية",
+        "تسخين المهبط",
+        "تحريف الحزمة",
+        "إصدار الضوء"
+       ],
+       "answer": "تعديل شدّة الحزمة الإلكترونية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وظيفة المجمّعة الإلكترونية (المصعد المُسرِّع):",
+       "options": [
+        "تسريع الإلكترونات",
+        "تحرير الإلكترونات",
+        "تحريفها",
+        "امتصاص الحرارة"
+       ],
+       "answer": "تسريع الإلكترونات",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "اسم ظاهرة انبعاث الإلكترونات بالتسخين:",
+       "options": [
+        "ظاهرة إديسون (الانبعاث الحراري)",
+        "الفعل الكهرضوئي",
+        "التحريض الكهرطيسي",
+        "الفعل الميكانيكي"
+       ],
+       "answer": "ظاهرة إديسون (الانبعاث الحراري)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "لكي يُصدر المهبط إلكترونات يجب أن تكون درجة حرارته:",
+       "options": [
+        "عالية",
+        "منخفضة",
+        "معتدلة فقط",
+        "لا تهمّ الحرارة"
+       ],
+       "answer": "عالية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تزداد سرعة الإلكترونات المتحرّرة من المهبط بزيادة:",
+       "options": [
+        "فرق الكمون المسرّع",
+        "درجة حرارة الشاشة",
+        "طول الأنبوب",
+        "لون الضوء"
+       ],
+       "answer": "فرق الكمون المسرّع",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "طاقة الإلكترون المنبعث حرارياً تعتمد أساساً على:",
+       "options": [
+        "الحرارة والكمون المسرّع",
+        "كان معدل الضغط",
+        "لون المهبط",
+        "شدّة التيار"
+       ],
+       "answer": "الحرارة والكمون المسرّع",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الفعل الكهرحراري هو إصدار إلكترونات بفعل التسخين.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يزداد الإصدار الحراري بانخفاض درجة حرارة المهبط.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "يزداد بارتفاع الحرارة.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الشاشة المفلورة تُظهر أثر الحزمة الإلكترونية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الشبكة (وهلنت) تتحكّم في شدّة الحزمة الإلكترونية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
       }
      ]
     },
@@ -11914,7 +16636,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المقدار ووحدته:",
+       "text": "طابق بين كل مقدار ووحدته في درس «نظرية الكم والفعل الكهرضوئي»:",
        "options": [],
        "answer": [
         "eV أو J",
@@ -12000,6 +16722,267 @@
        "difficulty": "medium",
        "tags": [
         "diagram"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الفعل الكهرضوئي هو تحرّر إلكترونات من سطح معدن بفعل:",
+       "options": [
+        "إشعاع ضوئي (كهرطيسي)",
+        "التسخين",
+        "الضغط",
+        "المجال المغناطيسي"
+       ],
+       "answer": "إشعاع ضوئي (كهرطيسي)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "معادلة أينشتاين للفعل الكهرضوئي:",
+       "options": [
+        "h f = W₀ + E_c,max",
+        "h f = W₀ − E_c,max",
+        "h f = W₀ E_c,max",
+        "h f = W₀ / E_c"
+       ],
+       "answer": "h f = W₀ + E_c,max",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "طاقة الانتزاع W₀ هي:",
+       "options": [
+        "أدنى طاقة لتحرير إلكترون من المعدن",
+        "طاقة الفوتون الساقط",
+        "الطاقة الحركية العظمى",
+        "طاقة السكون"
+       ],
+       "answer": "أدنى طاقة لتحرير إلكترون من المعدن",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تواتر العتبة f₀ في الفعل الكهرضوئي:",
+       "options": [
+        "أدنى تواتر يُحدث إصداراً ضوئياً",
+        "أعلى تواتر",
+        "تواتر الفوتون الأكبر",
+        "لا معنى له"
+       ],
+       "answer": "أدنى تواتر يُحدث إصداراً ضوئياً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "التواتر العتبي f₀ يُعطى بالعلاقة:",
+       "options": [
+        "f₀ = W₀/h",
+        "f₀ = h/W₀",
+        "f₀ = W₀ h",
+        "f₀ = W₀ − h"
+       ],
+       "answer": "f₀ = W₀/h",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الطول الموجي العتبي λ₀ يُعطى بالعلاقة:",
+       "options": [
+        "λ₀ = h c / W₀",
+        "λ₀ = W₀/(h c)",
+        "λ₀ = h c W₀",
+        "λ₀ = h/W₀"
+       ],
+       "answer": "λ₀ = h c / W₀",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند زيادة شدّة الضوء الساقط (بتواتر ثابت) في الفعل الكهرضوئي:",
+       "options": [
+        "يزداد عدد الإلكترونات المتحرّرة (شدّة التيار)",
+        "تزداد الطاقة الحركية العظمى",
+        "يزداد التواتر العتبي",
+        "لا يتغيّر شيء"
+       ],
+       "answer": "يزداد عدد الإلكترونات المتحرّرة (شدّة التيار)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند زيادة تواتر الضوء الساقط (فوق العتبة):",
+       "options": [
+        "تزداد الطاقة الحركية العظمى للإلكترونات",
+        "يزداد عدد الإلكترونات فقط",
+        "ينقص عدد الإلكترونات",
+        "لا يتغيّر شيء"
+       ],
+       "answer": "تزداد الطاقة الحركية العظمى للإلكترونات",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الطاقة الحركية العظمى للإلكترون المتحرّر تُعطى بالعلاقة:",
+       "options": [
+        "E_c,max = h f − W₀",
+        "E_c,max = W₀ − h f",
+        "E_c,max = h f",
+        "E_c,max = W₀"
+       ],
+       "answer": "E_c,max = h f − W₀",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "فسّر أينشتاين الفعل الكهرضوئي بافتراض أنّ الضوء:",
+       "options": [
+        "يتكوّن من فوتونات (كمّات)",
+        "موجة مستمرة",
+        "سائل",
+        "جسيم ثقيل"
+       ],
+       "answer": "يتكوّن من فوتونات (كمّات)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "إذا كان تواتر الضوء أقل من التواتر العتبي فإنّ الفعل الكهرضوئي:",
+       "options": [
+        "لا يحدث مهما زادت شدّة الضوء",
+        "يحدث ببطء",
+        "يحدث بشدّة",
+        "يعتمد على لون المعدن"
+       ],
+       "answer": "لا يحدث مهما زادت شدّة الضوء",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وحدة طاقة الانتزاع W₀ في الجملة الدولية:",
+       "options": [
+        "الجول (J)",
+        "الفولت (V)",
+        "الأمبير (A)",
+        "الهيرتز (Hz)"
+       ],
+       "answer": "الجول (J)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الطاقة الحركية العظمى للإلكترون المتحرّر تعتمد على تواتر الضوء لا على شدّته.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يمكن أن يحدث الفعل الكهرضوئي بضوء تواتره أقل من التواتر العتبي إذا كانت شدّته كبيرة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "لا يحدث دون بلوغ التواتر العتبي.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "طاقة الانتزاع W₀ خاصية للمعدن المستخدم.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]
@@ -12569,7 +17552,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المقدار ووحدته:",
+       "text": "طابق بين كل مقدار ووحدته في درس «الأشعة السينية»:",
        "options": [],
        "answer": [
         "V أو kV",
@@ -12636,6 +17619,246 @@
        "difficulty": "hard",
        "tags": [
         "derive"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تنشأ الأشعة السينية عند:",
+       "options": [
+        "اصطدام الإلكترونات السريعة بهدف معدني",
+        "تسخين سلك عادي",
+        "إضاءة الجسم",
+        "تبريد الأنبوب"
+       ],
+       "answer": "اصطدام الإلكترونات السريعة بهدف معدني",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "أقصى طاقة لفوتون الأشعة السينية في أنبوب فرق كمونه U:",
+       "options": [
+        "E_max = e U",
+        "E_max = e / U",
+        "E_max = U / e",
+        "E_max = e U²"
+       ],
+       "answer": "E_max = e U",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "أقصر طول موجي للأشعة السينية λ_min يُعطى بالعلاقة:",
+       "options": [
+        "λ_min = h c / (e U)",
+        "λ_min = e U / (h c)",
+        "λ_min = h c e U",
+        "λ_min = h / U"
+       ],
+       "answer": "λ_min = h c / (e U)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في أنبوب الأشعة السينية، الهدف (المصعد) يصنع عادة من:",
+       "options": [
+        "معدن ثقيل كالتنغستن",
+        "النحاس",
+        "الحديد",
+        "الألمنيوم"
+       ],
+       "answer": "معدن ثقيل كالتنغستن",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تُستخدم الأشعة السينية في:",
+       "options": [
+        "التصوير الطبي",
+        "الطبخ",
+        "الزراعة فقط",
+        "التبريد"
+       ],
+       "answer": "التصوير الطبي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عند زيادة فرق كمون الأنبوب، يصبح أقصر طول موجي للأشعة السينية:",
+       "options": [
+        "أصغر",
+        "أكبر",
+        "ثابتاً",
+        "منعدماً"
+       ],
+       "answer": "أصغر",
+       "answer_index": 0,
+       "explanation": "λ_min ∝ 1/U.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "طيف الأشعة السينية يتكوّن من:",
+       "options": [
+        "طيف مستمر فوقه خطوط مميّزة",
+        "خطوط فقط",
+        "طيف مستمر فقط",
+        "لا طيف"
+       ],
+       "answer": "طيف مستمر فوقه خطوط مميّزة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "وحدة فرق كمون أنبوب الأشعة السينية تُقاس غالباً بـ:",
+       "options": [
+        "kV",
+        "Wb",
+        "T",
+        "N"
+       ],
+       "answer": "kV",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "في طيف الأشعة السينية، الطول الموجي λ_min يعتمد على:",
+       "options": [
+        "فرق الكمون U",
+        "شدّة التيار فقط",
+        "نوع الشاشة",
+        "طول الأنبوب"
+       ],
+       "answer": "فرق الكمون U",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الخطوط المميّزة في طيف الأشعة السينية تنتج عن:",
+       "options": [
+        "انتقالات إلكترونية في مدارات ذرّة الهدف",
+        "التباطؤ المستمر",
+        "التسخين",
+        "التبريد"
+       ],
+       "answer": "انتقالات إلكترونية في مدارات ذرّة الهدف",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تنشأ الأشعة السينية من اصطدام الإلكترونات السريعة بالهدف.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "أقصى طاقة لفوتون الأشعة السينية تساوي eU.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "أقصر طول موجي للأشعة السينية يزداد بزيادة فرق الكمون.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "ينقص بزيادة U.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "التصوير الطبي أحد استخدامات الأشعة السينية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]
@@ -13193,7 +18416,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المقدار ووحدته:",
+       "text": "طابق بين كل مقدار ووحدته في درس «أشعة الليزر»:",
        "options": [],
        "answer": [
         "m (nm)",
@@ -13267,6 +18490,246 @@
        "difficulty": "medium",
        "tags": [
         "diagram"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "كلمة LASER تعني تضخيم الضوء بـ:",
+       "options": [
+        "الإصدار المحشوث للإشعاع",
+        "التحريض المغناطيسي",
+        "الانصهار الحراري",
+        "التسخين الميكانيكي"
+       ],
+       "answer": "الإصدار المحشوث للإشعاع",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "إشعاع الليزر يتميّز بأنّه:",
+       "options": [
+        "أحادي اللون ومترابط",
+        "متعدّد الألوان وغير مترابط",
+        "أحادي اللون فقط",
+        "مترابط فقط"
+       ],
+       "answer": "أحادي اللون ومترابط",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "للحصول على الليزر يجب تحقيق:",
+       "options": [
+        "قلب التعبئة (تعداد أكبر في المستوى المتهيّج)",
+        "تبريد الوسط",
+        "انعدام الإثارة",
+        "ضوء أبيض"
+       ],
+       "answer": "قلب التعبئة (تعداد أكبر في المستوى المتهيّج)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الإصدار المحشوث يحدث عندما يمرّ فوتون محرّض بجوار ذرّة:",
+       "options": [
+        "في مستوى متهيّج",
+        "في مستوى أرضي فقط",
+        "مؤيّنة",
+        "ساكنة"
+       ],
+       "answer": "في مستوى متهيّج",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الفوتون الصادر بالإصدار المحشوث يكون:",
+       "options": [
+        "بنفس تواتر وطور واتجاه الفوتون المحرّض",
+        "بتواتر مختلف",
+        "باتجاه عشوائي",
+        "منعدم الطاقة"
+       ],
+       "answer": "بنفس تواتر وطور واتجاه الفوتون المحرّض",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "طاقة فوتون الليزر بدلالة طوله الموجي:",
+       "options": [
+        "E = h c / λ",
+        "E = λ/(h c)",
+        "E = h λ",
+        "E = c/λ"
+       ],
+       "answer": "E = h c / λ",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "ليزر طوله الموجي 600 nm، تواتره (c=3×10⁸):",
+       "options": [
+        "5×10¹⁴ Hz",
+        "1.8×10¹⁵ Hz",
+        "2×10¹⁴ Hz",
+        "6×10¹⁴ Hz"
+       ],
+       "answer": "5×10¹⁴ Hz",
+       "answer_index": 0,
+       "explanation": "f=c/λ=3×10⁸/600×10⁻⁹=5×10¹⁴ Hz.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المرآتان في تجويف الليزر وظيفتهما:",
+       "options": [
+        "إرجاع الفوتونات لتضخيم الإشعاع",
+        "تبريد الوسط",
+        "التحكّم في اللون",
+        "منع الإشعاع"
+       ],
+       "answer": "إرجاع الفوتونات لتضخيم الإشعاع",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "أحد استخدامات الليزر:",
+       "options": [
+        "الاتصالات والألياف البصرية والطب",
+        "الطبخ",
+        "التبريد فقط",
+        "الزراعة فقط"
+       ],
+       "answer": "الاتصالات والألياف البصرية والطب",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الترابط (التماسك) في إشعاع الليزر يعني أنّ الفوتونات:",
+       "options": [
+        "في نفس الطور",
+        "بتواترات مختلفة",
+        "باتجاهات عشوائية",
+        "منعدمة"
+       ],
+       "answer": "في نفس الطور",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "إشعاع الليزر أحادي اللون ومترابط.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يحتاج الليزر إلى قلب التعبئة ليغلب الإصدار المحشوث الامتصاص.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الفوتون الصادر بالإصدار المحشوث له تواتر مختلف عن الفوتون المحرّض.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "له نفس التواتر والطور والاتجاه.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "تُستعمل الألياف البصرية في الاتصالات بالليزر.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]
@@ -13665,7 +19128,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المفهوم وتعريفه:",
+       "text": "طابق بين المفهوم وتعريفه في «المجموعة الشمسية ومصدر طاقة النجوم»:",
        "options": [],
        "answer": [
         "جسم يُصدر ضوءاً ذاتياً",
@@ -13842,7 +19305,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المقدار ووحدته:",
+       "text": "طابق بين كل مقدار ووحدته في درس «المجموعة الشمسية ومصدر طاقة النجوم»:",
        "options": [],
        "answer": [
         "m (مسافة)",
@@ -13897,6 +19360,246 @@
        "difficulty": "hard",
        "tags": [
         "derive"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "مصدر طاقة الشمس والنجوم هو:",
+       "options": [
+        "الاندماج النووي (اندماج الهيدروجين إلى هيليوم)",
+        "الاحتراق الكيميائي",
+        "الانشطار النووي",
+        "الطاقة الكهربائية"
+       ],
+       "answer": "الاندماج النووي (اندماج الهيدروجين إلى هيليوم)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الوحدة الفلكية (AU) تساوي تقريباً:",
+       "options": [
+        "المسافة بين الأرض والشمس (1.5×10¹¹ m)",
+        "المسافة بين الأرض والقمر",
+        "سنة ضوئية",
+        "نصف قطر الشمس"
+       ],
+       "answer": "المسافة بين الأرض والشمس (1.5×10¹¹ m)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "السنة الضوئية هي وحدة قياس:",
+       "options": [
+        "المسافة",
+        "الزمن",
+        "الكتلة",
+        "الطاقة"
+       ],
+       "answer": "المسافة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "قيمة السنة الضوئية بالمتر تقارب:",
+       "options": [
+        "9.46×10¹⁵ m",
+        "3×10⁸ m",
+        "1.5×10¹¹ m",
+        "9.46×10¹² m"
+       ],
+       "answer": "9.46×10¹⁵ m",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "يرتبط تحوّل الكتلة إلى طاقة في النجوم بعلاقة:",
+       "options": [
+        "أينشتاين E = m c²",
+        "نيوتن F = m a",
+        "أوم U = R I",
+        "فاراداي e = −dΦ/dt"
+       ],
+       "answer": "أينشتاين E = m c²",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "طاقة الشمس الناتجة عن تحوّل كتلة إلى طاقة، عند m=1 kg تعطي:",
+       "options": [
+        "9×10¹⁶ J",
+        "9×10¹⁰ J",
+        "3×10⁸ J",
+        "1.5×10¹¹ J"
+       ],
+       "answer": "9×10¹⁶ J",
+       "answer_index": 0,
+       "explanation": "E=mc²=1×9×10¹⁶ J.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "أكبر كواكب المجموعة الشمسية هو:",
+       "options": [
+        "المشتري",
+        "الأرض",
+        "المريخ",
+        "عطارد"
+       ],
+       "answer": "المشتري",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المسافة بين الأرض والشمس تقارب:",
+       "options": [
+        "150 مليون km",
+        "1.5 مليون km",
+        "384000 km",
+        "9.5×10¹² km"
+       ],
+       "answer": "150 مليون km",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "النجم يبقى مستقراً لأنّ:",
+       "options": [
+        "قوّة الضغط الإشعاعي توازن الجذب الثقالي",
+        "ينعدم الجذب الثقالي",
+        "ينعدم الضغط الإشعاعي",
+        "لا يحدث اندماج"
+       ],
+       "answer": "قوّة الضغط الإشعاعي توازن الجذب الثقالي",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الوقت الذي يستغرقه ضوء الشمس للوصول إلى الأرض:",
+       "options": [
+        "حوالي 500 ثانية (8.3 دقيقة)",
+        "ثانية واحدة",
+        "سنة كاملة",
+        "يوم واحد"
+       ],
+       "answer": "حوالي 500 ثانية (8.3 دقيقة)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "مصدر طاقة الشمس هو الاندماج النووي للهيدروجين إلى هيليوم.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "السنة الضوئية وحدة قياس للزمن.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "هي وحدة مسافة.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "وحدة au تساوي المسافة المتوسّطة بين الأرض والشمس.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يصل ضوء الشمس إلى الأرض في نحو 8 دقائق.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]
@@ -14269,7 +19972,7 @@
       },
       {
        "type": "multi",
-       "text": "أيّ العبارات الآتية صحيحة؟",
+       "text": "أيّ العبارات الآتية صحيحة في «الانزياح نحو الأحمر وقانون هابل»؟",
        "options": [
         "الانزياح نحو الأحمر يعني الابتعاد",
         "قانون هابل v=H₀d",
@@ -14485,7 +20188,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المقدار ووحدته:",
+       "text": "طابق بين كل مقدار ووحدته في درس «الانزياح نحو الأحمر وقانون هابل»:",
        "options": [],
        "answer": [
         "km/s/Mpc",
@@ -14552,6 +20255,246 @@
        "difficulty": "hard",
        "tags": [
         "derive"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "صيغة قانون هابل:",
+       "options": [
+        "v = H₀ d",
+        "v = H₀ / d",
+        "v = d / H₀",
+        "v = H₀ d²"
+       ],
+       "answer": "v = H₀ d",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "ثابت هابل H₀ يُقاس بوحدة:",
+       "options": [
+        "km/s/Mpc",
+        "km/s",
+        "Mpc",
+        "سنة ضوئية"
+       ],
+       "answer": "km/s/Mpc",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الانزياح نحو الأحمر في طيف المجرّات يدلّ على أنّها:",
+       "options": [
+        "تتباعد عنّا",
+        "تقترب منّا",
+        "ثابتة",
+        "تنعدم"
+       ],
+       "answer": "تتباعد عنّا",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الانزياح نحو الأحمر ناتج عن:",
+       "options": [
+        "تأثير دوبلر (تمدّد الكون)",
+        "دوران المجرّة فقط",
+        "الامتصاص في الغلاف الجوي",
+        "الجاذبية فقط"
+       ],
+       "answer": "تأثير دوبلر (تمدّد الكون)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المجرّة تبعد 100 Mpc وH₀=70 km/s/Mpc، سرعة تباعدها:",
+       "options": [
+        "7000 km/s",
+        "170 km/s",
+        "1.4 km/s",
+        "70 km/s"
+       ],
+       "answer": "7000 km/s",
+       "answer_index": 0,
+       "explanation": "v = 70×100 = 7000 km/s.",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عمر الكون يُقدَّر من ثابت هابل بالعلاقة التقريبية:",
+       "options": [
+        "t ≈ 1/H₀",
+        "t ≈ H₀",
+        "t ≈ H₀²",
+        "t ≈ 1/H₀²"
+       ],
+       "answer": "t ≈ 1/H₀",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الفرسخ الفلكي (pc) يساوي تقريباً:",
+       "options": [
+        "3.26 سنة ضوئية",
+        "1 سنة ضوئية",
+        "1 au",
+        "9.5×10¹⁵ m"
+       ],
+       "answer": "3.26 سنة ضوئية",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الفرسخ الفلكي (pc) بالمتر يقارب:",
+       "options": [
+        "3.09×10¹⁶ m",
+        "9.46×10¹⁵ m",
+        "1.5×10¹¹ m",
+        "3×10⁸ m"
+       ],
+       "answer": "3.09×10¹⁶ m",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تنبؤ قانون هابل بأنّ المجرّات كلّها:",
+       "options": [
+        "تتباعد عن بعضها",
+        "تقترب من نقطة واحدة",
+        "ساكنة",
+        "تدور حول الأرض"
+       ],
+       "answer": "تتباعد عن بعضها",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "إذا تضاعف بعد مجرّة، فإنّ سرعة تباعدها (وفق هابل):",
+       "options": [
+        "تتضاعف",
+        "تنصف",
+        "تبقى ثابتة",
+        "تنعدم"
+       ],
+       "answer": "تتضاعف",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "قانون هابل يربط سرعة تباعد المجرّة ببعدها بعلاقة طردية.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الانزياح نحو الأحمر يدلّ على اقتراب المجرّات منّا.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "يدلّ على تباعدها.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "وحدة ثابت هابل هي km/s/Mpc.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يمكن تقدير عمر الكون من مقلوب ثابت هابل.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]
@@ -14924,7 +20867,7 @@
       },
       {
        "type": "multi",
-       "text": "أيّ العبارات الآتية صحيحة؟",
+       "text": "أيّ العبارات الآتية صحيحة في «نظرية الانفجار الأعظم والمجرّات»؟",
        "options": [
         "عمر الكون ≈ 13.8 مليار سنة",
         "مجرّتنا درب التبّانة",
@@ -14944,7 +20887,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المفهوم وتعريفه:",
+       "text": "طابق بين المفهوم وتعريفه في «نظرية الانفجار الأعظم والمجرّات»:",
        "options": [],
        "answer": [
         "نظرية نشأة الكون",
@@ -15127,7 +21070,7 @@
       },
       {
        "type": "matching",
-       "text": "طابق بين المفهوم وتعريفه:",
+       "text": "طابق بين المفهوم وتعريفه في «نظرية الانفجار الأعظم والمجرّات»: (نسخة 2)",
        "options": [],
        "answer": [
         "مجرّتنا",
@@ -15182,6 +21125,246 @@
        "difficulty": "hard",
        "tags": [
         "derive"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "نظرية الانفجار الأعظم تفسّر:",
+       "options": [
+        "نشأة الكون وتوسّعه",
+        "أصل الحياة",
+        "بنية الذرّة",
+        "عمل المحرّك"
+       ],
+       "answer": "نشأة الكون وتوسّعه",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "عمر الكون يُقدَّر بنحو:",
+       "options": [
+        "13.8 مليار سنة",
+        "4.5 مليار سنة",
+        "100 مليون سنة",
+        "13.8 مليون سنة"
+       ],
+       "answer": "13.8 مليار سنة",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "أوّل العناصر التي تشكّلت بعد الانفجار الأعظم:",
+       "options": [
+        "الهيدروجين والهيليوم",
+        "الحديد والذهب",
+        "الكربون والأكسجين",
+        "اليورانيوم"
+       ],
+       "answer": "الهيدروجين والهيليوم",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "درب التبّانة هي:",
+       "options": [
+        "المجرّة التي ننتمي إليها",
+        "أقرب نجم",
+        "كوكب",
+        "سديم"
+       ],
+       "answer": "المجرّة التي ننتمي إليها",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "أدلّة الانفجار الأعظم تشمل:",
+       "options": [
+        "الانزياح نحو الأحمر والإشعاع الخلفي الكوني",
+        "وجود القمر",
+        "دوران الأرض",
+        "المدّ والجزر"
+       ],
+       "answer": "الانزياح نحو الأحمر والإشعاع الخلفي الكوني",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الإشعاع الخلفي الكوني (الميكروي) دليل على:",
+       "options": [
+        "مرحلة كانت فيها حرارة الكون عالية جداً",
+        "تبريد المجرّات فقط",
+        "دوران النجوم",
+        "الجاذبية الأرضية"
+       ],
+       "answer": "مرحلة كانت فيها حرارة الكون عالية جداً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "المستعر الأعظم (Supernova) هو:",
+       "options": [
+        "انفجار نهاية حياة نجم ضخم",
+        "تكوّن كوكب",
+        "اصطدام مجرّتين",
+        "ولادة نجم صغير"
+       ],
+       "answer": "انفجار نهاية حياة نجم ضخم",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "بعد الانفجار الأعظم، كان الكون:",
+       "options": [
+        "حاراً وكثيفاً جداً",
+        "بارداً ومتخلخلاً",
+        "خفيفاً جداً",
+        "ساكناً"
+       ],
+       "answer": "حاراً وكثيفاً جداً",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "بنية الكون على المقاييس الكبيرة تتوزّع على شكل:",
+       "options": [
+        "عناقيد وعناقيد عظمى من المجرّات",
+        "مجرّة واحدة",
+        "كواكب متجاورة",
+        "نجوم منفردة فقط"
+       ],
+       "answer": "عناقيد وعناقيد عظمى من المجرّات",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تمدد الكون يعني أنّ المسافات بين المجرّات:",
+       "options": [
+        "تزداد مع الزمن",
+        "تنقص مع الزمن",
+        "ثابتة",
+        "منعدمة"
+       ],
+       "answer": "تزداد مع الزمن",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يُقدَّر عمر الكون بنحو 13.8 مليار سنة.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "كان الكون في بدايته حاراً وكثيفاً جداً.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "أوّل العناصر المتشكّلة بعد الانفجار الأعظم كانت الهيدروجين والهيليوم.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "الإشعاع الخلفي الكوني دليل يدعم نظرية الانفجار الأعظم.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]
@@ -15798,7 +21981,7 @@
       },
       {
        "type": "fill_blank",
-       "text": "أكمل: تكافؤ الكتلة والطاقة E = .......",
+       "text": "أكمل: تكافؤ الكتلة والطاقة E = ....... («الثقوب السوداء»).",
        "options": [],
        "answer": "m c²",
        "explanation": "",
@@ -15837,6 +22020,246 @@
        "difficulty": "medium",
        "tags": [
         "diagram"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "سرعة الإفلات من جسم كتلته M ونصف قطره R تُعطى بالعلاقة:",
+       "options": [
+        "v = √(2 G M / R)",
+        "v = √(G M / R)",
+        "v = G M / R",
+        "v = 2 G M / R"
+       ],
+       "answer": "v = √(2 G M / R)",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "الثقب الأسود هو جسم:",
+       "options": [
+        "سرعة الإفلات منه أكبر من أو تساوي سرعة الضوء",
+        "كتلته معدومة",
+        "لا يجذب",
+        "يشعّ ضوءاً عادياً"
+       ],
+       "answer": "سرعة الإفلات منه أكبر من أو تساوي سرعة الضوء",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "نصف قطر شفارتزشيلد (نصف قطر أفق الحدث) يُعطى بالعلاقة:",
+       "options": [
+        "R_s = 2 G M / c²",
+        "R_s = G M / c²",
+        "R_s = 2 G M c²",
+        "R_s = M / c²"
+       ],
+       "answer": "R_s = 2 G M / c²",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "ثابت الجذب العام G يساوي تقريباً:",
+       "options": [
+        "6.67×10⁻¹¹ N·m²/kg²",
+        "9.8 m/s²",
+        "9×10⁹ N·m²/C²",
+        "3×10⁸ m/s"
+       ],
+       "answer": "6.67×10⁻¹¹ N·m²/kg²",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "لا يمكن لجسم (حتى الضوء) الإفلات من الثقب الأسود لأنه:",
+       "options": [
+        "سرعة الإفلات عند أفق الحدث تساوي أو تتجاوز سرعة الضوء",
+        "لا يوجد جذب",
+        "الكتلة معدومة",
+        "الحرارة منعدمة"
+       ],
+       "answer": "سرعة الإفلات عند أفق الحدث تساوي أو تتجاوز سرعة الضوء",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "أفق الحدث للثقب الأسود هو:",
+       "options": [
+        "الحدّ الذي لا يمكن بعده الإفلات",
+        "مركز الثقب",
+        "سطحه الصلب",
+        "قاعدته"
+       ],
+       "answer": "الحدّ الذي لا يمكن بعده الإفلات",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "سرعة الإفلات من سطح الأرض تقارب:",
+       "options": [
+        "11.2 km/s",
+        "3×10⁸ m/s",
+        "1 km/s",
+        "340 m/s"
+       ],
+       "answer": "11.2 km/s",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "إذا انكمشت كتلة الشمس إلى نصف قطر شفارتزشيلد فإنّ نصف قطرها يصبح نحو:",
+       "options": [
+        "3 km",
+        "3000 km",
+        "700000 km",
+        "1 m"
+       ],
+       "answer": "3 km",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "طاقة سكون كتلة 1 kg وفق E=mc² تساوي:",
+       "options": [
+        "9×10¹⁶ J",
+        "9×10¹⁰ J",
+        "3×10⁸ J",
+        "1 J"
+       ],
+       "answer": "9×10¹⁶ J",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "mcq",
+       "text": "تزداد شدة الجذب الثقالي لثقب أسود:",
+       "options": [
+        "بزيادة كتلته",
+        "بنقصان كتلته",
+        "ببعده عن الكواكب",
+        "بلونه"
+       ],
+       "answer": "بزيادة كتلته",
+       "answer_index": 0,
+       "explanation": "",
+       "points": 2,
+       "difficulty": "medium",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "سرعة الإفلات من جسم تعتمد على كتلته ونصف قطره.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "يمكن للضوء الإفلات من ثقب أسود.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "خطأ",
+       "explanation": "سرعة الإفلات تتجاوز سرعة الضوء.",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "نصف قطر شفارتزشيلد يتناسب طرداً مع كتلة الجسم.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
+       ]
+      },
+      {
+       "type": "true_false",
+       "text": "ثقب أسود هو نتيجة انهيار نجم ضخم جداً في نهاية حياته.",
+       "options": [
+        "صح",
+        "خطأ"
+       ],
+       "answer": "صح",
+       "explanation": "",
+       "points": 1,
+       "difficulty": "easy",
+       "tags": [
+        "expansion"
        ]
       }
      ]

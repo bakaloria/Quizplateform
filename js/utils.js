@@ -394,11 +394,21 @@
       if (!q) return null;
       const t = q.type;
       if (t === "mcq" || t === "true_false" || t === "image_mcq") {
-        return given !== "" && given !== undefined && given !== null && utils.sameAnswer(given, q.answer);
+        // الاختيار من متعدد: مطابقة دقيقة لنصّ الخيار (لتفادي تشابه الصيغ
+        // الرياضية مثل ½kx² و kx بعد التطبيع الذي يحذف الرموز)
+        if (given === "" || given === undefined || given === null) return false;
+        if (given === q.answer) return true;
+        // مطابقة متسامحة فقط إذا لم يتشابه أي خيار آخر مع الإجابة بعد التطبيع
+        const na = utils.normalizeArabic(q.answer);
+        const collide = (q.options || []).some(function (o) {
+          return o !== q.answer && utils.normalizeArabic(o) === na;
+        });
+        if (collide) return false;
+        return utils.sameAnswer(given, q.answer);
       }
       if (t === "multi") {
-        const g = (given || []).map(utils.normalizeArabic).sort().join("|");
-        const c = (Array.isArray(q.answer) ? q.answer : [q.answer]).map(utils.normalizeArabic).sort().join("|");
+        const g = (given || []).slice().sort().join("|");
+        const c = (Array.isArray(q.answer) ? q.answer : [q.answer]).slice().sort().join("|");
         return g !== "" && g === c;
       }
       if (t === "fill_blank" || t === "short_answer") {
