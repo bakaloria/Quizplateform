@@ -658,6 +658,40 @@ tbody tr:last-child td { border-bottom: none; }
   margin-top: 16px;
 }
 
+/* ==== Subject Picker (بنك الأسئلة — شاشة اختيار المادة) ==== */
+.subject-pick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.subject-pick-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 20px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  text-decoration: none;
+  color: var(--text);
+  transition: transform .12s ease, border-color .12s ease, background .12s ease;
+  text-align: center;
+}
+.subject-pick-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+  background: var(--surface);
+}
+.subject-pick-card .spc-ico { font-size: 30px; line-height: 1; }
+.subject-pick-card .spc-name { font-weight: 700; font-size: 15px; }
+.subject-pick-card .spc-count { color: var(--text-2); font-size: 12px; }
+@media (max-width: 640px) {
+  .subject-pick-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+  .subject-pick-card { padding: 16px 10px; }
+}
+
 /* ==== Teacher Assignment Chip ==== */
 .assignment-chip {
   display: inline-flex;

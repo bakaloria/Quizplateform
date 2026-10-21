@@ -145,8 +145,18 @@
       else snap = await col.questions.get();
       return QP.utils.sortBy(snapDocs(snap), "createdAt", "desc");
     },
-    countQuestions: async function () {
-      const snap = await col.questions.get();
+    /* عدّ خفيف عبر count() (لا يجلب الوثائق) مع تراجع آمن لأحدث إصدار compat */
+    countQuestions: async function (subjectId) {
+      const q = subjectId
+        ? col.questions.where("subjectId", "==", subjectId)
+        : col.questions;
+      try {
+        if (typeof q.count === "function") {
+          const snap = await q.count().get();
+          return snap.data().count;
+        }
+      } catch (e) { /* نسقط للطريقة القديمة */ }
+      const snap = await q.get();
       return snap.size;
     },
     addQuestion: async function (q, subjectId, subjectName) {
@@ -654,10 +664,23 @@
       return snapDocs(snap).sort(function (a, b) { return tsOf(b.createdAt) - tsOf(a.createdAt); });
     },
     countSubmissions: async function () {
+      try {
+        if (typeof col.submissions.count === "function") {
+          const snap = await col.submissions.count().get();
+          return snap.data().count;
+        }
+      } catch (e) { /* تراجع */ }
       const snap = await col.submissions.get();
       return snap.size;
     },
     countPendingSubmissions: async function () {
+      try {
+        if (typeof col.submissions.where("status", "==", "pending").count === "function") {
+          const a = await col.submissions.where("status", "==", "pending").count().get();
+          const b = await col.submissions.where("status", "==", "in_review").count().get();
+          return a.data().count + b.data().count;
+        }
+      } catch (e) { /* تراجع */ }
       const snap = await col.submissions.get();
       return snapDocs(snap).filter(function (s) { return s.status === "pending" || s.status === "in_review"; }).length;
     },

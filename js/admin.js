@@ -397,10 +397,10 @@
   async function renderDashboard() {
     shell("dashboard", U.loaderHTML());
     try {
-      await maybeRotateCodes();
+      maybeRotateCodes().catch(function () {});
       const arr = await Promise.all([
         S.listSubjects(),
-        S.listQuestions(),
+        S.countQuestions(),
         S.listExams(),
         S.listTeachers(),
         S.countSubmissions(),
@@ -411,7 +411,7 @@
       ]);
 
       const subjects = arr[0];
-      const questions = arr[1];
+      const questionCount = arr[1];
       const exams = arr[2];
       const teachers = arr[3];
       const subs = arr[4];
@@ -421,7 +421,6 @@
       const payPending = arr[8] || 0;
 
       state.subjects = subjects;
-      state.questions = questions;
       state.exams = exams;
       state.teachers = teachers;
       state.groups = groups;
@@ -457,7 +456,7 @@
           kpi("c-primary", "👥", groups.length, "المجموعات"),
           kpi("c-primary", "🎓", totalStudents, "الطلاب"),
           kpi("c-primary", "📚", subjects.length, "المواد"),
-          kpi("c-primary", "❓", questions.length, "الأسئلة"),
+          kpi("c-primary", "❓", questionCount, "الأسئلة"),
           kpi("c-primary", "🗒️", exams.length, "الاختبارات"),
           kpi("c-primary", "👨\u200D🏫", teachers.length, "المعلمون")
         ]) +
@@ -800,10 +799,9 @@
       state.subjects = subjects;
 
       const qCounts = {};
-      const qs = await S.listQuestions();
-      qs.forEach(function (q) {
-        qCounts[q.subjectId] = (qCounts[q.subjectId] || 0) + 1;
-      });
+      await Promise.all(subjects.map(async function (s) {
+        try { qCounts[s.id] = await S.countQuestions(s.id); } catch (e) { qCounts[s.id] = 0; }
+      }));
 
       const rows = subjects.length
         ? subjects.map(function (s) {
@@ -840,7 +838,7 @@
         }).join("");
       } catch (e) { seedCards = ""; }
 
-      const totalQ = qs.length;
+      const totalQ = subjects.reduce(function (sum, s) { return sum + (qCounts[s.id] || 0); }, 0);
       const withQ = subjects.filter(function (s) { return (qCounts[s.id] || 0) > 0; }).length;
 
       shell("subjects",
@@ -977,39 +975,38 @@ const qFilter = {
 async function renderQuestions() {
   shell("questions", U.loaderHTML());
   try {
-    const arr = await Promise.all([S.listSubjects(), S.listQuestions()]);
-    const subjects = arr[0];
-    const questions = arr[1];
+    const subjects = await S.listSubjects();
     state.subjects = subjects;
+
+    /* تفتح الصفحة فوراً: المواد فقط — بلا أي أسئلة حتى تُختار مادة */
+    if (qFilter.subjectId !== "__all__" && !qFilter.subjectId) {
+      renderQuestionSubjectPicker(subjects);
+      return;
+    }
+
+    /* جلب أسئلة المادة المختارة فقط (أو كل الأسئلة عند اختيار «كل المواد») */
+    const questions = qFilter.subjectId === "__all__"
+      ? await S.listQuestions()
+      : await S.listQuestions(qFilter.subjectId);
     state.questions = questions;
 
-    /* استخراج الوحدات والدروس الفريدة */
+    /* استخراج الوحدات والدروس من أسئلة المادة فقط */
     const unitsMap = {};
     const lessonsMap = {};
     questions.forEach(function (q) {
       if (q.unitNumber !== null && q.unitNumber !== undefined) {
         const key = "u:" + q.unitNumber;
         if (!unitsMap[key]) {
-          unitsMap[key] = {
-            type: "number",
-            value: q.unitNumber,
-            label: "\u0627\u0644\u0648\u062d\u062f\u0629 " + q.unitNumber
-          };
+          unitsMap[key] = { type: "number", value: q.unitNumber, label: "\u0627\u0644\u0648\u062d\u062f\u0629 " + q.unitNumber };
         }
       }
       if (q.unitTitle) {
         const key = "ut:" + q.unitTitle;
         if (!unitsMap[key]) {
-          unitsMap[key] = {
-            type: "title",
-            value: q.unitTitle,
-            label: q.unitTitle
-          };
+          unitsMap[key] = { type: "title", value: q.unitTitle, label: q.unitTitle };
         }
       }
-      if (q.lessonTitle) {
-        lessonsMap[q.lessonTitle] = q.lessonTitle;
-      }
+      if (q.lessonTitle) lessonsMap[q.lessonTitle] = q.lessonTitle;
     });
 
     const units = Object.values(unitsMap).sort(function (a, b) {
@@ -1020,7 +1017,6 @@ async function renderQuestions() {
 
     /* الفلترة */
     const list = questions.filter(function (q) {
-      if (qFilter.subjectId && q.subjectId !== qFilter.subjectId) return false;
       if (qFilter.type && q.type !== qFilter.type) return false;
       if (qFilter.diff && q.difficulty !== qFilter.diff) return false;
       if (qFilter.unit) {
@@ -1032,9 +1028,7 @@ async function renderQuestions() {
       }
       if (qFilter.lesson && q.lessonTitle !== qFilter.lesson) return false;
       if (qFilter.search &&
-        U.normalizeArabic(q.text).indexOf(U.normalizeArabic(qFilter.search)) < 0) {
-        return false;
-      }
+        U.normalizeArabic(q.text).indexOf(U.normalizeArabic(qFilter.search)) < 0) return false;
       return true;
     });
 
@@ -1052,11 +1046,8 @@ async function renderQuestions() {
         const shortText = (q.text || "").slice(0, 90) +
           ((q.text && q.text.length > 90) ? "..." : "");
         const loc = [];
-        if (q.unitNumber !== null && q.unitNumber !== undefined) {
-          loc.push("الوحدة " + q.unitNumber);
-        } else if (q.unitTitle) {
-          loc.push(U.esc(q.unitTitle));
-        }
+        if (q.unitNumber !== null && q.unitNumber !== undefined) loc.push("الوحدة " + q.unitNumber);
+        else if (q.unitTitle) loc.push(U.esc(q.unitTitle));
         if (q.lessonTitle) loc.push(U.esc(q.lessonTitle));
 
         return recRow(
@@ -1074,59 +1065,53 @@ async function renderQuestions() {
       }).join("")
       : null;
 
+    const subjName = qFilter.subjectId === "__all__"
+      ? "كل المواد"
+      : (subjects.find(function (x) { return x.id === qFilter.subjectId; }) || {}).name || "المادة";
+
     /* قوائم الفلترة */
     const typeOpts = '<option value="">\u0643\u0644 \u0627\u0644\u0623\u0646\u0648\u0627\u0639</option>' +
       Object.keys(U.TYPE_LABELS).map(function (t) {
-        return '<option value="' + t + '"' +
-          (qFilter.type === t ? " selected" : "") + ">" +
+        return '<option value="' + t + '"' + (qFilter.type === t ? " selected" : "") + ">" +
           U.TYPE_LABELS[t] + "</option>";
-      }).join("");
-
-    const subjOpts = '<option value="">\u0643\u0644 \u0627\u0644\u0645\u0648\u0627\u062f</option>' +
-      subjects.map(function (s) {
-        return '<option value="' + s.id + '"' +
-          (qFilter.subjectId === s.id ? " selected" : "") + ">" +
-          U.esc(s.name) + "</option>";
       }).join("");
 
     const unitOpts = '<option value="">\u0643\u0644 \u0627\u0644\u0648\u062d\u062f\u0627\u062a</option>' +
       units.map(function (u) {
         const val = (u.type === "number" ? "u:" : "ut:") + u.value;
-        return '<option value="' + U.esc(val) + '"' +
-          (qFilter.unit === val ? " selected" : "") + ">" +
+        return '<option value="' + U.esc(val) + '"' + (qFilter.unit === val ? " selected" : "") + ">" +
           U.esc(u.label) + "</option>";
       }).join("");
 
     const lessonOpts = '<option value="">\u0643\u0644 \u0627\u0644\u062f\u0631\u0648\u0633</option>' +
       lessons.map(function (l) {
-        return '<option value="' + U.esc(l) + '"' +
-          (qFilter.lesson === l ? " selected" : "") + ">" +
+        return '<option value="' + U.esc(l) + '"' + (qFilter.lesson === l ? " selected" : "") + ">" +
           U.esc(l) + "</option>";
       }).join("");
 
     shell("questions",
-      pageHead("❓", "بنك الأسئلة",
-        questions.length + " سؤال في " + subjects.length + " مادة",
+      pageHead("❓", "بنك الأسئلة — " + U.esc(subjName),
+        questions.length + " سؤال",
+        '<button class="btn btn-ghost" id="backSubj">↩ كل المواد</button>' +
         '<button class="btn" id="importBtn">\u2b07 استيراد</button>' +
         '<button class="btn btn-primary" id="addQ">＋ سؤال جديد</button>') +
 
       kpiGrid([
-        kpi("c-primary", "❓", questions.length, "إجمالي الأسئلة"),
+        kpi("c-primary", "❓", questions.length, "أسئلة المادة"),
         kpi("c-success", "🔎", list.length, "نتائج الفلترة"),
-        kpi("c-primary", "📚", subjects.length, "المواد"),
-        kpi("c-primary", "🧩", units.length, "الوحدات")
+        kpi("c-primary", "🧩", units.length, "الوحدات"),
+        kpi("c-primary", "📖", lessons.length, "الدروس")
       ]) +
 
       '<div class="card mt">' +
-      secHead("🔎", "فلترة وبحث", "ابحث في نص السؤال أو رشّح حسب المادة والنوع والوحدة") +
+      secHead("🔎", "فلترة وبحث", "ابحث في نص السؤال أو رشّح حسب النوع والوحدة") +
       '<div class="filter-bar">' +
       '<div class="form-row-3">' +
       '<div class="field"><input id="fSearch" placeholder="🔍 بحث..." value="' + U.esc(qFilter.search) + '"></div>' +
-      '<div class="field"><select id="fSubj">' + subjOpts + "</select></div>" +
       '<div class="field"><select id="fType">' + typeOpts + "</select></div>" +
+      '<div class="field"><select id="fUnit">' + unitOpts + "</select></div>" +
       "</div>" +
       '<div class="form-row-3 mt-sm">' +
-      '<div class="field"><select id="fUnit">' + unitOpts + "</select></div>" +
       '<div class="field"><select id="fLesson">' + lessonOpts + "</select></div>" +
       '<div class="field"><button class="btn btn-sm" id="resetFilters" style="width:100%">إلغاء الفلاتر</button></div>' +
       "</div></div></div>" +
@@ -1139,6 +1124,15 @@ async function renderQuestions() {
     );
 
     /* الأحداث */
+    document.getElementById("backSubj").addEventListener("click", function () {
+      qFilter.subjectId = "";
+      qFilter.type = "";
+      qFilter.unit = "";
+      qFilter.lesson = "";
+      qFilter.search = "";
+      renderQuestions();
+    });
+
     document.getElementById("addQ").addEventListener("click", function () {
       questionModal(null, function () { renderQuestions(); });
     });
@@ -1149,43 +1143,31 @@ async function renderQuestions() {
 
     document.getElementById("fSearch").addEventListener("input", U.debounce(function (e) {
       qFilter.search = e.target.value;
-      renderQuestions().then(function () {
-        const el = document.getElementById("fSearch");
-        if (el) {
-          el.focus();
-          el.setSelectionRange(el.value.length, el.value.length);
-        }
-      });
+      renderQuestionListInPlace(questions, subjects);
     }, 350));
-
-    document.getElementById("fSubj").addEventListener("change", function (e) {
-      qFilter.subjectId = e.target.value;
-      renderQuestions();
-    });
 
     document.getElementById("fType").addEventListener("change", function (e) {
       qFilter.type = e.target.value;
-      renderQuestions();
+      renderQuestionListInPlace(questions, subjects);
     });
 
     document.getElementById("fUnit").addEventListener("change", function (e) {
       qFilter.unit = e.target.value;
-      renderQuestions();
+      renderQuestionListInPlace(questions, subjects);
     });
 
     document.getElementById("fLesson").addEventListener("change", function (e) {
       qFilter.lesson = e.target.value;
-      renderQuestions();
+      renderQuestionListInPlace(questions, subjects);
     });
 
     document.getElementById("resetFilters").addEventListener("click", function () {
-      qFilter.subjectId = "";
       qFilter.type = "";
       qFilter.diff = "";
       qFilter.search = "";
       qFilter.unit = "";
       qFilter.lesson = "";
-      renderQuestions();
+      renderQuestionListInPlace(questions, subjects);
     });
 
     bindViewButtons(
@@ -1196,6 +1178,128 @@ async function renderQuestions() {
     shell("questions", errorCard(e));
   }
 }
+
+/* شاشة اختيار المادة — تفتح فوراً بلا جلب أسئلة */
+async function renderQuestionSubjectPicker(subjects) {
+  let counts = {};
+  try {
+    const arr = await Promise.all(subjects.map(function (s) {
+      return S.countQuestions(s.id).catch(function () { return null; });
+    }));
+    subjects.forEach(function (s, i) { counts[s.id] = arr[i]; });
+  } catch (e) { counts = {}; }
+
+  const cards = subjects.map(function (s) {
+    const n = counts[s.id];
+    return '<a class="subject-pick-card" href="#" data-subject="' + U.esc(s.id) + '">' +
+      '<div class="spc-ico">📚</div>' +
+      '<div class="spc-name">' + U.esc(s.name) + "</div>" +
+      '<div class="spc-count">' + (n === null || n === undefined ? "…" : n + " سؤال") + "</div>" +
+      "</a>";
+  }).join("");
+
+  shell("questions",
+    pageHead("❓", "بنك الأسئلة", subjects.length + " مادة — اختر مادة لعرض أسئلتها",
+      '<button class="btn" id="importBtn">\u2b07 استيراد</button>' +
+      '<button class="btn btn-primary" id="addQ">＋ سؤال جديد</button>') +
+
+    '<div class="card mt">' +
+    secHead("📚", "اختر مادة", "تُعرض أسئلة المادة المختارة فقط — أسرع وأخفّ") +
+    (subjects.length
+      ? '<div class="subject-pick-grid">' + cards + "</div>"
+      : '<div class="empty-state"><div class="emoji">📭</div><h3>لا توجد مواد بعد</h3></div>') +
+    '<div class="mt-sm center">' +
+    '<button class="btn btn-sm btn-ghost" id="loadAllQ">📋 تحميل كل الأسئلة (أبطأ)</button>' +
+    "</div></div>"
+  );
+
+  document.getElementById("addQ").addEventListener("click", function () {
+    questionModal(null, function () { renderQuestions(); });
+  });
+  document.getElementById("importBtn").addEventListener("click", function () {
+    importModal(function () { renderQuestions(); });
+  });
+  const allBtn = document.getElementById("loadAllQ");
+  if (allBtn) allBtn.addEventListener("click", function () {
+    qFilter.subjectId = "__all__";
+    renderQuestions();
+  });
+  document.querySelectorAll("[data-subject]").forEach(function (el) {
+    el.addEventListener("click", function (e) {
+      e.preventDefault();
+      qFilter.subjectId = el.getAttribute("data-subject");
+      qFilter.type = "";
+      qFilter.unit = "";
+      qFilter.lesson = "";
+      qFilter.search = "";
+      renderQuestions();
+    });
+  });
+}
+
+/* إعادة رسم القائمة والفلاتر فقط دون إعادة جلب البيانات (سريع) */
+function renderQuestionListInPlace(questions, subjects) {
+  const list = questions.filter(function (q) {
+    if (qFilter.type && q.type !== qFilter.type) return false;
+    if (qFilter.diff && q.difficulty !== qFilter.diff) return false;
+    if (qFilter.unit) {
+      const parts = qFilter.unit.split(":");
+      const kind = parts[0];
+      const val = parts.slice(1).join(":");
+      if (kind === "u" && String(q.unitNumber) !== val) return false;
+      if (kind === "ut" && q.unitTitle !== val) return false;
+    }
+    if (qFilter.lesson && q.lessonTitle !== qFilter.lesson) return false;
+    if (qFilter.search &&
+      U.normalizeArabic(q.text).indexOf(U.normalizeArabic(qFilter.search)) < 0) return false;
+    return true;
+  });
+  list.sort(function (a, b) {
+    const ua = (a.unitNumber !== null && a.unitNumber !== undefined) ? a.unitNumber : 9999;
+    const ub = (b.unitNumber !== null && b.unitNumber !== undefined) ? b.unitNumber : 9999;
+    if (ua !== ub) return ua - ub;
+    return (a.lessonTitle || "").localeCompare(b.lessonTitle || "");
+  });
+
+  const container = document.querySelector("#view .rec-list") ||
+    document.querySelector("#view .empty-state");
+  const rowsHTML = list.length
+    ? list.slice(0, 500).map(function (q) {
+      const shortText = (q.text || "").slice(0, 90) + ((q.text && q.text.length > 90) ? "..." : "");
+      const loc = [];
+      if (q.unitNumber !== null && q.unitNumber !== undefined) loc.push("الوحدة " + q.unitNumber);
+      else if (q.unitTitle) loc.push(U.esc(q.unitTitle));
+      if (q.lessonTitle) loc.push(U.esc(q.lessonTitle));
+      return recRow(
+        q.id,
+        (U.badgeForType(q.type) || "") +
+          (U.sectionBadge(q) ? " " + U.sectionBadge(q) : "") +
+          (q.passage ? ' <span class="badge badge-passage" title="مرفق بنص">📜 نص</span>' : "") +
+          ' <span class="rec-qtext">' + U.esc(shortText) + "</span>",
+        '📍 ' + (loc.length ? loc.join(" / ") : "-") +
+          ' · ' + U.esc(q.subjectName || "-") +
+          ' · <span class="badge badge-muted">' + diffLabel(q.difficulty) + "</span>" +
+          ' · ' + (q.points || 1) + ' درجة',
+        "❓"
+      );
+    }).join("")
+    : "";
+
+  const wrap = container && container.closest(".mt");
+  if (wrap) {
+    wrap.innerHTML = recList(rowsHTML || null,
+      '<div class="empty-state"><div class="emoji">❓</div><h3>لا توجد أسئلة مطابقة</h3></div>');
+  }
+  // تحديث عدّاد النتائج في KPI
+  const kpis = document.querySelectorAll("#view .kpi .kpi-val");
+  if (kpis && kpis[1]) kpis[1].textContent = list.length;
+
+  bindViewButtons(
+    function (id) { return questions.find(function (x) { return x.id === id; }); },
+    function (q) { viewQuestionModal(q, function () { renderQuestions(); }); }
+  );
+}
+
 
 function viewQuestionModal(q, onChange) {
   const ansTxt = U.answerText ? U.answerText(q) : (Array.isArray(q.answer) ? q.answer.join(" \u060C ") : (q.answer || "-"));
