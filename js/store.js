@@ -1042,15 +1042,89 @@
     /* ============================================================
      * SETTINGS
      * ============================================================ */
-    getAdminPass: async function () {
-      const d = await col.settings.doc("admin").get();
-      if (d.exists && d.data().pass) return { pass: d.data().pass, created: false };
-      const def = "admin123";
-      await col.settings.doc("admin").set({ pass: def, createdAt: FV.serverTimestamp() }, { merge: true });
-      return { pass: def, created: true };
+    /* ============================================================
+     * كلمة مرور المدير — لا تُخزَّن نصّاً صريحاً إطلاقاً
+     * تُخزَّن: hash (تجزئة) + salt (ملح) + iter (التكرارات) + algo
+     * ============================================================ */
+    ADMIN_PASS_ITER: 120000,
+    ADMIN_PASS_FALLBACK_ITER: 20000,
+    ADMIN_DEFAULT_PASS: "admin123",
+
+    /* يقرأ سجل كلمة مرور المدير (مع带回 legacy للترحيل فقط) */
+    getAdminPassRecord: async function () {
+      try {
+        const d = await col.settings.doc("admin").get();
+        if (d.exists && d.data()) {
+          const data = d.data();
+          return {
+            hash: typeof data.hash === "string" && data.hash ? data.hash : null,
+            salt: typeof data.salt === "string" && data.salt ? data.salt : null,
+            iter: data.iter || null,
+            algo: typeof data.algo === "string" && data.algo ? data.algo : null,
+            /* كلمة المرور القديمة النصّية — تُستخدم للترحيل ثم تُحذف */
+            legacy: (typeof data.pass === "string" && data.pass !== "") ? data.pass : null
+          };
+        }
+      } catch (e) { /* المستند غير موجود أو محجوب */ }
+      return { hash: null, salt: null, iter: null, algo: null, legacy: null, missing: true };
     },
+
+    /* واجهة عامة آمنة — لا تعيد كلمة المرور أبداً */
+    getAdminPass: async function () {
+      const rec = await store.getAdminPassRecord();
+      return {
+        hashed: !!(rec.hash && rec.salt),
+        algo: rec.algo,
+        created: !!rec.missing
+      };
+    },
+
+    /* تسجيل دخول المدير: يقارن بالتجزئة، ويترحّل تلقائياً من النص الصريح */
+    verifyAdminPass: async function (input) {
+      const pass = String(input === undefined || input === null ? "" : input);
+      const rec = await store.getAdminPassRecord();
+      const cr = QP.crypto;
+
+      /* 1) سجل مُجزّأ */
+      if (rec.hash && rec.salt) {
+        const ok = await cr.verifySecret(pass, rec.salt, rec.iter, rec.algo, rec.hash);
+        return { ok: !!ok, migrated: false };
+      }
+
+      /* 2) كلمة مرور قديمة نصّية => نقارن ثم نرحّلها إلى تجزئة */
+      if (rec.legacy) {
+        if (pass !== rec.legacy) return { ok: false, migrated: false };
+        await store.setAdminPass(rec.legacy);
+        return { ok: true, migrated: true };
+      }
+
+      /* 3) لا يوجد سجل => كلمة المرور الافتراضية (وننشئ سجلاً مُجزّأً) */
+      if (pass === store.ADMIN_DEFAULT_PASS) {
+        await store.setAdminPass(store.ADMIN_DEFAULT_PASS);
+        return { ok: true, migrated: true, created: true };
+      }
+
+      return { ok: false, migrated: false };
+    },
+
+    /* يحفظ كلمة المرور مُجزّأة ويحذف النسخة النصّية القديمة */
     setAdminPass: async function (pass) {
-      await col.settings.doc("admin").set({ pass: pass, updatedAt: FV.serverTimestamp() }, { merge: true });
+      const cr = QP.crypto;
+      const salt = cr.genSalt(24);
+      const useSubtle = cr.hasSubtle();
+      const iter = useSubtle ? store.ADMIN_PASS_ITER : store.ADMIN_PASS_FALLBACK_ITER;
+      const algo = useSubtle ? "pbkdf2" : "sha256x";
+      const hash = await cr.hashSecret(pass, salt, iter, algo);
+      const patch = {
+        hash: hash,
+        salt: salt,
+        iter: iter,
+        algo: algo,
+        updatedAt: FV.serverTimestamp()
+      };
+      /* حذف النسخة النصّية القديمة إن وُجدت (منع تسريبها) */
+      try { patch.pass = FV.delete(); } catch (e) { /* delete غير متاح */ }
+      await col.settings.doc("admin").set(patch, { merge: true });
     },
 
     /* بيانات التواصل (تُحرّر من إعدادات المدير وتظهر في صفحة الطالب) */

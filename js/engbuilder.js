@@ -169,9 +169,10 @@
     const doLogin = async function () {
       const val = document.getElementById("adminPass").value.trim();
       try {
-        const res = await S.getAdminPass();
-        if (val === res.pass) {
+        const res = await S.verifyAdminPass(val);
+        if (res.ok) {
           sessionStorage.setItem("qp_admin", "1");
+          if (res.migrated) U.toast("تم تحديث حفظ الرمز إلى صيغة مشفّرة (آمنة)", "success", 5000);
           U.toast("مرحباً", "success");
           render();
         } else {

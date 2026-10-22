@@ -81,14 +81,16 @@
       btn.disabled = true;
       btn.textContent = "...";
       try {
-        const res = await S.getAdminPass();
-        state.adminPass = res.pass;
-        if (res.created) {
-          U.toast("\u062a\u0645 \u0625\u0646\u0634\u0627\u0621 \u0631\u0645\u0632: admin123", "warn", 5000);
-        }
-        if (val === res.pass) {
+        const res = await S.verifyAdminPass(val);
+        if (res.ok) {
           sessionStorage.setItem("qp_admin", "1");
-          U.toast("\u0645\u0631\u062d\u0628\u0627", "success");
+          if (res.created) {
+            U.toast("تم إنشاء رمز: admin123 — غيّره فوراً", "warn", 6000);
+          } else if (res.migrated) {
+            U.toast("تم تحديث حفظ الرمز إلى صيغة مشفّرة (آمنة)", "success", 5000);
+          } else {
+            U.toast("\u0645\u0631\u062d\u0628\u0627", "success");
+          }
           const parts = location.hash.replace(/^#\/?/, "").split("/").filter(Boolean);
           QP.admin.render(parts[0] || "dashboard");
         } else {
@@ -4504,9 +4506,11 @@ function studentModal(s) {
       '<div class="card">' +
       secHead("🔐", "كلمة مرور المدير", "غيّر رمز الدخول إلى لوحة الإدارة") +
       '<div class="form-row">' +
-      '<div class="field"><label>\u0627\u0644\u062c\u062f\u064a\u062f</label><input type="password" id="newPass"></div>' +
-      '<div class="field"><label>\u062a\u0623\u0643\u064a\u062f</label><input type="password" id="newPass2"></div></div>' +
-      '<button class="btn btn-primary" id="savePass">\u062d\u0641\u0638</button></div>' +
+      '<div class="field"><label>\u0627\u0644\u062c\u062f\u064a\u062f</label><input type="password" id="newPass" autocomplete="new-password" minlength="8" placeholder="8 أحرف على الأقل"></div>' +
+      '<div class="field"><label>\u062a\u0623\u0643\u064a\u062f</label><input type="password" id="newPass2" autocomplete="new-password" minlength="8"></div></div>' +
+      '<button class="btn btn-primary" id="savePass">\u062d\u0641\u0638</button>' +
+      '<p class="help mt-sm">🔒 الرمز يُخزَّن <b>مُجزّأً (PBKDF2-SHA256 + ملح عشوائي)</b> ولا يُحفظ كنصّ صريح، فلا يمكن قراءته من قاعدة البيانات.</p>' +
+      '</div>' +
 
       '<div class="card">' +
       secHead("🗄️", "النسخ الاحتياطي", "تصدير كل البيانات أو استيرادها") +
@@ -4607,12 +4611,22 @@ function studentModal(s) {
     document.getElementById("savePass").addEventListener("click", async function () {
       const a = document.getElementById("newPass").value.trim();
       const b = document.getElementById("newPass2").value.trim();
-      if (!a) return U.toast("\u0623\u062f\u062e\u0644 \u0627\u0644\u0631\u0645\u0632", "warn");
-      if (a !== b) return U.toast("\u063a\u064a\u0631 \u0645\u062a\u0637\u0627\u0628\u0642\u064a\u0646", "error");
-      if (a.length < 4) return U.toast("\u0642\u0635\u064a\u0631", "warn");
-      await S.setAdminPass(a);
-      state.adminPass = a;
-      U.toast("OK", "success");
+      if (!a) return U.toast("أدخل الرمز", "warn");
+      if (a !== b) return U.toast("غير متطابقين", "error");
+      if (a.length < 8) return U.toast("الرمز قصير — 8 أحرف على الأقل", "warn");
+      if (a.toLowerCase() === "admin123") return U.toast("هذا الرمز الافتراضي غير آمن — اختر غيره", "warn");
+      const btn = this;
+      btn.disabled = true;
+      try {
+        await S.setAdminPass(a);
+        document.getElementById("newPass").value = "";
+        document.getElementById("newPass2").value = "";
+        U.toast("تم حفظ الرمز مُجزّأً (PBKDF2) ✅", "success", 5000);
+      } catch (e) {
+        U.toast("خطأ: " + e.message, "error");
+      } finally {
+        btn.disabled = false;
+      }
     });
 
     document.getElementById("exportAll").addEventListener("click", async function () {
