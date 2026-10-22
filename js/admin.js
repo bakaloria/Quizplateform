@@ -4474,11 +4474,24 @@ function studentModal(s) {
   async function renderSettings() {
     shell("settings", U.loaderHTML());
 
+    let contact = { text: "", phone: "" };
+    try { contact = await S.getContactInfo(); } catch (e) { contact = { text: "", phone: "" }; }
+
     shell("settings",
-      pageHead("⚙", "الإعدادات", "رمز دخول المدير والنسخ الاحتياطي ومعلومات النظام") +
+      pageHead("⚙", "الإعدادات", "رمز دخول المدير ورسالة التواصل والنسخ الاحتياطي ومعلومات النظام") +
 
       '<div class="admin-cols">' +
       "<div>" +
+      '<div class="card">' +
+      secHead("💬", "رسالة التواصل", "تظهر أسفل كل تبويبات صفحة الطالب (دخول / حساب جديد / دخول بكود)") +
+      '<div class="field"><label>نص الرسالة</label>' +
+      '<input id="contactText" placeholder="للتواصل مع مشرف التطبيق" value="' + U.esc(contact.text) + '"></div>' +
+      '<div class="field"><label>رقم واتساب (مع رمز الدولة)</label>' +
+      '<input id="contactPhone" placeholder="+9639xxxxxxxx" value="' + U.esc(contact.phone) + '" dir="ltr" style="text-align:left"></div>' +
+      '<button class="btn btn-primary" id="saveContact">\u062d\u0641\u0638 \u0627\u0644\u0631\u0633\u0627\u0644\u0629</button>' +
+      '<p class="help mt-sm">اترك الرقم فارغاً لإظهار النص دون رابط. مثال الرقم: <code>+963957360935</code></p>' +
+      "</div>" +
+
       '<div class="card">' +
       secHead("🔐", "كلمة مرور المدير", "غيّر رمز الدخول إلى لوحة الإدارة") +
       '<div class="form-row">' +
@@ -4505,6 +4518,22 @@ function studentModal(s) {
       "</div>" +
       "</div>"
     );
+
+    document.getElementById("saveContact").addEventListener("click", async function () {
+      const text = document.getElementById("contactText").value.trim();
+      const phone = document.getElementById("contactPhone").value.trim();
+      if (!text) return U.toast("\u0623\u062f\u062e\u0644 \u0646\u0635 \u0627\u0644\u0631\u0633\u0627\u0644\u0629", "warn");
+      const btn = this;
+      btn.disabled = true;
+      try {
+        await S.setContactInfo({ text: text, phone: phone });
+        U.toast("تم حفظ رسالة التواصل", "success");
+      } catch (e) {
+        U.toast("خطأ: " + e.message, "error");
+      } finally {
+        btn.disabled = false;
+      }
+    });
 
     document.getElementById("savePass").addEventListener("click", async function () {
       const a = document.getElementById("newPass").value.trim();

@@ -1049,6 +1049,43 @@
     },
     setAdminPass: async function (pass) {
       await col.settings.doc("admin").set({ pass: pass, updatedAt: FV.serverTimestamp() }, { merge: true });
+    },
+
+    /* بيانات التواصل (تُحرّر من إعدادات المدير وتظهر في صفحة الطالب) */
+    DEFAULT_CONTACT: {
+      text: "للتواصل مع مشرف التطبيق",
+      phone: "+963957360935"
+    },
+    getContactInfo: async function () {
+      let remote = null;
+      try {
+        const d = await col.settings.doc("contact").get();
+        if (d.exists && d.data()) {
+          remote = {
+            text: (d.data().text || store.DEFAULT_CONTACT.text),
+            phone: (d.data().phone || store.DEFAULT_CONTACT.phone)
+          };
+          try { localStorage.setItem("qp_contact", JSON.stringify(remote)); } catch (e2) {}
+          return remote;
+        }
+      } catch (e) { /* قد تُحجب القراءة — نستخدم النسخة المحلية */ }
+      /* احتياطي: آخر نسخة محفوظة محلياً، وإلا الافتراضي */
+      try {
+        const cached = localStorage.getItem("qp_contact");
+        if (cached) { const c = JSON.parse(cached); if (c && c.text) return c; }
+      } catch (e3) {}
+      return Object.assign({}, store.DEFAULT_CONTACT);
+    },
+    setContactInfo: async function (info) {
+      const clean = {
+        text: (info && info.text) || store.DEFAULT_CONTACT.text,
+        phone: (info && info.phone) || store.DEFAULT_CONTACT.phone
+      };
+      /* نسخة محلية فورية حتى لو تعذّرت الكتابة/القراءة السحابية */
+      try { localStorage.setItem("qp_contact", JSON.stringify(clean)); } catch (e) {}
+      await col.settings.doc("contact").set(Object.assign({}, clean, {
+        updatedAt: FV.serverTimestamp()
+      }), { merge: true });
     }
   };
 
