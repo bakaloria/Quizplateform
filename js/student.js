@@ -74,6 +74,11 @@
     renderAuthForm(initial);
   }
 
+  /* رسالة التواصل مع مشرف التطبيق — تظهر أسفل كل تبويبات صفحة الدخول */
+  const CONTACT_MSG =
+    '<p class="help center mt-sm">للتواصل مع مشرف التطبيق ' +
+    '<a href="https://wa.me/+963957360935" target="_blank" rel="noopener">wa.me/+963957360935</a></p>';
+
   function renderAuthForm(tab) {
     const form = document.getElementById("authForm");
     if (tab === "login") {
@@ -83,7 +88,8 @@
         '<div class="field"><label>\u0643\u0644\u0645\u0629 \u0627\u0644\u0645\u0631\u0648\u0631</label>' +
         '<input type="password" id="loginPass" placeholder="6 \u0623\u062d\u0631\u0641 + \u0631\u0642\u0645\u0627\u0646"></div>' +
         '<button class="btn btn-primary btn-block" id="doLogin">\u062f\u062e\u0648\u0644</button>' +
-        '<p class="help center mt-sm">\u0644\u0627 \u062a\u0645\u0644\u0643 \u062d\u0633\u0627\u0628\u0627\u064b\u061f \u0627\u062e\u062a\u0631 "\u062d\u0633\u0627\u0628 \u062c\u062f\u064a\u062f"</p>';
+        '<p class="help center mt-sm">\u0644\u0627 \u062a\u0645\u0644\u0643 \u062d\u0633\u0627\u0628\u0627\u064b\u061f \u0627\u062e\u062a\u0631 "\u062d\u0633\u0627\u0628 \u062c\u062f\u064a\u062f"</p>' +
+        CONTACT_MSG;
 
       U.focusFirstInput();
       document.getElementById("doLogin").addEventListener("click", doLogin);
@@ -97,7 +103,7 @@
         '<div class="field"><label>كود الاختبار</label>' +
         '<input id="guestCode" placeholder="مثال: ABC123" style="text-transform:uppercase;letter-spacing:4px;text-align:center"></div>' +
         '<button class="btn btn-primary btn-block" id="doGuest">دخول الاختبار</button>' +
-        '<p class="help center mt-sm">للتواصل مع مشرف التطبيق <a href="https://wa.me/+963957360935" target="_blank" rel="noopener">wa.me/+963957360935</a></p>';
+        CONTACT_MSG;
 
       U.focusFirstInput();
       document.getElementById("guestName").addEventListener("keydown", function (e) {
@@ -116,7 +122,8 @@
         '<button class="btn btn-sm" id="genPass" type="button">\uD83C\uDFB2 \u062a\u0648\u0644\u064a\u062f</button></div>' +
         '<p class="help">\u0645\u062b\u0627\u0644 \u0635\u062d\u064a\u062d: <code>ahmedm23</code> \u2014 \u0645\u062b\u0627\u0644 \u062e\u0627\u0637\u0626: <code>ahmed123</code></p></div>' +
         '<button class="btn btn-primary btn-block" id="doRegister">\u0625\u0646\u0634\u0627\u0621 \u062d\u0633\u0627\u0628</button>' +
-        '<p class="help center mt-sm">\u0627\u062d\u0641\u0638 \u0643\u0644\u0645\u0629 \u0627\u0644\u0645\u0631\u0648\u0631 \u062c\u064a\u062f\u0627\u064b \u2014 \u0633\u062a\u062d\u062a\u0627\u062c\u0647\u0627 \u0644\u062f\u062e\u0648\u0644 \u0644\u0627\u062d\u0642</p>';
+        '<p class="help center mt-sm">\u0627\u062d\u0641\u0638 \u0643\u0644\u0645\u0629 \u0627\u0644\u0645\u0631\u0648\u0631 \u062c\u064a\u062f\u0627\u064b \u2014 \u0633\u062a\u062d\u062a\u0627\u062c\u0647\u0627 \u0644\u062f\u062e\u0648\u0644 \u0644\u0627\u062d\u0642</p>' +
+        CONTACT_MSG;
 
       U.focusFirstInput();
       document.getElementById("genPass").addEventListener("click", function () {
