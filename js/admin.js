@@ -4485,9 +4485,9 @@ function studentModal(s) {
       '<div class="card">' +
       secHead("💬", "رسالة التواصل", "تظهر أسفل كل تبويبات صفحة الطالب (دخول / حساب جديد / دخول بكود)") +
       '<div class="field"><label>نص الرسالة</label>' +
-      '<input id="contactText" placeholder="للتواصل مع مشرف التطبيق" value="' + U.esc(contact.text) + '"></div>' +
-      '<div class="field"><label>رقم واتساب (مع رمز الدولة)</label>' +
-      '<input id="contactPhone" placeholder="+9639xxxxxxxx" value="' + U.esc(contact.phone) + '" dir="ltr" style="text-align:left"></div>' +
+      '<textarea id="contactText" rows="3" placeholder="للتواصل مع مشرف التطبيق"></textarea></div>' +
+      '<div class="field"><label>رقم واتساب (مع رمز الدولة) — اتركه فارغاً لإخفاء الرابط</label>' +
+      '<input id="contactPhone" placeholder="+9639xxxxxxxx" dir="ltr" style="text-align:left"></div>' +
       '<div class="field"><label>لون خلفية الإطار</label>' +
       '<div class="flex" style="align-items:center;gap:10px">' +
       '<input type="color" id="contactBg" value="' + U.esc(contact.bg || "#eef6ff") + '" style="width:64px;height:40px;padding:2px;cursor:pointer">' +
@@ -4495,9 +4495,8 @@ function studentModal(s) {
       '<button class="btn btn-sm btn-ghost" type="button" id="contactBgReset">افتراضي</button>' +
       "</div></div>" +
       '<div class="lbl muted tiny mt-sm">معاينة:</div>' +
-      '<div class="contact-box" id="contactPreview">💬 <span class="contact-text">' + U.esc(contact.text || "للتواصل مع مشرف التطبيق") + "</span> " +
-      '<a id="contactPreviewLink" href="https://wa.me/' + U.esc((contact.phone || "").replace(/[^\d+]/g, "")) + '" target="_blank" rel="noopener">' +
-      (contact.phone ? "wa.me/" + U.esc(contact.phone.charAt(0) === "+" ? contact.phone : "+" + contact.phone) : "") + "</a></div>" +
+      '<div class="contact-box" id="contactPreview">💬 <span class="contact-text"></span> ' +
+      '<a class="contact-link" id="contactPreviewLink" target="_blank" rel="noopener"></a></div>' +
       '<button class="btn btn-primary mt-sm" id="saveContact">\u062d\u0641\u0638 \u0627\u0644\u0631\u0633\u0627\u0644\u0629</button>' +
       '<p class="help mt-sm">اترك الرقم فارغاً لإظهار النص دون رابط. مثال الرقم: <code>+963957360935</code></p>' +
       "</div>" +
@@ -4537,21 +4536,37 @@ function studentModal(s) {
     const phoneInput = document.getElementById("contactPhone");
     const HEX_RE = /^#[0-9a-fA-F]{6}$/;
 
+    /* تعبئة القيم المحفوظة */
+    textInput.value = contact.text || "";
+    phoneInput.value = contact.phone || "";
+
     function applyPreview() {
       const hex = (bgHex.value || "").trim();
       if (HEX_RE.test(hex) && preview) preview.style.background = hex;
       if (textInput && preview) {
         const span = preview.querySelector(".contact-text");
-        if (span) span.textContent = textInput.value.trim() || "للتواصل مع مشرف التطبيق";
+        if (span) span.textContent = textInput.value;
       }
       if (phoneInput && preview) {
         const link = document.getElementById("contactPreviewLink");
         if (link) {
           const p = phoneInput.value.trim();
           const clean = p.replace(/[^\d+]/g, "");
-          link.setAttribute("href", clean ? "https://wa.me/" + clean : "#");
-          link.textContent = p ? ("wa.me/" + (p.charAt(0) === "+" ? p : "+" + p)) : "";
+          if (!p) {
+            link.textContent = "";
+            link.setAttribute("href", "#");
+            link.style.display = "none";
+          } else {
+            link.style.display = "";
+            link.setAttribute("href", "https://wa.me/" + clean);
+            link.textContent = "wa.me/" + (p.charAt(0) === "+" ? p : "+" + p);
+          }
         }
+      }
+      /* إخفاء الإطار بالكامل إن لم يبقَ نص ولا رقم */
+      if (preview) {
+        const hasContent = (textInput.value.trim() || phoneInput.value.trim());
+        preview.style.display = hasContent ? "" : "none";
       }
     }
     if (bgPicker && bgHex) {

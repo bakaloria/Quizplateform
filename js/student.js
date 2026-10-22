@@ -79,22 +79,30 @@
 
   function contactMsgHTML() {
     const c = st.contact || DEFAULT_CONTACT;
-    const phone = (c.phone || "").trim();
-    const text = (c.text || DEFAULT_CONTACT.text).trim() || DEFAULT_CONTACT.text;
-    const bg = (c.bg || DEFAULT_CONTACT.bg || "").trim();
+    const phone = (c.phone === undefined || c.phone === null) ? "" : String(c.phone).trim();
+    const text = (c.text === undefined || c.text === null) ? "" : String(c.text).trim();
+    const bg = (c.bg === undefined || c.bg === null) ? "" : String(c.bg).trim();
+
+    /* النص: يحترم الأسطر الجديدة (pre-wrap) ليظهر على أكثر من سطر */
+    const textHTML = text
+      ? '<span class="contact-text">' + U.esc(text) + "</span>"
+      : "";
 
     let inner;
     if (!phone) {
-      inner = '<span class="contact-text">' + U.esc(text) + "</span>";
+      inner = textHTML;
     } else {
       const cleanPhone = phone.replace(/[^\d+]/g, "");
       const display = phone.indexOf("wa.me") >= 0 ? phone : "wa.me/" + (cleanPhone.charAt(0) === "+" ? cleanPhone : "+" + cleanPhone);
-      inner = '<span class="contact-text">' + U.esc(text) + "</span> " +
-        '<a href="https://wa.me/' + U.esc(cleanPhone) + '" target="_blank" rel="noopener">' + U.esc(display) + "</a>";
+      inner = textHTML + (textHTML ? " " : "") +
+        '<a class="contact-link" href="https://wa.me/' + U.esc(cleanPhone) + '" target="_blank" rel="noopener">' + U.esc(display) + "</a>";
     }
 
+    /* لا نص ولا رقم => لا نعرض الإطار إطلاقاً */
+    if (!inner) return "";
+
     const style = bg ? ' style="background:' + U.esc(bg) + '"' : "";
-    return '<div class="contact-box mt-sm"' + style + ">💬 " + inner + "</div>";
+    return '<div class="contact-box mt-sm"' + style + ">" + "💬 " + inner + "</div>";
   }
 
   /* تحميل بيانات التواصل مرة واحدة وتحديث الواجهة إن كانت شاشة الدخول معروضة */

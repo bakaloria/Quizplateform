@@ -19,7 +19,9 @@
     notifications: db.collection("notifications"),
     engPassages: db.collection("engPassages"),
     engItems: db.collection("engItems"),
-    engConfig: db.collection("engConfig")
+    engConfig: db.collection("engConfig"),
+    /* نسخة احتياطية من إعدادات التواصل (قد تكون مجموعة settings محجوبة) */
+    config: db.collection("config")
   };
 
   /* ============================================================
@@ -1057,38 +1059,77 @@
       phone: "+963957360935",
       bg: "#eef6ff"
     },
+    /* يميّز بين الحقل غير المُرسَل (undefined) والقيمة الفارغة عمداً ("") */
+    _pick: function (val, def) {
+      if (val === undefined || val === null) return def;
+      return String(val).trim();
+    },
+    /* يقرأ رسالة التواصل من أول مصدر متاح (يُقرأ من Firestore ثم من النسخة المحلية) */
     getContactInfo: async function () {
-      let remote = null;
-      try {
-        const d = await col.settings.doc("contact").get();
-        if (d.exists && d.data()) {
-          remote = {
-            text: (d.data().text || store.DEFAULT_CONTACT.text),
-            phone: (d.data().phone || store.DEFAULT_CONTACT.phone),
-            bg: (d.data().bg || store.DEFAULT_CONTACT.bg)
-          };
-          try { localStorage.setItem("qp_contact", JSON.stringify(remote)); } catch (e2) {}
-          return remote;
-        }
-      } catch (e) { /* قد تُحجب القراءة — نستخدم النسخة المحلية */ }
+      const sources = [
+        function () { return col.settings.doc("contact").get(); },
+        function () { return col.config.doc("contact").get(); }
+      ];
+      for (let i = 0; i < sources.length; i++) {
+        try {
+          const d = await sources[i]();
+          if (d && d.exists && d.data()) {
+            const data = d.data();
+            const remote = {
+              text: store._pick(data.text, store.DEFAULT_CONTACT.text),
+              phone: store._pick(data.phone, store.DEFAULT_CONTACT.phone),
+              bg: store._pick(data.bg, store.DEFAULT_CONTACT.bg)
+            };
+            try { localStorage.setItem("qp_contact", JSON.stringify(remote)); } catch (e2) {}
+            return remote;
+          }
+        } catch (e) { /* المصدر غير متاح — نجرّب التالي */ }
+      }
       /* احتياطي: آخر نسخة محفوظة محلياً، وإلا الافتراضي */
       try {
         const cached = localStorage.getItem("qp_contact");
-        if (cached) { const c = JSON.parse(cached); if (c && c.text) return c; }
+        if (cached) {
+          const c = JSON.parse(cached);
+          if (c && typeof c.text === "string") {
+            return {
+              text: c.text,
+              phone: typeof c.phone === "string" ? c.phone : store.DEFAULT_CONTACT.phone,
+              bg: typeof c.bg === "string" ? c.bg : store.DEFAULT_CONTACT.bg
+            };
+          }
+        }
       } catch (e3) {}
       return Object.assign({}, store.DEFAULT_CONTACT);
     },
     setContactInfo: async function (info) {
       const clean = {
-        text: (info && info.text) || store.DEFAULT_CONTACT.text,
-        phone: (info && info.phone) || store.DEFAULT_CONTACT.phone,
-        bg: (info && info.bg) || store.DEFAULT_CONTACT.bg
+        /* النص: يُملأ والقيمة الفارغة تُعتمد كما هي */
+        text: (info && info.text !== undefined && info.text !== null)
+          ? String(info.text).trim()
+          : store.DEFAULT_CONTACT.text,
+        /* الرقم: فارغ = لا رابط إطلاقاً (لا يُستبدل بالافتراضي) */
+        phone: (info && info.phone !== undefined && info.phone !== null)
+          ? String(info.phone).trim()
+          : store.DEFAULT_CONTACT.phone,
+        bg: (info && info.bg !== undefined && info.bg !== null)
+          ? String(info.bg).trim()
+          : store.DEFAULT_CONTACT.bg
       };
       /* نسخة محلية فورية حتى لو تعذّرت الكتابة/القراءة السحابية */
       try { localStorage.setItem("qp_contact", JSON.stringify(clean)); } catch (e) {}
-      await col.settings.doc("contact").set(Object.assign({}, clean, {
-        updatedAt: FV.serverTimestamp()
-      }), { merge: true });
+
+      /* نكتب في مصدرين لزيادة احتمال توفّر القراءة للطالب */
+      const targets = [
+        function () { return col.settings.doc("contact").set(Object.assign({}, clean, { updatedAt: FV.serverTimestamp() }), { merge: true }); },
+        function () { return col.config.doc("contact").set(Object.assign({}, clean, { updatedAt: FV.serverTimestamp() }), { merge: true }); }
+      ];
+      let lastErr = null;
+      let ok = false;
+      for (let i = 0; i < targets.length; i++) {
+        try { await targets[i](); ok = true; }
+        catch (e) { lastErr = e; }
+      }
+      if (!ok && lastErr) throw lastErr;
     }
   };
 

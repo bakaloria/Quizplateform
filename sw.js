@@ -2,7 +2,7 @@
  * Service Worker v4.0 - PWA كامل مع offline + تحديث تلقائي
  * ============================================================ */
 
-  const CACHE_VERSION = "qp-v5.16.1";
+  const CACHE_VERSION = "qp-v5.17.0";
 const CACHE_STATIC = CACHE_VERSION + "-static";
 const CACHE_RUNTIME = CACHE_VERSION + "-runtime";
 

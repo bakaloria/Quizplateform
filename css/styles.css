@@ -253,6 +253,14 @@ input, select, textarea {
 }
 input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft); }
 textarea { resize: vertical; min-height: 110px; font-family: ui-monospace, "Courier New", monospace; }
+/* حقل نص رسالة التواصل — خط عادي ودعم عدة أسطر */
+#contactText {
+  font-family: inherit;
+  min-height: 76px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  resize: vertical;
+}
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .form-row-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
 .check { display: flex; align-items: center; gap: 9px; font-size: 14px; cursor: pointer; padding: 6px 0; }
@@ -1055,24 +1063,29 @@ tbody tr:last-child td { border-bottom: none; }
 
 /* ==== Contact Box (رسالة التواصل مع مشرف التطبيق) ==== */
 .contact-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 14px;
+  display: block;
   padding: 10px 14px;
   border: 1px solid var(--border);
   border-radius: 12px;
   font-size: 13px;
-  line-height: 1.7;
+  line-height: 1.8;
   text-align: center;
   color: var(--text);
   word-break: break-word;
+  overflow-wrap: anywhere;
 }
-.contact-box .contact-text { font-weight: 600; }
-.contact-box a { font-weight: 700; text-decoration: none; }
-.contact-box a:hover { text-decoration: underline; }
+.contact-box .contact-text {
+  font-weight: 600;
+  white-space: pre-wrap;   /* يحترم الأسطر الجديدة ويمتد على أكثر من سطر */
+}
+.contact-box .contact-link {
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  direction: ltr;
+  display: inline-block;
+}
+.contact-box .contact-link:hover { text-decoration: underline; }
 
 /* ==== Password Display ==== */
 .password-display {
