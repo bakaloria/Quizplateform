@@ -4488,7 +4488,17 @@ function studentModal(s) {
       '<input id="contactText" placeholder="للتواصل مع مشرف التطبيق" value="' + U.esc(contact.text) + '"></div>' +
       '<div class="field"><label>رقم واتساب (مع رمز الدولة)</label>' +
       '<input id="contactPhone" placeholder="+9639xxxxxxxx" value="' + U.esc(contact.phone) + '" dir="ltr" style="text-align:left"></div>' +
-      '<button class="btn btn-primary" id="saveContact">\u062d\u0641\u0638 \u0627\u0644\u0631\u0633\u0627\u0644\u0629</button>' +
+      '<div class="field"><label>لون خلفية الإطار</label>' +
+      '<div class="flex" style="align-items:center;gap:10px">' +
+      '<input type="color" id="contactBg" value="' + U.esc(contact.bg || "#eef6ff") + '" style="width:64px;height:40px;padding:2px;cursor:pointer">' +
+      '<input type="text" id="contactBgHex" value="' + U.esc(contact.bg || "#eef6ff") + '" dir="ltr" style="text-align:left;max-width:130px" placeholder="#eef6ff">' +
+      '<button class="btn btn-sm btn-ghost" type="button" id="contactBgReset">افتراضي</button>' +
+      "</div></div>" +
+      '<div class="lbl muted tiny mt-sm">معاينة:</div>' +
+      '<div class="contact-box" id="contactPreview">💬 <span class="contact-text">' + U.esc(contact.text || "للتواصل مع مشرف التطبيق") + "</span> " +
+      '<a id="contactPreviewLink" href="https://wa.me/' + U.esc((contact.phone || "").replace(/[^\d+]/g, "")) + '" target="_blank" rel="noopener">' +
+      (contact.phone ? "wa.me/" + U.esc(contact.phone.charAt(0) === "+" ? contact.phone : "+" + contact.phone) : "") + "</a></div>" +
+      '<button class="btn btn-primary mt-sm" id="saveContact">\u062d\u0641\u0638 \u0627\u0644\u0631\u0633\u0627\u0644\u0629</button>' +
       '<p class="help mt-sm">اترك الرقم فارغاً لإظهار النص دون رابط. مثال الرقم: <code>+963957360935</code></p>' +
       "</div>" +
 
@@ -4519,14 +4529,58 @@ function studentModal(s) {
       "</div>"
     );
 
+    /* ربط لون الخلفية: منتقي الألوان ↔ حقل النص + المعاينة الحيّة */
+    const bgPicker = document.getElementById("contactBg");
+    const bgHex = document.getElementById("contactBgHex");
+    const preview = document.getElementById("contactPreview");
+    const textInput = document.getElementById("contactText");
+    const phoneInput = document.getElementById("contactPhone");
+    const HEX_RE = /^#[0-9a-fA-F]{6}$/;
+
+    function applyPreview() {
+      const hex = (bgHex.value || "").trim();
+      if (HEX_RE.test(hex) && preview) preview.style.background = hex;
+      if (textInput && preview) {
+        const span = preview.querySelector(".contact-text");
+        if (span) span.textContent = textInput.value.trim() || "للتواصل مع مشرف التطبيق";
+      }
+      if (phoneInput && preview) {
+        const link = document.getElementById("contactPreviewLink");
+        if (link) {
+          const p = phoneInput.value.trim();
+          const clean = p.replace(/[^\d+]/g, "");
+          link.setAttribute("href", clean ? "https://wa.me/" + clean : "#");
+          link.textContent = p ? ("wa.me/" + (p.charAt(0) === "+" ? p : "+" + p)) : "";
+        }
+      }
+    }
+    if (bgPicker && bgHex) {
+      bgPicker.addEventListener("input", function () { bgHex.value = bgPicker.value; applyPreview(); });
+      bgHex.addEventListener("input", function () {
+        if (HEX_RE.test(bgHex.value.trim())) bgPicker.value = bgHex.value.trim();
+        applyPreview();
+      });
+    }
+    if (textInput) textInput.addEventListener("input", applyPreview);
+    if (phoneInput) phoneInput.addEventListener("input", applyPreview);
+    const bgReset = document.getElementById("contactBgReset");
+    if (bgReset) bgReset.addEventListener("click", function () {
+      bgPicker.value = "#eef6ff"; bgHex.value = "#eef6ff"; applyPreview();
+    });
+    applyPreview();
+
     document.getElementById("saveContact").addEventListener("click", async function () {
       const text = document.getElementById("contactText").value.trim();
       const phone = document.getElementById("contactPhone").value.trim();
+      const bg = (document.getElementById("contactBgHex").value || "").trim();
       if (!text) return U.toast("\u0623\u062f\u062e\u0644 \u0646\u0635 \u0627\u0644\u0631\u0633\u0627\u0644\u0629", "warn");
+      if (bg && !/^#[0-9a-fA-F]{6}$/.test(bg)) {
+        return U.toast("لون الخلفية يجب أن يكون بصيغة #RRGGBB", "warn");
+      }
       const btn = this;
       btn.disabled = true;
       try {
-        await S.setContactInfo({ text: text, phone: phone });
+        await S.setContactInfo({ text: text, phone: phone, bg: bg });
         U.toast("تم حفظ رسالة التواصل", "success");
       } catch (e) {
         U.toast("خطأ: " + e.message, "error");

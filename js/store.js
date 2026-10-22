@@ -1054,7 +1054,8 @@
     /* بيانات التواصل (تُحرّر من إعدادات المدير وتظهر في صفحة الطالب) */
     DEFAULT_CONTACT: {
       text: "للتواصل مع مشرف التطبيق",
-      phone: "+963957360935"
+      phone: "+963957360935",
+      bg: "#eef6ff"
     },
     getContactInfo: async function () {
       let remote = null;
@@ -1063,7 +1064,8 @@
         if (d.exists && d.data()) {
           remote = {
             text: (d.data().text || store.DEFAULT_CONTACT.text),
-            phone: (d.data().phone || store.DEFAULT_CONTACT.phone)
+            phone: (d.data().phone || store.DEFAULT_CONTACT.phone),
+            bg: (d.data().bg || store.DEFAULT_CONTACT.bg)
           };
           try { localStorage.setItem("qp_contact", JSON.stringify(remote)); } catch (e2) {}
           return remote;
@@ -1079,7 +1081,8 @@
     setContactInfo: async function (info) {
       const clean = {
         text: (info && info.text) || store.DEFAULT_CONTACT.text,
-        phone: (info && info.phone) || store.DEFAULT_CONTACT.phone
+        phone: (info && info.phone) || store.DEFAULT_CONTACT.phone,
+        bg: (info && info.bg) || store.DEFAULT_CONTACT.bg
       };
       /* نسخة محلية فورية حتى لو تعذّرت الكتابة/القراءة السحابية */
       try { localStorage.setItem("qp_contact", JSON.stringify(clean)); } catch (e) {}

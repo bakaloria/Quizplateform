@@ -75,17 +75,26 @@
   }
 
   /* رسالة التواصل مع مشرف التطبيق — تُقرأ من إعدادات المدير (settings/contact) */
-  const DEFAULT_CONTACT = { text: "للتواصل مع مشرف التطبيق", phone: "+963957360935" };
+  const DEFAULT_CONTACT = { text: "للتواصل مع مشرف التطبيق", phone: "+963957360935", bg: "#eef6ff" };
 
   function contactMsgHTML() {
     const c = st.contact || DEFAULT_CONTACT;
     const phone = (c.phone || "").trim();
     const text = (c.text || DEFAULT_CONTACT.text).trim() || DEFAULT_CONTACT.text;
-    if (!phone) return '<p class="help center mt-sm">' + U.esc(text) + "</p>";
-    const cleanPhone = phone.replace(/[^\d+]/g, "");
-    const display = phone.indexOf("wa.me") >= 0 ? phone : "wa.me/" + (cleanPhone.charAt(0) === "+" ? cleanPhone : "+" + cleanPhone);
-    return '<p class="help center mt-sm">' + U.esc(text) + ' ' +
-      '<a href="https://wa.me/' + U.esc(cleanPhone) + '" target="_blank" rel="noopener">' + U.esc(display) + "</a></p>";
+    const bg = (c.bg || DEFAULT_CONTACT.bg || "").trim();
+
+    let inner;
+    if (!phone) {
+      inner = '<span class="contact-text">' + U.esc(text) + "</span>";
+    } else {
+      const cleanPhone = phone.replace(/[^\d+]/g, "");
+      const display = phone.indexOf("wa.me") >= 0 ? phone : "wa.me/" + (cleanPhone.charAt(0) === "+" ? cleanPhone : "+" + cleanPhone);
+      inner = '<span class="contact-text">' + U.esc(text) + "</span> " +
+        '<a href="https://wa.me/' + U.esc(cleanPhone) + '" target="_blank" rel="noopener">' + U.esc(display) + "</a>";
+    }
+
+    const style = bg ? ' style="background:' + U.esc(bg) + '"' : "";
+    return '<div class="contact-box mt-sm"' + style + ">💬 " + inner + "</div>";
   }
 
   /* تحميل بيانات التواصل مرة واحدة وتحديث الواجهة إن كانت شاشة الدخول معروضة */

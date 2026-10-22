@@ -1053,6 +1053,27 @@ tbody tr:last-child td { border-bottom: none; }
   box-shadow: var(--shadow-sm);
 }
 
+/* ==== Contact Box (رسالة التواصل مع مشرف التطبيق) ==== */
+.contact-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.7;
+  text-align: center;
+  color: var(--text);
+  word-break: break-word;
+}
+.contact-box .contact-text { font-weight: 600; }
+.contact-box a { font-weight: 700; text-decoration: none; }
+.contact-box a:hover { text-decoration: underline; }
+
 /* ==== Password Display ==== */
 .password-display {
   display: flex;
