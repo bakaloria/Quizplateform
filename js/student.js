@@ -97,7 +97,7 @@
         '<div class="field"><label>كود الاختبار</label>' +
         '<input id="guestCode" placeholder="مثال: ABC123" style="text-transform:uppercase;letter-spacing:4px;text-align:center"></div>' +
         '<button class="btn btn-primary btn-block" id="doGuest">دخول الاختبار</button>' +
-        '<p class="help center mt-sm">يُستخدم للدخول للاختبارات المجانية فقط (اسم + كود). الاختبارات المدفوعة تحتاج لحساب طالب.</p>';
+        '<p class="help center mt-sm">للتواصل مع مشرف التطبيق <a href="https://wa.me/+963957360935" target="_blank" rel="noopener">wa.me/+963957360935</a></p>';
 
       U.focusFirstInput();
       document.getElementById("guestName").addEventListener("keydown", function (e) {
