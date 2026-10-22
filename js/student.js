@@ -75,34 +75,51 @@
   }
 
   /* رسالة التواصل مع مشرف التطبيق — تُقرأ من إعدادات المدير (settings/contact) */
-  const DEFAULT_CONTACT = { text: "للتواصل مع مشرف التطبيق", phone: "+963957360935", bg: "#eef6ff" };
+  const DEFAULT_CONTACT = { text: "", phone: "", bg: "#f7fbff", marquee: "للتواصل مع مشرف التطبيق عبر واتساب" };
 
   function contactMsgHTML() {
     const c = st.contact || DEFAULT_CONTACT;
     const phone = (c.phone === undefined || c.phone === null) ? "" : String(c.phone).trim();
-    const text = (c.text === undefined || c.text === null) ? "" : String(c.text).trim();
+    let text = (c.text === undefined || c.text === null) ? "" : String(c.text);
+    /* نحتفظ بالأسطر الجديدة لكن نُزيل الفراغات الزائدة من الأطراف */
+    text = text.replace(/\r\n/g, "\n").trimEnd();
     const bg = (c.bg === undefined || c.bg === null) ? "" : String(c.bg).trim();
+    const marquee = (c.marquee === undefined || c.marquee === null) ? DEFAULT_CONTACT.marquee : String(c.marquee).trim() || DEFAULT_CONTACT.marquee;
 
-    /* النص: يحترم الأسطر الجديدة (pre-wrap) ليظهر على أكثر من سطر */
-    const textHTML = text
-      ? '<span class="contact-text">' + U.esc(text) + "</span>"
-      : "";
-
-    let inner;
-    if (!phone) {
-      inner = textHTML;
-    } else {
-      const cleanPhone = phone.replace(/[^\d+]/g, "");
-      const display = phone.indexOf("wa.me") >= 0 ? phone : "wa.me/" + (cleanPhone.charAt(0) === "+" ? cleanPhone : "+" + cleanPhone);
-      inner = textHTML + (textHTML ? " " : "") +
-        '<a class="contact-link" href="https://wa.me/' + U.esc(cleanPhone) + '" target="_blank" rel="noopener">' + U.esc(display) + "</a>";
+    /* حالة 1: نص موجود (حتى لو مع أسطر) +/– رقم */
+    if (text !== "") {
+      const textHTML = '<span class="contact-text">' + U.esc(text) + "</span>";
+      let inner;
+      if (!phone) {
+        inner = textHTML;
+      } else {
+        const cleanPhone = phone.replace(/[^\d+]/g, "");
+        const display = phone.indexOf("wa.me") >= 0 ? phone : "wa.me/" + (cleanPhone.charAt(0) === "+" ? cleanPhone : "+" + cleanPhone);
+        inner = textHTML + " " +
+          '<a class="contact-link" href="https://wa.me/' + U.esc(cleanPhone) + '" target="_blank" rel="noopener">' + U.esc(display) + "</a>";
+      }
+      const style = bg ? ' style="background:' + U.esc(bg) + '"' : "";
+      return '<div class="contact-box mt-sm"' + style + ">" + "💬 " + inner + "</div>";
     }
 
-    /* لا نص ولا رقم => لا نعرض الإطار إطلاقاً */
-    if (!inner) return "";
+    /* حالة 2: نص فارغ + رقم موجود => يظهر الرقم داخل الإطار */
+    if (text === "" && phone !== "") {
+      const cleanPhone = phone.replace(/[^\d+]/g, "");
+      const display = phone.indexOf("wa.me") >= 0 ? phone : "wa.me/" + (cleanPhone.charAt(0) === "+" ? cleanPhone : "+" + cleanPhone);
+      const inner = '<a class="contact-link" href="https://wa.me/' + U.esc(cleanPhone) + '" target="_blank" rel="noopener">' + U.esc(display) + "</a>";
+      const style = bg ? ' style="background:' + U.esc(bg) + '"' : "";
+      return '<div class="contact-box mt-sm"' + style + ">" + "💬 " + inner + "</div>";
+    }
 
+    /* حالة 3: نص فارغ + رقم فارغ => شريط متحرك من اليمين إلى اليسار */
     const style = bg ? ' style="background:' + U.esc(bg) + '"' : "";
-    return '<div class="contact-box mt-sm"' + style + ">" + "💬 " + inner + "</div>";
+    return '<div class="contact-box contact-marquee mt-sm"' + style + ' aria-label="' + U.esc(marquee) + '">' +
+      '<div class="contact-marquee-track">' +
+      '<span>' + U.esc(marquee) + '</span>' +
+      '<span>' + U.esc(marquee) + '</span>' +
+      '<span>' + U.esc(marquee) + '</span>' +
+      '<span>' + U.esc(marquee) + '</span>' +
+      "</div></div>";
   }
 
   /* تحميل بيانات التواصل مرة واحدة وتحديث الواجهة إن كانت شاشة الدخول معروضة */

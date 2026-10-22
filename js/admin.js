@@ -4476,8 +4476,8 @@ function studentModal(s) {
   async function renderSettings() {
     shell("settings", U.loaderHTML());
 
-    let contact = { text: "", phone: "" };
-    try { contact = await S.getContactInfo(); } catch (e) { contact = { text: "", phone: "" }; }
+    let contact = { text: "", phone: "", bg: "#f7fbff", marquee: "للتواصل مع مشرف التطبيق عبر واتساب" };
+    try { contact = await S.getContactInfo(); } catch (e) { contact = { text: "", phone: "", bg: "#f7fbff", marquee: "للتواصل مع مشرف التطبيق عبر واتساب" }; }
 
     shell("settings",
       pageHead("⚙", "الإعدادات", "رمز دخول المدير ورسالة التواصل والنسخ الاحتياطي ومعلومات النظام") +
@@ -4487,20 +4487,22 @@ function studentModal(s) {
       '<div class="card">' +
       secHead("💬", "رسالة التواصل", "تظهر أسفل كل تبويبات صفحة الطالب (دخول / حساب جديد / دخول بكود)") +
       '<div class="field"><label>نص الرسالة</label>' +
-      '<textarea id="contactText" rows="3" placeholder="للتواصل مع مشرف التطبيق"></textarea></div>' +
+      '<textarea id="contactText" rows="3" placeholder="اتركه فارغًا ليظهر شريط متحرك"></textarea></div>' +
       '<div class="field"><label>رقم واتساب (مع رمز الدولة) — اتركه فارغاً لإخفاء الرابط</label>' +
       '<input id="contactPhone" placeholder="+9639xxxxxxxx" dir="ltr" style="text-align:left"></div>' +
+      '<div class="field"><label>نص الشريط المتحرك (يُستخدم عند ترك نص الرسالة فارغًا ورقم الواتساب فارغًا)</label>' +
+      '<input id="contactMarquee" placeholder="للتواصل مع مشرف التطبيق عبر واتساب"></div>' +
       '<div class="field"><label>لون خلفية الإطار</label>' +
       '<div class="flex" style="align-items:center;gap:10px">' +
-      '<input type="color" id="contactBg" value="' + U.esc(contact.bg || "#eef6ff") + '" style="width:64px;height:40px;padding:2px;cursor:pointer">' +
-      '<input type="text" id="contactBgHex" value="' + U.esc(contact.bg || "#eef6ff") + '" dir="ltr" style="text-align:left;max-width:130px" placeholder="#eef6ff">' +
+      '<input type="color" id="contactBg" value="' + U.esc(contact.bg || "#f7fbff") + '" style="width:64px;height:40px;padding:2px;cursor:pointer">' +
+      '<input type="text" id="contactBgHex" value="' + U.esc(contact.bg || "#f7fbff") + '" dir="ltr" style="text-align:left;max-width:130px" placeholder="#f7fbff">' +
       '<button class="btn btn-sm btn-ghost" type="button" id="contactBgReset">افتراضي</button>' +
       "</div></div>" +
       '<div class="lbl muted tiny mt-sm">معاينة:</div>' +
       '<div class="contact-box" id="contactPreview">💬 <span class="contact-text"></span> ' +
       '<a class="contact-link" id="contactPreviewLink" target="_blank" rel="noopener"></a></div>' +
       '<button class="btn btn-primary mt-sm" id="saveContact">\u062d\u0641\u0638 \u0627\u0644\u0631\u0633\u0627\u0644\u0629</button>' +
-      '<p class="help mt-sm">اترك الرقم فارغاً لإظهار النص دون رابط. مثال الرقم: <code>+963957360935</code></p>' +
+      '<p class="help mt-sm">اترك نص الرسالة فارغًا ليظهر إطار مستطيل يتحرك من اليمين إلى اليسار.</p>' +
       "</div>" +
 
       '<div class="card">' +
@@ -4538,18 +4540,54 @@ function studentModal(s) {
     const preview = document.getElementById("contactPreview");
     const textInput = document.getElementById("contactText");
     const phoneInput = document.getElementById("contactPhone");
+    const marqueeInput = document.getElementById("contactMarquee");
     const HEX_RE = /^#[0-9a-fA-F]{6}$/;
 
     /* تعبئة القيم المحفوظة */
     textInput.value = contact.text || "";
     phoneInput.value = contact.phone || "";
+    if (marqueeInput) marqueeInput.value = contact.marquee || "";
 
     function applyPreview() {
       const hex = (bgHex.value || "").trim();
       if (HEX_RE.test(hex) && preview) preview.style.background = hex;
+      /* معاينة الشريط المتحرك عند فراغ النص والرقم */
+      if (preview) {
+        const hasText = textInput.value !== "";
+        const hasPhone = phoneInput.value.trim() !== "";
+        if (!hasText && !hasPhone) {
+          /* نمط شريط متحرك */
+          preview.classList.add("contact-marquee");
+          preview.style.overflow = "hidden";
+          preview.style.padding = "9px 12px";
+          const span = preview.querySelector(".contact-text");
+          const link = document.getElementById("contactPreviewLink");
+          if (span) { span.textContent = ""; span.style.whiteSpace = "nowrap"; }
+          if (link) { link.style.display = "none"; }
+          /* أضف مسار متحرك إن لم يوجد */
+          let track = preview.querySelector(".contact-marquee-track");
+          if (!track) {
+            track = document.createElement("div");
+            track.className = "contact-marquee-track";
+            preview.appendChild(track);
+          }
+          const m = (marqueeInput && marqueeInput.value.trim()) || "للتواصل مع مشرف التطبيق عبر واتساب";
+          track.innerHTML = "<span>" + U.esc(m) + "</span><span>" + U.esc(m) + "</span><span>" + U.esc(m) + "</span><span>" + U.esc(m) + "</span>";
+          return;
+        } else {
+          preview.classList.remove("contact-marquee");
+          const track = preview.querySelector(".contact-marquee-track");
+          if (track && track.parentNode) track.parentNode.removeChild(track);
+          preview.style.padding = "10px 14px";
+          preview.style.overflow = "visible";
+        }
+      }
       if (textInput && preview) {
         const span = preview.querySelector(".contact-text");
-        if (span) span.textContent = textInput.value;
+        if (span) {
+          span.style.whiteSpace = "pre-wrap";
+          span.textContent = textInput.value;
+        }
       }
       if (phoneInput && preview) {
         const link = document.getElementById("contactPreviewLink");
@@ -4567,10 +4605,9 @@ function studentModal(s) {
           }
         }
       }
-      /* إخفاء الإطار بالكامل إن لم يبقَ نص ولا رقم */
       if (preview) {
-        const hasContent = (textInput.value.trim() || phoneInput.value.trim());
-        preview.style.display = hasContent ? "" : "none";
+        const hasContent = (textInput.value !== "" || phoneInput.value.trim() !== "");
+        preview.style.display = hasContent ? "" : "";
       }
     }
     if (bgPicker && bgHex) {
@@ -4582,24 +4619,25 @@ function studentModal(s) {
     }
     if (textInput) textInput.addEventListener("input", applyPreview);
     if (phoneInput) phoneInput.addEventListener("input", applyPreview);
+    if (marqueeInput) marqueeInput.addEventListener("input", applyPreview);
     const bgReset = document.getElementById("contactBgReset");
     if (bgReset) bgReset.addEventListener("click", function () {
-      bgPicker.value = "#eef6ff"; bgHex.value = "#eef6ff"; applyPreview();
+      bgPicker.value = "#f7fbff"; bgHex.value = "#f7fbff"; applyPreview();
     });
     applyPreview();
 
     document.getElementById("saveContact").addEventListener("click", async function () {
-      const text = document.getElementById("contactText").value.trim();
+      const text = document.getElementById("contactText").value;
       const phone = document.getElementById("contactPhone").value.trim();
       const bg = (document.getElementById("contactBgHex").value || "").trim();
-      if (!text) return U.toast("\u0623\u062f\u062e\u0644 \u0646\u0635 \u0627\u0644\u0631\u0633\u0627\u0644\u0629", "warn");
+      const marquee = (document.getElementById("contactMarquee") ? document.getElementById("contactMarquee").value : "").trim();
       if (bg && !/^#[0-9a-fA-F]{6}$/.test(bg)) {
         return U.toast("لون الخلفية يجب أن يكون بصيغة #RRGGBB", "warn");
       }
       const btn = this;
       btn.disabled = true;
       try {
-        await S.setContactInfo({ text: text, phone: phone, bg: bg });
+        await S.setContactInfo({ text: text, phone: phone, bg: bg, marquee: marquee });
         U.toast("تم حفظ رسالة التواصل", "success");
       } catch (e) {
         U.toast("خطأ: " + e.message, "error");

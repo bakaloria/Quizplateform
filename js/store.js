@@ -1129,9 +1129,10 @@
 
     /* بيانات التواصل (تُحرّر من إعدادات المدير وتظهر في صفحة الطالب) */
     DEFAULT_CONTACT: {
-      text: "للتواصل مع مشرف التطبيق",
-      phone: "+963957360935",
-      bg: "#eef6ff"
+      text: "",
+      phone: "",
+      bg: "#f7fbff",
+      marquee: "للتواصل مع مشرف التطبيق عبر واتساب"
     },
     /* يميّز بين الحقل غير المُرسَل (undefined) والقيمة الفارغة عمداً ("") */
     _pick: function (val, def) {
@@ -1166,9 +1167,10 @@
           const c = JSON.parse(cached);
           if (c && typeof c.text === "string") {
             return {
-              text: c.text,
+              text: typeof c.text === "string" ? c.text : store.DEFAULT_CONTACT.text,
               phone: typeof c.phone === "string" ? c.phone : store.DEFAULT_CONTACT.phone,
-              bg: typeof c.bg === "string" ? c.bg : store.DEFAULT_CONTACT.bg
+              bg: typeof c.bg === "string" ? c.bg : store.DEFAULT_CONTACT.bg,
+              marquee: typeof c.marquee === "string" ? c.marquee : store.DEFAULT_CONTACT.marquee
             };
           }
         }
@@ -1179,7 +1181,7 @@
       const clean = {
         /* النص: يُملأ والقيمة الفارغة تُعتمد كما هي */
         text: (info && info.text !== undefined && info.text !== null)
-          ? String(info.text).trim()
+          ? String(info.text)
           : store.DEFAULT_CONTACT.text,
         /* الرقم: فارغ = لا رابط إطلاقاً (لا يُستبدل بالافتراضي) */
         phone: (info && info.phone !== undefined && info.phone !== null)
@@ -1187,7 +1189,10 @@
           : store.DEFAULT_CONTACT.phone,
         bg: (info && info.bg !== undefined && info.bg !== null)
           ? String(info.bg).trim()
-          : store.DEFAULT_CONTACT.bg
+          : store.DEFAULT_CONTACT.bg,
+        marquee: (info && info.marquee !== undefined && info.marquee !== null)
+          ? String(info.marquee).trim()
+          : store.DEFAULT_CONTACT.marquee
       };
       /* نسخة محلية فورية حتى لو تعذّرت الكتابة/القراءة السحابية */
       try { localStorage.setItem("qp_contact", JSON.stringify(clean)); } catch (e) {}

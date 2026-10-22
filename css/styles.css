@@ -1087,6 +1087,37 @@ tbody tr:last-child td { border-bottom: none; }
 }
 .contact-box .contact-link:hover { text-decoration: underline; }
 
+/* ==== شريط متحرك من اليمين إلى اليسار (عند ترك نص الرسالة فارغاً) ==== */
+.contact-box.contact-marquee {
+  padding: 9px 12px;
+  direction: rtl;
+  overflow: hidden;
+  position: relative;
+  text-align: initial;
+}
+.contact-marquee .contact-marquee-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 56px;
+  white-space: nowrap;
+  will-change: transform;
+  animation: qp-marquee-rtl 14s linear infinite;
+  font-weight: 600;
+}
+.contact-marquee .contact-marquee-track span {
+  display: inline-block;
+}
+.contact-marquee:hover .contact-marquee-track {
+  animation-play-state: paused;
+}
+@keyframes qp-marquee-rtl {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-marquee .contact-marquee-track { animation: none; }
+}
+
 /* ==== Password Display ==== */
 .password-display {
   display: flex;
