@@ -1153,7 +1153,8 @@
             const remote = {
               text: store._pick(data.text, store.DEFAULT_CONTACT.text),
               phone: store._pick(data.phone, store.DEFAULT_CONTACT.phone),
-              bg: store._pick(data.bg, store.DEFAULT_CONTACT.bg)
+              bg: store._pick(data.bg, store.DEFAULT_CONTACT.bg),
+              marquee: store._pick(data.marquee, store.DEFAULT_CONTACT.marquee)
             };
             try { localStorage.setItem("qp_contact", JSON.stringify(remote)); } catch (e2) {}
             return remote;

@@ -77,14 +77,26 @@
   /* رسالة التواصل مع مشرف التطبيق — تُقرأ من إعدادات المدير (settings/contact) */
   const DEFAULT_CONTACT = { text: "", phone: "", bg: "#f7fbff", marquee: "للتواصل مع مشرف التطبيق عبر واتساب" };
 
+  function getContactMerged() {
+    const base = DEFAULT_CONTACT;
+    const c = st.contact || {};
+    return {
+      text: (c.text === undefined || c.text === null) ? base.text : String(c.text),
+      phone: (c.phone === undefined || c.phone === null) ? base.phone : String(c.phone),
+      bg: (c.bg === undefined || c.bg === null) ? base.bg : String(c.bg),
+      marquee: (c.marquee === undefined || c.marquee === null) ? base.marquee : String(c.marquee)
+    };
+  }
+
   function contactMsgHTML() {
-    const c = st.contact || DEFAULT_CONTACT;
+    const c = getContactMerged();
     const phone = (c.phone === undefined || c.phone === null) ? "" : String(c.phone).trim();
     let text = (c.text === undefined || c.text === null) ? "" : String(c.text);
     /* نحتفظ بالأسطر الجديدة لكن نُزيل الفراغات الزائدة من الأطراف */
     text = text.replace(/\r\n/g, "\n").trimEnd();
     const bg = (c.bg === undefined || c.bg === null) ? "" : String(c.bg).trim();
-    const marquee = (c.marquee === undefined || c.marquee === null) ? DEFAULT_CONTACT.marquee : String(c.marquee).trim() || DEFAULT_CONTACT.marquee;
+    let marquee = (c.marquee === undefined || c.marquee === null) ? DEFAULT_CONTACT.marquee : String(c.marquee).trim();
+    if (marquee === "") marquee = DEFAULT_CONTACT.marquee;
 
     /* حالة 1: نص موجود (حتى لو مع أسطر) +/– رقم */
     if (text !== "") {
@@ -125,7 +137,13 @@
   /* تحميل بيانات التواصل مرة واحدة وتحديث الواجهة إن كانت شاشة الدخول معروضة */
   (function loadContact() {
     S.getContactInfo().then(function (c) {
-      st.contact = c;
+      /* دمج مع القيم الافتراضية لضمان ظهور marquee حتى لو أتى من cache قديم */
+      st.contact = {
+        text: c.text !== undefined ? c.text : DEFAULT_CONTACT.text,
+        phone: c.phone !== undefined ? c.phone : DEFAULT_CONTACT.phone,
+        bg: c.bg !== undefined ? c.bg : DEFAULT_CONTACT.bg,
+        marquee: c.marquee !== undefined ? c.marquee : DEFAULT_CONTACT.marquee
+      };
       if (document.getElementById("authForm")) {
         const active = document.querySelector(".auth-tabs button.active");
         renderAuthForm(active ? active.dataset.tab : "login");
