@@ -136,19 +136,38 @@
 
   /* تحميل بيانات التواصل مرة واحدة وتحديث الواجهة إن كانت شاشة الدخول معروضة */
   (function loadContact() {
+    /* أولوية للنسخة المحلية (لضمان ظهور التعديل الجديد فوراً) */
+    try {
+      const cached = localStorage.getItem("qp_contact");
+      if (cached) {
+        const c2 = JSON.parse(cached);
+        if (c2 && (typeof c2.marquee === "string" || typeof c2.text === "string" || typeof c2.phone === "string")) {
+          st.contact = {
+            text: c2.text !== undefined ? c2.text : DEFAULT_CONTACT.text,
+            phone: c2.phone !== undefined ? c2.phone : DEFAULT_CONTACT.phone,
+            bg: c2.bg !== undefined ? c2.bg : DEFAULT_CONTACT.bg,
+            marquee: typeof c2.marquee === "string" ? c2.marquee : DEFAULT_CONTACT.marquee
+          };
+          if (document.getElementById("authForm")) {
+            const active = document.querySelector(".auth-tabs button.active");
+            renderAuthForm(active ? active.dataset.tab : "login");
+          }
+        }
+      }
+    } catch (e) {}
     S.getContactInfo().then(function (c) {
-      /* دمج مع القيم الافتراضية لضمان ظهور marquee حتى لو أتى من cache قديم */
+      /* دمج مع القيم الافتراضية وضمان ظهور marquee حتى لو أتى من cache قديم */
       st.contact = {
         text: c.text !== undefined ? c.text : DEFAULT_CONTACT.text,
         phone: c.phone !== undefined ? c.phone : DEFAULT_CONTACT.phone,
         bg: c.bg !== undefined ? c.bg : DEFAULT_CONTACT.bg,
-        marquee: c.marquee !== undefined ? c.marquee : DEFAULT_CONTACT.marquee
+        marquee: typeof c.marquee === "string" ? c.marquee : DEFAULT_CONTACT.marquee
       };
       if (document.getElementById("authForm")) {
         const active = document.querySelector(".auth-tabs button.active");
         renderAuthForm(active ? active.dataset.tab : "login");
       }
-    }).catch(function () { st.contact = DEFAULT_CONTACT; });
+    }).catch(function () { /* استخدم ما لدينا */ });
   })();
 
   function renderAuthForm(tab) {
