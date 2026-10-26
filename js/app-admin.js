@@ -5021,6 +5021,14 @@ function studentModal(s) {
     if (!location.hash) location.hash = "#/dashboard";
     routeAdmin();
   });
+  /* وظائف مولّد النماذج القديمة تقع خارج نطاق IIFE؛ نعرّف لها الجسر المشترك. */
+  window.shell = shell;
+  window.S = S;
+  window.U = U;
+  window.state = state;
+  window.pageHead = pageHead;
+  window.secHead = secHead;
+  window.errorCard = errorCard;
 })();
 
 
