@@ -4727,6 +4727,7 @@ function studentModal(s) {
     questions: renderQuestions,
     exams: renderExams,
     examgenerator: renderExamGenerator,
+    examtemplates: renderExamTemplates,
     payments: renderPayments,
     teachers: renderTeachers,
     students: renderStudents,
@@ -5179,5 +5180,134 @@ function studentModal(s) {
       
     } catch(e) {
       shell("examgenerator", errorCard(e));
+    }
+  }
+
+  /* ============================================================
+   * قوالب النماذج الامتحانية
+   * ============================================================ */
+  async function renderExamTemplates() {
+    shell("examtemplates", U.loaderHTML());
+    try {
+      const [templates, subjects] = await Promise.all([
+        (S.listExamTemplates ? S.listExamTemplates() : Promise.resolve([])),
+        S.listSubjects ? S.listSubjects() : Promise.resolve([])
+      ]);
+      state.subjects = subjects;
+      const subjectMap = {};
+      subjects.forEach(function(s){ subjectMap[s.id] = s.name; });
+
+      let html = pageHead("\ud83d\udccb", "\u0642\u0648\u0627\u0644\u0628 \u0627\u0644\u0646\u0645\u0627\u0630\u062c \u0627\u0644\u0627\u0645\u062a\u062d\u0627\u0646\u064a\u0629", "\u0625\u062f\u0627\u0631\u0629 \u0642\u0648\u0627\u0644\u0628 \u0627\u0644\u0627\u0645\u062a\u062d\u0627\u0646 \u0648\u0627\u0633\u062a\u064a\u0631\u0627\u062f \u0642\u0648\u0627\u0644\u0628 \u0627\u0644\u0641\u0644\u0633\u0641\u0629") +
+        '<div class="actions mt">' +
+        '<button class="btn btn-primary" id="importPhiloTpl">\ud83d\udce5 \u0627\u0633\u062a\u064a\u0631\u0627\u062f \u0642\u0648\u0627\u0644\u0628 \u0627\u0644\u0641\u0644\u0633\u0641\u0629 \u0645\u0646 \u0627\u0644\u0645\u0644\u0641 (\u0623\u0643\u0628\u0631 \u0639\u062f\u062f \u0645\u0645\u0643\u0646)</button> ' +
+        '<button class="btn" id="importPhiloTplExisting">\ud83d\udce5 \u0627\u0633\u062a\u064a\u0631\u0627\u062f \u0645\u0646 philosophy_templates.json</button> ' +
+        '<button class="btn" id="reloadTpl">\ud83d\udd04 \u062a\u062d\u062f\u064a\u062b</button>' +
+        '</div>';
+
+      if (!templates || templates.length === 0) {
+        html += '<div class="card mt"><div class="empty-state"><div class="emoji">\ud83d\udccb</div><h3>\u0644\u0627 \u062a\u0648\u062c\u062f \u0642\u0648\u0627\u0644\u0628 \u0628\u0639\u062f</h3><p class="muted">\u0627\u0633\u062a\u064a\u0631\u062f \u0642\u0648\u0627\u0644\u0628 \u0627\u0644\u0641\u0644\u0633\u0641\u0629 \u0644\u0628\u062f\u0621 \u0627\u0644\u0627\u0633\u062a\u062e\u062f\u0627\u0645</p></div></div>';
+      } else {
+        html += '<div class="card mt"><div class="section-head"><div class="left"><span class="ico">\ud83d\udccb</span><div><h3>\u0642\u0648\u0627\u0626\u0645 \u0627\u0644\u0642\u0648\u0627\u0644\u0628</h3><p class="muted">\u0627\u0644\u0639\u062f\u062f: ' + templates.length + '</p></div></div></div>';
+        html += '<div class="table-wrap responsive"><table><thead><tr><th>\u0627\u0633\u0645 \u0627\u0644\u0642\u0627\u0644\u0628</th><th>\u0627\u0644\u0645\u0627\u062f\u0629</th><th>\u0627\u0644\u0623\u0642\u0633\u0627\u0645</th><th>\u0639\u062f\u062f \u0627\u0644\u0623\u0633\u0626\u0644\u0629</th><th>\u062d\u0627\u0644\u0629</th><th>\u0625\u062c\u0631\u0627\u0621\u0627\u062a</th></tr></thead><tbody>';
+        templates.forEach(function(tpl){
+          const secs = tpl.sections || [];
+          const totalCount = secs.reduce(function(acc,s){ return acc + (Number(s.count)||0); }, 0);
+          const secInfo = secs.map(function(s){ 
+            const src = s.source || {};
+            const u = (src.unitNumbers||[]).join(',');
+            const l = (src.lessonNumbers||[]).join(',');
+            return (s.title||'') + ' [' + (u||'*') + '/' + (l||'*') + ']';
+          }).join(' | ');
+          html += '<tr>' +
+            '<td>' + U.esc(tpl.name) + '</td>' +
+            '<td>' + U.esc(tpl.subjectName || subjectMap[tpl.subjectId] || tpl.subjectId || '-') + '</td>' +
+            '<td title="' + U.esc(secInfo) + '">' + secs.length + ' \u0642\u0633\u0645</td>' +
+            '<td>' + totalCount + '</td>' +
+            '<td>' + (tpl.active !== false ? '\u2705 \u0646\u0634\u0637' : '\u26d4 \u0645\u0639\u0637\u0644') + '</td>' +
+            '<td style="white-space:nowrap">' +
+            '<button class="btn btn-sm" data-tpl-toggle="' + U.esc(tpl.id) + '" data-active="' + (tpl.active !== false ? '1':'0') + '">\u062a\u0628\u062f\u064a\u0644 \u0627\u0644\u062d\u0627\u0644\u0629</button> ' +
+            '<button class="btn btn-sm btn-danger" data-tpl-del="' + U.esc(tpl.id) + '">\u062d\u0630\u0641</button>' +
+            '</td>' +
+            '</tr>';
+        });
+        html += '</tbody></table></div></div>';
+      }
+
+      shell("examtemplates", html);
+
+      document.getElementById("reloadTpl").addEventListener("click", function(){ renderExamTemplates(); });
+
+      document.getElementById("importPhiloTplExisting").addEventListener("click", async function(){
+        try {
+          U.toast("\u062c\u0627\u0631\u064a \u0627\u0644\u0627\u0633\u062a\u064a\u0631\u0627\u062f \u0645\u0646 philosophy_templates.json...", "info");
+          const res = await fetch("data/philosophy_templates.json");
+          const list = await res.json();
+          let count = 0;
+          for (let i=0; i<list.length; i++) {
+            try {
+              if (S.saveExamTemplate) {
+                await S.saveExamTemplate(list[i]);
+                count++;
+              }
+            } catch(e) {}
+          }
+          U.toast("\u062a\u0645 \u0627\u0633\u062a\u064a\u0631\u0627\u062f " + count + " \u0642\u0627\u0644\u0628", "success");
+          renderExamTemplates();
+        } catch(e) {
+          U.toast("\u062e\u0637\u0623: " + e.message, "error");
+        }
+      });
+
+      document.getElementById("importPhiloTpl").addEventListener("click", async function(){
+        try {
+          U.toast("\u062c\u0627\u0631\u064a \u0627\u0633\u062a\u064a\u0631\u0627\u062f \u0642\u0648\u0627\u0644\u0628 \u0627\u0644\u0641\u0644\u0633\u0641\u0629 \u0627\u0644\u0645\u0648\u0644\u062f\u0629...", "info");
+          const res = await fetch("data/philosophy_all_templates.json");
+          const list = await res.json();
+          let count = 0;
+          for (let i=0; i<list.length; i++) {
+            try {
+              if (S.saveExamTemplate) {
+                await S.saveExamTemplate(list[i]);
+                count++;
+              }
+            } catch(e) {}
+          }
+          U.toast("\u062a\u0645 \u0627\u0633\u062a\u064a\u0631\u0627\u062f " + count + " \u0642\u0627\u0644\u0628 (\u0645\u0646 400)", "success");
+          renderExamTemplates();
+        } catch(e) {
+          U.toast("\u062e\u0637\u0623: " + e.message, "error");
+        }
+      });
+
+      document.querySelectorAll("[data-tpl-del]").forEach(function(btn){
+        btn.addEventListener("click", async function(){
+          const id = btn.getAttribute("data-tpl-del");
+          if (!confirm("\u0647\u0644 \u0623\u0646\u062a \u0645\u062a\u0623\u0643\u062f \u0645\u0646 \u062d\u0630\u0641 \u0647\u0630\u0627 \u0627\u0644\u0642\u0627\u0644\u0628\u061f")) return;
+          try {
+            if (S.deleteExamTemplate) await S.deleteExamTemplate(id);
+            U.toast("\u062a\u0645 \u0627\u0644\u062d\u0630\u0641", "success");
+            renderExamTemplates();
+          } catch(e) {
+            U.toast("\u062e\u0637\u0623", "error");
+          }
+        });
+      });
+
+      document.querySelectorAll("[data-tpl-toggle]").forEach(function(btn){
+        btn.addEventListener("click", async function(){
+          const id = btn.getAttribute("data-tpl-toggle");
+          const active = btn.getAttribute("data-active") === "1";
+          try {
+            if (S.updateExamTemplate) await S.updateExamTemplate(id, { active: !active });
+            U.toast("\u062a\u0645 \u062a\u062d\u062f\u064a\u062b \u0627\u0644\u062d\u0627\u0644\u0629", "success");
+            renderExamTemplates();
+          } catch(e) {
+            U.toast("\u062e\u0637\u0623", "error");
+          }
+        });
+      });
+
+    } catch(e) {
+      shell("examtemplates", errorCard(e));
     }
   }
