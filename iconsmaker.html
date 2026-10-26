@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>مولّد أيقونات PWA</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1a2540);
+  color: #eef2fb;
+  min-height: 100vh;
+  padding: 20px;
+  direction: rtl;
+}
+.container { max-width: 700px; margin: 0 auto; }
+h1 { font-size: 26px; margin-bottom: 8px; text-align: center; }
+.subtitle { color: #a9b6d0; font-size: 14px; text-align: center; margin-bottom: 28px; }
+
+.upload-zone {
+  border: 3px dashed #4f7cff;
+  border-radius: 20px;
+  padding: 60px 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .25s;
+  background: rgba(79, 124, 255, .06);
+  margin-bottom: 20px;
+}
+.upload-zone:hover, .upload-zone.dragover {
+  background: rgba(79, 124, 255, .15);
+  border-color: #6a92ff;
+  transform: translateY(-2px);
+}
+.upload-zone .icon { font-size: 64px; margin-bottom: 12px; }
+.upload-zone .title { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+.upload-zone .hint { color: #a9b6d0; font-size: 13px; }
+
+.status {
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: none;
+  text-align: center;
+}
+.status.success { background: rgba(47, 191, 113, .15); color: #2fbf71; border: 1px solid #2fbf71; display: block; }
+.status.error { background: rgba(255, 92, 108, .15); color: #ff5c6c; border: 1px solid #ff5c6c; display: block; }
+.status.loading { background: rgba(79, 124, 255, .15); color: #6a92ff; border: 1px solid #4f7cff; display: block; }
+
+.previews {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+  padding: 20px;
+  background: rgba(255, 255, 255, .03);
+  border-radius: 16px;
+  border: 1px solid #2c3a58;
+}
+.preview-item {
+  text-align: center;
+}
+.preview-item canvas {
+  display: block;
+  margin: 0 auto 6px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .4);
+  background: #0f172a;
+}
+.preview-item .label {
+  font-size: 11px;
+  color: #a9b6d0;
+  font-family: ui-monospace, monospace;
+}
+
+.btn {
+  width: 100%;
+  padding: 18px 24px;
+  border: 0;
+  border-radius: 14px;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: .2s;
+  color: #fff;
+  background: linear-gradient(135deg, #4f7cff, #8b5cf6);
+  box-shadow: 0 12px 30px -10px rgba(79, 124, 255, .6);
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 16px 36px -10px rgba(79, 124, 255, .8); }
+.btn:active { transform: translateY(0); }
+.btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+.note {
+  background: rgba(246, 183, 60, .1);
+  border: 1px solid rgba(246, 183, 60, .35);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 13px;
+  color: #f6b73c;
+  margin-top: 20px;
+  line-height: 1.7;
+}
+.note b { color: #f6b73c; }
+.note code {
+  background: rgba(0, 0, 0, .3);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: ui-monospace, monospace;
+  color: #ffd98a;
+}
+
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, .3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.fadeIn { animation: fadeIn .4s ease-out; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 500px) {
+  h1 { font-size: 22px; }
+  .upload-zone { padding: 40px 20px; }
+  .upload-zone .icon { font-size: 48px; }
+  .previews { grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 10px; padding: 14px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <h1>🎨 مولّد أيقونات PWA</h1>
+  <p class="subtitle">ارفع صورة واحدة فقط — والباقي تلقائي</p>
+
+  <!-- منطقة الرفع -->
+  <div class="upload-zone" id="uploadZone">
+    <div class="icon">📤</div>
+    <div class="title">اضغط لاختيار صورة</div>
+    <div class="hint">أو اسحب الصورة هنا — PNG, JPG, SVG, WebP</div>
+    <input type="file" id="fileInput" accept="image/*" style="display: none" />
+  </div>
+
+  <!-- رسالة الحالة -->
+  <div id="status" class="status"></div>
+
+  <!-- المعاينة -->
+  <div class="previews" id="previews" style="display: none"></div>
+
+  <!-- زر التحميل -->
+  <button class="btn" id="downloadBtn" style="display: none">
+    <span style="font-size: 22px">📦</span>
+    <span>تحميل كل الأيقونات (ZIP)</span>
+  </button>
+
+  <div class="note" id="note" style="display: none">
+    💡 <b>بعد التحميل:</b> فُكّ ضغط الملف، ثم ضع مجلد <code>icons/</code> في جذر مشروعك (بجانب <code>index.html</code>).
+  </div>
+
+</div>
+
+<!-- JSZip -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<script>
+(function () {
+  "use strict";
+
+  // ===== قائمة الأحجام =====
+  const SIZES = [
+    { size: 72,  name: "icon-72.png" },
+    { size: 96,  name: "icon-96.png" },
+    { size: 128, name: "icon-128.png" },
+    { size: 144, name: "icon-144.png" },
+    { size: 152, name: "icon-152.png" },
+    { size: 180, name: "apple-touch-icon.png" },
+    { size: 192, name: "icon-192.png" },
+    { size: 384, name: "icon-384.png" },
+    { size: 512, name: "icon-512.png" },
+    { size: 192, name: "icon-maskable-192.png", maskable: true },
+    { size: 512, name: "icon-maskable-512.png", maskable: true }
+  ];
+
+  // ===== الإعدادات الثابتة =====
+  const CONFIG = {
+    // خلفية متدرجة افتراضية (يمكنك تغيير الألوان هنا)
+    bgGradientFrom: "#4f7cff",
+    bgGradientTo: "#8b5cf6",
+    // حجم الصورة داخل الأيقونة (نسبة من الحجم الكلي)
+    imageScale: 0.7,
+    // الحشوة الداخلية
+    padding: 0.15,
+    // الزوايا الدائرية (نسبة)
+    cornerRadius: 0.22
+  };
+
+  // ===== العناصر =====
+  const uploadZone = document.getElementById("uploadZone");
+  const fileInput = document.getElementById("fileInput");
+  const previews = document.getElementById("previews");
+  const status = document.getElementById("status");
+  const downloadBtn = document.getElementById("downloadBtn");
+  const note = document.getElementById("note");
+
+  let mainImage = null;
+
+  // ===== دوال المساعدة =====
+  function showStatus(msg, kind) {
+    status.textContent = msg;
+    status.className = "status " + kind;
+  }
+
+  function hideStatus() {
+    status.className = "status";
+  }
+
+  // ===== رفع الصورة =====
+  uploadZone.addEventListener("click", function () {
+    fileInput.click();
+  });
+
+  uploadZone.addEventListener("dragover", function (e) {
+    e.preventDefault();
+    uploadZone.classList.add("dragover");
+  });
+
+  uploadZone.addEventListener("dragleave", function () {
+    uploadZone.classList.remove("dragover");
+  });
+
+  uploadZone.addEventListener("drop", function (e) {
+    e.preventDefault();
+    uploadZone.classList.remove("dragover");
+    const f = e.dataTransfer.files[0];
+    if (f) handleFile(f);
+  });
+
+  fileInput.addEventListener("change", function (e) {
+    const f = e.target.files[0];
+    if (f) handleFile(f);
+  });
+
+  function handleFile(file) {
+    if (!file.type.startsWith("image/")) {
+      showStatus("⚠️ يجب اختيار ملف صورة", "error");
+      return;
+    }
+
+    showStatus("⏳ جاري تحميل الصورة...", "loading");
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const img = new Image();
+      img.onload = function () {
+        mainImage = img;
+        showStatus("✅ تم رفع الصورة: " + file.name, "success");
+        generateAllPreviews();
+        previews.style.display = "grid";
+        previews.classList.add("fadeIn");
+        downloadBtn.style.display = "flex";
+        note.style.display = "block";
+      };
+      img.onerror = function () {
+        showStatus("❌ فشل تحميل الصورة", "error");
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  // ===== رسم الأيقونة على Canvas =====
+  function drawIcon(canvas, size, maskable) {
+    const ctx = canvas.getContext("2d");
+    canvas.width = size;
+    canvas.height = size;
+    ctx.clearRect(0, 0, size, size);
+
+    // === 1) الخلفية المتدرجة ===
+    ctx.save();
+    const radiusPx = maskable ? size * 0.5 : size * CONFIG.cornerRadius;
+    roundRectPath(ctx, 0, 0, size, size, radiusPx);
+    ctx.clip();
+
+    // إذا كانت الصورة تحتوي على قناة شفافة، نجعل الخلفية بيضاء لتفتيح الصورة
+    const grad = ctx.createLinearGradient(0, 0, size, size);
+    grad.addColorStop(0, CONFIG.bgGradientFrom);
+    grad.addColorStop(1, CONFIG.bgGradientTo);
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, size, size);
+
+    // === 2) الصورة الرئيسية ===
+    if (mainImage) {
+      const paddingPx = size * CONFIG.padding;
+      const availSize = size - (paddingPx * 2);
+      const imgSize = availSize * CONFIG.imageScale;
+
+      // حساب النسبة للحفاظ على شكل الصورة
+      const ratio = Math.min(imgSize / mainImage.width, imgSize / mainImage.height);
+      const dw = mainImage.width * ratio;
+      const dh = mainImage.height * ratio;
+      const dx = (size - dw) / 2;
+      const dy = (size - dh) / 2;
+
+      ctx.drawImage(mainImage, dx, dy, dw, dh);
+    }
+
+    ctx.restore();
+  }
+
+  function roundRectPath(ctx, x, y, w, h, r) {
+    r = Math.min(r, w / 2, h / 2);
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + h - r);
+    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    ctx.lineTo(x + r, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+    ctx.lineTo(x, y + r);
+    ctx.quadraticCurveTo(x, y, x + r, y);
+    ctx.closePath();
+  }
+
+  // ===== توليد جميع المعاينات =====
+  function generateAllPreviews() {
+    previews.innerHTML = "";
+
+    SIZES.forEach(function (spec) {
+      const item = document.createElement("div");
+      item.className = "preview-item";
+
+      const canvas = document.createElement("canvas");
+      const displaySize = Math.min(spec.size, 80);
+      canvas.style.width = displaySize + "px";
+      canvas.style.height = displaySize + "px";
+      canvas.title = "اضغط لتحميل " + spec.name;
+      canvas.style.cursor = "pointer";
+
+      drawIcon(canvas, spec.size, spec.maskable);
+
+      const label = document.createElement("div");
+      label.className = "label";
+      label.textContent = spec.maskable ? "mask " + spec.size : spec.size + "px";
+
+      item.appendChild(canvas);
+      item.appendChild(label);
+      previews.appendChild(item);
+
+      // عند الضغط على أي معاينة، حمّلها منفردة
+      canvas.addEventListener("click", function () {
+        canvas.toBlob(function (blob) {
+          downloadBlob(blob, spec.name);
+        }, "image/png");
+      });
+    });
+  }
+
+  // ===== تحميل ملف =====
+  function downloadBlob(blob, filename) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () {
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }, 200);
+  }
+
+  // ===== تحميل ZIP =====
+  downloadBtn.addEventListener("click", async function () {
+    if (!mainImage) return;
+
+    downloadBtn.disabled = true;
+    downloadBtn.innerHTML = '<span class="spinner"></span><span>جاري التحضير...</span>';
+
+    try {
+      const zip = new JSZip();
+      const folder = zip.folder("icons");
+
+      for (const spec of SIZES) {
+        const canvas = document.createElement("canvas");
+        drawIcon(canvas, spec.size, spec.maskable);
+        const blob = await new Promise(function (r) { canvas.toBlob(r, "image/png"); });
+        folder.file(spec.name, blob);
+      }
+
+      const zipBlob = await zip.generateAsync({ type: "blob" });
+      downloadBlob(zipBlob, "pwa-icons.zip");
+
+      showStatus("🎉 تم التحميل بنجاح! فُكّ الضغط وضع المجلد في مشروعك", "success");
+
+      downloadBtn.disabled = false;
+      downloadBtn.innerHTML = '<span style="font-size: 22px">📦</span><span>تحميل مرة أخرى</span>';
+    } catch (e) {
+      showStatus("❌ خطأ: " + e.message, "error");
+      downloadBtn.disabled = false;
+      downloadBtn.innerHTML = '<span style="font-size: 22px">📦</span><span>تحميل كل الأيقونات (ZIP)</span>';
+    }
+  });
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,6857 @@
+[
+  {
+    "name": "نموذج - قوانين الفكر (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "قوانين الفكر",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            1
+          ],
+          "lessonNumbers": [
+            1
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - مبحث المعرفة وتداخلاتها مع العلوم الأخرى (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "مبحث المعرفة وتداخلاتها مع العلوم الأخرى",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            1
+          ],
+          "lessonNumbers": [
+            2
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - خطوات المعرفة العلمية (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "خطوات المعرفة العلمية",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            1
+          ],
+          "lessonNumbers": [
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - تحليل نص (ضرورة الفلسفة) (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "تحليل نص (ضرورة الفلسفة)",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            1
+          ],
+          "lessonNumbers": [
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الأخلاقية العنف (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الأخلاقية العنف",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            1
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - اللاعنف (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "اللاعنف",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            2
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - التسامح (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "التسامح",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - التواصل (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "التواصل",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - المحبة (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "المحبة",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - تحليل نص: المحبة (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "تحليل نص: المحبة",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الإنسان والتكنولوجيا (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الإنسان والتكنولوجيا",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            3
+          ],
+          "lessonNumbers": [
+            1
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - أبعاد مشكلة الإنسان المعاصر (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "أبعاد مشكلة الإنسان المعاصر",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            3
+          ],
+          "lessonNumbers": [
+            2
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - أخلاقيات العلم والتكنولوجيا (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "أخلاقيات العلم والتكنولوجيا",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            3
+          ],
+          "lessonNumbers": [
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - تحليل نص: الإنسان والاستهلاك (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "تحليل نص: الإنسان والاستهلاك",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            3
+          ],
+          "lessonNumbers": [
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - المذهب العقلي (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "المذهب العقلي",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [
+            1
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - المذهب التجريبي (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "المذهب التجريبي",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [
+            2
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - المذهب النقدي عند كانط (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "المذهب النقدي عند كانط",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - المذهب المادي الجدلي (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "المذهب المادي الجدلي",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - تحليل نص: المثالية الهيغلية (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "تحليل نص: المثالية الهيغلية",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الفلسفة الوجودية (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الفلسفة الوجودية",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            5
+          ],
+          "lessonNumbers": [
+            1
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الفلسفة الحيوية (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الفلسفة الحيوية",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            5
+          ],
+          "lessonNumbers": [
+            2
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - فلسفة الظواهر (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "فلسفة الظواهر",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            5
+          ],
+          "lessonNumbers": [
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - تحليل نص: البراجماتية (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "تحليل نص: البراجماتية",
+        "type": "mixed",
+        "count": 22,
+        "source": {
+          "unitNumbers": [
+            5
+          ],
+          "lessonNumbers": [
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - التأويل في الفكر العربي (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "التأويل في الفكر العربي",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [
+            1
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - النزعة الجمالية عند عبد الكريم اليافي (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "النزعة الجمالية عند عبد الكريم اليافي",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [
+            2
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - النزعة الأخلاقية عند عادل العوا (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "النزعة الأخلاقية عند عادل العوا",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الوضعية المنطقية عند زكي نجيب محمود (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الوضعية المنطقية عند زكي نجيب محمود",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الشخصانية عند محمد عزيز الحبابي (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الشخصانية عند محمد عزيز الحبابي",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - تحليل نص: ضرورة النقد في الفكر العربي (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "تحليل نص: ضرورة النقد في الفكر العربي",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الحدود المنطقية (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الحدود المنطقية",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            1
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - القضايا (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "القضايا",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            2
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الاستغراق (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الاستغراق",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الاستدلال (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الاستدلال",
+        "type": "mixed",
+        "count": 24,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - القياس (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "القياس",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - جبر المنطق (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "جبر المنطق",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - المغالطات المنطقية (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "المغالطات المنطقية",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            7
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - تحليل نص (أسس التفكير المنطقي) (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "تحليل نص (أسس التفكير المنطقي)",
+        "type": "mixed",
+        "count": 12,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            8
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الانتباه (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الانتباه",
+        "type": "mixed",
+        "count": 18,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            1
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الإدراك (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الإدراك",
+        "type": "mixed",
+        "count": 17,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            2
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الذاكرة والنسيان (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الذاكرة والنسيان",
+        "type": "mixed",
+        "count": 23,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الذكاء (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الذكاء",
+        "type": "mixed",
+        "count": 20,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - تحليل نص (الإبداع) (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "تحليل نص (الإبداع)",
+        "type": "mixed",
+        "count": 10,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - مفهوم الذات (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "مفهوم الذات",
+        "type": "mixed",
+        "count": 14,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - نظريات الشخصية (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "نظريات الشخصية",
+        "type": "mixed",
+        "count": 17,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            7
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - تحليل نص (الشعور واللاشعور) (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "تحليل نص (الشعور واللاشعور)",
+        "type": "mixed",
+        "count": 10,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            8
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - التفكير الإيجابي (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "التفكير الإيجابي",
+        "type": "mixed",
+        "count": 11,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            9
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - السعادة (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "السعادة",
+        "type": "mixed",
+        "count": 12,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            10
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الرضا عن الحياة (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الرضا عن الحياة",
+        "type": "mixed",
+        "count": 10,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            11
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - تحليل نص (الحياة الإيجابية) (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "تحليل نص (الحياة الإيجابية)",
+        "type": "mixed",
+        "count": 9,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            12
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - القيمة الاجتماعية (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "القيمة الاجتماعية",
+        "type": "mixed",
+        "count": 18,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            1
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الاندماج الاجتماعي (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الاندماج الاجتماعي",
+        "type": "mixed",
+        "count": 17,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            2
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الضبط الاجتماعي (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الضبط الاجتماعي",
+        "type": "mixed",
+        "count": 14,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الظاهرة الاجتماعية (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الظاهرة الاجتماعية",
+        "type": "mixed",
+        "count": 11,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - تحليل نص (منهج البحث في العلوم الاجتماعية) (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "تحليل نص (منهج البحث في العلوم الاجتماعية)",
+        "type": "mixed",
+        "count": 12,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الصداقة والشباب (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الصداقة والشباب",
+        "type": "mixed",
+        "count": 17,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - العمل التطوعي (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "العمل التطوعي",
+        "type": "mixed",
+        "count": 15,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            7
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الإرشاد الاجتماعي (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الإرشاد الاجتماعي",
+        "type": "mixed",
+        "count": 13,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            8
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الإعلام والمجتمع (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الإعلام والمجتمع",
+        "type": "mixed",
+        "count": 22,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            9
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - تحليل نص (نحن والإعلام) (درس واحد)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "تحليل نص (نحن والإعلام)",
+        "type": "mixed",
+        "count": 10,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            10
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - المعرفة (وحدة كاملة)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "المعرفة",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            1
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الأخلاق (وحدة كاملة)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الأخلاق",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الأخلاق والعلم (وحدة كاملة)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الأخلاق والعلم",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            3
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الفلسفة الحديثة (وحدة كاملة)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الفلسفة الحديثة",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الفلسفة المعاصرة (وحدة كاملة)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الفلسفة المعاصرة",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            5
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الفكر العربي المعاصر (وحدة كاملة)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الفكر العربي المعاصر",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - المنطق (وحدة كاملة)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "المنطق",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - علم النفس (وحدة كاملة)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "علم النفس",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - المفاهيم الاجتماعية والمجتمع المعاصر (وحدة كاملة)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "المفاهيم الاجتماعية والمجتمع المعاصر",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: قوانين الفكر / مبحث المعرفة وتداخلاتها مع العلوم الأخرى",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            1
+          ],
+          "lessonNumbers": [
+            1,
+            2
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: مبحث المعرفة وتداخلاتها مع العلوم الأخرى / خطوات المعرفة العلمية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            1
+          ],
+          "lessonNumbers": [
+            2,
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: خطوات المعرفة العلمية / تحليل نص (ضرورة الفلسفة)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            1
+          ],
+          "lessonNumbers": [
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: قوانين الفكر / مبحث المعرفة وتداخلاتها مع العلوم الأخرى / خطوات المعرفة العلمية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            1
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: مبحث المعرفة وتداخلاتها مع العلوم الأخرى / خطوات المعرفة العلمية / تحليل نص (ضرورة الفلسفة)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            1
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: قوانين الفكر / مبحث المعرفة وتداخلاتها مع العلوم الأخرى / خطوات المعرفة العلمية / تحليل نص (ضرورة الفلسفة)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            1
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: الأخلاقية العنف / اللاعنف",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            1,
+            2
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: اللاعنف / التسامح",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            2,
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: التسامح / التواصل",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: التواصل / المحبة",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: المحبة / تحليل نص: المحبة",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: الأخلاقية العنف / اللاعنف / التسامح",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: اللاعنف / التسامح / التواصل",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: التسامح / التواصل / المحبة",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            3,
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: التواصل / المحبة / تحليل نص: المحبة",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            4,
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: الأخلاقية العنف / اللاعنف / التسامح / التواصل",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: اللاعنف / التسامح / التواصل / المحبة",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: التسامح / التواصل / المحبة / تحليل نص: المحبة",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: الأخلاقية العنف / اللاعنف / التسامح / التواصل / المحبة",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: اللاعنف / التسامح / التواصل / المحبة / تحليل نص: المحبة",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 6 دروس متتالية: الأخلاقية العنف / اللاعنف / التسامح / التواصل / المحبة / تحليل نص: المحبة",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "6 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: الإنسان والتكنولوجيا / أبعاد مشكلة الإنسان المعاصر",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            3
+          ],
+          "lessonNumbers": [
+            1,
+            2
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: أبعاد مشكلة الإنسان المعاصر / أخلاقيات العلم والتكنولوجيا",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            3
+          ],
+          "lessonNumbers": [
+            2,
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: أخلاقيات العلم والتكنولوجيا / تحليل نص: الإنسان والاستهلاك",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            3
+          ],
+          "lessonNumbers": [
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: الإنسان والتكنولوجيا / أبعاد مشكلة الإنسان المعاصر / أخلاقيات العلم والتكنولوجيا",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            3
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: أبعاد مشكلة الإنسان المعاصر / أخلاقيات العلم والتكنولوجيا / تحليل نص: الإنسان والاستهلاك",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            3
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: الإنسان والتكنولوجيا / أبعاد مشكلة الإنسان المعاصر / أخلاقيات العلم والتكنولوجيا / تحليل نص: الإنسان والاستهلاك",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            3
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: المذهب العقلي / المذهب التجريبي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [
+            1,
+            2
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: المذهب التجريبي / المذهب النقدي عند كانط",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [
+            2,
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: المذهب النقدي عند كانط / المذهب المادي الجدلي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: المذهب المادي الجدلي / تحليل نص: المثالية الهيغلية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: المذهب العقلي / المذهب التجريبي / المذهب النقدي عند كانط",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: المذهب التجريبي / المذهب النقدي عند كانط / المذهب المادي الجدلي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: المذهب النقدي عند كانط / المذهب المادي الجدلي / تحليل نص: المثالية الهيغلية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [
+            3,
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: المذهب العقلي / المذهب التجريبي / المذهب النقدي عند كانط / المذهب المادي الجدلي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: المذهب التجريبي / المذهب النقدي عند كانط / المذهب المادي الجدلي / تحليل نص: المثالية الهيغلية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: المذهب العقلي / المذهب التجريبي / المذهب النقدي عند كانط / المذهب المادي الجدلي / تحليل نص: المثالية الهيغلية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: الفلسفة الوجودية / الفلسفة الحيوية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            5
+          ],
+          "lessonNumbers": [
+            1,
+            2
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: الفلسفة الحيوية / فلسفة الظواهر",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            5
+          ],
+          "lessonNumbers": [
+            2,
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: فلسفة الظواهر / تحليل نص: البراجماتية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            5
+          ],
+          "lessonNumbers": [
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: الفلسفة الوجودية / الفلسفة الحيوية / فلسفة الظواهر",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            5
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: الفلسفة الحيوية / فلسفة الظواهر / تحليل نص: البراجماتية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            5
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: الفلسفة الوجودية / الفلسفة الحيوية / فلسفة الظواهر / تحليل نص: البراجماتية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            5
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: التأويل في الفكر العربي / النزعة الجمالية عند عبد الكريم اليافي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [
+            1,
+            2
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: النزعة الجمالية عند عبد الكريم اليافي / النزعة الأخلاقية عند عادل العوا",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [
+            2,
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: النزعة الأخلاقية عند عادل العوا / الوضعية المنطقية عند زكي نجيب محمود",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: الوضعية المنطقية عند زكي نجيب محمود / الشخصانية عند محمد عزيز الحبابي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: الشخصانية عند محمد عزيز الحبابي / تحليل نص: ضرورة النقد في الفكر العربي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: التأويل في الفكر العربي / النزعة الجمالية عند عبد الكريم اليافي / النزعة الأخلاقية عند عادل العوا",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: النزعة الجمالية عند عبد الكريم اليافي / النزعة الأخلاقية عند عادل العوا / الوضعية المنطقية عند زكي نجيب محمود",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: النزعة الأخلاقية عند عادل العوا / الوضعية المنطقية عند زكي نجيب محمود / الشخصانية عند محمد عزيز الحبابي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [
+            3,
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: الوضعية المنطقية عند زكي نجيب محمود / الشخصانية عند محمد عزيز الحبابي / تحليل نص: ضرورة النقد في الفكر العربي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [
+            4,
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: التأويل في الفكر العربي / النزعة الجمالية عند عبد الكريم اليافي / النزعة الأخلاقية عند عادل العوا / الوضعية المنطقية عند زكي نجيب محمود",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: النزعة الجمالية عند عبد الكريم اليافي / النزعة الأخلاقية عند عادل العوا / الوضعية المنطقية عند زكي نجيب محمود / الشخصانية عند محمد عزيز الحبابي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: النزعة الأخلاقية عند عادل العوا / الوضعية المنطقية عند زكي نجيب محمود / الشخصانية عند محمد عزيز الحبابي / تحليل نص: ضرورة النقد في الفكر العربي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: التأويل في الفكر العربي / النزعة الجمالية عند عبد الكريم اليافي / النزعة الأخلاقية عند عادل العوا / الوضعية المنطقية عند زكي نجيب محمود / الشخصانية عند محمد عزيز الحبابي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: النزعة الجمالية عند عبد الكريم اليافي / النزعة الأخلاقية عند عادل العوا / الوضعية المنطقية عند زكي نجيب محمود / الشخصانية عند محمد عزيز الحبابي / تحليل نص: ضرورة النقد في الفكر العربي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 6 دروس متتالية: التأويل في الفكر العربي / النزعة الجمالية عند عبد الكريم اليافي / النزعة الأخلاقية عند عادل العوا / الوضعية المنطقية عند زكي نجيب محمود / الشخصانية عند محمد عزيز الحبابي / تحليل نص: ضرورة النقد في الفكر العربي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "6 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: الحدود المنطقية / القضايا",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            1,
+            2
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: القضايا / الاستغراق",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            2,
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: الاستغراق / الاستدلال",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: الاستدلال / القياس",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: القياس / جبر المنطق",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: جبر المنطق / المغالطات المنطقية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            6,
+            7
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: المغالطات المنطقية / تحليل نص (أسس التفكير المنطقي)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            7,
+            8
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: الحدود المنطقية / القضايا / الاستغراق",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: القضايا / الاستغراق / الاستدلال",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: الاستغراق / الاستدلال / القياس",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            3,
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: الاستدلال / القياس / جبر المنطق",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            4,
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: القياس / جبر المنطق / المغالطات المنطقية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            5,
+            6,
+            7
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: جبر المنطق / المغالطات المنطقية / تحليل نص (أسس التفكير المنطقي)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            6,
+            7,
+            8
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: الحدود المنطقية / القضايا / الاستغراق / الاستدلال",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: القضايا / الاستغراق / الاستدلال / القياس",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: الاستغراق / الاستدلال / القياس / جبر المنطق",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: الاستدلال / القياس / جبر المنطق / المغالطات المنطقية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: القياس / جبر المنطق / المغالطات المنطقية / تحليل نص (أسس التفكير المنطقي)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: الحدود المنطقية / القضايا / الاستغراق / الاستدلال / القياس",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: القضايا / الاستغراق / الاستدلال / القياس / جبر المنطق",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: الاستغراق / الاستدلال / القياس / جبر المنطق / المغالطات المنطقية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: الاستدلال / القياس / جبر المنطق / المغالطات المنطقية / تحليل نص (أسس التفكير المنطقي)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 6 دروس متتالية: الحدود المنطقية / القضايا / الاستغراق / الاستدلال / القياس / جبر المنطق",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "6 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 6 دروس متتالية: القضايا / الاستغراق / الاستدلال / القياس / جبر المنطق / المغالطات المنطقية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "6 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 6 دروس متتالية: الاستغراق / الاستدلال / القياس / جبر المنطق / المغالطات المنطقية / تحليل نص (أسس التفكير المنطقي)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "6 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: الانتباه / الإدراك",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            1,
+            2
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: الإدراك / الذاكرة والنسيان",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            2,
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: الذاكرة والنسيان / الذكاء",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: الذكاء / تحليل نص (الإبداع)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: تحليل نص (الإبداع) / مفهوم الذات",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 24,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: مفهوم الذات / نظريات الشخصية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            6,
+            7
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: نظريات الشخصية / تحليل نص (الشعور واللاشعور)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 27,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            7,
+            8
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: تحليل نص (الشعور واللاشعور) / التفكير الإيجابي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 21,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            8,
+            9
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: التفكير الإيجابي / السعادة",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 23,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            9,
+            10
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: السعادة / الرضا عن الحياة",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 22,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            10,
+            11
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: الرضا عن الحياة / تحليل نص (الحياة الإيجابية)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 19,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            11,
+            12
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: الانتباه / الإدراك / الذاكرة والنسيان",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: الإدراك / الذاكرة والنسيان / الذكاء",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: الذاكرة والنسيان / الذكاء / تحليل نص (الإبداع)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            3,
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: الذكاء / تحليل نص (الإبداع) / مفهوم الذات",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            4,
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: تحليل نص (الإبداع) / مفهوم الذات / نظريات الشخصية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            5,
+            6,
+            7
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: مفهوم الذات / نظريات الشخصية / تحليل نص (الشعور واللاشعور)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            6,
+            7,
+            8
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: نظريات الشخصية / تحليل نص (الشعور واللاشعور) / التفكير الإيجابي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            7,
+            8,
+            9
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: تحليل نص (الشعور واللاشعور) / التفكير الإيجابي / السعادة",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            8,
+            9,
+            10
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: التفكير الإيجابي / السعادة / الرضا عن الحياة",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            9,
+            10,
+            11
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: السعادة / الرضا عن الحياة / تحليل نص (الحياة الإيجابية)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            10,
+            11,
+            12
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: الانتباه / الإدراك / الذاكرة والنسيان / الذكاء",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: الإدراك / الذاكرة والنسيان / الذكاء / تحليل نص (الإبداع)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: الذاكرة والنسيان / الذكاء / تحليل نص (الإبداع) / مفهوم الذات",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: الذكاء / تحليل نص (الإبداع) / مفهوم الذات / نظريات الشخصية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: تحليل نص (الإبداع) / مفهوم الذات / نظريات الشخصية / تحليل نص (الشعور واللاشعور)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: مفهوم الذات / نظريات الشخصية / تحليل نص (الشعور واللاشعور) / التفكير الإيجابي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: نظريات الشخصية / تحليل نص (الشعور واللاشعور) / التفكير الإيجابي / السعادة",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            7,
+            8,
+            9,
+            10
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: تحليل نص (الشعور واللاشعور) / التفكير الإيجابي / السعادة / الرضا عن الحياة",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            8,
+            9,
+            10,
+            11
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: التفكير الإيجابي / السعادة / الرضا عن الحياة / تحليل نص (الحياة الإيجابية)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: الانتباه / الإدراك / الذاكرة والنسيان / الذكاء / تحليل نص (الإبداع)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: الإدراك / الذاكرة والنسيان / الذكاء / تحليل نص (الإبداع) / مفهوم الذات",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: الذاكرة والنسيان / الذكاء / تحليل نص (الإبداع) / مفهوم الذات / نظريات الشخصية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: الذكاء / تحليل نص (الإبداع) / مفهوم الذات / نظريات الشخصية / تحليل نص (الشعور واللاشعور)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: تحليل نص (الإبداع) / مفهوم الذات / نظريات الشخصية / تحليل نص (الشعور واللاشعور) / التفكير الإيجابي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: مفهوم الذات / نظريات الشخصية / تحليل نص (الشعور واللاشعور) / التفكير الإيجابي / السعادة",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: نظريات الشخصية / تحليل نص (الشعور واللاشعور) / التفكير الإيجابي / السعادة / الرضا عن الحياة",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: تحليل نص (الشعور واللاشعور) / التفكير الإيجابي / السعادة / الرضا عن الحياة / تحليل نص (الحياة الإيجابية)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 6 دروس متتالية: الانتباه / الإدراك / الذاكرة والنسيان / الذكاء / تحليل نص (الإبداع) / مفهوم الذات",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "6 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 6 دروس متتالية: الإدراك / الذاكرة والنسيان / الذكاء / تحليل نص (الإبداع) / مفهوم الذات / نظريات الشخصية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "6 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 6 دروس متتالية: الذاكرة والنسيان / الذكاء / تحليل نص (الإبداع) / مفهوم الذات / نظريات الشخصية / تحليل نص (الشعور واللاشعور)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "6 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 6 دروس متتالية: الذكاء / تحليل نص (الإبداع) / مفهوم الذات / نظريات الشخصية / تحليل نص (الشعور واللاشعور) / التفكير الإيجابي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "6 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 6 دروس متتالية: تحليل نص (الإبداع) / مفهوم الذات / نظريات الشخصية / تحليل نص (الشعور واللاشعور) / التفكير الإيجابي / السعادة",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "6 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 6 دروس متتالية: مفهوم الذات / نظريات الشخصية / تحليل نص (الشعور واللاشعور) / التفكير الإيجابي / السعادة / الرضا عن الحياة",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "6 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 6 دروس متتالية: نظريات الشخصية / تحليل نص (الشعور واللاشعور) / التفكير الإيجابي / السعادة / الرضا عن الحياة / تحليل نص (الحياة الإيجابية)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "6 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            8
+          ],
+          "lessonNumbers": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: القيمة الاجتماعية / الاندماج الاجتماعي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            1,
+            2
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: الاندماج الاجتماعي / الضبط الاجتماعي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            2,
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: الضبط الاجتماعي / الظاهرة الاجتماعية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: الظاهرة الاجتماعية / تحليل نص (منهج البحث في العلوم الاجتماعية)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 23,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: تحليل نص (منهج البحث في العلوم الاجتماعية) / الصداقة والشباب",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 29,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: الصداقة والشباب / العمل التطوعي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            6,
+            7
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: العمل التطوعي / الإرشاد الاجتماعي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 28,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            7,
+            8
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: الإرشاد الاجتماعي / الإعلام والمجتمع",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            8,
+            9
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 2 دروس متتالية: الإعلام والمجتمع / تحليل نص (نحن والإعلام)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "2 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            9,
+            10
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: القيمة الاجتماعية / الاندماج الاجتماعي / الضبط الاجتماعي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: الاندماج الاجتماعي / الضبط الاجتماعي / الظاهرة الاجتماعية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: الضبط الاجتماعي / الظاهرة الاجتماعية / تحليل نص (منهج البحث في العلوم الاجتماعية)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            3,
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: الظاهرة الاجتماعية / تحليل نص (منهج البحث في العلوم الاجتماعية) / الصداقة والشباب",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            4,
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: تحليل نص (منهج البحث في العلوم الاجتماعية) / الصداقة والشباب / العمل التطوعي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            5,
+            6,
+            7
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: الصداقة والشباب / العمل التطوعي / الإرشاد الاجتماعي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            6,
+            7,
+            8
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: العمل التطوعي / الإرشاد الاجتماعي / الإعلام والمجتمع",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            7,
+            8,
+            9
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 3 دروس متتالية: الإرشاد الاجتماعي / الإعلام والمجتمع / تحليل نص (نحن والإعلام)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "3 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            8,
+            9,
+            10
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: القيمة الاجتماعية / الاندماج الاجتماعي / الضبط الاجتماعي / الظاهرة الاجتماعية",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: الاندماج الاجتماعي / الضبط الاجتماعي / الظاهرة الاجتماعية / تحليل نص (منهج البحث في العلوم الاجتماعية)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: الضبط الاجتماعي / الظاهرة الاجتماعية / تحليل نص (منهج البحث في العلوم الاجتماعية) / الصداقة والشباب",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: الظاهرة الاجتماعية / تحليل نص (منهج البحث في العلوم الاجتماعية) / الصداقة والشباب / العمل التطوعي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: تحليل نص (منهج البحث في العلوم الاجتماعية) / الصداقة والشباب / العمل التطوعي / الإرشاد الاجتماعي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: الصداقة والشباب / العمل التطوعي / الإرشاد الاجتماعي / الإعلام والمجتمع",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 4 دروس متتالية: العمل التطوعي / الإرشاد الاجتماعي / الإعلام والمجتمع / تحليل نص (نحن والإعلام)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "4 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            7,
+            8,
+            9,
+            10
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: القيمة الاجتماعية / الاندماج الاجتماعي / الضبط الاجتماعي / الظاهرة الاجتماعية / تحليل نص (منهج البحث في العلوم الاجتماعية)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: الاندماج الاجتماعي / الضبط الاجتماعي / الظاهرة الاجتماعية / تحليل نص (منهج البحث في العلوم الاجتماعية) / الصداقة والشباب",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: الضبط الاجتماعي / الظاهرة الاجتماعية / تحليل نص (منهج البحث في العلوم الاجتماعية) / الصداقة والشباب / العمل التطوعي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: الظاهرة الاجتماعية / تحليل نص (منهج البحث في العلوم الاجتماعية) / الصداقة والشباب / العمل التطوعي / الإرشاد الاجتماعي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: تحليل نص (منهج البحث في العلوم الاجتماعية) / الصداقة والشباب / العمل التطوعي / الإرشاد الاجتماعي / الإعلام والمجتمع",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 5 دروس متتالية: الصداقة والشباب / العمل التطوعي / الإرشاد الاجتماعي / الإعلام والمجتمع / تحليل نص (نحن والإعلام)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "5 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 6 دروس متتالية: القيمة الاجتماعية / الاندماج الاجتماعي / الضبط الاجتماعي / الظاهرة الاجتماعية / تحليل نص (منهج البحث في العلوم الاجتماعية) / الصداقة والشباب",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "6 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 6 دروس متتالية: الاندماج الاجتماعي / الضبط الاجتماعي / الظاهرة الاجتماعية / تحليل نص (منهج البحث في العلوم الاجتماعية) / الصداقة والشباب / العمل التطوعي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "6 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 6 دروس متتالية: الضبط الاجتماعي / الظاهرة الاجتماعية / تحليل نص (منهج البحث في العلوم الاجتماعية) / الصداقة والشباب / العمل التطوعي / الإرشاد الاجتماعي",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "6 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 6 دروس متتالية: الظاهرة الاجتماعية / تحليل نص (منهج البحث في العلوم الاجتماعية) / الصداقة والشباب / العمل التطوعي / الإرشاد الاجتماعي / الإعلام والمجتمع",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "6 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - 6 دروس متتالية: تحليل نص (منهج البحث في العلوم الاجتماعية) / الصداقة والشباب / العمل التطوعي / الإرشاد الاجتماعي / الإعلام والمجتمع / تحليل نص (نحن والإعلام)",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "6 دروس متتالية",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            9
+          ],
+          "lessonNumbers": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - وحدتان متتاليتان: المعرفة / الأخلاق",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "وحدتان متتاليتان",
+        "type": "mixed",
+        "count": 35,
+        "source": {
+          "unitNumbers": [
+            1,
+            2
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - وحدتان متتاليتان: الأخلاق / الأخلاق والعلم",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "وحدتان متتاليتان",
+        "type": "mixed",
+        "count": 35,
+        "source": {
+          "unitNumbers": [
+            2,
+            3
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - وحدتان متتاليتان: الأخلاق والعلم / الفلسفة الحديثة",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "وحدتان متتاليتان",
+        "type": "mixed",
+        "count": 35,
+        "source": {
+          "unitNumbers": [
+            3,
+            4
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - وحدتان متتاليتان: الفلسفة الحديثة / الفلسفة المعاصرة",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "وحدتان متتاليتان",
+        "type": "mixed",
+        "count": 35,
+        "source": {
+          "unitNumbers": [
+            4,
+            5
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - وحدتان متتاليتان: الفلسفة المعاصرة / الفكر العربي المعاصر",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "وحدتان متتاليتان",
+        "type": "mixed",
+        "count": 35,
+        "source": {
+          "unitNumbers": [
+            5,
+            6
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - وحدتان متتاليتان: الفكر العربي المعاصر / المنطق",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "وحدتان متتاليتان",
+        "type": "mixed",
+        "count": 35,
+        "source": {
+          "unitNumbers": [
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - وحدتان متتاليتان: المنطق / علم النفس",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "وحدتان متتاليتان",
+        "type": "mixed",
+        "count": 35,
+        "source": {
+          "unitNumbers": [
+            7,
+            8
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - وحدتان متتاليتان: علم النفس / المفاهيم الاجتماعية والمجتمع المعاصر",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "وحدتان متتاليتان",
+        "type": "mixed",
+        "count": 35,
+        "source": {
+          "unitNumbers": [
+            8,
+            9
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  },
+  {
+    "name": "نموذج - الكتاب كاملًا",
+    "subjectId": "philosophy",
+    "subjectName": "الفلسفة",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "الكتاب كاملًا",
+        "type": "mixed",
+        "count": 40,
+        "source": {
+          "unitNumbers": [],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true
+    }
+  }
+]

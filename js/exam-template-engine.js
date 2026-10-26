@@ -1,0 +1,128 @@
+(function(){
+  const QP = window.QP;
+
+  function shuffle(arr){
+    var a = arr.slice();
+    for(var i=a.length-1;i>0;i--){
+      var j = Math.floor(Math.random()*(i+1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function matchSource(q, source){
+    if(!source) return true;
+    if(source.unitNumbers && source.unitNumbers.length){
+      if(source.unitNumbers.indexOf(q.unitNumber) === -1 && source.unitNumbers.indexOf(Number(q.unitNumber)) === -1) return false;
+    }
+    if(source.lessonNumbers && source.lessonNumbers.length){
+      if(source.lessonNumbers.indexOf(q.lessonNumber) === -1 && source.lessonNumbers.indexOf(Number(q.lessonNumber)) === -1) return false;
+    }
+    if(source.types && source.types.length){
+      if(source.types.indexOf(q.type) === -1) return false;
+    }
+    return true;
+  }
+
+  function extractFromBank(bank, source, need, used){
+    var pool = [];
+    if(!bank || !bank.units) return [];
+    bank.units.forEach(function(u){
+      if(source.unitNumbers && source.unitNumbers.length){
+        if(source.unitNumbers.indexOf(u.unitNumber) === -1 && source.unitNumbers.indexOf(Number(u.unitNumber)) === -1) return;
+      }
+      (u.lessons||[]).forEach(function(l){
+        if(source.lessonNumbers && source.lessonNumbers.length){
+          if(source.lessonNumbers.indexOf(l.lessonNumber) === -1 && source.lessonNumbers.indexOf(Number(l.lessonNumber)) === -1) return;
+        }
+        (l.questions||[]).forEach(function(q){
+          if(source.types && source.types.length && source.types.indexOf(q.type) === -1) return;
+          var key = q.id || (q.text||'');
+          if(used && used[key]) return;
+          pool.push(Object.assign({}, q));
+        });
+      });
+    });
+    var picked = shuffle(pool).slice(0, need);
+    picked.forEach(function(q){ if(used) used[q.id || (q.text||'')] = true; });
+    return picked;
+  }
+
+  window.ExamTemplateEngine = {
+    parseToTemplate: function(model){
+      // model: { name, sections: [{title, type, count, unitNumbers, lessonNumbers}] }
+      return {
+        name: model.name || "قالب عام",
+        active: true,
+        sections: (model.sections||[]).map(function(s, idx){
+          return {
+            order: idx + 1,
+            title: s.title || ("القسم " + (idx+1)),
+            type: s.type || "mcq",
+            count: Number(s.count) || 0,
+            source: {
+              unitNumbers: s.unitNumbers || [],
+              lessonNumbers: s.lessonNumbers || [],
+              types: s.types || []
+            },
+            shuffle: true
+          };
+        }),
+        rules: { avoidDuplicates: true, randomizeSections: false }
+      };
+    },
+    generate: async function(tpl, bank, opts){
+      opts = opts || {};
+      var used = {};
+      var all = [];
+      var sections = (tpl.sections||[]).slice().sort(function(a,b){ return (a.order||0)-(b.order||0); });
+      for(var i=0; i<sections.length; i++){
+        var sec = sections[i];
+        var picked = extractFromBank(bank, sec.source||{}, sec.count||0, used);
+        picked.forEach(function(q){
+          q.__section = sec.title;
+          q.__sectionOrder = sec.order;
+        });
+        all = all.concat(picked);
+      }
+      return all;
+    },
+    createExam: async function(opts){
+      opts = opts || {};
+      var questions = opts.questions || [];
+      var data = {
+        title: opts.title || "اختبار مطابق لنموذج",
+        subjectId: opts.subjectId || "",
+        subjectName: opts.subjectName || "",
+        description: opts.description || "",
+        durationMin: opts.durationMin || 0,
+        questions: questions.map(function(q){
+          return {
+            questionId: q.id || null,
+            type: q.type,
+            text: q.text,
+            options: q.options || [],
+            answer: q.answer,
+            points: q.points || 1,
+            explanation: q.explanation || "",
+            image: q.image || "",
+            passage: q.passage || null,
+            pairs: q.pairs || [],
+            items: q.items || [],
+            categories: q.categories || [],
+            columns: q.columns || [],
+            rows: q.rows || [],
+            blanks: q.blanks || [],
+            labels: q.labels || []
+          };
+        }),
+        targetGroups: opts.targetGroups || [],
+        status: opts.status || "published"
+      };
+      if(typeof QP.store.createExam === 'function'){
+        return await QP.store.createExam(data);
+      }
+      throw new Error("createExam غير متوفر");
+    }
+  };
+})();

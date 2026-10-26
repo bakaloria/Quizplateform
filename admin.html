@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+<meta name="theme-color" content="#8b5cf6" />
+<meta name="robots" content="noindex, nofollow" />
+<title>لوحة الإدارة</title>
+
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" type="image/png" sizes="32x32" href="icons/icon-96.png" />
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="لوحة الإدارة" />
+
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-app="admin">
+<div id="app-shell">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#/dashboard">
+        <span class="brand-logo" style="background:linear-gradient(135deg,#4f7cff,#8b5cf6)">🛡️</span>
+        <span class="brand-text">
+          <strong>لوحة الإدارة</strong>
+          <small>إدارة المنصة</small>
+        </span>
+      </a>
+      <div class="topbar-actions">
+        <button class="icon-btn" id="themeToggle" title="الوضع">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="view" class="view"></main>
+
+  <footer class="site-footer">
+    <span>لوحة الإدارة</span>
+    <span class="dot">•</span>
+    <span>v4.0</span>
+  </footer>
+</div>
+
+<div id="modal-root"></div>
+<div id="toast-root" class="toast-root"></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="js/firebase.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/crypto.js"></script>
+<script src="js/store.js"></script>
+<script src="js/groups.js"></script>
+<script src="js/importer.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/certificate.js"></script>
+<script src="js/seed.js"></script>
+<script src="js/teacher.js"></script>
+<script src="js/exam-template-engine.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/pwa.js"></script>
+<script src="js/app-admin.js"></script>
+</body>
+</html>

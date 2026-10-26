@@ -1,0 +1,32 @@
+{
+  "id": "./teacher.html",
+  "name": "لوحة المعلم — تصحيح الإجابات",
+  "short_name": "لوحة المعلم",
+  "description": "تطبيق المعلم لتصحيح إجابات الطلاب وإدارة المجموعات.",
+  "start_url": "./teacher.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#0f172a",
+  "theme_color": "#10b981",
+  "dir": "rtl",
+  "lang": "ar",
+  "categories": ["education", "productivity"],
+  "prefer_related_applications": false,
+  "icons": [
+    { "src": "icons/icon-teacher-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-teacher-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-teacher-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon-teacher-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "بانتظار التصحيح",
+      "short_name": "التصحيح",
+      "description": "افتح قائمة الإجابات بانتظار التصحيح",
+      "url": "./teacher.html#/pending",
+      "icons": [{ "src": "icons/icon-teacher-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
