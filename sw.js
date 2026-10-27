@@ -2,7 +2,7 @@
  * Service Worker v4.0 - PWA كامل مع offline + تحديث تلقائي
  * ============================================================ */
 
-  const CACHE_VERSION = "qp-v5.19.8";
+  const CACHE_VERSION = "qp-v5.19.9";
 const CACHE_STATIC = CACHE_VERSION + "-static";
 const CACHE_RUNTIME = CACHE_VERSION + "-runtime";
 
@@ -43,7 +43,6 @@ const STATIC_ASSETS = [
   "./js/engbuilder.js",
   "./js/app-student.js",
   "./js/app-teacher.js",
-  "./js/app-admin.js",
   "./js/models-admin.js",
   "./js/pwa.js"
 ];

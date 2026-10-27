@@ -429,24 +429,50 @@
       const snap = await col.groups.get();
       return QP.utils.sortBy(snapDocs(snap), "createdAt", "desc");
     },
+    listPublicGroups: async function () {
+      const snap = await col.groups.where("private", "==", false).get();
+      return QP.utils.sortBy(snapDocs(snap), "createdAt", "desc");
+    },
     getGroup: async function (id) {
       const d = await col.groups.doc(id).get();
       return d.exists ? docData(d) : null;
     },
+    getGroupBySecretCode: async function (code) {
+      code = String(code || "").trim().toUpperCase();
+      if (!code) return null;
+      const snap = await col.groups.get();
+      const groups = snapDocs(snap);
+      return groups.find(function (g) { return g.private === true && String(g.secretCode || "").toUpperCase() === code; }) || null;
+    },
     addGroup: async function (data) {
       // data: { name, description, teacherAssignments: [{teacherId, subjectId}], active }
+      const secret = data.private === true;
+      const secretCode = secret ? String(data.secretCode || QP.utils.code(8)).trim().toUpperCase() : "";
+      if (secret) {
+        const existing = await col.groups.where("secretCode", "==", secretCode).get();
+        if (!existing.empty) throw new Error("رمز المجموعة مستخدم، اختر رمزًا آخر");
+      }
       const ref = await col.groups.add({
         name: data.name || "",
         description: data.description || "",
         teacherAssignments: data.teacherAssignments || [],
         studentCount: 0,
         active: data.active !== false,
+        private: secret,
+        secretCode: secretCode,
         createdAt: FV.serverTimestamp()
       });
       return ref.id;
     },
     updateGroup: async function (id, data) {
-      await col.groups.doc(id).update(data);
+      const patch = Object.assign({}, data);
+      if (patch.private === true && patch.secretCode) {
+        patch.secretCode = String(patch.secretCode).trim().toUpperCase();
+        const existing = await col.groups.where("secretCode", "==", patch.secretCode).get();
+        if (existing.docs.some(function (d) { return d.id !== id; })) throw new Error("رمز المجموعة مستخدم، اختر رمزًا آخر");
+      }
+      if (patch.private === false) patch.secretCode = "";
+      await col.groups.doc(id).update(patch);
     },
     deleteGroup: async function (id) {
       // احذف الانضمامات

@@ -544,6 +544,12 @@
       const teachers = arr[1];
       const subjects = arr[2];
 
+      // ترحيل المجموعات القديمة التي لم يكن لها حقل private حتى لا تختفي بعد تأمين استعلام الطالب.
+      await Promise.all(groups.filter(function (g) { return g.private === undefined; }).map(function (g) {
+        return S.updateGroup(g.id, { private: false, secretCode: "" }).catch(function () {});
+      }));
+      groups.forEach(function (g) { if (g.private === undefined) { g.private = false; g.secretCode = ""; } });
+
       state.groups = groups;
       state.teachers = teachers;
       state.subjects = subjects;
@@ -627,6 +633,10 @@
           html: '<span class="badge badge-primary">' + (g.studentCount || 0) + "</span>"
         },
         {
+          lbl: "نوع المجموعة",
+          html: g.private ? '<span class="badge badge-warning">🔐 سرية — الرمز: <code>' + U.esc(g.secretCode || "-") + '</code></span>' : '<span class="badge badge-muted">عامة</span>'
+        },
+        {
           lbl: "الحالة",
           html: g.active !== false
             ? '<span class="badge badge-success">نشطة</span>'
@@ -659,6 +669,8 @@
         '<input id="gName" value="' + U.esc(g ? g.name : "") + '" placeholder="\u0645\u062b\u0627\u0644: \u0627\u0644\u0635\u0641 \u0627\u0644\u0633\u0627\u0628\u0639 - \u0623"></div>' +
         '<div class="field"><label>\u0627\u0644\u0648\u0635\u0641</label>' +
         '<textarea id="gDesc" style="min-height:70px">' + U.esc(g ? g.description : "") + "</textarea></div>" +
+        '<label class="check"><input type="checkbox" id="gPrivate"' + (g && g.private ? " checked" : "") + '> 🔐 \u0645\u062c\u0645\u0648\u0639\u0629 \u0633\u0631\u064a\u0629 (\u0644\u0627 \u062a\u0638\u0647\u0631 \u0644\u0644\u0637\u0644\u0627\u0628 \u0625\u0644\u0627 \u0628\u0627\u0644\u0631\u0645\u0632)</label>' +
+        '<div class="field"><label>\u0631\u0645\u0632 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629 \u0627\u0644\u0633\u0631\u064a\u0629</label><div class="flex" style="gap:8px"><input id="gSecretCode" value="' + U.esc(g && g.secretCode || "") + '" placeholder="\u064a\u0648\u0644\u062f \u062a\u0644\u0642\u0627\u0626\u064a\u064b\u0627" style="text-transform:uppercase;letter-spacing:3px"><button type="button" class="btn btn-sm" id="gGenerateCode">\u062a\u0648\u0644\u064a\u062f</button></div></div>' +
         (isEdit
           ? '<label class="check"><input type="checkbox" id="gActive"' +
             (g.active !== false ? " checked" : "") +
@@ -668,13 +680,18 @@
         '<button class="btn btn-primary" data-save>\u062d\u0641\u0638</button>' +
         '<button class="btn btn-ghost" data-close>\u0625\u0644\u063a\u0627\u0621</button>',
       onMount: function (node, close) {
+        node.querySelector("#gGenerateCode").addEventListener("click", function () {
+          node.querySelector("#gSecretCode").value = (U.code ? U.code(8) : Math.random().toString(36).slice(2, 10)).toUpperCase();
+        });
         node.querySelector("[data-save]").addEventListener("click", async function () {
           const name = node.querySelector("#gName").value.trim();
           if (!name) return U.toast("\u0623\u062f\u062e\u0644 \u0627\u0633\u0645 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629", "warn");
 
           const data = {
             name: name,
-            description: node.querySelector("#gDesc").value.trim()
+            description: node.querySelector("#gDesc").value.trim(),
+            private: node.querySelector("#gPrivate").checked,
+            secretCode: node.querySelector("#gSecretCode").value.trim().toUpperCase()
           };
 
           if (isEdit) {
@@ -4979,6 +4996,37 @@ function studentModal(s) {
 
 
   console.log("[admin.js v6] QP.admin loaded \u2705");
+
+  function parseHashAdmin() {
+    const h = location.hash.replace(/^#\/?/, "");
+    return h.split("/").filter(Boolean);
+  }
+  function routeAdmin() {
+    if (!QP.admin) return;
+    const parts = parseHashAdmin();
+    QP.admin.render(parts[0] || "dashboard");
+    window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+  }
+  window.shell = shell;
+  window.S = S;
+  window.U = U;
+  window.state = state;
+  window.pageHead = pageHead;
+  window.secHead = secHead;
+  window.errorCard = errorCard;
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof applyTheme === "function") applyTheme(localStorage.getItem("qp_theme") || "dark");
+    const themeBtn = document.getElementById("themeToggle");
+    if (themeBtn) themeBtn.addEventListener("click", function () {
+      const cur = document.documentElement.getAttribute("data-theme");
+      const next = cur === "light" ? "dark" : "light";
+      if (typeof applyTheme === "function") applyTheme(next);
+      else { document.documentElement.setAttribute("data-theme", next); localStorage.setItem("qp_theme", next); }
+    });
+    window.addEventListener("hashchange", routeAdmin);
+    if (!location.hash) location.hash = "#/dashboard";
+    routeAdmin();
+  });
 })();
 
 

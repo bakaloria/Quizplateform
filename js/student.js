@@ -363,12 +363,12 @@
   async function renderGroupsList() {
     view('<div class="container">' + U.loaderHTML() + '</div>');
     try {
-      const groups = await S.listGroups();
+      const groups = S.listPublicGroups ? await S.listPublicGroups() : (await S.listGroups()).filter(function (g) { return g.private !== true; });
       const subjects = await S.listSubjects();
 
       const activeGroups = groups.filter(function (g) { return g.active !== false; });
 
-      const content = activeGroups.length
+      const publicContent = activeGroups.length
         ? '<div class="groups-grid">' + activeGroups.map(function (g) {
           const assignments = g.teacherAssignments || [];
           const teachersTxt = assignments.length
@@ -396,7 +396,11 @@
         }).join("") + '</div>'
         : '<div class="empty-state"><div class="emoji">\uD83D\uDC65</div>' +
         '<h3>\u0644\u0627 \u062a\u0648\u062c\u062f \u0645\u062c\u0645\u0648\u0639\u0627\u062a \u0645\u062a\u0627\u062d\u0629</h3>' +
-        '<p>\u062a\u0648\u0627\u0635\u0644 \u0645\u0639 \u0627\u0644\u0645\u062f\u064a\u0631</p></div>';
+        '<p>\u062a\u0648\u0627\u0635\u0644 \u0645\u0639 \u0627\u0644\u0645\u062f\u064a\u0631 \u0623\u0648 \u0623\u062f\u062e\u0644 \u0631\u0645\u0632 \u0645\u062c\u0645\u0648\u0639\u0629 \u0633\u0631\u064a\u0629</p></div>';
+      const content = publicContent +
+        '<div class="card mt"><div class="card-head"><h3>\uD83D\uDD10 \u0627\u0644\u0627\u0646\u0636\u0645\u0627\u0645 \u0625\u0644\u0649 \u0645\u062c\u0645\u0648\u0639\u0629 \u0633\u0631\u064a\u0629</h3></div>' +
+        '<p class="muted">\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629 \u0627\u0644\u0633\u0631\u064a\u0629 \u0644\u0627 \u062a\u0638\u0647\u0631 \u0641\u064a \u0627\u0644\u0642\u0627\u0626\u0645\u0629. \u0623\u062f\u062e\u0644 \u0627\u0644\u0631\u0645\u0632 \u0627\u0644\u0630\u064a \u0623\u0639\u0637\u0627\u0643 \u0625\u064a\u0627\u0647 \u0627\u0644\u0645\u062f\u064a\u0631.</p>' +
+        '<div class="flex flex-wrap" style="gap:8px"><input id="privateGroupCode" placeholder="\u0631\u0645\u0632 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629" style="text-transform:uppercase;letter-spacing:3px;text-align:center;max-width:240px"><button class="btn btn-primary" id="joinPrivateGroup">\u0627\u0646\u0636\u0645\u0627\u0645 \u0628\u0627\u0644\u0631\u0645\u0632</button></div></div>';
 
       view(
         '<div class="container container-narrow">' +
@@ -415,10 +419,23 @@
       document.querySelectorAll("[data-join]").forEach(function (b) {
         b.addEventListener("click", function () { joinGroup(b.dataset.join); });
       });
+      document.getElementById("joinPrivateGroup").addEventListener("click", joinPrivateGroup);
+      document.getElementById("privateGroupCode").addEventListener("keydown", function (e) { if (e.key === "Enter") joinPrivateGroup(); });
     } catch (e) {
       view('<div class="container container-narrow"><div class="card"><div class="empty-state">' +
         '<div class="emoji">\u26D4</div><h3>\u062e\u0637\u0623</h3><p>' + U.esc(e.message) + '</p></div></div></div>');
     }
+  }
+
+  async function joinPrivateGroup() {
+    const input = document.getElementById("privateGroupCode");
+    const code = input ? input.value.trim().toUpperCase() : "";
+    if (!code) return U.toast("\u0623\u062f\u062e\u0644 \u0631\u0645\u0632 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629", "warn");
+    try {
+      const group = await S.getGroupBySecretCode(code);
+      if (!group || group.active === false) return U.toast("\u0631\u0645\u0632 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629 \u063a\u064a\u0631 \u0635\u062d\u064a\u062d \u0623\u0648 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629 \u063a\u064a\u0631 \u0645\u062a\u0627\u062d\u0629", "error");
+      await joinGroup(group.id);
+    } catch (e) { U.toast(e.message, "error"); }
   }
 
   async function joinGroup(groupId) {
