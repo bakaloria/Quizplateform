@@ -5330,7 +5330,7 @@ function studentModal(s) {
     questions = questions.map(function (q, i) {
       const source = findBankQuestion(bank, q.text);
       const out = Object.assign({}, q);
-      out.points = q.points || 1;
+      out.points = (q.points === undefined || q.points === null || q.points === "") ? 1 : q.points;
       out._templateIndex = i;
       if (source) {
         out.unitNumber = source.unit.unit_number;
@@ -5374,6 +5374,52 @@ function studentModal(s) {
       }
     });
   }
+  function validateTemplateQuestions(questions) {
+    const errors = [];
+    const seen = {};
+    if (!Array.isArray(questions) || !questions.length) return ["القالب لا يحتوي على أي سؤال"];
+    questions.forEach(function (q, i) {
+      const no = i + 1;
+      const type = q && q.type;
+      const text = String(q && q.text || "").trim();
+      const points = Number(q && q.points);
+      const opts = Array.isArray(q && q.options) ? q.options.map(function (x) { return String(x || "").trim(); }).filter(Boolean) : [];
+      if (!text) errors.push("السؤال " + no + ": نص السؤال فارغ");
+      if (!isFinite(points) || points <= 0) errors.push("السؤال " + no + ": الدرجة يجب أن تكون أكبر من صفر");
+      const key = q && (q.id || text);
+      if (key && seen[key]) errors.push("السؤال " + no + ": مكرر مع السؤال " + seen[key]);
+      if (key) seen[key] = no;
+      if (["mcq", "image_mcq"].indexOf(type) >= 0) {
+        if (opts.length < 2) errors.push("السؤال " + no + ": يحتاج خيارين على الأقل");
+        if (new Set(opts).size !== opts.length) errors.push("السؤال " + no + ": يحتوي خيارات مكررة");
+        if (!q.answer || opts.indexOf(String(q.answer).trim()) < 0) errors.push("السؤال " + no + ": الإجابة الصحيحة غير موجودة ضمن الخيارات");
+      } else if (type === "multi") {
+        if (opts.length < 2) errors.push("السؤال " + no + ": يحتاج خيارين على الأقل");
+        const answers = Array.isArray(q.answer) ? q.answer : [];
+        if (!answers.length || answers.some(function (a) { return opts.indexOf(String(a).trim()) < 0; })) errors.push("السؤال " + no + ": إجابات الاختيار المتعدد غير صحيحة");
+      } else if (type === "true_false") {
+        if (["صح", "خطأ", "صحيح", "خاطئ"].indexOf(String(q.answer || "").trim()) < 0) errors.push("السؤال " + no + ": يجب تحديد إجابة صح أو خطأ");
+      } else if (["fill_blank", "short_answer"].indexOf(type) >= 0 && !String(q.answer || "").trim()) {
+        errors.push("السؤال " + no + ": الإجابة النموذجية مطلوبة");
+      }
+      if (type === "matching" && (!Array.isArray(q.pairs) || q.pairs.length < 2)) errors.push("السؤال " + no + ": أزواج المطابقة غير مكتملة");
+      if (type === "ordering" && (!Array.isArray(q.items) || q.items.length < 2)) errors.push("السؤال " + no + ": عناصر الترتيب غير مكتملة");
+      if (type === "classification" && (!Array.isArray(q.categories) || !q.categories.length || !Array.isArray(q.items) || !q.items.length)) errors.push("السؤال " + no + ": التصنيف يحتاج فئات وعناصر");
+      if (type === "comparison" && (!Array.isArray(q.columns) || q.columns.length < 2 || !Array.isArray(q.rows) || !q.rows.length)) errors.push("السؤال " + no + ": جدول المقارنة غير مكتمل");
+      if (type === "diagram_label" && (!q.image || !Array.isArray(q.labels) || !q.labels.length)) errors.push("السؤال " + no + ": الصورة والتسميات مطلوبتان");
+      const passage = q && q.passage;
+      if (passage && !String(passage.text || "").trim()) errors.push("السؤال " + no + ": النص المرافق موجود لكنه فارغ");
+      if (/(النص|النصّ|المقطع|القطعة)/.test(text) && !(passage && String(passage.text || "").trim())) errors.push("السؤال " + no + ": يشير إلى نص مرافق غير موجود");
+    });
+    const total = questions.reduce(function (sum, q) { return sum + (Number(q.points) || 0); }, 0);
+    if (total <= 0) errors.push("مجموع درجات القالب يجب أن يكون أكبر من صفر");
+    return errors;
+  }
+  function showTemplateValidationErrors(errors) {
+    const html = '<div class="info-banner warning"><b>لم يتم النشر</b><p>صحح الأخطاء التالية ثم أعد المحاولة:</p></div><ol style="line-height:1.9;margin-top:12px">' + errors.map(function (e) { return '<li>' + U.esc(e) + '</li>'; }).join('') + '</ol>';
+    U.modal({ title: '⚠️ مراجعة القالب قبل النشر', size: 'lg', body: html, footer: '<button class="btn btn-primary" data-close>فهمت</button>' });
+  }
+
   async function publishTemplateAsExam(tpl) {
     if (tpl.active === false) return U.toast('فعّل القالب أولًا قبل تحويله إلى اختبار', 'warn');
     const code = (window.prompt('أدخل رمز الاختبار للطلاب (4-12 أحرف أو أرقام إنجليزية):', '') || '').trim().toUpperCase();
@@ -5381,7 +5427,13 @@ function studentModal(s) {
     try {
       const bank = await templateBank();
       const questions = await materializeTemplateQuestions(tpl, bank);
-      if (!questions.length) throw new Error('لا توجد أسئلة في القالب');
+      const validationErrors = validateTemplateQuestions(questions);
+      if (validationErrors.length) {
+        showTemplateValidationErrors(validationErrors);
+        return;
+      }
+      if (!/^[A-Z0-9]{4,12}$/.test(code)) throw new Error('الكود يجب أن يكون من 4-12 حرفًا أو رقمًا إنجليزيًا');
+      if (S.codeExists && await S.codeExists(code)) throw new Error('هذا الكود مستخدم بالفعل، اختر كودًا آخر');
       const subjects = await S.listSubjects();
       const subject = (subjects || []).find(function (s) { return s.id === tpl.subjectId; });
       const result = await S.createExam({ title: tpl.name, subjectId: tpl.subjectId, subjectName: tpl.subjectName || (subject && subject.name) || 'الفلسفة', description: 'اختبار منشور من قالب: ' + tpl.name, durationMin: 180, questions: questions, code: code, status: 'published', targetGroups: ['ALL'], autoGenerated: true, modelFamily: 'exam-template-published', templateKey: tpl.templateKey || tpl.id, templateName: tpl.name, isApproved: true });
