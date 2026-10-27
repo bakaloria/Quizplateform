@@ -1285,6 +1285,17 @@
       var subId = await S.addSubmission(submission);
       submission.id = subId;
       clearExamDraft();
+      try {
+        const group = await S.getGroup(st.group.id);
+        const assignments = (group && group.teacherAssignments) || [];
+        const seen = {};
+        for (const a of assignments) {
+          if (!a.teacherId || seen[a.teacherId]) continue;
+          seen[a.teacherId] = true;
+          await S.addNotification({ recipientType: "teacher", recipientId: a.teacherId, teacherId: a.teacherId, type: "submission", title: "تسليم جديد", body: "سلّم الطالب " + st.student.name + " اختبار " + st.exam.title + " ويحتاج إلى المراجعة.", studentId: st.student.id, groupId: st.group.id, examId: st.exam.id });
+        }
+        await S.addNotification({ recipientType: "admin", recipientId: "admin", type: "submission", title: "تسليم اختبار جديد", body: "سلّم الطالب " + st.student.name + " اختبار " + st.exam.title + ".", studentId: st.student.id, groupId: st.group.id, examId: st.exam.id });
+      } catch (notifyError) { console.warn("[notify] submission", notifyError); }
     } catch (e) {
       U.toast("\u062a\u0639\u0630\u0631 \u0627\u0644\u062d\u0641\u0638: " + e.message, "error", 5000);
     }

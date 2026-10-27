@@ -422,6 +422,8 @@
       const recent = arr[6];
       const groups = arr[7];
       const payPending = arr[8] || 0;
+      const adminNotifs = S.listNotificationsForUser ? await S.listNotificationsForUser("admin", "admin", 30) : [];
+      const adminUnread = S.countUnreadNotificationsForUser ? await S.countUnreadNotificationsForUser("admin", "admin") : 0;
 
       state.subjects = subjects;
       state.exams = exams;
@@ -453,7 +455,7 @@
       shell("dashboard",
         pageHead("📊", "لوحة التحكم",
           "نظرة شاملة على المنصة · " + new Date().toLocaleDateString("ar"),
-          '<button class="btn btn-primary" id="quickExam">＋ اختبار جديد</button>') +
+          '<button class="btn btn-sm" id="adminNotifBtn">🔔 ' + (adminUnread ? '<span class="badge badge-danger">' + adminUnread + '</span>' : '') + '</button> <button class="btn btn-primary" id="quickExam">＋ اختبار جديد</button>') +
 
         kpiGrid([
           kpi("c-primary", "👥", groups.length, "المجموعات"),
@@ -523,6 +525,12 @@
       const qe = document.getElementById("quickExam");
       if (qe) qe.addEventListener("click", function () {
         location.hash = "#/exams";
+      });
+      const anb = document.getElementById("adminNotifBtn");
+      if (anb) anb.addEventListener("click", function () {
+        const list = adminNotifs.length ? adminNotifs.map(function (n) { return '<div class="card mb-sm" style="padding:10px;border-left:3px solid var(--primary);' + (n.read ? '' : 'background:var(--primary-soft)') + '"><b>' + U.esc(n.title || 'إشعار') + '</b><div class="tiny muted mt-sm">' + U.esc(n.body || '') + '</div></div>'; }).join('') : '<div class="empty-state"><div class="emoji">🔔</div><h3>لا توجد إشعارات</h3></div>';
+        U.modal({ title: '🔔 إشعارات الإدارة', body: '<div style="max-height:60vh;overflow:auto">' + list + '</div>', footer: '<button class="btn btn-primary btn-sm" id="adminMarkAll">تعليم الكل كمقروء</button>' });
+        setTimeout(function () { const b = document.getElementById("adminMarkAll"); if (b) b.onclick = async function () { await S.markAllNotificationsReadForUser("admin", "admin"); U.closeModal(); renderDashboard(); }; }, 50);
       });
     } catch (e) {
       shell("dashboard", errorCard(e));
@@ -3958,10 +3966,9 @@ function studentModal(s) {
                  for (var ti = 0; ti < groups.length; ti++) {
                    var g = groups[ti];
                    if (target.indexOf("ALL") >= 0 || target.indexOf(g.id) >= 0) {
-                     var sts = g.studentsList || [];
+                     var sts = S.listEnrollmentsByGroup ? await S.listEnrollmentsByGroup(g.id) : [];
                      for (var si = 0; si < sts.length; si++) {
-                       var sid = sts[si];
-                       if (sid && sid.id) sid = sid.id;
+                       var sid = sts[si] && sts[si].studentId;
                        if (!sid) continue;
                        await S.addNotification({
                          type: "exam",

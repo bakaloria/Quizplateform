@@ -245,6 +245,8 @@
 
       /* أحدث التسليمات */
       const recent = allSubs.slice().sort(function (a, b) { return msOf(b.createdAt) - msOf(a.createdAt); }).slice(0, 6);
+      const notifs = S.listNotificationsForUser ? await S.listNotificationsForUser("teacher", teacher.id, 30) : [];
+      const unreadNotifs = S.countUnreadNotificationsForUser ? await S.countUnreadNotificationsForUser("teacher", teacher.id) : 0;
 
       const donePct = allSubs.length ? Math.round((graded.length / allSubs.length) * 100) : 0;
 
@@ -259,6 +261,7 @@
         ' · ' + groups.length + ' مجموعة · ' + subjRows.length + ' مادة</div></div>' +
         '</div>' +
         '<div class="flex" style="gap:8px;flex-wrap:wrap">' +
+        '<button class="btn btn-sm" id="teacherNotifBtn">🔔 ' + (unreadNotifs ? '<span class="badge badge-danger">' + unreadNotifs + '</span>' : '') + '</button>' +
         (pending.length
           ? '<a class="btn btn-sm dash-cta" href="#/pending">⏳ لديك ' + pending.length + ' بانتظار التصحيح</a>'
           : '<span class="badge dash-ok">✅ لا مهام عالقة</span>') +
@@ -330,6 +333,12 @@
           : '<p class="muted tiny">لا توجد تسليمات بعد.</p>') +
         '</div>'
       );
+      const tnb = document.getElementById("teacherNotifBtn");
+      if (tnb) tnb.addEventListener("click", function () {
+        const list = notifs.length ? notifs.map(function (n) { return '<div class="card mb-sm" style="padding:10px;border-left:3px solid var(--primary);' + (n.read ? '' : 'background:var(--primary-soft)') + '"><b>' + U.esc(n.title || 'إشعار') + '</b><div class="tiny muted mt-sm">' + U.esc(n.body || '') + '</div></div>'; }).join('') : '<div class="empty-state"><div class="emoji">🔔</div><h3>لا توجد إشعارات</h3></div>';
+        U.modal({ title: '🔔 إشعارات المعلم', body: '<div style="max-height:60vh;overflow:auto">' + list + '</div>', footer: '<button class="btn btn-primary btn-sm" id="teacherMarkAll">تعليم الكل كمقروء</button>' });
+        setTimeout(function () { const b = document.getElementById("teacherMarkAll"); if (b) b.onclick = async function () { await S.markAllNotificationsReadForUser("teacher", teacher.id); U.closeModal(); renderDashboard(); }; }, 50);
+      });
     } catch (e) {
       shell("dashboard", '<div class="card"><div class="empty-state"><div class="emoji">\u26D4</div><h3>\u062e\u0637\u0623</h3><p>' + U.esc(e.message) + '</p></div></div>');
     }
@@ -769,6 +778,9 @@
             gradedByTeacherId: graderId,
             gradedAt: new Date().toISOString()
           });
+          if (S.addNotification) {
+            await S.addNotification({ recipientType: "student", recipientId: sub.studentId, studentId: sub.studentId, type: "result", title: "تم اعتماد نتيجتك", body: "اعتمد المعلم " + graderName + " نتيجة اختبار " + (sub.examTitle || "الاختبار") + " بنسبة " + percent + "٪.", groupId: sub.groupId, examId: sub.examId });
+          }
 
           U.logAction("grade_submission", sub.id + " by " + graderName);
           U.toast("\u062a\u0645 \u0627\u0639\u062a\u0645\u0627\u062f \u0627\u0644\u0646\u062a\u064a\u062c\u0629 \u2014 \u0633\u064a\u0631\u0627\u0647\u0627 \u0627\u0644\u0637\u0627\u0644\u0628", "success", 4000);

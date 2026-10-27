@@ -610,6 +610,11 @@
       if (snap.empty) return null;
       return docData(snap.docs[0]);
     },
+    listEnrollmentsByGroup: async function (groupId) {
+      if (!groupId) return [];
+      const snap = await col.enrollments.where("groupId", "==", groupId).get();
+      return snapDocs(snap);
+    },
     removeEnrollment: async function (studentId) {
       const snap = await col.enrollments.where("studentId", "==", studentId).get();
       const groupIds = {};
@@ -815,6 +820,9 @@
         title: data.title || "",
         body: data.body || "",
         studentId: data.studentId || "",
+        teacherId: data.teacherId || "",
+        recipientType: data.recipientType || (data.studentId ? "student" : data.teacherId ? "teacher" : "admin"),
+        recipientId: data.recipientId || data.studentId || data.teacherId || "admin",
         groupId: data.groupId || "",
         examId: data.examId || "",
         read: false,
@@ -826,6 +834,14 @@
       if (!studentId) return [];
       let snap = await col.notifications.where("studentId", "==", studentId).get();
       let list = snapDocs(snap);
+      list.sort(function (a, b) { return tsOf(b.createdAt) - tsOf(a.createdAt); });
+      if (limit) list = list.slice(0, limit);
+      return list;
+    },
+    listNotificationsForUser: async function (recipientType, recipientId, limit) {
+      if (!recipientType || !recipientId) return [];
+      const snap = await col.notifications.where("recipientType", "==", recipientType).get();
+      let list = snapDocs(snap).filter(function (n) { return n.recipientId === recipientId; });
       list.sort(function (a, b) { return tsOf(b.createdAt) - tsOf(a.createdAt); });
       if (limit) list = list.slice(0, limit);
       return list;
@@ -843,6 +859,11 @@
       const snap = await col.notifications.where("studentId", "==", studentId).where("read", "==", false).get();
       return snap.size;
     },
+    countUnreadNotificationsForUser: async function (recipientType, recipientId) {
+      if (!recipientType || !recipientId) return 0;
+      const snap = await col.notifications.where("recipientType", "==", recipientType).where("read", "==", false).get();
+      return snapDocs(snap).filter(function (n) { return n.recipientId === recipientId; }).length;
+    },
     markNotificationRead: async function (id) {
       if (!id) return;
       await col.notifications.doc(id).update({ read: true });
@@ -855,6 +876,13 @@
         batch.update(col.notifications.doc(d.id), { read: true });
       });
       if (snap.size > 0) await batch.commit();
+    },
+    markAllNotificationsReadForUser: async function (recipientType, recipientId) {
+      if (!recipientType || !recipientId) return;
+      const snap = await col.notifications.where("recipientType", "==", recipientType).where("read", "==", false).get();
+      const batch = db.batch();
+      snap.docs.filter(function (d) { return d.data().recipientId === recipientId; }).forEach(function (d) { batch.update(col.notifications.doc(d.id), { read: true }); });
+      if (snap.docs.some(function (d) { return d.data().recipientId === recipientId; })) await batch.commit();
     },
     deleteNotification: async function (id) {
       if (!id) return;
