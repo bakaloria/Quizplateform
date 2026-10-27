@@ -21,6 +21,29 @@
   };
 
   function view(html) { document.getElementById("view").innerHTML = html; }
+  function draftKey() {
+    return st.student && st.exam ? "qp_exam_draft_" + st.student.id + "_" + st.exam.id : "";
+  }
+  function saveExamDraft() {
+    const key = draftKey();
+    if (!key || st.submitted || !st.questions.length) return;
+    try { localStorage.setItem(key, JSON.stringify({ answers: st.answers, flags: st.flags, current: st.current, startMs: st.startMs, remaining: st.remaining, savedAt: Date.now() })); } catch (e) {}
+  }
+  function restoreExamDraft() {
+    const key = draftKey();
+    if (!key) return false;
+    try {
+      const d = JSON.parse(localStorage.getItem(key) || "null");
+      if (!d || !Array.isArray(d.answers) || d.answers.length !== st.questions.length) return false;
+      st.answers = d.answers;
+      st.flags = Array.isArray(d.flags) ? d.flags : [];
+      st.current = Math.max(0, Math.min(Number(d.current) || 0, st.questions.length - 1));
+      st.startMs = Number(d.startMs) || Date.now();
+      if (st.exam.durationMin) st.remaining = Math.max(0, Number(d.remaining) || st.exam.durationMin * 60);
+      return true;
+    } catch (e) { return false; }
+  }
+  function clearExamDraft() { const key = draftKey(); if (key) { try { localStorage.removeItem(key); } catch (e) {} } }
 
   /* ============================================================
    * AUTH SCREEN - تسجيل / دخول
@@ -400,7 +423,7 @@
       const content = publicContent +
         '<div class="card mt"><div class="card-head"><h3>\uD83D\uDD10 \u0627\u0644\u0627\u0646\u0636\u0645\u0627\u0645 \u0625\u0644\u0649 \u0645\u062c\u0645\u0648\u0639\u0629 \u0633\u0631\u064a\u0629</h3></div>' +
         '<p class="muted">\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629 \u0627\u0644\u0633\u0631\u064a\u0629 \u0644\u0627 \u062a\u0638\u0647\u0631 \u0641\u064a \u0627\u0644\u0642\u0627\u0626\u0645\u0629. \u0623\u062f\u062e\u0644 \u0627\u0644\u0631\u0645\u0632 \u0627\u0644\u0630\u064a \u0623\u0639\u0637\u0627\u0643 \u0625\u064a\u0627\u0647 \u0627\u0644\u0645\u062f\u064a\u0631.</p>' +
-        '<div class="flex flex-wrap" style="gap:8px"><input id="privateGroupCode" placeholder="\u0631\u0645\u0632 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629" style="text-transform:uppercase;letter-spacing:3px;text-align:center;max-width:240px"><button class="btn btn-primary" id="joinPrivateGroup">\u0627\u0646\u0636\u0645\u0627\u0645 \u0628\u0627\u0644\u0631\u0645\u0632</button></div></div>';
+        '<div class="flex flex-wrap" style="gap:8px"><input id="privateGroupCode" placeholder="\u0631\u0645\u0632 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629" autocomplete="off" style="text-transform:uppercase;letter-spacing:3px;text-align:center;max-width:280px"><span id="hiddenGroupStatus" class="tiny muted" style="align-self:center"></span></div></div>';
 
       view(
         '<div class="container container-narrow">' +
@@ -419,8 +442,17 @@
       document.querySelectorAll("[data-join]").forEach(function (b) {
         b.addEventListener("click", function () { joinGroup(b.dataset.join); });
       });
-      document.getElementById("joinPrivateGroup").addEventListener("click", joinPrivateGroup);
-      document.getElementById("privateGroupCode").addEventListener("keydown", function (e) { if (e.key === "Enter") joinPrivateGroup(); });
+      const hiddenCode = document.getElementById("privateGroupCode");
+      let hiddenTimer = null;
+      let hiddenLastAttempt = "";
+      hiddenCode.addEventListener("input", function () {
+        hiddenCode.value = hiddenCode.value.toUpperCase().replace(/[^A-Z0-9_-]/g, "");
+        clearTimeout(hiddenTimer);
+        const value = hiddenCode.value.trim();
+        if (value.length < 4 || value === hiddenLastAttempt) return;
+        hiddenTimer = setTimeout(function () { hiddenLastAttempt = value; joinPrivateGroup(); }, 500);
+      });
+      hiddenCode.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); joinPrivateGroup(); } });
     } catch (e) {
       view('<div class="container container-narrow"><div class="card"><div class="empty-state">' +
         '<div class="emoji">\u26D4</div><h3>\u062e\u0637\u0623</h3><p>' + U.esc(e.message) + '</p></div></div></div>');
@@ -429,17 +461,20 @@
 
   async function joinPrivateGroup() {
     const input = document.getElementById("privateGroupCode");
+    const status = document.getElementById("hiddenGroupStatus");
     const code = input ? input.value.trim().toUpperCase() : "";
     if (!code) return U.toast("\u0623\u062f\u062e\u0644 \u0631\u0645\u0632 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629", "warn");
+    if (status) status.textContent = "جاري التحقق...";
     try {
       const group = await S.getGroupBySecretCode(code);
-      if (!group || group.active === false) return U.toast("\u0631\u0645\u0632 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629 \u063a\u064a\u0631 \u0635\u062d\u064a\u062d \u0623\u0648 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629 \u063a\u064a\u0631 \u0645\u062a\u0627\u062d\u0629", "error");
-      await joinGroup(group.id);
+      if (!group || group.active === false) { if (status) status.textContent = "الرمز غير صحيح"; return U.toast("\u0631\u0645\u0632 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629 \u063a\u064a\u0631 \u0635\u062d\u064a\u062d \u0623\u0648 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629 \u063a\u064a\u0631 \u0645\u062a\u0627\u062d\u0629", "error"); }
+      await joinGroup(group.id, true);
+      if (status) status.textContent = "تم الوصول إلى المجموعة";
     } catch (e) { U.toast(e.message, "error"); }
   }
 
-  async function joinGroup(groupId) {
-    if (!await U.confirm("\u0628\u0639\u062f \u0627\u0644\u0627\u0646\u0636\u0645\u0627\u0645 \u0644\u0646 \u062a\u062a\u0645\u0643\u0646 \u0645\u0646 \u0627\u0644\u0627\u0646\u062a\u0642\u0627\u0644 \u0644\u0645\u062c\u0645\u0648\u0639\u0629 \u0623\u062e\u0631\u0649. \u0645\u062a\u0623\u0643\u062f\u061f")) return;
+  async function joinGroup(groupId, silent) {
+    if (!silent && !await U.confirm("\u0628\u0639\u062f \u0627\u0644\u0627\u0646\u0636\u0645\u0627\u0645 \u0644\u0646 \u062a\u062a\u0645\u0643\u0646 \u0645\u0646 \u0627\u0644\u0627\u0646\u062a\u0642\u0627\u0644 \u0644\u0645\u062c\u0645\u0648\u0639\u0629 \u0623\u062e\u0631\u0649. \u0645\u062a\u0623\u0643\u062f\u061f")) return;
     try {
       const group = await S.getGroup(groupId);
       if (!group || group.active === false) return U.toast("\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629 \u063a\u064a\u0631 \u0645\u062a\u0627\u062d\u0629", "error");
@@ -786,6 +821,7 @@
     st.current = 0;
     st.startMs = Date.now();
     st.submitted = false;
+    const resumed = restoreExamDraft();
 
     const mins = st.exam.durationMin || 0;
     if (mins) {
@@ -797,6 +833,7 @@
     }
 
     renderExam();
+    if (resumed) U.toast("تمت استعادة إجاباتك المحفوظة تلقائيًا", "info");
   }
 
   function tick() {
@@ -817,6 +854,7 @@
   }
 
   function renderExam() {
+    saveExamDraft();
     const q = st.questions[st.current];
     const total = st.questions.length;
     const answeredCount = st.answers.filter(function (a) {
@@ -1033,6 +1071,7 @@
       const box = document.getElementById("textAnswer");
       if (box) st.answers[st.current] = box.value.trim();
     }
+    saveExamDraft();
   }
 
   function bindOrderingButtons() {
@@ -1107,6 +1146,7 @@
     const ta = document.getElementById("textAnswer");
     if (ta) ta.addEventListener("input", function () {
       st.answers[st.current] = ta.value.trim();
+      saveExamDraft();
       updateNavDots();
     });
 
@@ -1244,6 +1284,7 @@
     try {
       var subId = await S.addSubmission(submission);
       submission.id = subId;
+      clearExamDraft();
     } catch (e) {
       U.toast("\u062a\u0639\u0630\u0631 \u0627\u0644\u062d\u0641\u0638: " + e.message, "error", 5000);
     }
