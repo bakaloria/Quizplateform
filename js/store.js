@@ -960,6 +960,8 @@
         active: data.active !== false,
         sections: data.sections || [],
         rules: data.rules || { avoidDuplicates: true, randomizeSections: false },
+        questions: data.questions || [],
+        publishedExamId: data.publishedExamId || "",
         sourceModel: data.sourceModel || null,
         templateKey: data.templateKey || "",
         createdAt: FV.serverTimestamp(),

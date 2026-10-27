@@ -5248,6 +5248,93 @@ function studentModal(s) {
     return { total: list.length, created: created, skipped: skipped };
   }
 
+  /* أدوات قوالب النماذج: عرض النصوص والأسئلة وتحريرها وتحويلها إلى اختبار */
+  async function templateBank() {
+    const r = await fetch("data/philosophy.json?template=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) throw new Error("تعذر تحميل بنك أسئلة الفلسفة");
+    return r.json();
+  }
+  function findBankQuestion(bank, text) {
+    let found = null;
+    (bank.units || []).some(function (u) {
+      return (u.lessons || []).some(function (l) {
+        return (l.questions || []).some(function (q) {
+          if (String(q.text || "") === String(text || "")) {
+            found = { q: q, lesson: l, unit: u };
+            return true;
+          }
+          return false;
+        });
+      });
+    });
+    return found;
+  }
+  async function materializeTemplateQuestions(tpl, bank) {
+    let questions = Array.isArray(tpl.questions) ? JSON.parse(JSON.stringify(tpl.questions)) : [];
+    if (!questions.length) questions = await ExamTemplateEngine.generate(tpl, bank);
+    questions = questions.map(function (q, i) {
+      const source = findBankQuestion(bank, q.text);
+      const out = Object.assign({}, q);
+      out.points = q.points || 1;
+      out._templateIndex = i;
+      if (source) {
+        out.unitNumber = source.unit.unit_number;
+        out.unitTitle = source.unit.unit_title;
+        out.lessonNumber = source.lesson.lesson_number;
+        out.lessonTitle = source.lesson.lesson_title;
+        if (source.lesson.passage && source.lesson.passage.text && !out.passage) out.passage = JSON.parse(JSON.stringify(source.lesson.passage));
+      }
+      return out;
+    });
+    if (!Array.isArray(tpl.questions) || !tpl.questions.length) {
+      await S.updateExamTemplate(tpl.id, { questions: questions });
+      tpl.questions = questions;
+    }
+    return questions;
+  }
+  function templateQuestionHTML(q, idx) {
+    const passage = q.passage && q.passage.text
+      ? '<details class="card mt-sm" open><summary><b>📖 النص المرافق</b>' + (q.passage.title ? ' — ' + U.esc(q.passage.title) : '') + '</summary><div class="mt-sm" style="white-space:pre-wrap;line-height:1.9">' + U.esc(q.passage.text) + (q.passage.notes ? '<hr><small class="muted">' + U.esc(q.passage.notes) + '</small>' : '') + '</div></details>'
+      : '<div class="tiny muted mt-sm">لا يوجد نص مرافق محفوظ لهذا السؤال</div>';
+    return '<div class="card mb-sm" data-tq="' + idx + '"><div class="flex flex-wrap" style="justify-content:space-between;gap:8px"><div><b>السؤال ' + (idx + 1) + '</b> <span class="badge badge-muted">' + U.esc((U.TYPE_LABELS && U.TYPE_LABELS[q.type]) || q.type || '') + '</span> <span class="badge badge-muted">' + (Number(q.points) || 1) + ' درجة</span></div><div><button class="btn btn-sm" data-tq-edit="' + idx + '">✏️ تعديل</button> <button class="btn btn-sm btn-danger" data-tq-del="' + idx + '">🗑 حذف</button></div></div><p class="mt-sm" style="white-space:pre-wrap">' + U.esc(q.text || '') + '</p>' + passage + '</div>';
+  }
+  async function openTemplateQuestions(tpl) {
+    let bank, questions;
+    try { bank = await templateBank(); questions = await materializeTemplateQuestions(tpl, bank); } catch (e) { return U.toast(e.message, "error"); }
+    const renderBody = function () { return '<div class="flex flex-wrap" style="justify-content:space-between;gap:8px"><span class="muted">' + questions.length + ' سؤالًا — تعديل القالب لا يغيّر بنك الأسئلة</span><button class="btn btn-primary" id="tplAddQuestion">＋ إضافة سؤال</button></div><div class="mt">' + (questions.length ? questions.map(templateQuestionHTML).join('') : '<div class="empty-state">لا توجد أسئلة في القالب</div>') + '</div>'; };
+    U.modal({
+      title: '📋 أسئلة القالب: ' + (tpl.name || ''), size: 'xl', body: renderBody(),
+      footer: '<button class="btn btn-ghost" data-close>إغلاق</button>',
+      onMount: function (node, close) {
+        const reopen = function () { close(); openTemplateQuestions(tpl); };
+        node.querySelector('#tplAddQuestion').addEventListener('click', function () {
+          close();
+          U.modal({ title: '＋ إضافة سؤال إلى القالب', size: 'lg', body: questionFormHTML({ type: 'mcq', options: ['', '', '', ''], answer: '', points: 1 }), footer: '<button class="btn btn-primary" data-save>حفظ السؤال</button><button class="btn btn-ghost" data-close>إلغاء</button>', onMount: function (n, c) {
+            bindQuestionForm(n);
+            n.querySelector('[data-save]').addEventListener('click', async function () { try { const q = collectQuestionForm(n); if (!q.text) throw new Error('نص السؤال مطلوب'); questions.push(q); await S.updateExamTemplate(tpl.id, { questions: questions }); tpl.questions = questions; U.toast('تمت إضافة السؤال', 'success'); c(); openTemplateQuestions(tpl); } catch (e) { U.toast(e.message, 'error'); } });
+          }});
+        });
+        node.querySelectorAll('[data-tq-edit]').forEach(function (b) { b.addEventListener('click', function () { const idx = Number(b.dataset.tqEdit); const old = questions[idx]; close(); U.modal({ title: '✏️ تعديل سؤال القالب', size: 'lg', body: questionFormHTML(old), footer: '<button class="btn btn-primary" data-save>حفظ التعديل</button><button class="btn btn-ghost" data-close>إلغاء</button>', onMount: function (n, c) { bindQuestionForm(n); n.querySelector('[data-save]').addEventListener('click', async function () { try { const q = collectQuestionForm(n); if (!q.text) throw new Error('نص السؤال مطلوب'); questions[idx] = Object.assign({}, old, q); await S.updateExamTemplate(tpl.id, { questions: questions }); tpl.questions = questions; U.toast('تم تعديل السؤال', 'success'); c(); openTemplateQuestions(tpl); } catch (e) { U.toast(e.message, 'error'); } }); } }); }); });
+        node.querySelectorAll('[data-tq-del]').forEach(function (b) { b.addEventListener('click', async function () { const idx = Number(b.dataset.tqDel); if (!(await U.confirm('حذف السؤال من هذا القالب؟'))) return; questions.splice(idx, 1); await S.updateExamTemplate(tpl.id, { questions: questions }); tpl.questions = questions; U.toast('تم حذف السؤال من القالب', 'success'); reopen(); }); });
+      }
+    });
+  }
+  async function publishTemplateAsExam(tpl) {
+    if (tpl.active === false) return U.toast('فعّل القالب أولًا قبل تحويله إلى اختبار', 'warn');
+    const code = (window.prompt('أدخل رمز الاختبار للطلاب (4-12 أحرف أو أرقام إنجليزية):', '') || '').trim().toUpperCase();
+    if (!code) return;
+    try {
+      const bank = await templateBank();
+      const questions = await materializeTemplateQuestions(tpl, bank);
+      if (!questions.length) throw new Error('لا توجد أسئلة في القالب');
+      const subjects = await S.listSubjects();
+      const subject = (subjects || []).find(function (s) { return s.id === tpl.subjectId; });
+      const result = await S.createExam({ title: tpl.name, subjectId: tpl.subjectId, subjectName: tpl.subjectName || (subject && subject.name) || 'الفلسفة', description: 'اختبار منشور من قالب: ' + tpl.name, durationMin: 180, questions: questions, code: code, status: 'published', targetGroups: ['ALL'], autoGenerated: true, modelFamily: 'exam-template-published', templateKey: tpl.templateKey || tpl.id, templateName: tpl.name, isApproved: true });
+      await S.updateExamTemplate(tpl.id, { publishedExamId: result.id, publishedCode: result.code, publishedAt: new Date().toISOString() });
+      U.toast('تم نشر الاختبار للطلاب — الرمز: ' + result.code, 'success', 7000); renderExamTemplates();
+    } catch (e) { U.toast('تعذر نشر الاختبار: ' + e.message, 'error'); }
+  }
+
   async function renderExamTemplates() {
     shell("examtemplates", U.loaderHTML());
     try {
@@ -5257,109 +5344,43 @@ function studentModal(s) {
       ]);
       state.subjects = subjects;
       const subjectMap = {};
-      subjects.forEach(function(s){ subjectMap[s.id] = s.name; });
-
-      let html = pageHead("\ud83d\udccb", "\u0642\u0648\u0627\u0644\u0628 \u0627\u0644\u0646\u0645\u0627\u0630\u062c \u0627\u0644\u0627\u0645\u062a\u062d\u0627\u0646\u064a\u0629", "\u0625\u062f\u0627\u0631\u0629 \u0642\u0648\u0627\u0644\u0628 \u0627\u0644\u0627\u0645\u062a\u062d\u0627\u0646 \u0648\u0627\u0633\u062a\u064a\u0631\u0627\u062f \u0642\u0648\u0627\u0644\u0628 \u0627\u0644\u0641\u0644\u0633\u0641\u0629") +
+      subjects.forEach(function (s) { subjectMap[s.id] = s.name; });
+      let html = pageHead("📋", "قوالب النماذج الامتحانية", "اضغط على بطاقة القالب لرؤية الأسئلة والنصوص المرافقة وتعديلها") +
         '<div class="actions mt">' +
-        '<button class="btn btn-primary" id="importPhiloTpl">\ud83d\udce5 \u062c\u0644\u0628 400 \u0646\u0645\u0648\u0630\u0627\u064b \u0648\u062a\u062d\u0648\u064a\u0644\u0647\u0627 \u0625\u0644\u0649 \u0627\u062e\u062a\u0628\u0627\u0631\u0627\u062a \u0644\u0644\u0637\u0644\u0627\u0628</button> ' +
-        '<button class="btn" id="importPhiloTplExisting">\ud83d\udce5 \u0627\u0633\u062a\u064a\u0631\u0627\u062f \u0645\u0646 philosophy_templates.json</button> ' +
-        '<button class="btn" id="reloadTpl">\ud83d\udd04 \u062a\u062d\u062f\u064a\u062b</button>' +
+        '<button class="btn btn-primary" id="importPhiloTpl">📥 جلب 400 قالبًا</button> ' +
+        '<button class="btn" id="importPhiloTplExisting">📥 استيراد من philosophy_templates.json</button> ' +
+        '<button class="btn" id="reloadTpl">🔄 تحديث</button>' +
         '</div>';
-
-      if (!templates || templates.length === 0) {
-        html += '<div class="card mt"><div class="empty-state"><div class="emoji">\ud83d\udccb</div><h3>\u0644\u0627 \u062a\u0648\u062c\u062f \u0642\u0648\u0627\u0644\u0628 \u0628\u0639\u062f</h3><p class="muted">\u0627\u0633\u062a\u064a\u0631\u062f \u0642\u0648\u0627\u0644\u0628 \u0627\u0644\u0641\u0644\u0633\u0641\u0629 \u0644\u0628\u062f\u0621 \u0627\u0644\u0627\u0633\u062a\u062e\u062f\u0627\u0645</p></div></div>';
+      if (!templates || !templates.length) {
+        html += '<div class="card mt"><div class="empty-state"><div class="emoji">📋</div><h3>لا توجد قوالب بعد</h3><p class="muted">استورد قوالب الفلسفة لبدء الاستخدام</p></div></div>';
       } else {
-        html += '<div class="card mt"><div class="section-head"><div class="left"><span class="ico">\ud83d\udccb</span><div><h3>\u0642\u0648\u0627\u0626\u0645 \u0627\u0644\u0642\u0648\u0627\u0644\u0628</h3><p class="muted">\u0627\u0644\u0639\u062f\u062f: ' + templates.length + '</p></div></div></div>';
-        html += '<div class="table-wrap responsive"><table><thead><tr><th>\u0627\u0633\u0645 \u0627\u0644\u0642\u0627\u0644\u0628</th><th>\u0627\u0644\u0645\u0627\u062f\u0629</th><th>\u0627\u0644\u0623\u0642\u0633\u0627\u0645</th><th>\u0639\u062f\u062f \u0627\u0644\u0623\u0633\u0626\u0644\u0629</th><th>\u062d\u0627\u0644\u0629</th><th>\u0625\u062c\u0631\u0627\u0621\u0627\u062a</th></tr></thead><tbody>';
-        templates.forEach(function(tpl){
+        html += '<div class="card mt"><div class="section-head"><div class="left"><span class="ico">📋</span><div><h3>قوائم القوالب</h3><p class="muted">العدد: ' + templates.length + ' — اضغط على البطاقة لعرض الأسئلة</p></div></div></div><div class="exams-grid">';
+        templates.forEach(function (tpl) {
           const secs = tpl.sections || [];
-          const totalCount = secs.reduce(function(acc,s){ return acc + (Number(s.count)||0); }, 0);
-          const secInfo = secs.map(function(s){ 
-            const src = s.source || {};
-            const u = (src.unitNumbers||[]).join(',');
-            const l = (src.lessonNumbers||[]).join(',');
-            return (s.title||'') + ' [' + (u||'*') + '/' + (l||'*') + ']';
-          }).join(' | ');
-          html += '<tr>' +
-            '<td>' + U.esc(tpl.name) + '</td>' +
-            '<td>' + U.esc(tpl.subjectName || subjectMap[tpl.subjectId] || tpl.subjectId || '-') + '</td>' +
-            '<td title="' + U.esc(secInfo) + '">' + secs.length + ' \u0642\u0633\u0645</td>' +
-            '<td>' + totalCount + '</td>' +
-            '<td>' + (tpl.active !== false ? '\u2705 \u0646\u0634\u0637' : '\u26d4 \u0645\u0639\u0637\u0644') + '</td>' +
-            '<td style="white-space:nowrap">' +
-            '<button class="btn btn-sm" data-tpl-toggle="' + U.esc(tpl.id) + '" data-active="' + (tpl.active !== false ? '1':'0') + '">\u062a\u0628\u062f\u064a\u0644 \u0627\u0644\u062d\u0627\u0644\u0629</button> ' +
-            '<button class="btn btn-sm btn-danger" data-tpl-del="' + U.esc(tpl.id) + '">\u062d\u0630\u0641</button>' +
-            '</td>' +
-            '</tr>';
+          const totalCount = Array.isArray(tpl.questions) ? tpl.questions.length : secs.reduce(function (a, x) { return a + (Number(x.count) || 0); }, 0);
+          const active = tpl.active !== false;
+          html += '<div class="exam-card" data-tpl-open="' + U.esc(tpl.id) + '" style="cursor:pointer"><div class="exam-title">📋 ' + U.esc(tpl.name || 'قالب نموذج امتحاني') + '</div><div class="exam-meta"><span class="badge badge-muted">📚 ' + U.esc(tpl.subjectName || subjectMap[tpl.subjectId] || tpl.subjectId || '-') + '</span><span class="badge badge-muted">❓ ' + totalCount + ' سؤال</span><span class="badge ' + (active ? 'badge-success' : 'badge-danger') + '">' + (active ? '✅ نشط' : '⛔ معطل') + '</span></div><div class="tiny muted mt-sm">' + (tpl.publishedCode ? 'منشور للطلاب بالكود: ' + U.esc(tpl.publishedCode) : 'غير محول إلى اختبار بعد') + '</div><div class="exam-actions mt"><button class="btn btn-sm" data-tpl-toggle="' + U.esc(tpl.id) + '" data-active="' + (active ? '1' : '0') + '">تبديل الحالة</button> <button class="btn btn-sm btn-danger" data-tpl-del="' + U.esc(tpl.id) + '">حذف</button> ' + (active ? '<button class="btn btn-sm btn-primary" data-tpl-publish="' + U.esc(tpl.id) + '">تحويل إلى اختبار برمز</button>' : '') + '</div></div>';
         });
-        html += '</tbody></table></div></div>';
+        html += '</div></div>';
       }
-
       shell("examtemplates", html);
-
-      document.getElementById("reloadTpl").addEventListener("click", function(){ renderExamTemplates(); });
-
-      document.getElementById("importPhiloTplExisting").addEventListener("click", async function(){
+      document.getElementById("reloadTpl").addEventListener("click", renderExamTemplates);
+      document.getElementById("importPhiloTplExisting").addEventListener("click", async function () {
+        try { const r = await fetch("data/philosophy_templates.json"); const list = await r.json(); let n = 0; for (const x of list) { if (S.saveExamTemplate) { await S.saveExamTemplate(x); n++; } } U.toast('تم استيراد ' + n + ' قالب', 'success'); renderExamTemplates(); } catch (e) { U.toast('خطأ: ' + e.message, 'error'); }
+      });
+      document.getElementById("importPhiloTpl").addEventListener("click", async function () {
         try {
-          U.toast("\u062c\u0627\u0631\u064a \u0627\u0644\u0627\u0633\u062a\u064a\u0631\u0627\u062f \u0645\u0646 philosophy_templates.json...", "info");
-          const res = await fetch("data/philosophy_templates.json");
-          const list = await res.json();
-          let count = 0;
-          for (let i=0; i<list.length; i++) {
-            try {
-              if (S.saveExamTemplate) {
-                await S.saveExamTemplate(list[i]);
-                count++;
-              }
-            } catch(e) {}
-          }
-          U.toast("\u062a\u0645 \u0627\u0633\u062a\u064a\u0631\u0627\u062f " + count + " \u0642\u0627\u0644\u0628", "success");
-          renderExamTemplates();
-        } catch(e) {
-          U.toast("\u062e\u0637\u0623: " + e.message, "error");
-        }
+          U.toast('جاري جلب القوالب دون نشرها للطلاب...', 'info');
+          const r = await fetch('data/philosophy_all_templates.json', { cache: 'no-store' });
+          if (!r.ok) throw new Error('تعذر تحميل ملف القوالب');
+          const list = await r.json(); let n = 0;
+          for (const tpl of list) { if (S.saveExamTemplate) { await S.saveExamTemplate(Object.assign({}, tpl, { active: tpl.active !== false })); n++; } }
+          U.toast('تم جلب ' + n + ' قالبًا كقوالب نشطة — لم يُنشر أي اختبار تلقائيًا', 'success', 7000); renderExamTemplates();
+        } catch (e) { U.toast('خطأ: ' + e.message, 'error'); }
       });
-
-      document.getElementById("importPhiloTpl").addEventListener("click", async function(){
-        try {
-          U.toast("\u062c\u0627\u0631\u064a \u062c\u0644\u0628 \u0627\u0644\u0646\u0645\u0627\u0630\u062c \u0648\u0625\u0646\u0634\u0627\u0621 \u0627\u062e\u062a\u0628\u0627\u0631\u0627\u062a \u0644\u0644\u0637\u0644\u0627\u0628...", "info");
-          const result = await importAndPublishPhilosophyExams();
-          U.toast("\u062a\u0645 \u0625\u0646\u0634\u0627\u0621 " + result.created + " \u0627\u062e\u062a\u0628\u0627\u0631\u0627\u064b \u0648\u062a\u062e\u0637\u064a " + result.skipped + " \u0645\u0643\u0631\u0631\u0627\u064b \u0645\u0646 \u0623\u0635\u0644 " + result.total + "", "success");
-          renderExamTemplates();
-        } catch(e) {
-          U.toast("\u062e\u0637\u0623: " + e.message, "error");
-        }
-      });
-
-      document.querySelectorAll("[data-tpl-del]").forEach(function(btn){
-        btn.addEventListener("click", async function(){
-          const id = btn.getAttribute("data-tpl-del");
-          if (!confirm("\u0647\u0644 \u0623\u0646\u062a \u0645\u062a\u0623\u0643\u062f \u0645\u0646 \u062d\u0630\u0641 \u0647\u0630\u0627 \u0627\u0644\u0642\u0627\u0644\u0628\u061f")) return;
-          try {
-            if (S.deleteExamTemplate) await S.deleteExamTemplate(id);
-            U.toast("\u062a\u0645 \u0627\u0644\u062d\u0630\u0641", "success");
-            renderExamTemplates();
-          } catch(e) {
-            U.toast("\u062e\u0637\u0623", "error");
-          }
-        });
-      });
-
-      document.querySelectorAll("[data-tpl-toggle]").forEach(function(btn){
-        btn.addEventListener("click", async function(){
-          const id = btn.getAttribute("data-tpl-toggle");
-          const active = btn.getAttribute("data-active") === "1";
-          try {
-            if (S.updateExamTemplate) await S.updateExamTemplate(id, { active: !active });
-            U.toast("\u062a\u0645 \u062a\u062d\u062f\u064a\u062b \u0627\u0644\u062d\u0627\u0644\u0629", "success");
-            renderExamTemplates();
-          } catch(e) {
-            U.toast("\u062e\u0637\u0623", "error");
-          }
-        });
-      });
-
-    } catch(e) {
-      shell("examtemplates", errorCard(e));
-    }
+      document.querySelectorAll('[data-tpl-open]').forEach(function (b) { b.addEventListener('click', function (ev) { if (ev.target.closest('button')) return; const tpl = templates.find(function (x) { return x.id === b.dataset.tplOpen; }); if (tpl) openTemplateQuestions(tpl); }); });
+      document.querySelectorAll('[data-tpl-del]').forEach(function (b) { b.addEventListener('click', async function () { if (!confirm('هل أنت متأكد من حذف هذا القالب؟')) return; try { await S.deleteExamTemplate(b.dataset.tplDel); U.toast('تم الحذف', 'success'); renderExamTemplates(); } catch (e) { U.toast('خطأ: ' + e.message, 'error'); } }); });
+      document.querySelectorAll('[data-tpl-toggle]').forEach(function (b) { b.addEventListener('click', async function () { try { await S.updateExamTemplate(b.dataset.tplToggle, { active: b.dataset.active !== '1' }); U.toast('تم تحديث الحالة', 'success'); renderExamTemplates(); } catch (e) { U.toast('خطأ: ' + e.message, 'error'); } }); });
+      document.querySelectorAll('[data-tpl-publish]').forEach(function (b) { b.addEventListener('click', function () { const tpl = templates.find(function (x) { return x.id === b.dataset.tplPublish; }); if (tpl) publishTemplateAsExam(tpl); }); });
+    } catch (e) { shell("examtemplates", errorCard(e)); }
   }
