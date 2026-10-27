@@ -29,10 +29,13 @@
   }
   function loadJSON(path) { return fetch(path + "?v=20261027").then(r => { if (!r.ok) throw Error("تعذر تحميل " + path); return r.json(); }); }
 
-  function cloneQuestion(q, section, points, index) {
+  function cloneQuestion(q, section, points, lesson, index) {
     const x = JSON.parse(JSON.stringify(q || {}));
     x.id = "model-" + section + "-" + index + "-" + Math.random().toString(36).slice(2, 8);
     x.section = section; x.points = points;
+    /* السؤال قد يحيل إلى نص الدرس؛ يجب حفظ النص داخل نسخة السؤال ليظهر للطالب */
+    if (lesson && lesson.passage && lesson.passage.text) x.passage = JSON.parse(JSON.stringify(lesson.passage));
+    if (lesson && lesson.lesson_title) x.lessonTitle = lesson.lesson_title;
     return x;
   }
   function poolFor(selection) {
@@ -56,14 +59,14 @@
     const pool = poolFor(selection), used = new Set(), result = [];
     if (!pool.length) throw Error("لا توجد أسئلة في النطاق المحدد");
     let a = pick(pool, ["mcq", "true_false", "fill_blank", "short_answer"], 7, used);
-    a.forEach((x, i) => result.push(cloneQuestion(x.q, "section1", [10,10,10,10,10,15,15][i], result.length)));
+    a.forEach((x, i) => result.push(cloneQuestion(x.q, "section1", [10,10,10,10,10,15,15][i], x.lesson, result.length)));
     let b = pick(pool, ["short_answer", "fill_blank", "essay", "mcq"], 5, used);
-    b.forEach(x => result.push(cloneQuestion(x.q, "section2", 24, result.length)));
+    b.forEach(x => result.push(cloneQuestion(x.q, "section2", 24, x.lesson, result.length)));
     let passage = pool.filter(x => x.lesson.passage && x.lesson.passage.text);
     let c = pick(passage.length ? passage : pool, ["short_answer", "essay", "true_false"], 4, used);
-    c.forEach(x => result.push(cloneQuestion(x.q, "section3", 25, result.length)));
+    c.forEach(x => result.push(cloneQuestion(x.q, "section3", 25, x.lesson, result.length)));
     let d = pick(pool, ["essay", "short_answer"], 1, used);
-    d.forEach(x => result.push(cloneQuestion(x.q, "section4", 100, result.length)));
+    d.forEach(x => result.push(cloneQuestion(x.q, "section4", 100, x.lesson, result.length)));
     return result;
   }
   function criteria(selection, type, label) {
@@ -99,12 +102,33 @@
     document.querySelectorAll("[data-model-archive]").forEach(b => b.addEventListener("click", async () => { try { await S.updateExam(b.dataset.modelArchive, { status: "archived", isApproved: false }); msg("تمت أرشفة النموذج", "success"); await refresh(); } catch(e) { msg(e.message, "error"); } }));
   }
   async function refresh() { exams = await S.listExams(); renderList(); }
+  async function repairPassages() {
+    const models = exams.filter(e => e.modelFamily === "philosophy-official-models");
+    if (!models.length) return msg("لا توجد نماذج فلسفة لإصلاحها", "info");
+    if (!confirm("سيُرفق النص الصحيح بالأسئلة التي تشير إلى نص مرافق دون تغيير السؤال أو الإجابة. متابعة؟")) return;
+    let changed = 0;
+    for (const exam of models) {
+      let touched = false;
+      const qs = (exam.questions || []).map(q => {
+        if (q.passage && q.passage.text) return q;
+        let found = null;
+        (bank.units || []).some(u => (u.lessons || []).some(l => (l.questions || []).some(bq => {
+          if (String(bq.text || "") === String(q.text || "")) { found = l; return true; }
+          return false;
+        })));
+        if (found && found.passage && found.passage.text) { touched = true; return Object.assign({}, q, { passage: JSON.parse(JSON.stringify(found.passage)), lessonTitle: found.lesson_title }); }
+        return q;
+      });
+      if (touched) { await S.updateExam(exam.id, { questions: qs }); changed++; }
+    }
+    msg("تم إصلاح نصوص " + changed + " نموذجًا", "success", 6000); await refresh();
+  }
 
   function render() {
-    root.innerHTML = '<div class="container container-narrow"><div class="card-head"><div><h1>📋 نماذج الفلسفة</h1><p class="muted">كل نموذج يبدأ كمسودة، ولا يظهر للطالب إلا بعد اعتماد المدير ونشره.</p></div><a class="btn btn-sm" href="admin.html#/exams">الاختبارات القديمة</a></div>' +
+    root.innerHTML = '<div class="container container-narrow"><div class="card-head"><div><h1>📋 نماذج الفلسفة</h1><p class="muted">كل نموذج يبدأ كمسودة، ولا يظهر للطالب إلا بعد اعتماد المدير ونشره.</p></div><div class="flex flex-wrap" style="gap:6px"><button class="btn btn-sm" id="repairPassages">إصلاح النصوص المرافقة</button><a class="btn btn-sm" href="admin.html#/exams">الاختبارات القديمة</a></div></div>' +
       '<div class="card mb"><h3>إنشاء نموذج من فلتر</h3><div class="form-row"><div class="field"><label>نوع التغطية</label><select id="modelType"><option value="one_lesson">درس واحد</option><option value="two_consecutive">درسان متتاليان</option><option value="two_nonconsecutive">درسان غير متتاليين</option><option value="three_consecutive">ثلاثة دروس متتالية</option><option value="three_nonconsecutive">ثلاثة دروس غير متتالية</option><option value="full_unit">وحدة كاملة</option><option value="multi_units">عدة وحدات</option></select></div><div class="field"><label>الوحدات (يمكن اختيار أكثر من وحدة)</label><select id="modelUnits" multiple size="5">' + unitOptions() + '</select></div></div><div class="field"><label>الدروس المشمولة</label><div id="modelLessons" class="card" style="max-height:260px;overflow:auto">اختر وحدة</div></div><div class="form-row"><div class="field"><label>اسم النموذج (اختياري)</label><input id="modelTitle" placeholder="يُولد تلقائيًا من الفلتر"></div><div class="field"><label>الكود (اختياري)</label><input id="modelCode" placeholder="مثال: PHIL-U7-001" style="text-transform:uppercase"></div></div><div class="flex flex-wrap" style="gap:8px"><button class="btn btn-primary" id="createOne">حفظ كمسودة</button><button class="btn" id="create400">إنشاء 400 مسودة متسلسلة</button></div><p class="help">الاعتماد والنشر يتمان من القائمة أدناه. الاختبارات الحالية لا تتأثر.</p></div>' +
       '<div class="card"><div class="card-head"><h3>النماذج المنشأة</h3><button class="btn btn-sm" id="refreshModels">تحديث</button></div><div id="modelList">' + U.loaderHTML() + '</div></div></div>';
-    byId("modelUnits").addEventListener("change", renderLessons); byId("createOne").addEventListener("click", one); byId("create400").addEventListener("click", bulk); byId("refreshModels").addEventListener("click", refresh); renderLessons(); renderList();
+    byId("modelUnits").addEventListener("change", renderLessons); byId("createOne").addEventListener("click", one); byId("create400").addEventListener("click", bulk); byId("refreshModels").addEventListener("click", refresh); byId("repairPassages").addEventListener("click", repairPassages); renderLessons(); renderList();
   }
   async function one() { try { const s = selectedLessons(); if (!s.length) return msg("اختر درسًا واحدًا على الأقل", "warn"); const b = byId("createOne"); b.disabled = true; await createDraft(s, byId("modelType").value, byId("modelTitle").value.trim(), byId("modelCode").value.trim()); msg("تم حفظ النموذج كمسودة وبكوده الخاص", "success"); await refresh(); b.disabled = false; } catch(e) { msg(e.message, "error"); byId("createOne").disabled = false; } }
   async function bulk() {
