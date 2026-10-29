@@ -5313,6 +5313,8 @@ function studentModal(s) {
         '<div class="actions mt">' +
         '<button class="btn btn-primary" id="importPhiloTpl">\ud83d\udce5 \u062c\u0644\u0628 400 \u0646\u0645\u0648\u0630\u0627\u064b \u0648\u062a\u062d\u0648\u064a\u0644\u0647\u0627 \u0625\u0644\u0649 \u0627\u062e\u062a\u0628\u0627\u0631\u0627\u062a \u0644\u0644\u0637\u0644\u0627\u0628</button> ' +
         '<button class="btn" id="importPhiloTplExisting">\ud83d\udce5 \u0627\u0633\u062a\u064a\u0631\u0627\u062f \u0645\u0646 philosophy_templates.json</button> ' +
+        '<button class="btn btn-success" id="importHistoryTpl">\ud83d\udce5 \u0627\u0633\u062a\u064a\u0631\u0627\u062f \u0642\u0648\u0627\u0644\u0628 \u0627\u0644\u062a\u0627\u0631\u064a\u062e</button> ' +
+        '<button class="btn" id="importHistoryTplExisting">\ud83d\udce5 \u0627\u0633\u062a\u064a\u0631\u0627\u062f \u0645\u0646 history_templates.json</button> ' +
         '<button class="btn" id="reloadTpl">\ud83d\udd04 \u062a\u062d\u062f\u064a\u062b</button>' +
         '</div>';
 
@@ -5375,6 +5377,48 @@ function studentModal(s) {
           U.toast("\u062c\u0627\u0631\u064a \u062c\u0644\u0628 \u0627\u0644\u0646\u0645\u0627\u0630\u062c \u0648\u0625\u0646\u0634\u0627\u0621 \u0627\u062e\u062a\u0628\u0627\u0631\u0627\u062a \u0644\u0644\u0637\u0644\u0627\u0628...", "info");
           const result = await importAndPublishPhilosophyExams();
           U.toast("\u062a\u0645 \u0625\u0646\u0634\u0627\u0621 " + result.created + " \u0627\u062e\u062a\u0628\u0627\u0631\u0627\u064b \u0648\u062a\u062e\u0637\u064a " + result.skipped + " \u0645\u0643\u0631\u0631\u0627\u064b \u0645\u0646 \u0623\u0635\u0644 " + result.total + "", "success");
+          renderExamTemplates();
+        } catch(e) {
+          U.toast("\u062e\u0637\u0623: " + e.message, "error");
+        }
+      });
+
+      document.getElementById("importHistoryTplExisting").addEventListener("click", async function(){
+        try {
+          U.toast("\u062c\u0627\u0631\u064a \u0627\u0644\u0627\u0633\u062a\u064a\u0631\u0627\u062f \u0645\u0646 history_templates.json...", "info");
+          const res = await fetch("data/history_templates.json");
+          const list = await res.json();
+          let count = 0;
+          for (let i=0; i<list.length; i++) {
+            try {
+              if (S.saveExamTemplate) {
+                await S.saveExamTemplate(list[i]);
+                count++;
+              }
+            } catch(e) {}
+          }
+          U.toast("\u062a\u0645 \u0627\u0633\u062a\u064a\u0631\u0627\u062f " + count + " \u0642\u0627\u0644\u0628", "success");
+          renderExamTemplates();
+        } catch(e) {
+          U.toast("\u062e\u0637\u0623: " + e.message, "error");
+        }
+      });
+
+      document.getElementById("importHistoryTpl").addEventListener("click", async function(){
+        try {
+          U.toast("\u062c\u0627\u0631\u064a \u0627\u0633\u062a\u064a\u0631\u0627\u062f \u0642\u0648\u0627\u0644\u0628 \u0627\u0644\u062a\u0627\u0631\u064a\u062e...", "info");
+          const res = await fetch("data/history_all_templates.json");
+          const list = await res.json();
+          let count = 0;
+          for (let i=0; i<list.length; i++) {
+            try {
+              if (S.saveExamTemplate) {
+                await S.saveExamTemplate(list[i]);
+                count++;
+              }
+            } catch(e) {}
+          }
+          U.toast("\u062a\u0645 \u0627\u0633\u062a\u064a\u0631\u0627\u062f " + count + " \u0642\u0627\u0644\u0628", "success");
           renderExamTemplates();
         } catch(e) {
           U.toast("\u062e\u0637\u0623: " + e.message, "error");

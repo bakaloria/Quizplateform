@@ -1,0 +1,415 @@
+[
+  {
+    "name": "نموذج - الوطن العربي محور الأطماع الاستعمارية في القرن العشرين (درس واحد) | نموذج 1",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "نموذج امتحاني",
+        "type": "mixed",
+        "count": 3,
+        "source": {
+          "unitNumbers": [
+            1
+          ],
+          "lessonNumbers": [
+            1
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج - الوطن العربي محور الأطماع الاستعمارية في القرن العشرين (درس واحد) | نموذج 2",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "نموذج امتحاني",
+        "type": "mixed",
+        "count": 3,
+        "source": {
+          "unitNumbers": [
+            1
+          ],
+          "lessonNumbers": [
+            1
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج - الانتداب على المشرق العربي ومؤتمرات ما بعد الحرب العالمية الأولى (درس واحد) | نموذج 1",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "نموذج امتحاني",
+        "type": "mixed",
+        "count": 11,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            1
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج - الانتداب على المشرق العربي ومؤتمرات ما بعد الحرب العالمية الأولى (درس واحد) | نموذج 2",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "نموذج امتحاني",
+        "type": "mixed",
+        "count": 11,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            1
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج - سياسة الدول الاستعمارية في الوطن العربي (درس واحد) | نموذج 1",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "نموذج امتحاني",
+        "type": "mixed",
+        "count": 3,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            2
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج - سياسة الدول الاستعمارية في الوطن العربي (درس واحد) | نموذج 2",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "نموذج امتحاني",
+        "type": "mixed",
+        "count": 3,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            2
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج - الحرب الباردة والأحلاف العسكرية (درس واحد) | نموذج 1",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "نموذج امتحاني",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            3
+          ],
+          "lessonNumbers": [
+            1
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج - الحرب الباردة والأحلاف العسكرية (درس واحد) | نموذج 2",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "نموذج امتحاني",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            3
+          ],
+          "lessonNumbers": [
+            1
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج - درسان متتاليان: الانتداب على المشرق العربي ومؤتمرات ما بعد الحرب العالمية الأولى / سياسة الدول الاستعمارية في الوطن العربي",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "نموذج امتحاني",
+        "type": "mixed",
+        "count": 25,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [
+            1,
+            2
+          ],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج - الوطن العربي محور الأطماع الاستعمارية (وحدة كاملة)",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "نموذج امتحاني",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            1
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج - المشرق العربي في ظل الانتداب والاستعمار (وحدة كاملة)",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "نموذج امتحاني",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج - العلاقات الدولية والصراعات في القرن العشرين (وحدة كاملة)",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "نموذج امتحاني",
+        "type": "mixed",
+        "count": 30,
+        "source": {
+          "unitNumbers": [
+            3
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج - وحدتان متتاليتان: الوطن العربي محور الأطماع الاستعمارية / المشرق العربي في ظل الانتداب والاستعمار",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "نموذج امتحاني",
+        "type": "mixed",
+        "count": 35,
+        "source": {
+          "unitNumbers": [
+            1,
+            2
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج - وحدتان متتاليتان: المشرق العربي في ظل الانتداب والاستعمار / العلاقات الدولية والصراعات في القرن العشرين",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "نموذج امتحاني",
+        "type": "mixed",
+        "count": 35,
+        "source": {
+          "unitNumbers": [
+            2,
+            3
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج - كامل المادة (جميع الوحدات)",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "نموذج امتحاني",
+        "type": "mixed",
+        "count": 40,
+        "source": {
+          "unitNumbers": [
+            1,
+            2,
+            3
+          ],
+          "lessonNumbers": [],
+          "types": []
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  }
+]
