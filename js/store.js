@@ -384,6 +384,9 @@
         seriesNo: Number(data.seriesNo) || 0,
         templateKey: data.templateKey || "",
         templateName: data.templateName || "",
+        baseExamId: data.baseExamId || "",
+        versionNo: Number(data.versionNo) || 1,
+        versionStatus: data.versionStatus || "published",
         filterCriteria: data.filterCriteria || null,
         openAt: data.openAt || null,
         closeAt: data.closeAt || null,
@@ -398,8 +401,13 @@
       return { id: ref.id, code: code };
     },
     updateExam: async function (id, data) {
+      const existingSubs = await store.listSubmissionsByExam(id);
+      if (existingSubs.length) throw new Error("لا يمكن تعديل اختبار بدأ الطلاب بحله؛ أنشئ إصدارًا جديدًا بدلًا منه");
       const totalPoints = (data.questions || []).reduce(function (s, q) { return s + (q.points === undefined || q.points === null || q.points === "" ? 1 : Number(q.points) || 0); }, 0);
       await col.exams.doc(id).update(sanitize(Object.assign({}, data, { totalPoints: totalPoints })));
+    },
+    countSubmissionsByExam: async function (examId) {
+      return (await store.listSubmissionsByExam(examId)).length;
     },
     /* تحديث جزئي لبيانات الاختبار دون المساس بالأسئلة/النقاط */
     updateExamMeta: async function (id, patch) {
@@ -1052,8 +1060,26 @@
     },
     updateExamTemplate: async function (id, data) {
       try {
-        await col.examTemplates.doc(id).update(sanitize(Object.assign({}, data, { updatedAt: FV.serverTimestamp() })));
-      } catch (e) { }
+        const current = await store.getExamTemplate(id);
+        const versioned = data && data._skipVersion !== true && current && (data.questions || data.name || data.sections || data.rules);
+        const patch = Object.assign({}, data);
+        delete patch._skipVersion;
+        if (versioned) {
+          const versions = Array.isArray(current.versions) ? current.versions.slice(-19) : [];
+          versions.push({ versionNo: versions.length + 1, at: new Date().toISOString(), snapshot: { name: current.name || "", questions: current.questions || [], sections: current.sections || [], rules: current.rules || {} } });
+          patch.versions = versions;
+          patch.versionNo = versions.length;
+        }
+        await col.examTemplates.doc(id).update(sanitize(Object.assign({}, patch, { updatedAt: FV.serverTimestamp() })));
+      } catch (e) { throw e; }
+    },
+    listTemplateVersions: async function (id) {
+      const t = await store.getExamTemplate(id);
+      return t && Array.isArray(t.versions) ? t.versions : [];
+    },
+    restoreTemplateVersion: async function (id, version) {
+      if (!version || !version.snapshot) throw new Error("الإصدار غير صالح");
+      await store.updateExamTemplate(id, Object.assign({}, version.snapshot, { _skipVersion: true }));
     },
     deleteExamTemplate: async function (id) {
       try {
