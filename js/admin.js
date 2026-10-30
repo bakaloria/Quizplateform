@@ -5442,6 +5442,14 @@ function studentModal(s) {
       node.querySelectorAll('[data-tq-up]').forEach(function (b) { b.onclick = function () { move(Number(b.dataset.tqUp), -1); }; });
       node.querySelectorAll('[data-tq-down]').forEach(function (b) { b.onclick = function () { move(Number(b.dataset.tqDown), 1); }; });
       node.querySelectorAll('[data-tq-replace]').forEach(function (b) { b.onclick = function () { close(); openBankPicker(Number(b.dataset.tqReplace)); }; });
+      node.querySelectorAll('[data-tq]').forEach(function (card) {
+        card.setAttribute('draggable', 'true');
+        card.addEventListener('dragstart', function (e) { e.dataTransfer.setData('text/plain', card.dataset.tq); card.style.opacity = '0.55'; });
+        card.addEventListener('dragend', function () { card.style.opacity = ''; });
+        card.addEventListener('dragover', function (e) { e.preventDefault(); card.style.borderColor = 'var(--primary)'; });
+        card.addEventListener('dragleave', function () { card.style.borderColor = ''; });
+        card.addEventListener('drop', function (e) { e.preventDefault(); card.style.borderColor = ''; const from = Number(e.dataTransfer.getData('text/plain')); const to = Number(card.dataset.tq); if (from !== to) { const x = questions.splice(from, 1)[0]; questions.splice(to, 0, x); save().then(reopen); } });
+      });
     } });
   }
   function validateTemplateQuestions(questions) {
