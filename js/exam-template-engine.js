@@ -29,11 +29,13 @@
     if(!bank || !bank.units) return [];
     bank.units.forEach(function(u){
       if(source.unitNumbers && source.unitNumbers.length){
-        if(source.unitNumbers.indexOf(u.unitNumber) === -1 && source.unitNumbers.indexOf(Number(u.unitNumber)) === -1) return;
+        var unitNo = u.unitNumber !== undefined ? u.unitNumber : u.unit_number;
+        if(source.unitNumbers.indexOf(unitNo) === -1 && source.unitNumbers.indexOf(Number(unitNo)) === -1) return;
       }
       (u.lessons||[]).forEach(function(l){
         if(source.lessonNumbers && source.lessonNumbers.length){
-          if(source.lessonNumbers.indexOf(l.lessonNumber) === -1 && source.lessonNumbers.indexOf(Number(l.lessonNumber)) === -1) return;
+          var lessonNo = l.lessonNumber !== undefined ? l.lessonNumber : l.lesson_number;
+          if(source.lessonNumbers.indexOf(lessonNo) === -1 && source.lessonNumbers.indexOf(Number(lessonNo)) === -1) return;
         }
         (l.questions||[]).forEach(function(q){
           if(source.types && source.types.length && source.types.indexOf(q.type) === -1) return;

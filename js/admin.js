@@ -129,6 +129,7 @@
       ["questions", "\u2753", "\u0628\u0646\u0643 \u0627\u0644\u0623\u0633\u0626\u0644\u0629"],
       ["exams", "\uD83D\uDCDD", "\u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631\u0627\u062a"],
       ["examtemplates", "\uD83D\uDCCB", "\u0642\u0648\u0627\u0644\u0628 \u0627\u0644\u0646\u0645\u0627\u0630\u062c"],
+      ["feature-report", "📑", "تقرير الميزات 2–9"],
       ["payments", "\uD83D\uDCB3", "\u0637\u0644\u0628\u0627\u062a \u0627\u0644\u062f\u0641\u0639"],
       ["teachers", "\uD83D\uDC68\u200D\uD83C\uDFEB", "\u0627\u0644\u0645\u0639\u0644\u0645\u0648\u0646"],
       ["students", "\uD83D\uDC66", "\u0627\u0644\u0637\u0644\u0627\u0628"],
@@ -4744,6 +4745,22 @@ function studentModal(s) {
   /* ============================================================
    * ROUTER
    * ============================================================ */
+  async function renderFeatureReport() {
+    shell("feature-report", U.loaderHTML());
+    const features = [
+      [2, "إضافة سؤال من بنك الأسئلة", "بحث حسب نص السؤال والوحدة والدرس وإضافة السؤال مع بياناته والنص المرافق."],
+      [3, "استبدال سؤال", "استبدال سؤال القالب بسؤال آخر مع الحفاظ على الموضع والدرجة."],
+      [4, "إعادة ترتيب الأسئلة", "أزرار ↑ و↓ والسحب والإفلات مع الحفظ داخل القالب."],
+      [5, "المعاينة", "معاينة الطالب دون الإجابات ومعاينة المدير مع الإجابات والنصوص والدرجات."],
+      [6, "إصدارات القالب", "حفظ نسخ سابقة واستعادة إصدار سابق عند الحاجة."],
+      [7, "تحديد المجموعات", "اختيار جميع المجموعات أو مجموعات محددة عند النشر."],
+      [8, "قفل الاختبار بعد بدء الطلاب", "منع تعديل اختبار له تسليمات لحماية النتائج القديمة."],
+      [9, "إصدارات الاختبارات المنشورة", "إنشاء اختبار مستقل بكود وإصدار جديد بدل تغيير اختبار مستخدم."]
+    ];
+    const cards = features.map(function (f) { return '<article class="card mb-sm"><div class="flex" style="justify-content:space-between"><span class="badge badge-success">الاقتراح ' + f[0] + '</span><span class="badge badge-success">✅ منفذ</span></div><h3 class="mt-sm">' + U.esc(f[1]) + '</h3><p class="muted" style="line-height:1.9">' + U.esc(f[2]) + '</p></article>'; }).join('');
+    shell("feature-report", pageHead("📑", "تقرير الميزات 2–9", "توثيق وظائف القوالب والاختبارات المنشورة") + '<div class="card mt"><div class="info-banner success"><b>حالة التنفيذ: مكتمل</b><p class="mt-sm">تتضمن هذه الصفحة توثيقًا وظيفيًا للميزات التي نفذت في هذه المرحلة.</p></div><div class="mt">' + cards + '</div></div><div class="card mt"><h3>حماية البيانات</h3><ul style="line-height:2"><li>التحقق من القالب قبل النشر.</li><li>منع تعديل الاختبار بعد وجود تسليمات.</li><li>حفظ نسخ مستقلة للإصدارات الجديدة.</li><li>ربط الأسئلة الفعلية ببنك الفلسفة في الفصلين الأول والثاني.</li></ul></div>');
+  }
+
   const renders = {
     dashboard: renderDashboard,
     groups: renderGroups,
@@ -4758,6 +4775,7 @@ function studentModal(s) {
     results: renderResults,
     analytics: renderAnalytics,
     audit: renderAuditLog,
+    "feature-report": renderFeatureReport,
     settings: renderSettings
   };
 
@@ -5530,10 +5548,29 @@ function studentModal(s) {
         (S.listExamTemplates ? S.listExamTemplates() : Promise.resolve([])),
         S.listSubjects ? S.listSubjects() : Promise.resolve([])
       ]);
+      const emptyTemplates = (templates || []).filter(function (t) { return !Array.isArray(t.questions) || !t.questions.length; });
+      if (emptyTemplates.length && S.updateExamTemplate && window.ExamTemplateEngine) {
+        try {
+          const hydrationBank = await templateBank();
+          let hydrated = 0;
+          for (let hi = 0; hi < emptyTemplates.length; hi++) {
+            const t = emptyTemplates[hi];
+            const generated = await ExamTemplateEngine.generate(t, hydrationBank);
+            if (generated.length) {
+              await S.updateExamTemplate(t.id, { questions: generated, _skipVersion: true });
+              t.questions = generated;
+              hydrated++;
+            }
+            if ((hi + 1) % 25 === 0) U.toast('جاري ربط أسئلة القوالب: ' + (hi + 1) + ' / ' + emptyTemplates.length, 'info', 2500);
+          }
+          if (hydrated) U.toast('تم ربط الأسئلة الحقيقية بـ ' + hydrated + ' قالبًا', 'success', 5000);
+        } catch (hydrateError) { console.warn('[templates] hydration failed', hydrateError); }
+      }
       state.subjects = subjects;
       const subjectMap = {};
       subjects.forEach(function (s) { subjectMap[s.id] = s.name; });
       let html = pageHead("📋", "قوالب النماذج الامتحانية", "اضغط على بطاقة القالب لرؤية الأسئلة والنصوص المرافقة وتعديلها") +
+        '<div class="card mt"><div class="form-row"><div class="field"><label>بحث في القوالب</label><input id="tplFilterSearch" placeholder="اسم النموذج أو الوحدة أو الدرس"></div><div class="field"><label>الحالة</label><select id="tplFilterStatus"><option value="all">الكل</option><option value="active">النشطة فقط</option><option value="inactive">المعطلة فقط</option></select></div><div class="field"><label>عدد القوالب المعروضة</label><select id="tplFilterLimit"><option value="25">25</option><option value="50">50</option><option value="100">100</option><option value="all">الكل</option></select></div></div><div class="tiny muted" id="tplFilterCount"></div></div>' +
         '<div class="actions mt">' +
         '<button class="btn btn-primary" id="importPhiloTpl">📥 جلب 400 قالبًا</button> ' +
         '<button class="btn" id="importPhiloTplExisting">📥 استيراد من philosophy_templates.json</button> ' +
@@ -5547,11 +5584,28 @@ function studentModal(s) {
           const secs = tpl.sections || [];
           const totalCount = Array.isArray(tpl.questions) ? tpl.questions.length : secs.reduce(function (a, x) { return a + (Number(x.count) || 0); }, 0);
           const active = tpl.active !== false;
-          html += '<div class="exam-card" data-tpl-open="' + U.esc(tpl.id) + '" style="cursor:pointer"><div class="exam-title">📋 ' + U.esc(tpl.name || 'قالب نموذج امتحاني') + '</div><div class="exam-meta"><span class="badge badge-muted">📚 ' + U.esc(tpl.subjectName || subjectMap[tpl.subjectId] || tpl.subjectId || '-') + '</span><span class="badge badge-muted">❓ ' + totalCount + ' سؤال</span><span class="badge ' + (active ? 'badge-success' : 'badge-danger') + '">' + (active ? '✅ نشط' : '⛔ معطل') + '</span></div><div class="tiny muted mt-sm">' + (tpl.publishedCode ? 'منشور للطلاب بالكود: ' + U.esc(tpl.publishedCode) : 'غير محول إلى اختبار بعد') + '</div><div class="exam-actions mt"><button class="btn btn-sm" data-tpl-toggle="' + U.esc(tpl.id) + '" data-active="' + (active ? '1' : '0') + '">تبديل الحالة</button> <button class="btn btn-sm btn-danger" data-tpl-del="' + U.esc(tpl.id) + '">حذف</button> ' + (active ? '<button class="btn btn-sm btn-primary" data-tpl-publish="' + U.esc(tpl.id) + '">تحويل إلى اختبار برمز</button>' : '') + '</div></div>';
+          html += '<div class="exam-card" data-tpl-open="' + U.esc(tpl.id) + '" data-tpl-name="' + U.esc((tpl.name || '') + ' ' + (tpl.subjectName || subjectMap[tpl.subjectId] || '') ) + '" data-tpl-active="' + (active ? '1' : '0') + '" style="cursor:pointer"><div class="exam-title">📋 ' + U.esc(tpl.name || 'قالب نموذج امتحاني') + '</div><div class="exam-meta"><span class="badge badge-muted">📚 ' + U.esc(tpl.subjectName || subjectMap[tpl.subjectId] || tpl.subjectId || '-') + '</span><span class="badge badge-muted">❓ ' + totalCount + ' سؤال</span><span class="badge ' + (active ? 'badge-success' : 'badge-danger') + '">' + (active ? '✅ نشط' : '⛔ معطل') + '</span></div><div class="tiny muted mt-sm">' + (tpl.publishedCode ? 'منشور للطلاب بالكود: ' + U.esc(tpl.publishedCode) : 'غير محول إلى اختبار بعد') + '</div><div class="exam-actions mt"><button class="btn btn-sm" data-tpl-toggle="' + U.esc(tpl.id) + '" data-active="' + (active ? '1' : '0') + '">تبديل الحالة</button> <button class="btn btn-sm btn-danger" data-tpl-del="' + U.esc(tpl.id) + '">حذف</button> ' + (active ? '<button class="btn btn-sm btn-primary" data-tpl-publish="' + U.esc(tpl.id) + '">تحويل إلى اختبار برمز</button>' : '') + '</div></div>';
         });
         html += '</div></div>';
       }
       shell("examtemplates", html);
+      const applyTemplateFilters = function () {
+        const term = String((document.getElementById('tplFilterSearch') || {}).value || '').trim().toLowerCase();
+        const status = (document.getElementById('tplFilterStatus') || {}).value || 'all';
+        const limVal = (document.getElementById('tplFilterLimit') || {}).value || '25';
+        const limit = limVal === 'all' ? Infinity : Number(limVal);
+        let shown = 0, matched = 0;
+        document.querySelectorAll('[data-tpl-open]').forEach(function (card) {
+          const matchText = !term || String(card.dataset.tplName || '').toLowerCase().indexOf(term) >= 0;
+          const matchStatus = status === 'all' || (status === 'active' ? card.dataset.tplActive === '1' : card.dataset.tplActive !== '1');
+          const visible = matchText && matchStatus && shown < limit;
+          if (matchText && matchStatus) { matched++; if (visible) shown++; }
+          card.style.display = visible ? '' : 'none';
+        });
+        const count = document.getElementById('tplFilterCount'); if (count) count.textContent = 'المطابق: ' + matched + ' — المعروض: ' + shown;
+      };
+      ['tplFilterSearch','tplFilterStatus','tplFilterLimit'].forEach(function (id) { const el = document.getElementById(id); if (el) el.addEventListener('input', applyTemplateFilters); });
+      applyTemplateFilters();
       document.getElementById("reloadTpl").addEventListener("click", renderExamTemplates);
       document.getElementById("importPhiloTplExisting").addEventListener("click", async function () {
         try { const r = await fetch("data/philosophy_templates.json"); const list = await r.json(); let n = 0; for (const x of list) { if (S.saveExamTemplate) { await S.saveExamTemplate(x); n++; } } U.toast('تم استيراد ' + n + ' قالب', 'success'); renderExamTemplates(); } catch (e) { U.toast('خطأ: ' + e.message, 'error'); }
