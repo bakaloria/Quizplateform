@@ -5358,9 +5358,10 @@ function studentModal(s) {
   }
 
   /* أدوات قوالب النماذج: عرض النصوص والأسئلة وتحريرها وتحويلها إلى اختبار */
-  async function templateBank() {
-    const r = await fetch("data/philosophy.json?template=" + Date.now(), { cache: "no-store" });
-    if (!r.ok) throw new Error("تعذر تحميل بنك أسئلة الفلسفة");
+  async function templateBank(subjectId) {
+    const id = subjectId || "philosophy";
+    const r = await fetch("data/" + id + ".json?template=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) throw new Error("تعذر تحميل بنك أسئلة " + (id === "history" ? "التاريخ" : "الفلسفة"));
     return r.json();
   }
   function findBankQuestion(bank, text) {
@@ -5454,7 +5455,7 @@ function studentModal(s) {
 
   async function openTemplateQuestions(tpl) {
     let bank, questions;
-    try { bank = await templateBank(); questions = await materializeTemplateQuestions(tpl, bank); } catch (e) { return U.toast(e.message, "error"); }
+    try { bank = await templateBank(tpl.subjectId); questions = await materializeTemplateQuestions(tpl, bank); } catch (e) { return U.toast(e.message, "error"); }
     const save = async function () { await S.updateExamTemplate(tpl.id, { questions: questions }); tpl.questions = questions; };
     const renderBody = function () {
       return '<div class="flex flex-wrap" style="justify-content:space-between;gap:8px"><span class="muted">' + questions.length + ' سؤالًا — الإصدار ' + (tpl.versionNo || 0) + '</span><div class="flex flex-wrap" style="gap:6px"><button class="btn btn-sm" id="tplPreviewStudent">👁️ معاينة الطالب</button><button class="btn btn-sm" id="tplPreviewAdmin">🔑 معاينة المدير</button><button class="btn btn-sm" id="tplVersions">🕘 الإصدارات</button><button class="btn btn-primary" id="tplAddBank">📚 إضافة من البنك</button><button class="btn" id="tplAddQuestion">＋ سؤال يدوي</button></div></div><div class="mt">' + (questions.length ? questions.map(templateQuestionHTML).join('') : '<div class="empty-state">لا توجد أسئلة في القالب</div>') + '</div>';
@@ -5542,7 +5543,7 @@ function studentModal(s) {
     const code = (window.prompt('أدخل رمز الاختبار للطلاب (4-12 أحرف أو أرقام إنجليزية):', '') || '').trim().toUpperCase();
     if (!code) return;
     try {
-      const bank = await templateBank();
+      const bank = await templateBank(tpl.subjectId);
       const questions = await materializeTemplateQuestions(tpl, bank);
       const validationErrors = validateTemplateQuestions(questions);
       if (validationErrors.length) {
@@ -5572,11 +5573,13 @@ function studentModal(s) {
       const emptyTemplates = (templates || []).filter(function (t) { return !Array.isArray(t.questions) || !t.questions.length; });
       if (emptyTemplates.length && S.updateExamTemplate && window.ExamTemplateEngine) {
         try {
-          const hydrationBank = await templateBank();
+          const hydrationBanks = {};
           let hydrated = 0;
           for (let hi = 0; hi < emptyTemplates.length; hi++) {
             const t = emptyTemplates[hi];
-            const generated = await ExamTemplateEngine.generate(t, hydrationBank);
+            const sid = t.subjectId || 'philosophy';
+            if (!hydrationBanks[sid]) hydrationBanks[sid] = await templateBank(sid);
+            const generated = await ExamTemplateEngine.generate(t, hydrationBanks[sid]);
             if (generated.length) {
               await S.updateExamTemplate(t.id, { questions: generated, _skipVersion: true });
               t.questions = generated;
@@ -5593,12 +5596,12 @@ function studentModal(s) {
       let html = pageHead("📋", "قوالب النماذج الامتحانية", "اضغط على بطاقة القالب لرؤية الأسئلة والنصوص المرافقة وتعديلها") +
         '<div class="card mt"><div class="form-row"><div class="field"><label>بحث في القوالب</label><input id="tplFilterSearch" placeholder="اسم النموذج أو الوحدة أو الدرس"></div><div class="field"><label>الحالة</label><select id="tplFilterStatus"><option value="all">الكل</option><option value="active">النشطة فقط</option><option value="inactive">المعطلة فقط</option></select></div><div class="field"><label>عدد القوالب المعروضة</label><select id="tplFilterLimit"><option value="25">25</option><option value="50">50</option><option value="100">100</option><option value="all">الكل</option></select></div></div><div class="tiny muted" id="tplFilterCount"></div></div>' +
         '<div class="actions mt">' +
-        '<button class="btn btn-primary" id="importPhiloTpl">📥 جلب 400 قالبًا</button> ' +
-        '<button class="btn" id="importPhiloTplExisting">📥 استيراد من philosophy_templates.json</button> ' +
+        '<button class="btn btn-primary" id="importPhiloTpl">📥 جلب 400 قالب فلسفة</button> <button class="btn btn-primary" id="importHistoryTpl">📥 جلب 400 قالب تاريخ</button> ' +
+        '<button class="btn" id="importPhiloTplExisting">📥 استيراد من philosophy_templates.json</button> <button class="btn" id="importHistoryTplExisting">📥 استيراد قوالب التاريخ</button> ' +
         '<button class="btn" id="reloadTpl">🔄 تحديث</button>' +
         '</div>';
       if (!templates || !templates.length) {
-        html += '<div class="card mt"><div class="empty-state"><div class="emoji">📋</div><h3>لا توجد قوالب بعد</h3><p class="muted">استورد قوالب الفلسفة لبدء الاستخدام</p></div></div>';
+        html += '<div class="card mt"><div class="empty-state"><div class="emoji">📋</div><h3>لا توجد قوالب بعد</h3><p class="muted">استورد قوالب الفلسفة أو التاريخ لبدء الاستخدام</p></div></div>';
       } else {
         html += '<div class="card mt"><div class="section-head"><div class="left"><span class="ico">📋</span><div><h3>قوائم القوالب</h3><p class="muted">العدد: ' + templates.length + ' — اضغط على البطاقة لعرض الأسئلة</p></div></div></div><div class="exams-grid">';
         templates.forEach(function (tpl) {
@@ -5631,6 +5634,9 @@ function studentModal(s) {
       document.getElementById("importPhiloTplExisting").addEventListener("click", async function () {
         try { const r = await fetch("data/philosophy_templates.json"); const list = await r.json(); let n = 0; for (const x of list) { if (S.saveExamTemplate) { await S.saveExamTemplate(x); n++; } } U.toast('تم استيراد ' + n + ' قالب', 'success'); renderExamTemplates(); } catch (e) { U.toast('خطأ: ' + e.message, 'error'); }
       });
+      document.getElementById("importHistoryTplExisting").addEventListener("click", async function () {
+        try { const r = await fetch("data/history_templates.json", { cache: "no-store" }); const list = await r.json(); let n = 0; for (const x of list) { if (S.saveExamTemplate) { await S.saveExamTemplate(x); n++; } } U.toast('تم استيراد ' + n + ' قالب تاريخ', 'success'); renderExamTemplates(); } catch (e) { U.toast('خطأ: ' + e.message, 'error'); }
+      });
       document.getElementById("importPhiloTpl").addEventListener("click", async function () {
         try {
           U.toast('جاري جلب القوالب دون نشرها للطلاب...', 'info');
@@ -5639,6 +5645,16 @@ function studentModal(s) {
           const list = await r.json(); let n = 0;
           for (const tpl of list) { if (S.saveExamTemplate) { await S.saveExamTemplate(Object.assign({}, tpl, { active: tpl.active !== false })); n++; } }
           U.toast('تم جلب ' + n + ' قالبًا كقوالب نشطة — لم يُنشر أي اختبار تلقائيًا', 'success', 7000); renderExamTemplates();
+        } catch (e) { U.toast('خطأ: ' + e.message, 'error'); }
+      });
+      document.getElementById("importHistoryTpl").addEventListener("click", async function () {
+        try {
+          U.toast('جاري جلب 400 قالب تاريخ دون نشرها للطلاب...', 'info');
+          const r = await fetch('data/history_all_templates.json', { cache: 'no-store' });
+          if (!r.ok) throw new Error('تعذر تحميل قوالب التاريخ');
+          const list = await r.json(); let n = 0;
+          for (const tpl of list) { if (S.saveExamTemplate) { await S.saveExamTemplate(Object.assign({}, tpl, { active: tpl.active !== false })); n++; } }
+          U.toast('تم جلب ' + n + ' قالب تاريخ — لم يُنشر أي اختبار تلقائيًا', 'success', 7000); renderExamTemplates();
         } catch (e) { U.toast('خطأ: ' + e.message, 'error'); }
       });
       document.querySelectorAll('[data-tpl-open]').forEach(function (b) { b.addEventListener('click', function (ev) { if (ev.target.closest('button')) return; const tpl = templates.find(function (x) { return x.id === b.dataset.tplOpen; }); if (tpl) openTemplateQuestions(tpl); }); });
