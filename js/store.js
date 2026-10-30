@@ -574,16 +574,27 @@
       await col.students.doc(id).update(patch);
     },
     deleteStudent: async function (id) {
-      // احذف انضماماته
+      if (!id) return;
+      // احذف انضماماته وتسليماته وإشعاراته وطلبات الدفع المرتبطة به
       const enr = await col.enrollments.where("studentId", "==", id).get();
-      let batch = db.batch();
-      let n = 0;
-      for (const doc of enr.docs) {
-        batch.delete(doc.ref);
-        n++;
+      const groupIds = enr.docs.map(function (d) { return d.data().groupId; }).filter(Boolean);
+      const related = [];
+      for (const snap of [enr, await col.submissions.where("studentId", "==", id).get(), await col.notifications.where("studentId", "==", id).get(), await col.payments.where("studentId", "==", id).get()]) {
+        snap.docs.forEach(function (d) { related.push(d.ref); });
       }
-      if (n > 0) await batch.commit();
+      for (let i = 0; i < related.length; i += 450) {
+        const batch = db.batch();
+        related.slice(i, i + 450).forEach(function (ref) { batch.delete(ref); });
+        await batch.commit();
+      }
       await col.students.doc(id).delete();
+      for (const groupId of groupIds) { try { await store.updateGroupStudentCount(groupId); } catch (e) {} }
+    },
+    deleteAllStudents: async function () {
+      const snap = await col.students.get();
+      const students = snap.docs || [];
+      for (let i = 0; i < students.length; i++) await store.deleteStudent(students[i].id);
+      return students.length;
     },
     recordStudentLogin: async function (id) {
       await col.students.doc(id).update({ lastLoginAt: FV.serverTimestamp() });
@@ -707,6 +718,16 @@
     },
     deleteSubmission: async function (id) {
       await col.submissions.doc(id).delete();
+    },
+    deleteAllSubmissions: async function () {
+      const snap = await col.submissions.get();
+      const docs = snap.docs || [];
+      for (let i = 0; i < docs.length; i += 450) {
+        const batch = db.batch();
+        docs.slice(i, i + 450).forEach(function (d) { batch.delete(d.ref); });
+        await batch.commit();
+      }
+      return docs.length;
     },
     listRecentSubmissions: async function (limit) {
       const snap = await col.submissions.get();
@@ -895,6 +916,15 @@
     deleteNotification: async function (id) {
       if (!id) return;
       await col.notifications.doc(id).delete();
+    },
+    deleteAllNotificationsForUser: async function (recipientType, recipientId) {
+      const list = await store.listNotificationsForUser(recipientType, recipientId);
+      for (let i = 0; i < list.length; i += 450) {
+        const batch = db.batch();
+        list.slice(i, i + 450).forEach(function (n) { batch.delete(col.notifications.doc(n.id)); });
+        await batch.commit();
+      }
+      return list.length;
     },
 
     /* ============================================================

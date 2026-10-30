@@ -529,9 +529,13 @@
       });
       const anb = document.getElementById("adminNotifBtn");
       if (anb) anb.addEventListener("click", function () {
-        const list = adminNotifs.length ? adminNotifs.map(function (n) { return '<div class="card mb-sm" style="padding:10px;border-left:3px solid var(--primary);' + (n.read ? '' : 'background:var(--primary-soft)') + '"><b>' + U.esc(n.title || 'إشعار') + '</b><div class="tiny muted mt-sm">' + U.esc(n.body || '') + '</div></div>'; }).join('') : '<div class="empty-state"><div class="emoji">🔔</div><h3>لا توجد إشعارات</h3></div>';
-        U.modal({ title: '🔔 إشعارات الإدارة', body: '<div style="max-height:60vh;overflow:auto">' + list + '</div>', footer: '<button class="btn btn-primary btn-sm" id="adminMarkAll">تعليم الكل كمقروء</button>' });
-        setTimeout(function () { const b = document.getElementById("adminMarkAll"); if (b) b.onclick = async function () { await S.markAllNotificationsReadForUser("admin", "admin"); U.closeModal(); renderDashboard(); }; }, 50);
+        const list = adminNotifs.length ? adminNotifs.map(function (n) { return '<div class="card mb-sm" style="padding:10px;border-left:3px solid var(--primary);' + (n.read ? '' : 'background:var(--primary-soft)') + '"><div class="flex" style="justify-content:space-between;gap:8px"><b>' + U.esc(n.title || 'إشعار') + '</b><button class="btn btn-sm btn-danger" data-del-admin-notif="' + U.esc(n.id) + '">حذف</button></div><div class="tiny muted mt-sm">' + U.esc(n.body || '') + '</div></div>'; }).join('') : '<div class="empty-state"><div class="emoji">🔔</div><h3>لا توجد إشعارات</h3></div>';
+        U.modal({ title: '🔔 إشعارات الإدارة', body: '<div style="max-height:60vh;overflow:auto">' + list + '</div>', footer: '<button class="btn btn-primary btn-sm" id="adminMarkAll">تعليم الكل كمقروء</button><button class="btn btn-danger btn-sm" id="adminDeleteAll">حذف كل الإشعارات</button>' });
+        setTimeout(function () {
+          const b = document.getElementById("adminMarkAll"); if (b) b.onclick = async function () { await S.markAllNotificationsReadForUser("admin", "admin"); U.closeModal(); renderDashboard(); };
+          const all = document.getElementById("adminDeleteAll"); if (all) all.onclick = async function () { if (!await U.confirm("حذف جميع إشعارات المدير؟ لا يمكن التراجع عن هذا الإجراء.")) return; await S.deleteAllNotificationsForUser("admin", "admin"); U.closeModal(); U.toast("تم حذف إشعارات المدير", "success"); renderDashboard(); };
+          document.querySelectorAll('[data-del-admin-notif]').forEach(function (btn) { btn.onclick = async function () { if (!await U.confirm("حذف هذا الإشعار؟")) return; await S.deleteNotification(btn.dataset.delAdminNotif); U.closeModal(); U.toast("تم حذف الإشعار", "success"); renderDashboard(); }; });
+        }, 50);
       });
     } catch (e) {
       shell("dashboard", errorCard(e));
@@ -2299,7 +2303,8 @@ async function renderStudents() {
 
     shell("students",
       pageHead("🎓", "الطلاب",
-        students.length + " طالب · " + sWithGroup + " في مجموعات") +
+        students.length + " طالب · " + sWithGroup + " في مجموعات",
+        '<button class="btn btn-danger" id="deleteAllStudents">🗑 حذف جميع الطلاب</button>') +
 
       kpiGrid([
         kpi("c-primary", "🎓", students.length, "إجمالي الطلاب"),
@@ -2317,6 +2322,14 @@ async function renderStudents() {
       function (id) { return students.find(function (s) { return s.id === id; }); },
       function (s) { openStudentDetails(s); }
     );
+    const deleteAllStudents = document.getElementById("deleteAllStudents");
+    if (deleteAllStudents) deleteAllStudents.addEventListener("click", async function () {
+      if (!students.length) return U.toast("لا يوجد طلاب للحذف", "info");
+      if (!await U.confirm("سيتم حذف جميع حسابات الطلاب مع التسليمات والإشعارات والانضمامات المرتبطة. هل تريد المتابعة؟")) return;
+      await S.deleteAllStudents();
+      U.toast("تم حذف جميع الطلاب والبيانات المرتبطة", "success");
+      renderStudents();
+    });
   } catch (e) {
     shell("students", errorCard(e));
   }
@@ -4143,7 +4156,7 @@ function studentModal(s) {
         '<div class="field"><label>الاختبار</label>' +
         '<select id="resExam"><option value="">— اختر اختباراً —</option>' +
         '<option value="__all__">📋 كل التسليمات (جميع المواد)</option>' + opts + "</select></div>" +
-        "</div></div>" +
+        '<button class="btn btn-danger" id="deleteAllSubmissions">🗑 حذف جميع المشاركات والتسليمات</button></div></div>' +
 
         '<div id="resBody"><div class="empty-state"><div class="emoji">\uD83D\uDCC8</div>' +
         "<h3>\u0627\u062e\u062a\u0631 \u0627\u062e\u062a\u0628\u0627\u0631\u0627\u064B</h3></div></div>"
@@ -4152,6 +4165,14 @@ function studentModal(s) {
       document.getElementById("resExam").addEventListener("change", function (e) {
         if (e.target.value === "__all__") return openAllSubmissions();
         openExamResults(e.target.value);
+      });
+      document.getElementById("deleteAllSubmissions").addEventListener("click", async function () {
+        const count = await S.countSubmissions();
+        if (!count) return U.toast("لا توجد تسليمات للحذف", "info");
+        if (!await U.confirm("سيتم حذف " + count + " مشاركة/تسليم نهائيًا من جميع الاختبارات. هل تريد المتابعة؟")) return;
+        await S.deleteAllSubmissions();
+        U.toast("تم حذف جميع المشاركات والتسليمات", "success");
+        openAllSubmissions();
       });
 
       if (state.pendingResultExam) {
