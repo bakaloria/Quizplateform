@@ -1,5010 +1,15 @@
 [
   {
-    "name": "نموذج - الأطماع الاستعمارية في القرن التاسع عشر (درس واحد) | نموذج 1",
+    "name": "نموذج امتحاني رسمي - كامل المادة (مطابق للنموذج)",
     "subjectId": "history",
     "subjectName": "التاريخ",
     "active": true,
     "sections": [
       {
         "order": 1,
-        "title": "نموذج امتحاني",
+        "title": "السؤال الأول - أولاً: اختر الإجابة الصحيحة",
         "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            1
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الأطماع الاستعمارية في القرن التاسع عشر (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            1
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الأطماع الاستعمارية في القرن التاسع عشر (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            1
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الأطماع الاستعمارية في القرن التاسع عشر (درس واحد) | نموذج 4",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            1
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الأطماع الاستعمارية في القرن التاسع عشر (درس واحد) | نموذج 5",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            1
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الأطماع الاستعمارية في القرن التاسع عشر (درس واحد) | نموذج 6",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            1
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الوطن العربي محور الأطماع الاستعمارية في القرن العشرين (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            1
-          ],
-          "lessonNumbers": [
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الوطن العربي محور الأطماع الاستعمارية في القرن العشرين (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            1
-          ],
-          "lessonNumbers": [
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الوطن العربي محور الأطماع الاستعمارية في القرن العشرين (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            1
-          ],
-          "lessonNumbers": [
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - صيغ وأساليب جديدة للاستعمار (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            1
-          ],
-          "lessonNumbers": [
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - صيغ وأساليب جديدة للاستعمار (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            1
-          ],
-          "lessonNumbers": [
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - صيغ وأساليب جديدة للاستعمار (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            1
-          ],
-          "lessonNumbers": [
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - العرب في بلاد الشام (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            1
-          ],
-          "lessonNumbers": [
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - العرب في بلاد الشام (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            1
-          ],
-          "lessonNumbers": [
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - العرب في بلاد الشام (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            1
-          ],
-          "lessonNumbers": [
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الشعب العربي السوري يتصدى للقوات الفرنسية في ميسلون (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الشعب العربي السوري يتصدى للقوات الفرنسية في ميسلون (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الشعب العربي السوري يتصدى للقوات الفرنسية في ميسلون (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الشعب العربي السوري يتصدى للقوات الفرنسية في ميسلون (درس واحد) | نموذج 4",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الشعب العربي السوري يتصدى للقوات الفرنسية في ميسلون (درس واحد) | نموذج 5",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الشعب العربي السوري يتصدى للقوات الفرنسية في ميسلون (درس واحد) | نموذج 6",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الثورات السورية ضد الاحتلال الفرنسي (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الثورات السورية ضد الاحتلال الفرنسي (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الثورات السورية ضد الاحتلال الفرنسي (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - سياسة فرنسا لم تثن الشعب العربي السوري عن نيل استقلاله (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - سياسة فرنسا لم تثن الشعب العربي السوري عن نيل استقلاله (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - سياسة فرنسا لم تثن الشعب العربي السوري عن نيل استقلاله (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - سورية منذ الاستقلال وحتى انقلاب (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - سورية منذ الاستقلال وحتى انقلاب (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - سورية منذ الاستقلال وحتى انقلاب (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - سورية منذ انقلاب حتى الوقت الحاضر (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            5
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - سورية منذ انقلاب حتى الوقت الحاضر (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            5
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - سورية منذ انقلاب حتى الوقت الحاضر (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            5
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - لبنان منذ الاحتلال الفرنسي حتى معاهدة (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            6
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - لبنان منذ الاحتلال الفرنسي حتى معاهدة (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            6
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - لبنان منذ الاستقلال حتى الوقت الحاضر (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            7
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - لبنان منذ الاستقلال حتى الوقت الحاضر (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            7
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - لبنان منذ الاستقلال حتى الوقت الحاضر (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            7
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الأطماع الاستعمارية في فلسطين قبل الحرب العالمية الأولى (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الأطماع الاستعمارية في فلسطين قبل الحرب العالمية الأولى (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الأطماع الاستعمارية في فلسطين قبل الحرب العالمية الأولى (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الأطماع الاستعمارية في فلسطين قبل الحرب العالمية الأولى (درس واحد) | نموذج 4",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الأطماع الاستعمارية في فلسطين قبل الحرب العالمية الأولى (درس واحد) | نموذج 5",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الأطماع الاستعمارية في فلسطين قبل الحرب العالمية الأولى (درس واحد) | نموذج 6",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الشعب الفلسطيني يعلن الثورة (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الشعب الفلسطيني يعلن الثورة (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الشعب الفلسطيني يعلن الثورة (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - فلسطين بين الحرب العالمية الثانية والنكبة (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - فلسطين بين الحرب العالمية الثانية والنكبة (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - فلسطين بين الحرب العالمية الثانية والنكبة (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - القضية الفلسطينية منذ النكبة حتى الوقت الحاضر (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - القضية الفلسطينية منذ النكبة حتى الوقت الحاضر (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - القضية الفلسطينية منذ النكبة حتى الوقت الحاضر (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الأردن منذ تأسيس الإمارة حتى الوقت الحاضر (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            5
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الأردن منذ تأسيس الإمارة حتى الوقت الحاضر (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            5
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الأردن منذ تأسيس الإمارة حتى الوقت الحاضر (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            5
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - العراق منذ الاحتلال البريطاني حتى معاهدة (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            6
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - العراق منذ الاحتلال البريطاني حتى معاهدة (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            6
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - العراق منذ الاحتلال البريطاني حتى معاهدة (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            6
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - العراق منذ الحرب العالمية الثانية حتى الوقت الحاضر (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            7
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - العراق منذ الحرب العالمية الثانية حتى الوقت الحاضر (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            7
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - العراق منذ الحرب العالمية الثانية حتى الوقت الحاضر (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            7
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - المملكة العربية السعودية منذ التأسيس حتى الوقت الحاضر (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            4
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - المملكة العربية السعودية منذ التأسيس حتى الوقت الحاضر (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            4
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - المملكة العربية السعودية منذ التأسيس حتى الوقت الحاضر (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            4
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - المملكة العربية السعودية منذ التأسيس حتى الوقت الحاضر (درس واحد) | نموذج 4",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            4
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - المملكة العربية السعودية منذ التأسيس حتى الوقت الحاضر (درس واحد) | نموذج 5",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            4
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - المملكة العربية السعودية منذ التأسيس حتى الوقت الحاضر (درس واحد) | نموذج 6",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            4
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الكويت وقطر والبحرين منذ السيطرة البريطانية حتى الوقت الحاضر (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            4
-          ],
-          "lessonNumbers": [
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الكويت وقطر والبحرين منذ السيطرة البريطانية حتى الوقت الحاضر (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            4
-          ],
-          "lessonNumbers": [
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الكويت وقطر والبحرين منذ السيطرة البريطانية حتى الوقت الحاضر (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            4
-          ],
-          "lessonNumbers": [
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الإمارات وعمان منذ السيطرة البريطانية حتى الوقت الحاضر (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            4
-          ],
-          "lessonNumbers": [
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الإمارات وعمان منذ السيطرة البريطانية حتى الوقت الحاضر (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            4
-          ],
-          "lessonNumbers": [
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الإمارات وعمان منذ السيطرة البريطانية حتى الوقت الحاضر (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            4
-          ],
-          "lessonNumbers": [
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - تاريخ اليمن منذ القرن التاسع عشر حتى الوقت الحاضر (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            4
-          ],
-          "lessonNumbers": [
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - تاريخ اليمن منذ القرن التاسع عشر حتى الوقت الحاضر (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            4
-          ],
-          "lessonNumbers": [
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - تاريخ اليمن منذ القرن التاسع عشر حتى الوقت الحاضر (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            4
-          ],
-          "lessonNumbers": [
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الاحتلال البريطاني لمصر (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الاحتلال البريطاني لمصر (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الاحتلال البريطاني لمصر (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الاحتلال البريطاني لمصر (درس واحد) | نموذج 4",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الاحتلال البريطاني لمصر (درس واحد) | نموذج 5",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الاحتلال البريطاني لمصر (درس واحد) | نموذج 6",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - أوضاع مصر بين الحربين العالميتين (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - أوضاع مصر بين الحربين العالميتين (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - أوضاع مصر بين الحربين العالميتين (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - مصر منذ قيام الجمهورية وحتى الوقت الحاضر (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - مصر منذ قيام الجمهورية وحتى الوقت الحاضر (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - مصر منذ قيام الجمهورية وحتى الوقت الحاضر (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - السودان منذ الحكم الثنائي حتى الوقت الحاضر (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - السودان منذ الحكم الثنائي حتى الوقت الحاضر (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - السودان منذ الحكم الثنائي حتى الوقت الحاضر (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الصومال وجيبوتي منذ الاحتلال الأجنبي حتى الوقت الحاضر (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            5
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الصومال وجيبوتي منذ الاحتلال الأجنبي حتى الوقت الحاضر (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            5
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الصومال وجيبوتي منذ الاحتلال الأجنبي حتى الوقت الحاضر (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            5
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - إريتريا وجزر القمر منذ الاحتلال الأجنبي حتى الوقت الحاضر (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            6
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - إريتريا وجزر القمر منذ الاحتلال الأجنبي حتى الوقت الحاضر (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            6
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - إريتريا وجزر القمر منذ الاحتلال الأجنبي حتى الوقت الحاضر (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            6
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - فرنسا تحول الجزائر إلى مستعمرة فرنسية (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - فرنسا تحول الجزائر إلى مستعمرة فرنسية (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - فرنسا تحول الجزائر إلى مستعمرة فرنسية (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - فرنسا تحول الجزائر إلى مستعمرة فرنسية (درس واحد) | نموذج 4",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - فرنسا تحول الجزائر إلى مستعمرة فرنسية (درس واحد) | نموذج 5",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - فرنسا تحول الجزائر إلى مستعمرة فرنسية (درس واحد) | نموذج 6",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - المقاومة الجزائرية حتى الحرب العالمية الثانية (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - المقاومة الجزائرية حتى الحرب العالمية الثانية (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - المقاومة الجزائرية حتى الحرب العالمية الثانية (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الشعب الجزائري يفجر ثورة مليون الشهيد (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الشعب الجزائري يفجر ثورة مليون الشهيد (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الشعب الجزائري يفجر ثورة مليون الشهيد (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - فرنسا تفرض نظاماً استعمارياً جديداً على تونس (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - فرنسا تفرض نظاماً استعمارياً جديداً على تونس (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - فرنسا تفرض نظاماً استعمارياً جديداً على تونس (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - تونس تقاوم الاحتلال الفرنسي حتى نيل الاستقلال (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [
-            5
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - تونس تقاوم الاحتلال الفرنسي حتى نيل الاستقلال (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [
-            5
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - تونس تقاوم الاحتلال الفرنسي حتى نيل الاستقلال (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [
-            5
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - ليبيا والأطماع الإيطالية (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - ليبيا والأطماع الإيطالية (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - ليبيا والأطماع الإيطالية (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - ليبيا والأطماع الإيطالية (درس واحد) | نموذج 4",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - ليبيا والأطماع الإيطالية (درس واحد) | نموذج 5",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - ليبيا والأطماع الإيطالية (درس واحد) | نموذج 6",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [
-            1
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - ليبيا منذ المقاومة حتى الوقت الحاضر (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - ليبيا منذ المقاومة حتى الوقت الحاضر (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - ليبيا منذ المقاومة حتى الوقت الحاضر (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - المغرب من الحماية إلى الثورة (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - المغرب من الحماية إلى الثورة (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - المغرب من الحماية إلى الثورة (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الحركة الوطنية تقود المغرب إلى الاستقلال (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الحركة الوطنية تقود المغرب إلى الاستقلال (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الحركة الوطنية تقود المغرب إلى الاستقلال (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - موريتانيا في تاريخها الحديث (درس واحد) | نموذج 1",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [
-            5
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - موريتانيا في تاريخها الحديث (درس واحد) | نموذج 2",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [
-            5
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - موريتانيا في تاريخها الحديث (درس واحد) | نموذج 3",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 25,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [
-            5
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: الأطماع الاستعمارية في القرن التاسع عشر / الوطن العربي محور الأطماع الاستعمارية في القرن العشرين",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            1
-          ],
-          "lessonNumbers": [
-            1,
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: الوطن العربي محور الأطماع الاستعمارية في القرن العشرين / صيغ وأساليب جديدة للاستعمار",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            1
-          ],
-          "lessonNumbers": [
-            2,
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: صيغ وأساليب جديدة للاستعمار / العرب في بلاد الشام",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            1
-          ],
-          "lessonNumbers": [
-            3,
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: الشعب العربي السوري يتصدى للقوات الفرنسية في ميسلون / الثورات السورية ضد الاحتلال الفرنسي",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            1,
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: الثورات السورية ضد الاحتلال الفرنسي / سياسة فرنسا لم تثن الشعب العربي السوري عن نيل استقلاله",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            2,
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: سياسة فرنسا لم تثن الشعب العربي السوري عن نيل استقلاله / سورية منذ الاستقلال وحتى انقلاب",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            3,
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: سورية منذ الاستقلال وحتى انقلاب / سورية منذ انقلاب حتى الوقت الحاضر",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            4,
-            5
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: سورية منذ انقلاب حتى الوقت الحاضر / لبنان منذ الاحتلال الفرنسي حتى معاهدة",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            5,
-            6
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: لبنان منذ الاحتلال الفرنسي حتى معاهدة / لبنان منذ الاستقلال حتى الوقت الحاضر",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [
-            6,
-            7
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: الأطماع الاستعمارية في فلسطين قبل الحرب العالمية الأولى / الشعب الفلسطيني يعلن الثورة",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            1,
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: الشعب الفلسطيني يعلن الثورة / فلسطين بين الحرب العالمية الثانية والنكبة",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            2,
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: فلسطين بين الحرب العالمية الثانية والنكبة / القضية الفلسطينية منذ النكبة حتى الوقت الحاضر",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            3,
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: القضية الفلسطينية منذ النكبة حتى الوقت الحاضر / الأردن منذ تأسيس الإمارة حتى الوقت الحاضر",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            4,
-            5
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: الأردن منذ تأسيس الإمارة حتى الوقت الحاضر / العراق منذ الاحتلال البريطاني حتى معاهدة",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            5,
-            6
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: العراق منذ الاحتلال البريطاني حتى معاهدة / العراق منذ الحرب العالمية الثانية حتى الوقت الحاضر",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [
-            6,
-            7
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: المملكة العربية السعودية منذ التأسيس حتى الوقت الحاضر / الكويت وقطر والبحرين منذ السيطرة البريطانية حتى الوقت الحاضر",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            4
-          ],
-          "lessonNumbers": [
-            1,
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: الكويت وقطر والبحرين منذ السيطرة البريطانية حتى الوقت الحاضر / الإمارات وعمان منذ السيطرة البريطانية حتى الوقت الحاضر",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            4
-          ],
-          "lessonNumbers": [
-            2,
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: الإمارات وعمان منذ السيطرة البريطانية حتى الوقت الحاضر / تاريخ اليمن منذ القرن التاسع عشر حتى الوقت الحاضر",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            4
-          ],
-          "lessonNumbers": [
-            3,
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: الاحتلال البريطاني لمصر / أوضاع مصر بين الحربين العالميتين",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            1,
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: أوضاع مصر بين الحربين العالميتين / مصر منذ قيام الجمهورية وحتى الوقت الحاضر",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            2,
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: مصر منذ قيام الجمهورية وحتى الوقت الحاضر / السودان منذ الحكم الثنائي حتى الوقت الحاضر",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            3,
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: السودان منذ الحكم الثنائي حتى الوقت الحاضر / الصومال وجيبوتي منذ الاحتلال الأجنبي حتى الوقت الحاضر",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            4,
-            5
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: الصومال وجيبوتي منذ الاحتلال الأجنبي حتى الوقت الحاضر / إريتريا وجزر القمر منذ الاحتلال الأجنبي حتى الوقت الحاضر",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [
-            5,
-            6
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: فرنسا تحول الجزائر إلى مستعمرة فرنسية / المقاومة الجزائرية حتى الحرب العالمية الثانية",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [
-            1,
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: المقاومة الجزائرية حتى الحرب العالمية الثانية / الشعب الجزائري يفجر ثورة مليون الشهيد",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [
-            2,
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: الشعب الجزائري يفجر ثورة مليون الشهيد / فرنسا تفرض نظاماً استعمارياً جديداً على تونس",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [
-            3,
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: فرنسا تفرض نظاماً استعمارياً جديداً على تونس / تونس تقاوم الاحتلال الفرنسي حتى نيل الاستقلال",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [
-            4,
-            5
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: ليبيا والأطماع الإيطالية / ليبيا منذ المقاومة حتى الوقت الحاضر",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [
-            1,
-            2
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: ليبيا منذ المقاومة حتى الوقت الحاضر / المغرب من الحماية إلى الثورة",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [
-            2,
-            3
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: المغرب من الحماية إلى الثورة / الحركة الوطنية تقود المغرب إلى الاستقلال",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [
-            3,
-            4
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - درسان متتاليان: الحركة الوطنية تقود المغرب إلى الاستقلال / موريتانيا في تاريخها الحديث",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 30,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [
-            4,
-            5
-          ],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - أبرز المتغيرات في الوطن العربي بداية القرن العشرين (وحدة كاملة)",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 40,
-        "source": {
-          "unitNumbers": [
-            1
-          ],
-          "lessonNumbers": [],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - سورية ولبنان منذ الاحتلال الفرنسي حتى الوقت الحاضر (وحدة كاملة)",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 40,
-        "source": {
-          "unitNumbers": [
-            2
-          ],
-          "lessonNumbers": [],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - فلسطين والأردن والعراق منذ الاحتلال الأوروبي حتى الوقت الحاضر (وحدة كاملة)",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 40,
-        "source": {
-          "unitNumbers": [
-            3
-          ],
-          "lessonNumbers": [],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - شبه الجزيرة العربية منذ بداية القرن العشرين حتى الوقت الحاضر (وحدة كاملة)",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 40,
-        "source": {
-          "unitNumbers": [
-            4
-          ],
-          "lessonNumbers": [],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - وادي النيل والقرن الإفريقي منذ الاحتلال الأجنبي حتى الوقت الحاضر (وحدة كاملة)",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 40,
-        "source": {
-          "unitNumbers": [
-            5
-          ],
-          "lessonNumbers": [],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - الجزائر وتونس منذ الاحتلال الأوروبي حتى الوقت الحاضر (وحدة كاملة)",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 40,
-        "source": {
-          "unitNumbers": [
-            6
-          ],
-          "lessonNumbers": [],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - ليبيا والمغرب وموريتانيا منذ الاحتلال الأوروبي حتى الوقت الحاضر (وحدة كاملة)",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 40,
-        "source": {
-          "unitNumbers": [
-            7
-          ],
-          "lessonNumbers": [],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - وحدتان متتاليتان: أبرز المتغيرات في الوطن العربي بداية القرن العشرين / سورية ولبنان منذ الاحتلال الفرنسي حتى الوقت الحاضر",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 50,
-        "source": {
-          "unitNumbers": [
-            1,
-            2
-          ],
-          "lessonNumbers": [],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - وحدتان متتاليتان: سورية ولبنان منذ الاحتلال الفرنسي حتى الوقت الحاضر / فلسطين والأردن والعراق منذ الاحتلال الأوروبي حتى الوقت الحاضر",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 50,
-        "source": {
-          "unitNumbers": [
-            2,
-            3
-          ],
-          "lessonNumbers": [],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - وحدتان متتاليتان: فلسطين والأردن والعراق منذ الاحتلال الأوروبي حتى الوقت الحاضر / شبه الجزيرة العربية منذ بداية القرن العشرين حتى الوقت الحاضر",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 50,
-        "source": {
-          "unitNumbers": [
-            3,
-            4
-          ],
-          "lessonNumbers": [],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - وحدتان متتاليتان: شبه الجزيرة العربية منذ بداية القرن العشرين حتى الوقت الحاضر / وادي النيل والقرن الإفريقي منذ الاحتلال الأجنبي حتى الوقت الحاضر",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 50,
-        "source": {
-          "unitNumbers": [
-            4,
-            5
-          ],
-          "lessonNumbers": [],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - وحدتان متتاليتان: وادي النيل والقرن الإفريقي منذ الاحتلال الأجنبي حتى الوقت الحاضر / الجزائر وتونس منذ الاحتلال الأوروبي حتى الوقت الحاضر",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 50,
-        "source": {
-          "unitNumbers": [
-            5,
-            6
-          ],
-          "lessonNumbers": [],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - وحدتان متتاليتان: الجزائر وتونس منذ الاحتلال الأوروبي حتى الوقت الحاضر / ليبيا والمغرب وموريتانيا منذ الاحتلال الأوروبي حتى الوقت الحاضر",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 50,
-        "source": {
-          "unitNumbers": [
-            6,
-            7
-          ],
-          "lessonNumbers": [],
-          "types": []
-        },
-        "shuffle": true
-      }
-    ],
-    "rules": {
-      "avoidDuplicates": true,
-      "randomizeSections": false
-    }
-  },
-  {
-    "name": "نموذج - كامل المادة (جميع الوحدات)",
-    "subjectId": "history",
-    "subjectName": "التاريخ",
-    "active": true,
-    "sections": [
-      {
-        "order": 1,
-        "title": "نموذج امتحاني",
-        "type": "mixed",
-        "count": 60,
+        "count": 4,
         "source": {
           "unitNumbers": [
             1,
@@ -5016,7 +21,1795 @@
             7
           ],
           "lessonNumbers": [],
-          "types": []
+          "types": [
+            "mcq"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 2,
+        "title": "السؤال الأول - ثانياً: صح أم خطأ",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "true_false"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 3,
+        "title": "السؤال الأول - ثالثاً: رتب الأحداث حسب التسلسل الزمني",
+        "type": "mixed",
+        "count": 1,
+        "source": {
+          "unitNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "ordering"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 4,
+        "title": "السؤال الأول - رابعاً: علل",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 5,
+        "title": "السؤال الثاني - أجب عن سؤالين",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 6,
+        "title": "السؤال الثالث - أجب عن الأسئلة",
+        "type": "mixed",
+        "count": 3,
+        "source": {
+          "unitNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 7,
+        "title": "السؤال الرابع",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج امتحاني رسمي - أبرز المتغيرات في الوطن العربي بداية القرن العشرين",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "السؤال الأول - أولاً: اختر الإجابة الصحيحة",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            1
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "mcq"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 2,
+        "title": "السؤال الأول - ثانياً: صح أم خطأ",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            1
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "true_false"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 3,
+        "title": "السؤال الأول - ثالثاً: رتب الأحداث حسب التسلسل الزمني",
+        "type": "mixed",
+        "count": 1,
+        "source": {
+          "unitNumbers": [
+            1
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "ordering"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 4,
+        "title": "السؤال الأول - رابعاً: علل",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            1
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 5,
+        "title": "السؤال الثاني - أجب عن سؤالين",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            1
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 6,
+        "title": "السؤال الثالث - أجب عن الأسئلة",
+        "type": "mixed",
+        "count": 3,
+        "source": {
+          "unitNumbers": [
+            1
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 7,
+        "title": "السؤال الرابع",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            1
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج امتحاني رسمي - سورية ولبنان منذ الاحتلال الفرنسي حتى الوقت الحاضر",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "السؤال الأول - أولاً: اختر الإجابة الصحيحة",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "mcq"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 2,
+        "title": "السؤال الأول - ثانياً: صح أم خطأ",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "true_false"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 3,
+        "title": "السؤال الأول - ثالثاً: رتب الأحداث حسب التسلسل الزمني",
+        "type": "mixed",
+        "count": 1,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "ordering"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 4,
+        "title": "السؤال الأول - رابعاً: علل",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 5,
+        "title": "السؤال الثاني - أجب عن سؤالين",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 6,
+        "title": "السؤال الثالث - أجب عن الأسئلة",
+        "type": "mixed",
+        "count": 3,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 7,
+        "title": "السؤال الرابع",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            2
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج امتحاني رسمي - فلسطين والأردن والعراق منذ الاحتلال الأوروبي حتى الوقت الحاضر",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "السؤال الأول - أولاً: اختر الإجابة الصحيحة",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            3
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "mcq"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 2,
+        "title": "السؤال الأول - ثانياً: صح أم خطأ",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            3
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "true_false"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 3,
+        "title": "السؤال الأول - ثالثاً: رتب الأحداث حسب التسلسل الزمني",
+        "type": "mixed",
+        "count": 1,
+        "source": {
+          "unitNumbers": [
+            3
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "ordering"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 4,
+        "title": "السؤال الأول - رابعاً: علل",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            3
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 5,
+        "title": "السؤال الثاني - أجب عن سؤالين",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            3
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 6,
+        "title": "السؤال الثالث - أجب عن الأسئلة",
+        "type": "mixed",
+        "count": 3,
+        "source": {
+          "unitNumbers": [
+            3
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 7,
+        "title": "السؤال الرابع",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            3
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج امتحاني رسمي - شبه الجزيرة العربية منذ بداية القرن العشرين حتى الوقت الحاضر",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "السؤال الأول - أولاً: اختر الإجابة الصحيحة",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "mcq"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 2,
+        "title": "السؤال الأول - ثانياً: صح أم خطأ",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "true_false"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 3,
+        "title": "السؤال الأول - ثالثاً: رتب الأحداث حسب التسلسل الزمني",
+        "type": "mixed",
+        "count": 1,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "ordering"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 4,
+        "title": "السؤال الأول - رابعاً: علل",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 5,
+        "title": "السؤال الثاني - أجب عن سؤالين",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 6,
+        "title": "السؤال الثالث - أجب عن الأسئلة",
+        "type": "mixed",
+        "count": 3,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 7,
+        "title": "السؤال الرابع",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            4
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج امتحاني رسمي - وادي النيل والقرن الإفريقي منذ الاحتلال الأجنبي حتى الوقت الحاضر",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "السؤال الأول - أولاً: اختر الإجابة الصحيحة",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            5
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "mcq"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 2,
+        "title": "السؤال الأول - ثانياً: صح أم خطأ",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            5
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "true_false"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 3,
+        "title": "السؤال الأول - ثالثاً: رتب الأحداث حسب التسلسل الزمني",
+        "type": "mixed",
+        "count": 1,
+        "source": {
+          "unitNumbers": [
+            5
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "ordering"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 4,
+        "title": "السؤال الأول - رابعاً: علل",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            5
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 5,
+        "title": "السؤال الثاني - أجب عن سؤالين",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            5
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 6,
+        "title": "السؤال الثالث - أجب عن الأسئلة",
+        "type": "mixed",
+        "count": 3,
+        "source": {
+          "unitNumbers": [
+            5
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 7,
+        "title": "السؤال الرابع",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            5
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج امتحاني رسمي - الجزائر وتونس منذ الاحتلال الأوروبي حتى الوقت الحاضر",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "السؤال الأول - أولاً: اختر الإجابة الصحيحة",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "mcq"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 2,
+        "title": "السؤال الأول - ثانياً: صح أم خطأ",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "true_false"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 3,
+        "title": "السؤال الأول - ثالثاً: رتب الأحداث حسب التسلسل الزمني",
+        "type": "mixed",
+        "count": 1,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "ordering"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 4,
+        "title": "السؤال الأول - رابعاً: علل",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 5,
+        "title": "السؤال الثاني - أجب عن سؤالين",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 6,
+        "title": "السؤال الثالث - أجب عن الأسئلة",
+        "type": "mixed",
+        "count": 3,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 7,
+        "title": "السؤال الرابع",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            6
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج امتحاني رسمي - ليبيا والمغرب وموريتانيا منذ الاحتلال الأوروبي حتى الوقت الحاضر",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "السؤال الأول - أولاً: اختر الإجابة الصحيحة",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "mcq"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 2,
+        "title": "السؤال الأول - ثانياً: صح أم خطأ",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "true_false"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 3,
+        "title": "السؤال الأول - ثالثاً: رتب الأحداث حسب التسلسل الزمني",
+        "type": "mixed",
+        "count": 1,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "ordering"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 4,
+        "title": "السؤال الأول - رابعاً: علل",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 5,
+        "title": "السؤال الثاني - أجب عن سؤالين",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 6,
+        "title": "السؤال الثالث - أجب عن الأسئلة",
+        "type": "mixed",
+        "count": 3,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 7,
+        "title": "السؤال الرابع",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج امتحاني رسمي - الوحدتان 1-2",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "السؤال الأول - أولاً: اختر الإجابة الصحيحة",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            1,
+            2
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "mcq"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 2,
+        "title": "السؤال الأول - ثانياً: صح أم خطأ",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            1,
+            2
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "true_false"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 3,
+        "title": "السؤال الأول - ثالثاً: رتب الأحداث حسب التسلسل الزمني",
+        "type": "mixed",
+        "count": 1,
+        "source": {
+          "unitNumbers": [
+            1,
+            2
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "ordering"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 4,
+        "title": "السؤال الأول - رابعاً: علل",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            1,
+            2
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 5,
+        "title": "السؤال الثاني - أجب عن سؤالين",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            1,
+            2
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 6,
+        "title": "السؤال الثالث - أجب عن الأسئلة",
+        "type": "mixed",
+        "count": 3,
+        "source": {
+          "unitNumbers": [
+            1,
+            2
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 7,
+        "title": "السؤال الرابع",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            1,
+            2
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج امتحاني رسمي - الوحدتان 2-3",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "السؤال الأول - أولاً: اختر الإجابة الصحيحة",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            2,
+            3
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "mcq"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 2,
+        "title": "السؤال الأول - ثانياً: صح أم خطأ",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            2,
+            3
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "true_false"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 3,
+        "title": "السؤال الأول - ثالثاً: رتب الأحداث حسب التسلسل الزمني",
+        "type": "mixed",
+        "count": 1,
+        "source": {
+          "unitNumbers": [
+            2,
+            3
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "ordering"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 4,
+        "title": "السؤال الأول - رابعاً: علل",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            2,
+            3
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 5,
+        "title": "السؤال الثاني - أجب عن سؤالين",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            2,
+            3
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 6,
+        "title": "السؤال الثالث - أجب عن الأسئلة",
+        "type": "mixed",
+        "count": 3,
+        "source": {
+          "unitNumbers": [
+            2,
+            3
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 7,
+        "title": "السؤال الرابع",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            2,
+            3
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج امتحاني رسمي - الوحدتان 3-4",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "السؤال الأول - أولاً: اختر الإجابة الصحيحة",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            3,
+            4
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "mcq"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 2,
+        "title": "السؤال الأول - ثانياً: صح أم خطأ",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            3,
+            4
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "true_false"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 3,
+        "title": "السؤال الأول - ثالثاً: رتب الأحداث حسب التسلسل الزمني",
+        "type": "mixed",
+        "count": 1,
+        "source": {
+          "unitNumbers": [
+            3,
+            4
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "ordering"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 4,
+        "title": "السؤال الأول - رابعاً: علل",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            3,
+            4
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 5,
+        "title": "السؤال الثاني - أجب عن سؤالين",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            3,
+            4
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 6,
+        "title": "السؤال الثالث - أجب عن الأسئلة",
+        "type": "mixed",
+        "count": 3,
+        "source": {
+          "unitNumbers": [
+            3,
+            4
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 7,
+        "title": "السؤال الرابع",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            3,
+            4
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج امتحاني رسمي - الوحدتان 4-5",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "السؤال الأول - أولاً: اختر الإجابة الصحيحة",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            4,
+            5
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "mcq"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 2,
+        "title": "السؤال الأول - ثانياً: صح أم خطأ",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            4,
+            5
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "true_false"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 3,
+        "title": "السؤال الأول - ثالثاً: رتب الأحداث حسب التسلسل الزمني",
+        "type": "mixed",
+        "count": 1,
+        "source": {
+          "unitNumbers": [
+            4,
+            5
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "ordering"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 4,
+        "title": "السؤال الأول - رابعاً: علل",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            4,
+            5
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 5,
+        "title": "السؤال الثاني - أجب عن سؤالين",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            4,
+            5
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 6,
+        "title": "السؤال الثالث - أجب عن الأسئلة",
+        "type": "mixed",
+        "count": 3,
+        "source": {
+          "unitNumbers": [
+            4,
+            5
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 7,
+        "title": "السؤال الرابع",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            4,
+            5
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج امتحاني رسمي - الوحدتان 5-6",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "السؤال الأول - أولاً: اختر الإجابة الصحيحة",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            5,
+            6
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "mcq"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 2,
+        "title": "السؤال الأول - ثانياً: صح أم خطأ",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            5,
+            6
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "true_false"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 3,
+        "title": "السؤال الأول - ثالثاً: رتب الأحداث حسب التسلسل الزمني",
+        "type": "mixed",
+        "count": 1,
+        "source": {
+          "unitNumbers": [
+            5,
+            6
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "ordering"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 4,
+        "title": "السؤال الأول - رابعاً: علل",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            5,
+            6
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 5,
+        "title": "السؤال الثاني - أجب عن سؤالين",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            5,
+            6
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 6,
+        "title": "السؤال الثالث - أجب عن الأسئلة",
+        "type": "mixed",
+        "count": 3,
+        "source": {
+          "unitNumbers": [
+            5,
+            6
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 7,
+        "title": "السؤال الرابع",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            5,
+            6
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج امتحاني رسمي - الوحدتان 6-7",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "السؤال الأول - أولاً: اختر الإجابة الصحيحة",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "mcq"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 2,
+        "title": "السؤال الأول - ثانياً: صح أم خطأ",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "true_false"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 3,
+        "title": "السؤال الأول - ثالثاً: رتب الأحداث حسب التسلسل الزمني",
+        "type": "mixed",
+        "count": 1,
+        "source": {
+          "unitNumbers": [
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "ordering"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 4,
+        "title": "السؤال الأول - رابعاً: علل",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 5,
+        "title": "السؤال الثاني - أجب عن سؤالين",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 6,
+        "title": "السؤال الثالث - أجب عن الأسئلة",
+        "type": "mixed",
+        "count": 3,
+        "source": {
+          "unitNumbers": [
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 7,
+        "title": "السؤال الرابع",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
         },
         "shuffle": true
       }
