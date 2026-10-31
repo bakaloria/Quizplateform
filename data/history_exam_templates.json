@@ -1,0 +1,249 @@
+[
+  {
+    "name": "نموذج امتحان التاريخ الرسمي - مطابق للنموذج",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "السؤال الأول",
+        "type": "mixed",
+        "count": 10,
+        "source": {
+          "unitNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "mcq",
+            "true_false",
+            "ordering",
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 2,
+        "title": "السؤال الثاني",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 3,
+        "title": "السؤال الثالث",
+        "type": "mixed",
+        "count": 3,
+        "source": {
+          "unitNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 4,
+        "title": "السؤال الرابع",
+        "type": "mixed",
+        "count": 5,
+        "source": {
+          "unitNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  },
+  {
+    "name": "نموذج امتحان التاريخ (20 سؤال) - شامل",
+    "subjectId": "history",
+    "subjectName": "التاريخ",
+    "active": true,
+    "sections": [
+      {
+        "order": 1,
+        "title": "أولاً - اختر / صح وخطأ / رتب / علل",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "mcq"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 2,
+        "title": "ثانياً - صح أم خطأ",
+        "type": "mixed",
+        "count": 4,
+        "source": {
+          "unitNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "true_false"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 3,
+        "title": "ثالثاً - رتب الأحداث",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "ordering"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 4,
+        "title": "رابعاً - التعليل",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 5,
+        "title": "السؤال الثاني - أجب عن سؤالين",
+        "type": "mixed",
+        "count": 2,
+        "source": {
+          "unitNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      },
+      {
+        "order": 6,
+        "title": "السؤال الثالث والرابع",
+        "type": "mixed",
+        "count": 6,
+        "source": {
+          "unitNumbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "lessonNumbers": [],
+          "types": [
+            "short_answer"
+          ]
+        },
+        "shuffle": true
+      }
+    ],
+    "rules": {
+      "avoidDuplicates": true,
+      "randomizeSections": false
+    }
+  }
+]
