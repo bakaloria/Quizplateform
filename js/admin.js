@@ -464,7 +464,8 @@
           kpi("c-primary", "📚", subjects.length, "المواد"),
           kpi("c-primary", "❓", questionCount, "الأسئلة"),
           kpi("c-primary", "🗒️", exams.length, "الاختبارات"),
-          kpi("c-primary", "👨\u200D🏫", teachers.length, "المعلمون")
+          kpi("c-primary", "👨\u200D🏫", teachers.length, "المعلمون"),
+          kpi("c-success", "👁️", (typeof window.__visitors !== 'undefined' ? window.__visitors : '—'), "عدد الزوار")
         ]) +
 
         kpiGrid([
