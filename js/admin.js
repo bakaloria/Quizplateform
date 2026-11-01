@@ -1009,8 +1009,17 @@ const qFilter = {
   search: "",
   unit: "",
   lesson: "",
-  quality: ""
+  quality: "",
+  review: ""
 };
+
+function reviewStatus(q) { return q && q.reviewStatus ? q.reviewStatus : "unreviewed"; }
+function reviewStatusHTML(q) {
+  const s = reviewStatus(q);
+  const labels = { unreviewed: "غير مراجع", approved: "معتمد", needs_review: "قيد المراجعة", rejected: "مرفوض", archived: "مؤرشف" };
+  const cls = { approved: "badge-success", rejected: "badge-danger", archived: "badge-muted", needs_review: "badge-warning", unreviewed: "badge-warning" };
+  return '<span class="badge ' + (cls[s] || "badge-muted") + '">🧾 ' + (labels[s] || s) + '</span>';
+}
 
 function questionMatches(q) {
   const hasAnswer = !(q.answer === undefined || q.answer === null || q.answer === "" || (Array.isArray(q.answer) && !q.answer.length));
@@ -1019,6 +1028,7 @@ function questionMatches(q) {
   if (qFilter.quality === "complete" && (!q.text || !hasAnswer)) return false;
   if (qFilter.quality === "needs-review" && (q.text && hasAnswer)) return false;
   if (qFilter.quality === "passage" && !q.passage) return false;
+  if (qFilter.review && reviewStatus(q) !== qFilter.review) return false;
   if (qFilter.unit) {
     const parts = qFilter.unit.split(":");
     const kind = parts[0];
@@ -1097,7 +1107,7 @@ async function renderQuestions() {
 
         return recRow(
           q.id,
-          (U.badgeForType(q.type) || "") +
+          (U.badgeForType(q.type) || "") + " " + reviewStatusHTML(q) +
             (U.sectionBadge(q) ? " " + U.sectionBadge(q) : "") +
             (q.passage ? ' <span class="badge badge-passage" title="مرفق بنص">📜 نص</span>' : "") +
             ' <span class="rec-qtext">' + U.esc(shortText) + "</span>",
@@ -1123,6 +1133,7 @@ async function renderQuestions() {
 
     const diffOpts = '<option value="">كل مستويات الصعوبة</option><option value="easy"' + (qFilter.diff === "easy" ? " selected" : "") + '>سهل</option><option value="medium"' + (qFilter.diff === "medium" ? " selected" : "") + '>متوسط</option><option value="hard"' + (qFilter.diff === "hard" ? " selected" : "") + '>صعب</option>';
     const qualityOpts = '<option value="">كل حالات الجودة</option><option value="complete"' + (qFilter.quality === "complete" ? " selected" : "") + '>مكتملة الإجابة</option><option value="needs-review"' + (qFilter.quality === "needs-review" ? " selected" : "") + '>تحتاج مراجعة</option><option value="passage"' + (qFilter.quality === "passage" ? " selected" : "") + '>مرتبطة بنص مرافق</option>';
+    const reviewOpts = '<option value="">كل حالات الاعتماد</option><option value="unreviewed"' + (qFilter.review === "unreviewed" ? " selected" : "") + '>غير مراجع</option><option value="needs_review"' + (qFilter.review === "needs_review" ? " selected" : "") + '>قيد المراجعة</option><option value="approved"' + (qFilter.review === "approved" ? " selected" : "") + '>معتمد</option><option value="rejected"' + (qFilter.review === "rejected" ? " selected" : "") + '>مرفوض</option><option value="archived"' + (qFilter.review === "archived" ? " selected" : "") + '>مؤرشف</option>';
 
     const unitOpts = '<option value="">\u0643\u0644 \u0627\u0644\u0648\u062d\u062f\u0627\u062a</option>' +
       units.map(function (u) {
@@ -1163,6 +1174,7 @@ async function renderQuestions() {
       '<div class="field"><select id="fLesson">' + lessonOpts + "</select></div>" +
       '<div class="field"><select id="fDifficulty">' + diffOpts + "</select></div>" +
       '<div class="field"><select id="fQuality">' + qualityOpts + "</select></div>" +
+      '<div class="field"><select id="fReview">' + reviewOpts + "</select></div>" +
       '<div class="field"><button class="btn btn-sm" id="resetFilters" style="width:100%">إلغاء الفلاتر</button></div>' +
       "</div></div></div>" +
 
@@ -1179,6 +1191,8 @@ async function renderQuestions() {
       qFilter.type = "";
       qFilter.unit = "";
       qFilter.lesson = "";
+      qFilter.quality = "";
+      qFilter.review = "";
       qFilter.search = "";
       renderQuestions();
     });
@@ -1218,6 +1232,10 @@ async function renderQuestions() {
       qFilter.quality = e.target.value;
       renderQuestionListInPlace(questions, subjects);
     });
+    document.getElementById("fReview").addEventListener("change", function (e) {
+      qFilter.review = e.target.value;
+      renderQuestionListInPlace(questions, subjects);
+    });
 
     document.getElementById("resetFilters").addEventListener("click", function () {
       qFilter.type = "";
@@ -1226,6 +1244,7 @@ async function renderQuestions() {
       qFilter.unit = "";
       qFilter.lesson = "";
       qFilter.quality = "";
+      qFilter.review = "";
       renderQuestionListInPlace(questions, subjects);
     });
 
@@ -1290,6 +1309,8 @@ async function renderQuestionSubjectPicker(subjects) {
       qFilter.type = "";
       qFilter.unit = "";
       qFilter.lesson = "";
+      qFilter.quality = "";
+      qFilter.review = "";
       qFilter.search = "";
       renderQuestions();
     });
@@ -1317,7 +1338,7 @@ function renderQuestionListInPlace(questions, subjects) {
       if (q.lessonTitle) loc.push(U.esc(q.lessonTitle));
       return recRow(
         q.id,
-        (U.badgeForType(q.type) || "") +
+        (U.badgeForType(q.type) || "") + " " + reviewStatusHTML(q) +
           (U.sectionBadge(q) ? " " + U.sectionBadge(q) : "") +
           (q.passage ? ' <span class="badge badge-passage" title="مرفق بنص">📜 نص</span>' : "") +
           ' <span class="rec-qtext">' + U.esc(shortText) + "</span>",
@@ -1367,6 +1388,7 @@ function viewQuestionModal(q, onChange) {
       U.esc(q.lessonTitle || "-") + "</div></div>" +
       '<div class="item"><div class="lbl">\u0627\u0644\u062f\u0631\u062c\u0629</div><div class="val">' +
       (q.points || 1) + "</div></div>" +
+      '<div class="item"><div class="lbl">حالة المراجعة</div><div class="val">' + reviewStatusHTML(q) + "</div></div>" +
       (U.sectionOf(q) ? '<div class="item"><div class="lbl">\u0627\u0644\u0642\u0633\u0645</div><div class="val">' +
         U.esc(U.sectionOf(q)) + "</div></div>" : "") +
       '</div>' +
@@ -1430,12 +1452,30 @@ function viewQuestionModal(q, onChange) {
 
     footer:
       '<button class="btn" data-q-edit>\u270E \u062a\u0639\u062f\u064a\u0644</button> ' +
+      (reviewStatus(q) === "approved"
+        ? '<button class="btn btn-warning" data-q-review="needs_review">↩ إعادة للمراجعة</button> '
+        : '<button class="btn btn-success" data-q-review="approved">✓ اعتماد السؤال</button> ') +
+      (reviewStatus(q) === "archived"
+        ? '<button class="btn" data-q-review="unreviewed">استعادة</button> '
+        : '<button class="btn btn-ghost" data-q-review="archived">أرشفة</button> ') +
       '<button class="btn btn-danger" data-q-del>\uD83D\uDDD1 \u062d\u0630\u0641</button> ' +
       '<button class="btn btn-ghost" data-close>\u0625\u063a\u0644\u0627\u0642</button>',
     onMount: function (node, close) {
       node.querySelector("[data-q-edit]").addEventListener("click", function () {
         close();
         questionModal(q, onChange);
+      });
+      node.querySelectorAll("[data-q-review]").forEach(function (btn) {
+        btn.addEventListener("click", async function () {
+          try {
+            if (!S.setQuestionReviewStatus) throw new Error("ميزة حالة المراجعة غير متاحة");
+            await S.setQuestionReviewStatus(q.id, btn.dataset.qReview);
+            q.reviewStatus = btn.dataset.qReview;
+            U.toast("تم تحديث حالة مراجعة السؤال", "success");
+            close();
+            if (onChange) onChange();
+          } catch (e) { U.toast("تعذر تحديث الحالة: " + e.message, "error"); }
+        });
       });
       node.querySelector("[data-q-del]").addEventListener("click", async function () {
         if (!(await U.confirm("\u062d\u0630\u0641 \u0647\u0630\u0627 \u0627\u0644\u0633\u0624\u0627\u0644\u061f"))) return;

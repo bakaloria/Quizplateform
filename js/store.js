@@ -249,6 +249,15 @@
         labels: q.labels || []
       }));
     },
+    setQuestionReviewStatus: async function (id, status) {
+      const allowed = ["unreviewed", "approved", "needs_review", "rejected", "archived"];
+      if (allowed.indexOf(status) < 0) throw new Error("حالة المراجعة غير صالحة");
+      await col.questions.doc(id).update(sanitize({
+        reviewStatus: status,
+        reviewedAt: FV.serverTimestamp(),
+        reviewedBy: "admin"
+      }));
+    },
     deleteQuestion: async function (id) {
       await col.questions.doc(id).delete();
     },
