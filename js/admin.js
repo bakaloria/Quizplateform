@@ -1008,8 +1008,28 @@ const qFilter = {
   diff: "",
   search: "",
   unit: "",
-  lesson: ""
+  lesson: "",
+  quality: ""
 };
+
+function questionMatches(q) {
+  const hasAnswer = !(q.answer === undefined || q.answer === null || q.answer === "" || (Array.isArray(q.answer) && !q.answer.length));
+  if (qFilter.type && q.type !== qFilter.type) return false;
+  if (qFilter.diff && q.difficulty !== qFilter.diff) return false;
+  if (qFilter.quality === "complete" && (!q.text || !hasAnswer)) return false;
+  if (qFilter.quality === "needs-review" && (q.text && hasAnswer)) return false;
+  if (qFilter.quality === "passage" && !q.passage) return false;
+  if (qFilter.unit) {
+    const parts = qFilter.unit.split(":");
+    const kind = parts[0];
+    const val = parts.slice(1).join(":");
+    if (kind === "u" && String(q.unitNumber) !== val) return false;
+    if (kind === "ut" && q.unitTitle !== val) return false;
+  }
+  if (qFilter.lesson && q.lessonTitle !== qFilter.lesson) return false;
+  if (qFilter.search && U.normalizeArabic(q.text).indexOf(U.normalizeArabic(qFilter.search)) < 0) return false;
+  return true;
+}
 
 async function renderQuestions() {
   shell("questions", U.loaderHTML());
@@ -1055,21 +1075,7 @@ async function renderQuestions() {
     const lessons = Object.keys(lessonsMap).sort();
 
     /* الفلترة */
-    const list = questions.filter(function (q) {
-      if (qFilter.type && q.type !== qFilter.type) return false;
-      if (qFilter.diff && q.difficulty !== qFilter.diff) return false;
-      if (qFilter.unit) {
-        const parts = qFilter.unit.split(":");
-        const kind = parts[0];
-        const val = parts.slice(1).join(":");
-        if (kind === "u" && String(q.unitNumber) !== val) return false;
-        if (kind === "ut" && q.unitTitle !== val) return false;
-      }
-      if (qFilter.lesson && q.lessonTitle !== qFilter.lesson) return false;
-      if (qFilter.search &&
-        U.normalizeArabic(q.text).indexOf(U.normalizeArabic(qFilter.search)) < 0) return false;
-      return true;
-    });
+    const list = questions.filter(questionMatches);
 
     /* الترتيب حسب الوحدة ثم الدرس */
     list.sort(function (a, b) {
@@ -1098,7 +1104,7 @@ async function renderQuestions() {
           '📍 ' + (loc.length ? loc.join(" / ") : "-") +
             ' · ' + U.esc(q.subjectName || "-") +
             ' · <span class="badge badge-muted">' + diffLabel(q.difficulty) + "</span>" +
-            ' · ' + (q.points || 1) + ' درجة',
+            ' · ' + (q.points || 1) + ' درجة' + (q.page_number || q.pageNumber ? ' · 📄 صفحة ' + (q.page_number || q.pageNumber) : ''),
           "❓"
         );
       }).join("")
@@ -1114,6 +1120,9 @@ async function renderQuestions() {
         return '<option value="' + t + '"' + (qFilter.type === t ? " selected" : "") + ">" +
           U.TYPE_LABELS[t] + "</option>";
       }).join("");
+
+    const diffOpts = '<option value="">كل مستويات الصعوبة</option><option value="easy"' + (qFilter.diff === "easy" ? " selected" : "") + '>سهل</option><option value="medium"' + (qFilter.diff === "medium" ? " selected" : "") + '>متوسط</option><option value="hard"' + (qFilter.diff === "hard" ? " selected" : "") + '>صعب</option>';
+    const qualityOpts = '<option value="">كل حالات الجودة</option><option value="complete"' + (qFilter.quality === "complete" ? " selected" : "") + '>مكتملة الإجابة</option><option value="needs-review"' + (qFilter.quality === "needs-review" ? " selected" : "") + '>تحتاج مراجعة</option><option value="passage"' + (qFilter.quality === "passage" ? " selected" : "") + '>مرتبطة بنص مرافق</option>';
 
     const unitOpts = '<option value="">\u0643\u0644 \u0627\u0644\u0648\u062d\u062f\u0627\u062a</option>' +
       units.map(function (u) {
@@ -1152,6 +1161,8 @@ async function renderQuestions() {
       "</div>" +
       '<div class="form-row-3 mt-sm">' +
       '<div class="field"><select id="fLesson">' + lessonOpts + "</select></div>" +
+      '<div class="field"><select id="fDifficulty">' + diffOpts + "</select></div>" +
+      '<div class="field"><select id="fQuality">' + qualityOpts + "</select></div>" +
       '<div class="field"><button class="btn btn-sm" id="resetFilters" style="width:100%">إلغاء الفلاتر</button></div>' +
       "</div></div></div>" +
 
@@ -1199,6 +1210,14 @@ async function renderQuestions() {
       qFilter.lesson = e.target.value;
       renderQuestionListInPlace(questions, subjects);
     });
+    document.getElementById("fDifficulty").addEventListener("change", function (e) {
+      qFilter.diff = e.target.value;
+      renderQuestionListInPlace(questions, subjects);
+    });
+    document.getElementById("fQuality").addEventListener("change", function (e) {
+      qFilter.quality = e.target.value;
+      renderQuestionListInPlace(questions, subjects);
+    });
 
     document.getElementById("resetFilters").addEventListener("click", function () {
       qFilter.type = "";
@@ -1206,6 +1225,7 @@ async function renderQuestions() {
       qFilter.search = "";
       qFilter.unit = "";
       qFilter.lesson = "";
+      qFilter.quality = "";
       renderQuestionListInPlace(questions, subjects);
     });
 
@@ -1278,21 +1298,7 @@ async function renderQuestionSubjectPicker(subjects) {
 
 /* إعادة رسم القائمة والفلاتر فقط دون إعادة جلب البيانات (سريع) */
 function renderQuestionListInPlace(questions, subjects) {
-  const list = questions.filter(function (q) {
-    if (qFilter.type && q.type !== qFilter.type) return false;
-    if (qFilter.diff && q.difficulty !== qFilter.diff) return false;
-    if (qFilter.unit) {
-      const parts = qFilter.unit.split(":");
-      const kind = parts[0];
-      const val = parts.slice(1).join(":");
-      if (kind === "u" && String(q.unitNumber) !== val) return false;
-      if (kind === "ut" && q.unitTitle !== val) return false;
-    }
-    if (qFilter.lesson && q.lessonTitle !== qFilter.lesson) return false;
-    if (qFilter.search &&
-      U.normalizeArabic(q.text).indexOf(U.normalizeArabic(qFilter.search)) < 0) return false;
-    return true;
-  });
+  const list = questions.filter(questionMatches);
   list.sort(function (a, b) {
     const ua = (a.unitNumber !== null && a.unitNumber !== undefined) ? a.unitNumber : 9999;
     const ub = (b.unitNumber !== null && b.unitNumber !== undefined) ? b.unitNumber : 9999;
@@ -1318,7 +1324,7 @@ function renderQuestionListInPlace(questions, subjects) {
         '📍 ' + (loc.length ? loc.join(" / ") : "-") +
           ' · ' + U.esc(q.subjectName || "-") +
           ' · <span class="badge badge-muted">' + diffLabel(q.difficulty) + "</span>" +
-          ' · ' + (q.points || 1) + ' درجة',
+          ' · ' + (q.points || 1) + ' درجة' + (q.page_number || q.pageNumber ? ' · 📄 صفحة ' + (q.page_number || q.pageNumber) : ''),
         "❓"
       );
     }).join("")
