@@ -825,7 +825,7 @@
           (g.description ? '<p class="muted tiny">' + U.esc(g.description) + '</p>' : "") + '</div>' +
           '</div>' +
           '<div class="group-meta mb">' +
-          '<span class="badge badge-muted">\uD83D\uDC66 ' + (g.studentCount || 0) + ' \u0637\u0627\u0644\u0628</span>' +
+          (g.private === true ? '' : '<span class="badge badge-muted">\uD83D\uDC66 ' + (g.studentCount || 0) + ' \u0637\u0627\u0644\u0628</span>') +
           '</div>' +
           '<div class="mb"><b class="tiny">\u0645\u0648\u0627\u062f\u064a:</b> ' + subjectsList + '</div>' +
           '</div>';
