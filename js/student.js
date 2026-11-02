@@ -410,7 +410,7 @@
             '</div>' +
             '</div>' +
             '<div class="group-meta mb">' +
-            '<span class="badge badge-primary">\uD83D\uDC66 ' + (g.studentCount || 0) + ' \u0637\u0627\u0644\u0628</span>' +
+            (g.private === true ? '' : '<span class="badge badge-primary">\uD83D\uDC66 ' + (g.studentCount || 0) + ' \u0637\u0627\u0644\u0628</span>') +
             '</div>' +
             '<div class="mb"><b class="tiny">\u0627\u0644\u0645\u0639\u0644\u0645\u0648\u0646 \u0627\u0644\u0645\u0635\u062d\u0651\u062d\u0648\u0646:</b><br>' +
             '<span class="tiny muted">' + teachersTxt + '</span></div>' +
