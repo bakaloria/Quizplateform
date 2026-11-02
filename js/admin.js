@@ -59,9 +59,7 @@
    * ============================================================ */
   function renderLogin() {
     document.body.classList.add('qp-admin-login');
-    var topbar = document.querySelector('.topbar');
     var sidebar = document.querySelector('.sidebar');
-    if (topbar) topbar.style.display = 'none';
     if (sidebar) sidebar.style.display = 'none';
     view(
       '<div class="container container-narrow">' +
@@ -90,9 +88,7 @@
         if (res.ok) {
           sessionStorage.setItem("qp_admin", "1");
           document.body.classList.remove('qp-admin-login');
-          var topbar = document.querySelector('.topbar');
           var sidebar = document.querySelector('.sidebar');
-          if (topbar) topbar.style.display = '';
           if (sidebar) sidebar.style.display = '';
           if (res.created) {
             U.toast("تم إنشاء رمز: admin123 — غيّره فوراً", "warn", 6000);
