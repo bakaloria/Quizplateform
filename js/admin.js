@@ -129,31 +129,26 @@
    * ============================================================ */
   function sideNav(active) {
     const items = [
-      ["section", "", "المحتوى"],
-      ["subjects", "\uD83D\uDCDA", "المواد"],
-      ["questions", "❓", "بنك الأسئلة"],
-      ["examtemplates", "\uD83D\uDCCB", "القوالب الامتحانية"],
-      ["section", "", "التقييم"],
-      ["exams", "\uD83D\uDCDD", "الاختبارات"],
-      ["results", "\uD83D\uDCC8", "النتائج والتسليمات"],
-      ["analytics", "\uD83E\uDDEE", "التحليلات"],
-      ["section", "", "المستخدمون والمجموعات"],
-      ["groups", "\uD83D\uDC65", "المجموعات"],
-      ["teachers", "\uD83D\uDC68\u200D\uD83C\uDFEB", "المعلمون"],
-      ["students", "\uD83D\uDC66", "الطلاب"],
-      ["section", "", "الإدارة"],
-      ["dashboard", "\uD83D\uDCCA", "لوحة التحكم"],
-      ["payments", "\uD83D\uDCB3", "طلبات الدفع"],
-      ["audit", "\uD83D\uDCDC", "سجل العمليات"],
-      ["feature-report", "📑", "تقرير الميزات 2–9"],
-      ["settings", "⚙", "الإعدادات"]
+      ["dashboard", "\uD83D\uDCCA", "\u0644\u0648\u062d\u0629 \u0627\u0644\u062a\u062d\u0643\u0645"],
+      ["groups", "\uD83D\uDC65", "\u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0627\u062a"],
+      ["subjects", "\uD83D\uDCDA", "\u0627\u0644\u0645\u0648\u0627\u062f"],
+      ["questions", "\u2753", "\u0628\u0646\u0643 \u0627\u0644\u0623\u0633\u0626\u0644\u0629"],
+      ["exams", "\uD83D\uDCDD", "\u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631\u0627\u062a"],
+      ["examtemplates", "\uD83D\uDCCB", "\u0642\u0648\u0627\u0644\u0646\u0645\u0627\u0630\u062c"],
+      ["payments", "\uD83D\uDCB3", "\u0637\u0644\u0628\u0627\u062a \u0627\u0644\u062f\u0641\u0639"],
+      ["teachers", "\uD83D\uDC68\u200D\uD83C\uDFEB", "\u0627\u0644\u0645\u0639\u0644\u0645\u0648\u0646"],
+      ["students", "\uD83D\uDC66", "\u0627\u0644\u0637\u0644\u0627\u0628"],
+      ["results", "\uD83D\uDCC8", "\u0627\u0644\u0646\u062a\u0627\u0626\u062c"],
+      ["analytics", "\uD83E\uDDEE", "\u0627\u0644\u062a\u062d\u0644\u064a\u0644\u0627\u062a"],
+      ["audit", "\uD83D\uDCDC", "\u0627\u0644\u0633\u062c\u0644"],
+      ["notifications", "\ud83d\udd14", "\u0625\u0639\u062f\u0627\u062f\u0627\u062a \u0627\u0644\u0625\u0634\u0639\u0627\u0631\u0627\u062a"],
+      ["settings", "\u2699", "\u0627\u0644\u0625\u0639\u062f\u0627\u062f\u0627\u062a"]
     ];
 
     return (
       '<aside class="side">' +
       '<div class="side-title">\u0623\u0642\u0633\u0627\u0645 \u0627\u0644\u0644\u0648\u062d\u0629</div>' +
       items.map(function (i) {
-        if (i[0] === "section") return '<div class="side-section-title">' + i[2] + '</div>';
         return '<a href="#/' + i[0] + '" class="' + (active === i[0] ? "active" : "") + '">' +
           '<span class="side-ico">' + i[1] + "</span><span>" + i[2] + "</span></a>";
       }).join("") +
@@ -434,8 +429,6 @@
       const recent = arr[6];
       const groups = arr[7];
       const payPending = arr[8] || 0;
-      const adminNotifs = S.listNotificationsForUser ? await S.listNotificationsForUser("admin", "admin", 30) : [];
-      const adminUnread = S.countUnreadNotificationsForUser ? await S.countUnreadNotificationsForUser("admin", "admin") : 0;
 
       state.subjects = subjects;
       state.exams = exams;
@@ -467,7 +460,7 @@
       shell("dashboard",
         pageHead("📊", "لوحة التحكم",
           "نظرة شاملة على المنصة · " + new Date().toLocaleDateString("ar"),
-          '<button class="btn btn-sm" id="adminNotifBtn">🔔 ' + (adminUnread ? '<span class="badge badge-danger">' + adminUnread + '</span>' : '') + '</button> <button class="btn btn-primary" id="quickExam">＋ اختبار جديد</button>') +
+          '<button class="btn btn-primary" id="quickExam">＋ اختبار جديد</button>') +
 
         kpiGrid([
           kpi("c-primary", "👥", groups.length, "المجموعات"),
@@ -475,8 +468,7 @@
           kpi("c-primary", "📚", subjects.length, "المواد"),
           kpi("c-primary", "❓", questionCount, "الأسئلة"),
           kpi("c-primary", "🗒️", exams.length, "الاختبارات"),
-          kpi("c-primary", "👨\u200D🏫", teachers.length, "المعلمون"),
-          kpi("c-success", "👁️", (typeof window.__visitors !== 'undefined' ? window.__visitors : '—'), "عدد الزوار")
+          kpi("c-primary", "👨\u200D🏫", teachers.length, "المعلمون")
         ]) +
 
         kpiGrid([
@@ -539,16 +531,6 @@
       if (qe) qe.addEventListener("click", function () {
         location.hash = "#/exams";
       });
-      const anb = document.getElementById("adminNotifBtn");
-      if (anb) anb.addEventListener("click", function () {
-        const list = adminNotifs.length ? adminNotifs.map(function (n) { return '<div class="card mb-sm" style="padding:10px;border-left:3px solid var(--primary);' + (n.read ? '' : 'background:var(--primary-soft)') + '"><div class="flex" style="justify-content:space-between;gap:8px"><b>' + U.esc(n.title || 'إشعار') + '</b><button class="btn btn-sm btn-danger" data-del-admin-notif="' + U.esc(n.id) + '">حذف</button></div><div class="tiny muted mt-sm">' + U.esc(n.body || '') + '</div></div>'; }).join('') : '<div class="empty-state"><div class="emoji">🔔</div><h3>لا توجد إشعارات</h3></div>';
-        U.modal({ title: '🔔 إشعارات الإدارة', body: '<div style="max-height:60vh;overflow:auto">' + list + '</div>', footer: '<button class="btn btn-primary btn-sm" id="adminMarkAll">تعليم الكل كمقروء</button><button class="btn btn-danger btn-sm" id="adminDeleteAll">حذف كل الإشعارات</button>' });
-        setTimeout(function () {
-          const b = document.getElementById("adminMarkAll"); if (b) b.onclick = async function () { await S.markAllNotificationsReadForUser("admin", "admin"); U.closeModal(); renderDashboard(); };
-          const all = document.getElementById("adminDeleteAll"); if (all) all.onclick = async function () { if (!await U.confirm("حذف جميع إشعارات المدير؟ لا يمكن التراجع عن هذا الإجراء.")) return; await S.deleteAllNotificationsForUser("admin", "admin"); U.closeModal(); U.toast("تم حذف إشعارات المدير", "success"); renderDashboard(); };
-          document.querySelectorAll('[data-del-admin-notif]').forEach(function (btn) { btn.onclick = async function () { if (!await U.confirm("حذف هذا الإشعار؟")) return; await S.deleteNotification(btn.dataset.delAdminNotif); U.closeModal(); U.toast("تم حذف الإشعار", "success"); renderDashboard(); }; });
-        }, 50);
-      });
     } catch (e) {
       shell("dashboard", errorCard(e));
     }
@@ -568,12 +550,6 @@
       const groups = arr[0];
       const teachers = arr[1];
       const subjects = arr[2];
-
-      // ترحيل المجموعات القديمة التي لم يكن لها حقل private حتى لا تختفي بعد تأمين استعلام الطالب.
-      await Promise.all(groups.filter(function (g) { return g.private === undefined; }).map(function (g) {
-        return S.updateGroup(g.id, { private: false, secretCode: "" }).catch(function () {});
-      }));
-      groups.forEach(function (g) { if (g.private === undefined) { g.private = false; g.secretCode = ""; } });
 
       state.groups = groups;
       state.teachers = teachers;
@@ -658,10 +634,6 @@
           html: '<span class="badge badge-primary">' + (g.studentCount || 0) + "</span>"
         },
         {
-          lbl: "نوع المجموعة",
-          html: g.private ? '<span class="badge badge-warning">🔐 سرية — الرمز: <code>' + U.esc(g.secretCode || "-") + '</code></span>' : '<span class="badge badge-muted">عامة</span>'
-        },
-        {
           lbl: "الحالة",
           html: g.active !== false
             ? '<span class="badge badge-success">نشطة</span>'
@@ -694,8 +666,6 @@
         '<input id="gName" value="' + U.esc(g ? g.name : "") + '" placeholder="\u0645\u062b\u0627\u0644: \u0627\u0644\u0635\u0641 \u0627\u0644\u0633\u0627\u0628\u0639 - \u0623"></div>' +
         '<div class="field"><label>\u0627\u0644\u0648\u0635\u0641</label>' +
         '<textarea id="gDesc" style="min-height:70px">' + U.esc(g ? g.description : "") + "</textarea></div>" +
-        '<label class="check"><input type="checkbox" id="gPrivate"' + (g && g.private ? " checked" : "") + '> 🔐 \u0645\u062c\u0645\u0648\u0639\u0629 \u0633\u0631\u064a\u0629 (\u0644\u0627 \u062a\u0638\u0647\u0631 \u0644\u0644\u0637\u0644\u0627\u0628 \u0625\u0644\u0627 \u0628\u0627\u0644\u0631\u0645\u0632)</label>' +
-        '<div class="field"><label>\u0631\u0645\u0632 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629 \u0627\u0644\u0633\u0631\u064a\u0629</label><div class="flex" style="gap:8px"><input id="gSecretCode" value="' + U.esc(g && g.secretCode || "") + '" placeholder="\u064a\u0648\u0644\u062f \u062a\u0644\u0642\u0627\u0626\u064a\u064b\u0627" style="text-transform:uppercase;letter-spacing:3px"><button type="button" class="btn btn-sm" id="gGenerateCode">\u062a\u0648\u0644\u064a\u062f</button></div></div>' +
         (isEdit
           ? '<label class="check"><input type="checkbox" id="gActive"' +
             (g.active !== false ? " checked" : "") +
@@ -705,18 +675,13 @@
         '<button class="btn btn-primary" data-save>\u062d\u0641\u0638</button>' +
         '<button class="btn btn-ghost" data-close>\u0625\u0644\u063a\u0627\u0621</button>',
       onMount: function (node, close) {
-        node.querySelector("#gGenerateCode").addEventListener("click", function () {
-          node.querySelector("#gSecretCode").value = (U.code ? U.code(8) : Math.random().toString(36).slice(2, 10)).toUpperCase();
-        });
         node.querySelector("[data-save]").addEventListener("click", async function () {
           const name = node.querySelector("#gName").value.trim();
           if (!name) return U.toast("\u0623\u062f\u062e\u0644 \u0627\u0633\u0645 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629", "warn");
 
           const data = {
             name: name,
-            description: node.querySelector("#gDesc").value.trim(),
-            private: node.querySelector("#gPrivate").checked,
-            secretCode: node.querySelector("#gSecretCode").value.trim().toUpperCase()
+            description: node.querySelector("#gDesc").value.trim()
           };
 
           if (isEdit) {
@@ -1014,38 +979,8 @@ const qFilter = {
   diff: "",
   search: "",
   unit: "",
-  lesson: "",
-  quality: "",
-  review: ""
+  lesson: ""
 };
-
-function reviewStatus(q) { return q && q.reviewStatus ? q.reviewStatus : "unreviewed"; }
-function reviewStatusHTML(q) {
-  const s = reviewStatus(q);
-  const labels = { unreviewed: "غير مراجع", approved: "معتمد", needs_review: "قيد المراجعة", rejected: "مرفوض", archived: "مؤرشف" };
-  const cls = { approved: "badge-success", rejected: "badge-danger", archived: "badge-muted", needs_review: "badge-warning", unreviewed: "badge-warning" };
-  return '<span class="badge ' + (cls[s] || "badge-muted") + '">🧾 ' + (labels[s] || s) + '</span>';
-}
-
-function questionMatches(q) {
-  const hasAnswer = !(q.answer === undefined || q.answer === null || q.answer === "" || (Array.isArray(q.answer) && !q.answer.length));
-  if (qFilter.type && q.type !== qFilter.type) return false;
-  if (qFilter.diff && q.difficulty !== qFilter.diff) return false;
-  if (qFilter.quality === "complete" && (!q.text || !hasAnswer)) return false;
-  if (qFilter.quality === "needs-review" && (q.text && hasAnswer)) return false;
-  if (qFilter.quality === "passage" && !q.passage) return false;
-  if (qFilter.review && reviewStatus(q) !== qFilter.review) return false;
-  if (qFilter.unit) {
-    const parts = qFilter.unit.split(":");
-    const kind = parts[0];
-    const val = parts.slice(1).join(":");
-    if (kind === "u" && String(q.unitNumber) !== val) return false;
-    if (kind === "ut" && q.unitTitle !== val) return false;
-  }
-  if (qFilter.lesson && q.lessonTitle !== qFilter.lesson) return false;
-  if (qFilter.search && U.normalizeArabic(q.text).indexOf(U.normalizeArabic(qFilter.search)) < 0) return false;
-  return true;
-}
 
 async function renderQuestions() {
   shell("questions", U.loaderHTML());
@@ -1091,7 +1026,21 @@ async function renderQuestions() {
     const lessons = Object.keys(lessonsMap).sort();
 
     /* الفلترة */
-    const list = questions.filter(questionMatches);
+    const list = questions.filter(function (q) {
+      if (qFilter.type && q.type !== qFilter.type) return false;
+      if (qFilter.diff && q.difficulty !== qFilter.diff) return false;
+      if (qFilter.unit) {
+        const parts = qFilter.unit.split(":");
+        const kind = parts[0];
+        const val = parts.slice(1).join(":");
+        if (kind === "u" && String(q.unitNumber) !== val) return false;
+        if (kind === "ut" && q.unitTitle !== val) return false;
+      }
+      if (qFilter.lesson && q.lessonTitle !== qFilter.lesson) return false;
+      if (qFilter.search &&
+        U.normalizeArabic(q.text).indexOf(U.normalizeArabic(qFilter.search)) < 0) return false;
+      return true;
+    });
 
     /* الترتيب حسب الوحدة ثم الدرس */
     list.sort(function (a, b) {
@@ -1113,14 +1062,14 @@ async function renderQuestions() {
 
         return recRow(
           q.id,
-          (U.badgeForType(q.type) || "") + " " + reviewStatusHTML(q) +
+          (U.badgeForType(q.type) || "") +
             (U.sectionBadge(q) ? " " + U.sectionBadge(q) : "") +
             (q.passage ? ' <span class="badge badge-passage" title="مرفق بنص">📜 نص</span>' : "") +
             ' <span class="rec-qtext">' + U.esc(shortText) + "</span>",
           '📍 ' + (loc.length ? loc.join(" / ") : "-") +
             ' · ' + U.esc(q.subjectName || "-") +
             ' · <span class="badge badge-muted">' + diffLabel(q.difficulty) + "</span>" +
-            ' · ' + (q.points || 1) + ' درجة' + (q.page_number || q.pageNumber ? ' · 📄 صفحة ' + (q.page_number || q.pageNumber) : ''),
+            ' · ' + (q.points || 1) + ' درجة',
           "❓"
         );
       }).join("")
@@ -1136,10 +1085,6 @@ async function renderQuestions() {
         return '<option value="' + t + '"' + (qFilter.type === t ? " selected" : "") + ">" +
           U.TYPE_LABELS[t] + "</option>";
       }).join("");
-
-    const diffOpts = '<option value="">كل مستويات الصعوبة</option><option value="easy"' + (qFilter.diff === "easy" ? " selected" : "") + '>سهل</option><option value="medium"' + (qFilter.diff === "medium" ? " selected" : "") + '>متوسط</option><option value="hard"' + (qFilter.diff === "hard" ? " selected" : "") + '>صعب</option>';
-    const qualityOpts = '<option value="">كل حالات الجودة</option><option value="complete"' + (qFilter.quality === "complete" ? " selected" : "") + '>مكتملة الإجابة</option><option value="needs-review"' + (qFilter.quality === "needs-review" ? " selected" : "") + '>تحتاج مراجعة</option><option value="passage"' + (qFilter.quality === "passage" ? " selected" : "") + '>مرتبطة بنص مرافق</option>';
-    const reviewOpts = '<option value="">كل حالات الاعتماد</option><option value="unreviewed"' + (qFilter.review === "unreviewed" ? " selected" : "") + '>غير مراجع</option><option value="needs_review"' + (qFilter.review === "needs_review" ? " selected" : "") + '>قيد المراجعة</option><option value="approved"' + (qFilter.review === "approved" ? " selected" : "") + '>معتمد</option><option value="rejected"' + (qFilter.review === "rejected" ? " selected" : "") + '>مرفوض</option><option value="archived"' + (qFilter.review === "archived" ? " selected" : "") + '>مؤرشف</option>';
 
     const unitOpts = '<option value="">\u0643\u0644 \u0627\u0644\u0648\u062d\u062f\u0627\u062a</option>' +
       units.map(function (u) {
@@ -1178,9 +1123,6 @@ async function renderQuestions() {
       "</div>" +
       '<div class="form-row-3 mt-sm">' +
       '<div class="field"><select id="fLesson">' + lessonOpts + "</select></div>" +
-      '<div class="field"><select id="fDifficulty">' + diffOpts + "</select></div>" +
-      '<div class="field"><select id="fQuality">' + qualityOpts + "</select></div>" +
-      '<div class="field"><select id="fReview">' + reviewOpts + "</select></div>" +
       '<div class="field"><button class="btn btn-sm" id="resetFilters" style="width:100%">إلغاء الفلاتر</button></div>' +
       "</div></div></div>" +
 
@@ -1197,8 +1139,6 @@ async function renderQuestions() {
       qFilter.type = "";
       qFilter.unit = "";
       qFilter.lesson = "";
-      qFilter.quality = "";
-      qFilter.review = "";
       qFilter.search = "";
       renderQuestions();
     });
@@ -1230,18 +1170,6 @@ async function renderQuestions() {
       qFilter.lesson = e.target.value;
       renderQuestionListInPlace(questions, subjects);
     });
-    document.getElementById("fDifficulty").addEventListener("change", function (e) {
-      qFilter.diff = e.target.value;
-      renderQuestionListInPlace(questions, subjects);
-    });
-    document.getElementById("fQuality").addEventListener("change", function (e) {
-      qFilter.quality = e.target.value;
-      renderQuestionListInPlace(questions, subjects);
-    });
-    document.getElementById("fReview").addEventListener("change", function (e) {
-      qFilter.review = e.target.value;
-      renderQuestionListInPlace(questions, subjects);
-    });
 
     document.getElementById("resetFilters").addEventListener("click", function () {
       qFilter.type = "";
@@ -1249,8 +1177,6 @@ async function renderQuestions() {
       qFilter.search = "";
       qFilter.unit = "";
       qFilter.lesson = "";
-      qFilter.quality = "";
-      qFilter.review = "";
       renderQuestionListInPlace(questions, subjects);
     });
 
@@ -1315,8 +1241,6 @@ async function renderQuestionSubjectPicker(subjects) {
       qFilter.type = "";
       qFilter.unit = "";
       qFilter.lesson = "";
-      qFilter.quality = "";
-      qFilter.review = "";
       qFilter.search = "";
       renderQuestions();
     });
@@ -1325,7 +1249,21 @@ async function renderQuestionSubjectPicker(subjects) {
 
 /* إعادة رسم القائمة والفلاتر فقط دون إعادة جلب البيانات (سريع) */
 function renderQuestionListInPlace(questions, subjects) {
-  const list = questions.filter(questionMatches);
+  const list = questions.filter(function (q) {
+    if (qFilter.type && q.type !== qFilter.type) return false;
+    if (qFilter.diff && q.difficulty !== qFilter.diff) return false;
+    if (qFilter.unit) {
+      const parts = qFilter.unit.split(":");
+      const kind = parts[0];
+      const val = parts.slice(1).join(":");
+      if (kind === "u" && String(q.unitNumber) !== val) return false;
+      if (kind === "ut" && q.unitTitle !== val) return false;
+    }
+    if (qFilter.lesson && q.lessonTitle !== qFilter.lesson) return false;
+    if (qFilter.search &&
+      U.normalizeArabic(q.text).indexOf(U.normalizeArabic(qFilter.search)) < 0) return false;
+    return true;
+  });
   list.sort(function (a, b) {
     const ua = (a.unitNumber !== null && a.unitNumber !== undefined) ? a.unitNumber : 9999;
     const ub = (b.unitNumber !== null && b.unitNumber !== undefined) ? b.unitNumber : 9999;
@@ -1344,14 +1282,14 @@ function renderQuestionListInPlace(questions, subjects) {
       if (q.lessonTitle) loc.push(U.esc(q.lessonTitle));
       return recRow(
         q.id,
-        (U.badgeForType(q.type) || "") + " " + reviewStatusHTML(q) +
+        (U.badgeForType(q.type) || "") +
           (U.sectionBadge(q) ? " " + U.sectionBadge(q) : "") +
           (q.passage ? ' <span class="badge badge-passage" title="مرفق بنص">📜 نص</span>' : "") +
           ' <span class="rec-qtext">' + U.esc(shortText) + "</span>",
         '📍 ' + (loc.length ? loc.join(" / ") : "-") +
           ' · ' + U.esc(q.subjectName || "-") +
           ' · <span class="badge badge-muted">' + diffLabel(q.difficulty) + "</span>" +
-          ' · ' + (q.points || 1) + ' درجة' + (q.page_number || q.pageNumber ? ' · 📄 صفحة ' + (q.page_number || q.pageNumber) : ''),
+          ' · ' + (q.points || 1) + ' درجة',
         "❓"
       );
     }).join("")
@@ -1394,7 +1332,6 @@ function viewQuestionModal(q, onChange) {
       U.esc(q.lessonTitle || "-") + "</div></div>" +
       '<div class="item"><div class="lbl">\u0627\u0644\u062f\u0631\u062c\u0629</div><div class="val">' +
       (q.points || 1) + "</div></div>" +
-      '<div class="item"><div class="lbl">حالة المراجعة</div><div class="val">' + reviewStatusHTML(q) + "</div></div>" +
       (U.sectionOf(q) ? '<div class="item"><div class="lbl">\u0627\u0644\u0642\u0633\u0645</div><div class="val">' +
         U.esc(U.sectionOf(q)) + "</div></div>" : "") +
       '</div>' +
@@ -1458,30 +1395,12 @@ function viewQuestionModal(q, onChange) {
 
     footer:
       '<button class="btn" data-q-edit>\u270E \u062a\u0639\u062f\u064a\u0644</button> ' +
-      (reviewStatus(q) === "approved"
-        ? '<button class="btn btn-warning" data-q-review="needs_review">↩ إعادة للمراجعة</button> '
-        : '<button class="btn btn-success" data-q-review="approved">✓ اعتماد السؤال</button> ') +
-      (reviewStatus(q) === "archived"
-        ? '<button class="btn" data-q-review="unreviewed">استعادة</button> '
-        : '<button class="btn btn-ghost" data-q-review="archived">أرشفة</button> ') +
       '<button class="btn btn-danger" data-q-del>\uD83D\uDDD1 \u062d\u0630\u0641</button> ' +
       '<button class="btn btn-ghost" data-close>\u0625\u063a\u0644\u0627\u0642</button>',
     onMount: function (node, close) {
       node.querySelector("[data-q-edit]").addEventListener("click", function () {
         close();
         questionModal(q, onChange);
-      });
-      node.querySelectorAll("[data-q-review]").forEach(function (btn) {
-        btn.addEventListener("click", async function () {
-          try {
-            if (!S.setQuestionReviewStatus) throw new Error("ميزة حالة المراجعة غير متاحة");
-            await S.setQuestionReviewStatus(q.id, btn.dataset.qReview);
-            q.reviewStatus = btn.dataset.qReview;
-            U.toast("تم تحديث حالة مراجعة السؤال", "success");
-            close();
-            if (onChange) onChange();
-          } catch (e) { U.toast("تعذر تحديث الحالة: " + e.message, "error"); }
-        });
       });
       node.querySelector("[data-q-del]").addEventListener("click", async function () {
         if (!(await U.confirm("\u062d\u0630\u0641 \u0647\u0630\u0627 \u0627\u0644\u0633\u0624\u0627\u0644\u061f"))) return;
@@ -2361,8 +2280,7 @@ async function renderStudents() {
 
     shell("students",
       pageHead("🎓", "الطلاب",
-        students.length + " طالب · " + sWithGroup + " في مجموعات",
-        '<button class="btn btn-danger" id="deleteAllStudents">🗑 حذف جميع الطلاب</button>') +
+        students.length + " طالب · " + sWithGroup + " في مجموعات") +
 
       kpiGrid([
         kpi("c-primary", "🎓", students.length, "إجمالي الطلاب"),
@@ -2380,14 +2298,6 @@ async function renderStudents() {
       function (id) { return students.find(function (s) { return s.id === id; }); },
       function (s) { openStudentDetails(s); }
     );
-    const deleteAllStudents = document.getElementById("deleteAllStudents");
-    if (deleteAllStudents) deleteAllStudents.addEventListener("click", async function () {
-      if (!students.length) return U.toast("لا يوجد طلاب للحذف", "info");
-      if (!await U.confirm("سيتم حذف جميع حسابات الطلاب مع التسليمات والإشعارات والانضمامات المرتبطة. هل تريد المتابعة؟")) return;
-      await S.deleteAllStudents();
-      U.toast("تم حذف جميع الطلاب والبيانات المرتبطة", "success");
-      renderStudents();
-    });
   } catch (e) {
     shell("students", errorCard(e));
   }
@@ -2506,8 +2416,7 @@ function studentModal(s) {
 
       const rows = exams.length
         ? exams.map(function (e) {
-          const search = String((e.title || '') + ' ' + (e.subjectName || '') + ' ' + (e.code || '') + ' ' + (e.templateName || ''));
-          return '<div data-exam-item data-exam-search="' + U.esc(search) + '" data-exam-status="' + U.esc(e.status || '') + '" data-exam-subject="' + U.esc(e.subjectId || '') + '">' + recRow(
+          return recRow(
             e.id,
             "<b>" + U.esc(e.title) + "</b>" +
               (e.autoGenerated ? ' <span class="badge badge-primary">تلقائي</span>' : "") +
@@ -2519,7 +2428,7 @@ function studentModal(s) {
               ' · 📚 ' + U.esc(e.subjectName || "-") +
               ' · ' + statusBadge(e.status),
             "🗒️"
-          ) + '</div>';
+          );
         }).join("")
         : null;
 
@@ -2533,7 +2442,6 @@ function studentModal(s) {
           exams.length + " اختبار · " + ePublished + " منشور",
           '<button class="btn btn-primary" id="newExam">＋ اختبار جديد</button>') +
 
-        '<div class="card mt"><div class="form-row"><div class="field"><label>بحث في الاختبارات</label><input id="examFilterSearch" placeholder="اسم الاختبار أو الرمز أو المادة"></div><div class="field"><label>المادة</label><select id="examFilterSubject"><option value="all">كل المواد</option>' + subjects.map(function (x) { return '<option value="' + U.esc(x.id) + '">' + U.esc(x.name || x.id) + '</option>'; }).join('') + '</select></div><div class="field"><label>الحالة</label><select id="examFilterStatus"><option value="all">كل الحالات</option><option value="draft">مسودة</option><option value="published">منشور</option><option value="closed">مغلق</option><option value="archived">مؤرشف</option></select></div></div><div class="tiny muted" id="examFilterCount">المعروض: ' + exams.length + '</div></div>' +
         kpiGrid([
           kpi("c-primary", "🗒️", exams.length, "إجمالي الاختبارات"),
           kpi("c-success", "✅", ePublished, "منشورة"),
@@ -2548,20 +2456,6 @@ function studentModal(s) {
       document.getElementById("newExam").addEventListener("click", function () {
         examWizard(null);
       });
-
-      const applyExamFilters = function () {
-        const term = String((document.getElementById('examFilterSearch') || {}).value || '').trim().toLowerCase();
-        const subject = (document.getElementById('examFilterSubject') || {}).value || 'all';
-        const status = (document.getElementById('examFilterStatus') || {}).value || 'all';
-        let shown = 0;
-        document.querySelectorAll('[data-exam-item]').forEach(function (row) {
-          const ok = (!term || String(row.dataset.examSearch || '').toLowerCase().indexOf(term) >= 0) && (subject === 'all' || row.dataset.examSubject === subject) && (status === 'all' || row.dataset.examStatus === status);
-          row.style.display = ok ? '' : 'none'; if (ok) shown++;
-        });
-        const c = document.getElementById('examFilterCount'); if (c) c.textContent = 'المطابق: ' + shown + ' من ' + exams.length;
-      };
-      ['examFilterSearch','examFilterSubject','examFilterStatus'].forEach(function (id) { const el = document.getElementById(id); if (el) el.addEventListener('input', applyExamFilters); });
-      applyExamFilters();
 
       bindViewButtons(
         function (id) { return exams.find(function (e) { return e.id === id; }); },
@@ -4054,9 +3948,10 @@ function studentModal(s) {
                  for (var ti = 0; ti < groups.length; ti++) {
                    var g = groups[ti];
                    if (target.indexOf("ALL") >= 0 || target.indexOf(g.id) >= 0) {
-                     var sts = S.listEnrollmentsByGroup ? await S.listEnrollmentsByGroup(g.id) : [];
+                     var sts = g.studentsList || [];
                      for (var si = 0; si < sts.length; si++) {
-                       var sid = sts[si] && sts[si].studentId;
+                       var sid = sts[si];
+                       if (sid && sid.id) sid = sid.id;
                        if (!sid) continue;
                        await S.addNotification({
                          type: "exam",
@@ -4230,7 +4125,7 @@ function studentModal(s) {
         '<div class="field"><label>الاختبار</label>' +
         '<select id="resExam"><option value="">— اختر اختباراً —</option>' +
         '<option value="__all__">📋 كل التسليمات (جميع المواد)</option>' + opts + "</select></div>" +
-        '<button class="btn btn-danger" id="deleteAllSubmissions">🗑 حذف جميع المشاركات والتسليمات</button></div></div>' +
+        "</div></div>" +
 
         '<div id="resBody"><div class="empty-state"><div class="emoji">\uD83D\uDCC8</div>' +
         "<h3>\u0627\u062e\u062a\u0631 \u0627\u062e\u062a\u0628\u0627\u0631\u0627\u064B</h3></div></div>"
@@ -4239,14 +4134,6 @@ function studentModal(s) {
       document.getElementById("resExam").addEventListener("change", function (e) {
         if (e.target.value === "__all__") return openAllSubmissions();
         openExamResults(e.target.value);
-      });
-      document.getElementById("deleteAllSubmissions").addEventListener("click", async function () {
-        const count = await S.countSubmissions();
-        if (!count) return U.toast("لا توجد تسليمات للحذف", "info");
-        if (!await U.confirm("سيتم حذف " + count + " مشاركة/تسليم نهائيًا من جميع الاختبارات. هل تريد المتابعة؟")) return;
-        await S.deleteAllSubmissions();
-        U.toast("تم حذف جميع المشاركات والتسليمات", "success");
-        openAllSubmissions();
       });
 
       if (state.pendingResultExam) {
@@ -4840,22 +4727,6 @@ function studentModal(s) {
   /* ============================================================
    * ROUTER
    * ============================================================ */
-  async function renderFeatureReport() {
-    shell("feature-report", U.loaderHTML());
-    const features = [
-      [2, "إضافة سؤال من بنك الأسئلة", "بحث حسب نص السؤال والوحدة والدرس وإضافة السؤال مع بياناته والنص المرافق."],
-      [3, "استبدال سؤال", "استبدال سؤال القالب بسؤال آخر مع الحفاظ على الموضع والدرجة."],
-      [4, "إعادة ترتيب الأسئلة", "أزرار ↑ و↓ والسحب والإفلات مع الحفظ داخل القالب."],
-      [5, "المعاينة", "معاينة الطالب دون الإجابات ومعاينة المدير مع الإجابات والنصوص والدرجات."],
-      [6, "إصدارات القالب", "حفظ نسخ سابقة واستعادة إصدار سابق عند الحاجة."],
-      [7, "تحديد المجموعات", "اختيار جميع المجموعات أو مجموعات محددة عند النشر."],
-      [8, "قفل الاختبار بعد بدء الطلاب", "منع تعديل اختبار له تسليمات لحماية النتائج القديمة."],
-      [9, "إصدارات الاختبارات المنشورة", "إنشاء اختبار مستقل بكود وإصدار جديد بدل تغيير اختبار مستخدم."]
-    ];
-    const cards = features.map(function (f) { return '<article class="card mb-sm"><div class="flex" style="justify-content:space-between"><span class="badge badge-success">الاقتراح ' + f[0] + '</span><span class="badge badge-success">✅ منفذ</span></div><h3 class="mt-sm">' + U.esc(f[1]) + '</h3><p class="muted" style="line-height:1.9">' + U.esc(f[2]) + '</p></article>'; }).join('');
-    shell("feature-report", pageHead("📑", "تقرير الميزات 2–9", "توثيق وظائف القوالب والاختبارات المنشورة") + '<div class="card mt"><div class="info-banner success"><b>حالة التنفيذ: مكتمل</b><p class="mt-sm">تتضمن هذه الصفحة توثيقًا وظيفيًا للميزات التي نفذت في هذه المرحلة.</p></div><div class="mt">' + cards + '</div></div><div class="card mt"><h3>حماية البيانات</h3><ul style="line-height:2"><li>التحقق من القالب قبل النشر.</li><li>منع تعديل الاختبار بعد وجود تسليمات.</li><li>حفظ نسخ مستقلة للإصدارات الجديدة.</li><li>ربط الأسئلة الفعلية ببنك الفلسفة في الفصلين الأول والثاني.</li></ul></div>');
-  }
-
   const renders = {
     dashboard: renderDashboard,
     groups: renderGroups,
@@ -4870,7 +4741,7 @@ function studentModal(s) {
     results: renderResults,
     analytics: renderAnalytics,
     audit: renderAuditLog,
-    "feature-report": renderFeatureReport,
+    notifications: renderNotificationsSettings,
     settings: renderSettings
   };
 
@@ -4908,26 +4779,12 @@ function studentModal(s) {
    * - تعديل أي سؤال داخل الاختبار (النص/الخيارات/الإجابة/الشرح...)
    * - حذف أي سؤال من الاختبار → يُعاد احتساب الدرجة الكلية تلقائياً
    * ============================================================ */
-  async function createExamVersion(exam) {
-    const code = (window.prompt("أدخل كود الإصدار الجديد (4-12 أحرف أو أرقام إنجليزية):", "") || "").trim().toUpperCase();
-    if (!code) return;
-    if (!/^[A-Z0-9]{4,12}$/.test(code)) return U.toast("الكود يجب أن يكون من 4-12 أحرف أو أرقام إنجليزية", "warn");
-    try {
-      if (S.codeExists && await S.codeExists(code)) throw new Error("هذا الكود مستخدم بالفعل");
-      const previous = Number(exam.versionNo) || 1;
-      const r = await S.createExam({ title: (exam.title || "اختبار") + " — الإصدار " + (previous + 1), subjectId: exam.subjectId, subjectName: exam.subjectName, description: exam.description || "", durationMin: exam.durationMin || 0, settings: exam.settings || {}, questions: JSON.parse(JSON.stringify(exam.questions || [])), code: code, status: "published", targetGroups: exam.targetGroups || [], autoGenerated: !!exam.autoGenerated, modelFamily: exam.modelFamily || "", isApproved: exam.isApproved === true, baseExamId: exam.baseExamId || exam.id, versionNo: previous + 1, versionStatus: "published", openAt: exam.openAt || null, closeAt: exam.closeAt || null });
-      U.toast("تم إنشاء الإصدار الجديد — الكود: " + r.code, "success", 7000);
-      renderExams();
-    } catch (e) { U.toast("تعذر إنشاء الإصدار: " + e.message, "error"); }
-  }
   async function openExamQuestions(exam) {
     const examId = exam.id;
     let ex = null;
     try { ex = await S.getExam(examId); } catch (e) { ex = null; }
     if (!ex) ex = exam;
     const questions = ex.questions || [];
-    const submissionsCount = S.countSubmissionsByExam ? await S.countSubmissionsByExam(examId) : 0;
-    const locked = submissionsCount > 0;
     const esc = U.esc;
 
     const rowHTML = function (q, idx) {
@@ -4941,11 +4798,12 @@ function studentModal(s) {
         (U.sectionOf(q) ? " \u00B7 " + esc(U.sectionOf(q)) : "") +
         (q._sourceId ? " \u00B7 من بنك الأسئلة" : "") +
         (q.lessonTitle ? " \u00B7 " + esc(q.lessonTitle) : "") + "</div></td>" +
-        '<td style="padding:8px 6px;vertical-align:top"><input type="number" class="exq-points" min="0" step="0.5" ' + (locked ? 'disabled ' : '') + 'value="' +
+        '<td style="padding:8px 6px;vertical-align:top"><input type="number" class="exq-points" min="0" step="0.5" value="' +
         (q.points === undefined || q.points === null || q.points === "" ? 1 : Number(q.points) || 0) +
         '" style="width:74px"></td>' +
         '<td style="padding:8px 6px;vertical-align:top;white-space:nowrap">' +
-        (locked ? '<span class="badge badge-warning">مقفل بعد بدء الطلاب</span>' : '<button class="btn btn-sm" data-act="edit">✏️ تعديل</button> <button class="btn btn-sm btn-danger" data-act="del">🗑 حذف</button>') + '</td>' +
+        '<button class="btn btn-sm" data-act="edit">\u270F\uFE0F تعديل</button> ' +
+        '<button class="btn btn-sm btn-danger" data-act="del">\uD83D\uDDD1 حذف</button></td>' +
         "</tr>";
     };
 
@@ -4978,11 +4836,9 @@ function studentModal(s) {
           : '<tr><td colspan="4" class="center muted" style="padding:16px">لا توجد أسئلة في هذا الاختبار</td></tr>') +
         "</tbody></table></div>",
       footer:
-        (locked ? '<button class="btn btn-primary" data-new-version>🆕 إنشاء إصدار جديد</button>' : '<button class="btn btn-primary" data-save>💾 حفظ الدرجات</button>') +
-        '<button class="btn btn-ghost" data-close>✕ إغلاق</button>',
+        '<button class="btn btn-primary" data-save>\uD83D\uDCBE حفظ الدرجات</button>' +
+        '<button class="btn btn-ghost" data-close>\u2715 إغلاق</button>',
       onMount: function (node, close) {
-        const newVersionBtn = node.querySelector("[data-new-version]");
-        if (newVersionBtn) newVersionBtn.addEventListener("click", function () { close(); createExamVersion(ex); });
         const sumEl = node.querySelector("#exqSum");
         const grandEl = node.querySelector("#exqGrand");
         const pointsInputs = function () {
@@ -5132,16 +4988,48 @@ function studentModal(s) {
 
   console.log("[admin.js v6] QP.admin loaded \u2705");
 
+  /* ============================================================
+   * ROUTER INIT
+   * ============================================================ */
   function parseHashAdmin() {
     const h = location.hash.replace(/^#\/?/, "");
     return h.split("/").filter(Boolean);
   }
+
   function routeAdmin() {
     if (!QP.admin) return;
     const parts = parseHashAdmin();
-    QP.admin.render(parts[0] || "dashboard");
+    const sub = parts[0] || "dashboard";
+    QP.admin.render(sub);
     window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
   }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof applyTheme === "function") {
+      applyTheme(localStorage.getItem("qp_theme") || "dark");
+    } else if (window.QP && QP.utils && typeof QP.utils.applyTheme === "function") {
+      QP.utils.applyTheme(localStorage.getItem("qp_theme") || "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", localStorage.getItem("qp_theme") || "dark");
+    }
+
+    const themeBtn = document.getElementById("themeToggle");
+    if (themeBtn) themeBtn.addEventListener("click", function () {
+      const cur = document.documentElement.getAttribute("data-theme");
+      const next = cur === "light" ? "dark" : "light";
+      if (typeof applyTheme === "function") applyTheme(next);
+      else if (window.QP && QP.utils && typeof QP.utils.applyTheme === "function") QP.utils.applyTheme(next);
+      else {
+        document.documentElement.setAttribute("data-theme", next);
+        localStorage.setItem("qp_theme", next);
+      }
+    });
+
+    window.addEventListener("hashchange", routeAdmin);
+    if (!location.hash) location.hash = "#/dashboard";
+    routeAdmin();
+  });
+  /* وظائف مولّد النماذج القديمة تقع خارج نطاق IIFE؛ نعرّف لها الجسر المشترك. */
   window.shell = shell;
   window.S = S;
   window.U = U;
@@ -5149,19 +5037,6 @@ function studentModal(s) {
   window.pageHead = pageHead;
   window.secHead = secHead;
   window.errorCard = errorCard;
-  document.addEventListener("DOMContentLoaded", function () {
-    if (typeof applyTheme === "function") applyTheme(localStorage.getItem("qp_theme") || "dark");
-    const themeBtn = document.getElementById("themeToggle");
-    if (themeBtn) themeBtn.addEventListener("click", function () {
-      const cur = document.documentElement.getAttribute("data-theme");
-      const next = cur === "light" ? "dark" : "light";
-      if (typeof applyTheme === "function") applyTheme(next);
-      else { document.documentElement.setAttribute("data-theme", next); localStorage.setItem("qp_theme", next); }
-    });
-    window.addEventListener("hashchange", routeAdmin);
-    if (!location.hash) location.hash = "#/dashboard";
-    routeAdmin();
-  });
 })();
 
 
@@ -5431,212 +5306,6 @@ function studentModal(s) {
     return { total: list.length, created: created, skipped: skipped };
   }
 
-  /* أدوات قوالب النماذج: عرض النصوص والأسئلة وتحريرها وتحويلها إلى اختبار */
-  async function templateBank(subjectId) {
-    const id = subjectId || "philosophy";
-    const r = await fetch("data/" + id + ".json?template=" + Date.now(), { cache: "no-store" });
-    if (!r.ok) throw new Error("تعذر تحميل بنك أسئلة " + (id === "history" ? "التاريخ" : "الفلسفة"));
-    return r.json();
-  }
-  function findBankQuestion(bank, text) {
-    let found = null;
-    (bank.units || []).some(function (u) {
-      return (u.lessons || []).some(function (l) {
-        return (l.questions || []).some(function (q) {
-          if (String(q.text || "") === String(text || "")) {
-            found = { q: q, lesson: l, unit: u };
-            return true;
-          }
-          return false;
-        });
-      });
-    });
-    return found;
-  }
-  async function materializeTemplateQuestions(tpl, bank) {
-    let questions = Array.isArray(tpl.questions) ? JSON.parse(JSON.stringify(tpl.questions)) : [];
-    if (!questions.length) questions = await ExamTemplateEngine.generate(tpl, bank);
-    questions = questions.map(function (q, i) {
-      const source = findBankQuestion(bank, q.text);
-      const out = Object.assign({}, q);
-      out.points = (q.points === undefined || q.points === null || q.points === "") ? 1 : q.points;
-      out._templateIndex = i;
-      if (source) {
-        out.unitNumber = source.unit.unit_number;
-        out.unitTitle = source.unit.unit_title;
-        out.lessonNumber = source.lesson.lesson_number;
-        out.lessonTitle = source.lesson.lesson_title;
-        if (source.lesson.passage && source.lesson.passage.text && !out.passage) out.passage = JSON.parse(JSON.stringify(source.lesson.passage));
-      }
-      return out;
-    });
-    if (!Array.isArray(tpl.questions) || !tpl.questions.length) {
-      await S.updateExamTemplate(tpl.id, { questions: questions });
-      tpl.questions = questions;
-    }
-    return questions;
-  }
-  function templateQuestionHTML(q, idx) {
-    const passage = q.passage && q.passage.text
-      ? '<details class="card mt-sm" open><summary><b>📖 النص المرافق</b>' + (q.passage.title ? ' — ' + U.esc(q.passage.title) : '') + '</summary><div class="mt-sm" style="white-space:pre-wrap;line-height:1.9">' + U.esc(q.passage.text) + (q.passage.notes ? '<hr><small class="muted">' + U.esc(q.passage.notes) + '</small>' : '') + '</div></details>'
-      : '<div class="tiny muted mt-sm">لا يوجد نص مرافق محفوظ لهذا السؤال</div>';
-    return '<div class="card mb-sm" data-tq="' + idx + '"><div class="flex flex-wrap" style="justify-content:space-between;gap:8px"><div><b>السؤال ' + (idx + 1) + '</b> <span class="badge badge-muted">' + U.esc((U.TYPE_LABELS && U.TYPE_LABELS[q.type]) || q.type || '') + '</span> <span class="badge badge-muted">' + (Number(q.points) || 1) + ' درجة</span></div><div><button class="btn btn-sm" data-tq-edit="' + idx + '">✏️ تعديل</button> <button class="btn btn-sm" data-tq-replace="' + idx + '">🔁 استبدال</button> <button class="btn btn-sm" data-tq-up="' + idx + '">↑</button> <button class="btn btn-sm" data-tq-down="' + idx + '">↓</button> <button class="btn btn-sm btn-danger" data-tq-del="' + idx + '">🗑 حذف</button></div></div><p class="mt-sm" style="white-space:pre-wrap">' + U.esc(q.text || '') + '</p>' + passage + '</div>';
-  }
-  function flattenTemplateBank(bank) {
-    const out = [];
-    (bank.units || []).forEach(function (u) {
-      (u.lessons || []).forEach(function (l) {
-        (l.questions || []).forEach(function (q) {
-          const x = Object.assign({}, q, { unitNumber: u.unit_number, unitTitle: u.unit_title, lessonNumber: l.lesson_number, lessonTitle: l.lesson_title });
-          if (l.passage && l.passage.text && !x.passage) x.passage = JSON.parse(JSON.stringify(l.passage));
-          out.push(x);
-        });
-      });
-    });
-    return out;
-  }
-  function templatePreviewHTML(questions, showAnswers) {
-    return '<div style="max-height:70vh;overflow:auto">' + questions.map(function (q, i) {
-      const passage = q.passage && q.passage.text ? '<details class="card mt-sm"><summary>📖 النص المرافق</summary><div style="white-space:pre-wrap;line-height:1.8">' + U.esc(q.passage.text) + '</div></details>' : '';
-      let ans = '';
-      if (showAnswers) ans = '<div class="info-banner success mt-sm"><b>الإجابة:</b> ' + U.esc(Array.isArray(q.answer) ? q.answer.join('، ') : (q.answer || 'تحتاج تصحيحًا يدويًا')) + '</div>';
-      return '<div class="card mb-sm"><b>السؤال ' + (i + 1) + ' (' + (Number(q.points) || 1) + ' درجة)</b><p style="white-space:pre-wrap;line-height:1.8">' + U.esc(q.text || '') + '</p>' + (q.options && q.options.length ? '<ol type="أ">' + q.options.map(function (o) { return '<li>' + U.esc(o) + '</li>'; }).join('') + '</ol>' : '') + passage + ans + '</div>';
-    }).join('') + '</div>';
-  }
-  function chooseTemplateGroups(groups, initial) {
-    return new Promise(function (resolve) {
-      const selected = initial && initial.length ? initial : ['ALL'];
-      const html = '<p class="muted">اختر المجموعات التي سيظهر فيها الاختبار:</p><label class="check"><input type="checkbox" id="tplAllGroups" ' + (selected.indexOf('ALL') >= 0 ? 'checked' : '') + '> جميع المجموعات</label><div id="tplGroupList" class="mt-sm">' + (groups || []).map(function (g) { return '<label class="check"><input type="checkbox" data-tpl-group value="' + U.esc(g.id) + '" ' + (selected.indexOf(g.id) >= 0 ? 'checked' : '') + '> ' + U.esc(g.name || g.id) + '</label>'; }).join('') + '</div>';
-      U.modal({ title: '👥 مجموعات الاختبار', body: html, footer: '<button class="btn btn-primary" id="tplGroupsSave">متابعة النشر</button><button class="btn btn-ghost" data-close>إلغاء</button>', onMount: function (node, close) {
-        const all = node.querySelector('#tplAllGroups');
-        all.addEventListener('change', function () { node.querySelectorAll('[data-tpl-group]').forEach(function (x) { x.checked = all.checked; }); });
-        node.querySelector('#tplGroupsSave').addEventListener('click', function () {
-          const value = all.checked ? ['ALL'] : Array.from(node.querySelectorAll('[data-tpl-group]:checked')).map(function (x) { return x.value; });
-          if (!value.length) return U.toast('اختر مجموعة واحدة على الأقل', 'warn');
-          close(); resolve(value);
-        });
-      }
-      });
-    });
-  }
-  async function openTemplateVersions(tpl) {
-    const versions = S.listTemplateVersions ? await S.listTemplateVersions(tpl.id) : [];
-    const html = versions.length ? versions.slice().reverse().map(function (v) { return '<div class="card mb-sm"><b>الإصدار ' + v.versionNo + '</b><div class="tiny muted">' + U.esc(v.at || '') + ' — ' + ((v.snapshot.questions || []).length) + ' سؤال</div><button class="btn btn-sm mt-sm" data-restore-version="' + v.versionNo + '">استعادة هذا الإصدار</button></div>'; }).join('') : '<div class="empty-state">لا توجد إصدارات محفوظة بعد تعديل القالب</div>';
-    U.modal({ title: '🕘 إصدارات القالب', body: html, footer: '<button class="btn btn-ghost" data-close>إغلاق</button>', onMount: function (node, close) {
-      node.querySelectorAll('[data-restore-version]').forEach(function (b) { b.addEventListener('click', async function () { const v = versions.find(function (x) { return String(x.versionNo) === String(b.dataset.restoreVersion); }); if (!v || !(await U.confirm('استعادة الإصدار المحدد؟'))) return; await S.restoreTemplateVersion(tpl.id, v); tpl.questions = v.snapshot.questions; tpl.sections = v.snapshot.sections; tpl.rules = v.snapshot.rules; close(); U.toast('تمت استعادة الإصدار ' + v.versionNo, 'success'); openTemplateQuestions(tpl); }); });
-    } });
-  }
-
-  async function openTemplateQuestions(tpl) {
-    let bank, questions;
-    try { bank = await templateBank(tpl.subjectId); questions = await materializeTemplateQuestions(tpl, bank); } catch (e) { return U.toast(e.message, "error"); }
-    const save = async function () { await S.updateExamTemplate(tpl.id, { questions: questions }); tpl.questions = questions; };
-    const renderBody = function () {
-      return '<div class="flex flex-wrap" style="justify-content:space-between;gap:8px"><span class="muted">' + questions.length + ' سؤالًا — الإصدار ' + (tpl.versionNo || 0) + '</span><div class="flex flex-wrap" style="gap:6px"><button class="btn btn-sm" id="tplPreviewStudent">👁️ معاينة الطالب</button><button class="btn btn-sm" id="tplPreviewAdmin">🔑 معاينة المدير</button><button class="btn btn-sm" id="tplVersions">🕘 الإصدارات</button><button class="btn btn-primary" id="tplAddBank">📚 إضافة من البنك</button><button class="btn" id="tplAddQuestion">＋ سؤال يدوي</button></div></div><div class="mt">' + (questions.length ? questions.map(templateQuestionHTML).join('') : '<div class="empty-state">لا توجد أسئلة في القالب</div>') + '</div>';
-    };
-    U.modal({ title: '📋 أسئلة القالب: ' + (tpl.name || ''), size: 'xl', body: renderBody(), footer: '<button class="btn btn-ghost" data-close>إغلاق</button>', onMount: function (node, close) {
-      const reopen = function () { close(); openTemplateQuestions(tpl); };
-      const openBankPicker = function (replaceIndex) {
-        const all = flattenTemplateBank(bank); let list = all.slice(0, 80);
-        const body = '<input id="tplBankSearch" placeholder="ابحث في نص السؤال أو الدرس" style="margin-bottom:10px"><div id="tplBankResults" style="max-height:55vh;overflow:auto">' + list.map(function (q, i) { return '<button class="card mb-sm" data-bank-idx="' + i + '" style="display:block;width:100%;text-align:right;cursor:pointer"><b>' + U.esc(q.text || '') + '</b><div class="tiny muted">' + U.esc(q.lessonTitle || '') + ' — ' + U.esc(q.unitTitle || '') + '</div></button>'; }).join('') + '</div>';
-        U.modal({ title: replaceIndex === null ? '📚 إضافة سؤال من بنك الأسئلة' : '🔁 استبدال السؤال من البنك', size: 'lg', body: body, footer: '<button class="btn btn-ghost" data-close>إلغاء</button>', onMount: function (bn, bc) {
-          const render = function () { const term = (bn.querySelector('#tplBankSearch').value || '').trim().toLowerCase(); list = all.filter(function (q) { return !term || String(q.text || '').toLowerCase().indexOf(term) >= 0 || String(q.lessonTitle || '').toLowerCase().indexOf(term) >= 0 || String(q.unitTitle || '').toLowerCase().indexOf(term) >= 0; }).slice(0, 100); bn.querySelector('#tplBankResults').innerHTML = list.map(function (q, i) { return '<button class="card mb-sm" data-bank-idx="' + i + '" style="display:block;width:100%;text-align:right;cursor:pointer"><b>' + U.esc(q.text || '') + '</b><div class="tiny muted">' + U.esc(q.lessonTitle || '') + ' — ' + U.esc(q.unitTitle || '') + '</div></button>'; }).join('') || '<div class="empty-state">لا توجد نتائج</div>'; bind(); };
-          const bind = function () { bn.querySelectorAll('[data-bank-idx]').forEach(function (b) { b.onclick = async function () { const q = JSON.parse(JSON.stringify(list[Number(b.dataset.bankIdx)])); q.points = replaceIndex === null ? (q.points || 1) : (questions[replaceIndex].points || 1); if (replaceIndex === null) questions.push(q); else questions[replaceIndex] = q; await save(); bc(); U.toast(replaceIndex === null ? 'تمت إضافة السؤال من البنك' : 'تم استبدال السؤال', 'success'); reopen(); }; }); };
-          bn.querySelector('#tplBankSearch').addEventListener('input', render); bind();
-        } });
-      };
-      const move = async function (idx, delta) { const ni = idx + delta; if (ni < 0 || ni >= questions.length) return; const x = questions[idx]; questions[idx] = questions[ni]; questions[ni] = x; await save(); reopen(); };
-      node.querySelector('#tplAddBank').onclick = function () { close(); openBankPicker(null); };
-      node.querySelector('#tplVersions').onclick = function () { close(); openTemplateVersions(tpl); };
-      node.querySelector('#tplPreviewStudent').onclick = function () { U.modal({ title: '👁️ معاينة الطالب', size: 'xl', body: templatePreviewHTML(questions, false), footer: '<button class="btn btn-ghost" data-close>إغلاق</button>' }); };
-      node.querySelector('#tplPreviewAdmin').onclick = function () { U.modal({ title: '🔑 معاينة المدير', size: 'xl', body: templatePreviewHTML(questions, true), footer: '<button class="btn btn-ghost" data-close>إغلاق</button>' }); };
-      node.querySelector('#tplAddQuestion').onclick = function () { close(); U.modal({ title: '＋ إضافة سؤال إلى القالب', size: 'lg', body: questionFormHTML({ type: 'mcq', options: ['', '', '', ''], answer: '', points: 1 }), footer: '<button class="btn btn-primary" data-save>حفظ السؤال</button><button class="btn btn-ghost" data-close>إلغاء</button>', onMount: function (n, c) { bindQuestionForm(n); n.querySelector('[data-save]').onclick = async function () { try { const q = collectQuestionForm(n); if (!q.text) throw new Error('نص السؤال مطلوب'); questions.push(q); await save(); c(); reopen(); } catch (e) { U.toast(e.message, 'error'); } }; } }); };
-      node.querySelectorAll('[data-tq-edit]').forEach(function (b) { b.onclick = function () { const idx = Number(b.dataset.tqEdit); const old = questions[idx]; close(); U.modal({ title: '✏️ تعديل سؤال القالب', size: 'lg', body: questionFormHTML(old), footer: '<button class="btn btn-primary" data-save>حفظ التعديل</button><button class="btn btn-ghost" data-close>إلغاء</button>', onMount: function (n, c) { bindQuestionForm(n); n.querySelector('[data-save]').onclick = async function () { try { const q = collectQuestionForm(n); if (!q.text) throw new Error('نص السؤال مطلوب'); questions[idx] = Object.assign({}, old, q); await save(); c(); reopen(); } catch (e) { U.toast(e.message, 'error'); } }; } }); }; });
-      node.querySelectorAll('[data-tq-del]').forEach(function (b) { b.onclick = async function () { if (!(await U.confirm('حذف السؤال من هذا القالب؟'))) return; questions.splice(Number(b.dataset.tqDel), 1); await save(); reopen(); }; });
-      node.querySelectorAll('[data-tq-up]').forEach(function (b) { b.onclick = function () { move(Number(b.dataset.tqUp), -1); }; });
-      node.querySelectorAll('[data-tq-down]').forEach(function (b) { b.onclick = function () { move(Number(b.dataset.tqDown), 1); }; });
-      node.querySelectorAll('[data-tq-replace]').forEach(function (b) { b.onclick = function () { close(); openBankPicker(Number(b.dataset.tqReplace)); }; });
-      node.querySelectorAll('[data-tq]').forEach(function (card) {
-        card.setAttribute('draggable', 'true');
-        card.addEventListener('dragstart', function (e) { e.dataTransfer.setData('text/plain', card.dataset.tq); card.style.opacity = '0.55'; });
-        card.addEventListener('dragend', function () { card.style.opacity = ''; });
-        card.addEventListener('dragover', function (e) { e.preventDefault(); card.style.borderColor = 'var(--primary)'; });
-        card.addEventListener('dragleave', function () { card.style.borderColor = ''; });
-        card.addEventListener('drop', function (e) { e.preventDefault(); card.style.borderColor = ''; const from = Number(e.dataTransfer.getData('text/plain')); const to = Number(card.dataset.tq); if (from !== to) { const x = questions.splice(from, 1)[0]; questions.splice(to, 0, x); save().then(reopen); } });
-      });
-    } });
-  }
-  function validateTemplateQuestions(questions) {
-    const errors = [];
-    const seen = {};
-    if (!Array.isArray(questions) || !questions.length) return ["القالب لا يحتوي على أي سؤال"];
-    questions.forEach(function (q, i) {
-      const no = i + 1;
-      const type = q && q.type;
-      const text = String(q && q.text || "").trim();
-      const points = Number(q && q.points);
-      const opts = Array.isArray(q && q.options) ? q.options.map(function (x) { return String(x || "").trim(); }).filter(Boolean) : [];
-      if (!text) errors.push("السؤال " + no + ": نص السؤال فارغ");
-      if (!isFinite(points) || points <= 0) errors.push("السؤال " + no + ": الدرجة يجب أن تكون أكبر من صفر");
-      const key = q && (q.id || text);
-      if (key && seen[key]) errors.push("السؤال " + no + ": مكرر مع السؤال " + seen[key]);
-      if (key) seen[key] = no;
-      if (["mcq", "image_mcq"].indexOf(type) >= 0) {
-        if (opts.length < 2) errors.push("السؤال " + no + ": يحتاج خيارين على الأقل");
-        if (new Set(opts).size !== opts.length) errors.push("السؤال " + no + ": يحتوي خيارات مكررة");
-        if (!q.answer || opts.indexOf(String(q.answer).trim()) < 0) errors.push("السؤال " + no + ": الإجابة الصحيحة غير موجودة ضمن الخيارات");
-      } else if (type === "multi") {
-        if (opts.length < 2) errors.push("السؤال " + no + ": يحتاج خيارين على الأقل");
-        const answers = Array.isArray(q.answer) ? q.answer : [];
-        if (!answers.length || answers.some(function (a) { return opts.indexOf(String(a).trim()) < 0; })) errors.push("السؤال " + no + ": إجابات الاختيار المتعدد غير صحيحة");
-      } else if (type === "true_false") {
-        if (["صح", "خطأ", "صحيح", "خاطئ"].indexOf(String(q.answer || "").trim()) < 0) errors.push("السؤال " + no + ": يجب تحديد إجابة صح أو خطأ");
-      } else if (["fill_blank", "short_answer"].indexOf(type) >= 0 && !String(q.answer || "").trim()) {
-        errors.push("السؤال " + no + ": الإجابة النموذجية مطلوبة");
-      }
-      if (type === "matching" && (!Array.isArray(q.pairs) || q.pairs.length < 2)) errors.push("السؤال " + no + ": أزواج المطابقة غير مكتملة");
-      if (type === "ordering" && (!Array.isArray(q.items) || q.items.length < 2)) errors.push("السؤال " + no + ": عناصر الترتيب غير مكتملة");
-      if (type === "classification" && (!Array.isArray(q.categories) || !q.categories.length || !Array.isArray(q.items) || !q.items.length)) errors.push("السؤال " + no + ": التصنيف يحتاج فئات وعناصر");
-      if (type === "comparison" && (!Array.isArray(q.columns) || q.columns.length < 2 || !Array.isArray(q.rows) || !q.rows.length)) errors.push("السؤال " + no + ": جدول المقارنة غير مكتمل");
-      if (type === "diagram_label" && (!q.image || !Array.isArray(q.labels) || !q.labels.length)) errors.push("السؤال " + no + ": الصورة والتسميات مطلوبتان");
-      const passage = q && q.passage;
-      if (passage && !String(passage.text || "").trim()) errors.push("السؤال " + no + ": النص المرافق موجود لكنه فارغ");
-      if (/(النص|النصّ|المقطع|القطعة)/.test(text) && !(passage && String(passage.text || "").trim())) errors.push("السؤال " + no + ": يشير إلى نص مرافق غير موجود");
-    });
-    const total = questions.reduce(function (sum, q) { return sum + (Number(q.points) || 0); }, 0);
-    if (total <= 0) errors.push("مجموع درجات القالب يجب أن يكون أكبر من صفر");
-    return errors;
-  }
-  function showTemplateValidationErrors(errors) {
-    const html = '<div class="info-banner warning"><b>لم يتم النشر</b><p>صحح الأخطاء التالية ثم أعد المحاولة:</p></div><ol style="line-height:1.9;margin-top:12px">' + errors.map(function (e) { return '<li>' + U.esc(e) + '</li>'; }).join('') + '</ol>';
-    U.modal({ title: '⚠️ مراجعة القالب قبل النشر', size: 'lg', body: html, footer: '<button class="btn btn-primary" data-close>فهمت</button>' });
-  }
-
-  async function publishTemplateAsExam(tpl) {
-    if (tpl.active === false) return U.toast('فعّل القالب أولًا قبل تحويله إلى اختبار', 'warn');
-    const code = (window.prompt('أدخل رمز الاختبار للطلاب (4-12 أحرف أو أرقام إنجليزية):', '') || '').trim().toUpperCase();
-    if (!code) return;
-    try {
-      const bank = await templateBank(tpl.subjectId);
-      const questions = await materializeTemplateQuestions(tpl, bank);
-      const validationErrors = validateTemplateQuestions(questions);
-      if (validationErrors.length) {
-        showTemplateValidationErrors(validationErrors);
-        return;
-      }
-      if (!/^[A-Z0-9]{4,12}$/.test(code)) throw new Error('الكود يجب أن يكون من 4-12 حرفًا أو رقمًا إنجليزيًا');
-      if (S.codeExists && await S.codeExists(code)) throw new Error('هذا الكود مستخدم بالفعل، اختر كودًا آخر');
-      const groups = S.listGroups ? await S.listGroups() : [];
-      const targetGroups = await chooseTemplateGroups(groups, tpl.publishedGroups || ['ALL']);
-      if (!targetGroups || !targetGroups.length) return;
-      const subjects = await S.listSubjects();
-      const subject = (subjects || []).find(function (s) { return s.id === tpl.subjectId; });
-      const result = await S.createExam({ title: tpl.name, subjectId: tpl.subjectId, subjectName: tpl.subjectName || (subject && subject.name) || 'الفلسفة', description: 'اختبار منشور من قالب: ' + tpl.name, durationMin: 180, questions: questions, code: code, status: 'published', targetGroups: targetGroups, autoGenerated: true, modelFamily: 'exam-template-published', templateKey: tpl.templateKey || tpl.id, templateName: tpl.name, isApproved: true, versionNo: 1, versionStatus: 'published' });
-      await S.updateExamTemplate(tpl.id, { publishedExamId: result.id, publishedCode: result.code, publishedGroups: targetGroups, publishedAt: new Date().toISOString() });
-      U.toast('تم نشر الاختبار للطلاب — الرمز: ' + result.code, 'success', 7000); renderExamTemplates();
-    } catch (e) { U.toast('تعذر نشر الاختبار: ' + e.message, 'error'); }
-  }
-
   async function renderExamTemplates() {
     shell("examtemplates", U.loaderHTML());
     try {
@@ -5644,104 +5313,246 @@ function studentModal(s) {
         (S.listExamTemplates ? S.listExamTemplates() : Promise.resolve([])),
         S.listSubjects ? S.listSubjects() : Promise.resolve([])
       ]);
-      const emptyTemplates = (templates || []).filter(function (t) { return !Array.isArray(t.questions) || !t.questions.length; });
-      if (emptyTemplates.length && S.updateExamTemplate && window.ExamTemplateEngine) {
-        try {
-          const hydrationBanks = {};
-          let hydrated = 0;
-          for (let hi = 0; hi < emptyTemplates.length; hi++) {
-            const t = emptyTemplates[hi];
-            const sid = t.subjectId || 'philosophy';
-            if (!hydrationBanks[sid]) hydrationBanks[sid] = await templateBank(sid);
-            const generated = await ExamTemplateEngine.generate(t, hydrationBanks[sid]);
-            if (generated.length) {
-              await S.updateExamTemplate(t.id, { questions: generated, _skipVersion: true });
-              t.questions = generated;
-              hydrated++;
-            }
-            if ((hi + 1) % 25 === 0) U.toast('جاري ربط أسئلة القوالب: ' + (hi + 1) + ' / ' + emptyTemplates.length, 'info', 2500);
-          }
-          if (hydrated) U.toast('تم ربط الأسئلة الحقيقية بـ ' + hydrated + ' قالبًا', 'success', 5000);
-        } catch (hydrateError) { console.warn('[templates] hydration failed', hydrateError); }
-      }
       state.subjects = subjects;
       const subjectMap = {};
-      subjects.forEach(function (s) { subjectMap[s.id] = s.name; });
-      const filterSubjects = subjects.slice();
-      (templates || []).forEach(function (t) {
-        if (t.subjectId && !filterSubjects.some(function (s) { return s.id === t.subjectId; })) {
-          filterSubjects.push({ id: t.subjectId, name: t.subjectName || t.subjectId });
+      subjects.forEach(function(s){ subjectMap[s.id] = s.name; });
+
+      let html = pageHead("\ud83d\udccb", "\u0642\u0648\u0627\u0644\u0628 \u0627\u0644\u0646\u0645\u0627\u0630\u062c \u0627\u0644\u0627\u0645\u062a\u062d\u0627\u0646\u064a\u0629", "\u0625\u062f\u0627\u0631\u0629 \u0642\u0648\u0627\u0644\u0628 \u0627\u0644\u0627\u0645\u062a\u062d\u0627\u0646 \u0648\u0627\u0633\u062a\u064a\u0631\u0627\u062f \u0642\u0648\u0627\u0644\u0628 \u0627\u0644\u0641\u0644\u0633\u0641\u0629") +
+        '<div class="actions mt">' +
+        '<button class="btn btn-primary" id="importPhiloTpl">\ud83d\udce5 \u062c\u0644\u0628 400 \u0646\u0645\u0648\u0630\u0627\u064b \u0648\u062a\u062d\u0648\u064a\u0644\u0647\u0627 \u0625\u0644\u0649 \u0627\u062e\u062a\u0628\u0627\u0631\u0627\u062a \u0644\u0644\u0637\u0644\u0627\u0628</button> ' +
+        '<button class="btn" id="importPhiloTplExisting">\ud83d\udce5 \u0627\u0633\u062a\u064a\u0631\u0627\u062f \u0645\u0646 philosophy_templates.json</button> ' +
+        '<button class="btn btn-success" id="importHistoryTpl">\ud83d\udce5 \u0627\u0633\u062a\u064a\u0631\u0627\u062f \u0642\u0648\u0627\u0644\u0628 \u0627\u0644\u062a\u0627\u0631\u064a\u062e</button> ' +
+        '<button class="btn" id="importHistoryTplExisting">\ud83d\udce5 \u0627\u0633\u062a\u064a\u0631\u0627\u062f \u0645\u0646 history_templates.json</button> ' +
+        '<button class="btn" id="reloadTpl">\ud83d\udd04 \u062a\u062d\u062f\u064a\u062b</button>' +
+        '</div>';
+
+      if (!templates || templates.length === 0) {
+        html += '<div class="card mt"><div class="empty-state"><div class="emoji">\ud83d\udccb</div><h3>\u0644\u0627 \u062a\u0648\u062c\u062f \u0642\u0648\u0627\u0644\u0628 \u0628\u0639\u062f</h3><p class="muted">\u0627\u0633\u062a\u064a\u0631\u062f \u0642\u0648\u0627\u0644\u0628 \u0627\u0644\u0641\u0644\u0633\u0641\u0629 \u0644\u0628\u062f\u0621 \u0627\u0644\u0627\u0633\u062a\u062e\u062f\u0627\u0645</p></div></div>';
+      } else {
+        html += '<div class="card mt"><div class="section-head"><div class="left"><span class="ico">\ud83d\udccb</span><div><h3>\u0642\u0648\u0627\u0626\u0645 \u0627\u0644\u0642\u0648\u0627\u0644\u0628</h3><p class="muted">\u0627\u0644\u0639\u062f\u062f: ' + templates.length + '</p></div></div></div>';
+        html += '<div class="table-wrap responsive"><table><thead><tr><th>\u0627\u0633\u0645 \u0627\u0644\u0642\u0627\u0644\u0628</th><th>\u0627\u0644\u0645\u0627\u062f\u0629</th><th>\u0627\u0644\u0623\u0642\u0633\u0627\u0645</th><th>\u0639\u062f\u062f \u0627\u0644\u0623\u0633\u0626\u0644\u0629</th><th>\u062d\u0627\u0644\u0629</th><th>\u0625\u062c\u0631\u0627\u0621\u0627\u062a</th></tr></thead><tbody>';
+        templates.forEach(function(tpl){
+          const secs = tpl.sections || [];
+          const totalCount = secs.reduce(function(acc,s){ return acc + (Number(s.count)||0); }, 0);
+          const secInfo = secs.map(function(s){ 
+            const src = s.source || {};
+            const u = (src.unitNumbers||[]).join(',');
+            const l = (src.lessonNumbers||[]).join(',');
+            return (s.title||'') + ' [' + (u||'*') + '/' + (l||'*') + ']';
+          }).join(' | ');
+          html += '<tr>' +
+            '<td>' + U.esc(tpl.name) + '</td>' +
+            '<td>' + U.esc(tpl.subjectName || subjectMap[tpl.subjectId] || tpl.subjectId || '-') + '</td>' +
+            '<td title="' + U.esc(secInfo) + '">' + secs.length + ' \u0642\u0633\u0645</td>' +
+            '<td>' + totalCount + '</td>' +
+            '<td>' + (tpl.active !== false ? '\u2705 \u0646\u0634\u0637' : '\u26d4 \u0645\u0639\u0637\u0644') + '</td>' +
+            '<td style="white-space:nowrap">' +
+            '<button class="btn btn-sm" data-tpl-toggle="' + U.esc(tpl.id) + '" data-active="' + (tpl.active !== false ? '1':'0') + '">\u062a\u0628\u062f\u064a\u0644 \u0627\u0644\u062d\u0627\u0644\u0629</button> ' +
+            '<button class="btn btn-sm btn-danger" data-tpl-del="' + U.esc(tpl.id) + '">\u062d\u0630\u0641</button>' +
+            '</td>' +
+            '</tr>';
+        });
+        html += '</tbody></table></div></div>';
+      }
+
+      shell("examtemplates", html);
+
+      document.getElementById("reloadTpl").addEventListener("click", function(){ renderExamTemplates(); });
+
+      document.getElementById("importPhiloTplExisting").addEventListener("click", async function(){
+        try {
+          U.toast("\u062c\u0627\u0631\u064a \u0627\u0644\u0627\u0633\u062a\u064a\u0631\u0627\u062f \u0645\u0646 philosophy_templates.json...", "info");
+          const res = await fetch("data/philosophy_templates.json");
+          const list = await res.json();
+          let count = 0;
+          for (let i=0; i<list.length; i++) {
+            try {
+              if (S.saveExamTemplate) {
+                await S.saveExamTemplate(list[i]);
+                count++;
+              }
+            } catch(e) {}
+          }
+          U.toast("\u062a\u0645 \u0627\u0633\u062a\u064a\u0631\u0627\u062f " + count + " \u0642\u0627\u0644\u0628", "success");
+          renderExamTemplates();
+        } catch(e) {
+          U.toast("\u062e\u0637\u0623: " + e.message, "error");
         }
       });
-      let html = pageHead("📋", "قوالب النماذج الامتحانية", "اضغط على بطاقة القالب لرؤية الأسئلة والنصوص المرافقة وتعديلها") +
-        '<div class="card mt"><div class="form-row"><div class="field"><label>بحث في القوالب</label><input id="tplFilterSearch" placeholder="اسم النموذج أو الوحدة أو الدرس"></div><div class="field"><label>المادة</label><select id="tplFilterSubject"><option value="all">كل المواد</option>' + filterSubjects.map(function (x) { return '<option value="' + U.esc(x.id) + '">' + U.esc(x.name || x.id) + '</option>'; }).join('') + '</select></div><div class="field"><label>الحالة</label><select id="tplFilterStatus"><option value="all">الكل</option><option value="active">النشطة فقط</option><option value="inactive">المعطلة فقط</option></select></div><div class="field"><label>عدد القوالب المعروضة</label><input id="tplFilterLimit" type="number" min="1" placeholder="أدخل الرقم مثلاً 275 أو اتركه فارغاً لعرض الكل" style="width:100%"></div></div><div class="tiny muted" id="tplFilterCount"></div></div>' +
-        '<div class="actions mt">' +
-        '<button class="btn btn-primary" id="importPhiloTpl">📥 جلب 400 قالب فلسفة</button> <button class="btn btn-primary" id="importHistoryTpl">📥 جلب 400 قالب تاريخ</button> ' +
-        '<button class="btn" id="importPhiloTplExisting">📥 استيراد من philosophy_templates.json</button> <button class="btn" id="importHistoryTplExisting">📥 استيراد قوالب التاريخ</button> ' +
-        '<button class="btn" id="reloadTpl">🔄 تحديث</button>' +
-        '</div>';
-      if (!templates || !templates.length) {
-        html += '<div class="card mt"><div class="empty-state"><div class="emoji">📋</div><h3>لا توجد قوالب بعد</h3><p class="muted">استورد قوالب الفلسفة أو التاريخ لبدء الاستخدام</p></div></div>';
-      } else {
-        html += '<div class="card mt"><div class="section-head"><div class="left"><span class="ico">📋</span><div><h3>قوائم القوالب</h3><p class="muted">العدد: ' + templates.length + ' — اضغط على البطاقة لعرض الأسئلة</p></div></div></div><div class="exams-grid">';
-        templates.forEach(function (tpl) {
-          const secs = tpl.sections || [];
-          const totalCount = Array.isArray(tpl.questions) ? tpl.questions.length : secs.reduce(function (a, x) { return a + (Number(x.count) || 0); }, 0);
-          const active = tpl.active !== false;
-          html += '<div class="exam-card" data-tpl-open="' + U.esc(tpl.id) + '" data-tpl-name="' + U.esc((tpl.name || '') + ' ' + (tpl.subjectName || subjectMap[tpl.subjectId] || '') ) + '" data-tpl-subject="' + U.esc(tpl.subjectId || '') + '" data-tpl-active="' + (active ? '1' : '0') + '" style="cursor:pointer"><div class="exam-title">📋 ' + U.esc(tpl.name || 'قالب نموذج امتحاني') + '</div><div class="exam-meta"><span class="badge badge-muted">📚 ' + U.esc(tpl.subjectName || subjectMap[tpl.subjectId] || tpl.subjectId || '-') + '</span><span class="badge badge-muted">❓ ' + totalCount + ' سؤال</span><span class="badge ' + (active ? 'badge-success' : 'badge-danger') + '">' + (active ? '✅ نشط' : '⛔ معطل') + '</span></div><div class="tiny muted mt-sm">' + (tpl.publishedCode ? 'منشور للطلاب بالكود: ' + U.esc(tpl.publishedCode) : 'غير محول إلى اختبار بعد') + '</div><div class="exam-actions mt"><button class="btn btn-sm" data-tpl-toggle="' + U.esc(tpl.id) + '" data-active="' + (active ? '1' : '0') + '">تبديل الحالة</button> <button class="btn btn-sm btn-danger" data-tpl-del="' + U.esc(tpl.id) + '">حذف</button> ' + (active ? '<button class="btn btn-sm btn-primary" data-tpl-publish="' + U.esc(tpl.id) + '">تحويل إلى اختبار برمز</button>' : '') + '</div></div>';
-        });
-        html += '</div></div>';
-      }
-      shell("examtemplates", html);
-      const applyTemplateFilters = function () {
-        const term = String((document.getElementById('tplFilterSearch') || {}).value || '').trim().toLowerCase();
-        const status = (document.getElementById('tplFilterStatus') || {}).value || 'all';
-        const subject = (document.getElementById('tplFilterSubject') || {}).value || 'all';
-        const limVal = String((document.getElementById('tplFilterLimit') || {}).value || '').trim();
-        const limit = limVal ? Math.max(1, Number(limVal)) : Infinity;
-        let shown = 0, matched = 0;
-        document.querySelectorAll('[data-tpl-open]').forEach(function (card) {
-          const matchText = !term || String(card.dataset.tplName || '').toLowerCase().indexOf(term) >= 0;
-          const matchStatus = status === 'all' || (status === 'active' ? card.dataset.tplActive === '1' : card.dataset.tplActive !== '1');
-          const matchSubject = subject === 'all' || card.dataset.tplSubject === subject;
-          const visible = matchText && matchStatus && matchSubject && shown < limit;
-          if (matchText && matchStatus && matchSubject) { matched++; if (visible) shown++; }
-          card.style.display = visible ? '' : 'none';
-        });
-        const count = document.getElementById('tplFilterCount'); if (count) count.textContent = 'المطابق: ' + matched + ' — المعروض: ' + shown;
-      };
-      ['tplFilterSearch','tplFilterSubject','tplFilterStatus','tplFilterLimit'].forEach(function (id) { const el = document.getElementById(id); if (el) el.addEventListener('input', applyTemplateFilters); });
-      applyTemplateFilters();
-      document.getElementById("reloadTpl").addEventListener("click", renderExamTemplates);
-      document.getElementById("importPhiloTplExisting").addEventListener("click", async function () {
-        try { const r = await fetch("data/philosophy_templates.json"); const list = await r.json(); let n = 0; for (const x of list) { if (S.saveExamTemplate) { await S.saveExamTemplate(x); n++; } } U.toast('تم استيراد ' + n + ' قالب', 'success'); renderExamTemplates(); } catch (e) { U.toast('خطأ: ' + e.message, 'error'); }
-      });
-      document.getElementById("importHistoryTplExisting").addEventListener("click", async function () {
-        try { const r = await fetch("data/history_templates.json", { cache: "no-store" }); const list = await r.json(); let n = 0; for (const x of list) { if (S.saveExamTemplate) { await S.saveExamTemplate(x); n++; } } U.toast('تم استيراد ' + n + ' قالب تاريخ', 'success'); renderExamTemplates(); } catch (e) { U.toast('خطأ: ' + e.message, 'error'); }
-      });
-      document.getElementById("importPhiloTpl").addEventListener("click", async function () {
+
+      document.getElementById("importPhiloTpl").addEventListener("click", async function(){
         try {
-          U.toast('جاري جلب القوالب دون نشرها للطلاب...', 'info');
-          const r = await fetch('data/philosophy_all_templates.json', { cache: 'no-store' });
-          if (!r.ok) throw new Error('تعذر تحميل ملف القوالب');
-          const list = await r.json(); let n = 0;
-          for (const tpl of list) { if (S.saveExamTemplate) { await S.saveExamTemplate(Object.assign({}, tpl, { active: tpl.active !== false })); n++; } }
-          U.toast('تم جلب ' + n + ' قالبًا كقوالب نشطة — لم يُنشر أي اختبار تلقائيًا', 'success', 7000); renderExamTemplates();
-        } catch (e) { U.toast('خطأ: ' + e.message, 'error'); }
+          U.toast("\u062c\u0627\u0631\u064a \u062c\u0644\u0628 \u0627\u0644\u0646\u0645\u0627\u0630\u062c \u0648\u0625\u0646\u0634\u0627\u0621 \u0627\u062e\u062a\u0628\u0627\u0631\u0627\u062a \u0644\u0644\u0637\u0644\u0627\u0628...", "info");
+          const result = await importAndPublishPhilosophyExams();
+          U.toast("\u062a\u0645 \u0625\u0646\u0634\u0627\u0621 " + result.created + " \u0627\u062e\u062a\u0628\u0627\u0631\u0627\u064b \u0648\u062a\u062e\u0637\u064a " + result.skipped + " \u0645\u0643\u0631\u0631\u0627\u064b \u0645\u0646 \u0623\u0635\u0644 " + result.total + "", "success");
+          renderExamTemplates();
+        } catch(e) {
+          U.toast("\u062e\u0637\u0623: " + e.message, "error");
+        }
       });
-      document.getElementById("importHistoryTpl").addEventListener("click", async function () {
+
+      document.getElementById("importHistoryTplExisting").addEventListener("click", async function(){
         try {
-          U.toast('جاري جلب 400 قالب تاريخ دون نشرها للطلاب...', 'info');
-          const r = await fetch('data/history_all_templates.json', { cache: 'no-store' });
-          if (!r.ok) throw new Error('تعذر تحميل قوالب التاريخ');
-          const list = await r.json(); let n = 0;
-          for (const tpl of list) { if (S.saveExamTemplate) { await S.saveExamTemplate(Object.assign({}, tpl, { active: tpl.active !== false })); n++; } }
-          U.toast('تم جلب ' + n + ' قالب تاريخ — لم يُنشر أي اختبار تلقائيًا', 'success', 7000); renderExamTemplates();
-        } catch (e) { U.toast('خطأ: ' + e.message, 'error'); }
+          U.toast("\u062c\u0627\u0631\u064a \u0627\u0644\u0627\u0633\u062a\u064a\u0631\u0627\u062f \u0645\u0646 history_templates.json...", "info");
+          const res = await fetch("data/history_templates.json");
+          const list = await res.json();
+          let count = 0;
+          for (let i=0; i<list.length; i++) {
+            try {
+              if (S.saveExamTemplate) {
+                await S.saveExamTemplate(list[i]);
+                count++;
+              }
+            } catch(e) {}
+          }
+          U.toast("\u062a\u0645 \u0627\u0633\u062a\u064a\u0631\u0627\u062f " + count + " \u0642\u0627\u0644\u0628", "success");
+          renderExamTemplates();
+        } catch(e) {
+          U.toast("\u062e\u0637\u0623: " + e.message, "error");
+        }
       });
-      document.querySelectorAll('[data-tpl-open]').forEach(function (b) { b.addEventListener('click', function (ev) { if (ev.target.closest('button')) return; const tpl = templates.find(function (x) { return x.id === b.dataset.tplOpen; }); if (tpl) openTemplateQuestions(tpl); }); });
-      document.querySelectorAll('[data-tpl-del]').forEach(function (b) { b.addEventListener('click', async function () { if (!confirm('هل أنت متأكد من حذف هذا القالب؟')) return; try { await S.deleteExamTemplate(b.dataset.tplDel); U.toast('تم الحذف', 'success'); renderExamTemplates(); } catch (e) { U.toast('خطأ: ' + e.message, 'error'); } }); });
-      document.querySelectorAll('[data-tpl-toggle]').forEach(function (b) { b.addEventListener('click', async function () { try { await S.updateExamTemplate(b.dataset.tplToggle, { active: b.dataset.active !== '1' }); U.toast('تم تحديث الحالة', 'success'); renderExamTemplates(); } catch (e) { U.toast('خطأ: ' + e.message, 'error'); } }); });
-      document.querySelectorAll('[data-tpl-publish]').forEach(function (b) { b.addEventListener('click', function () { const tpl = templates.find(function (x) { return x.id === b.dataset.tplPublish; }); if (tpl) publishTemplateAsExam(tpl); }); });
-    } catch (e) { shell("examtemplates", errorCard(e)); }
+
+      document.getElementById("importHistoryTpl").addEventListener("click", async function(){
+        try {
+          U.toast("\u062c\u0627\u0631\u064a \u0627\u0633\u062a\u064a\u0631\u0627\u062f \u0642\u0648\u0627\u0644\u0628 \u0627\u0644\u062a\u0627\u0631\u064a\u062e...", "info");
+          const res = await fetch("data/history_all_templates.json");
+          const list = await res.json();
+          let count = 0;
+          for (let i=0; i<list.length; i++) {
+            try {
+              if (S.saveExamTemplate) {
+                await S.saveExamTemplate(list[i]);
+                count++;
+              }
+            } catch(e) {}
+          }
+          U.toast("\u062a\u0645 \u0627\u0633\u062a\u064a\u0631\u0627\u062f " + count + " \u0642\u0627\u0644\u0628", "success");
+          renderExamTemplates();
+        } catch(e) {
+          U.toast("\u062e\u0637\u0623: " + e.message, "error");
+        }
+      });
+
+      document.querySelectorAll("[data-tpl-del]").forEach(function(btn){
+        btn.addEventListener("click", async function(){
+          const id = btn.getAttribute("data-tpl-del");
+          if (!confirm("\u0647\u0644 \u0623\u0646\u062a \u0645\u062a\u0623\u0643\u062f \u0645\u0646 \u062d\u0630\u0641 \u0647\u0630\u0627 \u0627\u0644\u0642\u0627\u0644\u0628\u061f")) return;
+          try {
+            if (S.deleteExamTemplate) await S.deleteExamTemplate(id);
+            U.toast("\u062a\u0645 \u0627\u0644\u062d\u0630\u0641", "success");
+            renderExamTemplates();
+          } catch(e) {
+            U.toast("\u062e\u0637\u0623", "error");
+          }
+        });
+      });
+
+      document.querySelectorAll("[data-tpl-toggle]").forEach(function(btn){
+        btn.addEventListener("click", async function(){
+          const id = btn.getAttribute("data-tpl-toggle");
+          const active = btn.getAttribute("data-active") === "1";
+          try {
+            if (S.updateExamTemplate) await S.updateExamTemplate(id, { active: !active });
+            U.toast("\u062a\u0645 \u062a\u062d\u062f\u064a\u062b \u0627\u0644\u062d\u0627\u0644\u0629", "success");
+            renderExamTemplates();
+          } catch(e) {
+            U.toast("\u062e\u0637\u0623", "error");
+          }
+        });
+      });
+
+    } catch(e) {
+      shell("examtemplates", errorCard(e));
+    }
   }
+
+
+/* ============================================================
+ * إعدادات إشعارات الاختبارات
+ * ============================================================ */
+async function renderNotificationsSettings() {
+  shell("notifications", U.loaderHTML());
+  try {
+    const [contact, notif] = await Promise.all([
+      S.getContactInfo ? S.getContactInfo() : Promise.resolve({}),
+      (S.getNotificationSettings ? S.getNotificationSettings() : Promise.resolve({}))
+    ]);
+    
+    const sounds = (window.QP && QP.notificationSounds) ? QP.notificationSounds : [
+      { id: 'default', name: 'افتراضي', url: 'https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3' },
+      { id: 'bell', name: 'جرس', url: 'https://assets.mixkit.co/active_storage/sfx/2354/2354-preview.mp3' },
+      { id: 'chime', name: 'نغمة', url: 'https://assets.mixkit.co/active_storage/sfx/2864/2864-preview.mp3' },
+      { id: 'ding', name: 'دينغ', url: 'https://assets.mixkit.co/active_storage/sfx/2570/2570-preview.mp3' },
+      { id: 'alert', name: 'تنبيه', url: 'https://assets.mixkit.co/active_storage/sfx/2867/2867-preview.mp3' },
+      { id: 'pop', name: 'بوب', url: 'https://assets.mixkit.co/active_storage/sfx/2866/2866-preview.mp3' }
+    ];
+    
+    const currentSound = notif.soundUrl || sounds[0].url;
+    
+    shell("notifications",
+      pageHead("🔔", "إعدادات إشعارات الاختبارات", "اختر صوت إشعار عند إنشاء اختبار جديد للمجموعة") +
+      
+      '<div class="card mt">' +
+      secHead("🔊", "صوت الإشعار") +
+      '<p class="muted">سيتم تشغيل هذا الصوت للطلاب عند إنشاء اختبار جديد خاص بمجموعة معينة</p>' +
+      '<div class="form-grid mt">' +
+      '<div class="field" style="grid-column:1/-1"><label>اختر صوت الإشعار</label><select id="notifSoundSelect" class="input">' +
+      sounds.map(function(s, i){ 
+        return '<option value="' + s.url + '"' + (currentSound === s.url ? ' selected' : '') + '>' + s.name + '</option>'; 
+      }).join("") +
+      '</select></div>' +
+      '</div>' +
+      '<div class="flex flex-wrap mt">' +
+      '<button class="btn" id="previewSound">▶️ معاينة الصوت</button>' +
+      '<button class="btn btn-primary" id="saveNotifSound">💾 حفظ الإعدادات</button>' +
+      '</div>' +
+      '<p class="help mt-sm">💡 ملاحظة: على أجهزة iOS المثبتة كـ PWA قد يستخدم النظام صوته الخاص، لكن الإشعار سيظهر ويعمل بشكل طبيعي.</p>' +
+      '</div>' +
+      
+      '<div class="card mt">' +
+      secHead("⚙️", "إعدادات إضافية") +
+      '<div class="flex flex-wrap">' +
+      '<label class="toggle"><input type="checkbox" id="notifEnabled" ' + (notif.enabled !== false ? 'checked' : '') + '><span class="toggle-track"></span><span>تفعيل إشعارات الاختبارات الجديدة</span></label>' +
+      '</div>' +
+      '</div>'
+    );
+    
+    document.getElementById('previewSound').addEventListener('click', function(){
+      const url = document.getElementById('notifSoundSelect').value;
+      try {
+        const audio = new Audio(url);
+        audio.volume = 1.0;
+        audio.play().catch(function(e){ U.toast('تعذر تشغيل الصوت', 'error'); });
+      } catch(e){
+        U.toast('خطأ في تشغيل الصوت', 'error');
+      }
+    });
+    
+    document.getElementById('saveNotifSound').addEventListener('click', async function(){
+      const btn = this;
+      btn.disabled = true;
+      btn.textContent = 'جاري الحفظ...';
+      try {
+        const data = {
+          enabled: document.getElementById('notifEnabled').checked,
+          soundUrl: document.getElementById('notifSoundSelect').value,
+          updatedAt: new Date()
+        };
+        if (S.setNotificationSettings) {
+          await S.setNotificationSettings(data);
+        } else if (window.QP && QP.db) {
+          await QP.db.collection('settings').doc('notifications').set(data, { merge: true });
+        }
+        U.toast('تم حفظ إعدادات الإشعارات بنجاح', 'success');
+      } catch(e){
+        U.toast('خطأ: ' + e.message, 'error');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = '💾 حفظ الإعدادات';
+      }
+    });
+    
+  } catch(e) {
+    shell("notifications", errorCard(e));
+  }
+}

@@ -274,3 +274,67 @@ self.addEventListener("notificationclick", function (event) {
 });
 
 console.log("[SW] v4.0 loaded ✅");
+
+
+/* ============================================================
+ * PUSH NOTIFICATIONS مع صوت مخصص
+ * ============================================================ */
+self.addEventListener("push", function (event) {
+  if (!event.data) return;
+  let data = {};
+  try { data = event.data.json(); } catch (e) { data = { title: "إشعار", body: event.data.text() }; }
+
+  const title = data.title || "اختبار جديد";
+  const body = data.body || "تم إضافة اختبار جديد لمجموعتك";
+  const url = data.url || "/";
+  const soundUrl = data.soundUrl || "";
+
+  event.waitUntil(
+    self.registration.showNotification(title, {
+      body: body,
+      icon: data.icon || "icons/icon-192.png",
+      badge: data.badge || "icons/icon-96.png",
+      dir: "rtl",
+      lang: "ar",
+      tag: data.tag || "qp-exam-" + Date.now(),
+      renotify: true,
+      requireInteraction: false,
+      vibrate: [200, 100, 200, 100, 200],
+      data: { url: url, soundUrl: soundUrl }
+    }).then(function(){
+      // محاولة تشغيل الصوت عند استلام الإشعار
+      if (soundUrl) {
+        try {
+          clients.matchAll({ type: 'window', includeUncontrolled: true }).then(function(clientList){
+            // إرسال رسالة للصفحات المفتوحة لتشغيل الصوت
+            for (var i = 0; i < clientList.length; i++) {
+              clientList[i].postMessage({ type: 'PLAY_NOTIFICATION_SOUND', soundUrl: soundUrl });
+            }
+          });
+        } catch(e){}
+      }
+    })
+  );
+});
+
+self.addEventListener("notificationclick", function (event) {
+  event.notification.close();
+  const url = (event.notification.data && event.notification.data.url) ? event.notification.data.url : "/";
+  event.waitUntil(
+    self.clients.matchAll({ type: "window", includeUncontrolled: true }).then(function (clients) {
+      for (let i = 0; i < clients.length; i++) {
+        const client = clients[i];
+        if (client.url.indexOf(self.location.origin) >= 0) {
+          if ("focus" in client) {
+            client.focus();
+            client.postMessage({ type: "OPEN_URL", url: url });
+            return;
+          }
+        }
+      }
+      if (self.clients.openWindow) {
+        return self.clients.openWindow(url);
+      }
+    })
+  );
+});

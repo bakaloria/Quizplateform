@@ -141,6 +141,7 @@
       ["results", "\uD83D\uDCC8", "\u0627\u0644\u0646\u062a\u0627\u0626\u062c"],
       ["analytics", "\uD83E\uDDEE", "\u0627\u0644\u062a\u062d\u0644\u064a\u0644\u0627\u062a"],
       ["audit", "\uD83D\uDCDC", "\u0627\u0644\u0633\u062c\u0644"],
+      ["notifications", "\ud83d\udd14", "\u0625\u0639\u062f\u0627\u062f\u0627\u062a \u0627\u0644\u0625\u0634\u0639\u0627\u0631\u0627\u062a"],
       ["settings", "\u2699", "\u0627\u0644\u0625\u0639\u062f\u0627\u062f\u0627\u062a"]
     ];
 
@@ -4740,6 +4741,7 @@ function studentModal(s) {
     results: renderResults,
     analytics: renderAnalytics,
     audit: renderAuditLog,
+    notifications: renderNotificationsSettings,
     settings: renderSettings
   };
 
@@ -5463,3 +5465,94 @@ function studentModal(s) {
       shell("examtemplates", errorCard(e));
     }
   }
+
+
+/* ============================================================
+ * إعدادات إشعارات الاختبارات
+ * ============================================================ */
+async function renderNotificationsSettings() {
+  shell("notifications", U.loaderHTML());
+  try {
+    const [contact, notif] = await Promise.all([
+      S.getContactInfo ? S.getContactInfo() : Promise.resolve({}),
+      (S.getNotificationSettings ? S.getNotificationSettings() : Promise.resolve({}))
+    ]);
+    
+    const sounds = (window.QP && QP.notificationSounds) ? QP.notificationSounds : [
+      { id: 'default', name: 'افتراضي', url: 'https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3' },
+      { id: 'bell', name: 'جرس', url: 'https://assets.mixkit.co/active_storage/sfx/2354/2354-preview.mp3' },
+      { id: 'chime', name: 'نغمة', url: 'https://assets.mixkit.co/active_storage/sfx/2864/2864-preview.mp3' },
+      { id: 'ding', name: 'دينغ', url: 'https://assets.mixkit.co/active_storage/sfx/2570/2570-preview.mp3' },
+      { id: 'alert', name: 'تنبيه', url: 'https://assets.mixkit.co/active_storage/sfx/2867/2867-preview.mp3' },
+      { id: 'pop', name: 'بوب', url: 'https://assets.mixkit.co/active_storage/sfx/2866/2866-preview.mp3' }
+    ];
+    
+    const currentSound = notif.soundUrl || sounds[0].url;
+    
+    shell("notifications",
+      pageHead("🔔", "إعدادات إشعارات الاختبارات", "اختر صوت إشعار عند إنشاء اختبار جديد للمجموعة") +
+      
+      '<div class="card mt">' +
+      secHead("🔊", "صوت الإشعار") +
+      '<p class="muted">سيتم تشغيل هذا الصوت للطلاب عند إنشاء اختبار جديد خاص بمجموعة معينة</p>' +
+      '<div class="form-grid mt">' +
+      '<div class="field" style="grid-column:1/-1"><label>اختر صوت الإشعار</label><select id="notifSoundSelect" class="input">' +
+      sounds.map(function(s, i){ 
+        return '<option value="' + s.url + '"' + (currentSound === s.url ? ' selected' : '') + '>' + s.name + '</option>'; 
+      }).join("") +
+      '</select></div>' +
+      '</div>' +
+      '<div class="flex flex-wrap mt">' +
+      '<button class="btn" id="previewSound">▶️ معاينة الصوت</button>' +
+      '<button class="btn btn-primary" id="saveNotifSound">💾 حفظ الإعدادات</button>' +
+      '</div>' +
+      '<p class="help mt-sm">💡 ملاحظة: على أجهزة iOS المثبتة كـ PWA قد يستخدم النظام صوته الخاص، لكن الإشعار سيظهر ويعمل بشكل طبيعي.</p>' +
+      '</div>' +
+      
+      '<div class="card mt">' +
+      secHead("⚙️", "إعدادات إضافية") +
+      '<div class="flex flex-wrap">' +
+      '<label class="toggle"><input type="checkbox" id="notifEnabled" ' + (notif.enabled !== false ? 'checked' : '') + '><span class="toggle-track"></span><span>تفعيل إشعارات الاختبارات الجديدة</span></label>' +
+      '</div>' +
+      '</div>'
+    );
+    
+    document.getElementById('previewSound').addEventListener('click', function(){
+      const url = document.getElementById('notifSoundSelect').value;
+      try {
+        const audio = new Audio(url);
+        audio.volume = 1.0;
+        audio.play().catch(function(e){ U.toast('تعذر تشغيل الصوت', 'error'); });
+      } catch(e){
+        U.toast('خطأ في تشغيل الصوت', 'error');
+      }
+    });
+    
+    document.getElementById('saveNotifSound').addEventListener('click', async function(){
+      const btn = this;
+      btn.disabled = true;
+      btn.textContent = 'جاري الحفظ...';
+      try {
+        const data = {
+          enabled: document.getElementById('notifEnabled').checked,
+          soundUrl: document.getElementById('notifSoundSelect').value,
+          updatedAt: new Date()
+        };
+        if (S.setNotificationSettings) {
+          await S.setNotificationSettings(data);
+        } else if (window.QP && QP.db) {
+          await QP.db.collection('settings').doc('notifications').set(data, { merge: true });
+        }
+        U.toast('تم حفظ إعدادات الإشعارات بنجاح', 'success');
+      } catch(e){
+        U.toast('خطأ: ' + e.message, 'error');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = '💾 حفظ الإعدادات';
+      }
+    });
+    
+  } catch(e) {
+    shell("notifications", errorCard(e));
+  }
+}

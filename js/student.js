@@ -1461,3 +1461,32 @@
 
   console.log("[student.js v4.2] QP.student loaded");
 })();
+
+// ===== إشعارات الاختبارات =====
+(function(){
+  if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator) {
+    navigator.serviceWorker.addEventListener('message', function(event){
+      if (!event.data) return;
+      if (event.data.type === 'PLAY_NOTIFICATION_SOUND' && event.data.soundUrl) {
+        try {
+          var audio = new Audio(event.data.soundUrl);
+          audio.volume = 1.0;
+          audio.play().catch(function(){});
+        } catch(e){}
+      }
+    });
+  }
+  
+  // طلب إذن الإشعارات عند تسجيل الدخول
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      if (typeof Notification !== 'undefined' && Notification.permission === 'default') {
+        try {
+          Notification.requestPermission().then(function(perm){
+            console.log('Notification permission:', perm);
+          });
+        } catch(e){}
+      }
+    }, 3000);
+  });
+})();

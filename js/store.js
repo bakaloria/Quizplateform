@@ -1406,3 +1406,20 @@
   QP.store = store;
   console.log("[store.js] تم التحميل ✅");
 })();
+
+    /* ============================================================
+     * NOTIFICATION SETTINGS
+     * ============================================================ */
+    getNotificationSettings: async function () {
+      try {
+        if (!col.settings) return {};
+        const doc = await col.settings.doc("notifications").get();
+        return doc.exists ? (doc.data() || {}) : {};
+      } catch (e) {
+        return {};
+      }
+    },
+    setNotificationSettings: async function (data) {
+      if (!col.settings) return;
+      return col.settings.doc("notifications").set(data, { merge: true });
+    },
