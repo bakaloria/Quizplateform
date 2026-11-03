@@ -1,12 +1,12 @@
 {
-  "id": "/index.html",
+  "id": "quizplateform-student",
   "name": "منصة الاختبارات التفاعلية",
   "short_name": "الاختبارات",
   "description": "منصة اختبارات إلكترونية احترافية مع نظام تصحيح ومجموعات",
   "start_url": "./index.html",
   "scope": "./index.html",
   "display": "standalone",
-  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "display_override": ["standalone"],
   "orientation": "any",
   "background_color": "#0f172a",
   "theme_color": "#4f7cff",
@@ -76,13 +76,5 @@
       "purpose": "maskable"
     }
   ],
-  "shortcuts": [
-    {
-      "name": "دخول الطالب",
-      "short_name": "الطالب",
-      "description": "افتح بوابة الطالب",
-      "url": "./index.html#/home",
-      "icons": [{ "src": "icons/icon-96.png", "sizes": "96x96" }]
-    }
-  ]
+  "shortcuts": []
 }
