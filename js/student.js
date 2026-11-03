@@ -1489,4 +1489,54 @@
       }
     }, 3000);
   });
+  
+  // ===== تشغيل صوت عند تغيير رسالة أسفل صفحة الطالب =====
+  let lastBottomMarquee = null;
+  let lastBottomText = null;
+  let bottomMsgSoundInitialized = false;
+  
+  function initBottomMessageSound() {
+    if (bottomMsgSoundInitialized) return;
+    bottomMsgSoundInitialized = true;
+    try {
+      if (typeof QP === 'undefined' || !QP.db) return;
+      QP.db.collection('settings').doc('notifications').get().then(function(notifDoc){
+        if (!notifDoc.exists) return;
+        const notif = notifDoc.data() || {};
+        if (!notif.bottomMessageNotify) return;
+        const soundUrl = notif.bottomMessageSoundUrl || notif.soundUrl;
+        if (!soundUrl) return;
+        
+        QP.db.collection('settings').doc('contact').onSnapshot(function(contactDoc){
+          if (!contactDoc.exists) return;
+          const c = contactDoc.data() || {};
+          const marquee = String(c.marquee || '').trim();
+          const text = String(c.text || '').trim();
+          
+          if (lastBottomMarquee === null && lastBottomText === null) {
+            lastBottomMarquee = marquee;
+            lastBottomText = text;
+            return;
+          }
+          
+          if (marquee !== lastBottomMarquee || text !== lastBottomText) {
+            lastBottomMarquee = marquee;
+            lastBottomText = text;
+            try {
+              var audio = new Audio(soundUrl);
+              audio.volume = 1.0;
+              audio.play().catch(function(){});
+            } catch(e){}
+          }
+        });
+      }).catch(function(){});
+    } catch(e){}
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBottomMessageSound);
+  } else {
+    initBottomMessageSound();
+  }
+  setTimeout(initBottomMessageSound, 2000);
 })();

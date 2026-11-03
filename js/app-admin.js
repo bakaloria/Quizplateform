@@ -5488,12 +5488,13 @@ async function renderNotificationsSettings() {
     ];
     
     const currentSound = notif.soundUrl || sounds[0].url;
+    const bottomMsgSound = notif.bottomMessageSoundUrl || currentSound;
     
     shell("notifications",
-      pageHead("🔔", "إعدادات إشعارات الاختبارات", "اختر صوت إشعار عند إنشاء اختبار جديد للمجموعة") +
+      pageHead("🔔", "إعدادات الإشعارات", "تحكم في أصوات الإشعارات في التطبيق") +
       
       '<div class="card mt">' +
-      secHead("🔊", "صوت الإشعار") +
+      secHead("🔊", "صوت إشعار الاختبارات الجديدة") +
       '<p class="muted">سيتم تشغيل هذا الصوت للطلاب عند إنشاء اختبار جديد خاص بمجموعة معينة</p>' +
       '<div class="form-grid mt">' +
       '<div class="field" style="grid-column:1/-1"><label>اختر صوت الإشعار</label><select id="notifSoundSelect" class="input">' +
@@ -5504,9 +5505,25 @@ async function renderNotificationsSettings() {
       '</div>' +
       '<div class="flex flex-wrap mt">' +
       '<button class="btn" id="previewSound">▶️ معاينة الصوت</button>' +
-      '<button class="btn btn-primary" id="saveNotifSound">💾 حفظ الإعدادات</button>' +
       '</div>' +
-      '<p class="help mt-sm">💡 ملاحظة: على أجهزة iOS المثبتة كـ PWA قد يستخدم النظام صوته الخاص، لكن الإشعار سيظهر ويعمل بشكل طبيعي.</p>' +
+      '</div>' +
+      
+      '<div class="card mt">' +
+      secHead("📢", "صوت عند تغيير رسالة أسفل صفحة الطالب") +
+      '<p class="muted">عند تعديل الرسالة أو شريط الإعلانات في أسفل صفحة الطالب، سيصدر صوت إشعار للطالب</p>' +
+      '<div class="flex flex-wrap mt">' +
+      '<label class="toggle"><input type="checkbox" id="bottomMsgNotify" ' + (notif.bottomMessageNotify ? 'checked' : '') + '><span class="toggle-track"></span><span>تشغيل صوت إشعار عند تغيير الرسالة</span></label>' +
+      '</div>' +
+      '<div class="form-grid mt">' +
+      '<div class="field" style="grid-column:1/-1"><label>صوت الإشعار</label><select id="bottomMsgSoundSelect" class="input">' +
+      sounds.map(function(s, i){ 
+        return '<option value="' + s.url + '"' + (bottomMsgSound === s.url ? ' selected' : '') + '>' + s.name + '</option>'; 
+      }).join("") +
+      '</select></div>' +
+      '</div>' +
+      '<div class="flex flex-wrap mt">' +
+      '<button class="btn" id="previewBottomMsgSound">▶️ معاينة الصوت</button>' +
+      '</div>' +
       '</div>' +
       
       '<div class="card mt">' +
@@ -5514,6 +5531,10 @@ async function renderNotificationsSettings() {
       '<div class="flex flex-wrap">' +
       '<label class="toggle"><input type="checkbox" id="notifEnabled" ' + (notif.enabled !== false ? 'checked' : '') + '><span class="toggle-track"></span><span>تفعيل إشعارات الاختبارات الجديدة</span></label>' +
       '</div>' +
+      '<div class="flex flex-wrap mt">' +
+      '<button class="btn btn-primary" id="saveNotifSound">💾 حفظ جميع الإعدادات</button>' +
+      '</div>' +
+      '<p class="help mt-sm">💡 ملاحظة: على أجهزة iOS المثبتة كـ PWA قد يستخدم النظام صوته الخاص، لكن الإشعار سيظهر ويعمل بشكل طبيعي.</p>' +
       '</div>'
     );
     
@@ -5528,6 +5549,19 @@ async function renderNotificationsSettings() {
       }
     });
     
+    if (document.getElementById('previewBottomMsgSound')) {
+      document.getElementById('previewBottomMsgSound').addEventListener('click', function(){
+        const url = document.getElementById('bottomMsgSoundSelect').value;
+        try {
+          const audio = new Audio(url);
+          audio.volume = 1.0;
+          audio.play().catch(function(e){ U.toast('تعذر تشغيل الصوت', 'error'); });
+        } catch(e){
+          U.toast('خطأ في تشغيل الصوت', 'error');
+        }
+      });
+    }
+    
     document.getElementById('saveNotifSound').addEventListener('click', async function(){
       const btn = this;
       btn.disabled = true;
@@ -5536,6 +5570,8 @@ async function renderNotificationsSettings() {
         const data = {
           enabled: document.getElementById('notifEnabled').checked,
           soundUrl: document.getElementById('notifSoundSelect').value,
+          bottomMessageNotify: document.getElementById('bottomMsgNotify') ? document.getElementById('bottomMsgNotify').checked : false,
+          bottomMessageSoundUrl: document.getElementById('bottomMsgSoundSelect') ? document.getElementById('bottomMsgSoundSelect').value : document.getElementById('notifSoundSelect').value,
           updatedAt: new Date()
         };
         if (S.setNotificationSettings) {
@@ -5548,7 +5584,7 @@ async function renderNotificationsSettings() {
         U.toast('خطأ: ' + e.message, 'error');
       } finally {
         btn.disabled = false;
-        btn.textContent = '💾 حفظ الإعدادات';
+        btn.textContent = '💾 حفظ جميع الإعدادات';
       }
     });
     
