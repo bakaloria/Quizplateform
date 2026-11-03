@@ -1,10 +1,10 @@
 {
-  "id": "./index.html",
+  "id": "/index.html",
   "name": "منصة الاختبارات التفاعلية",
   "short_name": "الاختبارات",
   "description": "منصة اختبارات إلكترونية احترافية مع نظام تصحيح ومجموعات",
   "start_url": "./index.html",
-  "scope": "./",
+  "scope": "./index.html",
   "display": "standalone",
   "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
   "orientation": "any",
