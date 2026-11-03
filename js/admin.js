@@ -659,6 +659,7 @@
 
   function groupModal(g) {
     const isEdit = !!g;
+    const isPrivate = g ? g.private === true : false;
     U.modal({
       title: isEdit ? "\u062a\u0639\u062f\u064a\u0644 \u0645\u062c\u0645\u0648\u0639\u0629" : "\u0645\u062c\u0645\u0648\u0639\u0629 \u062c\u062f\u064a\u062f\u0629",
       body:
@@ -666,6 +667,11 @@
         '<input id="gName" value="' + U.esc(g ? g.name : "") + '" placeholder="\u0645\u062b\u0627\u0644: \u0627\u0644\u0635\u0641 \u0627\u0644\u0633\u0627\u0628\u0639 - \u0623"></div>' +
         '<div class="field"><label>\u0627\u0644\u0648\u0635\u0641</label>' +
         '<textarea id="gDesc" style="min-height:70px">' + U.esc(g ? g.description : "") + "</textarea></div>" +
+        '<div class="flex flex-wrap" style="gap:12px;margin-top:12px">' +
+        '<label class="check"><input type="checkbox" id="gPrivate"' + (isPrivate ? " checked" : "") + '> \u0645\u062c\u0645\u0648\u0639\u0629 \u062e\u0627\u0635\u0629 (\u0628\u0643\u0648\u062f)</label>' +
+        '</div>' +
+        '<div id="gSecretWrap" class="field" style="' + (isPrivate ? '' : 'display:none') + '"><label>\u0643\u0648\u062f \u0627\u0644\u0627\u0646\u0636\u0645\u0627\u0645</label>' +
+        '<input id="gSecret" value="' + U.esc(g && g.secretCode ? g.secretCode : "") + '" placeholder="\u064a\u062a\u0645 \u0625\u0646\u0634\u0627\u0624\u0647 \u062a\u0644\u0642\u0627\u0626\u064a\u0627\u064b \u0625\u0630\u0627 \u062a\u0631\u0643\u0647 \u0641\u0627\u0631\u063a\u0627\u064b"></div>' +
         (isEdit
           ? '<label class="check"><input type="checkbox" id="gActive"' +
             (g.active !== false ? " checked" : "") +
@@ -675,14 +681,26 @@
         '<button class="btn btn-primary" data-save>\u062d\u0641\u0638</button>' +
         '<button class="btn btn-ghost" data-close>\u0625\u0644\u063a\u0627\u0621</button>',
       onMount: function (node, close) {
+        const privChk = node.querySelector("#gPrivate");
+        const secretWrap = node.querySelector("#gSecretWrap");
+        if (privChk) {
+          privChk.addEventListener("change", function(){
+            if (secretWrap) secretWrap.style.display = privChk.checked ? "" : "none";
+          });
+        }
         node.querySelector("[data-save]").addEventListener("click", async function () {
           const name = node.querySelector("#gName").value.trim();
           if (!name) return U.toast("\u0623\u062f\u062e\u0644 \u0627\u0633\u0645 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629", "warn");
 
           const data = {
             name: name,
-            description: node.querySelector("#gDesc").value.trim()
+            description: node.querySelector("#gDesc").value.trim(),
+            private: privChk ? privChk.checked : false
           };
+          const secretInput = node.querySelector("#gSecret");
+          if (secretInput && data.private) {
+            data.secretCode = secretInput.value.trim().toUpperCase();
+          }
 
           if (isEdit) {
             const activeEl = node.querySelector("#gActive");
