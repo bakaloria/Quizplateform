@@ -1921,3 +1921,16 @@ html[data-pwa="standalone"] .site-footer {
   .page-head .ph-actions .btn { flex: 1; justify-content: center; }
   .dist-row { grid-template-columns: 76px minmax(0, 1fr) 40px; gap: 8px; }
 }
+
+
+/* ============================================================
+ * ADMIN LOGIN PAGE
+ * ============================================================ */
+body.qp-admin-login .topbar,
+body.qp-admin-login .site-footer {
+  display: none !important;
+}
+body.qp-admin-login .view {
+  padding-top: 40px;
+  min-height: 100vh;
+}
