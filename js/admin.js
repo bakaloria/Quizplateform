@@ -5256,6 +5256,13 @@ function studentModal(s) {
             } else if (q.type === 'genetics_problem') {
               html += '<div style="margin:8px 25px;color:#444">اكتب حل المسألة الوراثية مبيناً الطرز الشكلية والوراثية والنتائج.</div>';
               for (var gi=0; gi<6; gi++) html += '<div style="margin:12px 0;border-bottom:1px dotted #000;height:28px"></div>';
+            } else if (q.type === 'comparison') {
+              var cols = q.columns || ['وجه المقارنة','(أ)','(ب)'];
+              var rows = q.rows || [];
+              html += '<table style="width:92%;margin:8px 25px;border-collapse:collapse;font-size:14px"><thead><tr>' + cols.map(function(c){return '<th style="border:1px solid #000;padding:6px;background:#f5f5f5">'+U.esc(c)+'</th>';}).join('') + '</tr></thead><tbody>';
+              if (rows.length) rows.forEach(function(r){ html += '<tr><td style="border:1px solid #000;padding:6px;font-weight:bold">'+U.esc(r.criterion||'')+'</td>' + ((r.values||cols.slice(1).map(function(){return '';})).slice(0,cols.length-1)).map(function(){return '<td style="border:1px solid #000;padding:16px"></td>';}).join('') + '</tr>'; });
+              else for (var ci=0;ci<3;ci++) html += '<tr><td style="border:1px solid #000;padding:16px"></td><td style="border:1px solid #000;padding:16px"></td><td style="border:1px solid #000;padding:16px"></td></tr>';
+              html += '</tbody></table>';
             } else {
               html += '<div style="margin:15px 0;border-bottom:1px dotted #000;height:30px"></div><div style="margin:15px 0;border-bottom:1px dotted #000;height:30px"></div>';
             }
