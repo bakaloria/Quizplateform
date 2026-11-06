@@ -1025,6 +1025,9 @@
     if (t === "fill_blank") {
       return qImageBlock(q) + '<input id="textAnswer" placeholder="\u0627\u0643\u062a\u0628 \u0625\u062c\u0627\u0628\u062a\u0643" value="' + U.esc(val || "") + '">';
     }
+    if (t === "genetics_problem") {
+      return qImageBlock(q) + '<div class="help" style="margin-bottom:8px">اكتب حل المسألة الوراثية مع توضيح الخطوات والنتائج.</div><textarea id="textAnswer" style="min-height:160px" placeholder="اكتب الحل هنا...">' + U.esc(val || "") + '</textarea>';
+    }
     return qImageBlock(q) + '<textarea id="textAnswer" style="min-height:120px" placeholder="\u0627\u0643\u062a\u0628 \u0625\u062c\u0627\u0628\u062a\u0643...">' + U.esc(val || "") + '</textarea>';
   }
 

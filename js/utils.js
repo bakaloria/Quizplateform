@@ -14,7 +14,8 @@
     classification: "تصنيف",
     comparison: "جدول مقارنة",
     diagram_label: "تسمية الرسم",
-    image_mcq: "سؤال على صورة"
+    image_mcq: "سؤال على صورة",
+    genetics_problem: "مسألة وراثة"
   };
 
   /* الأنماط التي تعتمد على الصور (تحتاج حقل image) */
@@ -352,6 +353,9 @@
       if (q.type === "diagram_label") {
         return (q.labels || []).map(function (l) { return (l.number || "") + ": " + (l.answer || ""); }).join(" ، ");
       }
+      if (q.type === "genetics_problem") {
+        return _str(q.answer) || _str(q.modelAnswer) || "-";
+      }
       if (Array.isArray(q.answer)) return q.answer.join(" ، ");
       return _str(q.answer) || "-";
     },
@@ -384,6 +388,9 @@
         const obj = given && typeof given === "object" ? given : {};
         const keys = Object.keys(obj);
         return keys.length ? keys.map(function (k) { return k + ": " + obj[k]; }).join(" ، ") : "-";
+      }
+      if (t === "genetics_problem") {
+        return String(given);
       }
       if (Array.isArray(given)) return given.join(" ، ");
       return String(given);

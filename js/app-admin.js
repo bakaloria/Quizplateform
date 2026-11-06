@@ -156,6 +156,8 @@
         return '<a href="#/' + i[0] + '" class="' + (active === i[0] ? "active" : "") + '">' +
           '<span class="side-ico">' + i[1] + "</span><span>" + i[2] + "</span></a>";
       }).join("") +
+      '<a href="models.html"><span class="side-ico">\uD83D\uDCCB</span><span>\u0646\u0645\u0627\u0630\u062c \u0627\u0644\u0641\u0644\u0633\u0641\u0629</span></a>' +
+      '<a href="biology-models.html"><span class="side-ico">\uD83E\uDDEC</span><span>\u0646\u0645\u0627\u0630\u062c \u0627\u0644\u0623\u062d\u064a\u0627\u0621</span></a>' +
       '<a href="engbuilder.html"><span class="side-ico">\uD83C\uDDEC\uD83C\uDDE7</span><span>\u0628\u0627\u0646\u064a \u0627\u0644\u0625\u0646\u0643\u0644\u064a\u0632\u064a</span></a>' +
       '<div class="side-sep"></div>' +
       '<a id="logoutBtn"><span class="side-ico">\uD83D\uDEAA</span><span>\u062e\u0631\u0648\u062c</span></a>' +
@@ -1485,7 +1487,7 @@ function questionFormHTML(q) {
     return cells.join(" | ");
   }).join("\n");
   const qLabelsText = (q.labels || []).map(function (l) { return l.number + " = " + l.answer; }).join("\n");
-  const isText = ["fill_blank", "short_answer", "essay"].indexOf(q.type) >= 0;
+  const isText = ["fill_blank", "short_answer", "essay", "genetics_problem"].indexOf(q.type) >= 0;
   const passage = U.normalizePassage(q.passage) || { title: "", text: "", notes: "" };
 
   return (
@@ -1537,7 +1539,8 @@ function questionFormHTML(q) {
 
     '<div id="fieldsDiagram" class="field ' + (isDiagram ? "" : "hidden") + '">' +
     '<label>\u0627\u0644\u062a\u0633\u0645\u064a\u0627\u062a (\u0643\u0644 \u0633\u0637\u0631: \u0627\u0644\u0631\u0642\u0645 = \u0627\u0644\u0627\u0633\u0645)</label>' +
-    '<textarea id="qLabels" style="min-height:90px" placeholder="1 = \u062c\u0633\u0645 \u0627\u0644\u062e\u0644\u064a\u0629\n2 = \u0627\u0644\u0645\u062d\u0648\u0631">' + U.esc(qLabelsText) + '</textarea></div>' +
+    '<textarea id="qLabels" style="min-height:90px" placeholder="1 = \u062c\u0633\u0645 \u0627\u0644\u062e\u0644\u064a\u0629\n2 = \u0627\u0644\u0645\u062d\u0648\u0631\n3 = \u0627\u0644\u0646\u0648\u0627\u0629\n4 = \u0627\u0644\u062a\u063a\u0635\u0646\u0627\u062a\n5 = \u063a\u0645\u062f \u0627\u0644\u0646\u062e\u0627\u0639\u064a\u0646">' + U.esc(qLabelsText) + '</textarea>' +
+    '<p class="help">يمكن إضافة 3 أو 4 أو 5 مواضع للتسمية (سطر لكل موضع).</p></div>' +
 
     '<div id="fieldsTF" class="field ' + (isTF ? "" : "hidden") + '"><label>\u0627\u0644\u0625\u062c\u0627\u0628\u0629</label>' +
     '<label class="check"><input type="radio" name="tf" value="\u0635\u062d"' +
@@ -1547,7 +1550,7 @@ function questionFormHTML(q) {
 
     '<div id="fieldsText" class="field ' + (isText ? "" : "hidden") + '">' +
     '<label>\u0627\u0644\u0625\u062c\u0627\u0628\u0629 \u0627\u0644\u0646\u0645\u0648\u0630\u062c\u064a\u0629' +
-    (q.type === "essay" ? "" : " *") + '</label>' +
+    ((q.type === "essay" || q.type === "genetics_problem") ? "" : " *") + '</label>' +
     '<textarea id="qAnswer" style="min-height:70px">' +
     U.esc(
       (q.type === "true_false" || q.type === "mcq" || q.type === "multi")
@@ -1604,8 +1607,8 @@ function bindQuestionForm(node) {
     const show = function (id, on) { const el = node.querySelector(id); if (el) el.classList.toggle("hidden", !on); };
     show("#fieldsOptions", t === "mcq" || t === "multi" || t === "image_mcq");
     show("#fieldsTF", t === "true_false");
-    show("#fieldsText", t === "fill_blank" || t === "short_answer" || t === "essay");
-    show("#fieldsImage", t === "image_mcq" || t === "diagram_label");
+    show("#fieldsText", t === "fill_blank" || t === "short_answer" || t === "essay" || t === "genetics_problem");
+    show("#fieldsImage", t === "image_mcq" || t === "diagram_label" || t === "genetics_problem");
     show("#fieldsMatching", t === "matching");
     show("#fieldsOrdering", t === "ordering");
     show("#fieldsClass", t === "classification");
@@ -1760,6 +1763,9 @@ function collectQuestionForm(node) {
     answer = {};
     labels.forEach(function (l) { answer[l.number] = l.answer; });
     if (!image || !labels.length) throw new Error("\u0628\u064a\u0627\u0646\u0627\u062a \u062a\u0633\u0645\u064a\u0629 \u0627\u0644\u0631\u0633\u0645 \u063a\u064a\u0631 \u0645\u0643\u062a\u0645\u0644\u0629");
+  } else if (type === "genetics_problem") {
+    image = node.querySelector("#qImage") ? node.querySelector("#qImage").value.trim() : "";
+    answer = node.querySelector("#qAnswer").value.trim();
   } else {
     answer = node.querySelector("#qAnswer").value.trim();
     if (type !== "essay" && !answer) {
@@ -5224,6 +5230,9 @@ function studentModal(s) {
           allQ.forEach(function(q){
             html += '<div style="margin-bottom:22px;page-break-inside:avoid">' +
               '<div style="font-weight:bold;margin-bottom:8px">السؤال ('+n+') : ' + U.esc(q.text).replace(/\n/g,'<br>') + ' &nbsp;&nbsp; (' + (q.points||1) + ' درجة)</div>';
+            if (q.image) {
+              html += '<div style="margin:8px 0"><img src="' + U.esc(q.image) + '" style="max-width:420px;max-height:280px;border:1px solid #ccc"/></div>';
+            }
             if (q.type === 'mcq' && q.options && q.options.length) {
               var letters = ['أ','ب','ج','د','هـ'];
               q.options.forEach(function(opt,idx){
@@ -5231,6 +5240,22 @@ function studentModal(s) {
               });
             } else if (q.type === 'true_false') {
               html += '<div style="margin:4px 25px">(أ) صواب</div><div style="margin:4px 25px">(ب) خطأ</div>';
+            } else if (q.type === 'diagram_label') {
+              var labels = q.labels || [];
+              if (!labels.length && q.answer && typeof q.answer === 'object') {
+                labels = Object.keys(q.answer).map(function(k){ return {number:k, answer:q.answer[k]}; });
+              }
+              html += '<div style="margin:8px 25px">ضع التسمية المناسبة للأرقام التالية:</div>';
+              if (labels.length) {
+                labels.forEach(function(l){
+                  html += '<div style="margin:6px 35px">' + U.esc(l.number) + ' - ........................................................</div>';
+                });
+              } else {
+                for (var di=1; di<=5; di++) html += '<div style="margin:6px 35px">' + di + ' - ........................................................</div>';
+              }
+            } else if (q.type === 'genetics_problem') {
+              html += '<div style="margin:8px 25px;color:#444">اكتب حل المسألة الوراثية مبيناً الطرز الشكلية والوراثية والنتائج.</div>';
+              for (var gi=0; gi<6; gi++) html += '<div style="margin:12px 0;border-bottom:1px dotted #000;height:28px"></div>';
             } else {
               html += '<div style="margin:15px 0;border-bottom:1px dotted #000;height:30px"></div><div style="margin:15px 0;border-bottom:1px dotted #000;height:30px"></div>';
             }
