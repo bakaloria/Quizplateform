@@ -4864,7 +4864,8 @@ function studentModal(s) {
           : '<tr><td colspan="4" class="center muted" style="padding:16px">لا توجد أسئلة في هذا الاختبار</td></tr>') +
         "</tbody></table></div>",
       footer:
-        '<button class="btn btn-primary" data-save>\uD83D\uDCBE حفظ الدرجات</button>' +
+        '<button class="btn btn-sm" data-addq>+ إضافة سؤال</button>' +
+        '<button class="btn btn-primary" data-save>\uD83D\uDCBE حفظ الدرجات والعلامة الكلية</button>' +
         '<button class="btn btn-ghost" data-close>\u2715 إغلاق</button>',
       onMount: function (node, close) {
         const sumEl = node.querySelector("#exqSum");
@@ -4951,26 +4952,60 @@ function studentModal(s) {
           });
         });
 
-        /* حفظ الدرجات: كل سؤال + المجموع الكلي */
+        /* حفظ الدرجات: كل سؤال + العلامة الكلية للنموذج */
         node.querySelector("[data-save]").addEventListener("click", async function () {
           try {
             const fresh = (await S.getExam(examId)) || ex;
             const qlist = (fresh.questions || []).slice();
             const inputs = pointsInputs();
+            let sum = 0;
             for (let i = 0; i < inputs.length; i++) {
               const tr = inputs[i].closest("tr");
               const idx = Number(tr.getAttribute("data-idx"));
               if (!qlist[idx]) continue;
               const v = Number(inputs[i].value);
               qlist[idx].points = (v >= 0 && !isNaN(v)) ? v : 1;
+              sum += qlist[idx].points;
             }
-            await S.updateExam(examId, { questions: qlist });
-            U.toast("تم حفظ درجات الاختبار ✓", "success");
+            const grand = Number(grandEl.value);
+            const totalPoints = (grand > 0 && !isNaN(grand)) ? grand : Math.round(sum * 100) / 100;
+            await S.updateExam(examId, { questions: qlist, totalPoints: totalPoints });
+            U.toast("تم حفظ الدرجات والعلامة الكلية ✓", "success");
             close();
             renderExams();
           } catch (err) {
             U.toast("تعذّر الحفظ: " + (err && err.message || err), "error");
           }
+        });
+
+        /* إضافة سؤال جديد إلى الاختبار */
+        const addBtn = node.querySelector("[data-addq]");
+        if (addBtn) addBtn.addEventListener("click", function () {
+          close();
+          U.modal({
+            title: "إضافة سؤال إلى الاختبار",
+            size: "lg",
+            body: questionFormHTML({ type: "mcq", points: 1 }),
+            footer: '<button class="btn btn-primary" data-save>إضافة</button><button class="btn btn-ghost" data-close>إلغاء</button>',
+            onMount: function (n2, c2) {
+              bindQuestionForm(n2);
+              n2.querySelector("[data-save]").addEventListener("click", async function () {
+                try {
+                  const data = collectQuestionForm(n2);
+                  const fresh = (await S.getExam(examId)) || ex;
+                  const qlist = (fresh.questions || []).slice();
+                  data.id = data.id || ("q-" + Date.now() + "-" + Math.random().toString(36).slice(2,7));
+                  qlist.push(data);
+                  const totalPoints = qlist.reduce(function(s,q){ return s + (Number(q.points)||0); }, 0);
+                  await S.updateExam(examId, { questions: qlist, totalPoints: Math.round(totalPoints*100)/100 });
+                  U.toast("تمت إضافة السؤال ✓", "success");
+                  c2();
+                  renderExams();
+                  openExamQuestions(exam);
+                } catch (err) { U.toast("تعذّر الإضافة: " + (err && err.message || err), "error"); }
+              });
+            }
+          });
         });
 
         refresh();
