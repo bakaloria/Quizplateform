@@ -1400,12 +1400,7 @@
         catch (e) { lastErr = e; }
       }
       if (!ok && lastErr) throw lastErr;
-    }
-  };
-
-  QP.store = store;
-  console.log("[store.js] تم التحميل ✅");
-})();
+    },
 
     /* ============================================================
      * NOTIFICATION SETTINGS
@@ -1422,4 +1417,9 @@
     setNotificationSettings: async function (data) {
       if (!col.settings) return;
       return col.settings.doc("notifications").set(data, { merge: true });
-    },
+    }
+  };
+
+  QP.store = store;
+  console.log("[store.js] تم التحميل ✅");
+})();
