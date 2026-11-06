@@ -169,7 +169,9 @@
     const doLogin = async function () {
       const val = document.getElementById("adminPass").value.trim();
       try {
-        const res = await S.verifyAdminPass(val);
+        const _S = (window.QP && QP.store) ? QP.store : S;
+        if (!_S || !_S.verifyAdminPass) throw new Error('تعذر تحميل وحدة التخزين.');
+        const res = await _S.verifyAdminPass(val);
         if (res.ok) {
           sessionStorage.setItem("qp_admin", "1");
           if (res.migrated) U.toast("تم تحديث حفظ الرمز إلى صيغة مشفّرة (آمنة)", "success", 5000);

@@ -86,7 +86,9 @@
       btn.disabled = true;
       btn.textContent = "...";
       try {
-        const res = await S.verifyAdminPass(val);
+        const _S = (window.QP && QP.store) ? QP.store : S;
+        if (!_S || !_S.verifyAdminPass) throw new Error('تعذر تحميل وحدة التخزين (store). حدّث الصفحة أو تحقق من تحميل الملفات.');
+        const res = await _S.verifyAdminPass(val);
         if (res.ok) {
           sessionStorage.setItem("qp_admin", "1");
           document.body.classList.remove('qp-admin-login');
