@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>دمج وتنظيف بنك التاريخ</title>
+<style>
+  :root{
+    --bg:#0f1026;--card:#1f2237;--card2:#171a2e;--line:#2d3150;
+    --text:#eef1ff;--muted:#aeb5d6;--green:#22c55e;--red:#ef4444;--amber:#f59e0b;--blue:#4f7cff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:linear-gradient(160deg,#0b0c1c,#11142c 55%,#0b0c1c);color:var(--text);font-family:Tahoma,Arial,sans-serif;min-height:100vh}
+  .wrap{max-width:980px;margin:0 auto;padding:24px 16px 60px}
+  .hero{display:flex;gap:14px;align-items:center;margin-bottom:18px}
+  .hero .logo{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-size:28px;background:linear-gradient(135deg,#4f7cff,#8b5cf6);box-shadow:0 10px 30px rgba(79,124,255,.3)}
+  .hero h1{margin:0;font-size:24px}
+  .hero p{margin:5px 0 0;color:var(--muted);font-size:13px;line-height:1.7}
+  .card{background:rgba(31,34,55,.94);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 16px 50px rgba(0,0,0,.3);margin-bottom:16px}
+  .notice{background:rgba(245,158,11,.09);border-color:rgba(245,158,11,.35);font-size:13px;line-height:1.9;color:#ffe8b0}
+  .notice strong{color:#ffd166}
+  .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+  button{border:0;border-radius:12px;padding:12px 18px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;transition:.2s transform,.2s opacity,.2s background}
+  button:active{transform:translateY(1px)}
+  button:disabled{opacity:.45;cursor:not-allowed}
+  .btn-primary{background:linear-gradient(135deg,#4f7cff,#6d5dfc);color:white;box-shadow:0 8px 24px rgba(79,124,255,.25)}
+  .btn-danger{background:linear-gradient(135deg,#ef4444,#dc2626);color:white;box-shadow:0 8px 24px rgba(239,68,68,.2)}
+  .btn-green{background:linear-gradient(135deg,#22c55e,#16a34a);color:white;box-shadow:0 8px 24px rgba(34,197,94,.2)}
+  .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+  .status{display:flex;gap:10px;align-items:center;background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13px;color:var(--muted);line-height:1.7;margin-top:12px;min-height:46px}
+  .spinner{width:18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,.18);border-top-color:#8b9cff;animation:spin .8s linear infinite;flex:0 0 auto;display:none}
+  .spinner.on{display:block}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .progress{height:10px;background:#11142a;border:1px solid var(--line);border-radius:999px;overflow:hidden;margin-top:12px;display:none}
+  .progress.on{display:block}
+  .progress>div{height:100%;width:0%;background:linear-gradient(90deg,#4f7cff,#22c55e);transition:width .3s}
+  .log{background:#0b0d1d;border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:14px;max-height:230px;overflow:auto;font-size:12px;line-height:1.9;direction:rtl;white-space:pre-wrap;color:#c8cee9}
+  .log .ok{color:#86efac}.log .err{color:#fca5a5}.log .warn{color:#fcd34d}.log .muted{color:#8e96b8}
+  .report{display:none;margin-top:16px}
+  .report.on{display:block}
+  .summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin-bottom:14px}
+  .stat{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:13px}
+  .stat .n{font-size:25px;font-weight:800;line-height:1.1;color:#fff}
+  .stat .l{font-size:12px;color:var(--muted);margin-top:5px;line-height:1.6}
+  .stat.good .n{color:#86efac}.stat.bad .n{color:#fca5a5}.stat.warn .n{color:#fcd34d}
+  h2{font-size:17px;margin:20px 0 10px}
+  table{width:100%;border-collapse:collapse;font-size:13px;background:var(--card2);border-radius:12px;overflow:hidden}
+  th,td{border-bottom:1px solid var(--line);padding:9px 10px;text-align:right;vertical-align:top}
+  th{background:#12152a;color:#cdd4f4;font-size:12px;font-weight:700}
+  tr:last-child td{border-bottom:0}
+  .tag{display:inline-block;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:700;background:#262a45;color:#cbd2f2;margin:2px}
+  .tag.bad{background:rgba(239,68,68,.14);color:#fca5a5}
+  .tag.ok{background:rgba(34,197,94,.14);color:#86efac}
+  .tag.warn{background:rgba(245,158,11,.14);color:#fcd34d}
+  details{margin-top:10px;background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+  summary{cursor:pointer;font-weight:700;font-size:13px;color:#dbe2ff}
+  .sample{font-size:12px;color:var(--muted);line-height:1.8;border-top:1px dashed var(--line);padding-top:8px;margin-top:8px;word-break:break-word}
+  .output{display:none;background:#070814;border:1px solid #24305a;border-radius:12px;padding:14px;margin-top:16px;font-size:12px;line-height:1.6;white-space:pre-wrap;word-break:break-word;direction:ltr;text-align:left;color:#b9ffd0;max-height:420px;overflow:auto}
+  .output.on{display:block}
+  .footer{color:#7e87ab;font-size:12px;text-align:center;line-height:1.9;margin-top:24px}
+  a{color:#9db2ff}
+  .hidden{display:none!important}
+  @media(max-width:560px){.hero h1{font-size:20px}.hero .logo{width:46px;height:46px;font-size:24px}.card{padding:14px}.stat .n{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <div class="logo">🧹</div>
+    <div>
+      <h1>دمج وتنظيف بنك التاريخ</h1>
+      <p>أداة صيانة تجمع كل أسئلة التاريخ في مادة واحدة، وتحذف التكرار والأسئلة بلا إجابة نموذجية والأسئلة غير المكتملة.</p>
+    </div>
+  </div>
+
+  <div class="card notice">
+    <strong>تنبيه مهم:</strong> هذه الأداة تحذف نهائياً من قاعدة البيانات. ابدأ بـ«فحص» لمراجعة الأرقام، ثم اضغط «بدء الدمج والتنظيف». لا تغلق الصفحة أثناء التنفيذ.
+  </div>
+
+  <div class="card">
+    <div class="actions">
+      <button class="btn-primary" id="scanBtn">🔍 فحص بنك التاريخ</button>
+      <button class="btn-danger" id="applyBtn" disabled>🧹 بدء الدمج والتنظيف</button>
+      <button class="btn-ghost" id="resumeBtn" disabled>▶️ متابعة خطة غير مكتملة</button>
+      <button class="btn-ghost" id="finishBtn" disabled>✅ إنهاء وحذف ملف الخطة</button>
+    </div>
+    <div class="status"><span class="spinner" id="spinner"></span><span id="statusText">جاهز. اضغط «فحص» لبدء قراءة البيانات.</span></div>
+    <div class="progress" id="progressWrap"><div id="progressBar"></div></div>
+    <div class="log" id="log"></div>
+    <div class="report" id="report"></div>
+    <div class="output" id="output"></div>
+  </div>
+
+  <div class="footer">
+    أداة إدارية مؤقتة — <a href="index.html">العودة إلى المنصة</a> · <a href="admin.html">لوحة الإدارة</a>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+<script>
+(function(){
+  'use strict';
+
+  var firebaseConfig = {
+    apiKey: "AIzaSyBfsSesYqniyBituMfbQ6S-7PQgsxx_ETc",
+    authDomain: "tasks-for-quran.firebaseapp.com",
+    projectId: "tasks-for-quran",
+    storageBucket: "tasks-for-quran.firebasestorage.app",
+    messagingSenderId: "708158011088",
+    appId: "1:708158011088:web:987cca8cd8c02219d350d5"
+  };
+
+  var PREFERRED_ID = 'ia5oFVzDcuWGnwaiVq36';
+  var HISTORY_RE = /(تاريخ|history)/i;
+  var PAGE = 300;
+  var APPLY_BATCH = 400;
+  var PLAN_PART = 200;
+  var AUTO_KEY = 'history-cleanup-2026-11';
+  var PLAN_META = 'history_cleanup_meta';
+  var PLAN_PART_PREFIX = 'history_cleanup_part_';
+
+  var $ = function(id){ return document.getElementById(id); };
+  var ui = {
+    scanBtn: $('scanBtn'), applyBtn: $('applyBtn'), resumeBtn: $('resumeBtn'),
+    finishBtn: $('finishBtn'), statusText: $('statusText'), spinner: $('spinner'),
+    progressWrap: $('progressWrap'), progressBar: $('progressBar'), log: $('log'),
+    report: $('report'), output: $('output')
+  };
+
+  if (!window.firebase) {
+    ui.statusText.textContent = 'تعذر تحميل Firebase. تحقق من اتصال الإنترنت ثم أعد تحميل الصفحة.';
+    return;
+  }
+
+  firebase.initializeApp(firebaseConfig);
+  var db = firebase.firestore();
+  db.settings({ ignoreUndefinedProperties: true });
+  var FV = firebase.firestore.FieldValue;
+  var FieldPath = firebase.firestore.FieldPath;
+
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];
+    });
+  }
+  function logLine(msg, cls){
+    var line = document.createElement('div');
+    if (cls) line.className = cls;
+    line.textContent = '• ' + msg;
+    ui.log.appendChild(line);
+    ui.log.scrollTop = ui.log.scrollHeight;
+    try { console.log('[history-cleanup]', msg); } catch(e){}
+  }
+  function setStatus(msg, busy){
+    ui.statusText.textContent = msg;
+    ui.spinner.classList.toggle('on', !!busy);
+  }
+  function setProgress(pct){
+    if (pct == null) { ui.progressWrap.classList.remove('on'); ui.progressBar.style.width = '0%'; return; }
+    ui.progressWrap.classList.add('on');
+    ui.progressBar.style.width = Math.max(0, Math.min(100, pct)) + '%';
+  }
+  function setButtons(scanning, applying){
+    ui.scanBtn.disabled = !!scanning || !!applying;
+    ui.applyBtn.disabled = !!scanning || !!applying;
+    ui.resumeBtn.disabled = !!scanning || !!applying;
+    ui.finishBtn.disabled = !!scanning || !!applying;
+  }
+  function setOutput(obj){
+    try {
+      ui.output.textContent = JSON.stringify(obj, null, 2);
+      ui.output.classList.add('on');
+      document.title = obj && obj.ok ? 'DONE' : 'ERROR';
+      document.body.setAttribute('data-done', obj && obj.ok ? '1' : '0');
+    } catch(e){}
+  }
+
+  function nonEmpty(v){
+    if (v === null || v === undefined) return false;
+    if (typeof v === 'string') return v.trim().length > 0;
+    if (typeof v === 'boolean') return true;
+    if (typeof v === 'number') return true;
+    if (Array.isArray(v)) return v.length > 0 && v.some(nonEmpty);
+    if (typeof v === 'object') return Object.keys(v).length > 0;
+    return false;
+  }
+  function normText(s){
+    return String(s == null ? '' : s)
+      .replace(/[\u064B-\u065F\u0670\u0640]/g, '')
+      .replace(/[أإآٱ]/g, 'ا')
+      .replace(/ى/g, 'ي')
+      .replace(/ة/g, 'ه')
+      .replace(/[^\u0600-\u06FF0-9A-Za-z]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .toLowerCase();
+  }
+  function getModelAnswer(q){
+    if (nonEmpty(q.answer)) return q.answer;
+    if (nonEmpty(q.correctAnswer)) return q.correctAnswer;
+    if (nonEmpty(q.modelAnswer)) return q.modelAnswer;
+    return null;
+  }
+  function normalizeTF(v){
+    if (v === true || v === 1) return 'صح';
+    if (v === false || v === 0) return 'خطأ';
+    var s = String(v == null ? '' : v).trim().toLowerCase();
+    if (['true','1','صح','صحيح','yes','نعم'].indexOf(s) >= 0) return 'صح';
+    if (['false','0','خطأ','خطا','غير صحيح','no','لا'].indexOf(s) >= 0) return 'خطأ';
+    return null;
+  }
+  function sameSet(a, b){
+    if (!Array.isArray(a) || !Array.isArray(b) || a.length !== b.length) return false;
+    var A = a.map(function(x){ return normText(typeof x === 'object' ? JSON.stringify(x) : x); }).sort();
+    var B = b.map(function(x){ return normText(typeof x === 'object' ? JSON.stringify(x) : x); }).sort();
+    for (var i=0;i<A.length;i++) if (A[i] !== B[i]) return false;
+    return true;
+  }
+
+  function evaluateQuestion(doc){
+    var q = doc.data || {};
+    var type = String(q.type || '').trim();
+    var reasons = [];
+    var patch = {};
+    var answer = getModelAnswer(q);
+
+    if (!type) reasons.push('نوع السؤال غير محدد');
+    if (!nonEmpty(q.text)) reasons.push('نص السؤال فارغ');
+
+    if (type === 'mcq' || type === 'image_mcq' || type === 'multi') {
+      var opts = Array.isArray(q.options) ? q.options.filter(nonEmpty) : [];
+      if (opts.length < 2) reasons.push('خيارات أقل من اثنين');
+      if (!nonEmpty(answer)) {
+        reasons.push('لا توجد إجابة نموذجية');
+      } else {
+        if (!nonEmpty(q.answer)) patch.answer = answer;
+        var ansList = Array.isArray(answer) ? answer : [answer];
+        var missing = ansList.filter(function(a){
+          return !opts.some(function(o){ return normText(o) === normText(a); });
+        });
+        if (missing.length) reasons.push('الإجابة غير موجودة ضمن الخيارات');
+      }
+    } else if (type === 'true_false') {
+      if (!nonEmpty(answer)) {
+        reasons.push('لا توجد إجابة نموذجية');
+      } else {
+        var tf = normalizeTF(answer);
+        if (!tf) reasons.push('إجابة صح/خطأ غير صالحة');
+        else if (q.answer !== tf) patch.answer = tf;
+      }
+    } else if (type === 'short_answer' || type === 'fill_blank' || type === 'essay' || type === 'genetics_problem') {
+      if (!nonEmpty(answer)) reasons.push('لا توجد إجابة نموذجية');
+      else if (!nonEmpty(q.answer)) patch.answer = answer;
+    } else if (type === 'ordering') {
+      var ans = Array.isArray(q.answer) ? q.answer.filter(nonEmpty) : [];
+      var items = Array.isArray(q.items) ? q.items.filter(nonEmpty) : [];
+      if (ans.length < 2) {
+        reasons.push('لا توجد إجابة ترتيب صالحة');
+      } else if (ans.some(function(x){ return typeof x !== 'string' || !x.trim(); })) {
+        reasons.push('عناصر إجابة الترتيب غير صالحة');
+      } else if (items.length < 2) {
+        patch.items = ans.slice();
+      } else if (items.some(function(x){ return typeof x !== 'string' || !x.trim(); })) {
+        reasons.push('عناصر الترتيب غير صالحة');
+      } else if (!sameSet(items, ans)) {
+        patch.items = ans.slice();
+      }
+    } else if (type === 'matching') {
+      var pairs = Array.isArray(q.pairs) ? q.pairs : [];
+      var cleanPairs = pairs.filter(function(p){ return p && nonEmpty(p.left) && nonEmpty(p.right); });
+      if (cleanPairs.length >= 2) {
+        if (cleanPairs.length !== pairs.length) patch.pairs = cleanPairs;
+      } else {
+        var arr = Array.isArray(q.answer) ? q.answer : [];
+        var converted = arr.map(function(a){
+          if (!a || typeof a !== 'object') return null;
+          var left = a.left !== undefined ? a.left : a.item;
+          var right = a.right !== undefined ? a.right : a.match;
+          return (nonEmpty(left) && nonEmpty(right)) ? { left: left, right: right } : null;
+        }).filter(Boolean);
+        if (converted.length >= 2) patch.pairs = converted;
+        else reasons.push('أزواج المطابقة غير مكتملة');
+      }
+    } else if (type === 'comparison') {
+      var hasTable = Array.isArray(q.columns) && q.columns.length && Array.isArray(q.rows) && q.rows.length && Array.isArray(q.blanks);
+      if (hasTable && nonEmpty(answer)) {
+        if (typeof answer === 'string') {
+          if (q.blanks.length === 1) patch.answer = { '0,0': answer };
+          else reasons.push('إجابة المقارنة غير متوافقة مع الجدول');
+        } else if (typeof answer === 'object' && !Array.isArray(answer)) {
+          if (!Object.keys(answer).length) reasons.push('إجابة المقارنة فارغة');
+        }
+      } else if (answer && typeof answer === 'object' && !Array.isArray(answer)) {
+        var keys = Object.keys(answer);
+        if (!keys.length) {
+          reasons.push('بنية المقارنة غير مكتملة');
+        } else {
+          var keysAreCells = keys.every(function(k){ return /^\d+,\d+$/.test(k); });
+          if (keysAreCells) {
+            var maxR = 0, maxC = 0;
+            keys.forEach(function(k){ var p = k.split(','); maxR = Math.max(maxR, Number(p[0])); maxC = Math.max(maxC, Number(p[1])); });
+            var R = maxR + 1, C = maxC + 1;
+            patch.columns = Array.apply(null, Array(C)).map(function(_,i){ return 'عمود ' + (i+1); });
+            patch.rows = Array.apply(null, Array(R)).map(function(){ return { criterion: 'وجه المقارنة', values: Array.apply(null, Array(C)).map(function(){ return ''; }) }; });
+            patch.blanks = [];
+            for (var r=0;r<R;r++) for (var c=0;c<C;c++) patch.blanks.push([r,c]);
+          } else {
+            var cols = keys;
+            var newAnswer = {};
+            keys.forEach(function(k,i){ newAnswer['0,' + i] = String(answer[k] == null ? '' : answer[k]); });
+            patch.columns = cols;
+            patch.rows = [{ criterion: 'وجه المقارنة', values: cols.map(function(){ return ''; }) }];
+            patch.blanks = cols.map(function(_,i){ return [0,i]; });
+            patch.answer = newAnswer;
+          }
+        }
+      } else if (typeof answer === 'string' && answer.trim()) {
+        patch.columns = ['الإجابة'];
+        patch.rows = [{ criterion: 'وجه المقارنة', values: [''] }];
+        patch.blanks = [[0,0]];
+        patch.answer = { '0,0': answer };
+      } else {
+        reasons.push('بنية المقارنة غير مكتملة');
+      }
+    } else if (type === 'classification') {
+      var citems = Array.isArray(q.items) ? q.items : [];
+      var cats = Array.isArray(q.categories) ? q.categories : [];
+      if (!citems.length || !cats.length) reasons.push('بنية التصنيف غير مكتملة');
+      if (!nonEmpty(answer)) reasons.push('لا توجد إجابة نموذجية');
+    } else if (type === 'diagram_label') {
+      var labels = Array.isArray(q.labels) ? q.labels.filter(function(l){ return l && nonEmpty(l.answer); }) : [];
+      if (labels.length < 1) reasons.push('مواضع الرسم غير مكتملة');
+      else if (!nonEmpty(q.answer)) {
+        var a = {};
+        labels.forEach(function(l){ a[l.number] = l.answer; });
+        patch.answer = a;
+      }
+    } else {
+      if (!nonEmpty(answer)) reasons.push('لا توجد إجابة نموذجية');
+      else if (!nonEmpty(q.answer)) patch.answer = answer;
+    }
+
+    return { valid: reasons.length === 0, reasons: reasons, patch: patch, type: type, answer: answer };
+  }
+
+  function scoreQuestion(entry, canonicalId){
+    var q = entry.doc.data || {};
+    var score = 0;
+    if (nonEmpty(q.explanation)) score += 50;
+    if (nonEmpty(q.difficulty)) score += 20;
+    if (Array.isArray(q.tags) && q.tags.length) score += 15;
+    if (Number(q.points) > 0) score += 10;
+    if (nonEmpty(q.book)) score += 5;
+    if (nonEmpty(q.id)) score += 5;
+    if (entry.doc.subjectId === canonicalId) score += 30;
+    if (!Object.keys(entry.patch || {}).length) score += 10;
+    if (['mcq','true_false','image_mcq','multi'].indexOf(entry.type) >= 0) score += 5;
+    return score;
+  }
+
+  async function fetchSubjectQuestions(subjectId){
+    var out = [];
+    var last = null;
+    var page = 0;
+    while (true) {
+      page++;
+      setStatus('قراءة أسئلة المادة ' + subjectId + ' — صفحة ' + page + '...', true);
+      var q = db.collection('questions')
+        .where('subjectId', '==', subjectId)
+        .orderBy(FieldPath.documentId())
+        .limit(PAGE);
+      if (last) q = q.startAfter(last);
+      var snap;
+      try {
+        snap = await q.get();
+      } catch (e) {
+        logLine('تعذر الترتيب بالمعرّف، تجري القراءة بدون ترتيب: ' + e.message, 'warn');
+        var all = await db.collection('questions').where('subjectId', '==', subjectId).get();
+        all.forEach(function(d){ out.push({ id: d.id, ref: d.ref, data: d.data(), subjectId: subjectId }); });
+        break;
+      }
+      snap.forEach(function(d){ out.push({ id: d.id, ref: d.ref, data: d.data(), subjectId: subjectId }); });
+      if (snap.size < PAGE) break;
+      last = snap.docs[snap.docs.length - 1];
+    }
+    logLine('المادة ' + subjectId + ': ' + out.length + ' سؤال', 'muted');
+    return out;
+  }
+
+  async function scan(){
+    setButtons(true, false);
+    setProgress(null);
+    ui.report.classList.remove('on');
+    ui.output.classList.remove('on');
+    ui.log.innerHTML = '';
+    try {
+      setStatus('قراءة قائمة المواد...', true);
+      var subjSnap = await db.collection('subjects').get();
+      var subjects = subjSnap.docs.map(function(d){
+        var data = d.data() || {};
+        return { id: d.id, ref: d.ref, data: data, name: String(data.name || '').trim() };
+      });
+      var history = subjects.filter(function(s){
+        return HISTORY_RE.test(s.name) || HISTORY_RE.test(String(s.data.description || ''));
+      });
+      logLine('عدد المواد: ' + subjects.length + ' — مواد التاريخ: ' + history.length, 'ok');
+      if (!history.length) throw new Error('لم يتم العثور على أي مادة تاريخ.');
+
+      var allDocs = [];
+      for (var i=0;i<history.length;i++) {
+        var s = history[i];
+        setStatus('قراءة أسئلة: ' + (s.name || s.id) + ' (' + s.id + ')...', true);
+        var docs = await fetchSubjectQuestions(s.id);
+        s.count = docs.length;
+        docs.forEach(function(d){ allDocs.push({ id: d.id, ref: d.ref, data: d.data, subjectId: d.subjectId, subject: s }); });
+      }
+
+      var canonical = history.filter(function(s){ return s.id === PREFERRED_ID; })[0];
+      if (!canonical) canonical = history.slice().sort(function(a,b){ return b.count - a.count; })[0];
+      var canonicalName = 'التاريخ';
+      logLine('المادة الرئيسية: ' + canonical.name + ' (' + canonical.id + ') — ' + canonical.count + ' سؤال', 'ok');
+
+      var invalid = [];
+      var valid = [];
+      setStatus('تحليل الأسئلة...', true);
+      allDocs.forEach(function(doc){
+        var ev = evaluateQuestion(doc);
+        if (ev.valid) valid.push({ doc: doc, ev: ev });
+        else invalid.push({ doc: doc, ev: ev });
+      });
+      logLine('صالح مبدئياً: ' + valid.length + ' — غير صالح: ' + invalid.length, 'muted');
+
+      var groups = {};
+      valid.forEach(function(e){
+        var key = normText(e.doc.data.text) || ('id:' + e.doc.id);
+        if (!groups[key]) groups[key] = [];
+        groups[key].push(e);
+      });
+      var keep = [];
+      var duplicates = [];
+      Object.keys(groups).forEach(function(key){
+        var arr = groups[key];
+        arr.forEach(function(e){ e.score = scoreQuestion(e, canonical.id); });
+        arr.sort(function(a,b){
+          if (b.score !== a.score) return b.score - a.score;
+          return a.doc.id < b.doc.id ? -1 : 1;
+        });
+        keep.push(arr[0]);
+        for (var j=1;j<arr.length;j++) duplicates.push(arr[j]);
+      });
+      logLine('فريد بعد إزالة التكرار: ' + keep.length + ' — مكرر: ' + duplicates.length, 'ok');
+
+      var deletes = [];
+      var updates = [];
+      invalid.forEach(function(x){ deletes.push({ t: 'd', id: x.doc.id }); });
+      duplicates.forEach(function(x){ deletes.push({ t: 'd', id: x.doc.id }); });
+      keep.forEach(function(e){
+        var patch = Object.assign({}, e.ev.patch);
+        if (e.doc.subjectId !== canonical.id) {
+          patch.subjectId = canonical.id;
+          patch.subjectName = canonicalName;
+        } else if (e.doc.data.subjectName !== canonicalName) {
+          patch.subjectName = canonicalName;
+        }
+        if (Object.keys(patch).length) updates.push({ t: 'u', id: e.doc.id, patch: patch });
+      });
+      updates.push({ t: 's', id: canonical.id, patch: {
+        name: canonicalName,
+        description: canonical.data.description || 'بنك أسئلة التاريخ الموحد — الصف الثالث الثانوي الأدبي'
+      } });
+      var deleteSubjects = history.filter(function(s){ return s.id !== canonical.id; }).map(function(s){ return { t: 'ds', id: s.id }; });
+      var ops = deletes.concat(updates, deleteSubjects);
+
+      var reasonCounts = {};
+      invalid.forEach(function(x){ x.ev.reasons.forEach(function(r){ reasonCounts[r] = (reasonCounts[r] || 0) + 1; }); });
+      var report = {
+        historySubjects: history.map(function(s){ return { id: s.id, name: s.name, count: s.count }; }),
+        canonical: { id: canonical.id, name: canonical.name, count: canonical.count },
+        totalHistoryQuestions: allDocs.length,
+        validUnique: keep.length,
+        duplicatesRemoved: duplicates.length,
+        invalidRemoved: invalid.length,
+        repaired: keep.filter(function(e){ return Object.keys(e.ev.patch || {}).length > 0; }).length,
+        ops: { deletes: deletes.length, updates: updates.length, deleteSubjects: deleteSubjects.length, total: ops.length },
+        invalidReasons: reasonCounts,
+        sampleDuplicates: duplicates.slice(0,10).map(function(e){ return { id: e.doc.id, text: String(e.doc.data.text || '').slice(0,180) }; }),
+        sampleInvalid: invalid.slice(0,10).map(function(x){ return { id: x.doc.id, text: String(x.doc.data.text || '').slice(0,180), reasons: x.ev.reasons }; }),
+        totalChunks: Math.ceil(ops.length / APPLY_BATCH)
+      };
+
+      setStatus('حفظ خطة التنظيف...', true);
+      await savePlan(canonical, canonicalName, deleteSubjects, ops, report);
+      logLine('تم حفظ الخطة: ' + ops.length + ' عملية في ' + report.totalChunks + ' دفعة.', 'ok');
+      renderReport(report);
+      setStatus('اكتمل الفحص. راجع الأرقام ثم اضغط «بدء الدمج والتنظيف».', false);
+      ui.applyBtn.disabled = false;
+      ui.applyBtn.textContent = '🧹 بدء الدمج والتنظيف (' + report.totalChunks + ' دفعة)';
+      ui.finishBtn.disabled = false;
+      setOutput({ ok: true, phase: 'scan', report: report });
+      return report;
+    } finally {
+      setButtons(false, false);
+      ui.spinner.classList.remove('on');
+    }
+  }
+
+  async function savePlan(canonical, canonicalName, deleteSubjects, ops, report){
+    var settings = db.collection('settings');
+    var oldMeta = null;
+    try { oldMeta = await settings.doc(PLAN_META).get(); } catch(e){}
+    if (oldMeta && oldMeta.exists && oldMeta.data() && oldMeta.data().parts) {
+      var oldParts = Number(oldMeta.data().parts) || 0;
+      for (var i=0;i<oldParts;i++) {
+        try { await settings.doc(PLAN_PART_PREFIX + i).delete(); } catch(e){}
+      }
+    }
+    var partCount = Math.ceil(ops.length / PLAN_PART);
+    for (var p=0;p<partCount;p++) {
+      var slice = ops.slice(p * PLAN_PART, (p + 1) * PLAN_PART);
+      await settings.doc(PLAN_PART_PREFIX + p).set({ kind: 'history_cleanup_part', index: p, ops: slice });
+    }
+    await settings.doc(PLAN_META).set({
+      kind: 'history_cleanup_meta',
+      version: 1,
+      createdAt: FV.serverTimestamp(),
+      canonicalId: canonical.id,
+      canonicalName: canonicalName,
+      deleteSubjectIds: deleteSubjects.map(function(x){ return x.id; }),
+      totalOps: ops.length,
+      parts: partCount,
+      batchSize: APPLY_BATCH,
+      report: report
+    });
+  }
+
+  async function loadPlan(){
+    var settings = db.collection('settings');
+    var metaDoc = await settings.doc(PLAN_META).get();
+    if (!metaDoc.exists) throw new Error('لا توجد خطة محفوظة. اضغط «فحص» أولاً.');
+    var meta = metaDoc.data() || {};
+    var parts = Number(meta.parts) || 0;
+    var ops = [];
+    for (var i=0;i<parts;i++) {
+      var pdoc = await settings.doc(PLAN_PART_PREFIX + i).get();
+      if (!pdoc.exists) throw new Error('جزء من الخطة مفقود: ' + i);
+      var data = pdoc.data() || {};
+      if (Array.isArray(data.ops)) ops = ops.concat(data.ops);
+    }
+    return { meta: meta, ops: ops };
+  }
+
+  async function applyChunk(chunkIndex, plan){
+    plan = plan || await loadPlan();
+    var ops = plan.ops;
+    var start = chunkIndex * APPLY_BATCH;
+    var end = Math.min(start + APPLY_BATCH, ops.length);
+    if (start >= ops.length) return { chunk: chunkIndex, applied: 0, total: ops.length, done: true };
+    var batch = db.batch();
+    var applied = 0;
+    for (var i=start;i<end;i++) {
+      var op = ops[i];
+      if (!op) continue;
+      if (op.t === 'd') {
+        batch.delete(db.collection('questions').doc(op.id));
+      } else if (op.t === 'u') {
+        batch.set(db.collection('questions').doc(op.id), op.patch || {}, { merge: true });
+      } else if (op.t === 's') {
+        batch.set(db.collection('subjects').doc(op.id), op.patch || {}, { merge: true });
+      } else if (op.t === 'ds') {
+        batch.delete(db.collection('subjects').doc(op.id));
+      }
+      applied++;
+    }
+    await batch.commit();
+    return { chunk: chunkIndex, applied: applied, total: ops.length, done: end >= ops.length };
+  }
+
+  async function applyAll(){
+    setButtons(false, true);
+    setProgress(0);
+    try {
+      var plan = await loadPlan();
+      var totalChunks = Math.ceil(plan.ops.length / APPLY_BATCH);
+      logLine('بدء التنفيذ: ' + plan.ops.length + ' عملية في ' + totalChunks + ' دفعة.', 'ok');
+      var totalApplied = 0;
+      for (var c=0;c<totalChunks;c++) {
+        setStatus('تنفيذ الدفعة ' + (c+1) + ' من ' + totalChunks + '...', true);
+        var res = await applyChunk(c, plan);
+        totalApplied += res.applied;
+        setProgress(Math.round(((c+1)/totalChunks)*100));
+        logLine('الدفعة ' + (c+1) + '/' + totalChunks + ': ' + res.applied + ' عملية.', 'muted');
+      }
+      await finish(true);
+      logLine('تم التنظيف بالكامل. عدد العمليات: ' + totalApplied, 'ok');
+      setStatus('تم الدمج والتنظيف بنجاح. أعد تحميل الصفحة الرئيسية لرؤية مادة التاريخ الواحدة.', false);
+      setOutput({ ok: true, phase: 'apply', applied: totalApplied, total: plan.ops.length, chunks: totalChunks });
+    } catch(e) {
+      logLine('خطأ أثناء التنفيذ: ' + (e && e.message ? e.message : e), 'err');
+      setStatus('توقف التنفيذ: ' + (e && e.message ? e.message : e) + ' — يمكنك الضغط على «متابعة خطة غير مكتملة».', false);
+      setOutput({ ok: false, phase: 'apply', error: String(e && e.message ? e.message : e) });
+    } finally {
+      setButtons(false, false);
+      ui.spinner.classList.remove('on');
+    }
+  }
+
+  async function finish(silent){
+    try {
+      var settings = db.collection('settings');
+      var metaDoc = await settings.doc(PLAN_META).get();
+      if (!metaDoc.exists) {
+        if (!silent) setStatus('لا توجد خطة محفوظة لحذفها.', false);
+        return;
+      }
+      var meta = metaDoc.data() || {};
+      var parts = Number(meta.parts) || 0;
+      for (var i=0;i<parts;i++) {
+        try { await settings.doc(PLAN_PART_PREFIX + i).delete(); } catch(e){}
+      }
+      await settings.doc(PLAN_META).delete();
+      logLine('تم حذف ملف الخطة المؤقت.', 'ok');
+      if (!silent) setStatus('تم حذف ملف الخطة. يمكنك الآن العودة إلى المنصة.', false);
+    } catch(e) {
+      logLine('تعذر حذف ملف الخطة: ' + (e && e.message ? e.message : e), 'warn');
+    }
+  }
+
+  async function hasPlan(){
+    try {
+      var d = await db.collection('settings').doc(PLAN_META).get();
+      return d.exists;
+    } catch(e) { return false; }
+  }
+
+  function renderReport(r){
+    var html = '';
+    html += '<div class="summary">';
+    html += '<div class="stat"><div class="n">' + r.totalHistoryQuestions + '</div><div class="l">إجمالي أسئلة التاريخ</div></div>';
+    html += '<div class="stat good"><div class="n">' + r.validUnique + '</div><div class="l">أسئلة فريدة صالحة (الباقية)</div></div>';
+    html += '<div class="stat bad"><div class="n">' + r.duplicatesRemoved + '</div><div class="l">أسئلة مكررة ستُحذف</div></div>';
+    html += '<div class="stat bad"><div class="n">' + r.invalidRemoved + '</div><div class="l">أسئلة غير مكتملة/بلا إجابة</div></div>';
+    html += '<div class="stat warn"><div class="n">' + r.repaired + '</div><div class="l">أسئلة ستُصلَّح تلقائياً</div></div>';
+    html += '<div class="stat"><div class="n">' + r.ops.total + '</div><div class="l">إجمالي العمليات (' + r.totalChunks + ' دفعة)</div></div>';
+    html += '</div>';
+
+    html += '<h2>مواد التاريخ المكتشفة</h2><table><thead><tr><th>المادة</th><th>المعرّف</th><th>عدد الأسئلة</th><th>الحالة</th></tr></thead><tbody>';
+    r.historySubjects.forEach(function(s){
+      var isMain = s.id === r.canonical.id;
+      html += '<tr><td>' + esc(s.name || '—') + '</td><td style="direction:ltr;text-align:left;font-size:11px">' + esc(s.id) + '</td><td>' + s.count + '</td><td>' + (isMain ? '<span class="tag ok">رئيسية</span>' : '<span class="tag warn">ستُدمج ثم تُحذف</span>') + '</td></tr>';
+    });
+    html += '</tbody></table>';
+
+    if (r.invalidReasons && Object.keys(r.invalidReasons).length) {
+      html += '<h2>أسباب الاستبعاد</h2><div>';
+      Object.keys(r.invalidReasons).sort(function(a,b){ return r.invalidReasons[b] - r.invalidReasons[a]; }).forEach(function(k){
+        html += '<span class="tag bad">' + esc(k) + ': ' + r.invalidReasons[k] + '</span>';
+      });
+      html += '</div>';
+    }
+
+    if (r.sampleDuplicates && r.sampleDuplicates.length) {
+      html += '<details><summary>أمثلة على الأسئلة المكررة (' + r.sampleDuplicates.length + ')</summary>';
+      r.sampleDuplicates.forEach(function(x){ html += '<div class="sample"><b style="direction:ltr;display:inline-block">' + esc(x.id) + '</b> — ' + esc(x.text) + '</div>'; });
+      html += '</details>';
+    }
+    if (r.sampleInvalid && r.sampleInvalid.length) {
+      html += '<details><summary>أمثلة على الأسئلة المستبعدة (' + r.sampleInvalid.length + ')</summary>';
+      r.sampleInvalid.forEach(function(x){ html += '<div class="sample"><b style="direction:ltr;display:inline-block">' + esc(x.id) + '</b> — ' + esc(x.text) + '<br><span class="tag bad">' + esc((x.reasons || []).join('، ')) + '</span></div>'; });
+      html += '</details>';
+    }
+    ui.report.innerHTML = html;
+    ui.report.classList.add('on');
+  }
+
+  ui.scanBtn.addEventListener('click', function(){ scan(); });
+  ui.applyBtn.addEventListener('click', function(){
+    if (!confirm('سيتم حذف الأسئلة المكررة وغير المكتملة نهائياً، ودمج كل أسئلة التاريخ في مادة واحدة. هل أنت متأكد؟')) return;
+    if (!confirm('تأكيد نهائي: لا يمكن التراجع عن الحذف. هل تريد المتابعة؟')) return;
+    applyAll();
+  });
+  ui.resumeBtn.addEventListener('click', function(){ applyAll(); });
+  ui.finishBtn.addEventListener('click', function(){ if (confirm('حذف ملف الخطة المؤقت فقط (دون تنفيذ عمليات جديدة)؟')) finish(false); });
+
+  (async function(){
+    var exists = await hasPlan();
+    if (exists) {
+      ui.resumeBtn.disabled = false;
+      ui.finishBtn.disabled = false;
+      logLine('توجد خطة تنظيف محفوظة من جلسة سابقة. يمكنك «متابعة خطة غير مكتملة» أو «فحص» من جديد.', 'warn');
+      setStatus('توجد خطة محفوظة. اضغط «متابعة خطة غير مكتملة» أو «فحص» لبدء خطة جديدة.', false);
+    }
+  })();
+
+  /* ============ التشغيل التلقائي لأداة الصيانة (Jina/headless) ============ */
+  var params = new URLSearchParams(location.search);
+  if (params.get('autorun') === '1' && params.get('key') === AUTO_KEY) {
+    var phase = params.get('phase') || 'scan';
+    var chunk = Number(params.get('chunk') || '0');
+    setTimeout(async function(){
+      try {
+        setButtons(true, true);
+        if (phase === 'scan') {
+          var report = await scan();
+          setOutput({ ok: true, phase: 'scan', report: report });
+          setStatus('اكتمل الفحص التلقائي.', false);
+        } else if (phase === 'apply') {
+          var res = await applyChunk(chunk);
+          setOutput({ ok: true, phase: 'apply', result: res });
+          setStatus('اكتملت الدفعة ' + chunk + '.', false);
+        } else if (phase === 'finish') {
+          await finish(true);
+          setOutput({ ok: true, phase: 'finish' });
+          setStatus('تم حذف ملف الخطة.', false);
+        } else if (phase === 'status') {
+          var plan = await loadPlan().catch(function(){ return null; });
+          setOutput(plan ? { ok: true, phase: 'status', totalOps: plan.ops.length, totalChunks: Math.ceil(plan.ops.length / APPLY_BATCH), canonicalId: plan.meta.canonicalId, parts: plan.meta.parts } : { ok: true, phase: 'status', plan: null });
+        } else {
+          throw new Error('مرحلة غير معروفة: ' + phase);
+        }
+      } catch(e) {
+        logLine('خطأ تلقائي: ' + (e && e.message ? e.message : e), 'err');
+        setStatus('خطأ: ' + (e && e.message ? e.message : e), false);
+        setOutput({ ok: false, phase: phase, error: String(e && e.message ? e.message : e) });
+      } finally {
+        setButtons(false, false);
+        ui.spinner.classList.remove('on');
+      }
+    }, 50);
+  }
+})();
+</script>
+</body>
+</html>
