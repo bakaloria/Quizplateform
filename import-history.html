@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>استيراد بنك التاريخ</title>
+  <style>
+    body{font-family:Tahoma,Arial;background:#0f1026;color:#fff;padding:40px;text-align:center}
+    .card{background:#1f2237;border-radius:12px;padding:30px;max-width:600px;margin:0 auto;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+    .progress{height:10px;background:#2a2d4a;border-radius:999px;overflow:hidden;margin:20px 0}
+    .bar{height:100%;background:linear-gradient(90deg,#4f7cff,#22c55e);width:0%}
+    .log{background:#15182b;border-radius:10px;padding:16px;text-align:right;max-height:300px;overflow:auto;margin-top:20px;font-size:14px;line-height:1.8}
+    button{background:#4f7cff;color:#fff;border:0;padding:12px 24px;border-radius:10px;font-size:16px;cursor:pointer}
+    button:disabled{opacity:.5;cursor:not-allowed}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>استيراد بنك أسئلة التاريخ (٥٦٥٣ سؤال)</h1>
+    <p id="status">جاهز للبدء</p>
+    <div class="progress"><div class="bar" id="bar"></div></div>
+    <p id="count">٠ / ٥٦٥٣</p>
+    <button id="start">بدء الاستيراد</button>
+    <div class="log" id="log"></div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBfsSesYqniyBituMfbQ6S-7PQgsxx_ETc",
+      authDomain: "tasks-for-quran.firebaseapp.com",
+      projectId: "tasks-for-quran",
+      storageBucket: "tasks-for-quran.firebasestorage.app",
+      messagingSenderId: "708158011088",
+      appId: "1:708158011088:web:987cca8cd8c02219d350d5"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    db.settings({ ignoreUndefinedProperties: true });
+    const FV = firebase.firestore.FieldValue;
+
+    function log(m){ const el=document.getElementById('log'); el.innerHTML += m+'<br>'; el.scrollTop=el.scrollHeight; }
+    function sanitize(obj){ const out={}; for(const k in obj){ const v=obj[k]; if(v===undefined) continue; out[k]=v; } return out; }
+
+    document.getElementById('start').onclick = async function(){
+      this.disabled=true;
+      try{
+        log('جاري البحث عن مادة التاريخ...');
+        const subsSnap = await db.collection('subjects').get();
+        let histSub = null;
+        subsSnap.forEach(d=>{ const s=d.data(); if(s.name && s.name.includes('تاريخ')) histSub={id:d.id,...s}; });
+        if(!histSub){ log('لم يتم العثور على مادة التاريخ، جاري الإنشاء...'); const ref = await db.collection('subjects').add({name:'التاريخ',description:'',createdAt:FV.serverTimestamp()}); histSub={id:ref.id,name:'التاريخ'}; }
+        log('تم العثور على المادة: '+histSub.name+' ('+histSub.id+')');
+
+        log('جاري تحميل data/history.json...');
+        const res = await fetch('data/history.json?ts=' + Date.now(), { cache: 'no-store' });
+        const history = await res.json();
+        const questions = [];
+        for(const unit of history.units||[]){
+          const u_num = unit.unit_number; const u_title = unit.unit_title||'';
+          for(const lesson of unit.lessons||[]){
+            const l_num = lesson.lesson_number; const l_title = lesson.lesson_title||'';
+            for(const q of lesson.questions||[]){
+              const q2 = {...q};
+              q2.unit_number = q2.unit_number!==undefined?q2.unit_number:u_num;
+              q2.lesson_number = q2.lesson_number!==undefined?q2.lesson_number:l_num;
+              q2.unitNumber = q2.unitNumber!==undefined?q2.unitNumber:u_num;
+              q2.lessonNumber = q2.lessonNumber!==undefined?q2.lessonNumber:l_num;
+              q2.unitTitle = q2.unitTitle||u_title;
+              q2.lessonTitle = q2.lessonTitle||l_title;
+              q2.subjectId = histSub.id;
+              q2.subjectName = histSub.name;
+              if(q2.points===undefined) q2.points=1;
+              if(q2.difficulty===undefined) q2.difficulty='medium';
+              if(q2.tags===undefined) q2.tags=[];
+              questions.push(sanitize(q2));
+            }
+          }
+        }
+        log('تم تجهيز '+questions.length+' سؤال');
+        
+        // حذف الأسئلة القديمة للتاريخ لتفادي التكرار
+        log('جاري فحص الأسئلة الموجودة...');
+        const existingSnap = await db.collection('questions').where('subjectId','==',histSub.id).get();
+        log('يوجد '+existingSnap.size+' سؤال موجود، جاري الحذف...');
+        let batch = db.batch(); let n=0;
+        for(const doc of existingSnap.docs){
+          batch.delete(doc.ref); n++;
+          if(n%400===0){ await batch.commit(); batch=db.batch(); }
+        }
+        if(n%400!==0) await batch.commit();
+        log('تم حذف الأسئلة القديمة');
+
+        // استيراد جديد
+        let imported=0;
+        batch = db.batch();
+        for(let i=0;i<questions.length;i++){
+          const ref = db.collection('questions').doc();
+          batch.set(ref, {...questions[i], createdAt:FV.serverTimestamp()});
+          n++;
+          if(n%400===0){
+            await batch.commit();
+            imported += 400;
+            document.getElementById('bar').style.width = (imported/questions.length*100)+'%';
+            document.getElementById('count').textContent = imported+' / '+questions.length;
+            document.getElementById('status').textContent = 'جاري الاستيراد...';
+            batch = db.batch();
+            n=0;
+          }
+        }
+        if(n%400!==0){
+          await batch.commit();
+          imported += n;
+        }
+        document.getElementById('bar').style.width = '100%';
+        document.getElementById('count').textContent = questions.length+' / '+questions.length;
+        document.getElementById('status').textContent = 'تم الاستيراد بنجاح ✅';
+        log('تم استيراد '+questions.length+' سؤال بنجاح');
+      }catch(e){ log('خطأ: '+e.message); console.error(e); }
+    };
+  </script>
+</body>
+</html>
