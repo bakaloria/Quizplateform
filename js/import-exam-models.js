@@ -31,6 +31,8 @@
     const poem = String(mp.poem || "");
     const poet = String(mp.poet || "");
     let text = String(mp.instruction || "").trim();
+    const excerpt = String(mp.text || "").trim();
+    if (excerpt) text = (text + "\n\n" + excerpt).trim();
     const notes = [];
     if (poem) notes.push("القصيدة: " + poem);
     if (poet) notes.push("الشاعر: " + poet);

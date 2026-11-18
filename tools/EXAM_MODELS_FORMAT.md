@@ -39,7 +39,8 @@
     "unit": 1,
     "book_pages": "7-8",
     "verses": "1-5",
-    "instruction": "اقرأ الأبيات ... ثم أجب"
+    "instruction": "اقرأ الأبيات ... ثم أجب",
+    "text": "نص المقطع المختار من القصيدة (اختياري ويُعرض للطالب)"
   },
   "section1_language_thought_emotion": {
     "title": "أولاً: المهارات اللغوية والبنية الفكرية والعاطفة",
@@ -89,7 +90,9 @@
 ### حقول اختيارية مفيدة
 - `parts` للأسئلة متعددة الأجزاء: يُضاف نص كل `item` إلى نص السؤال، وتُجمع الإجابات في مفتاح الإجابة.
 - `passage_ref` في القسم 3: يُضاف إلى صندوق النص المرافق.
-- `main_passage.instruction` و `book_pages` و `verses`: تظهر للطالب كتعليمات وملاحظات مرجعية داخل صندوق النص. لا يُطلب إدراج نص القصيدة كاملاً.
+- `main_passage.instruction` و `book_pages` و `verses`: تظهر للطالب كتعليمات وملاحظات مرجعية داخل صندوق النص.
+- `main_passage.text`: اختياري؛ يُلحق بنص التعليمات داخل صندوق النص، ويُستخدم لإدراج المقطع/الأبيات المشار إليها فقط (لا نص القصيدة كاملاً).
+- نصوص المقاطع العشرين المشار إليها محفوظة في `data/arabic_poems.json` ومفتاحها رقم النموذج في الدفعة الأولى.
 
 ## 3) كيف يُحوّل المستورد الملف إلى نماذج في التطبيق؟
 
@@ -123,6 +126,17 @@ python3 tools/import_exam_models.py --file /path/to/batch.json
 python3 tools/import_exam_models.py --file /path/to/batch.json --status published
 python3 tools/import_exam_models.py --file /path/to/batch.json --replace
 python3 tools/import_exam_models.py --verify
+```
+
+### ج) توليد دفعات موسّعة وحقن نصوص القصائد
+```bash
+# توليد 500 نموذج من المقاطع العشرين الموجودة في data/arabic_poems.json
+python3 tools/generate_arabic_models.py --count 500 --out data/arabic_exam_models_batch2.json
+
+# إدراج الأبيات المشار إليها في نماذج دفعة موجودة (يتخطى النماذج التي سُلّم فيها الطلاب)
+python3 tools/inject_arabic_poems.py --dry-run
+python3 tools/inject_arabic_poems.py --apply
+python3 tools/inject_arabic_poems.py --verify
 ```
 
 ## 5) ملاحظات للطلاب

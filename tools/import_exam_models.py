@@ -174,6 +174,9 @@ def build_passage(model, section):
     poem = str(mp.get("poem") or "")
     poet = str(mp.get("poet") or "")
     text = str(mp.get("instruction") or "").strip()
+    excerpt = str(mp.get("text") or "").strip()
+    if excerpt:
+        text = (text + "\n\n" + excerpt).strip() if text else excerpt
     notes = []
     if poem:
         notes.append(f"القصيدة: {poem}")
