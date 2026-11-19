@@ -100,6 +100,82 @@ def find_template_docs(keys):
     return out
 
 
+def find_template_statuses(keys):
+    """Return {templateKey: (docPath, status)} using indexed queries."""
+    out = {}
+    keys = list(keys)
+    for i in range(0, len(keys), 10):
+        chunk = keys[i:i + 10]
+        payload = {
+            "structuredQuery": {
+                "from": [{"collectionId": "exams"}],
+                "where": {
+                    "fieldFilter": {
+                        "field": {"fieldPath": "templateKey"},
+                        "op": "IN",
+                        "value": {"arrayValue": {"values": [{"stringValue": k} for k in chunk]}},
+                    }
+                },
+                "select": {"fields": [{"fieldPath": "templateKey"}, {"fieldPath": "status"}]},
+            }
+        }
+        st, resp = http("POST", QUERY_URL, payload)
+        if st != 200:
+            raise RuntimeError(f"status query failed: {st} {str(resp)[:300]}")
+        for item in resp or []:
+            doc = item.get("document")
+            if not doc:
+                continue
+            fields = doc.get("fields") or {}
+            val = parse_value(fields.get("templateKey") or {})
+            name = str(doc.get("name") or "")
+            if val and "/documents/" in name:
+                out[str(val)] = (
+                    name.split("/documents/", 1)[1],
+                    parse_value(fields.get("status") or {}),
+                )
+    return out
+
+
+def publish_resume(built):
+    """Only flip status fields for models that are not published yet."""
+    infos = find_template_statuses([p["templateKey"] for p in built])
+    todo = []
+    for p in built:
+        path, status = infos.get(p["templateKey"], (None, None))
+        if status != "published" and path:
+            todo.append(path)
+    print(f"Publish resume | remaining: {len(todo)}/{len(built)}")
+    if not todo:
+        return
+    writes = []
+    done = 0
+    for path in todo:
+        writes.append({
+            "update": {
+                "name": f"{DOC_BASE}/{path}",
+                "fields": {
+                    "status": enc("published"),
+                    "isApproved": enc(True),
+                    "versionStatus": enc("published"),
+                },
+            },
+            # Without an update mask Firestore REPLACES the whole document.
+            "updateMask": {
+                "fieldPaths": ["status", "isApproved", "versionStatus"]
+            },
+        })
+        if len(writes) >= MAX_WRITES:
+            commit(writes)
+            done += len(writes)
+            writes = []
+            print(f"Published {done}/{len(todo)}")
+    if writes:
+        commit(writes)
+        done += len(writes)
+    print(f"Published {done}/{len(todo)} — done")
+
+
 def commit(writes):
     st, resp = http("POST", COMMIT_URL, {"writes": writes})
     if st != 200:
@@ -121,6 +197,8 @@ def main():
     ap.add_argument("--optional", choices=["odd", "even", "first", "second"], default="odd")
     ap.add_argument("--update", action="store_true",
                     help="update existing templateKey exams instead of skipping them")
+    ap.add_argument("--resume-publish", action="store_true",
+                    help="only publish models whose status is not published yet")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
@@ -135,6 +213,9 @@ def main():
         model_to_exam(m, meta, args.file, batch, args.status, args.optional, SUBJECT)
         for m in models
     ]
+    if args.resume_publish:
+        publish_resume(built)
+        return
     if args.dry_run:
         first = built[0]
         print("DRY sample:", first["title"], first["templateKey"], first["totalPoints"],
@@ -166,7 +247,9 @@ def main():
         if args.update and doc_path:
             fields = {k: enc(v) for k, v in payload_exam.items()}
             batch_writes.append({
-                "update": {"name": f"{DOC_BASE}/{doc_path}", "fields": fields}
+                "update": {"name": f"{DOC_BASE}/{doc_path}", "fields": fields},
+                # Never erase existing fields such as the access code.
+                "updateMask": {"fieldPaths": list(fields.keys())},
             })
             updated += 1
             if len(batch_writes) >= MAX_WRITES:
