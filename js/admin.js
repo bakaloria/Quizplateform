@@ -4854,7 +4854,7 @@ function studentModal(s) {
         '<button class="btn btn-sm btn-primary" id="exqDist">\u2696\uFE0F توزيع الدرجة الكلية على الأسئلة</button></div>' +
         "</div>" +
         '<div class="tiny muted mb">طريقتان لإدخال درجات الاختبار: (1) عدّل درجة كل سؤال في الجدول فيتحدّث المجموع تلقائياً، أو (2) أدخل الدرجة الكلية للاختبار ثم اضغط زر التوزيع لتقسيمها على الأسئلة نسبةً. اضغط «حفظ الدرجات» ليُحفظ المجموع مع معلومات الاختبار.</div>' +
-        '<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse">' +
+        '<div class="examq-wrap" style="overflow-x:auto"><table class="examq-table" style="width:100%;border-collapse:collapse">' +
         "<thead><tr>" +
         '<th style="text-align:right;padding:8px 6px;border-bottom:2px solid var(--border)">#</th>' +
         '<th style="text-align:right;padding:8px 6px;border-bottom:2px solid var(--border)">السؤال</th>' +
