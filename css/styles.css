@@ -1920,9 +1920,61 @@ html[data-pwa="standalone"] .site-footer {
   .form-row, .form-row-3 { grid-template-columns: 1fr; gap: 10px; }
   #fieldsImage .flex { flex-wrap: wrap; }
   #fieldsImage input[type="file"] { max-width: 100%; }
-  .examq-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .examq-table { min-width: 560px; }
-  .examq-table td { white-space: normal !important; }
+  /* نوافذ التفاصيل والأسئلة: ملء الشاشة على الموبايل */
+  .modal.modal-lg,
+  .modal.modal-xl {
+    width: 100vw;
+    max-width: 100vw;
+    height: 100dvh;
+    max-height: 100dvh;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .modal.modal-lg .modal-head,
+  .modal.modal-lg .modal-foot,
+  .modal.modal-xl .modal-head,
+  .modal.modal-xl .modal-foot { flex: none; }
+  .modal.modal-lg .modal-body,
+  .modal.modal-xl .modal-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .examq-wrap { overflow: visible; }
+  .examq-table { min-width: 0; }
+  .examq-table,
+  .examq-table tbody,
+  .examq-table tr,
+  .examq-table td { display: block; width: 100%; }
+  .examq-table thead { display: none; }
+  .examq-table tr {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    background: var(--surface-2);
+  }
+  .examq-table td {
+    border: none;
+    padding: 6px 0 !important;
+    white-space: normal !important;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .examq-table td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: var(--text-3);
+    font-size: 12px;
+    flex: none;
+  }
+  .examq-table td:last-child { justify-content: flex-start; flex-wrap: wrap; gap: 6px; }
+  .examq-table td:last-child::before { width: 100%; }
   .passage-box > summary { padding: 9px 12px; font-size: 14px; }
   .passage-text { padding: 4px 12px 12px; font-size: 1rem; line-height: 1.9; }
   .passage-notes { padding: 8px 12px 12px; }

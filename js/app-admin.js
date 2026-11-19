@@ -4821,17 +4821,17 @@ function studentModal(s) {
       const full = String(q.text || "");
       const txt = full.replace(/\s+/g, " ").substring(0, 90);
       return '<tr data-idx="' + idx + '" style="border-bottom:1px solid var(--border)">' +
-        '<td style="padding:8px 6px;vertical-align:top">' + (idx + 1) + "</td>" +
-        '<td style="padding:8px 6px;vertical-align:top" title="' + esc(full) + '">' +
+        '<td data-label="#" style="padding:8px 6px;vertical-align:top">' + (idx + 1) + "</td>" +
+        '<td data-label="السؤال" style="padding:8px 6px;vertical-align:top" title="' + esc(full) + '">' +
         esc(txt) + (full.length > 90 ? "\u2026" : "") +
         '<div class="tiny muted">' + esc((U.TYPE_LABELS && U.TYPE_LABELS[q.type]) || q.type || "") +
         (U.sectionOf(q) ? " \u00B7 " + esc(U.sectionOf(q)) : "") +
         (q._sourceId ? " \u00B7 من بنك الأسئلة" : "") +
         (q.lessonTitle ? " \u00B7 " + esc(q.lessonTitle) : "") + "</div></td>" +
-        '<td style="padding:8px 6px;vertical-align:top"><input type="number" class="exq-points" min="0" step="0.5" value="' +
+        '<td data-label="الدرجة" style="padding:8px 6px;vertical-align:top"><input type="number" class="exq-points" min="0" step="0.5" value="' +
         (q.points === undefined || q.points === null || q.points === "" ? 1 : Number(q.points) || 0) +
         '" style="width:74px"></td>' +
-        '<td style="padding:8px 6px;vertical-align:top;white-space:nowrap">' +
+        '<td data-label="إجراءات" style="padding:8px 6px;vertical-align:top;white-space:nowrap">' +
         '<button class="btn btn-sm" data-act="edit">\u270F\uFE0F تعديل</button> ' +
         '<button class="btn btn-sm btn-danger" data-act="del">\uD83D\uDDD1 حذف</button></td>' +
         "</tr>";
