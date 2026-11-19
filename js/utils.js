@@ -230,7 +230,48 @@
         (opts.footer ? '<div class="modal-foot">' + opts.footer + "</div>" : "") +
         "</div>";
       root.appendChild(backdrop);
-      const close = function () { backdrop.remove(); };
+
+      /* فرض تغطية كاملة للشاشة حتى لو كان ملف CSS قديماً في الكاش */
+      backdrop.style.position = "fixed";
+      backdrop.style.inset = "0";
+      backdrop.style.width = "100vw";
+      backdrop.style.height = "100dvh";
+      backdrop.style.zIndex = "2147483000";
+      backdrop.style.background = "rgba(4,8,20,.72)";
+      backdrop.style.display = "flex";
+      backdrop.style.alignItems = "center";
+      backdrop.style.justifyContent = "center";
+      backdrop.style.padding = "0";
+
+      const modalEl = backdrop.querySelector(".modal");
+      if (window.innerWidth <= 640 && modalEl) {
+        modalEl.style.width = "100vw";
+        modalEl.style.maxWidth = "100vw";
+        modalEl.style.height = "100dvh";
+        modalEl.style.maxHeight = "100dvh";
+        modalEl.style.borderRadius = "0";
+        modalEl.style.display = "flex";
+        modalEl.style.flexDirection = "column";
+        modalEl.style.overflow = "hidden";
+        const headEl = modalEl.querySelector(".modal-head");
+        const bodyEl = modalEl.querySelector(".modal-body");
+        const footEl = modalEl.querySelector(".modal-foot");
+        if (headEl) headEl.style.flex = "none";
+        if (footEl) footEl.style.flex = "none";
+        if (bodyEl) {
+          bodyEl.style.flex = "1 1 auto";
+          bodyEl.style.minHeight = "0";
+          bodyEl.style.overflowY = "auto";
+          bodyEl.style.WebkitOverflowScrolling = "touch";
+        }
+      }
+
+      const prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      const close = function () {
+        backdrop.remove();
+        document.body.style.overflow = prevOverflow;
+      };
       backdrop.addEventListener("click", function (e) {
         if (e.target === backdrop) close();
         if (e.target.closest("[data-close]")) close();
