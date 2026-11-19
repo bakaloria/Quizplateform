@@ -67,6 +67,56 @@ def words_of(text):
     return list(dict.fromkeys(out))
 
 
+TASHKEEL_RE = re.compile(r"[\u064b-\u065f\u0670\u0640]")
+
+
+def strip_tashkeel(s):
+    return TASHKEEL_RE.sub("", str(s or ""))
+
+
+def five_verse_variants(poems):
+    """Build every 5-bayt window available in the curated excerpts.
+
+    Excerpts shorter than five bayts are kept as-is (the source only has
+    three bayts for one poem), everything longer is sliced into overlapping
+    windows so the 500 models still have variety without showing whole poems.
+    """
+    variants = []
+    for key in sorted(poems, key=int):
+        ex = poems[key]
+        lines = lines_of(ex["text"])
+        label = str(ex.get("verses") or "")
+        m = re.search(r"\d+", label)
+        start = int(m.group()) if m else None
+        if len(lines) <= 5:
+            windows = [(0, len(lines))]
+        else:
+            windows = [(s, min(s + 5, len(lines))) for s in range(0, len(lines) - 4)]
+        for s, e in windows:
+            v = dict(ex)
+            v["text"] = "\n".join(lines[s:e])
+            if start is not None:
+                v["verses"] = f"{start + s}-{start + e - 1}"
+            else:
+                v["verses"] = f"{label} (الأبيات {s + 1}-{e})"
+            v["variantKey"] = f"{key}:{s + 1}-{e}"
+            variants.append(v)
+    return variants
+
+
+def relevant_seed_questions(seed_qs, window_text):
+    """Keep only vetted seed questions that mention a word of the 5-bayt window."""
+    window_words = [strip_tashkeel(w) for w in words_of(window_text)]
+    if not window_words:
+        return []
+    out = []
+    for q in seed_qs or []:
+        text = strip_tashkeel(q.get("question", ""))
+        if any(w in text for w in window_words):
+            out.append(q)
+    return out
+
+
 def case_of(word):
     for ch in reversed(word):
         if ch in CASE_BY_MARK:
@@ -198,7 +248,7 @@ def make_model(no, excerpt, seed_bank_for_poem, templates, rng):
 
     targets = [(SEC_KEYS[0], 7, 8), (SEC_KEYS[1], 8, 12), (SEC_KEYS[2], 3, 4)]
     for idx, (key, count, marks) in enumerate(targets):
-        seed_qs = list(bank.get(key, []))
+        seed_qs = relevant_seed_questions(bank.get(key, []), excerpt["text"])
         rng.shuffle(seed_qs)
         gen_qs = list(generated)
         rng.shuffle(gen_qs)
@@ -242,11 +292,10 @@ def main():
     bank, expression = seed_bank(seed)
     rng = random.Random(args.seed_random)
 
-    keys = [str(i) for i in range(1, 21)]
+    variants = five_verse_variants(poems)
     models = []
     for i in range(args.count):
-        key = keys[i % len(keys)]
-        excerpt = poems[key]
+        excerpt = variants[i % len(variants)]
         seed_name = ALIASES.get(excerpt["poem"], excerpt["poem"])
         models.append(make_model(i + 1, excerpt, bank[seed_name], expression[seed_name], rng))
 
@@ -254,16 +303,17 @@ def main():
         "meta": {
             "description": (
                 "دفعة موسّعة: نماذج امتحانية في اللغة العربية — الصف الثالث الثانوي العلمي — "
-                "مبنية على المقطعات الواردة في الكتاب المقرر، مع أسئلة نحوية وبلاغية لكل كلمة "
-                "وسؤال مقارنة بين بيتين من القصيدة نفسها."
+                "يعرض كل نموذج خمسة أبيات فقط من القصيدة المقررة، مع أسئلة نحوية وبلاغية "
+                "مرتبطة بالأبيات المعروضة وسؤال مقارنة بين بيتين من المقطع نفسه."
             ),
             "grade": "الثالث الثانوي العلمي",
             "total_models": len(models),
             "marks_per_model": 40,
-            "models_per_poem_excerpt": args.count // 20,
+            "verses_per_model": 5,
+            "variants": len(variants),
             "note": (
-                "نصوص المقاطع مأخوذة من الكتاب المدرسي؛ مفاتيح الإجابة مرفقة. "
-                "تُراجع الأسئلة المولّدة من قبل المعلم قبل اعتمادها نهائياً."
+                "يُعرض في كل نموذج مقطع من خمسة أبيات فقط من الكتاب المدرسي، وتُبنى الأسئلة "
+                "على هذا المقطع تحديداً. مفاتيح الإجابة مرفقة، وتُراجع من قبل المعلم قبل الاعتماد."
             ),
             "poemSource": "data/arabic_poems.json",
         },

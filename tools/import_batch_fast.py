@@ -36,13 +36,14 @@ from tools.import_exam_models import (  # noqa: E402
 
 SUBJECT = {"id": "vfMyryVH36h2TqyxdTNU", "name": "اللغة العربية"}
 COMMIT_URL = f"{BASE}:commit?key={KEY}"
+QUERY_URL = f"{BASE}:runQuery?key={KEY}"
 DOC_BASE = BASE.split("/v1/", 1)[1]  # relative document path required by commit writes
 MAX_WRITES = 20
 
 
-def existing_template_keys():
-    """Fast scan of only the templateKey field (avoids downloading full exams)."""
-    out = set()
+def existing_templates():
+    """Fast scan of only templateKey (+ document path) to avoid full exam downloads."""
+    out = {}
     token = None
     while True:
         url = f"{BASE}/exams?key={KEY}&pageSize=300&mask.fieldPaths=templateKey"
@@ -53,11 +54,49 @@ def existing_template_keys():
             raise RuntimeError(f"masked exam scan failed: {st}")
         for doc in data.get("documents", []) or []:
             val = parse_value((doc.get("fields") or {}).get("templateKey") or {})
-            if val:
-                out.add(str(val))
+            name = str(doc.get("name") or "")
+            if val and "/documents/" in name:
+                out[str(val)] = name.split("/documents/", 1)[1]
         token = data.get("nextPageToken")
         if not token:
             break
+    return out
+
+
+def existing_template_keys():
+    return set(existing_templates())
+
+
+def find_template_docs(keys):
+    """Look up only the requested templateKeys with indexed queries (no full scan)."""
+    out = {}
+    keys = list(keys)
+    for i in range(0, len(keys), 10):
+        chunk = keys[i:i + 10]
+        payload = {
+            "structuredQuery": {
+                "from": [{"collectionId": "exams"}],
+                "where": {
+                    "fieldFilter": {
+                        "field": {"fieldPath": "templateKey"},
+                        "op": "IN",
+                        "value": {"arrayValue": {"values": [{"stringValue": k} for k in chunk]}},
+                    }
+                },
+                "select": {"fields": [{"fieldPath": "templateKey"}]},
+            }
+        }
+        st, resp = http("POST", QUERY_URL, payload)
+        if st != 200:
+            raise RuntimeError(f"template query failed: {st} {str(resp)[:300]}")
+        for item in resp or []:
+            doc = item.get("document")
+            if not doc:
+                continue
+            val = parse_value((doc.get("fields") or {}).get("templateKey") or {})
+            name = str(doc.get("name") or "")
+            if val and "/documents/" in name:
+                out[str(val)] = name.split("/documents/", 1)[1]
     return out
 
 
@@ -80,6 +119,8 @@ def main():
     ap.add_argument("--file", required=True)
     ap.add_argument("--status", choices=["draft", "published"], default="draft")
     ap.add_argument("--optional", choices=["odd", "even", "first", "second"], default="odd")
+    ap.add_argument("--update", action="store_true",
+                    help="update existing templateKey exams instead of skipping them")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
@@ -101,18 +142,38 @@ def main():
         print("DRY — no writes performed")
         return
 
-    codes = existing_codes()
-    existing_keys = existing_template_keys()
-    pending = [p for p in built if p["templateKey"] not in existing_keys]
-    print(f"Already present: {len(built) - len(pending)} | remaining: {len(pending)}")
+    if args.update:
+        existing = find_template_docs([p["templateKey"] for p in built])
+        pending = list(built)
+        print(f"Update mode | existing: {len(set(p['templateKey'] for p in built) & set(existing))}")
+    else:
+        existing = existing_templates()
+        pending = [p for p in built if p["templateKey"] not in existing]
+        print(f"Already present: {len(built) - len(pending)} | remaining: {len(pending)}")
     if not pending:
         print("Nothing to do.")
         return
 
+    need_new_codes = any(not (args.update and existing.get(p["templateKey"])) for p in pending)
+    codes = existing_codes() if need_new_codes else set()
+
     created = []
+    updated = 0
     batch_writes = []
     batch_meta = []
     for payload_exam in pending:
+        doc_path = existing.get(payload_exam["templateKey"])
+        if args.update and doc_path:
+            fields = {k: enc(v) for k, v in payload_exam.items()}
+            batch_writes.append({
+                "update": {"name": f"{DOC_BASE}/{doc_path}", "fields": fields}
+            })
+            updated += 1
+            if len(batch_writes) >= MAX_WRITES:
+                n = commit(batch_writes)
+                print(f"Committed {n} writes — updated {updated}/{len(pending)}")
+                batch_writes = []
+            continue
         exam_id = uuid.uuid4().hex
         code = random_code(8)
         while code in codes:
@@ -147,7 +208,7 @@ def main():
         created.extend(batch_meta)
         print(f"Committed {n} writes — {len(created)}/{len(pending)} exams")
 
-    print(f"Created {len(created)} exams")
+    print(f"Done — updated: {updated} | created: {len(created)}")
     for key, code, exam_id in created[:5]:
         print(f"  {key} -> {code} ({exam_id})")
     print("  ...")
