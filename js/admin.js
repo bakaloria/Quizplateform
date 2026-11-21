@@ -2541,7 +2541,9 @@ function studentModal(s) {
         infoItem("الحالة", statusBadge(e.status)) +
         infoItem("المجموعات", targets) +
         infoItem("ينفتح", U.formatDate(e.openAt)) +
-        infoItem("ينفتح", U.formatDate(e.openAt)) +
+        infoItem("اعتماد المدير", e.isApproved
+          ? '<span class="badge badge-success">✅ معتمد</span>'
+          : '<span class="badge badge-warning">⏳ بانتظار الاعتماد</span>') +
         infoItem("يُغلق", U.formatDate(e.closeAt)) +
         infoItem("تجديد الكود", e.codeRotateEnabled
           ? ('<span class="badge badge-success">🔄 كل ' + U.esc(fmtRotateMinutes(e.codeRotateMinutes)) + "</span>" +
@@ -2554,6 +2556,10 @@ function studentModal(s) {
         '<button class="btn btn-sm" id="exRotate">🔄 تجديد الكود الآن</button> ' +
         '<button class="btn btn-sm" id="exRes">📊 النتائج</button> ' +
         '<button class="btn btn-sm" id="exQList">📝 أسئلة الاختبار</button>' +
+        ((e.modelFamily === "arabic-exam-models" || e.modelFamily === "philosophy-official-models")
+          ? ('<button class="btn btn-sm ' + (e.isApproved ? "btn-warning" : "btn-success") + '" id="exApprove">' +
+             (e.isApproved ? "↩️ إلغاء الاعتماد" : "✅ اعتماد النموذج") + "</button>")
+          : "") +
         "</div>",
       onEdit: function () { examWizard(e); },
       onDelete: async function () {
@@ -2587,6 +2593,24 @@ function studentModal(s) {
         node.querySelector("#exQList").addEventListener("click", function () {
           close();
           openExamQuestions(e);
+        });
+
+        const approveBtn = node.querySelector("#exApprove");
+        if (approveBtn) approveBtn.addEventListener("click", async function () {
+          approveBtn.disabled = true;
+          try {
+            const approved = !e.isApproved;
+            await S.updateExamMeta(e.id, {
+              status: approved ? "published" : "draft",
+              isApproved: approved
+            });
+            U.toast(approved ? "تم اعتماد النموذج وإظهاره للطلاب" : "تم إلغاء الاعتماد", "success");
+            close();
+            renderExams();
+          } catch (err) {
+            U.toast("تعذّر تغيير الاعتماد: " + ((err && err.message) || err), "error");
+            approveBtn.disabled = false;
+          }
         });
 
         node.querySelector("#exSavePay").addEventListener("click", async function () {

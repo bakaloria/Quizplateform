@@ -297,7 +297,8 @@
       return snapDocs(snap)
         .filter(function (e) {
           /* النماذج الجديدة لا تظهر إلا بعد اعتمادها ونشرها؛ الاختبارات القديمة تبقى كما هي */
-          if (e.modelFamily === "philosophy-official-models" && (e.status !== "published" || e.isApproved !== true)) return false;
+          if ((e.modelFamily === "philosophy-official-models" || e.modelFamily === "arabic-exam-models") &&
+              (e.status !== "published" || e.isApproved !== true)) return false;
           if (e.modelFamily !== "philosophy-official-models" && e.status === "draft") return false;
           if (!e.targetGroups || !e.targetGroups.length) return false;
           return e.targetGroups.indexOf(groupId) >= 0 || e.targetGroups.indexOf("ALL") >= 0;
@@ -315,7 +316,8 @@
       if (!mapDoc.exists) return null;
       const exam = await store.getExam(mapDoc.data().examId);
       if (!exam) return null;
-      if (exam.modelFamily === "philosophy-official-models" && (exam.status !== "published" || exam.isApproved !== true)) return null;
+      if ((exam.modelFamily === "philosophy-official-models" || exam.modelFamily === "arabic-exam-models") &&
+          (exam.status !== "published" || exam.isApproved !== true)) return null;
       return exam;
     },
     codeExists: async function (code) {

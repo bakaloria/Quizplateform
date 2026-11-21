@@ -283,6 +283,8 @@ def main():
     ap.add_argument("--out", default=OUT_PATH)
     ap.add_argument("--seed", default=SEED_PATH)
     ap.add_argument("--seed-random", type=int, default=2025)
+    ap.add_argument("--start-no", type=int, default=1,
+                    help="first model number (use 501 to continue after batch 2)")
     args = ap.parse_args()
 
     with open(args.seed, encoding="utf-8") as f:
@@ -297,7 +299,7 @@ def main():
     for i in range(args.count):
         excerpt = variants[i % len(variants)]
         seed_name = ALIASES.get(excerpt["poem"], excerpt["poem"])
-        models.append(make_model(i + 1, excerpt, bank[seed_name], expression[seed_name], rng))
+        models.append(make_model(args.start_no + i, excerpt, bank[seed_name], expression[seed_name], rng))
 
     payload = {
         "meta": {

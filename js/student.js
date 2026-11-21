@@ -872,6 +872,19 @@
       '<button class="btn btn-success btn-sm" id="submitBtn">\u062a\u0633\u0644\u064a\u0645</button>' +
       '</div>';
 
+    const mp = (st.exam.settings && st.exam.settings.mainPassage) ||
+      (st.exam.filterCriteria && st.exam.filterCriteria.mainPassage) || null;
+    const passageBlock = (mp && U.passageHTML) ? U.passageHTML({
+      title: "نص القراءة — " + (mp.poem || "القصيدة"),
+      text: [mp.instruction, mp.text].filter(Boolean).join("\n\n"),
+      notes: [
+        mp.poem ? "القصيدة: " + mp.poem : "",
+        mp.poet ? "الشاعر: " + mp.poet : "",
+        mp.verses ? "الأبيات " + mp.verses : "",
+        mp.book_pages ? "ص" + mp.book_pages : ""
+      ].filter(Boolean).join(" | ")
+    }, { open: true }) : "";
+
     const qnav = '<div class="q-nav mt">' + st.questions.map(function (_, i) {
       const ans = st.answers[i];
       const answered = Array.isArray(ans) ? ans.length : (ans !== "" && ans !== null && ans !== undefined);
@@ -886,11 +899,11 @@
       '<div class="spacer right tiny">' + progress + '%</div></div>' +
       '<div class="progress mt-sm"><span style="width:' + progress + '%"></span></div>' +
       '</div>' +
+      passageBlock +
       '<div class="q-card">' +
       '<div class="q-index">\u0627\u0644\u0633\u0624\u0627\u0644 ' + (st.current + 1) + " \u0645\u0646 " + total + " \u00B7 " + (U.TYPE_LABELS[q.type] || q.type) +
       (U.sectionOf && U.sectionOf(q) ? ' \u00B7 <span class="badge badge-section">' + U.esc(U.sectionOf(q)) + '</span>' : "") +
       " \u00B7 " + (q.points || 1) + ' \u062f\u0631\u062c\u0629</div>' +
-      (q.passage && U.passageHTML ? U.passageHTML(q.passage) : "") +
       '<div class="q-text">' + U.esc(q.text) + '</div>' +
       '<div id="qBody">' + renderQuestionBody(q, st.answers[st.current]) + '</div>' +
       '<div class="q-actions">' +
