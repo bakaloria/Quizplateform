@@ -1901,6 +1901,15 @@ html[data-pwa="standalone"] .site-footer {
 
 /* ---------- شاشات صغيرة ---------- */
 /* ============================================================
+   Exam list pager
+   ============================================================ */
+.pager-bar {
+  display: flex; align-items: center; justify-content: center;
+  gap: 14px; margin-top: 14px; flex-wrap: wrap;
+}
+.pager-bar .btn { min-width: 110px; justify-content: center; }
+
+/* ============================================================
    Exam details / editor — small-screen polish
    ============================================================ */
 .modal { max-width: 100vw; }
